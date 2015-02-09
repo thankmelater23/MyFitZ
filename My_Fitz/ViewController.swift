@@ -1,4 +1,4 @@
-//
+               //
 //  ViewController.swift
 //  My_Fitz
 //
@@ -8,10 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    var profile: Profile!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        profile = Profile()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,5 +27,32 @@ class ViewController: UIViewController {
     }
 
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+//                if (segue.identifier == "maintToSelection")
+//                {
+//                    var newVC : MakeTableViewController = segue.destinationViewController as MakeTableViewController
+//                    newVC.profile = self.profile
+//                    println("segue")
+//                }
+//        
+//        else
+//                {
+//                    println("No segue")
+//        }
+        
+        //        newVC.profile = self.profile
+        //newVC.recievedString = ""
+        
+        //var myVC: MakeViewController = segue.destinationViewController as  MakeViewController
+        //let vc = navigationController.topViewController as MakeViewController
+        //myVC.profile = self.profile
+        
+        //var modelViewController: ModelViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ModelViewController") as ModelViewController
+        //makeViewController = self.profile
+        
+        //self.presentViewController(makeViewController, animated: true, completion: nil)
+    }
 }
 
