@@ -20,7 +20,7 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
     func userDefaultsMeth()
     {
         var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var selectorString: String = userDefaults.objectForKey("selectorString") as String
+        var selectorString: String = userDefaults.objectForKey("selectorString") as! String
         
         
         userDefaults.removeObjectForKey("selectorString")

@@ -30,7 +30,7 @@ class MakeCustonCell: UITableViewCell
     {
         self.makeImage.image = UIImage(named: makeImageText)
         self.makeLabel.text = makeLabelText
-      self.numberOfItemsLabel.text = "Number of Items in \(makeLabelText): \(numberOfItemsText)"
+      self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
     }
 }
 

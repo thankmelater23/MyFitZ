@@ -46,7 +46,7 @@ class ModelTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
-    let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as ModelCustomCell
+    let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ModelCustomCell
     
     if indexPath.row % 2 == 0//If even number make this color
     {
@@ -101,7 +101,7 @@ class ModelTableViewController: UITableViewController {
   func userDefaultsValueForKey(userDefaultKey: String) ->String
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
+    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
     println("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
     
     return selectorString
@@ -113,7 +113,7 @@ class ModelTableViewController: UITableViewController {
     userDefaults.removeObjectForKey(userDefaultKey)
     userDefaults.setValue(userDefValue, forKey: userDefaultKey)
     NSUserDefaults.standardUserDefaults().synchronize()
-    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
+    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
     
     println("userDefaultsSetObjectForKey: \(selectorString)")
     println("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
