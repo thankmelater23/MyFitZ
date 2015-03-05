@@ -10,7 +10,7 @@ import UIKit
 
 class ModelTableViewController: UITableViewController {
   
-  @IBOutlet weak var myTableView: UITableView!
+  //@IBOutlet weak var myTableView: UITableView!
   var arrayItemList: [Item] = [Item]()//Make a new class for this
   var profile: Profile!
   var ModelArrayIndex: Int!
@@ -72,7 +72,7 @@ class ModelTableViewController: UITableViewController {
     {
       arrayItemList.removeAtIndex(indexPath.row)
       
-      self.myTableView.reloadData()
+      self.tableView.reloadData()
     }
   }
   
@@ -83,7 +83,13 @@ class ModelTableViewController: UITableViewController {
     
 //    var detailedViewController: DetailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedViewController") as DetailedViewController
 //    self.presentViewController(detailedViewController, animated: true, completion: nil)
-    self.myTableView.deselectRowAtIndexPath(indexPath, animated: true)
+    self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let num = indexPath.row
+    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    userDefaults.removeObjectForKey("ItemNum")
+    userDefaults.setValue(indexPath.row, forKey: "itemNum")
+    NSUserDefaults.standardUserDefaults().synchronize()
+
   }
   
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
@@ -119,6 +125,20 @@ class ModelTableViewController: UITableViewController {
     magic("userDefaultsSetObjectForKey: \(selectorString)")
     magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
-  
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  {
+    if segue.identifier == "modelToDetail"
+    {
+      var detailController = segue.destinationViewController as! DetailedViewController
+      detailController.profile = Profile()
+      magic("Segue working proplery")
+
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
+  }
 }
 

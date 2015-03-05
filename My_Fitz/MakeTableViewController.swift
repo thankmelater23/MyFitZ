@@ -60,7 +60,7 @@ class MakeTableViewController: UITableViewController
     }
     
     cell.setCell(arrayOfTypes[indexPath.row][0].imageName, makeLabelText: arrayOfTypes[indexPath.row][0].make, numberOfItemsText: arrayOfTypes[indexPath.row].count)
-    userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
+    //userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
     
     return cell
   }
@@ -134,6 +134,13 @@ class MakeTableViewController: UITableViewController
     magic("userDefaultsSetObjectForKey: \(selectorString)")
     magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
+
+  override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+  {
+    self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
+
+  }
   
   func selection()
   {
@@ -141,6 +148,21 @@ class MakeTableViewController: UITableViewController
     var selectorString: String = userDefaults.objectForKey("selectorString") as! String
     //arrayOfTypes = profile.categoryDics.valueForKey(selectorString)
     TypeBarButtonLabel.title = selectorString
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  {
+    if segue.identifier == "makeToModel"
+    {
+      var modelController = segue.destinationViewController as! ModelTableViewController
+      modelController.profile = Profile()
+      magic("Segue working proplery")
+
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
   }
   
 }

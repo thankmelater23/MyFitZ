@@ -100,7 +100,7 @@
                                 </state>
                                 <connections>
                                     <action selector="selectionType:" destination="bSz-CY-cts" eventType="touchUpInside" id="dtZ-w8-nEq"/>
-                                    <segue destination="s0P-1K-Y6L" kind="push" id="cBA-nF-MvT"/>
+                                    <segue destination="s0P-1K-Y6L" kind="push" identifier="shoesSelectionToMake" id="cBA-nF-MvT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-aU-g3Y" userLabel="Shirt">
@@ -288,7 +288,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="H56-cv-Qy0" customClass="MakeCustonCell" customModule="My_Fitz" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="125" id="H56-cv-Qy0" customClass="MakeCustonCell" customModule="My_Fitz" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H56-cv-Qy0" id="iBI-Ok-JRF">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -300,7 +300,7 @@
                                                 <constraint firstAttribute="width" secondItem="mGz-W7-VDz" secondAttribute="height" multiplier="1:1" id="phc-6J-DnW"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I2-R4-t5l" userLabel="Category Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I2-R4-t5l" userLabel="Category Label">
                                             <rect key="frame" x="248" y="8" width="100" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="mJR-1t-9sj"/>
@@ -309,7 +309,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bod-YO-5ay" userLabel="Number Of Items Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bod-YO-5ay" userLabel="Number Of Items Label">
                                             <rect key="frame" x="248" y="66" width="130" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="130" id="XcC-oA-Y3b"/>
@@ -337,7 +337,7 @@
                                     <outlet property="makeImage" destination="mGz-W7-VDz" id="rEh-JG-FrR"/>
                                     <outlet property="makeLabel" destination="7I2-R4-t5l" id="ZbN-Kw-EVa"/>
                                     <outlet property="numberOfItemsLabel" destination="bod-YO-5ay" id="gH6-aE-PO2"/>
-                                    <segue destination="Jsp-ux-41A" kind="push" id="df3-jK-xNw"/>
+                                    <segue destination="Jsp-ux-41A" kind="push" identifier="makeToModel" id="df3-jK-xNw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -370,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="UST-8A-xYV" customClass="ModelCustomCell" customModule="My_Fitz" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="125" id="UST-8A-xYV" customClass="ModelCustomCell" customModule="My_Fitz" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UST-8A-xYV" id="vII-SZ-QfF">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -428,7 +428,7 @@
                                     <outlet property="modelImage" destination="7r6-ur-tny" id="SCh-16-8Ox"/>
                                     <outlet property="modelLabel" destination="PVQ-xa-hdg" id="L73-Fu-ECs"/>
                                     <outlet property="timesWornLabel" destination="226-Fu-IJJ" id="yfS-lV-iaO"/>
-                                    <segue destination="mvz-NI-Eiw" kind="push" id="dIP-wD-6iX"/>
+                                    <segue destination="mvz-NI-Eiw" kind="push" identifier="modelToDetailed" id="dIP-wD-6iX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
