@@ -60,7 +60,7 @@ class MakeTableViewController: UITableViewController
     }
     
     cell.setCell(arrayOfTypes[indexPath.row][0].imageName, makeLabelText: arrayOfTypes[indexPath.row][0].make, numberOfItemsText: arrayOfTypes[indexPath.row].count)
-    userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames.first!)
+    userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
     
     return cell
   }
@@ -89,15 +89,15 @@ class MakeTableViewController: UITableViewController
     
   }
   
-  //  override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-  //  {
-  //    //userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
-  ////    let item = arrayOfTypes[indexPath.row]
-  ////
-  ////    var detailedViewController: DetailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedViewController") as DetailedViewController
-  ////    self.presentViewController(detailedViewController, animated: true, completion: nil)
-  //    //self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-  //  }
+//    override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//      userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
+//      let item = arrayOfTypes[indexPath.row]
+//  
+//      var detailedViewController: DetailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedViewController") as! DetailedViewController
+//      self.presentViewController(detailedViewController, animated: true, completion: nil)
+//      self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//    }
   
   /************************Created*****************************/
   func SetUpTypes()
@@ -118,7 +118,7 @@ class MakeTableViewController: UITableViewController
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
-    println("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
+    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
     
     return selectorString
   }
@@ -131,8 +131,8 @@ class MakeTableViewController: UITableViewController
     NSUserDefaults.standardUserDefaults().synchronize()
     var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
     
-    println("userDefaultsSetObjectForKey: \(selectorString)")
-    println("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
+    magic("userDefaultsSetObjectForKey: \(selectorString)")
+    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
   
   func selection()

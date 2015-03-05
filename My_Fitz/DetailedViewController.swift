@@ -10,6 +10,7 @@ import UIKit
 class DetailedViewController: UIViewController//, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet var myTableView: UITableView!
+  @IBOutlet var itemImage: UIImageView!
     
     override func viewDidLoad()
     {

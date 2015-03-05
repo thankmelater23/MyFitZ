@@ -26,7 +26,7 @@ class SelectionViewController: UIViewController
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
-    println("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
+    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
     
     return selectorString
   }
@@ -39,8 +39,8 @@ class SelectionViewController: UIViewController
     NSUserDefaults.standardUserDefaults().synchronize()
     var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
     
-    println("userDefaultsSetObjectForKey: \(selectorString)")
-    println("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
+    magic("userDefaultsSetObjectForKey: \(selectorString)")
+    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
 }
 
@@ -48,7 +48,7 @@ class SelectionViewController: UIViewController
 //    {
 //        var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 //        var selectorString: String = userDefaults.objectForKey("selectorString") as String
-//        println("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
+//        magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
 //        
 //        return selectorString
 //    }
@@ -58,10 +58,10 @@ class SelectionViewController: UIViewController
 //        var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 //        var selectorString: String = userDefaults.objectForKey("selectorString") as String
 //        
-//        println("userDefaultsSetObjectForKey Selector String: \(selectorString)")
+//        magic("userDefaultsSetObjectForKey Selector String: \(selectorString)")
 //        userDefaults.removeObjectForKey(userDefaultKey)
 //        NSUserDefaults.setValue(userDefValue, forKey: userDefaultKey)
 //        NSUserDefaults.standardUserDefaults().synchronize()
-//        println("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
+//        magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
 //    }
 //}

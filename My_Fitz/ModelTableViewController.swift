@@ -78,6 +78,7 @@ class ModelTableViewController: UITableViewController {
   
   override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
+    
     //userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
     
 //    var detailedViewController: DetailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedViewController") as DetailedViewController
@@ -102,7 +103,7 @@ class ModelTableViewController: UITableViewController {
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
-    println("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
+    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
     
     return selectorString
   }
@@ -115,8 +116,8 @@ class ModelTableViewController: UITableViewController {
     NSUserDefaults.standardUserDefaults().synchronize()
     var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
     
-    println("userDefaultsSetObjectForKey: \(selectorString)")
-    println("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
+    magic("userDefaultsSetObjectForKey: \(selectorString)")
+    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
   
 }

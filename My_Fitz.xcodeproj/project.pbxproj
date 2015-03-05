@@ -22,6 +22,7 @@
 		C6CCB7A91A70735C00353C9B /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7A81A70735C00353C9B /* SelectionViewController.swift */; };
 		C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */; };
 		C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */; };
+		C6E790ED1AA82B1C00D00952 /* PrintlnMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		C6CCB7A81A70735C00353C9B /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTableViewController.swift; sourceTree = "<group>"; };
 		C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
+		C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMagic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,13 @@
 				C6CCB79F1A7072FF00353C9B /* Profile.swift */,
 				C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */,
 				C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */,
-				C6CCB77B1A7070D200353C9B /* AppDelegate.swift */,
 				C6CCB7801A7070D200353C9B /* ViewController.swift */,
+				C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */,
 				C6CCB7A81A70735C00353C9B /* SelectionViewController.swift */,
 				C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */,
 				C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */,
 				C6CCB7A61A70734800353C9B /* DetailedViewController.swift */,
+				C6CCB77B1A7070D200353C9B /* AppDelegate.swift */,
 				C6CCB7821A7070D200353C9B /* Main.storyboard */,
 				C6CCB7851A7070D200353C9B /* Images.xcassets */,
 				C6CCB7871A7070D200353C9B /* LaunchScreen.xib */,
@@ -249,6 +252,7 @@
 				C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */,
 				C6CCB7A41A70733100353C9B /* ModelCustomCell.swift in Sources */,
 				C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */,
+				C6E790ED1AA82B1C00D00952 /* PrintlnMagic.swift in Sources */,
 				C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */,
 				C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */,
 			);

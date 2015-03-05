@@ -29,30 +29,31 @@ class ViewController: UIViewController
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
+      magic("watup")
         
 //                if (segue.identifier == "maintToSelection")
 //                {
-//                    var newVC : MakeTableViewController = segue.destinationViewController as MakeTableViewController
+//                    var newVC : MakeTableViewController = segue.destinationViewController as! MakeTableViewController
 //                    newVC.profile = self.profile
-//                    println("segue")
+//                    magic("segue")
 //                }
 //        
 //        else
 //                {
-//                    println("No segue")
+//                    magic("No segue")
 //        }
+//        
+//                newVC.profile = self.profile
+//        newVC.recievedString = ""
+      
+      // var myVC: MakeTableViewController = (segue.destinationViewController as!  UINavigationController).viewControllers[0] as!  MakeTableViewController
+      //let vc = navigationController.topViewController as MakeTableViewController
+      //myVC.profile = nil//self.profile
         
-        //        newVC.profile = self.profile
-        //newVC.recievedString = ""
+      //var modelViewController: ModelViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ModelViewController") as ModelViewController
+      //makeViewController = self.profile
         
-        //var myVC: MakeViewController = segue.destinationViewController as  MakeViewController
-        //let vc = navigationController.topViewController as MakeViewController
-        //myVC.profile = self.profile
-        
-        //var modelViewController: ModelViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ModelViewController") as ModelViewController
-        //makeViewController = self.profile
-        
-        //self.presentViewController(makeViewController, animated: true, completion: nil)
+      //self.presentViewController(MakeTableViewController, animated: true, completion: nil)
     }
 }
 
