@@ -21,7 +21,7 @@ class Item
     var timesWorn: Int! = 0
     var lastTimeWorn: Double?
     var datePurchased: NSDate!
-    var favorited: Bool = false
+    var favorited: Bool = false 
     
     init(make: String, model: String, price: String,  ImageName: String)
     {

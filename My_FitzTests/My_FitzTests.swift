@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+//import MakeTableViewController
 
 class My_FitzTests: XCTestCase {
     
@@ -32,5 +33,11 @@ class My_FitzTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
+//  func testMakeTableViewControllerFunc()
+//  {
+//    var obj: MakeTableViewController = MakeTableViewController()
+//    XCTAssert(obj.sum(4, 4) = 8, "testMakeTableViewControllerFunc is working")
+//  }
+
 }

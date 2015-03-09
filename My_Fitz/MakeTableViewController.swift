@@ -8,42 +8,55 @@
 
 import UIKit
 
-
 class MakeTableViewController: UITableViewController
 {
-  
+    //MARK: - View IBOutlets
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
-  var profile: Profile!
-  var arrayOfTypes = [[Item]]()
+
+    //MARK: - View Variables
+  var profile: [[Item]]!
   var arrayOfCategoryNames = [String]()
+  var theItemToSend: [Item]!
   
   
-  
-  
+    //MARK: - View Methods
   override func viewDidLoad()
   {
     super.viewDidLoad()
     
     self.SetUpTypes()
   }
-  
   override func viewDidAppear(animated: Bool)
   {
     
     tableView.reloadData()
   }
-  
   override func didReceiveMemoryWarning()
   {
     super.didReceiveMemoryWarning()
   }
-  
-  /************************TableView*****************************/
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
-    return arrayOfTypes.count
+    if segue.identifier == "makeToModel"
+    {
+      if let sendToModelItemArray = theItemToSend
+      {
+        var modelController = segue.destinationViewController as! ModelTableViewController
+        modelController.profile = theItemToSend
+      }
+      magic("Segue working proplery")
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
   }
   
+    //MARK: - TableView Methods
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+  {
+    return profile.count
+  }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cell: MakeCustonCell = tableView.dequeueReusableCellWithIdentifier("cell") as! MakeCustonCell
@@ -59,22 +72,19 @@ class MakeTableViewController: UITableViewController
       cell.backgroundColor = UIColor.blueColor()
     }
     
-    cell.setCell(arrayOfTypes[indexPath.row][0].imageName, makeLabelText: arrayOfTypes[indexPath.row][0].make, numberOfItemsText: arrayOfTypes[indexPath.row].count)
-    //userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
+    cell.setCell(profile[indexPath.row][0].imageName, makeLabelText: profile[indexPath.row][0].make, numberOfItemsText: profile[indexPath.row].count)
     
     return cell
   }
-  
   override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
   {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
-      arrayOfTypes.removeAtIndex(indexPath.row)
+      profile.removeAtIndex(indexPath.row)
       
       self.tableView.reloadData()
     }
   }
-  
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -88,32 +98,37 @@ class MakeTableViewController: UITableViewController
     return selectorString
     
   }
-  
-//    override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-//    {
-//      userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
-//      let item = arrayOfTypes[indexPath.row]
-//  
-//      var detailedViewController: DetailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedViewController") as! DetailedViewController
-//      self.presentViewController(detailedViewController, animated: true, completion: nil)
-//      self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//    }
-  
-  /************************Created*****************************/
+    override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+      //FIXME: - Clean tableView(didSelectRowAtIndexPath) - MakeTableViewControll
+
+//      var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+//      var selectorString: String = userDefaults.objectForKey("ModelIndexPoint") as! Int
+//      userDefaultsSetObjectForKey("ModelIndexPoint", userDefValue: indexPath.row)
+//      theItemToSend = arrayOfTypes[selectorString]
+      theItemToSend = profile[indexPath.row]
+      self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
+    //MARK: - Created Methods
   func SetUpTypes()
   {
-    profile = Profile()
-    
-    var string: String = userDefaultsValueForKey("selectorString")
-    let currentCategoryDic: [String: [Item]] = profile.categoryDics[string]!
-    
-    for (key, value) in currentCategoryDic as Dictionary
-    {
-      arrayOfTypes.append(value)
-      arrayOfCategoryNames.append(key)
-    }
+    var selectorString: String = userDefaultsValueForKey("selectorString")
+//    let currentCategoryDic: [String: [Item]] = profile.categoryDics[selectorString]!
+//    
+//    for (key, value) in currentCategoryDic as Dictionary
+//    {
+//      arrayOfTypes.append(value)
+//      arrayOfCategoryNames.append(key)
+//    }
   }
-  
+  func selection()
+  {
+    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var selectorString: String = userDefaults.objectForKey("selectorString") as! String ;TypeBarButtonLabel.title = selectorString
+  }
+
+    //MARK: - User Default Methods
   func userDefaultsValueForKey(userDefaultKey: String) ->String
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -122,7 +137,6 @@ class MakeTableViewController: UITableViewController
     
     return selectorString
   }
-  
   func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -134,35 +148,4 @@ class MakeTableViewController: UITableViewController
     magic("userDefaultsSetObjectForKey: \(selectorString)")
     magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
-
-  override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-  {
-    self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
-
-  }
-  
-  func selection()
-  {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var selectorString: String = userDefaults.objectForKey("selectorString") as! String
-    //arrayOfTypes = profile.categoryDics.valueForKey(selectorString)
-    TypeBarButtonLabel.title = selectorString
-  }
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    if segue.identifier == "makeToModel"
-    {
-      var modelController = segue.destinationViewController as! ModelTableViewController
-      modelController.profile = Profile()
-      magic("Segue working proplery")
-
-    }
-    else
-    {
-      magic("Segue working not proplery")
-    }
-  }
-  
 }

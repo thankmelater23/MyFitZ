@@ -25,5 +25,20 @@ class ViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  {
+    if segue.identifier == "maintToSelection"
+    {
+      var selectionController = segue.destinationViewController as! SelectionViewController
+      selectionController.profile = self.profile
+      magic("Segue working proplery")
+
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
+  }
 }
 

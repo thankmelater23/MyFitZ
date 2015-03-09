@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ModelTableViewController: UITableViewController {
-  
-  //@IBOutlet weak var myTableView: UITableView!
-  var arrayItemList: [Item] = [Item]()//Make a new class for this
-  var profile: Profile!
-  var ModelArrayIndex: Int!
-  var MakeKeyString: String!
-  
+class ModelTableViewController: UITableViewController
+{
+//MARK: - View Variables
+  var profile: [Item] = [Item]()
+
+//MARK: - View Methods
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -24,26 +22,37 @@ class ModelTableViewController: UITableViewController {
   }
   func SetUpTypes()
   {
-    profile = Profile()
     let makeString = userDefaultsValueForKey("selectorString")
     let categoryArrayString = userDefaultsValueForKey("ModelName")
     
-    let currentCategoryDic: [String: [Item]] = profile.categoryDics[makeString]!
-    arrayItemList = currentCategoryDic[categoryArrayString]!
+    //let currentCategoryDic: [String: [Item]] = profile.categoryDics[makeString]!
+    //arrayItemList = currentCategoryDic[categoryArrayString]!
   
+  }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  {
+    if segue.identifier == "modelToDetail"
+    {
+      var detailController = segue.destinationViewController as! DetailedViewController
+      //detailController.profile = Profile()
+      magic("Segue working proplery")
+
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
   
-  
-    /************************TableView*****************************/
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+//MARK: - TableView Methods
+   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    return arrayItemList.count
+    return profile.count
     
   }
-  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ModelCustomCell
@@ -58,24 +67,22 @@ class ModelTableViewController: UITableViewController {
       cell.backgroundColor = UIColor.blueColor()
     }
     
-    let item = arrayItemList[indexPath.row]
+    let item = profile[indexPath.row]
     
-    cell.setCell(item.imageName!, brandLabelText: item.make, modelLabelText: item.model, timesWornText: 1)//"Times Worn: \(item.timesWorn)")
+    cell.setCell(item.imageName!, brandLabelText: item.make, modelLabelText: item.model, timesWornText: 1)//"Times Worn: \(item.timesWorn)") also make the brand the type of class this is that represents these items in the array which is an array of items array
     
     return cell
     
   }
-  
   override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
   {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
-      arrayItemList.removeAtIndex(indexPath.row)
+      profile.removeAtIndex(indexPath.row)
       
       self.tableView.reloadData()
     }
   }
-  
   override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
     
@@ -91,7 +98,6 @@ class ModelTableViewController: UITableViewController {
     NSUserDefaults.standardUserDefaults().synchronize()
 
   }
-  
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   {
      var makeString: String! = userDefaultsValueForKey("ModelName")
@@ -102,9 +108,8 @@ class ModelTableViewController: UITableViewController {
     
     return makeString
   }
-
   
-    /************************Created*****************************/
+//MARK: - User Default Methods
   func userDefaultsValueForKey(userDefaultKey: String) ->String
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -113,7 +118,6 @@ class ModelTableViewController: UITableViewController {
     
     return selectorString
   }
-  
   func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
   {
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -126,19 +130,5 @@ class ModelTableViewController: UITableViewController {
     magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    if segue.identifier == "modelToDetail"
-    {
-      var detailController = segue.destinationViewController as! DetailedViewController
-      detailController.profile = Profile()
-      magic("Segue working proplery")
-
-    }
-    else
-    {
-      magic("Segue working not proplery")
-    }
-  }
 }
 
