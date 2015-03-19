@@ -12,31 +12,38 @@ import UIKit
 class SelectionViewController: UIViewController
 {
   //MARK: - View Variables
-  var profile: Profile! = Profile()
+  var profile: Profile!
+  var selectorString: String! = ""
 
   //MARK: - View IBActions
-    @IBAction func selectionType(sender: AnyObject)
-    {
-        var selectorString: String = sender.currentTitle as String!
-        
-        userDefaultsSetObjectForKey("selectorString", userDefValue: selectorString)
-    }
+  @IBAction func selectionType(sender: AnyObject)
+  {
+    selectorString = sender.currentTitle as String!
+  }
 
-    //MARK: - View Methods
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-
+  //MARK: - View Methods
+  override func viewDidLoad()
+  {
+    super.viewDidLoad()
+    // Do view setup here.
+  }
+  //!!!: Have to fix this segue
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
-    if segue.identifier == "shoesSelectionToMake"
-    {
-      var makeController = segue.destinationViewController as! MakeTableViewController
-      makeController.profile = self.profile
-      magic("Segue working proplery")
+    var categoryTypeString: String!
 
+    if let segueOpener = segue.identifier
+    {
+      //TODO: - Add A switch statement to set string for correct segue
+      if segue.identifier == "shoesSelectionToMake"
+      {
+        categoryTypeString = "Shoes"
+      }
+      var makeController: MakeTableViewController! = segue.destinationViewController as MakeTableViewController
+      //FIXME: - variable is holding generic type set up to accept the self.profile
+      makeController.profile =   [String: [[Item]]]()//self.profile.categoryDics[categoryTypeString]  //as! [String: [[Item]]]
+
+      magic("Segue working proplery")
     }
     else
     {
@@ -45,25 +52,25 @@ class SelectionViewController: UIViewController
   }
 
   //MARK: - User Default Methods
-  func userDefaultsValueForKey(userDefaultKey: String) ->String
-  {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
-    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
-
-    return selectorString
-  }
-
-  func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
-  {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    userDefaults.removeObjectForKey(userDefaultKey)
-    userDefaults.setValue(userDefValue, forKey: userDefaultKey)
-    NSUserDefaults.standardUserDefaults().synchronize()
-    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as! String
-
-    magic("userDefaultsSetObjectForKey: \(selectorString)")
-    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
-  }
-
+  //func userDefaultsValueForKey(userDefaultKey: String) ->String
+  //{
+  //  var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+  //  var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
+  //  magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
+  //
+  //  return selectorString
+  //}
+  //
+  //func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
+  //{
+  //  var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+  //  userDefaults.removeObjectForKey(userDefaultKey)
+  //  userDefaults.setValue(userDefValue, forKey: userDefaultKey)
+  //  NSUserDefaults.standardUserDefaults().synchronize()
+  //  var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
+  //
+  //  magic("userDefaultsSetObjectForKey: \(selectorString)")
+  //  magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
+  //}
+  
 }

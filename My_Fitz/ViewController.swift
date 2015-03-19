@@ -1,44 +1,44 @@
                //
-//  ViewController.swift
-//  My_Fitz
-//
-//  Created by Andre Villanueva on 1/21/15.
-//  Copyright (c) 2015 BangBangStudios. All rights reserved.
-//
+               //  ViewController.swift
+               //  My_Fitz
+               //
+               //  Created by Andre Villanueva on 1/21/15.
+               //  Copyright (c) 2015 BangBangStudios. All rights reserved.
+               //
 
-import UIKit
+               import UIKit
 
-class ViewController: UIViewController
-{
+               class ViewController: UIViewController
+               {
 
-    var profile: Profile!
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        profile = Profile()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+                var profile: Profile!
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+                override func viewDidLoad()
+                {
+                  super.viewDidLoad()
+                  profile = Profile()
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    if segue.identifier == "maintToSelection"
-    {
-      var selectionController = segue.destinationViewController as! SelectionViewController
-      selectionController.profile = self.profile
-      magic("Segue working proplery")
+                  // Do any additional setup after loading the view, typically from a nib.
+                }
 
-    }
-    else
-    {
-      magic("Segue working not proplery")
-    }
-  }
-}
+                override func didReceiveMemoryWarning() {
+                  super.didReceiveMemoryWarning()
+                  // Dispose of any resources that can be recreated.
+                }
 
+                override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+                {
+                  if segue.identifier == "maintToSelection"
+                  {
+                    var selectionController = segue.destinationViewController as SelectionViewController
+                    selectionController.profile = self.profile
+                    magic("Segue working proplery")
+                    
+                  }
+                  else
+                  {
+                    magic("Segue working not proplery")
+                  }
+                }
+               }
+               
