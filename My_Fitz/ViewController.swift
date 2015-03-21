@@ -32,12 +32,12 @@
                   {
                     var selectionController = segue.destinationViewController as SelectionViewController
                     selectionController.profile = self.profile
-                    magic("Segue working proplery")
+                    magic("Segue working proplery SELCTIONCONTROLLER: /(selectionController)")
                     
                   }
                   else
                   {
-                    magic("Segue working not proplery")
+                    magic("Segue working not proplery SELCTIONCONTROLLER: /(selectionController)")
                   }
                 }
                }

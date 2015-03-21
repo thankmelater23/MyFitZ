@@ -13,12 +13,16 @@ class SelectionViewController: UIViewController
 {
   //MARK: - View Variables
   var profile: Profile!
-  var selectorString: String! = ""
+
+  // A string that holds what category to open up
+  var categoryString: String!
 
   //MARK: - View IBActions
   @IBAction func selectionType(sender: AnyObject)
   {
-    selectorString = sender.currentTitle as String!
+
+    //TODO: - Find Out what this method is for
+    categoryString = sender.currentTitle as String!
   }
 
   //MARK: - View Methods
@@ -27,22 +31,21 @@ class SelectionViewController: UIViewController
     super.viewDidLoad()
     // Do view setup here.
   }
-  //!!!: Have to fix this segue
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
-    var categoryTypeString: String!
 
     if let segueOpener = segue.identifier
     {
       //TODO: - Add A switch statement to set string for correct segue
       if segue.identifier == "shoesSelectionToMake"
       {
-        categoryTypeString = "Shoes"
+        categoryString = "Shoes"
       }
       var makeController: MakeTableViewController! = segue.destinationViewController as MakeTableViewController
       //FIXME: - variable is holding generic type set up to accept the self.profile
-      makeController.profile =   [String: [[Item]]]()//self.profile.categoryDics[categoryTypeString]  //as! [String: [[Item]]]
-
+      var newArrayVar = self.profile.categoryDics[categoryString]!
+      makeController.profile = newArrayVar//[String: [[Item]]]()//self.profile.categoryDics[categoryString] //as [String: [[Item]]]
       magic("Segue working proplery")
     }
     else

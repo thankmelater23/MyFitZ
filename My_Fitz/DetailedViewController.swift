@@ -14,7 +14,7 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
 
   //MARK: - View Variables
   //TODO:- Change this variable to single item
-  var profile: Profile = Profile()
+  var profile: Item!
 
   //MARK: - View Methods
   override func viewDidLoad()
@@ -23,27 +23,6 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
     self.setUp()
 
     // Do view setup here.
-  }
-
-  //MARK: - User Default Methods
-  func userDefaultsValueForKey(userDefaultKey: String) ->String
-  {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
-    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
-
-    return selectorString
-  }
-  func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
-  {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    userDefaults.removeObjectForKey(userDefaultKey)
-    userDefaults.setValue(userDefValue, forKey: userDefaultKey)
-    NSUserDefaults.standardUserDefaults().synchronize()
-    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
-
-    magic("userDefaultsSetObjectForKey: \(selectorString)")
-    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
   }
 
   // MARK: - Table view data source
@@ -64,18 +43,5 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
     //Warning Finsish setting up
     //TODO: - Finsish setting up
     //FIXME: - Finsish setting up
-    let makeString = userDefaultsValueForKey("selectorString")
-    let categoryArrayString = userDefaultsValueForKey("ModelName")
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    //var itemPosition = userDefaults.valueForKey("ItemNum")
-
-
-    let currentCategoryDic: [String: [Item]] = profile.categoryDics[makeString]!
-    let arrayItemList = currentCategoryDic[categoryArrayString]!
-
-    let item = arrayItemList[0]//itemPosition as! Int]
-
-    itemImage.image = UIImage(named: item.imageName)
-
   }
 }

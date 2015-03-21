@@ -14,7 +14,7 @@ class MakeTableViewController: UITableViewController
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
 
   //MARK: - View Variables
-  var profile: [String: [[Item]]]!
+  var profile: AnyObject!
   var arrayOfCategoryNames = [String]()
   var arrayOfTypes: [Item]!
   var theItemToSend: [Item]!
@@ -134,25 +134,4 @@ class MakeTableViewController: UITableViewController
     var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var selectorString: String = userDefaults.objectForKey("selectorString") as String ;TypeBarButtonLabel.title = selectorString
   }
-
-  //MARK: - User Default Methods
-  //  func userDefaultsValueForKey(userDefaultKey: String) ->String
-  //  {
-  //    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-  //    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
-  //    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
-  //
-  //    return selectorString
-  //  }
-  //  func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
-  //  {
-  //    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-  //    userDefaults.removeObjectForKey(userDefaultKey)
-  //    userDefaults.setValue(userDefValue, forKey: userDefaultKey)
-  //    NSUserDefaults.standardUserDefaults().synchronize()
-  //    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
-  //
-  //    magic("userDefaultsSetObjectForKey: \(selectorString)")
-  //    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
-  //  }
 }

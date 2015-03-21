@@ -59,6 +59,6 @@ class Profile
 
     categoryDics = ["Shirt": shirtDic,  "Pants": pantssDic,  "Shoes": shoesDic,  "Accessories": accessoriesDic,  "Underclothes": underClothesDic,  "Jewelry": jewelsDic] as Dictionary
   }
-
+  
 }
 
