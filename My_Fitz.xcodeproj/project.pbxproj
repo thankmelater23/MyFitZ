@@ -35,6 +35,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C6BC15DA1AC1A44400DF23C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +166,8 @@
 				C6CCB7721A7070D200353C9B /* Sources */,
 				C6CCB7731A7070D200353C9B /* Frameworks */,
 				C6CCB7741A7070D200353C9B /* Resources */,
+				C6BC15D91AC1A42500DF23C2 /* ShellScript */,
+				C6BC15DA1AC1A44400DF23C2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -239,6 +253,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C6BC15D91AC1A42500DF23C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6CCB7721A7070D200353C9B /* Sources */ = {
