@@ -14,44 +14,24 @@ class MakeTableViewController: UITableViewController
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
 
   //MARK: - View Variables
-  var profile: AnyObject!
+  var profile: [[Item]]!
   var arrayOfCategoryNames = [String]()
-  var arrayOfTypes: [Item]!
-  var theItemToSend: [Item]!
+  //var arrayOfTypes: [Item]!
+  var categoryString: String!
+  var subCategoryString: String!
+  var passingCategoryIndex: Int!
 
-
-  //MARK: - View Methods
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-
-    self.setUpTypes()
-  }
-  override func viewDidAppear(animated: Bool)
+  //MARK: - Created Methods
+  func setUpTypes()
   {
 
-    tableView.reloadData()
   }
-  override func didReceiveMemoryWarning()
+  func selection()
   {
-    super.didReceiveMemoryWarning()
+    TypeBarButtonLabel.title = categoryString
   }
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    if segue.identifier == "makeToModel"
-    {
-      if let arrayOfItems = theItemToSend
-      {
-        var modelController = segue.destinationViewController as ModelTableViewController
-        modelController.profile = arrayOfItems
-      }
-      magic("Segue working proplery")
-    }
-    else
-    {
-      magic("Segue working not proplery")
-    }
-  }
+
+
 
   //MARK: - TableView Methods
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -73,7 +53,8 @@ class MakeTableViewController: UITableViewController
       cell.backgroundColor = UIColor.blueColor()
     }
 
-    cell.setCell(arrayOfTypes[indexPath.row].imageName, makeLabelText: arrayOfTypes[indexPath.row].make, numberOfItemsText: arrayOfTypes.count)
+    let itemCell: [Item] = self.profile[indexPath.row]
+    cell.setCell(itemCell[0].imageName, makeLabelText: itemCell[0].make, numberOfItemsText: itemCell.count)
 
     return cell
   }
@@ -81,57 +62,50 @@ class MakeTableViewController: UITableViewController
   {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
-      arrayOfTypes.removeAtIndex(indexPath.row)
+      profile.removeAtIndex(indexPath.row)
 
       self.tableView.reloadData()
     }
   }
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var selectorString: String! = userDefaults.objectForKey("selectorString") as String!
-
-    if (selectorString.isEmpty == true)
-    {
-
-    }
-
-    return selectorString
+    return categoryString
 
   }
-  override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-    //FIXME: - Clean tableView(didSelectRowAtIndexPath) - MakeTableViewControll
-    let num: Int = self.profile.count
-    for (key, value) in self.profile
-    {
-
-      var array : [Item] = []
-      var i = 0
-      if i == indexPath.row
-      {
-        for valueOfArray in value
-        {
-          array += valueOfArray
-        }
-        arrayOfTypes = array
-      }
-
-    }
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 
-
-  //MARK: - Created Methods
-  func setUpTypes()
+  //MARK: - View Methods
+  override func viewDidLoad()
   {
+    super.viewDidLoad()
 
-
-
+    self.setUpTypes()
   }
-  func selection()
+  override func viewDidAppear(animated: Bool)
   {
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var selectorString: String = userDefaults.objectForKey("selectorString") as String ;TypeBarButtonLabel.title = selectorString
+
+    tableView.reloadData()
+  }
+  override func didReceiveMemoryWarning()
+  {
+    super.didReceiveMemoryWarning()
+  }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  {
+    if segue.identifier == "makeToModel"
+    {
+      var index = self.tableView.indexPathForSelectedRow()
+      var modelController = segue.destinationViewController as ModelTableViewController
+      let tempItemArray: [Item] = self.profile[index!.row]
+      modelController.profile = tempItemArray as [Item]!//[Item]()//self.profile[passingCategoryIndex] as [Item]!
+      magic("Segue working proplery")
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
   }
 }

@@ -34,13 +34,15 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0
+    return 10
   }
 
   //MARK: - Created Methods
   func setUp()
   {
+    itemImage.image = UIImage(named: profile.imageName) as UIImage!
     //Warning Finsish setting up
+    
     //TODO: - Finsish setting up
     //FIXME: - Finsish setting up
   }

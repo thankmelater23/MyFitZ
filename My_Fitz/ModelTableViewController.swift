@@ -12,7 +12,7 @@ class ModelTableViewController: UITableViewController
 {
   //MARK: - View Variables
   var profile: [Item]!
-
+  var passingSubCategoryIndex: Int!
   //MARK: - View Methods
   override func viewDidLoad()
   {
@@ -22,21 +22,21 @@ class ModelTableViewController: UITableViewController
   }
   func SetUpTypes()
   {
-//    let makeString = userDefaultsValueForKey("selectorString")
-//    let categoryArrayString = userDefaultsValueForKey("ModelName")
 
-    //let currentCategoryDic: [String: [Item]] = profile.categoryDics[makeString]!
-    //arrayItemList = currentCategoryDic[categoryArrayString]!
+    magic(profile)
 
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
-    if segue.identifier == "modelToDetail"
+    if segue.identifier == "modelToDetailed"
     {
+      var index = self.tableView.indexPathForSelectedRow()
       var detailController = segue.destinationViewController as DetailedViewController
-      //detailController.profile = Profile()
+      if let newIndex = index
+      {
+      detailController.profile = self.profile[newIndex.row] as Item!//Item(make: "Jordans" , model: "13's", price: "200", ImageName: "13's", category: "Shoes", subCategory: "Jordans")//self.profile[index] as Item
       magic("Segue working proplery")
-
+}
     }
     else
     {
@@ -67,9 +67,9 @@ class ModelTableViewController: UITableViewController
       cell.backgroundColor = UIColor.blueColor()
     }
 
-    let item = profile[indexPath.row]
+    let item: Item = profile[indexPath.row] as Item!
 
-    cell.setCell(item.imageName!, brandLabelText: item.make, modelLabelText: item.model, timesWornText: 1)//"Times Worn: \(item.timesWorn)") also make the brand the type of class this is that represents these items in the array which is an array of items array
+    cell.setCell(item.imageName, brandLabelText: item.make, modelLabelText: item.model, timesWornText: 1)//"Times Worn: \(item.timesWorn)") also make the brand the type of class this is that represents these items in the array which is an array of items array
 
     return cell
 
@@ -85,17 +85,7 @@ class ModelTableViewController: UITableViewController
   }
   override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-
-    //userDefaultsSetObjectForKey("ModelName", userDefValue: arrayOfCategoryNames[indexPath.row])
-
-    //    var detailedViewController: DetailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedViewController") as DetailedViewController
-    //    self.presentViewController(detailedViewController, animated: true, completion: nil)
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    let num = indexPath.row
-    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    userDefaults.removeObjectForKey("ItemNum")
-    userDefaults.setValue(indexPath.row, forKey: "itemNum")
-    NSUserDefaults.standardUserDefaults().synchronize()
 
   }
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
@@ -109,27 +99,6 @@ class ModelTableViewController: UITableViewController
 
     return makeString
   }
-
-  //MARK: - User Default Methods
-//  func userDefaultsValueForKey(userDefaultKey: String) ->String
-//  {
-//    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
-//    magic("Key: \(userDefaultKey) forValue: \(selectorString) syncronized()")
-//
-//    return selectorString
-//  }
-//  func userDefaultsSetObjectForKey(userDefaultKey: String, userDefValue: String)
-//  {
-//    var userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//    userDefaults.removeObjectForKey(userDefaultKey)
-//    userDefaults.setValue(userDefValue, forKey: userDefaultKey)
-//    NSUserDefaults.standardUserDefaults().synchronize()
-//    var selectorString: String = userDefaults.objectForKey(userDefaultKey) as String
-//
-//    magic("userDefaultsSetObjectForKey: \(selectorString)")
-//    magic("Key: \(userDefaultKey) forValue: \(userDefValue) syncronized()")
-//  }
 
 }
 
