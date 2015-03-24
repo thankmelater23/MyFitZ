@@ -40,7 +40,7 @@ class Profile
 
     //Array initialization
     shoesArray.append(Item(make: "Jordans" , model: "13's", price: "200", ImageName: "13's", category: "Shoes", subCategory: "Jordans"))
-    shoesArray.append(Item(make: "Jordans" , model: "18's", price: "200", ImageName: "18's", category: "Shoes", subCategory: "Jordans"))
+    shoesArray.append(Item(make: "Jordans" , model: "8's", price: "200", ImageName: "8's", category: "Shoes", subCategory: "Jordans"))
     nikeArray.append(Item(make: "Nike" , model: "Blue Nikes", price: "60", ImageName: "Nike BlueWhite", category: "Shoes", subCategory: "Nike's"))
     slipperArray.append(Item(make: "Slippers" , model: "Red Slippers", price: "40", ImageName: "Slippers", category: "Shoes", subCategory: "Slippers"))
     shirtArray.append(Item(make: "Shirt" , model: "18's", price: "200", ImageName: "Shirt", category: "Shirts", subCategory: "T-Shirts"))

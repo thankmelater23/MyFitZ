@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
+		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
 		C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */; };
 		C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7801A7070D200353C9B /* ViewController.swift */; };
@@ -35,20 +37,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C6BC15DA1AC1A44400DF23C2 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CCB77A1A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CCB77B1A7070D200353C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */,
+				C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +86,8 @@
 		C6CCB76D1A7070D200353C9B = {
 			isa = PBXGroup;
 			children = (
+				C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */,
+				C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */,
 				C6CCB7781A7070D200353C9B /* My_Fitz */,
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
 				C6CCB7771A7070D200353C9B /* Products */,
@@ -166,8 +162,7 @@
 				C6CCB7721A7070D200353C9B /* Sources */,
 				C6CCB7731A7070D200353C9B /* Frameworks */,
 				C6CCB7741A7070D200353C9B /* Resources */,
-				C6BC15D91AC1A42500DF23C2 /* ShellScript */,
-				C6BC15DA1AC1A44400DF23C2 /* CopyFiles */,
+				C6BC15DB1AC1A57700DF23C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -255,7 +250,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C6BC15D91AC1A42500DF23C2 /* ShellScript */ = {
+		C6BC15DB1AC1A57700DF23C2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,7 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "./Fabric.framework/run 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
 		};
 /* End PBXShellScriptBuildPhase section */
 

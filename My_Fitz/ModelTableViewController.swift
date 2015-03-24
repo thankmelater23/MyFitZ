@@ -13,6 +13,7 @@ class ModelTableViewController: UITableViewController
   //MARK: - View Variables
   var profile: [Item]!
   var passingSubCategoryIndex: Int!
+  var arrayIndex: Int!
   //MARK: - View Methods
   override func viewDidLoad()
   {
@@ -34,8 +35,10 @@ class ModelTableViewController: UITableViewController
       var detailController = segue.destinationViewController as DetailedViewController
       if let newIndex = index
       {
-      detailController.profile = self.profile[newIndex.row] as Item!//Item(make: "Jordans" , model: "13's", price: "200", ImageName: "13's", category: "Shoes", subCategory: "Jordans")//self.profile[index] as Item
-      magic("Segue working proplery")
+        arrayIndex = newIndex.row
+      detailController.profile = self.profile[newIndex.row] as Item!
+      detailController.arrayIndex = self.arrayIndex
+        magic("Segue working proplery")
 }
     }
     else

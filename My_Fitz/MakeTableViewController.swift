@@ -14,12 +14,13 @@ class MakeTableViewController: UITableViewController
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
 
   //MARK: - View Variables
+  ///Array in an Array of Item's hold's Category->SubCategories->of Items Array
   var profile: [[Item]]!
   var arrayOfCategoryNames = [String]()
   //var arrayOfTypes: [Item]!
   var categoryString: String!
   var subCategoryString: String!
-  var passingCategoryIndex: Int!
+  var passingSubCategoryIndex: Int!
 
   //MARK: - Created Methods
   func setUpTypes()
@@ -74,6 +75,7 @@ class MakeTableViewController: UITableViewController
   }
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
+    passingSubCategoryIndex = indexPath.row
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 
@@ -101,6 +103,7 @@ class MakeTableViewController: UITableViewController
       var modelController = segue.destinationViewController as ModelTableViewController
       let tempItemArray: [Item] = self.profile[index!.row]
       modelController.profile = tempItemArray as [Item]!//[Item]()//self.profile[passingCategoryIndex] as [Item]!
+      modelController.passingSubCategoryIndex = self.passingSubCategoryIndex
       magic("Segue working proplery")
     }
     else

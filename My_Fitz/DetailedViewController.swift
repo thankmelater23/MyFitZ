@@ -15,7 +15,7 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
   //MARK: - View Variables
   //TODO:- Change this variable to single item
   var profile: Item!
-
+  var arrayIndex: Int!
   //MARK: - View Methods
   override func viewDidLoad()
   {
@@ -42,8 +42,5 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
   {
     itemImage.image = UIImage(named: profile.imageName) as UIImage!
     //Warning Finsish setting up
-    
-    //TODO: - Finsish setting up
-    //FIXME: - Finsish setting up
   }
 }

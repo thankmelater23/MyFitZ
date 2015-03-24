@@ -14,14 +14,12 @@ class SelectionViewController: UIViewController
   //MARK: - View Variables
   var profile: Profile!
 
-  // A string that holds what category to open up
+  /// A string that holds what category to open up
   var categoryString: String!
 
   //MARK: - View IBActions
   @IBAction func selectionType(sender: AnyObject)
   {
-
-    //TODO: - Find Out what this method is for
     categoryString = sender.currentTitle as String!
     //self.performSegueWithIdentifier("shoesSelectionToMake", sender: nil)
   }
@@ -36,8 +34,8 @@ class SelectionViewController: UIViewController
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
 
-    categoryString = "Shoes"
-    if segue.identifier == "shoesSelectionToMake"
+    //categoryString = "Shoes"
+    if segue.identifier == "selectionToMake"
     {
     var makeController: MakeTableViewController! = segue.destinationViewController as MakeTableViewController
         var newArrayVar = self.profile.categoryDics[categoryString]!
@@ -46,7 +44,6 @@ class SelectionViewController: UIViewController
         makeController.categoryString = self.categoryString
         magic("Segue working proplery")
       }
-
       else
       {
         magic("Segue working not proplery")
