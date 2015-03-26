@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6B73B501AC381A40082007D /* TextInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B73B4F1AC381A40082007D /* TextInputTableViewCell.swift */; };
 		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
 		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 		C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */; };
 		C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */; };
 		C6E790ED1AA82B1C00D00952 /* PrintlnMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */; };
+		C6EF75311AC1EB3200006294 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF75301AC1EB3200006294 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		C6B73B4F1AC381A40082007D /* TextInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputTableViewCell.swift; sourceTree = "<group>"; };
 		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +64,7 @@
 		C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTableViewController.swift; sourceTree = "<group>"; };
 		C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
 		C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMagic.swift; sourceTree = "<group>"; };
+		C6EF75301AC1EB3200006294 /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				C6CCB79F1A7072FF00353C9B /* Profile.swift */,
 				C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */,
 				C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */,
+				C6B73B4F1AC381A40082007D /* TextInputTableViewCell.swift */,
 				C6CCB7801A7070D200353C9B /* ViewController.swift */,
 				C6CCB7A81A70735C00353C9B /* SelectionViewController.swift */,
 				C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */,
@@ -118,6 +123,7 @@
 				C6CCB7A61A70734800353C9B /* DetailedViewController.swift */,
 				C6CCB77B1A7070D200353C9B /* AppDelegate.swift */,
 				C6CCB7821A7070D200353C9B /* Main.storyboard */,
+				C6EF75301AC1EB3200006294 /* CreationViewController.swift */,
 				C6CCB7871A7070D200353C9B /* LaunchScreen.xib */,
 				C6CCB7851A7070D200353C9B /* Images.xcassets */,
 				C6CCB7791A7070D200353C9B /* Supporting Files */,
@@ -273,7 +279,9 @@
 				C6CCB7A01A7072FF00353C9B /* Item.swift in Sources */,
 				C6CCB7A11A7072FF00353C9B /* Profile.swift in Sources */,
 				C6CCB7A71A70734800353C9B /* DetailedViewController.swift in Sources */,
+				C6B73B501AC381A40082007D /* TextInputTableViewCell.swift in Sources */,
 				C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */,
+				C6EF75311AC1EB3200006294 /* CreationViewController.swift in Sources */,
 				C6CCB7A51A70733100353C9B /* MakeCustomCell.swift in Sources */,
 				C6CCB7A91A70735C00353C9B /* SelectionViewController.swift in Sources */,
 				C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */,

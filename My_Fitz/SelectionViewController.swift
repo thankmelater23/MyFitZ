@@ -33,14 +33,12 @@ class SelectionViewController: UIViewController
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
-
-    //categoryString = "Shoes"
     if segue.identifier == "selectionToMake"
     {
     var makeController: MakeTableViewController! = segue.destinationViewController as MakeTableViewController
         var newArrayVar = self.profile.categoryDics[categoryString]!
         let tempItemArray = newArrayVar.values.array
-        makeController.profile = tempItemArray as   [[Item]]!
+        makeController.itemsInArrayInArray = tempItemArray as   [[Item]]!
         makeController.categoryString = self.categoryString
         magic("Segue working proplery")
       }

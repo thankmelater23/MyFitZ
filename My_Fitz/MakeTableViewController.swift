@@ -14,8 +14,8 @@ class MakeTableViewController: UITableViewController
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
 
   //MARK: - View Variables
-  ///Array in an Array of Item's hold's Category->SubCategories->of Items Array
-  var profile: [[Item]]!
+  ///items in an Array of Arrays holds the categories of the items
+  var itemsInArrayInArray: [[Item]]!
   var arrayOfCategoryNames = [String]()
   //var arrayOfTypes: [Item]!
   var categoryString: String!
@@ -37,7 +37,7 @@ class MakeTableViewController: UITableViewController
   //MARK: - TableView Methods
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    return profile.count
+    return itemsInArrayInArray.count
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
@@ -54,7 +54,7 @@ class MakeTableViewController: UITableViewController
       cell.backgroundColor = UIColor.blueColor()
     }
 
-    let itemCell: [Item] = self.profile[indexPath.row]
+    let itemCell: [Item] = self.itemsInArrayInArray[indexPath.row]
     cell.setCell(itemCell[0].imageName, makeLabelText: itemCell[0].make, numberOfItemsText: itemCell.count)
 
     return cell
@@ -63,7 +63,7 @@ class MakeTableViewController: UITableViewController
   {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
-      profile.removeAtIndex(indexPath.row)
+      itemsInArrayInArray.removeAtIndex(indexPath.row)
 
       self.tableView.reloadData()
     }
@@ -101,8 +101,8 @@ class MakeTableViewController: UITableViewController
     {
       var index = self.tableView.indexPathForSelectedRow()
       var modelController = segue.destinationViewController as ModelTableViewController
-      let tempItemArray: [Item] = self.profile[index!.row]
-      modelController.profile = tempItemArray as [Item]!//[Item]()//self.profile[passingCategoryIndex] as [Item]!
+      let tempItemArray: [Item] = self.itemsInArrayInArray[index!.row]
+      modelController.arrayOfItems = tempItemArray as [Item]!
       modelController.passingSubCategoryIndex = self.passingSubCategoryIndex
       magic("Segue working proplery")
     }

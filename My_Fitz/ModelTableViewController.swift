@@ -11,9 +11,11 @@ import UIKit
 class ModelTableViewController: UITableViewController
 {
   //MARK: - View Variables
-  var profile: [Item]!
+  ///items in an Array holds the sub-categories of the items
+  var arrayOfItems: [Item]!
   var passingSubCategoryIndex: Int!
   var arrayIndex: Int!
+  
   //MARK: - View Methods
   override func viewDidLoad()
   {
@@ -24,7 +26,7 @@ class ModelTableViewController: UITableViewController
   func SetUpTypes()
   {
 
-    magic(profile)
+    magic(arrayOfItems)
 
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -36,7 +38,7 @@ class ModelTableViewController: UITableViewController
       if let newIndex = index
       {
         arrayIndex = newIndex.row
-      detailController.profile = self.profile[newIndex.row] as Item!
+      detailController.itemOfObject = self.arrayOfItems[newIndex.row] as Item!
       detailController.arrayIndex = self.arrayIndex
         magic("Segue working proplery")
 }
@@ -53,7 +55,7 @@ class ModelTableViewController: UITableViewController
   //MARK: - TableView Methods
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    return profile.count
+    return arrayOfItems.count
 
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -70,7 +72,7 @@ class ModelTableViewController: UITableViewController
       cell.backgroundColor = UIColor.blueColor()
     }
 
-    let item: Item = profile[indexPath.row] as Item!
+    let item: Item = arrayOfItems[indexPath.row] as Item!
 
     cell.setCell(item.imageName, brandLabelText: item.make, modelLabelText: item.model, timesWornText: 1)//"Times Worn: \(item.timesWorn)") also make the brand the type of class this is that represents these items in the array which is an array of items array
 
@@ -81,7 +83,7 @@ class ModelTableViewController: UITableViewController
   {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
-      profile.removeAtIndex(indexPath.row)
+      arrayOfItems.removeAtIndex(indexPath.row)
 
       self.tableView.reloadData()
     }
