@@ -31,12 +31,10 @@ class TextInputTableViewCell: UITableViewCell
     {
       return textField.text as String
     }
-  
-}
-
-  else 
-  {
-  return "N/A" as String
+    else
+    {
+      return "N/A" as String
+    }
   }
-
+  
 }
