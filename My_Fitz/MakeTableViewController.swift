@@ -17,7 +17,6 @@ class MakeTableViewController: UITableViewController
   ///items in an Array of Arrays holds the categories of the items
   var itemsInArrayInArray: [[Item]]!
   var arrayOfCategoryNames = [String]()
-  //var arrayOfTypes: [Item]!
   var categoryString: String!
   var subCategoryString: String!
   var passingSubCategoryIndex: Int!

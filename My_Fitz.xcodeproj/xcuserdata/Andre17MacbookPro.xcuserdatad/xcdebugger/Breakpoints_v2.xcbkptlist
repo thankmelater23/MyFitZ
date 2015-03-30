@@ -9,124 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "My_Fitz/ViewController.swift"
-            timestampString = "448835901.043709"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Fitz/ViewController.swift"
-            timestampString = "448842193.24256"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "ViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.ViewController.profile.getter : Swift.ImplicitlyUnwrappedOptional&lt;My_Fitz.Profile&gt;"
-                  moduleName = "My_Fitz"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/ViewController.swift"
-                  timestampString = "448844051.059853"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.ViewController.profile.setter : Swift.ImplicitlyUnwrappedOptional&lt;My_Fitz.Profile&gt;"
-                  moduleName = "My_Fitz"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/ViewController.swift"
-                  timestampString = "448844051.060028"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.ViewController.profile.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;My_Fitz.Profile&gt;"
-                  moduleName = "My_Fitz"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/ViewController.swift"
-                  timestampString = "448844051.060194"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.ViewController.init (My_Fitz.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; My_Fitz.ViewController"
-                  moduleName = "My_Fitz"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/ViewController.swift"
-                  timestampString = "448844051.060383"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.ViewController.init (My_Fitz.ViewController.Type)() -&gt; My_Fitz.ViewController"
-                  moduleName = "My_Fitz"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/ViewController.swift"
-                  timestampString = "448844051.06055"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.ViewController.init (My_Fitz.ViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; My_Fitz.ViewController"
-                  moduleName = "My_Fitz"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/ViewController.swift"
-                  timestampString = "448844051.060734"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "My_Fitz/ModelTableViewController.swift"
             timestampString = "449104233.9321"
             startingColumnNumber = "9223372036854775807"
@@ -198,6 +80,22 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "textFieldValue()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Fitz/ViewController.swift"
+            timestampString = "449364537.69507"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

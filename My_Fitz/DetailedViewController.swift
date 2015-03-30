@@ -13,11 +13,10 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
   @IBOutlet var itemImage: UIImageView!
 
   //MARK: - View Variables
-  //TODO:- Change this variable to single item
   var itemOfObject: Item!
   var arrayIndex: Int!
   //MARK: - View Methods
-  override func viewDidLoad()
+  override func viewDidLoad() 
   {
     super.viewDidLoad()
     self.setUp()

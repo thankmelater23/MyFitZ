@@ -86,11 +86,11 @@
 		C6CCB76D1A7070D200353C9B = {
 			isa = PBXGroup;
 			children = (
-				C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */,
-				C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */,
 				C6CCB7781A7070D200353C9B /* My_Fitz */,
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
 				C6CCB7771A7070D200353C9B /* Products */,
+				C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */,
+				C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */,
 				C6526AC41ABD0C1200748141 /* Reveal.framework */,
 			);
 			sourceTree = "<group>";

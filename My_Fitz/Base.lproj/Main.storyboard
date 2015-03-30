@@ -312,6 +312,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JQJ-Vg-Yph"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="iHF-Vi-uAz" id="q3S-xf-a6X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6O-Mn-VMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -759,6 +762,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="u0A-Xo-IMb"/>
-        <segue reference="hOA-yn-cxZ"/>
+        <segue reference="vhi-tV-tKe"/>
     </inferredMetricsTieBreakers>
 </document>

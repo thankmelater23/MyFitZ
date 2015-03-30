@@ -11,6 +11,9 @@ import UIKit
 
 class SelectionViewController: UIViewController
 {
+  //MARK: - IBOutlets
+  ///Button that appears after a selection has been made
+  @IBOutlet var doneButton: UIButton!
   //MARK: - View Variables
   var profile: Profile!
 
@@ -18,15 +21,22 @@ class SelectionViewController: UIViewController
   var categoryString: String!
 
   //MARK: - View IBActions
+  ///An action that takes the buttonn(sender).text and stores it into categoryString
   @IBAction func selectionType(sender: AnyObject)
   {
     categoryString = sender.currentTitle as String!
-    //self.performSegueWithIdentifier("shoesSelectionToMake", sender: nil)
+
+    if categoryString != nil
+    {
+      doneButton.hidden = false
+    }
   }
 
   //MARK: - View Methods
   override func viewDidLoad()
   {
+    doneButton.hidden = true
+
     super.viewDidLoad()
     // Do view setup here.
   }

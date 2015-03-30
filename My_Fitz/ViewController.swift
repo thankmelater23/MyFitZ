@@ -16,7 +16,10 @@
                 override func viewDidLoad()
                 {
                   super.viewDidLoad()
-                  profile = Profile()
+                  if self.profile == nil
+                  {
+                    profile = Profile()
+                    }
 
                   // Do any additional setup after loading the view, typically from a nib.
                 }
