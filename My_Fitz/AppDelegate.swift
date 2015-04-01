@@ -13,14 +13,25 @@ import Crashlytics
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+      //MARK: - Frabric/Crashylytics
       Fabric.with([Crashlytics()])
+
+      //MARK: - Parse
+      Parse.setApplicationId("vyioCm3Cm0JOwKWMPC8vBziwhnk5elXOl1mEGzVn", clientKey: "3BccKF9lNuvhupwmhGXhmuK3b2kmBraLZvRgn3Yy")
+
+
+      var object = PFObject(className: "TestClass")
+      object.addObject("Banana", forKey: "favoriteFood")
+      object.addObject("Chocolate", forKey: "favoriteIceCream")
+      object.save()
 
         return true
     }

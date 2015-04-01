@@ -104,6 +104,11 @@ class MakeTableViewController: UITableViewController
       modelController.arrayOfItems = tempItemArray as [Item]!
       modelController.passingSubCategoryIndex = self.passingSubCategoryIndex
       magic("Segue working proplery")
+
+      var parseIsh = PFObject(className: "ModelTable")
+      parseIsh.addObject(1, forKey: "subCategory")
+      parseIsh.addObject(1 , forKey: "numberOfItemsInSubCategory")
+      parseIsh.save()
     }
     else
     {

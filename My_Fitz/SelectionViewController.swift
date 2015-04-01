@@ -51,6 +51,11 @@ class SelectionViewController: UIViewController
         makeController.itemsInArrayInArray = tempItemArray as   [[Item]]!
         makeController.categoryString = self.categoryString
         magic("Segue working proplery")
+
+      var parseIsh = PFObject(className: "MakeTable")
+      parseIsh.addObject(categoryString, forKey: "Category")
+      parseIsh.addObject(makeController.itemsInArrayInArray.count, forKey: "ItemsInArrayInArrayCount")
+      parseIsh.save()
       }
       else
       {
