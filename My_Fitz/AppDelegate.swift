@@ -25,13 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       Fabric.with([Crashlytics()])
 
       //MARK: - Parse
+      Parse.enableLocalDatastore()
       Parse.setApplicationId("vyioCm3Cm0JOwKWMPC8vBziwhnk5elXOl1mEGzVn", clientKey: "3BccKF9lNuvhupwmhGXhmuK3b2kmBraLZvRgn3Yy")
-
-
-      var object = PFObject(className: "TestClass")
-      object.addObject("Banana", forKey: "favoriteFood")
-      object.addObject("Chocolate", forKey: "favoriteIceCream")
-      object.save()
 
         return true
     }

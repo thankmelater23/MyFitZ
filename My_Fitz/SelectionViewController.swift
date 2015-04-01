@@ -55,7 +55,13 @@ class SelectionViewController: UIViewController
       var parseIsh = PFObject(className: "MakeTable")
       parseIsh.addObject(categoryString, forKey: "Category")
       parseIsh.addObject(makeController.itemsInArrayInArray.count, forKey: "ItemsInArrayInArrayCount")
+      parseIsh.pin()
+      //parseIsh.saveEventually(<#callback: PFBooleanResultBlock!##(Bool, NSError!) -> Void#>)
       parseIsh.save()
+      parseIsh.unpin()
+
+      //var parseIntRetrieved = PFObject(className: "MakeTable")
+      //var category = parseIntRetrieved.objectForKey("Category") as String
       }
       else
       {
