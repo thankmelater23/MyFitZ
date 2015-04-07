@@ -45,12 +45,12 @@ class SelectionViewController: UIViewController
   {
     if segue.identifier == "selectionToMake"
     {
-    var makeController: MakeTableViewController! = segue.destinationViewController as MakeTableViewController
-        var newArrayVar = self.profile.categoryDics[categoryString]!
-        let tempItemArray = newArrayVar.values.array
-        makeController.itemsInArrayInArray = tempItemArray as   [[Item]]!
-        makeController.categoryString = self.categoryString
-        magic("Segue working proplery")
+      var makeController: MakeTableViewController! = segue.destinationViewController as MakeTableViewController
+      var newArrayVar = self.profile.categoryDics[categoryString]!
+      let tempItemArray = newArrayVar.values.array
+      makeController.itemsInArrayInArray = tempItemArray as   [[Item]]!
+      makeController.categoryString = self.categoryString
+      magic("Segue working proplery")
 
       var parseIsh = PFObject(className: "MakeTable")
       parseIsh.addObject(categoryString, forKey: "Category")
@@ -62,12 +62,12 @@ class SelectionViewController: UIViewController
 
       //var parseIntRetrieved = PFObject(className: "MakeTable")
       //var category = parseIntRetrieved.objectForKey("Category") as String
-      }
-      else
-      {
-        magic("Segue working not proplery")
-      }
-
     }
+    else
+    {
+      magic("Segue working not proplery")
+    }
+
   }
-  
+}
+

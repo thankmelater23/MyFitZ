@@ -77,6 +77,9 @@ class MakeTableViewController: UITableViewController
     passingSubCategoryIndex = indexPath.row
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
+  override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 200
+  }
 
   //MARK: - View Methods
   override func viewDidLoad()

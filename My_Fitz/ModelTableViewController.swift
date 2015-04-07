@@ -13,9 +13,11 @@ class ModelTableViewController: UITableViewController
   //MARK: - View Variables
   ///items in an Array holds the sub-categories of the items
   var arrayOfItems: [Item]!
+  ///Holds String To The Name Of The Previous Category
   var passingSubCategoryIndex: Int!
+
   var arrayIndex: Int!
-  
+
   //MARK: - View Methods
   override func viewDidLoad()
   {
@@ -38,10 +40,10 @@ class ModelTableViewController: UITableViewController
       if let newIndex = index
       {
         arrayIndex = newIndex.row
-      detailController.itemOfObject = self.arrayOfItems[newIndex.row] as Item!
-      detailController.arrayIndex = self.arrayIndex
+        detailController.itemOfObject = self.arrayOfItems[newIndex.row] as Item!
+        detailController.arrayIndex = self.arrayIndex
         magic("Segue working proplery")
-}
+      }
     }
     else
     {
@@ -99,11 +101,17 @@ class ModelTableViewController: UITableViewController
     var makeString: String! = " "
     if (makeString.isEmpty == true)
     {
-          magic("This string is empty")
+      magic("This string is empty")
     }
 
     return makeString
   }
 
+  ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
+  override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  {
+    return 200
+  }
+  
 }
 

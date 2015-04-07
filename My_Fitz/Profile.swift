@@ -17,22 +17,22 @@ class Profile
   var makeStringPlaceHolder: String?
   var modelArrayIndexHolder: Int?
 
-  var shoesDic = [String: [Item]]()
-  var shirtDic = [String: [Item]]()
-  var pantssDic = [String: [Item]]()
-  var underClothesDic = [String: [Item]]()
-  var accessoriesDic = [String: [Item]]()
-  var jewelsDic = [String: [Item]]()
+  var shoesDic                  = [String: [Item]]()
+  var shirtDic                  = [String: [Item]]()
+  var pantssDic                 = [String: [Item]]()
+  var underClothesDic           = [String: [Item]]()
+  var accessoriesDic            = [String: [Item]]()
+  var jewelsDic                 = [String: [Item]]()
 
 
-  var shoesArray: [Item] = []
-  var nikeArray: [Item] = []
-  var slipperArray: [Item] = []
-  var shirtArray: [Item] = []
-  var pantsArray: [Item] = []
+  var shoesArray: [Item]        = []
+  var nikeArray: [Item]         = []
+  var slipperArray: [Item]      = []
+  var shirtArray: [Item]        = []
+  var pantsArray: [Item]        = []
   var underclothesArray: [Item] = []
-  var accessoriesArray: [Item] = []
-  var jewelryArray: [Item] = []
+  var accessoriesArray: [Item]  = []
+  var jewelryArray: [Item]      = []
 
   init()
   {
@@ -49,15 +49,15 @@ class Profile
     accessoriesArray.append(Item(make: "Star Earing" , model: "18's", price: "200", ImageName: "Earrings", category: "Accessories", subCategory: "EarRings"))
     jewelryArray.append(Item(make: "Gold" , model: "Rolly", price: "600", ImageName: "Chain", category: "Jewelry", subCategory: "Gold"))
 
-    shoesDic                    = ["Jordans" : shoesArray, "Nike": nikeArray, "Slipper": slipperArray]
-    shirtDic                       = ["Polo" : shirtArray]
-    pantssDic                   = ["Sean John" : pantsArray]
-    underClothesDic     = ["Socks" : underclothesArray]
-    accessoriesDic         = ["Rolex" : accessoriesArray]
-    jewelsDic                    = ["Gold" : jewelryArray]
+    shoesDic                      = ["Jordans" : shoesArray, "Nike": nikeArray, "Slipper": slipperArray]
+    shirtDic                      = ["Polo" : shirtArray]
+    pantssDic                     = ["Sean John" : pantsArray]
+    underClothesDic               = ["Socks" : underclothesArray]
+    accessoriesDic                = ["Rolex" : accessoriesArray]
+    jewelsDic                     = ["Gold" : jewelryArray]
 
 
-    categoryDics = ["Shirt": shirtDic,  "Pants": pantssDic,  "Shoes": shoesDic,  "Accessories": accessoriesDic,  "Underclothes": underClothesDic,  "Jewelry": jewelsDic] as Dictionary
+    categoryDics                  = ["Shirt": shirtDic,  "Pants": pantssDic,  "Shoes": shoesDic,  "Accessories": accessoriesDic,  "Underclothes": underClothesDic,  "Jewelry": jewelsDic] as Dictionary
   }
   
 }

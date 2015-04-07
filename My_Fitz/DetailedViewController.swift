@@ -16,7 +16,7 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
   var itemOfObject: Item!
   var arrayIndex: Int!
   //MARK: - View Methods
-  override func viewDidLoad() 
+  override func viewDidLoad()
   {
     super.viewDidLoad()
     self.setUp()
@@ -34,6 +34,10 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
     // #warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 10
+  }
+
+   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 200
   }
 
   //MARK: - Created Methods

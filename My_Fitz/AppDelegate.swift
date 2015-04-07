@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       Parse.enableLocalDatastore()
       Parse.setApplicationId("vyioCm3Cm0JOwKWMPC8vBziwhnk5elXOl1mEGzVn", clientKey: "3BccKF9lNuvhupwmhGXhmuK3b2kmBraLZvRgn3Yy")
 
+      //AFNetworkActivityIndicatorManager.sharedManager.enabled = true
+
         return true
     }
 
