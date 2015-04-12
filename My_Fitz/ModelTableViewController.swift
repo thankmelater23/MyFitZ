@@ -36,7 +36,7 @@ class ModelTableViewController: UITableViewController
     if segue.identifier == "modelToDetailed"
     {
       var index = self.tableView.indexPathForSelectedRow()
-      var detailController = segue.destinationViewController as DetailedViewController
+      var detailController = segue.destinationViewController as! DetailedViewController
       if let newIndex = index
       {
         arrayIndex = newIndex.row
@@ -62,7 +62,7 @@ class ModelTableViewController: UITableViewController
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
-    let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as ModelCustomCell
+    let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ModelCustomCell
 
     if indexPath.row % 2 == 0//If even number make this color
     {

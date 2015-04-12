@@ -33,7 +33,7 @@
                 {
                   if segue.identifier == "maintToSelection"
                   {
-                    var selectionController = segue.destinationViewController as SelectionViewController
+                    var selectionController = segue.destinationViewController as! SelectionViewController
                     selectionController.profile = self.profile
                     magic("Segue working proplery SELCTIONCONTROLLER: /(selectionController)")
                     

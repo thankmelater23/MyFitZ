@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       Fabric.with([Crashlytics()])
 
       //MARK: - Parse
-      Parse.enableLocalDatastore()
-      Parse.setApplicationId("vyioCm3Cm0JOwKWMPC8vBziwhnk5elXOl1mEGzVn", clientKey: "3BccKF9lNuvhupwmhGXhmuK3b2kmBraLZvRgn3Yy")
+//      Parse.enableLocalDatastore()
+//      Parse.setApplicationId("vyioCm3Cm0JOwKWMPC8vBziwhnk5elXOl1mEGzVn", clientKey: "3BccKF9lNuvhupwmhGXhmuK3b2kmBraLZvRgn3Yy")
 
       //AFNetworkActivityIndicatorManager.sharedManager.enabled = true
 
@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.BangBangStudios.My_Fitz" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {

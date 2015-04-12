@@ -8,6 +8,7 @@
 
 import UIKit
 
+///MakeTableViewController Class
 class MakeTableViewController: UITableViewController
 {
   //MARK: - View IBOutlets
@@ -21,7 +22,48 @@ class MakeTableViewController: UITableViewController
   var subCategoryString: String!
   var passingSubCategoryIndex: Int!
 
-  //MARK: - Created Methods
+  //MARK: - View Methods
+  override func viewDidLoad()
+  {
+    super.viewDidLoad()
+
+    self.setUpTypes()
+  }
+  override func viewDidAppear(animated: Bool)
+  {
+
+    tableView.reloadData()
+  }
+  override func didReceiveMemoryWarning()
+  {
+    super.didReceiveMemoryWarning()
+  }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+  {
+    if segue.identifier == "makeToModel"
+    {
+      var index = self.tableView.indexPathForSelectedRow()
+      var modelController = segue.destinationViewController as! ModelTableViewController
+      let tempItemArray: [Item] = self.itemsInArrayInArray[index!.row]
+      modelController.arrayOfItems = tempItemArray as [Item]!
+      modelController.passingSubCategoryIndex = self.passingSubCategoryIndex
+      magic("Segue working proplery")
+
+//      var parseIsh = PFObject(className: "ModelTable")
+//      parseIsh.addObject(1, forKey: "subCategory")
+//      parseIsh.addObject(1 , forKey: "numberOfItemsInSubCategory")
+//      parseIsh.save()
+    }
+    else
+    {
+      magic("Segue working not proplery")
+    }
+  }
+}
+
+//MARK: - Developer Created Methods
+///Developer Created Methods
+extension MakeTableViewController{
   func setUpTypes()
   {
 
@@ -30,17 +72,20 @@ class MakeTableViewController: UITableViewController
   {
     TypeBarButtonLabel.title = categoryString
   }
+}
 
 
 
   //MARK: - TableView Methods
+  ///TableView Methods
+extension MakeTableViewController{
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
     return itemsInArrayInArray.count
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
-    let cell: MakeCustonCell = tableView.dequeueReusableCellWithIdentifier("cell") as MakeCustonCell
+    let cell: MakeCustonCell = tableView.dequeueReusableCellWithIdentifier("cell") as! MakeCustonCell
 
 
     if indexPath.row % 2 == 0//If even number make this color
@@ -79,43 +124,5 @@ class MakeTableViewController: UITableViewController
   }
   override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
-  }
-
-  //MARK: - View Methods
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-
-    self.setUpTypes()
-  }
-  override func viewDidAppear(animated: Bool)
-  {
-
-    tableView.reloadData()
-  }
-  override func didReceiveMemoryWarning()
-  {
-    super.didReceiveMemoryWarning()
-  }
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    if segue.identifier == "makeToModel"
-    {
-      var index = self.tableView.indexPathForSelectedRow()
-      var modelController = segue.destinationViewController as ModelTableViewController
-      let tempItemArray: [Item] = self.itemsInArrayInArray[index!.row]
-      modelController.arrayOfItems = tempItemArray as [Item]!
-      modelController.passingSubCategoryIndex = self.passingSubCategoryIndex
-      magic("Segue working proplery")
-
-      var parseIsh = PFObject(className: "ModelTable")
-      parseIsh.addObject(1, forKey: "subCategory")
-      parseIsh.addObject(1 , forKey: "numberOfItemsInSubCategory")
-      parseIsh.save()
-    }
-    else
-    {
-      magic("Segue working not proplery")
-    }
   }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bgb-O9-iwO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bgb-O9-iwO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -809,7 +809,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Text Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNs-Cl-d45">
-                                                    <rect key="frame" x="198" y="-1" width="402" height="49"/>
+                                                    <rect key="frame" x="198" y="-1" width="402" height="48"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -836,6 +836,11 @@
                                                 <constraint firstItem="seH-q2-ywh" firstAttribute="leading" secondItem="z53-XJ-ZH4" secondAttribute="leadingMargin" constant="-8" id="jfZ-q1-tQU"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="QNs-Cl-d45" secondAttribute="bottom" constant="-13" id="knh-tm-0U5"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="knh-tm-0U5"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textInputCellLabel" destination="seH-q2-ywh" id="I1w-on-Cf8"/>
@@ -979,6 +984,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="u0A-Xo-IMb"/>
-        <segue reference="mZ6-vJ-yeS"/>
+        <segue reference="vhi-tV-tKe"/>
     </inferredMetricsTieBreakers>
 </document>
