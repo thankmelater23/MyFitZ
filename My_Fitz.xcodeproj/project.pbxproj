@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B9C9E91ADC918900892F97 /* Images.xcassets */; };
 		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
 		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
 		C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */; };
 		C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7801A7070D200353C9B /* ViewController.swift */; };
 		C6CCB7841A7070D200353C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6CCB7821A7070D200353C9B /* Main.storyboard */; };
-		C6CCB7861A7070D200353C9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6CCB7851A7070D200353C9B /* Images.xcassets */; };
 		C6CCB7891A7070D200353C9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CCB7871A7070D200353C9B /* LaunchScreen.xib */; };
 		C6CCB7951A7070D200353C9B /* My_FitzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7941A7070D200353C9B /* My_FitzTests.swift */; };
 		C6CCB7A01A7072FF00353C9B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB79E1A7072FF00353C9B /* Item.swift */; };
@@ -58,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +67,6 @@
 		C6CCB77E1A7070D200353C9B /* My_Fitz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = My_Fitz.xcdatamodel; sourceTree = "<group>"; };
 		C6CCB7801A7070D200353C9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6CCB7831A7070D200353C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C6CCB7851A7070D200353C9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6CCB7881A7070D200353C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C6CCB78E1A7070D200353C9B /* My_FitzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = My_FitzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CCB7931A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 				C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */,
 				C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */,
 				C6CCB77A1A7070D200353C9B /* Info.plist */,
-				C6CCB7851A7070D200353C9B /* Images.xcassets */,
+				C6B9C9E91ADC918900892F97 /* Images.xcassets */,
 				C6CCB7871A7070D200353C9B /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
@@ -336,9 +336,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */,
 				C6CCB7841A7070D200353C9B /* Main.storyboard in Resources */,
 				C6CCB7891A7070D200353C9B /* LaunchScreen.xib in Resources */,
-				C6CCB7861A7070D200353C9B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
