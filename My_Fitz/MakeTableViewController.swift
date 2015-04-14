@@ -9,8 +9,7 @@
 import UIKit
 
 ///MakeTableViewController Class
-class MakeTableViewController: UITableViewController
-{
+class MakeTableViewController: UITableViewController{
   //MARK: - View IBOutlets
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
 
@@ -22,7 +21,7 @@ class MakeTableViewController: UITableViewController
   var subCategoryString: String!
   var passingSubCategoryIndex: Int!
 
-
+  
   //MARK: - View Methods
   override func viewDidLoad(){
     super.viewDidLoad()

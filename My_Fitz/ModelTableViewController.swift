@@ -16,15 +16,14 @@ class ModelTableViewController: UITableViewController {
   var passingSubCategoryIndex: Int!
   var arrayIndex: Int!
 
+
   //MARK: - View Methods
-  override func viewDidLoad()
-  {
+  override func viewDidLoad(){
     super.viewDidLoad()
     self.SetUpTypes()
 
   }
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == "modelToDetailed"
     {
       var index = self.tableView.indexPathForSelectedRow()
@@ -50,7 +49,6 @@ class ModelTableViewController: UITableViewController {
 
 ///ModelTableViewController TableView Methods
 extension ModelTableViewController{
-
   //MARK: - TableView Methods
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return arrayOfItems.count
@@ -98,7 +96,6 @@ extension ModelTableViewController{
 
     return makeString
   }
-
   ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
   override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
@@ -109,8 +106,8 @@ extension ModelTableViewController{
 ///ModelTableViewController Developer Created Methods
 extension ModelTableViewController{
   func SetUpTypes() {
-
+    
     magic(arrayOfItems)
-
+    
   }
 }

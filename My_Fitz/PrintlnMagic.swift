@@ -20,8 +20,7 @@ import Foundation
     :param: line     Defaults to the line number within the file in which println() was called. Do not override this default.
 
 */
-public func println<T>(object: T, _ file: String = __FILE__, _ function: String = __FUNCTION__, _ line: Int = __LINE__)
-{
+public func println<T>(object: T, _ file: String = __FILE__, _ function: String = __FUNCTION__, _ line: Int = __LINE__){
     let filename = file.lastPathComponent.stringByDeletingPathExtension
     print("\(filename).\(function)[\(line)]: \(object)\n")
 }
@@ -40,8 +39,7 @@ This functional also augments the original function with the filename, function 
 :param: line     Defaults to the line number within the file in which magic() was called. Do not override this default.
 
 */
-public func magic<T>(object: T, _ file: String = __FILE__, _ function: String = __FUNCTION__, _ line: Int = __LINE__)
-{
+public func magic<T>(object: T, _ file: String = __FILE__, _ function: String = __FUNCTION__, _ line: Int = __LINE__){
     let filename = file.lastPathComponent.stringByDeletingPathExtension
     print("\(filename).\(function)[\(line)]: \(object)\n")
 }

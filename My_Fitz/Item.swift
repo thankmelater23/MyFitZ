@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Item
-{
+class Item{
   //Item info
   var make: String!
   var model: String!
@@ -27,8 +26,8 @@ class Item
   var datePurchased: NSDate!
   var favorited: Bool = false
 
-  init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String)
-  {
+
+  init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
     self.make = make
     self.model = model
     self.category = category
@@ -38,9 +37,7 @@ class Item
     self.timesWorn = 0
     self.favorited = false
   }
-
-  func makeItem(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String)
-  {
+  func makeItem(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
     self.make = make
     self.model = model
     self.category = category
@@ -50,5 +47,4 @@ class Item
     self.timesWorn = 0
     self.favorited = false
   }
-
 }

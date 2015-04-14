@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class Profile
-{
+class Profile{
   var categoryDics: [String:  [String:  [Item]]] //=  [String,  [String, [Item]]]()
 
   var selectionStringPlaceHolder: String?
@@ -34,10 +33,7 @@ class Profile
   var accessoriesArray: [Item]  = []
   var jewelryArray: [Item]      = []
 
-  init()
-  {
-
-
+  init(){
     //Array initialization
     shoesArray.append(Item(make: "Jordans" , model: "13's", price: "200", ImageName: "13's", category: "Shoes", subCategory: "Jordans"))
     shoesArray.append(Item(make: "Jordans" , model: "8's", price: "200", ImageName: "8's", category: "Shoes", subCategory: "Jordans"))

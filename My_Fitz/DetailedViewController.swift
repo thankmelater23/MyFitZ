@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class DetailedViewController: UIViewController//, UITableViewDelegate, UITableViewDataSource
+class DetailedViewController: UIViewController
 {
   //MARK: - View IBOutlets
   @IBOutlet var itemImage: UIImageView!
@@ -24,6 +24,12 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
 
     // Do view setup here.
   }
+  //MARK: - Created Methods
+}
+
+
+
+extension DetailedViewController{
   // MARK: - Table view data source
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     // #warning Potentially incomplete method implementation.
@@ -35,14 +41,16 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
     // Return the number of rows in the section.
     return 10
   }
-
-   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
+}
 
-  //MARK: - Created Methods
-  func setUp()
-  {
+
+
+///DetailedViewController Developer Created Methods
+extension DetailedViewController{
+  func setUp(){
     itemImage.image = UIImage(named: itemOfObject.imageName) as UIImage!
     //Warning Finsish setting up
   }
