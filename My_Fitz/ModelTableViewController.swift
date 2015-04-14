@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ModelTableViewController: UITableViewController
-{
+class ModelTableViewController: UITableViewController {
   //MARK: - View Variables
   ///items in an Array holds the sub-categories of the items
   var arrayOfItems: [Item]!
   ///Holds String To The Name Of The Previous Category
   var passingSubCategoryIndex: Int!
-
   var arrayIndex: Int!
 
   //MARK: - View Methods
@@ -23,12 +21,6 @@ class ModelTableViewController: UITableViewController
   {
     super.viewDidLoad()
     self.SetUpTypes()
-
-  }
-  func SetUpTypes()
-  {
-
-    magic(arrayOfItems)
 
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -53,15 +45,18 @@ class ModelTableViewController: UITableViewController
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
+}
+
+
+///ModelTableViewController TableView Methods
+extension ModelTableViewController{
 
   //MARK: - TableView Methods
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-  {
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return arrayOfItems.count
 
   }
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-  {
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ModelCustomCell
 
     if indexPath.row % 2 == 0//If even number make this color
@@ -81,8 +76,7 @@ class ModelTableViewController: UITableViewController
     return cell
 
   }
-  override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-  {
+  override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
       arrayOfItems.removeAtIndex(indexPath.row)
@@ -90,13 +84,11 @@ class ModelTableViewController: UITableViewController
       self.tableView.reloadData()
     }
   }
-  override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-  {
+  override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
   }
-  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-  {
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     //FIXME: - This Needs proper string
     var makeString: String! = " "
     if (makeString.isEmpty == true)
@@ -108,10 +100,17 @@ class ModelTableViewController: UITableViewController
   }
 
   ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
-  override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-  {
+  override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
-  
 }
 
+
+///ModelTableViewController Developer Created Methods
+extension ModelTableViewController{
+  func SetUpTypes() {
+
+    magic(arrayOfItems)
+
+  }
+}

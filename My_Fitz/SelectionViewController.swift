@@ -22,8 +22,7 @@ class SelectionViewController: UIViewController
 
   //MARK: - View IBActions
   ///An action that takes the buttonn(sender).text and stores it into categoryString
-  @IBAction func selectionType(sender: AnyObject)
-  {
+  @IBAction func selectionType(sender: AnyObject){
     categoryString = sender.currentTitle as String!
 
     if categoryString != nil
@@ -33,16 +32,13 @@ class SelectionViewController: UIViewController
   }
 
   //MARK: - View Methods
-  override func viewDidLoad()
-  {
+  override func viewDidLoad(){
     doneButton.hidden = true
 
     super.viewDidLoad()
     // Do view setup here.
   }
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == "selectionToMake"
     {
       var makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController

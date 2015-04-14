@@ -22,24 +22,21 @@ class MakeTableViewController: UITableViewController
   var subCategoryString: String!
   var passingSubCategoryIndex: Int!
 
+
   //MARK: - View Methods
-  override func viewDidLoad()
-  {
+  override func viewDidLoad(){
     super.viewDidLoad()
 
     self.setUpTypes()
   }
-  override func viewDidAppear(animated: Bool)
-  {
+  override func viewDidAppear(animated: Bool){
 
     tableView.reloadData()
   }
-  override func didReceiveMemoryWarning()
-  {
+  override func didReceiveMemoryWarning(){
     super.didReceiveMemoryWarning()
   }
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == "makeToModel"
     {
       var index = self.tableView.indexPathForSelectedRow()
@@ -61,15 +58,15 @@ class MakeTableViewController: UITableViewController
   }
 }
 
+
+
 //MARK: - Developer Created Methods
 ///Developer Created Methods
 extension MakeTableViewController{
-  func setUpTypes()
-  {
+  func setUpTypes(){
 
   }
-  func selection()
-  {
+  func selection(){
     TypeBarButtonLabel.title = categoryString
   }
 }
@@ -79,12 +76,10 @@ extension MakeTableViewController{
   //MARK: - TableView Methods
   ///TableView Methods
 extension MakeTableViewController{
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-  {
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
     return itemsInArrayInArray.count
   }
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-  {
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     let cell: MakeCustonCell = tableView.dequeueReusableCellWithIdentifier("cell") as! MakeCustonCell
 
 
@@ -103,8 +98,7 @@ extension MakeTableViewController{
 
     return cell
   }
-  override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-  {
+  override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
       itemsInArrayInArray.removeAtIndex(indexPath.row)
@@ -112,13 +106,11 @@ extension MakeTableViewController{
       self.tableView.reloadData()
     }
   }
-  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-  {
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
     return categoryString
 
   }
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-  {
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     passingSubCategoryIndex = indexPath.row
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }

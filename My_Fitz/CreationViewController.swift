@@ -24,7 +24,12 @@ class CreationViewController: UIViewController
     // Dispose of any resources that can be recreated.
 
   }
+}
 
+
+///CreationViewController TableView Methods
+extension  CreationViewController
+{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("textInput") as! CreationUITableViewCell
 
@@ -38,9 +43,10 @@ class CreationViewController: UIViewController
     return 1 // Most of the time my data source is an array of something...  will replace with the actual name of the data source
   }
 
-   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
+
 }
 
 

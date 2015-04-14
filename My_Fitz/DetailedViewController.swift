@@ -15,15 +15,15 @@ class DetailedViewController: UIViewController//, UITableViewDelegate, UITableVi
   //MARK: - View Variables
   var itemOfObject: Item!
   var arrayIndex: Int!
+
+
   //MARK: - View Methods
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
     self.setUp()
 
     // Do view setup here.
   }
-
   // MARK: - Table view data source
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     // #warning Potentially incomplete method implementation.
