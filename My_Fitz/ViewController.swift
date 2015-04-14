@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
-{
-
+class ViewController: UIViewController{
   var profile: Profile!
 
   override func viewDidLoad(){

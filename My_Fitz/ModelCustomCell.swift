@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 
-class ModelCustomCell: UITableViewCell
-{
+class ModelCustomCell: UITableViewCell{
     @IBOutlet weak var modelImage: UIImageView!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!

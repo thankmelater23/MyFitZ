@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-class CreationUITableViewCell: UITableViewCell
-{
+class CreationUITableViewCell: UITableViewCell{
   @IBOutlet var textInputCellLabel: UILabel!
   @IBOutlet var textInputCellTextField: UITextField!
 
-  func configure(#text: String?, labelString: String!, placeHolder: String!)
-  {
+  func configure(#text: String?, labelString: String!, placeHolder: String!){
     textInputCellTextField.text = ""
     textInputCellTextField.placeholder = placeHolder
     textInputCellLabel.text = labelString

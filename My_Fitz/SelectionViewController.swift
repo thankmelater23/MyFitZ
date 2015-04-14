@@ -9,16 +9,15 @@ import UIKit
 
 
 
-class SelectionViewController: UIViewController
-{
+class SelectionViewController: UIViewController{
   //MARK: - IBOutlets
   ///Button that appears after a selection has been made
   @IBOutlet var doneButton: UIButton!
   //MARK: - View Variables
   var profile: Profile!
-
   /// A string that holds what category to open up
   var categoryString: String!
+
 
   //MARK: - View IBActions
   ///An action that takes the buttonn(sender).text and stores it into categoryString
@@ -31,7 +30,6 @@ class SelectionViewController: UIViewController
     }
   }
 
-  
   //MARK: - View Methods
   override func viewDidLoad(){
     doneButton.hidden = true

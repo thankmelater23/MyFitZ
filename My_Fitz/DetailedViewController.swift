@@ -7,8 +7,7 @@
 //
 import UIKit
 
-class DetailedViewController: UIViewController
-{
+class DetailedViewController: UIViewController{
   //MARK: - View IBOutlets
   @IBOutlet var itemImage: UIImageView!
 
