@@ -8,35 +8,48 @@
 
 import Foundation
 
-///Enum for category
-enum category
-{
-  case shoes
-  case shirt
-  case pants
-  case accessories
-  case jewelry
-  case underclothes
-}
+
 
 ///Holds all the information to an item
 class Item{
+  //MARK: - Category enum
+  ///Enum for category
+  enum category
+  {
+    case shoes
+    case shirt
+    case pants
+    case accessories
+    case jewelry
+    case underclothes
+  }
+
+
+  ///MARK: - Item Required defined values
   //Item info
   var make: String!
   var model: String!
-  var price: String!
-  var imageName: String!
-  var arrayOfItemImages : [AnyObject] = []//Suppose to be UIImages
-
-  //Item Section
   var category : String!
   var subCategory : String!
-
-  //Item interactions
+  var index : Int!
+  var price: String!
+  var favorited: Bool = false
+  var imageName: String!
   var timesWorn: Int! = 0
   var lastTimeWorn: Double?
+  var arrayOfItemImages : [AnyObject] = []//Suppose to be UIImages
+  var isThisNew: Bool!
+
+  ///MARK: - Item Required defined values
   var datePurchased: NSDate!
-  var favorited: Bool = false
+  //var colors
+  //var dateReleased
+  //var retailPrice
+  //var condition
+  //var material
+  //var storeLocationOrSitePurchasedFrom
+  //var arrayOfImages
+  //var numberOfDifferentFitsWornWith
 
 
   init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
@@ -59,4 +72,5 @@ class Item{
     self.timesWorn = 0
     self.favorited = false
   }
+
 }

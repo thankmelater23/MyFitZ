@@ -15,4 +15,5 @@ class Fit{
   var lastTimeWOrn: Bool!
   var fitTotalPrice: Double!
   var mostExpensiveItem: Item!
+  var mostDiverseItem: Item!
 }
