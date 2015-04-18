@@ -11,6 +11,12 @@ import UIKit
 class CreationViewController: UIViewController{
   @IBOutlet var categoryInputTextField: UITextField!
   @IBOutlet var subCategoryInputTextField: UITextField!
+  ///Holds the optional and required dictionaries
+  var itemInfoDictionaries = [[String: String]]()
+  ///Holds the required information from the item
+  let itemInfoRequiredDictionary = [String, String]()
+  ///Holds the optional information from the item
+  let itemInfoOptionalDictionary = [String, String]()
 
   
   override func viewDidLoad() {

@@ -9,11 +9,20 @@ import UIKit
 
 class DetailedViewController: UIViewController{
   //MARK: - View IBOutlets
+  ///Views main image of the Item being presented
   @IBOutlet var itemImage: UIImageView!
 
   //MARK: - View Variables
+  ///Item selected
   var itemOfObject: Item!
+  ///Items index place in array
   var arrayIndex: Int!
+  ///Holds the optional and required dictionaries
+  var itemInfoDictionaries = [[String: String]]()
+  ///Holds the required information from the item
+  let itemInfoRequiredDictionary = [String: String]()
+  ///Holds the optional information from the item
+  let itemInfoOptionalDictionary = [String: String]()
 
 
   //MARK: - View Methods
@@ -33,7 +42,7 @@ extension DetailedViewController{
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     // #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0
+    return itemInfoDictionaries.count
   }
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete method implementation.
@@ -51,6 +60,16 @@ extension DetailedViewController{
 extension DetailedViewController{
   func setUp(){
     itemImage.image = UIImage(named: itemOfObject.imageName) as UIImage!
-    //Warning Finsish setting up
+
+  }//Sets up view
+
+  func retrieveRequiredDicInfo(requiredDic: [String: String]){
+    //FIXME: - Finish implementing correctly
+    //self.itemInfoRequiredDictionary = requiredDic
+  }
+
+  func retrieveOptionalDicInfo(optionalDic: [String: String]){
+    //FIXME: - Finish implementing correctly
+    //self.itemInfoRequiredDictionary = requiredDic
   }
 }

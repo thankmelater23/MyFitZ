@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController{
+  ///A variable that holds the entire sytstem tree  of the project
   var profile: Profile!
 
   override func viewDidLoad(){

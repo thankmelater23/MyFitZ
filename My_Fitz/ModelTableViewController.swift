@@ -14,6 +14,7 @@ class ModelTableViewController: UITableViewController {
   var arrayOfItems: [Item]!
   ///Holds String To The Name Of The Previous Category
   var passingSubCategoryIndex: Int!
+    ///Holds index To The selecgted cell
   var arrayIndex: Int!
 
 

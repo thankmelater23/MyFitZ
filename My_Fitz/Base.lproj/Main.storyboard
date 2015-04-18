@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bgb-O9-iwO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bgb-O9-iwO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2No-5D-ZdP">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2No-5D-ZdP">
                                 <rect key="frame" x="250" y="492" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -29,25 +29,16 @@
                                 <state key="normal" title="Wants">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2qh-Rf-9vg"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="bSz-CY-cts" kind="show" identifier="wantsToSelection" id="u0A-Xo-IMb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZY-Mh-avb">
-                                <rect key="frame" x="250" y="72" width="100" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Dkm-fH-K7N"/>
-                                    <constraint firstAttribute="width" constant="100" id="wUP-w0-8Jr"/>
-                                </constraints>
-                                <state key="normal" title="Closet">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bSz-CY-cts" kind="push" identifier="maintToSelection" id="2XV-p6-P2f"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-xK-0NJ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-xK-0NJ">
                                 <rect key="frame" x="250" y="250" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -67,12 +58,33 @@
                                     <segue destination="dT4-Vy-4bB" kind="show" identifier="mainToFitMaker" id="lA1-s0-XFX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZY-Mh-avb">
+                                <rect key="frame" x="250" y="72" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Dkm-fH-K7N"/>
+                                    <constraint firstAttribute="width" constant="100" id="wUP-w0-8Jr"/>
+                                </constraints>
+                                <state key="normal" title="Closet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Dkm-fH-K7N"/>
+                                        <exclude reference="wUP-w0-8Jr"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="bSz-CY-cts" kind="push" identifier="maintToSelection" id="2XV-p6-P2f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SZY-Mh-avb" firstAttribute="trailing" secondItem="NpU-xK-0NJ" secondAttribute="trailing" id="3Wl-a2-a3K"/>
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="height" secondItem="SZY-Mh-avb" secondAttribute="height" id="4BH-ti-Rwf"/>
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" priority="750" id="70C-ei-cTY"/>
+                            <constraint firstItem="NpU-xK-0NJ" firstAttribute="width" secondItem="2No-5D-ZdP" secondAttribute="width" id="7E3-De-6ED"/>
                             <constraint firstAttribute="centerX" secondItem="SZY-Mh-avb" secondAttribute="centerX" id="8MS-Q0-vhp"/>
                             <constraint firstItem="2No-5D-ZdP" firstAttribute="leading" secondItem="NpU-xK-0NJ" secondAttribute="leading" id="8cf-Um-IU6"/>
                             <constraint firstAttribute="centerX" secondItem="2No-5D-ZdP" secondAttribute="centerX" id="9Xn-Gx-Tl1"/>
@@ -87,6 +99,7 @@
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="width" secondItem="SZY-Mh-avb" secondAttribute="height" multiplier="1:1" id="ltv-Qd-kLc"/>
                             <constraint firstItem="SZY-Mh-avb" firstAttribute="leading" secondItem="NpU-xK-0NJ" secondAttribute="leading" id="nJK-qo-gxr"/>
                             <constraint firstAttribute="centerX" secondItem="NpU-xK-0NJ" secondAttribute="centerX" id="qZt-6A-ic1"/>
+                            <constraint firstItem="NpU-xK-0NJ" firstAttribute="height" secondItem="2No-5D-ZdP" secondAttribute="height" id="xde-yf-rHB"/>
                             <constraint firstItem="2No-5D-ZdP" firstAttribute="width" secondItem="NpU-xK-0NJ" secondAttribute="width" id="zsc-ux-rPF"/>
                         </constraints>
                         <variation key="default">
@@ -126,19 +139,6 @@
                                 </state>
                                 <connections>
                                     <action selector="selectionType:" destination="bSz-CY-cts" eventType="touchUpInside" id="dtZ-w8-nEq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4p-Cd-soK" userLabel="Underclothes Button">
-                                <rect key="frame" x="16" y="379" width="106" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="DQF-Bd-VGO"/>
-                                </constraints>
-                                <state key="normal" title="Underclothes" backgroundImage="IMG_0374">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectionType:" destination="bSz-CY-cts" eventType="touchUpInside" id="Lnn-to-aO3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGh-PJ-XbF" userLabel="Accessories Button">
@@ -233,8 +233,8 @@
                                     <segue destination="s0P-1K-Y6L" kind="show" identifier="selectionToMake" id="Ru2-ay-t54"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-aU-g3Y" userLabel="Shirt Button">
-                                <rect key="frame" x="16" y="121" width="106" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-aU-g3Y" userLabel="Shirt Button">
+                                <rect key="frame" x="16" y="121" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9lL-iQ-hEF"/>
@@ -245,6 +245,19 @@
                                 </state>
                                 <connections>
                                     <action selector="selectionType:" destination="bSz-CY-cts" eventType="touchUpInside" id="WOv-fP-Wg9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4p-Cd-soK" userLabel="Underclothes Button">
+                                <rect key="frame" x="16" y="379" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="DQF-Bd-VGO"/>
+                                </constraints>
+                                <state key="normal" title="Underclothes" backgroundImage="IMG_0374">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectionType:" destination="bSz-CY-cts" eventType="touchUpInside" id="Lnn-to-aO3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -532,7 +545,7 @@
                                 <rect key="frame" x="0.0" y="272" width="600" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="name" id="eHp-oE-snI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoubleLabel" id="eHp-oE-snI" customClass="DoubleLabelTableViewCell" customModule="My_Fitz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eHp-oE-snI" id="xqw-oK-cmZ">
@@ -544,12 +557,21 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSh-HT-uTm">
+                                                    <rect key="frame" x="187" y="11" width="405" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hWx-nw-b24" firstAttribute="centerY" secondItem="xqw-oK-cmZ" secondAttribute="centerY" id="6HR-XB-nUT"/>
                                                 <constraint firstItem="hWx-nw-b24" firstAttribute="leading" secondItem="xqw-oK-cmZ" secondAttribute="leadingMargin" id="UnM-o1-UG4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="hWx-nw-b24" id="yOH-Im-ZNV"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="brand" id="M0I-WQ-LAL">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -952,7 +974,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLF-d1-T11" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="281"/>
+            <point key="canvasLocation" x="1583" y="322"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2z0-AG-dzV">
@@ -983,7 +1005,7 @@
         <image name="IMG_0374" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="hOA-yn-cxZ"/>
         <segue reference="u0A-Xo-IMb"/>
-        <segue reference="vhi-tV-tKe"/>
     </inferredMetricsTieBreakers>
 </document>

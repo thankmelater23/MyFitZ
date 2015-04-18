@@ -8,6 +8,18 @@
 
 import Foundation
 
+///Enum for category
+enum category
+{
+  case shoes
+  case shirt
+  case pants
+  case accessories
+  case jewelry
+  case underclothes
+}
+
+///Holds all the information to an item
 class Item{
   //Item info
   var make: String!

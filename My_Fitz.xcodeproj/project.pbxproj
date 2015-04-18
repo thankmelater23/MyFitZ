@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9572BE06F6AB57E54757FE90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66070154EE7533D87A361876 /* libPods.a */; };
+		C60380E21ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */; };
 		C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B9C9E91ADC918900892F97 /* Images.xcassets */; };
 		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
 		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
@@ -44,6 +46,7 @@
 		C6FDC1821ACBD912003C2895 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1811ACBD912003C2895 /* Foundation.framework */; };
 		C6FDC1841ACBD939003C2895 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1831ACBD939003C2895 /* UIKit.framework */; };
 		C6FDC1861ACBDBED003C2895 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1851ACBDBED003C2895 /* Social.framework */; };
+		C9484265A6FD0E92FC627F3B /* libPods-My_Fitz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694E497E6B4209B5B6AC14DF /* libPods-My_Fitz.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		515B6D32CE030597F6041D69 /* Pods-My_Fitz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.debug.xcconfig"; sourceTree = "<group>"; };
+		66070154EE7533D87A361876 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		694E497E6B4209B5B6AC14DF /* libPods-My_Fitz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My_Fitz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8938CCC8DB975095DE8506A3 /* Pods-My_Fitz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.release.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.release.xcconfig"; sourceTree = "<group>"; };
+		C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -131,6 +139,8 @@
 				C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */,
 				C6FDC15A1ACBAAD3003C2895 /* Parse.framework in Frameworks */,
 				C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */,
+				C9484265A6FD0E92FC627F3B /* libPods-My_Fitz.a in Frameworks */,
+				9572BE06F6AB57E54757FE90 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BC7A4DD8D31D5C395EC1050 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				515B6D32CE030597F6041D69 /* Pods-My_Fitz.debug.xcconfig */,
+				8938CCC8DB975095DE8506A3 /* Pods-My_Fitz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C671E3D41ADB3A8500A73593 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +179,7 @@
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
 				C6CCB7771A7070D200353C9B /* Products */,
 				C6FDC1741ACBD2DF003C2895 /* Frameworks */,
+				5BC7A4DD8D31D5C395EC1050 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,16 +196,17 @@
 			isa = PBXGroup;
 			children = (
 				C671E3D41ADB3A8500A73593 /* Models */,
-				C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */,
-				C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */,
 				C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */,
 				C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */,
+				C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */,
 				C6CCB7801A7070D200353C9B /* ViewController.swift */,
 				C6CCB7A81A70735C00353C9B /* SelectionViewController.swift */,
 				C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */,
 				C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */,
 				C6CCB7A61A70734800353C9B /* DetailedViewController.swift */,
+				C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */,
 				C6CCB7821A7070D200353C9B /* Main.storyboard */,
+				C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */,
 				C6CCB7791A7070D200353C9B /* Supporting Files */,
 			);
 			path = My_Fitz;
@@ -250,6 +271,8 @@
 				C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */,
 				C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */,
 				C6526AC41ABD0C1200748141 /* Reveal.framework */,
+				694E497E6B4209B5B6AC14DF /* libPods-My_Fitz.a */,
+				66070154EE7533D87A361876 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,10 +284,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6CCB7981A7070D200353C9B /* Build configuration list for PBXNativeTarget "My_Fitz" */;
 			buildPhases = (
+				31BF7912C9AC9552CF4DA07A /* Check Pods Manifest.lock */,
 				C6CCB7721A7070D200353C9B /* Sources */,
 				C6CCB7731A7070D200353C9B /* Frameworks */,
 				C6CCB7741A7070D200353C9B /* Resources */,
 				C6BC15DB1AC1A57700DF23C2 /* ShellScript */,
+				3C7393972B790E7D6F5D3488 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,6 +377,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		31BF7912C9AC9552CF4DA07A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3C7393972B790E7D6F5D3488 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C6BC15DB1AC1A57700DF23C2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +434,7 @@
 				C6CCB7A51A70733100353C9B /* MakeCustomCell.swift in Sources */,
 				C6CCB7A91A70735C00353C9B /* SelectionViewController.swift in Sources */,
 				C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */,
+				C60380E21ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift in Sources */,
 				C6CCB7A41A70733100353C9B /* ModelCustomCell.swift in Sources */,
 				C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */,
 				C6E790ED1AA82B1C00D00952 /* PrintlnMagic.swift in Sources */,
@@ -508,6 +564,7 @@
 		};
 		C6CCB7991A7070D200353C9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 515B6D32CE030597F6041D69 /* Pods-My_Fitz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -537,6 +594,7 @@
 		};
 		C6CCB79A1A7070D200353C9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8938CCC8DB975095DE8506A3 /* Pods-My_Fitz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

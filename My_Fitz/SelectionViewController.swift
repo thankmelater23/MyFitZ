@@ -14,8 +14,9 @@ class SelectionViewController: UIViewController{
   ///Button that appears after a selection has been made
   @IBOutlet var doneButton: UIButton!
   //MARK: - View Variables
+  ///A variable that holds the entire sytstem tree  of the project
   var profile: Profile!
-  /// A string that holds what category to open up
+  /// A string that holds the selected category
   var categoryString: String!
 
 

@@ -16,12 +16,16 @@ class MakeTableViewController: UITableViewController{
   //MARK: - View Variables
   ///items in an Array of Arrays holds the categories of the items
   var itemsInArrayInArray: [[Item]]!
+  ///Holds the keys of Name of strings from a dictionary
   var arrayOfCategoryNames = [String]()
+  ///Holds the  seleceted Category String  To Send to  ModelTableView
   var categoryString: String!
+  ///Holds the  seleceted Sub-Category String  To Send to  ModelTableView
   var subCategoryString: String!
+  ///Holds the  seleceted Category index  To Send to  ModelTableView
   var passingSubCategoryIndex: Int!
 
-  
+
   //MARK: - View Methods
   override func viewDidLoad(){
     super.viewDidLoad()
@@ -64,7 +68,7 @@ class MakeTableViewController: UITableViewController{
 extension MakeTableViewController{
   func setUpTypes(){
 
-  }
+  }//Sets up
   func selection(){
     TypeBarButtonLabel.title = categoryString
   }
