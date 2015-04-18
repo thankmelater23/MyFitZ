@@ -63,11 +63,13 @@ extension DetailedViewController{
 
   }//Sets up view
 
+  ///Takes required dictionary and matches its info with that of the newley created Item object
   func retrieveRequiredDicInfo(requiredDic: [String: String]){
     //FIXME: - Finish implementing correctly
     //self.itemInfoRequiredDictionary = requiredDic
   }
 
+  ///Takes optional dictionary and matches its info with that of the newley created Item object
   func retrieveOptionalDicInfo(optionalDic: [String: String]){
     //FIXME: - Finish implementing correctly
     //self.itemInfoRequiredDictionary = requiredDic

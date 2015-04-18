@@ -48,6 +48,18 @@ extension  CreationViewController{
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
+
+  ///Takes required dic and matches its info with that of the newley created Item object
+  func insertRequiredDicInfoIntoItem(requiredDic: [String: String]){
+    //FIXME: - Finish implementing correctly
+    //self.itemInfoRequiredDictionary = requiredDic
+  }
+
+  ///Takes optional dic and matches its info with that of the newley created Item object
+  func insertOptionalDicInfo(optionalDicInfoIntoItem: [String: String]){
+    //FIXME: - Finish implementing correctly
+    //self.itemInfoRequiredDictionary = requiredDic
+  }
 }
 
 

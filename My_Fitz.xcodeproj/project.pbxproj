@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9572BE06F6AB57E54757FE90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66070154EE7533D87A361876 /* libPods.a */; };
 		C60380E21ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */; };
+		C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
+		C615A7901AE2A69100D055D2 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78F1AE2A69100D055D2 /* Fit.swift */; };
 		C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B9C9E91ADC918900892F97 /* Images.xcassets */; };
 		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
 		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
@@ -65,6 +67,8 @@
 		694E497E6B4209B5B6AC14DF /* libPods-My_Fitz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My_Fitz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8938CCC8DB975095DE8506A3 /* Pods-My_Fitz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.release.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.release.xcconfig"; sourceTree = "<group>"; };
 		C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
+		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
+		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			children = (
 				C6CCB79F1A7072FF00353C9B /* Profile.swift */,
 				C6CCB79E1A7072FF00353C9B /* Item.swift */,
+				C615A78D1AE2A67500D055D2 /* Closet.swift */,
+				C615A78F1AE2A69100D055D2 /* Fit.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6CCB7A01A7072FF00353C9B /* Item.swift in Sources */,
+				C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */,
 				C6CCB7A11A7072FF00353C9B /* Profile.swift in Sources */,
 				C6CCB7A71A70734800353C9B /* DetailedViewController.swift in Sources */,
 				C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */,
@@ -441,6 +448,7 @@
 				C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */,
 				C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */,
 				C6F1A4D91ACF8D2C00434605 /* CreationUITableViewCell.swift in Sources */,
+				C615A7901AE2A69100D055D2 /* Fit.swift in Sources */,
 				C6F1A4DB1ACF8F6500434605 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
