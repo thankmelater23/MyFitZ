@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - ModelTableViewController Class
 class ModelTableViewController: UITableViewController {
   //MARK: - View Variables
   ///items in an Array holds the sub-categories of the items
@@ -47,10 +48,9 @@ class ModelTableViewController: UITableViewController {
   }
 }
 
-
+//MARK: - TableView Methods
 ///ModelTableViewController TableView Methods
 extension ModelTableViewController{
-  //MARK: - TableView Methods
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return arrayOfItems.count
 
@@ -75,14 +75,6 @@ extension ModelTableViewController{
     return cell
 
   }
-  override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == UITableViewCellEditingStyle.Delete
-    {
-      arrayOfItems.removeAtIndex(indexPath.row)
-
-      self.tableView.reloadData()
-    }
-  }
   override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
@@ -101,9 +93,20 @@ extension ModelTableViewController{
   override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                forRowAtIndexPath indexPath: NSIndexPath) {
+      if editingStyle == UITableViewCellEditingStyle.Delete
+      {
+        arrayOfItems.removeAtIndex(indexPath.row)
+
+        self.tableView.reloadData()
+      }
+  }
 }
 
 
+
+//MARK: - Developer Created Methods
 ///ModelTableViewController Developer Created Methods
 extension ModelTableViewController{
   func SetUpTypes() {

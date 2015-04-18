@@ -27,20 +27,16 @@ class Item{
 
   ///MARK: - Item Required defined values
   //Item info
-  var make: String!
-  var model: String!
-  var category : String!
-  var subCategory : String!
-  var index : Int!
+  var make: String!, model: String!
+  var category : String!, subCategory : String!, index : Int!
   var price: String!
   var favorited: Bool = false
   var imageName: String!
   var timesWorn: Int! = 0
   var lastTimeWorn: Double?
-  var arrayOfItemImages : [AnyObject] = []//Suppose to be UIImages
   var isThisNew: Bool!
 
-  ///MARK: - Item Required defined values
+  //MARK: - Item Required defined values
   var datePurchased: NSDate!
   //var colors
   //var dateReleased
@@ -50,6 +46,12 @@ class Item{
   //var storeLocationOrSitePurchasedFrom
   //var arrayOfImages
   //var numberOfDifferentFitsWornWith
+
+  //MARK: - Dictionaries
+  ///Holds the required information from the item that is meant to be passed on two other dictionaries
+  var requiredDictionary = [String, String]()
+  ///Holds the optional information from the item that is meant to be passed on two other dictionaries
+  let optionalDictionary = [String, String]()
 
 
   init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
@@ -62,6 +64,13 @@ class Item{
     self.timesWorn = 0
     self.favorited = false
   }
+}
+
+extension Item{
+  //TODO: - Retruns self needs to be set up to create and make a new item
+  func createItem(requiredDic: [String: String], optionalDic: [String: String]?) -> Item{
+    return self
+  }
   func makeItem(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
     self.make = make
     self.model = model
@@ -72,5 +81,4 @@ class Item{
     self.timesWorn = 0
     self.favorited = false
   }
-
 }

@@ -172,11 +172,11 @@
 		C671E3D41ADB3A8500A73593 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C615A7911AE2ABD200D055D2 /* Constants.swift */,
+				C615A78F1AE2A69100D055D2 /* Fit.swift */,
+				C615A78D1AE2A67500D055D2 /* Closet.swift */,
 				C6CCB79F1A7072FF00353C9B /* Profile.swift */,
 				C6CCB79E1A7072FF00353C9B /* Item.swift */,
-				C615A7911AE2ABD200D055D2 /* Constants.swift */,
-				C615A78D1AE2A67500D055D2 /* Closet.swift */,
-				C615A78F1AE2A69100D055D2 /* Fit.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -208,6 +208,7 @@
 				C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */,
 				C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */,
 				C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */,
+				C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */,
 				C6CCB7801A7070D200353C9B /* ViewController.swift */,
 				C6CCB7A81A70735C00353C9B /* SelectionViewController.swift */,
 				C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */,
@@ -215,7 +216,6 @@
 				C6CCB7A61A70734800353C9B /* DetailedViewController.swift */,
 				C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */,
 				C6CCB7821A7070D200353C9B /* Main.storyboard */,
-				C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */,
 				C6CCB7791A7070D200353C9B /* Supporting Files */,
 			);
 			path = My_Fitz;

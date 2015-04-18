@@ -10,10 +10,10 @@ import UIKit
 
 ///MakeTableViewController Class
 class MakeTableViewController: UITableViewController{
-  //MARK: - View IBOutlets
+  //View IBOutlets
   @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
 
-  //MARK: - View Variables
+  //View Variables
   ///items in an Array of Arrays holds the categories of the items
   var itemsInArrayInArray: [[Item]]!
   ///Holds the keys of Name of strings from a dictionary
@@ -26,7 +26,7 @@ class MakeTableViewController: UITableViewController{
   var passingSubCategoryIndex: Int!
 
 
-  //MARK: - View Methods
+  //View Methods
   override func viewDidLoad(){
     super.viewDidLoad()
 
@@ -101,9 +101,11 @@ extension MakeTableViewController{
 
     return cell
   }
-  override func  tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
+      //TODO: - Create an alert to confirm deletion
       itemsInArrayInArray.removeAtIndex(indexPath.row)
 
       self.tableView.reloadData()
@@ -112,12 +114,12 @@ extension MakeTableViewController{
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
     return categoryString
 
-  }
+  }//Category name is shown in the title header
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     passingSubCategoryIndex = indexPath.row
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
-  }
+  }//Xcode bug hack that lets cell autosize properly
 }

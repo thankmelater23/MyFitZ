@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//MARK: - CreationViewController class
 class CreationViewController: UIViewController{
   @IBOutlet var categoryInputTextField: UITextField!
   @IBOutlet var subCategoryInputTextField: UITextField!
@@ -32,7 +34,7 @@ class CreationViewController: UIViewController{
 }
 
 
-///CreationViewController TableView Methods
+//MARK: - TableView Methods
 extension  CreationViewController{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("textInput") as! CreationUITableViewCell
@@ -48,13 +50,11 @@ extension  CreationViewController{
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
-
   ///Takes required dic and matches its info with that of the newley created Item object
   func insertRequiredDicInfoIntoItem(requiredDic: [String: String]){
     //FIXME: - Finish implementing correctly
     //self.itemInfoRequiredDictionary = requiredDic
   }
-
   ///Takes optional dic and matches its info with that of the newley created Item object
   func insertOptionalDicInfo(optionalDicInfoIntoItem: [String: String]){
     //FIXME: - Finish implementing correctly
