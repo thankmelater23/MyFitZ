@@ -22,9 +22,9 @@ class DetailedViewController: UIViewController{
   ///Holds the optional and required dictionaries
   var itemInfoDictionaries = [[String: String]]()
   ///Holds the required information from the item
-  let itemInfoRequiredDictionary = [String: String]()
+  var itemInfoRequiredDictionary = [String: String]()
   ///Holds the optional information from the item
-  let itemInfoOptionalDictionary = [String: String]()
+  var itemInfoOptionalDictionary = [String: String]()
 
 
   //View Methods
@@ -58,17 +58,19 @@ extension DetailedViewController{
 //MARK: - Developer Created Methods
 extension DetailedViewController{
   func setUp(){
+    self.retrieveRequiredDicInfo()
     itemImage.image = UIImage(named: itemOfObject.imageName) as UIImage!
 
   }//Sets up view
   ///Takes required dictionary and matches its info with that of the newley created Item object
-  func retrieveRequiredDicInfo(requiredDic: [String: String]){
-    //FIXME: - Finish implementing correctly
-    //self.itemInfoRequiredDictionary = requiredDic
-  }
-  ///Takes optional dictionary and matches its info with that of the newley created Item object
-  func retrieveOptionalDicInfo(optionalDic: [String: String]){
-    //FIXME: - Finish implementing correctly
-    //self.itemInfoRequiredDictionary = requiredDic
+  func retrieveRequiredDicInfo(){
+    ///Puts the Item instance dictionaries and copies them into this controller dictionaries to use in the tableviewcells
+    itemInfoRequiredDictionary = self.itemOfObject.requiredDictionary
+    itemInfoOptionalDictionary = self.itemOfObject.optionalDictionary
+
+    ///This appends all dictionaries of the controller into an array
+    itemInfoDictionaries.append(itemInfoRequiredDictionary)
+    itemInfoDictionaries.append(itemInfoOptionalDictionary)
+    
   }
 }

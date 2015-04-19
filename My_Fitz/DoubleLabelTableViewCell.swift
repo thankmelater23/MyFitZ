@@ -15,22 +15,23 @@ class DoubleLabelTableViewCell: UITableViewCell {
   @IBOutlet var infoLabel: UILabel!
 
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  override func setSelected(selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
+    // Configure the view for the selected state
+  }
 }
 
 
 extension DoubleLabelTableViewCell{
 
-  func configure(#name:  String,  #infoString: String){
+  func configure(#name:  String,  infoString: String){
+    nameLabel.text = name
+    infoLabel.text = infoString
 
   }
-
 }

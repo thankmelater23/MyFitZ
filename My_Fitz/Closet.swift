@@ -9,14 +9,14 @@
 import Foundation
 
 class Closet{
-  var allItems = [Item]()
-  var savedFits = [Fit]()
+  var allItems       = [Item]()
+  var savedFits      = [Fit]()
   var closetTotalPrice:Double!
   var numberOfItemsWorn: Int!
   var percentOfItemsWorn: Double!
   var numberOfItems: Int!
   var favoritedItems = [Item]()
-  var favoritedFits = [Fit]()
+  var favoritedFits  = [Fit]()
   var recentWornFits = [Fit]()
 
 }

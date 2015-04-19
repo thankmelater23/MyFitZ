@@ -19,8 +19,10 @@ class CreationViewController: UIViewController{
   let itemInfoRequiredDictionary = [String, String]()
   ///Holds the optional information from the item
   let itemInfoOptionalDictionary = [String, String]()
+  //CreationViewController Item to be created and modified to be saved
+  var viewItem = Item()
 
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -50,30 +52,10 @@ extension  CreationViewController{
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
-  ///Takes required dic and matches its info with that of the newley created Item object
-  func insertRequiredDicInfoIntoItem(requiredDic: [String: String]){
-    //FIXME: - Finish implementing correctly
-    //self.itemInfoRequiredDictionary = requiredDic
-  }
-  ///Takes optional dic and matches its info with that of the newley created Item object
-  func insertOptionalDicInfo(optionalDicInfoIntoItem: [String: String]){
-    //FIXME: - Finish implementing correctly
-    //self.itemInfoRequiredDictionary = requiredDic
+  ///Takes required & optional dic and matches its info with that of the newley created Item object
+  func insertRequiredDicInfoIntoItem(requiredDic: [String: String], optionalDic: [String: String]){
+    viewItem.setUpItemInfoThroughDictionaries(requiredDic: requiredDic, optionalDic: optionalDic)
   }
 }
-
-
 /***********************NOTES*********************/
 // Use pickerView Object to choose categories and sub-categories that already exist and at the bottom have an option to add new one
-
-
-
-
-
-
-
-
-
-
-
-

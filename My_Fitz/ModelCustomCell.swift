@@ -11,22 +11,22 @@ import UIKit
 
 
 class ModelCustomCell: UITableViewCell{
-    @IBOutlet weak var modelImage: UIImageView!
-    @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var modelLabel: UILabel!
-    @IBOutlet weak var timesWornLabel: UILabel!
+  @IBOutlet weak var modelImage: UIImageView!
+  @IBOutlet weak var brandLabel: UILabel!
+  @IBOutlet weak var modelLabel: UILabel!
+  @IBOutlet weak var timesWornLabel: UILabel!
 
-    
-    override func  awakeFromNib(){
-        super.awakeFromNib()
-    }
-    override func setSelected(selected: Bool, animated: Bool){
-        super.setSelected(selected ,  animated: animated)
-    }
-    func setCell(modelImageText: String, brandLabelText: String , modelLabelText: String, timesWornText: Int){
-        self.modelImage.image = UIImage(named: modelImageText)
-        self.brandLabel.text = brandLabelText
-        self.modelLabel.text = modelLabelText
-        self.timesWornLabel.text = "Times Worn: \(timesWornText)"
-    }
+
+  override func  awakeFromNib(){
+    super.awakeFromNib()
+  }
+  override func setSelected(selected: Bool, animated: Bool){
+    super.setSelected(selected ,  animated: animated)
+  }
+  func setCell(modelImageText: String, brandLabelText: String , modelLabelText: String, timesWornText: Int){
+    self.modelImage.image    = UIImage(named: modelImageText)
+    self.brandLabel.text     = brandLabelText
+    self.modelLabel.text     = modelLabelText
+    self.timesWornLabel.text = "Times Worn: \(timesWornText)"
+  }
 }

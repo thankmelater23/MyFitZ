@@ -15,7 +15,7 @@ class ModelTableViewController: UITableViewController {
   var arrayOfItems: [Item]!
   ///Holds String To The Name Of The Previous Category
   var passingSubCategoryIndex: Int!
-    ///Holds index To The selecgted cell
+  ///Holds index To The selecgted cell
   var arrayIndex: Int!
 
 
@@ -37,9 +37,7 @@ class ModelTableViewController: UITableViewController {
         detailController.arrayIndex = self.arrayIndex
         magic("Segue working proplery")
       }
-    }
-    else
-    {
+    }else{
       magic("Segue working not proplery")
     }
   }
@@ -61,10 +59,7 @@ extension ModelTableViewController{
     if indexPath.row % 2 == 0//If even number make this color
     {
       cell.backgroundColor = UIColor.redColor()
-    }
-
-    else
-    {
+    }else{
       cell.backgroundColor = UIColor.blueColor()
     }
 
@@ -94,7 +89,7 @@ extension ModelTableViewController{
     return 200
   }
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-                forRowAtIndexPath indexPath: NSIndexPath) {
+    forRowAtIndexPath indexPath: NSIndexPath) {
       if editingStyle == UITableViewCellEditingStyle.Delete
       {
         arrayOfItems.removeAtIndex(indexPath.row)

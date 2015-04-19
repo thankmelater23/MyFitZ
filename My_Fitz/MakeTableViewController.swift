@@ -49,13 +49,11 @@ class MakeTableViewController: UITableViewController{
       modelController.passingSubCategoryIndex = self.passingSubCategoryIndex
       magic("Segue working proplery")
 
-//      var parseIsh = PFObject(className: "ModelTable")
-//      parseIsh.addObject(1, forKey: "subCategory")
-//      parseIsh.addObject(1 , forKey: "numberOfItemsInSubCategory")
-//      parseIsh.save()
-    }
-    else
-    {
+      //      var parseIsh = PFObject(className: "ModelTable")
+      //      parseIsh.addObject(1, forKey: "subCategory")
+      //      parseIsh.addObject(1 , forKey: "numberOfItemsInSubCategory")
+      //      parseIsh.save()
+    }else{
       magic("Segue working not proplery")
     }
   }
@@ -76,8 +74,8 @@ extension MakeTableViewController{
 
 
 
-  //MARK: - TableView Methods
-  ///TableView Methods
+//MARK: - TableView Methods
+///TableView Methods
 extension MakeTableViewController{
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
     return itemsInArrayInArray.count
@@ -89,10 +87,7 @@ extension MakeTableViewController{
     if indexPath.row % 2 == 0//If even number make this color
     {
       cell.backgroundColor = UIColor.redColor()
-    }
-
-    else
-    {
+    }else{
       cell.backgroundColor = UIColor.blueColor()
     }
 
@@ -102,14 +97,14 @@ extension MakeTableViewController{
     return cell
   }
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-                forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == UITableViewCellEditingStyle.Delete
-    {
-      //TODO: - Create an alert to confirm deletion
-      itemsInArrayInArray.removeAtIndex(indexPath.row)
+                                     forRowAtIndexPath indexPath: NSIndexPath) {
+      if editingStyle == UITableViewCellEditingStyle.Delete
+      {
+        //TODO: - Create an alert to confirm deletion
+        itemsInArrayInArray.removeAtIndex(indexPath.row)
 
-      self.tableView.reloadData()
-    }
+        self.tableView.reloadData()
+      }
   }
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
     return categoryString
@@ -123,3 +118,7 @@ extension MakeTableViewController{
     return 200
   }//Xcode bug hack that lets cell autosize properly
 }
+
+
+////////////////Notes//////////////
+//Use more debug loggers

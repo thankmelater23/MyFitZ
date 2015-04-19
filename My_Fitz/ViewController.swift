@@ -32,9 +32,7 @@ class ViewController: UIViewController{
       selectionController.profile = self.profile
       magic("Segue working proplery SELCTIONCONTROLLER: /(selectionController)")
 
-    }
-    else
-    {
+    }else{
       magic("Segue working not proplery SELCTIONCONTROLLER: /(selectionController)")
     }
   }

@@ -8,13 +8,55 @@
 
 import Foundation
 ///MARK: - Global
+var closet: Closet!
+
+
+
+
+
+
+
+
+
 
 
 
 ///MARK: - Item
+let item_make_String         = "make"
+let item_model_String        = "model"
+let item_category_String     = "category"
+let item_subCategory_String  = "subCategory"
+let item_index_String        = "index"
+let item_price_String        = "price"
+let item_favorited_String    = "favorited"
+let item_imageName_String    = "imageName"
+let item_timesWorn_String    = "timesWorn"
+let item_lastTimeWorn_String = "lastTimeWorn"
+let item_isThisNew_String    = "isThisNew"
+
+
+
+
+
+
+
+
+
+
+
 
 
 ///MARK: - Profile
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,7 +64,29 @@ import Foundation
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ///MARK: - Fit
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,7 +94,29 @@ import Foundation
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ///MARK: - SelectionViewController
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,7 +124,29 @@ import Foundation
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ///MARK: - ModelTableViewController
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,4 +154,28 @@ import Foundation
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ///MARK: - CreationViewController
+
+
+
+
+
+
+
+
+
+
+
+
+
