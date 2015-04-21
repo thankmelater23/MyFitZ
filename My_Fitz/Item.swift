@@ -31,15 +31,16 @@ class Item{
   var make: String!, model: String!
   var category : String!, subCategory : String!, index : Int!
   var price: String!
-  var favorited: Bool = false
   var imageName: String!
+  var favorited: String!//Bool = false
+  var isThisNew: String!//Bool!
   var timesWorn: Int! = 0
-  var lastTimeWorn: Double?
-  var isThisNew: Bool!
+  var lastTimeWorn: Int!
+
 
   //MARK: - Item Required defined values
   var datePurchased: Int!
-  //var colors
+  var color: String!
   //var dateReleased
   //var retailPrice
   //var condition
@@ -57,22 +58,32 @@ class Item{
   ///Creates blank Item
   init(){
 
-    self.make = ""
+    self.make         = ""
 
-    self.model = ""
+    self.model        = ""
 
-    self.category = ""
+    self.category     = ""
 
-    self.subCategory = ""
+    self.subCategory  = ""
 
-    self.price = ""
+    self.price        = " "
 
-    self.imageName = ""
+    self.imageName    = ""
 
-    self.timesWorn = 0
+    self.favorited    = "false"
 
-    self.favorited = false
-    
+    self.isThisNew    = "true"
+
+    self.timesWorn    = 0
+
+    self.lastTimeWorn = 0
+
+    self.index        = 0
+
+    //Optionals
+    self.datePurchased = 0
+    self.color        = "red"
+
   }
   ///Creates custom item
   init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
@@ -82,56 +93,96 @@ class Item{
     self.subCategory = subCategory
     self.price = price
     self.imageName = ImageName
+    self.favorited = "false"
+    self.isThisNew = "true"
     self.timesWorn = 0
-    self.favorited = false
+    self.lastTimeWorn = 0
+    self.index = 0
+
+    //Optionals
+    self.datePurchased = 0
+    self.color        = "red"
+
   }
 }
 
 extension Item{
-  //TODO: - Figure out how to convert Key String values as Bool's and Int's to assign to type
   ///Takes a 2 dictionaries and assign those dictionary values to item's class variables to create a new item
   func setUpItemInfoThroughDictionaries(#requiredDic: [String: String], optionalDic: [String: String]?){
     //Required variables
-    self.make         = requiredDic["make"]
-    self.category     = requiredDic["category"]
-    self.subCategory  = requiredDic["subCategory"]
-    self.index        = 0//Int(requiredDic["subCategory"])
-    self.favorited    = true//"\(requiredDic["favorited"])"
-    self.imageName    = requiredDic["imageName"]
-    self.timesWorn    = 0//"/(requiredDic["timesWorn"])"
-    self.lastTimeWorn = 0//"/(requiredDic["lastTimeWorn"])"
-    self.isThisNew    = true//"/(requiredDic["isThisNew"])"
+    //Strings
+    self.make        = requiredDic["make"]
+    self.model       = requiredDic["model"]
+    self.category    = requiredDic["category"]
+    self.subCategory = requiredDic["subCategory"]
+    self.price       = requiredDic["price"]
+    self.imageName   = requiredDic["imageName"]
+
+    //Bools
+    self.favorited   = requiredDic["favorited"]
+    self.isThisNew   = requiredDic["isThisNew"]
+    //Ints/Doubles
+    self.timesWorn    = NSNumberFormatter().numberFromString((requiredDic["timesWorn"])!)?.integerValue
+    self.lastTimeWorn = NSNumberFormatter().numberFromString((requiredDic["lastTimeWorn"])!)?.integerValue
+    self.index        = NSNumberFormatter().numberFromString((requiredDic["index"])!)?.integerValue
+
+
 
     //Optional Variable
-    self.datePurchased = 0//(requiredDic["datePurchased"] as! NSNumber).integerValue
+    self.datePurchased = NSNumberFormatter().numberFromString((optionalDic?["datePurchased"])!)?.integerValue
+    self.color         = requiredDictionary["color"]
   }
-
+  ///Assigns item variables values to required and optional dictionary keys
   func setUpClassInfoDictionaries(){
     //Required variables
-    requiredDictionary["make"]        = self.make
-    requiredDictionary["category"]    = self.category
-    requiredDictionary["subCategory"] = self.subCategory
-    requiredDictionary["blank"]       = "\(self.index)"
-    requiredDictionary["blank"]       = "\(self.favorited)"
-    requiredDictionary["imageName"]   = "\(self.imageName)"
-    requiredDictionary["blank"]       = "\(self.timesWorn)"
-    requiredDictionary["blank"]       = "\(self.lastTimeWorn)"
-    requiredDictionary["blank"]       = "\(self.isThisNew)"
+    //Strings
+    requiredDictionary["make"]         = self.make
+    requiredDictionary["model"]        = self.model
+    requiredDictionary["category"]     = self.category
+    requiredDictionary["subCategory"]  = self.subCategory
+    requiredDictionary["price"]        = self.price
+    requiredDictionary["imageName"]    = self.imageName
+    //Bools
+    requiredDictionary["favorited"]    = self.favorited
+    requiredDictionary["isThisNew"]    = self.isThisNew
+    //Ints/Doubles
+    requiredDictionary["timesWorn"]    = "\(self.timesWorn)"
+    requiredDictionary["lastTimeWorn"] = "\(self.lastTimeWorn)"
+    requiredDictionary["index"]        = "\(self.index)"
+
+
 
     //Optional Variables
     optionalDictionary["datePurchased"] = "\(self.datePurchased)"
+    optionalDictionary["color"] = self.color
   }
   func makeItem(#make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
-    self.make = make
-    self.model = model
-    self.category = category
-    self.subCategory = subCategory
-    self.price = price
-    self.imageName = ImageName
-    self.timesWorn = 0
-    self.favorited = false
-    self.timesWorn = 0
+    //Strings
+    self.make         = make
+    self.model        = model
+    self.category     = category
+    self.subCategory  = subCategory
+    self.price        = price
+    self.imageName    = ImageName
+    //Bools
+    self.favorited    = "false"
+    self.isThisNew    = "true"
+    //Ints/Doubles
+    self.timesWorn    = 0
     self.lastTimeWorn = 0
-    self.isThisNew = true
+    self.index        = 0
+
+
+    //Optionals
+    self.datePurchased = 0
+    self.color        = "red"
   }
 }
+
+
+
+
+
+
+
+

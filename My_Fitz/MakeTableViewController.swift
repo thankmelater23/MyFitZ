@@ -86,8 +86,10 @@ extension MakeTableViewController{
 
     if indexPath.row % 2 == 0//If even number make this color
     {
+      //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
       cell.backgroundColor = UIColor.redColor()
     }else{
+      //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
       cell.backgroundColor = UIColor.blueColor()
     }
 

@@ -299,6 +299,7 @@
 				C6CCB7741A7070D200353C9B /* Resources */,
 				C6BC15DB1AC1A57700DF23C2 /* ShellScript */,
 				3C7393972B790E7D6F5D3488 /* Copy Pods Resources */,
+				C69F82BA1AE4964B00B087A4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -415,6 +416,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C69F82BA1AE4964B00B087A4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
 		};
 		C6BC15DB1AC1A57700DF23C2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
