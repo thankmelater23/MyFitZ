@@ -48,6 +48,18 @@ class Item{
   //var storeLocationOrSitePurchasedFrom
   //var arrayOfImages
   //var numberOfDifferentFitsWornWith
+  ///Path to Item
+  var locationPath: [String: String]!
+  //  var path : (tupleCategory: String, tupleSubCategory: String, tupleIndex: Int){
+//    //TODO: - Not sure if I implemented this properly
+//    get{
+//      tupleCategory = self.category
+//      tupleSubCategory = self.subCategory
+//      tupleIndex = self.index
+//
+//      return self
+//    }
+//  }
 
   //MARK: - Dictionaries
   ///Holds the required information from the item that is meant to be passed on two other dictionaries
@@ -84,6 +96,8 @@ class Item{
     self.datePurchased = 0
     self.color        = "red"
 
+    self.populateDictionariesToItemInstanceVariables()
+
   }
   ///Creates custom item
   init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
@@ -103,12 +117,16 @@ class Item{
     self.datePurchased = 0
     self.color        = "red"
 
+    self.populateDictionariesToItemInstanceVariables()
+
+
   }
 }
 
 extension Item{
   ///Takes a 2 dictionaries and assign those dictionary values to item's class variables to create a new item
   func setUpItemInfoThroughDictionaries(#requiredDic: [String: String], optionalDic: [String: String]?){
+
     //Required variables
     //Strings
     self.make        = requiredDic["make"]
@@ -133,7 +151,7 @@ extension Item{
     self.color         = requiredDictionary["color"]
   }
   ///Assigns item variables values to required and optional dictionary keys
-  func setUpClassInfoDictionaries(){
+  func populateDictionariesToItemInstanceVariables(){
     //Required variables
     //Strings
     requiredDictionary["make"]         = self.make
@@ -155,8 +173,11 @@ extension Item{
     //Optional Variables
     optionalDictionary["datePurchased"] = "\(self.datePurchased)"
     optionalDictionary["color"] = self.color
+
   }
-  func makeItem(#make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
+  func setItem(#make: String, model: String, category: String, subCategory: String, price: String,
+                ImageName: String,  favorited: String, IsThisNew: String, timesWorn: Int,
+                lastTimeWorn: Int, index: Int, datePurchased: Int, color: String){
     //Strings
     self.make         = make
     self.model        = model
@@ -165,17 +186,19 @@ extension Item{
     self.price        = price
     self.imageName    = ImageName
     //Bools
-    self.favorited    = "false"
-    self.isThisNew    = "true"
+    self.favorited    = favorited
+    self.isThisNew    = IsThisNew
     //Ints/Doubles
-    self.timesWorn    = 0
-    self.lastTimeWorn = 0
-    self.index        = 0
+    self.timesWorn    = timesWorn
+    self.lastTimeWorn = lastTimeWorn
+    self.index        = index
 
 
     //Optionals
-    self.datePurchased = 0
-    self.color        = "red"
+    self.datePurchased = datePurchased
+    self.color        = color
+
+    self.populateDictionariesToItemInstanceVariables()
   }
 }
 

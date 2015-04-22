@@ -13,9 +13,9 @@ class CreationUITableViewCell: UITableViewCell{
   @IBOutlet var textInputCellLabel: UILabel!
   @IBOutlet var textInputCellTextField: UITextField!
 
-  func configure(#text: String?, labelString: String!, placeHolder: String!){
+  func configure(#text: String?, labelString: String!){
     textInputCellTextField.text = ""
-    textInputCellTextField.placeholder = placeHolder
+    textInputCellTextField.placeholder = labelString
     textInputCellLabel.text = labelString
 
   }

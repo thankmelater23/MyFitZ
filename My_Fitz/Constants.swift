@@ -22,17 +22,17 @@ var closet: Closet!
 
 
 ///MARK: - Item
-let item_make_String         = "make"
-let item_model_String        = "model"
-let item_category_String     = "category"
-let item_subCategory_String  = "subCategory"
-let item_index_String        = "index"
-let item_price_String        = "price"
-let item_favorited_String    = "favorited"
-let item_imageName_String    = "imageName"
-let item_timesWorn_String    = "timesWorn"
-let item_lastTimeWorn_String = "lastTimeWorn"
-let item_isThisNew_String    = "isThisNew"
+let ITEM_MAKE_STRING         = "make"
+let ITEM_MODEL_STRING        = "model"
+let ITEM_CATEGORY_STRING     = "category"
+let ITEM_SUBCATEGORY_STRING  = "subCategory"
+let ITEM_INDEX_STRING        = "index"
+let ITEM_PRICE_STRING        = "price"
+let ITEM_FAVORITED_STRING    = "favorited"
+let ITEM_IMAGENAME_STRING    = "imageName"
+let ITEM_TIMESWORN_STRING    = "timesWorn"
+let ITEM_LASTTIMEWORN_STRING = "lastTimeWorn"
+let ITEM_ISTHISNEW_STRING    = "isThisNew"
 
 
 

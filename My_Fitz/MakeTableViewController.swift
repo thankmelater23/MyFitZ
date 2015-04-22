@@ -98,8 +98,7 @@ extension MakeTableViewController{
 
     return cell
   }
-  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-                                     forRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
       if editingStyle == UITableViewCellEditingStyle.Delete
       {
         //TODO: - Create an alert to confirm deletion

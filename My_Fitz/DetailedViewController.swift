@@ -56,8 +56,12 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
       return self.itemInfoRequiredDictionary.count
     }
 
-    if (section == 1){
+    else if (section == 1){
       return self.itemInfoOptionalDictionary.count
+    }
+
+    else{
+      magic("Something did not go right")
     }
 
     return 0
@@ -99,7 +103,7 @@ extension DetailedViewController{
   ///Takes required dictionary and matches its info with that of the newley created Item object
   func retrieveRequiredDicInfo(){
     ///Puts the Item instance dictionaries and copies them into this controller dictionaries to use in the tableviewcells
-    itemOfObject.setUpClassInfoDictionaries()
+    itemOfObject.populateDictionariesToItemInstanceVariables()
     itemInfoRequiredDictionary = self.itemOfObject.requiredDictionary
     itemInfoOptionalDictionary = self.itemOfObject.optionalDictionary
 
