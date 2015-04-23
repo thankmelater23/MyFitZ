@@ -101,7 +101,12 @@ extension MakeTableViewController{
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
       if editingStyle == UITableViewCellEditingStyle.Delete
       {
-        //TODO: - Create an alert to confirm deletion
+        //TODO: - Create an alert view that uses method
+        var alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete", preferredStyle: UIAlertControllerStyle.Alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+
         itemsInArrayInArray.removeAtIndex(indexPath.row)
 
         self.tableView.reloadData()

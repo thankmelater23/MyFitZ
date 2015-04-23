@@ -105,8 +105,6 @@ extension ModelTableViewController{
 ///ModelTableViewController Developer Created Methods
 extension ModelTableViewController{
   func SetUpTypes() {
-    
-    magic(arrayOfItems)
-    
+
   }
 }

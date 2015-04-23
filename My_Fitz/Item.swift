@@ -100,7 +100,8 @@ class Item{
 
   }
   ///Creates custom item
-  init(make: String, model: String, price: String,  ImageName: String, category: String, subCategory: String){
+  init(make: String, model: String, category: String, subCategory: String, price: String, ImageName: String, favorited: String, isThisNew: String, timesWorn: Int, lastTImeWorn: Int, index: Int,
+    datePurchased: Int, color: String){
     self.make = make
     self.model = model
     self.category = category
