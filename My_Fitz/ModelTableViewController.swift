@@ -12,11 +12,9 @@ import UIKit
 class ModelTableViewController: UITableViewController {
   //MARK: - View Variables
   ///items in an Array holds the sub-categories of the items
-  var arrayOfItems: [Item]!
-  ///Holds String To The Name Of The Previous Category
-  var passingSubCategoryIndex: Int!
-  ///Holds index To The selecgted cell
-  var arrayIndex: Int!
+  var arrayOfItems: [Item]! = [Item]()
+  ///Dictionary path to item
+  var path: [String: String]! = [String: String]()
 
 
   //MARK: - View Methods
@@ -26,15 +24,15 @@ class ModelTableViewController: UITableViewController {
 
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-    if segue.identifier == "modelToDetailed"
+    if segue.identifier == SEGUE_MODEL_TO_DETAIL
     {
       var index = self.tableView.indexPathForSelectedRow()
       var detailController = segue.destinationViewController as! DetailedViewController
-      if let newIndex = index
-      {
-        arrayIndex = newIndex.row
-        detailController.itemOfObject = self.arrayOfItems[newIndex.row] as Item!
-        detailController.arrayIndex = self.arrayIndex
+
+      if let index = index{
+        path[PATHTYPE_INDEX_STRING] = "\(index.row)"
+        detailController.itemOfObject = self.arrayOfItems[index.row] as Item!
+        detailController.path = self.path
         magic("Segue working proplery")
       }
     }else{
@@ -54,7 +52,7 @@ extension ModelTableViewController{
 
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier("cell") as! ModelCustomCell
+    let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier(MODEL_CELL) as! ModelCustomCell
 
     if indexPath.row % 2 == 0//If even number make this color
     {
@@ -65,34 +63,32 @@ extension ModelTableViewController{
 
     let item: Item = arrayOfItems[indexPath.row] as Item!
 
-    cell.setCell(item.imageName, brandLabelText: item.make, modelLabelText: item.model, timesWornText: 1)//"Times Worn: \(item.timesWorn)") also make the brand the type of class this is that represents these items in the array which is an array of items array
+    cell.setCell(item.imageName, brandLabelText: item.brand, modelLabelText: item.model, timesWornText: item.timesWorn)
 
     return cell
-
   }
   override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
   }
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //FIXME: - This Needs proper string
-    var makeString: String! = " "
-    if (makeString.isEmpty == true)
-    {
-      magic("This string is empty")
-    }
 
-    return makeString
+    return path[PATHTYPE_SUBCATEGORY_STRING]
   }
   ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
   override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-    forRowAtIndexPath indexPath: NSIndexPath) {
+                          forRowAtIndexPath indexPath: NSIndexPath) {
       if editingStyle == UITableViewCellEditingStyle.Delete
       {
         arrayOfItems.removeAtIndex(indexPath.row)
+
+        var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+        var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE
+        loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+        saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
         self.tableView.reloadData()
       }
@@ -106,5 +102,42 @@ extension ModelTableViewController{
 extension ModelTableViewController{
   func SetUpTypes() {
 
+  }
+}
+
+
+
+//File System
+extension ModelTableViewController{
+  //Used to save to ios directory
+  func documentsDirectory() -> String {
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    return documentsFolderPath
+  }
+  func fileInDocumentsDirectory(filename: String) -> String {
+    return documentsDirectory().stringByAppendingPathComponent(filename)
+  }
+  func saveObjectToArchived(filePath: String, closetInstance: CLOSET_TYPE){
+
+    magic("save: \(filePath)")
+
+    var success = false
+
+    success = NSKeyedArchiver.archiveRootObject(closetInstance, toFile:filePath)
+
+    if success {
+      println("Saved successfully")
+    } else {
+      println("Error saving data file")
+    }
+  }
+  func loadArchivedObject(filePath: String) -> CLOSET_TYPE {
+
+    if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
+
+      return closet as CLOSET_TYPE
+    }else{
+      return (Profile()).categoryDics//nil
+    }
   }
 }

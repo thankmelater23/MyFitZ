@@ -30,6 +30,8 @@ class CreationViewController: UIViewController{
   var itemInfoOptionalDictionary = [String: String]()
   //CreationViewController Item to be created and modified to be saved
   var viewItem = Item()
+  ///Dictionary path to item
+  var path: [String: String] = [String: String]()
 
 
 
@@ -61,11 +63,9 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
       return self.itemInfoRequiredDictionary.count
     }
 
-    if (section == 1){
+    else{//(section == 1)
       return self.itemInfoOptionalDictionary.count
     }
-
-    return 0
 
   }// Return the number of rows in the section.
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -90,44 +90,44 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
   }//Puts a text label in the header of the specified section
   ///Returns cell of required dictionary
   func createCellFromRequiredDictionary(#row: Int) -> CreationUITableViewCell{
-    var cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("creation") as! CreationUITableViewCell
+    var cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
 
     var keyAndValue: String!
 
     switch row {
     case 0 :
       keyAndValue = "make"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 1 :
       keyAndValue = "model"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 2 :
       keyAndValue = "category"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 3 :
       keyAndValue = "subCategory"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 4 :
       keyAndValue = "price"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 5 :
       keyAndValue = "imageName"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 6 :
       keyAndValue = "favorited"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 7 :
       keyAndValue = "isThisNew"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 8 :
       keyAndValue = "timesWorn"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 9 :
       keyAndValue = "lastTimeWorn"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 10 :
       keyAndValue = "index"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
 
 
     default:
@@ -138,17 +138,17 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
   }
   //Returns cell of Optional dictionary
   func createCellFromOptionalDictionary(#row: Int) -> CreationUITableViewCell{
-    var cell = tableView.dequeueReusableCellWithIdentifier("creation") as! CreationUITableViewCell
+    var cell = tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
 
     var keyAndValue: String!
 
     switch row {
     case 0 :
       keyAndValue = "datePurchased"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
     case 1 :
       keyAndValue = "color"
-      cell.configure(text: nil, labelString: keyAndValue)
+      cell.configure(text: cell.textLabel?.text, labelString: keyAndValue)
 
     default:
       magic("Something Didnt't go right")
@@ -228,7 +228,6 @@ extension CreationViewController{
   func createNewItem(requiredDic: [String: String], optionalDic: [String: String]){
     viewItem.setUpItemInfoThroughDictionaries(requiredDic: requiredDic, optionalDic: optionalDic)
   }
-
   func pushDataIntoDictionaries(){
     //TODO: - Setup function to send information from tableViewCell dictionaries then into the item's object dictionaries then sync obect with dic info
 
@@ -236,19 +235,6 @@ extension CreationViewController{
     self.createNewItem(itemInfoRequiredDictionary, optionalDic: itemInfoOptionalDictionary)
   }
 }
-
-//func saveOptionalDic(#row: Int){
-//  var keyAndValue: String!
-//  var index = row
-//  //for currentRow in itemInfoOptionalDictionary,count
-////
-////
-////  keyAndValue = "datePurchased"
-////  itemInfoOptionalDictionary[keyAndValue] = keyAndValue
-////
-////  keyAndValue = "color"
-////  itemInfoOptionalDictionary[keyAndValue] = keyAndValue
-//}
 
 
 /***********************NOTES*********************/

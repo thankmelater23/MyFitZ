@@ -14,6 +14,14 @@ class DetailedViewController: UIViewController{
   @IBOutlet var tableView: UITableView!
   ///Views main image of the Item being presented
   @IBOutlet var itemImage: UIImageView!
+  @IBAction func duplicateItem() {
+    let newItem = self.itemOfObject
+    var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    var archivedCloset = loadArchivedObject(pathOfFile)!
+    archivedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]?.append(newItem)
+    saveObjectToArchived(pathOfFile, closetInstance: archivedCloset)
+  }
+
   ///Enum
   enum dictionaryKindReference: Int{
     case dictionaryNotSelected = 0
@@ -25,16 +33,15 @@ class DetailedViewController: UIViewController{
 
   //View Variables
   ///Item selected
-  var itemOfObject: Item!
-  ///Items index place in array
-  var arrayIndex: Int!
+  var itemOfObject: Item! = Item()
   ///Holds the optional and required dictionaries
   var itemInfoDictionaries = [[String: String]]()
   ///Holds the required information from the item
   var itemInfoRequiredDictionary = [String: String]()
   ///Holds the optional information from the item
   var itemInfoOptionalDictionary = [String: String]()
-
+  ///Dictionary path to item
+  var path: [String: String]! = [String: String]()
 
   //View Methods
   override func viewDidLoad() {
@@ -62,16 +69,13 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 
     else{
       magic("Something did not go right")
+      return 0
     }
-
-    return 0
-
   }// Return the number of rows in the section.
   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 200
   }//Random number returned to fix xcode bug
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    //self.tableView.reloadData()
     if indexPath.section == 0{
       return createCellFromRequiredDictionary(row: indexPath.row) as DoubleLabelTableViewCell
     }else{
@@ -80,10 +84,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
   }
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if (section == 0){
-      //self.tableView.reloadData()
       return "Basic"
     }else{
-      //self.tableView.reloadData()
       return "Misc"
     }
   }//Puts a text label in the header of the specified section
@@ -103,7 +105,6 @@ extension DetailedViewController{
   ///Takes required dictionary and matches its info with that of the newley created Item object
   func retrieveRequiredDicInfo(){
     ///Puts the Item instance dictionaries and copies them into this controller dictionaries to use in the tableviewcells
-    itemOfObject.populateDictionariesToItemInstanceVariables()
     itemInfoRequiredDictionary = self.itemOfObject.requiredDictionary
     itemInfoOptionalDictionary = self.itemOfObject.optionalDictionary
 
@@ -114,53 +115,53 @@ extension DetailedViewController{
   }
   ///Returns cell of required dictionary
   func createCellFromRequiredDictionary(#row: Int) -> DoubleLabelTableViewCell{
-    var cell = tableView.dequeueReusableCellWithIdentifier("DoubleLabel") as! DoubleLabelTableViewCell
+    var cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
 
     var keyAndValue: String!
 
     switch row {
     case 0 :
-      keyAndValue = "make"
+      keyAndValue = ITEM_BRAND_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 1 :
-      keyAndValue = "model"
+      keyAndValue = ITEM_MODEL_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 2 :
-      keyAndValue = "category"
+      keyAndValue = ITEM_CATEGORY_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 3 :
-      keyAndValue = "subCategory"
+      keyAndValue = ITEM_SUBCATEGORY_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 4 :
-      keyAndValue = "price"
+      keyAndValue = ITEM_PRICE_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 5 :
-      keyAndValue = "imageName"
+      keyAndValue = ITEM_IMAGENAME_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 6 :
-      keyAndValue = "favorited"
+      keyAndValue = ITEM_FAVORITED_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 7 :
-      keyAndValue = "isThisNew"
+      keyAndValue = ITEM_ISTHISNEW_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 8 :
-      keyAndValue = "timesWorn"
+      keyAndValue = ITEM_TIMESWORN_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 9 :
-      keyAndValue = "lastTimeWorn"
+      keyAndValue = ITEM_LASTTIMEWORN_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 10 :
-      keyAndValue = "index"
+      keyAndValue = ITEM_INDEX_STRING
       let value:String = itemInfoRequiredDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
 
@@ -173,18 +174,18 @@ extension DetailedViewController{
   }
   ///Returns cell of Optional dictionary
   func createCellFromOptionalDictionary(#row: Int) -> DoubleLabelTableViewCell{
-    var cell = tableView.dequeueReusableCellWithIdentifier("DoubleLabel") as! DoubleLabelTableViewCell
+    var cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
 
     var keyAndValue: String!
 
     switch row {
     case 0 :
-      keyAndValue = "datePurchased"
+      keyAndValue = ITEM_DATEPURCHASERD_STRING
       cell.nameLabel.text = keyAndValue
       let value:String = itemInfoOptionalDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
     case 1 :
-      keyAndValue = "color"
+      keyAndValue = ITEM_COLOR_STRING
       let value:String = itemInfoOptionalDictionary[keyAndValue]!
       cell.configure(name: keyAndValue, infoString: value)
 
@@ -196,7 +197,40 @@ extension DetailedViewController{
   }
 }
 
+//File System
+extension DetailedViewController{
+  //Used to save to ios directory
+  func documentsDirectory() -> String {
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    return documentsFolderPath
+  }
+  func fileInDocumentsDirectory(filename: String) -> String {
+    return documentsDirectory().stringByAppendingPathComponent(filename)
+  }
+  func saveObjectToArchived(filePath: String, closetInstance: CLOSET_TYPE){
 
+    magic("save: \(filePath)")
+
+    var success = false
+
+    success = NSKeyedArchiver.archiveRootObject(closetInstance, toFile:filePath)
+
+    if success {
+      println("Saved successfully")
+    } else {
+      println("Error saving data file")
+    }
+  }
+  func loadArchivedObject(filePath: String) -> CLOSET_TYPE? {
+
+    if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
+
+      return closet
+    }else{
+      return nil
+    }
+  }
+}
 
 
 
