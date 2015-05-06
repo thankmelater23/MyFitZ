@@ -29,7 +29,7 @@ class CreationViewController: UIViewController{
   ///Holds the optional information from the item
   var itemInfoOptionalDictionary = [String: String]()
   //CreationViewController Item to be created and modified to be saved
-  var viewItem = Item()
+  var viewItem = Item.init()
   ///Dictionary path to item
   var path: [String: String] = [String: String]()
 

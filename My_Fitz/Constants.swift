@@ -29,7 +29,7 @@ let DOUBLE_LABEL_CELL = "doubleLabel"
 let TEXT_INPUT_CELL   = "textInputCell"
 
 let MYFITZ_ARCHIVE_FILE_STRING = "myFitz.plist"
-
+let BLANK_IMAGE_STRING = "blank image"
 
 
 

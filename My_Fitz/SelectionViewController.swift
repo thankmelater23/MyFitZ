@@ -45,7 +45,7 @@ class SelectionViewController: UIViewController{
       makeController.itemsInArrayInDictionary = self.profile.categoryDics[path[PATHTYPE_CATEGORY_STRING]!]
 
     }else{
-      magic("Segue working not proplery")
+      magic("Segue working not proplery: \(segue.identifier)")
     }
     
   }

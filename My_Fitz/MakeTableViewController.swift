@@ -39,12 +39,11 @@ class MakeTableViewController: UITableViewController{
       var index = self.tableView.indexPathForSelectedRow()
       var modelController = segue.destinationViewController as! ModelTableViewController
       let tempItemArray: [Item] = self.itemsInArrayInDictionary.values.array[index!.row]
-      path[PATHTYPE_SUBCATEGORY_STRING] = tempItemArray[0].subCategory
+      path[PATHTYPE_SUBCATEGORY_STRING] = self.itemsInArrayInDictionary.keys.array[index!.row]
       modelController.arrayOfItems = tempItemArray as [Item]!
       modelController.path = self.path
-      magic("Segue working proplery")
     }else{
-      magic("Segue working not proplery")
+      magic("Segue not working proplery: \(segue.identifier)")
     }
   }
 }
@@ -71,7 +70,7 @@ extension MakeTableViewController{
     return itemsInArrayInDictionary.count
   }//Returns Int for number of sections in tableView
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-    let cell: MakeCustonCell = tableView.dequeueReusableCellWithIdentifier(MAKE_CELL) as! MakeCustonCell
+    let cell: MakeCustomCell = tableView.dequeueReusableCellWithIdentifier(MAKE_CELL) as! MakeCustomCell
 
 
     if indexPath.row % 2 == 0//If even number make this color
@@ -84,24 +83,35 @@ extension MakeTableViewController{
     }
 
     let arrayItemCell: [Item]     = self.itemsInArrayInDictionary.values.array[indexPath.row]
-    cell.setCell(arrayItemCell[0].imageName, makeLabelText: arrayItemCell[0].brand, numberOfItemsText: arrayItemCell.count)
+    let keyOfSelectedArray = self.itemsInArrayInDictionary.keys.array[indexPath.row]
 
+    if let availableSubCategoryItem = arrayItemCell.first{
+      cell.setCell(availableSubCategoryItem.imageName, makeLabelText: availableSubCategoryItem.brand, numberOfItemsText: arrayItemCell.count)
+    }else{
+      cell.setCell(BLANK_IMAGE_STRING, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
+    }
     return cell
   }//Returns a tableView cell at a specific row
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-      if editingStyle == UITableViewCellEditingStyle.Delete
-      {
-        //TODO: - Create an alert view that uses method
-    var alert                = UIAlertController(title: "Alert", message: "Are you sure you want to delete", preferredStyle: UIAlertControllerStyle.Alert)
+    if editingStyle == UITableViewCellEditingStyle.Delete
+    {
+      //TODO: - Create an alert view that uses method
+      var alert                                       = UIAlertController(title: "Alert", message: "Are you sure you want to delete", preferredStyle: UIAlertControllerStyle.Alert)
 
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+      self.presentViewController(alert, animated: true, completion: nil)
 
-        //itemsInArrayInArray.removeAtIndex(indexPath.row)
-        //TODO: - Set up way for dictionary cell to be deleted
+      //TODO: - Set up way for dictionary cell to be deleted
+
+      var subCategoryToDelete = itemsInArrayInDictionary.keys.array[indexPath.row] as String//Gets key for dictionary selected
+      itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
+      var pathOfFile                                  = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+      var loadedArchived:CLOSET_TYPE!                 = loadArchivedObject(pathOfFile) as CLOSET_TYPE?
+      loadedArchived[path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+      saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
 
-        self.tableView.reloadData()
+      self.tableView.reloadData()
       }
   }//Editing to delete row
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{

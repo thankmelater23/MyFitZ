@@ -36,7 +36,7 @@ class ViewController:  UIViewController{
       selectionController.path = self.path
 
     }else{
-      magic("Segue not working proplery SELCTIONCONTROLLER: /(selectionController)")
+      magic("Segue not working proplery SELCTIONCONTROLLER: \(segue.identifier)")
     }
   }
 }

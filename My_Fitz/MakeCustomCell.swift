@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MakeCustonCell: UITableViewCell{
+class MakeCustomCell: UITableViewCell{
   @IBOutlet weak var makeImage: UIImageView!
   @IBOutlet weak var makeLabel: UILabel!
   @IBOutlet weak var numberOfItemsLabel: UILabel!

@@ -15,7 +15,7 @@ class DetailedViewController: UIViewController{
   ///Views main image of the Item being presented
   @IBOutlet var itemImage: UIImageView!
   @IBAction func duplicateItem() {
-    let newItem = self.itemOfObject
+    let newItem = self.itemOfObject as Item
     var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
     var archivedCloset = loadArchivedObject(pathOfFile)!
     archivedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]?.append(newItem)
@@ -33,7 +33,7 @@ class DetailedViewController: UIViewController{
 
   //View Variables
   ///Item selected
-  var itemOfObject: Item! = Item()
+  var itemOfObject: Item! = Item() as Item
   ///Holds the optional and required dictionaries
   var itemInfoDictionaries = [[String: String]]()
   ///Holds the required information from the item
@@ -167,7 +167,7 @@ extension DetailedViewController{
 
 
     default:
-      magic("Something Didnt't go right")
+      magic("Row does not exist to create cell of required type. ROW: \(row)")
     }
 
     return cell as DoubleLabelTableViewCell
@@ -190,7 +190,7 @@ extension DetailedViewController{
       cell.configure(name: keyAndValue, infoString: value)
 
     default:
-      magic("Something Didnt't go right")
+      magic("Row does not exist to create cell of optional type. ROW: \(row)")
     }
 
     return cell as DoubleLabelTableViewCell

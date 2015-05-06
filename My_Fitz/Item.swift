@@ -66,6 +66,7 @@ class Item: NSObject, NSCoding, Printable{
 
   //NSCoding methods
   required init(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
+    super.init()
     //Required
     self.brand         = decoder.decodeObjectForKey(ITEM_BRAND_STRING) as! String!
     self.model        = decoder.decodeObjectForKey(ITEM_MODEL_STRING) as! String!
@@ -124,17 +125,17 @@ class Item: NSObject, NSCoding, Printable{
   override init(){
     super.init()
 
-    self.brand         = ""
+    self.brand         = " "
 
-    self.model        = ""
+    self.model        = "  "
 
-    self.category     = ""
+    self.category     = " "
 
-    self.subCategory  = ""
+    self.subCategory  = " "
 
-    self.price        = ""
+    self.price        = " "
 
-    self.imageName    = ""
+    self.imageName    = " "
 
     self.favorited    = "false"
 
@@ -149,6 +150,8 @@ class Item: NSObject, NSCoding, Printable{
     //Optionals
     self.datePurchased = 0
     self.color        = "red"
+
+    self.path = [String: String]()
 
     self.populateDictionariesToItemInstanceVariables()
 

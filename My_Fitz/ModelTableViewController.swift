@@ -33,10 +33,9 @@ class ModelTableViewController: UITableViewController {
         path[PATHTYPE_INDEX_STRING] = "\(index.row)"
         detailController.itemOfObject = self.arrayOfItems[index.row] as Item!
         detailController.path = self.path
-        magic("Segue working proplery")
       }
     }else{
-      magic("Segue working not proplery")
+      magic("Segue working not proplery: \(segue.identifier)")
     }
   }
   override func didReceiveMemoryWarning() {
@@ -56,12 +55,12 @@ extension ModelTableViewController{
 
     if indexPath.row % 2 == 0//If even number make this color
     {
-      cell.backgroundColor = UIColor.redColor()
+    cell.backgroundColor      = UIColor.redColor()
     }else{
-      cell.backgroundColor = UIColor.blueColor()
+    cell.backgroundColor      = UIColor.blueColor()
     }
 
-    let item: Item = arrayOfItems[indexPath.row] as Item!
+    let item: Item            = arrayOfItems[indexPath.row] as Item!
 
     cell.setCell(item.imageName, brandLabelText: item.brand, modelLabelText: item.model, timesWornText: item.timesWorn)
 
@@ -80,13 +79,13 @@ extension ModelTableViewController{
     return 200
   }
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-                          forRowAtIndexPath indexPath: NSIndexPath) {
+    forRowAtIndexPath indexPath: NSIndexPath) {
       if editingStyle == UITableViewCellEditingStyle.Delete
       {
         arrayOfItems.removeAtIndex(indexPath.row)
 
-        var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE
+        var pathOfFile                                                                        = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+        var loadedArchived:CLOSET_TYPE!                                                       = loadArchivedObject(pathOfFile) as CLOSET_TYPE
         loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
         saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
