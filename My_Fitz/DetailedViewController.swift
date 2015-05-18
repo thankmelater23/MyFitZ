@@ -22,14 +22,13 @@ class DetailedViewController: UIViewController{
     saveObjectToArchived(pathOfFile, closetInstance: archivedCloset)
   }
 
-  ///Enum
-  enum dictionaryKindReference: Int{
-    case dictionaryNotSelected = 0
-    case requiredDictionary
-    case optionalDictionary
-  }
-
-  var dictionaryKind: dictionaryKindReference = dictionaryKindReference.dictionaryNotSelected
+  //  ///Enum
+  //  enum dictionaryKindReference: Int{
+  //    case dictionaryNotSelected = 0
+  //    case requiredDictionary
+  //    case optionalDictionary
+  //  }
+  //  var dictionaryKind: dictionaryKindReference = dictionaryKindReference.dictionaryNotSelected
 
   //View Variables
   ///Item selected
@@ -50,7 +49,24 @@ class DetailedViewController: UIViewController{
 
     // Do view setup here.
   }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+    if segue.identifier == SEGUE_DETAIL_TO_MODEL
+    {
+      var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+      var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE!
+
+      var index = self.tableView.indexPathForSelectedRow()
+      var modelTableViewController = segue.destinationViewController as! ModelTableViewController
+      modelTableViewController.path = self.path
+
+      modelTableViewController.arrayOfItems = loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+      magic("Segue transfer: \(segue.identifier)")
+    }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
+      magic("Segue transfer: \(segue.identifier)")
+    }
+  }
 }
+
 
 
 //MARK: - TableView Methods
@@ -90,6 +106,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     }
   }//Puts a text label in the header of the specified section
 }
+
 
 
 //MARK: - Developer Created Methods
@@ -197,6 +214,8 @@ extension DetailedViewController{
   }
 }
 
+
+
 //File System
 extension DetailedViewController{
   //Used to save to ios directory
@@ -224,7 +243,7 @@ extension DetailedViewController{
   func loadArchivedObject(filePath: String) -> CLOSET_TYPE? {
 
     if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
-
+      
       return closet
     }else{
       return nil

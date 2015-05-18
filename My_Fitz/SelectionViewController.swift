@@ -35,6 +35,10 @@ class SelectionViewController: UIViewController{
   override func viewDidLoad(){
     doneButton.hidden = true
 
+    let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE!
+    profile.categoryDics = loadedArchived as CLOSET_TYPE
+
     super.viewDidLoad()
     // Do view setup here.
   }
@@ -43,9 +47,9 @@ class SelectionViewController: UIViewController{
       var makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
       makeController.path = self.path
       makeController.itemsInArrayInDictionary = self.profile.categoryDics[path[PATHTYPE_CATEGORY_STRING]!]
-
+      magic("Segue transfer: \(segue.identifier)")
     }else{
-      magic("Segue working not proplery: \(segue.identifier)")
+      magic("Segue transfer: \(segue.identifier)")
     }
     
   }

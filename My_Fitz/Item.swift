@@ -33,7 +33,7 @@ class Item: NSObject, NSCoding, Printable{
   var price: String!
   var imageName: String!
   var favorited: String!//Bool = false
-  var isThisNew: String!//Bool!
+  var isThisNew: String!//Bool
   var timesWorn: Int!
   var lastTimeWorn: Int!
 
@@ -123,23 +123,24 @@ class Item: NSObject, NSCoding, Printable{
 
   ///Creates blank Item
   override init(){
+    //TODO: - Set all initilizars to just initialized no values store
     super.init()
 
-    self.brand         = " "
+    self.brand         = String()
 
-    self.model        = "  "
+    self.model        = String()
 
-    self.category     = " "
+    self.category     = String()
 
-    self.subCategory  = " "
+    self.subCategory  = String()
 
-    self.price        = " "
+    self.price        = String()
 
-    self.imageName    = " "
+    self.imageName    = String()
 
-    self.favorited    = "false"
+    self.favorited    = String()
 
-    self.isThisNew    = "true"
+    self.isThisNew    = String()
 
     self.timesWorn    = 0
 
@@ -149,7 +150,7 @@ class Item: NSObject, NSCoding, Printable{
 
     //Optionals
     self.datePurchased = 0
-    self.color        = "red"
+    self.color        = String()
 
     self.path = [String: String]()
 
@@ -254,8 +255,8 @@ extension Item{
       self.timesWorn     = timesWorn
       self.lastTimeWorn  = lastTimeWorn
       self.index         = index
-      
-      
+
+
       //Optionals
       self.datePurchased = datePurchased
       self.color         = color
@@ -265,6 +266,16 @@ extension Item{
   
 }
 
-
+extension Item{
+  func areItemRequirmentsFilled() -> Bool{
+    self.populateDictionariesToItemInstanceVariables()
+    for (key, value) in requiredDictionary{
+      if value.isEmpty{
+        return false
+      }
+    }
+    return true
+  }
+}
 
 

@@ -12,24 +12,41 @@ var closet: Closet!
 //Represents the type of Dictionary in Dictionary of Array of Items
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 
+//Picker options
+let CATEGORY_PICKER_OPTIONS = ["Shoes", "Shirts", "Pants", "Underclothes", "Accessories", "Jewelry"]
+
 let PATHTYPE_CATEGORY_STRING    = "category"
 let PATHTYPE_SUBCATEGORY_STRING = "subCategory"
 let PATHTYPE_INDEX_STRING       = "index"
 
 //Segue identifiers
-let SEGUE_MAIN_TO_SELECTION = "mainToSelection"
-let SEGUE_SELECTION_TO_MAKE = "selectionToMake"
-let SEGUE_MAKE_TO_MODEL     = "makeToModel"
-let SEGUE_MODEL_TO_DETAIL   = "modelToDetailed"
+let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
+let SEGUE_MAIN_TO_FITMAKER      = "mainToFitMaker"
+let SEGUE_SELECTION_TO_MAKE     = "selectionToMake"
+let SEGUE_SELECTION_TO_MAIN     = "selectionToMain"
+let SEGUE_MAKE_TO_MODEL         = "makeToModel"
+let SEGUE_MAKE_TO_SELECTION     = "makeToSelection"
+let SEGUE_MAKE_TO_CREATION      = "makeToCreation"
+let SEGUE_MODEL_TO_DETAIL       = "modelToDetailed"
+let SEGUE_MODEL_TO_MAKE         = "modelToMake"
+let SEGUE_MODEL_TO_CREATION     = "modelToCreation"
+let SEGUE_DETAIL_TO_MODEL       = "detailedToModel"
+let SEGUE_DETAIL_TO_CREATION    = "detailedToCreation"
+let SEGUE_CREATION_TO_MAIN      = "creationToMain"
+let SEGUE_CREATION_TO_SELECTION = "creationToDetail"
+let SEGUE_CREATION_TO_MAKE      = "creationToMake"
+let SEGUE_CREATION_TO_MODEL     = "creationToModel"
+let SEGUE_CREATION_TO_DETAIL    = "creationToDetail"
 
-let MAKE_CELL         = "makeCell"
-let MODEL_CELL        = "modelCell"
-let CREATION_CELL     = "creationCell"
-let DOUBLE_LABEL_CELL = "doubleLabel"
-let TEXT_INPUT_CELL   = "textInputCell"
 
-let MYFITZ_ARCHIVE_FILE_STRING = "myFitz.plist"
-let BLANK_IMAGE_STRING = "blank image"
+let MAKE_CELL                   = "makeCell"
+let MODEL_CELL                  = "modelCell"
+let CREATION_CELL               = "creationCell"
+let DOUBLE_LABEL_CELL           = "doubleLabel"
+let TEXT_INPUT_CELL             = "textInputCell"
+
+let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"
+let BLANK_IMAGE_STRING          = "blank image"
 
 
 

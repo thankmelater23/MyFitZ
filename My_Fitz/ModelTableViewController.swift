@@ -34,8 +34,21 @@ class ModelTableViewController: UITableViewController {
         detailController.itemOfObject = self.arrayOfItems[index.row] as Item!
         detailController.path = self.path
       }
-    }else{
-      magic("Segue working not proplery: \(segue.identifier)")
+      magic("Segue transfer: \(segue.identifier)")
+    }else if segue.identifier == SEGUE_MODEL_TO_MAKE{
+      magic("Segue transfer: \(segue.identifier)")
+
+      var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+      var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE
+
+      var index = self.tableView.indexPathForSelectedRow()
+      var makeTableViewController = segue.destinationViewController as! MakeTableViewController
+      makeTableViewController.path = self.path
+
+      makeTableViewController.itemsInArrayInDictionary = loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]
+      magic("Segue transfer: \(segue.identifier)")
+    }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
+      magic("Segue transfer: \(segue.identifier)")
     }
   }
   override func didReceiveMemoryWarning() {
@@ -55,9 +68,9 @@ extension ModelTableViewController{
 
     if indexPath.row % 2 == 0//If even number make this color
     {
-    cell.backgroundColor      = UIColor.redColor()
+      cell.backgroundColor      = UIColor.redColor()
     }else{
-    cell.backgroundColor      = UIColor.blueColor()
+      cell.backgroundColor      = UIColor.blueColor()
     }
 
     let item: Item            = arrayOfItems[indexPath.row] as Item!
@@ -133,7 +146,7 @@ extension ModelTableViewController{
   func loadArchivedObject(filePath: String) -> CLOSET_TYPE {
 
     if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
-
+      
       return closet as CLOSET_TYPE
     }else{
       return (Profile()).categoryDics//nil

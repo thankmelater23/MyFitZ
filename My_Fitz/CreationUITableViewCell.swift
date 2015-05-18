@@ -13,10 +13,14 @@ class CreationUITableViewCell: UITableViewCell{
   @IBOutlet var textInputCellLabel: UILabel!
   @IBOutlet var textInputCellTextField: UITextField!
 
-  func configure(#text: String?, labelString: String!){
-    textInputCellTextField.text = ""
+  func configure(#text: String?, labelString: String!, tag: Int){
+    textInputCellTextField.text = text
     textInputCellTextField.placeholder = labelString
     textInputCellLabel.text = labelString
+    self.textInputCellTextField.tag = tag
+    self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+
+    magic("Creating cell: \ntext:\(self.textInputCellTextField.text)\ntag: \(tag)")
 
   }
 }

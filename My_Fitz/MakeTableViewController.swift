@@ -42,8 +42,9 @@ class MakeTableViewController: UITableViewController{
       path[PATHTYPE_SUBCATEGORY_STRING] = self.itemsInArrayInDictionary.keys.array[index!.row]
       modelController.arrayOfItems = tempItemArray as [Item]!
       modelController.path = self.path
+      magic("Segue transfer: \(segue.identifier)")
     }else{
-      magic("Segue not working proplery: \(segue.identifier)")
+      magic("Segue transfer: \(segue.identifier)")
     }
   }
 }
