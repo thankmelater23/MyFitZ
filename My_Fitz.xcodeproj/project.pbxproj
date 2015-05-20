@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
-		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
+		C6351D601B0D0E6600D4B7E4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6351D5E1B0D0E6600D4B7E4 /* Crashlytics.framework */; };
+		C6351D611B0D0E6600D4B7E4 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6351D5F1B0D0E6600D4B7E4 /* Fabric.framework */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
 		C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */; };
 		C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7801A7070D200353C9B /* ViewController.swift */; };
@@ -38,9 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6351D5E1B0D0E6600D4B7E4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C6351D5F1B0D0E6600D4B7E4 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
-		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CCB77A1A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CCB77B1A7070D200353C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,8 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */,
-				C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */,
+				C6351D601B0D0E6600D4B7E4 /* Crashlytics.framework in Frameworks */,
+				C6351D611B0D0E6600D4B7E4 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,11 +86,11 @@
 		C6CCB76D1A7070D200353C9B = {
 			isa = PBXGroup;
 			children = (
-				C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */,
-				C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */,
 				C6CCB7781A7070D200353C9B /* My_Fitz */,
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
 				C6CCB7771A7070D200353C9B /* Products */,
+				C6351D5E1B0D0E6600D4B7E4 /* Crashlytics.framework */,
+				C6351D5F1B0D0E6600D4B7E4 /* Fabric.framework */,
 				C6526AC41ABD0C1200748141 /* Reveal.framework */,
 			);
 			sourceTree = "<group>";
