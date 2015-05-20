@@ -51,9 +51,7 @@ class SelectionViewController: UIViewController{
     }else{
       magic("Segue transfer: \(segue.identifier)")
     }
-    
   }
-
 }
 
 
@@ -87,8 +85,8 @@ extension SelectionViewController{
     if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
 
       return closet
-  }
+    }
     return nil
-
-}
+    
+  }
 }

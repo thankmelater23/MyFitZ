@@ -77,10 +77,10 @@ extension MakeTableViewController{
     if indexPath.row % 2 == 0//If even number make this color
     {
       //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
-    cell.backgroundColor     = UIColor.redColor()
+      cell.backgroundColor     = UIColor.cyanColor()
     }else{
       //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
-    cell.backgroundColor     = UIColor.blueColor()
+      cell.backgroundColor     = UIColor.darkGrayColor()
     }
 
     let arrayItemCell: [Item]     = self.itemsInArrayInDictionary.values.array[indexPath.row]
@@ -113,7 +113,7 @@ extension MakeTableViewController{
 
 
       self.tableView.reloadData()
-      }
+    }
   }//Editing to delete row
   override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
     return path[PATHTYPE_CATEGORY_STRING]
@@ -156,7 +156,7 @@ extension MakeTableViewController{
   func loadArchivedObject(filePath: String) -> CLOSET_TYPE? {
 
     if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
-
+      
       return closet
     }else{
       return nil

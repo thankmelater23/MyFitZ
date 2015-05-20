@@ -68,9 +68,9 @@ extension ModelTableViewController{
 
     if indexPath.row % 2 == 0//If even number make this color
     {
-      cell.backgroundColor      = UIColor.redColor()
+      cell.backgroundColor      = UIColor.grayColor()
     }else{
-      cell.backgroundColor      = UIColor.blueColor()
+      cell.backgroundColor      = UIColor.darkGrayColor()
     }
 
     let item: Item            = arrayOfItems[indexPath.row] as Item!

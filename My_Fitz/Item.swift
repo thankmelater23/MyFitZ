@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 
 ///Holds all the information to an item
@@ -37,6 +37,7 @@ class Item: NSObject, NSCoding, Printable{
   var timesWorn: Int!
   var lastTimeWorn: Int!
 
+  //var image: UIImage!
 
   //MARK: - Item Required defined values
   var datePurchased: Int!
@@ -79,6 +80,7 @@ class Item: NSObject, NSCoding, Printable{
     self.isThisNew    = decoder.decodeObjectForKey(ITEM_ISTHISNEW_STRING) as! String!
     self.timesWorn    = decoder.decodeIntegerForKey(ITEM_TIMESWORN_STRING) as Int!
     self.lastTimeWorn = decoder.decodeIntegerForKey(ITEM_LASTTIMEWORN_STRING) as Int!
+    //self.image = UIImage(data: (decoder.decodeDataObject("myImage") as NSData))
 
 
 
@@ -107,6 +109,7 @@ class Item: NSObject, NSCoding, Printable{
     coder.encodeObject(self.isThisNew, forKey: ITEM_ISTHISNEW_STRING)
     coder.encodeInteger(self.timesWorn, forKey: ITEM_TIMESWORN_STRING)
     coder.encodeInteger(self.lastTimeWorn, forKey: ITEM_LASTTIMEWORN_STRING)
+
 
     //Optional
     coder.encodeInteger(self.datePurchased, forKey: ITEM_DATEPURCHASERD_STRING)

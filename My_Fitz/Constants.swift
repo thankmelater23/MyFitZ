@@ -13,7 +13,7 @@ var closet: Closet!
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 
 //Picker options
-let CATEGORY_PICKER_OPTIONS = ["Shoes", "Shirts", "Pants", "Underclothes", "Accessories", "Jewelry"]
+let CATEGORY_PICKER_OPTIONS = ["Shoes", "Shirt", "Pants", "Underclothes", "Accessories", "Jewelry"]
 
 let PATHTYPE_CATEGORY_STRING    = "category"
 let PATHTYPE_SUBCATEGORY_STRING = "subCategory"

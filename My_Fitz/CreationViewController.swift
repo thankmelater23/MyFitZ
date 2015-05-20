@@ -1,4 +1,4 @@
-//
+///
 //  CreationViewController.swift
 //  My_Fitz
 //
@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 
 //MARK: - CreationViewController class
-
 class CreationViewController: UIViewController{
   //Enums
   enum dictionaryKindReference: Int{
@@ -27,6 +27,7 @@ class CreationViewController: UIViewController{
   var subCategoryPickerOptions = [String]()
   var categegorySelected: String! = String()
   var subCategorySelected: String! = String()
+  @IBOutlet var pictureForSelectedItemImage: UIImageView!
   ///Holds the optional and required dictionaries
   var itemInfoDictionaries = [[String: String]]()
   ///Holds the required information from the item
@@ -62,6 +63,9 @@ class CreationViewController: UIViewController{
 
     // Do any additional setup after loading the view.
   }
+  @IBAction func setItemImage(sender: UIButton) {
+    self.setImagePicker()
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -87,7 +91,6 @@ class CreationViewController: UIViewController{
 
 
 //MARK: - TableView Methods
-
 extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return itemInfoDictionaries.count
@@ -136,21 +139,15 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     case 2 :
       keyAndValue = ITEM_CATEGORY_STRING
       cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-      cell.hidden = true
-      cell.removeFromSuperview()
     case 3 :
       keyAndValue = ITEM_SUBCATEGORY_STRING
       cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-      cell.hidden = true
-      cell.removeFromSuperview()
     case 4 :
       keyAndValue = ITEM_PRICE_STRING
       cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
     case 5 :
       keyAndValue = ITEM_IMAGENAME_STRING
       cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-      cell.removeFromSuperview()
-      cell.hidden = true
     case 6 :
       keyAndValue = ITEM_FAVORITED_STRING
       cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
@@ -166,10 +163,6 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     case 10 :
       keyAndValue = ITEM_INDEX_STRING
       cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-      cell.hidden = true
-      cell.removeFromSuperview()
-
-
     default:
       magic("Something Didnt't go right")
     }
@@ -203,17 +196,27 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
 //MARK: - Developer Created Methods
 extension CreationViewController{
   func setUp(){
+    //Category
     categoryPickerView.delegate = self
-    subCategoryPickerView.delegate = self
     categoryInputTextField.inputView = categoryPickerView
+
+
+    //Sub-Category
+    subCategoryPickerView.delegate = self
     subCategoryInputTextField.inputView = subCategoryPickerView
     subCategoryInputTextField.enabled = false
-    self.tableView.hidden = true
+
+    //Image
+    self.pictureForSelectedItemImage.alpha = 0.5
+
+
+
+    //Table View Init
     self.createDicsAndAppendToArray()
     self.tableView.dataSource = self
     self.tableView.delegate = self
     self.tableView.reloadData()
-
+    self.tableView.hidden = true
   }//Sets up data
   func createRequiredlDic(){
     var keyAndValue: String!
@@ -281,7 +284,7 @@ extension CreationViewController{
 
 
 
-//
+//MARK: - PickerView Methods
 extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
     return 1
@@ -311,6 +314,8 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     if pickerView == categoryPickerView{
       subCategoryInputTextField.inputView = subCategoryPickerView
+      subCategoryPickerView.delegate = self
+      self.pictureForSelectedItemImage.alpha = 0.5
       subCategoryPickerView.reloadAllComponents()
       categegorySelected = categoryPickerOptions[row]
       categoryInputTextField.text = categegorySelected
@@ -319,11 +324,9 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
       subCategoryPickerOptions.removeAll(keepCapacity: false)
 
       let loadedArchived = loadAndCreateCloset()
-      let selectedCategory = loadedArchived[categegorySelected]!
+      let keysOfCategory = (loadedArchived[categegorySelected]! as Dictionary).keys
 
-      let options = (selectedCategory as Dictionary).keys
-
-      for key in options{
+      for key in keysOfCategory{
         subCategoryPickerOptions.append(key)
       }
 
@@ -332,12 +335,41 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }else{
       if row == (subCategoryPickerOptions.count){
       subCategoryInputTextField.inputView = nil
+        subCategoryInputTextField.reloadInputViews()
+        subCategoryInputTextField.text = String()
       }else{
       subCategoryInputTextField.text = subCategoryPickerOptions[row]
+      self.pictureForSelectedItemImage.alpha = 1.0
       }
       self.tableView.hidden = false
     }
   }
+}
+
+
+//MARK: - ImagePickerView Methods
+extension CreationViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func setImagePicker(){
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = self
+    imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+    imagePicker.mediaTypes = [kUTTypeImage as NSString]
+    imagePicker.allowsEditing = false
+
+    self.presentViewController(imagePicker, animated: true, completion: nil)
+  }
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    //var video = info[UIImagePickerControllerMediaURL] as? NSURL
+    var picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+    pictureForSelectedItemImage.image = picture
+    //viewItem.image = picture
+
+    //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
+    self.dismissViewControllerAnimated(true, completion: nil)
+
+
+  }
+
 }
 
 //File System
@@ -382,7 +414,7 @@ extension CreationViewController{
       return loadArchivedObject(pathOfFile) as CLOSET_TYPE!
   }
 }
-//File System
+//Text Field methods
 extension CreationViewController: UITextFieldDelegate{
   func setValueForTaggedCell(#tag: Int, value: String){
     switch tag{
