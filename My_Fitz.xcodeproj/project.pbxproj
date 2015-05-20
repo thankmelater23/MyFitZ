@@ -11,9 +11,9 @@
 		C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
 		C615A7901AE2A69100D055D2 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78F1AE2A69100D055D2 /* Fit.swift */; };
 		C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
+		C6351D5C1B0D07E500D4B7E4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6351D5A1B0D07E400D4B7E4 /* Crashlytics.framework */; };
+		C6351D5D1B0D07E500D4B7E4 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6351D5B1B0D07E500D4B7E4 /* Fabric.framework */; };
 		C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B9C9E91ADC918900892F97 /* Images.xcassets */; };
-		C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */; };
-		C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
 		C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */; };
 		C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7801A7070D200353C9B /* ViewController.swift */; };
@@ -65,10 +65,10 @@
 		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		C615A7911AE2ABD200D055D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C6351D5A1B0D07E400D4B7E4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C6351D5B1B0D07E500D4B7E4 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CCB77A1A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CCB77B1A7070D200353C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,19 +126,19 @@
 				C6FDC17E1ACBD8F1003C2895 /* Accounts.framework in Frameworks */,
 				C6FDC1731ACBAC13003C2895 /* libsqlite3.dylib in Frameworks */,
 				C6FDC1711ACBAC0B003C2895 /* SystemConfiguration.framework in Frameworks */,
+				C6351D5C1B0D07E500D4B7E4 /* Crashlytics.framework in Frameworks */,
 				C6FDC16F1ACBAC03003C2895 /* StoreKit.framework in Frameworks */,
 				C6FDC16D1ACBABFB003C2895 /* Security.framework in Frameworks */,
 				C6FDC16B1ACBABEB003C2895 /* QuartzCore.framework in Frameworks */,
 				C6FDC1691ACBABE2003C2895 /* MobileCoreServices.framework in Frameworks */,
 				C6FDC1671ACBABD1003C2895 /* libz.dylib in Frameworks */,
 				C6FDC1651ACBABAD003C2895 /* CoreLocation.framework in Frameworks */,
+				C6351D5D1B0D07E500D4B7E4 /* Fabric.framework in Frameworks */,
 				C6FDC1631ACBABA6003C2895 /* CoreGraphics.framework in Frameworks */,
 				C6FDC1611ACBAB9F003C2895 /* CFNetwork.framework in Frameworks */,
 				C6FDC15F1ACBAB95003C2895 /* AudioToolbox.framework in Frameworks */,
 				C6FDC1591ACBAAD3003C2895 /* Bolts.framework in Frameworks */,
-				C6BC15DE1AC1A62A00DF23C2 /* Crashlytics.framework in Frameworks */,
 				C6FDC15A1ACBAAD3003C2895 /* Parse.framework in Frameworks */,
-				C6BC15DF1AC1A62A00DF23C2 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +258,9 @@
 				C6FDC1601ACBAB9F003C2895 /* CFNetwork.framework */,
 				C6FDC15E1ACBAB95003C2895 /* AudioToolbox.framework */,
 				C6FDC1571ACBAAD3003C2895 /* Bolts.framework */,
+				C6351D5A1B0D07E400D4B7E4 /* Crashlytics.framework */,
+				C6351D5B1B0D07E500D4B7E4 /* Fabric.framework */,
 				C6FDC1581ACBAAD3003C2895 /* Parse.framework */,
-				C6BC15DC1AC1A62A00DF23C2 /* Crashlytics.framework */,
-				C6BC15DD1AC1A62A00DF23C2 /* Fabric.framework */,
 				C6526AC41ABD0C1200748141 /* Reveal.framework */,
 			);
 			name = Frameworks;
