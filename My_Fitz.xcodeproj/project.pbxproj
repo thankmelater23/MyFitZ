@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C8AB6547741803DE923F570 /* libPods-My_Fitz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD386133EFD8ED1C0F092A /* libPods-My_Fitz.a */; };
 		C60380E21ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */; };
 		C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
 		C615A7901AE2A69100D055D2 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78F1AE2A69100D055D2 /* Fit.swift */; };
 		C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
-		C6351D5C1B0D07E500D4B7E4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6351D5A1B0D07E400D4B7E4 /* Crashlytics.framework */; };
-		C6351D5D1B0D07E500D4B7E4 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6351D5B1B0D07E500D4B7E4 /* Fabric.framework */; };
+		C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
+		C6B2DDC51B17BE7600250403 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
+		C6B2DDC61B17BEBA00250403 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
+		C6B2DDC71B17BEBE00250403 /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
+		C6B2DDC81B17BEC300250403 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB79E1A7072FF00353C9B /* Item.swift */; };
+		C6B2DDC91B193DCF00250403 /* PrintlnMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E790EC1AA82B1C00D00952 /* PrintlnMagic.swift */; };
 		C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B9C9E91ADC918900892F97 /* Images.xcassets */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
 		C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */; };
@@ -32,7 +37,6 @@
 		C6F1A4D91ACF8D2C00434605 /* CreationUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */; };
 		C6F1A4DB1ACF8F6500434605 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */; };
 		C6FDC1591ACBAAD3003C2895 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1571ACBAAD3003C2895 /* Bolts.framework */; };
-		C6FDC15A1ACBAAD3003C2895 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1581ACBAAD3003C2895 /* Parse.framework */; };
 		C6FDC15F1ACBAB95003C2895 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC15E1ACBAB95003C2895 /* AudioToolbox.framework */; };
 		C6FDC1611ACBAB9F003C2895 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1601ACBAB9F003C2895 /* CFNetwork.framework */; };
 		C6FDC1631ACBABA6003C2895 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1621ACBABA6003C2895 /* CoreGraphics.framework */; };
@@ -61,13 +65,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D728DD7DF8F2841A4DCC2C0 /* Pods-My_Fitz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.debug.xcconfig"; sourceTree = "<group>"; };
+		4D9448131F805D2A3FD3BB4B /* Pods-My_Fitz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.release.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.release.xcconfig"; sourceTree = "<group>"; };
+		55DD386133EFD8ED1C0F092A /* libPods-My_Fitz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My_Fitz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		C615A7911AE2ABD200D055D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C6351D5A1B0D07E400D4B7E4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		C6351D5B1B0D07E500D4B7E4 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		C674D12C1B0E818900E0DC6F /* Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
 		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CCB77A1A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,7 +97,6 @@
 		C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationUITableViewCell.swift; sourceTree = "<group>"; };
 		C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		C6FDC1571ACBAAD3003C2895 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		C6FDC1581ACBAAD3003C2895 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C6FDC15B1ACBAB29003C2895 /* My_Fitz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "My_Fitz-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		C6FDC15E1ACBAB95003C2895 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C6FDC1601ACBAB9F003C2895 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -126,19 +131,17 @@
 				C6FDC17E1ACBD8F1003C2895 /* Accounts.framework in Frameworks */,
 				C6FDC1731ACBAC13003C2895 /* libsqlite3.dylib in Frameworks */,
 				C6FDC1711ACBAC0B003C2895 /* SystemConfiguration.framework in Frameworks */,
-				C6351D5C1B0D07E500D4B7E4 /* Crashlytics.framework in Frameworks */,
 				C6FDC16F1ACBAC03003C2895 /* StoreKit.framework in Frameworks */,
 				C6FDC16D1ACBABFB003C2895 /* Security.framework in Frameworks */,
 				C6FDC16B1ACBABEB003C2895 /* QuartzCore.framework in Frameworks */,
 				C6FDC1691ACBABE2003C2895 /* MobileCoreServices.framework in Frameworks */,
 				C6FDC1671ACBABD1003C2895 /* libz.dylib in Frameworks */,
 				C6FDC1651ACBABAD003C2895 /* CoreLocation.framework in Frameworks */,
-				C6351D5D1B0D07E500D4B7E4 /* Fabric.framework in Frameworks */,
 				C6FDC1631ACBABA6003C2895 /* CoreGraphics.framework in Frameworks */,
 				C6FDC1611ACBAB9F003C2895 /* CFNetwork.framework in Frameworks */,
 				C6FDC15F1ACBAB95003C2895 /* AudioToolbox.framework in Frameworks */,
 				C6FDC1591ACBAAD3003C2895 /* Bolts.framework in Frameworks */,
-				C6FDC15A1ACBAAD3003C2895 /* Parse.framework in Frameworks */,
+				2C8AB6547741803DE923F570 /* libPods-My_Fitz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,12 +155,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67763086513355274FE92966 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D728DD7DF8F2841A4DCC2C0 /* Pods-My_Fitz.debug.xcconfig */,
+				4D9448131F805D2A3FD3BB4B /* Pods-My_Fitz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C671E3D41ADB3A8500A73593 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C615A7911AE2ABD200D055D2 /* Constants.swift */,
 				C615A78F1AE2A69100D055D2 /* Fit.swift */,
 				C615A78D1AE2A67500D055D2 /* Closet.swift */,
+				C674D12C1B0E818900E0DC6F /* Wardrobe.swift */,
 				C6CCB79F1A7072FF00353C9B /* Profile.swift */,
 				C6CCB79E1A7072FF00353C9B /* Item.swift */,
 				C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */,
@@ -172,9 +185,11 @@
 			isa = PBXGroup;
 			children = (
 				C6CCB7781A7070D200353C9B /* My_Fitz */,
+				C6CCB7791A7070D200353C9B /* Supporting Files */,
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
 				C6CCB7771A7070D200353C9B /* Products */,
 				C6FDC1741ACBD2DF003C2895 /* Frameworks */,
+				67763086513355274FE92966 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,7 +213,6 @@
 				C6CCB7A61A70734800353C9B /* DetailedViewController.swift */,
 				C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */,
 				C6CCB7821A7070D200353C9B /* Main.storyboard */,
-				C6CCB7791A7070D200353C9B /* Supporting Files */,
 			);
 			path = My_Fitz;
 			sourceTree = "<group>";
@@ -215,6 +229,7 @@
 				C6CCB7871A7070D200353C9B /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
+			path = My_Fitz;
 			sourceTree = "<group>";
 		};
 		C6CCB7911A7070D200353C9B /* My_FitzTests */ = {
@@ -258,10 +273,8 @@
 				C6FDC1601ACBAB9F003C2895 /* CFNetwork.framework */,
 				C6FDC15E1ACBAB95003C2895 /* AudioToolbox.framework */,
 				C6FDC1571ACBAAD3003C2895 /* Bolts.framework */,
-				C6351D5A1B0D07E400D4B7E4 /* Crashlytics.framework */,
-				C6351D5B1B0D07E500D4B7E4 /* Fabric.framework */,
-				C6FDC1581ACBAAD3003C2895 /* Parse.framework */,
 				C6526AC41ABD0C1200748141 /* Reveal.framework */,
+				55DD386133EFD8ED1C0F092A /* libPods-My_Fitz.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,11 +286,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6CCB7981A7070D200353C9B /* Build configuration list for PBXNativeTarget "My_Fitz" */;
 			buildPhases = (
+				4857AEF11FA9AC73D00A8C95 /* Check Pods Manifest.lock */,
 				C6CCB7721A7070D200353C9B /* Sources */,
 				C6CCB7731A7070D200353C9B /* Frameworks */,
 				C6CCB7741A7070D200353C9B /* Resources */,
 				C6BC15DB1AC1A57700DF23C2 /* ShellScript */,
 				C69F82BA1AE4964B00B087A4 /* ShellScript */,
+				84272D002C679EF0747D9BFF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,6 +380,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4857AEF11FA9AC73D00A8C95 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84272D002C679EF0747D9BFF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C69F82BA1AE4964B00B087A4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,7 +434,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
+			shellScript = "./Pods/Fabric/Fabric.framework/run 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -412,6 +457,7 @@
 				C6E790ED1AA82B1C00D00952 /* PrintlnMagic.swift in Sources */,
 				C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */,
 				C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */,
+				C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */,
 				C6F1A4D91ACF8D2C00434605 /* CreationUITableViewCell.swift in Sources */,
 				C615A7901AE2A69100D055D2 /* Fit.swift in Sources */,
 				C6F1A4DB1ACF8F6500434605 /* CreationViewController.swift in Sources */,
@@ -423,7 +469,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B2DDC81B17BEC300250403 /* Item.swift in Sources */,
 				C6CCB7951A7070D200353C9B /* My_FitzTests.swift in Sources */,
+				C6B2DDC61B17BEBA00250403 /* Closet.swift in Sources */,
+				C6B2DDC91B193DCF00250403 /* PrintlnMagic.swift in Sources */,
+				C6B2DDC51B17BE7600250403 /* Constants.swift in Sources */,
+				C6B2DDC71B17BEBE00250403 /* Wardrobe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +589,7 @@
 		};
 		C6CCB7991A7070D200353C9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D728DD7DF8F2841A4DCC2C0 /* Pods-My_Fitz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -567,6 +619,7 @@
 		};
 		C6CCB79A1A7070D200353C9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D9448131F805D2A3FD3BB4B /* Pods-My_Fitz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

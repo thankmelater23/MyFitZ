@@ -12,12 +12,6 @@ import MobileCoreServices
 
 //MARK: - CreationViewController class
 class CreationViewController: UIViewController{
-  //Enums
-  enum dictionaryKindReference: Int{
-    case dictionaryNotSelected = 0
-    case requiredDictionary
-    case optionalDictionary
-  }
   @IBOutlet var tableView: UITableView!
   @IBOutlet var categoryInputTextField: UITextField!
   @IBOutlet var subCategoryInputTextField: UITextField!
@@ -28,14 +22,8 @@ class CreationViewController: UIViewController{
   var categegorySelected: String! = String()
   var subCategorySelected: String! = String()
   @IBOutlet var pictureForSelectedItemImage: UIImageView!
-  ///Holds the optional and required dictionaries
-  var itemInfoDictionaries = [[String: String]]()
-  ///Holds the required information from the item
-  var itemInfoRequiredDictionary = [String: String]()
-  ///Holds the optional information from the item
-  var itemInfoOptionalDictionary = [String: String]()
   //CreationViewController Item to be created and modified to be saved
-  var viewItem = Item.init()
+  var viewItem: Item! = Item()
   ///Dictionary path to item
   var path: [String: String] = [String: String]()
 
@@ -44,18 +32,23 @@ class CreationViewController: UIViewController{
   @IBAction func createItem(sender: UIButton) {
 
     var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-    var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE
+    var loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
 
     if self.categoryInputTextField.text != nil && self.subCategoryInputTextField.text != nil{
-      loadedArchived[self.categoryInputTextField.text]?.updateValue([Item](), forKey: self.subCategoryInputTextField.text)
-
-      if viewItem.areItemRequirmentsFilled(){
-        viewItem.populateDictionariesToItemInstanceVariables()
-        loadedArchived[viewItem.category]![viewItem.subCategory]!.append(viewItem)
-      }
+      loadedArchived.selectedCloset[self.categoryInputTextField.text]?.updateValue([Item](), forKey: self.subCategoryInputTextField.text)
+      saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
+      magic("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
+    }else{
+      magic("Cateogry and/or SubCategory needs value")
     }
+    if !self.viewItem.model.isEmpty{
+      loadedArchived.selectedCloset[categoryInputTextField.text]![subCategoryInputTextField.text]!.append(viewItem)
+      saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
+      magic("item Saved Item Saved: \(viewItem)")
 
-    saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
+      subCategoryPickerView.reloadAllComponents()
+      subCategoryPickerView.reloadInputViews()
+    }
   }
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -93,13 +86,15 @@ class CreationViewController: UIViewController{
 //MARK: - TableView Methods
 extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return itemInfoDictionaries.count
+    return 2
+
+
   }// Return the number of sections.
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if (section == 0){
-      return self.itemInfoRequiredDictionary.count
+      return 6
     }else{//(section == 1)
-      return self.itemInfoOptionalDictionary.count
+      return 2
     }
 
   }// Return the number of rows in the section.
@@ -132,37 +127,31 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     switch row {
     case 0 :
       keyAndValue = ITEM_BRAND_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
+      cell.configure(text: viewItem.brand, labelString: keyAndValue, tag: row)
     case 1 :
       keyAndValue = ITEM_MODEL_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
+      cell.configure(text: viewItem.model, labelString: keyAndValue, tag: row)
+      //    case 2 :
+      //      keyAndValue = ITEM_CATEGORY_STRING
+      //      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
+      //    case 3 :
+      //      keyAndValue = ITEM_SUBCATEGORY_STRING
+      //      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
     case 2 :
-      keyAndValue = ITEM_CATEGORY_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 3 :
-      keyAndValue = ITEM_SUBCATEGORY_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 4 :
       keyAndValue = ITEM_PRICE_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 5 :
-      keyAndValue = ITEM_IMAGENAME_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 6 :
-      keyAndValue = ITEM_FAVORITED_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 7 :
+      cell.configure(text: viewItem.price?.description, labelString: keyAndValue, tag: row)
+    case 4 :
       keyAndValue = ITEM_ISTHISNEW_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 8 :
+      cell.configure(text: viewItem.isThisNew!.description, labelString: keyAndValue, tag: row)
+    case 5 :
       keyAndValue = ITEM_TIMESWORN_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 9 :
+      cell.configure(text: viewItem.favorited.description, labelString: keyAndValue, tag: row)
+    case 6 :
       keyAndValue = ITEM_LASTTIMEWORN_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
-    case 10 :
-      keyAndValue = ITEM_INDEX_STRING
-      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
+      cell.configure(text: viewItem.lastTimeWorn, labelString: keyAndValue, tag: row)
+      //    case 10 :
+      //      keyAndValue = ITEM_INDEX_STRING
+      //      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
     default:
       magic("Something Didnt't go right")
     }
@@ -179,10 +168,10 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     switch row {
     case 0 :
       keyAndValue = ITEM_DATEPURCHASERD_STRING
-      cell.configure(text: viewItem.optionalDictionary[keyAndValue], labelString: keyAndValue, tag: row)
+      cell.configure(text: viewItem.datePurchased, labelString: keyAndValue, tag: row)
     case 1 :
       keyAndValue = ITEM_COLOR_STRING
-      cell.configure(text: viewItem.optionalDictionary[keyAndValue], labelString: keyAndValue, tag: row)
+      cell.configure(text: viewItem.color, labelString: keyAndValue, tag: row)
 
     default:
       magic("Something Didnt't go right")
@@ -209,77 +198,13 @@ extension CreationViewController{
     //Image
     self.pictureForSelectedItemImage.alpha = 0.5
 
-
-
     //Table View Init
-    self.createDicsAndAppendToArray()
+    //self.createDicsAndAppendToArray()
     self.tableView.dataSource = self
     self.tableView.delegate = self
     self.tableView.reloadData()
     self.tableView.hidden = true
   }//Sets up data
-  func createRequiredlDic(){
-    var keyAndValue: String!
-
-
-    keyAndValue                             = ITEM_BRAND_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_MODEL_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_CATEGORY_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-    keyAndValue                             = ITEM_SUBCATEGORY_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_PRICE_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_IMAGENAME_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_FAVORITED_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_ISTHISNEW_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_TIMESWORN_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_LASTTIMEWORN_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue                             = ITEM_INDEX_STRING
-    itemInfoRequiredDictionary[keyAndValue] = keyAndValue
-  }
-  func createOptionalDic(){
-    var keyAndValue: String!
-
-
-    keyAndValue = ITEM_DATEPURCHASERD_STRING
-    itemInfoOptionalDictionary[keyAndValue] = keyAndValue
-
-    keyAndValue = ITEM_COLOR_STRING
-    itemInfoOptionalDictionary[keyAndValue] = keyAndValue
-  }
-  func createDicsAndAppendToArray(){
-    createRequiredlDic()
-    createOptionalDic()
-    itemInfoDictionaries.append(itemInfoRequiredDictionary)
-    itemInfoDictionaries.append(itemInfoOptionalDictionary)
-  }
-  ///Takes required & optional dic and matches its info with that of the newley created Item object
-  func createNewItem(requiredDic: [String: String], optionalDic: [String: String]){
-    viewItem.setUpItemInfoThroughDictionaries(requiredDic: requiredDic, optionalDic: optionalDic)
-  }
-  func pushDataIntoDictionaries(){
-    //TODO: - Setup function to send information from tableViewCell dictionaries then into the item's object dictionaries then sync obect with dic info
-
-    //Set up text to to dictionary
-    self.createNewItem(itemInfoRequiredDictionary, optionalDic: itemInfoOptionalDictionary)
-  }
 }
 
 
@@ -307,7 +232,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 
         return "Add New Sub-Category"
       }else{
-      return subCategoryPickerOptions[row]
+        return subCategoryPickerOptions[row]
       }
     }
   }
@@ -316,14 +241,15 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
       subCategoryInputTextField.inputView = subCategoryPickerView
       subCategoryPickerView.delegate = self
       self.pictureForSelectedItemImage.alpha = 0.5
-      subCategoryPickerView.reloadAllComponents()
+      //subCategoryPickerView.reloadAllComponents()
       categegorySelected = categoryPickerOptions[row]
       categoryInputTextField.text = categegorySelected
       subCategoryInputTextField.enabled = true
       self.tableView.hidden = true
       subCategoryPickerOptions.removeAll(keepCapacity: false)
 
-      let loadedArchived = loadAndCreateCloset()
+      //FIXME: - Fix the loading of files
+      let loadedArchived = loadAndCreateCloset().selectedCloset
       let keysOfCategory = (loadedArchived[categegorySelected]! as Dictionary).keys
 
       for key in keysOfCategory{
@@ -334,12 +260,12 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 
     }else{
       if row == (subCategoryPickerOptions.count){
-      subCategoryInputTextField.inputView = nil
+        subCategoryInputTextField.inputView = nil
         subCategoryInputTextField.reloadInputViews()
         subCategoryInputTextField.text = String()
       }else{
-      subCategoryInputTextField.text = subCategoryPickerOptions[row]
-      self.pictureForSelectedItemImage.alpha = 1.0
+        subCategoryInputTextField.text = subCategoryPickerOptions[row]
+        self.pictureForSelectedItemImage.alpha = 1.0
       }
       self.tableView.hidden = false
     }
@@ -362,7 +288,7 @@ extension CreationViewController:UIImagePickerControllerDelegate, UINavigationCo
     //var video = info[UIImagePickerControllerMediaURL] as? NSURL
     var picture = info[UIImagePickerControllerOriginalImage] as? UIImage
     pictureForSelectedItemImage.image = picture
-    //viewItem.image = picture
+    viewItem.image = picture
 
     //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
     self.dismissViewControllerAnimated(true, completion: nil)
@@ -372,51 +298,15 @@ extension CreationViewController:UIImagePickerControllerDelegate, UINavigationCo
 
 }
 
-//File System
-extension CreationViewController{
-  //Used to save to ios directory
-  func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
-    return documentsFolderPath
-  }
-  func fileInDocumentsDirectory(filename: String) -> String {
-    return documentsDirectory().stringByAppendingPathComponent(filename)
-  }
-  func saveObjectToArchived(filePath: String, closetInstance: CLOSET_TYPE!){
 
-    magic("save: \(filePath)")
-
-    var success = false
-
-    success = NSKeyedArchiver.archiveRootObject(closetInstance, toFile:filePath)
-
-    if success {
-      println("Saved successfully")
-    } else {
-      println("Error saving data file")
-    }
-  }
-  func loadArchivedObject(filePath: String) -> CLOSET_TYPE! {
-
-    if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
-
-      return closet as CLOSET_TYPE
-    }else{
-      let closetToSave = Profile()
-      let checkVar = closetToSave.categoryDics
-      saveObjectToArchived(filePath, closetInstance: checkVar)
-
-      return checkVar as CLOSET_TYPE
-    }
-  }
-  func loadAndCreateCloset() -> CLOSET_TYPE{
-    let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-      return loadArchivedObject(pathOfFile) as CLOSET_TYPE!
-  }
-}
 //Text Field methods
 extension CreationViewController: UITextFieldDelegate{
   func setValueForTaggedCell(#tag: Int, value: String){
+    var bool = true
+    if value == "YES"{
+    }else if value == "NO"{
+      bool = false
+    }
     switch tag{
     case 0:
       viewItem.brand = value
@@ -427,21 +317,21 @@ extension CreationViewController: UITextFieldDelegate{
     case 3:
       viewItem.subCategory = value
     case 4:
-      viewItem.price = value
-    case 5:
-      viewItem.imageName = value
+      viewItem.price = NSNumberFormatter().numberFromString(value)!.doubleValue
+      //    case 5:
+      //      viewItem.imageName = value
     case 6:
-      viewItem.favorited = value
+      viewItem.favorited = bool
     case 7:
-      viewItem.isThisNew = value
+      viewItem.isThisNew = bool
     case 8:
       viewItem.timesWorn = NSNumberFormatter().numberFromString(value)!.integerValue
     case 9:
-      viewItem.lastTimeWorn = NSNumberFormatter().numberFromString(value)!.integerValue
+      viewItem.lastTimeWorn = value
     case 10:
       viewItem.index = NSNumberFormatter().numberFromString(value)!.integerValue
     case 11:
-      viewItem.datePurchased = NSNumberFormatter().numberFromString(value)!.integerValue
+      viewItem.datePurchased = value
     case 13:
       viewItem.color = value
     default:
@@ -455,7 +345,7 @@ extension CreationViewController: UITextFieldDelegate{
   }// return NO to disallow editing.
   func textFieldDidBeginEditing(textField: UITextField){
     textField.becomeFirstResponder()
-    magic("textFieldDidBeginEditing:" + textField.text)
+    magic("textFieldDidBeginEditing: Text:  \(textField.text)\n tag:  \(textField.text)  ")
   } // became first responder
   func textFieldShouldEndEditing(textField: UITextField) -> Bool{
     textField.resignFirstResponder()
@@ -478,8 +368,53 @@ extension CreationViewController: UITextFieldDelegate{
     //TODO: - Set up to move to next textfielx
     magic("textFieldShouldReturn:" + textField.text)
     textField.resignFirstResponder()
+    if textField == subCategoryInputTextField || textField == categoryInputTextField{
+      subCategoryPickerView.reloadAllComponents()
+    }
     return true
   } // called when 'return' key pressed. return NO to ignore.
+}
+
+
+
+//File System
+extension CreationViewController{
+  //Used to save to ios directory
+  func documentsDirectory() -> String {
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    return documentsFolderPath
+  }
+  func fileInDocumentsDirectory(filename: String) -> String {
+    return documentsDirectory().stringByAppendingPathComponent(filename)
+  }
+  func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
+
+    magic("save: \(filePath)")
+
+    var success = false
+
+    success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
+
+    if success {
+      println("Saved successfully")
+    } else {
+      println("Error saving data file")
+    }
+  }
+  func loadArchivedObject(filePath: String) -> Wardrobe? {
+
+    if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as! Wardrobe!{
+      return wardrobe
+    }else{
+      let newWardrobe = Wardrobe()
+      saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
+      return newWardrobe
+    }
+  }
+  func loadAndCreateCloset() -> Wardrobe{
+    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    return loadArchivedObject(filePath)!
+  }
 }
 /***********************NOTES*********************/
 // Use pickerView Object to choose categories and sub-categories that already exist and at the bottom have an option to add new one

@@ -37,11 +37,13 @@ class MakeTableViewController: UITableViewController{
     if segue.identifier == SEGUE_MAKE_TO_MODEL
     {
       var index = self.tableView.indexPathForSelectedRow()
+
       var modelController = segue.destinationViewController as! ModelTableViewController
       let tempItemArray: [Item] = self.itemsInArrayInDictionary.values.array[index!.row]
       path[PATHTYPE_SUBCATEGORY_STRING] = self.itemsInArrayInDictionary.keys.array[index!.row]
       modelController.arrayOfItems = tempItemArray as [Item]!
       modelController.path = self.path
+
       magic("Segue transfer: \(segue.identifier)")
     }else{
       magic("Segue transfer: \(segue.identifier)")
@@ -68,7 +70,8 @@ extension MakeTableViewController{
 ///TableView Methods
 extension MakeTableViewController{
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    return itemsInArrayInDictionary.count
+    let count = itemsInArrayInDictionary.count
+    return count
   }//Returns Int for number of sections in tableView
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     let cell: MakeCustomCell = tableView.dequeueReusableCellWithIdentifier(MAKE_CELL) as! MakeCustomCell
@@ -77,19 +80,21 @@ extension MakeTableViewController{
     if indexPath.row % 2 == 0//If even number make this color
     {
       //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
-      cell.backgroundColor     = UIColor.cyanColor()
+      //cell.backgroundColor     = UIColor.cyanColor()
+      cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
     }else{
       //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
-      cell.backgroundColor     = UIColor.darkGrayColor()
+      cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
     }
 
-    let arrayItemCell: [Item]     = self.itemsInArrayInDictionary.values.array[indexPath.row]
+    let arrayItemCell: [Item] = self.itemsInArrayInDictionary.values.array[indexPath.row]
     let keyOfSelectedArray = self.itemsInArrayInDictionary.keys.array[indexPath.row]
 
     if let availableSubCategoryItem = arrayItemCell.first{
-      cell.setCell(availableSubCategoryItem.imageName, makeLabelText: availableSubCategoryItem.brand, numberOfItemsText: arrayItemCell.count)
+      cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.brand!, numberOfItemsText: arrayItemCell.count)
     }else{
-      cell.setCell(BLANK_IMAGE_STRING, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
+      let image = UIImage(named: BLANK_IMAGE_STRING)
+      cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
     }
     return cell
   }//Returns a tableView cell at a specific row
@@ -107,8 +112,8 @@ extension MakeTableViewController{
       var subCategoryToDelete = itemsInArrayInDictionary.keys.array[indexPath.row] as String//Gets key for dictionary selected
       itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
       var pathOfFile                                  = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-      var loadedArchived:CLOSET_TYPE!                 = loadArchivedObject(pathOfFile) as CLOSET_TYPE?
-      loadedArchived[path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+      var loadedArchived:Wardrobe!                 = loadArchivedObject(pathOfFile) as Wardrobe?
+      loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
       saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
 
@@ -139,9 +144,9 @@ extension MakeTableViewController{
   func fileInDocumentsDirectory(filename: String) -> String {
     return documentsDirectory().stringByAppendingPathComponent(filename)
   }
-  func saveObjectToArchived(filePath: String, closetInstance: CLOSET_TYPE){
+  func saveObjectToArchived(filePath: String, closetInstance: Wardrobe!){
 
-    magic("save: \(path)")
+    magic("save: \(filePath)")
 
     var success = false
 
@@ -153,13 +158,19 @@ extension MakeTableViewController{
       println("Error saving data file")
     }
   }
-  func loadArchivedObject(filePath: String) -> CLOSET_TYPE? {
+  func loadArchivedObject(filePath: String) -> Wardrobe? {
 
-    if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
-      
-      return closet
-    }else{
-      return nil
+    if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
+
+      return wardrobe
     }
+    let newWardrobe = Wardrobe()
+    saveObjectToArchived(filePath, closetInstance: newWardrobe)
+    return newWardrobe
+
+  }
+  func loadAndCreateCloset() -> Wardrobe{
+    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    return loadArchivedObject(filePath)!
   }
 }

@@ -7,15 +7,29 @@
 //
 import UIKit
 
-
 //MARK: - SelectionViewController
 class SelectionViewController: UIViewController{
-  //IBOutlets
-  ///Button that appears after a selection has been made
-  @IBOutlet var doneButton: UIButton!
   //View Variables
   ///A variable that holds the entire sytstem tree  of the project
-  var profile: Profile! = Profile()
+  var users: Wardrobe? //{
+//    get{
+//      if self.users.isEmpty{
+//          if let num = selectedUser as Int{
+//            return self.users[num]
+//          }else{
+//            return self.users.first!
+//          }
+//      }else{
+//        let wardrobe = Wardrobe()
+//        users.append(wardrobe)
+//        return users.first!
+//      }
+//    }
+//    set{
+//      users.append(newElement)
+//    }
+//  }
+  var selectedUser: Int!
   ///Dictionary path to item
   var path: [String: String]! = [String: String]()
 
@@ -24,29 +38,21 @@ class SelectionViewController: UIViewController{
   ///An action that takes the buttonn(sender).text and stores it into categoryString
   @IBAction func categoryIsButtonName(sender: UIButton) {
     path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
-
-    if let category = path[PATHTYPE_CATEGORY_STRING]
-    {
-      doneButton.hidden = false
-    }
   }
 
   //View Methods
   override func viewDidLoad(){
-    doneButton.hidden = true
-
-    let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-    var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE!
-    profile.categoryDics = loadedArchived as CLOSET_TYPE
+    self.users = Wardrobe()
+    var loadedArchived = loadAndCreateCloset() as Wardrobe
+    self.users = loadedArchived as Wardrobe!
 
     super.viewDidLoad()
-    // Do view setup here.
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == SEGUE_SELECTION_TO_MAKE{
       var makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
       makeController.path = self.path
-      makeController.itemsInArrayInDictionary = self.profile.categoryDics[path[PATHTYPE_CATEGORY_STRING]!]
+      makeController.itemsInArrayInDictionary = self.users!.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
       magic("Segue transfer: \(segue.identifier)")
     }else{
       magic("Segue transfer: \(segue.identifier)")
@@ -66,13 +72,13 @@ extension SelectionViewController{
   func fileInDocumentsDirectory(filename: String) -> String {
     return documentsDirectory().stringByAppendingPathComponent(filename)
   }
-  func saveObjectToArchived(filePath: String, closetInstance: CLOSET_TYPE!){
+  func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
 
     magic("save: \(filePath)")
 
     var success = false
 
-    success = NSKeyedArchiver.archiveRootObject(closetInstance, toFile:filePath)
+    success = NSKeyedArchiver.archiveRootObject(wardrobeToSave!, toFile:filePath)
 
     if success {
       println("Saved successfully")
@@ -80,13 +86,29 @@ extension SelectionViewController{
       println("Error saving data file")
     }
   }
-  func loadArchivedObject(filePath: String) -> CLOSET_TYPE? {
+  func loadArchivedObject(filePath: String) -> Wardrobe? {
 
-    if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
+    if NSFileManager.defaultManager().fileExistsAtPath(filePath){
+      if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
+        return wardrobe
+      }else{
+        let newWardrobe = Wardrobe()
+        saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
+        return newWardrobe
+      }
+    }else{
+      if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
+        return wardrobe
+      }else{
+        var newWardrobe = Wardrobe()
+        saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
+        return newWardrobe
+      }
 
-      return closet
     }
-    return nil
-    
+  }
+  func loadAndCreateCloset() -> Wardrobe{
+    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    return loadArchivedObject(filePath)!
   }
 }

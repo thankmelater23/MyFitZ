@@ -11,7 +11,6 @@ import CoreData
 import Fabric
 import Crashlytics
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
 
@@ -21,13 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
       //MARK: - Frabric/Crashylytics
-      Fabric.with([Crashlytics()])
+      //Fabric.with([Crashlytics()])
 
       //MARK: - Parse
 //      Parse.enableLocalDatastore()
 //      Parse.setApplicationId("vyioCm3Cm0JOwKWMPC8vBziwhnk5elXOl1mEGzVn", clientKey: "3BccKF9lNuvhupwmhGXhmuK3b2kmBraLZvRgn3Yy")
+      //IQKeyboardManager.sharedManager().enable = true
 
-      //AFNetworkActivityIndicatorManager.sharedManager.enabled = true
+
+      //Mark: - For DDLogger
+        DDLog.addLogger(DDASLLogger.sharedInstance())
+        DDLog.addLogger(DDTTYLogger.sharedInstance())
 
         return true
     }

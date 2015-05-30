@@ -8,10 +8,24 @@
 
 import UIKit
 import XCTest
-//import MakeTableViewController
+
 
 class My_FitzTests: XCTestCase {
-    
+
+  func testWardrobeType(){
+    let wardrobe = Wardrobe()
+
+
+    //XCTAssertEqual(wardrobe, Wardrobe(), "Not the same")
+  }
+  func testMultiplyingTwoNegativeNumbersYieldsAPositiveValue() {
+    let x = -6
+    let y = -4
+    let product = x * y
+
+    XCTAssertTrue(product > 0, "Multiplying two negative numbers should yield a positive number. Product: \(product)")
+  }
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,14 +41,15 @@ class My_FitzTests: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
+          let wardrobe = Wardrobe()
             // Put the code you want to measure the time of here.
         }
-    }
 
-//  func testMakeTableViewControllerFunc()
-//  {
-//    var obj: MakeTableViewController = MakeTableViewController()
-//    XCTAssert(obj.sum(4, 4) = 8, "testMakeTableViewControllerFunc is working")
-//  }
+      func testSetCell(){
+
+      }
+
+
+    }
 
 }

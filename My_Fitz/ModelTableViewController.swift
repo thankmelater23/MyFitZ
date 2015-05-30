@@ -39,13 +39,13 @@ class ModelTableViewController: UITableViewController {
       magic("Segue transfer: \(segue.identifier)")
 
       var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-      var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile) as CLOSET_TYPE
+      var loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
 
       var index = self.tableView.indexPathForSelectedRow()
       var makeTableViewController = segue.destinationViewController as! MakeTableViewController
       makeTableViewController.path = self.path
 
-      makeTableViewController.itemsInArrayInDictionary = loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]
+      makeTableViewController.itemsInArrayInDictionary = loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
       magic("Segue transfer: \(segue.identifier)")
     }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
       magic("Segue transfer: \(segue.identifier)")
@@ -68,14 +68,16 @@ extension ModelTableViewController{
 
     if indexPath.row % 2 == 0//If even number make this color
     {
-      cell.backgroundColor      = UIColor.grayColor()
+      //cell.backgroundColor      = UIColor.grayColor()
+      cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
     }else{
-      cell.backgroundColor      = UIColor.darkGrayColor()
+      //cell.backgroundColor      = UIColor.darkGrayColor()
+      cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
     }
 
     let item: Item            = arrayOfItems[indexPath.row] as Item!
 
-    cell.setCell(item.imageName, brandLabelText: item.brand, modelLabelText: item.model, timesWornText: item.timesWorn)
+    cell.setCell(item.image!, brandLabelText: item.brand!, modelLabelText: item.model!, timesWornText: item.timesWorn!)
 
     return cell
   }
@@ -98,8 +100,8 @@ extension ModelTableViewController{
         arrayOfItems.removeAtIndex(indexPath.row)
 
         var pathOfFile                                                                        = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        var loadedArchived:CLOSET_TYPE!                                                       = loadArchivedObject(pathOfFile) as CLOSET_TYPE
-        loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+        var loadedArchived:Wardrobe!                                                       = loadArchivedObject(pathOfFile) as Wardrobe!
+        loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
         saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
         self.tableView.reloadData()
@@ -129,7 +131,7 @@ extension ModelTableViewController{
   func fileInDocumentsDirectory(filename: String) -> String {
     return documentsDirectory().stringByAppendingPathComponent(filename)
   }
-  func saveObjectToArchived(filePath: String, closetInstance: CLOSET_TYPE){
+  func saveObjectToArchived(filePath: String, closetInstance: Wardrobe!){
 
     magic("save: \(filePath)")
 
@@ -143,13 +145,19 @@ extension ModelTableViewController{
       println("Error saving data file")
     }
   }
-  func loadArchivedObject(filePath: String) -> CLOSET_TYPE {
+  func loadArchivedObject(filePath: String) -> Wardrobe? {
 
-    if let closet = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? CLOSET_TYPE{
-      
-      return closet as CLOSET_TYPE
-    }else{
-      return (Profile()).categoryDics//nil
+    if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
+
+      return wardrobe
     }
+    let newWardrobe = Wardrobe()
+    saveObjectToArchived(filePath, closetInstance: newWardrobe)
+    return newWardrobe
+
+  }
+  func loadAndCreateCloset() -> Wardrobe{
+  var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    return loadArchivedObject(filePath)!
   }
 }

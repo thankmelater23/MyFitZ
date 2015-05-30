@@ -21,8 +21,8 @@ class MakeCustomCell: UITableViewCell{
   override func setSelected(selected: Bool, animated: Bool){
     super.setSelected(selected ,  animated: animated)
   }
-  func setCell(makeImageText: String, makeLabelText: String, numberOfItemsText: Int){
-    self.makeImage.image = UIImage(named: makeImageText)
+  func setCell(Image: UIImage, makeLabelText: String, numberOfItemsText: Int){
+    self.makeImage.image = Image
     self.makeLabel.text = makeLabelText
     self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
   }

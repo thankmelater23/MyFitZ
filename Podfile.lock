@@ -1,1 +1,37 @@
+PODS:
+  - CocoaLumberjack (2.0.0):
+    - CocoaLumberjack/Default (= 2.0.0)
+    - CocoaLumberjack/Extensions (= 2.0.0)
+  - CocoaLumberjack/Core (2.0.0)
+  - CocoaLumberjack/Default (2.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0):
+    - CocoaLumberjack/Default
+  - Fabric (1.3.0):
+    - Fabric/Core (= 1.3.0)
+  - Fabric/Core (1.3.0)
+  - Fabric/Crashlytics (1.3.0)
+  - Fabric/MoPub (1.3.0)
+  - Fabric/Twitter (1.3.0)
+  - FontAwesomeIconFactory (2.0)
+  - IQKeyboardManager (3.2.3)
+  - MBProgressHUD (0.9.1)
+
+DEPENDENCIES:
+  - CocoaLumberjack
+  - Fabric (~> 1.3.0)
+  - Fabric/Crashlytics (~> 1.3.0)
+  - Fabric/MoPub (~> 1.3.0)
+  - Fabric/Twitter (~> 1.3.0)
+  - FontAwesomeIconFactory
+  - IQKeyboardManager
+  - MBProgressHUD (~> 0.9.1)
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  Fabric: ae297bbdf4d421850a54de364b9ffca8ee2ccf9f
+  FontAwesomeIconFactory: d161a1832f8220d764033e0fcc4f4a8388495ab7
+  IQKeyboardManager: 6ca5c54e3776eb54af4c7caf515833f3cd761d59
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+
 COCOAPODS: 0.37.1

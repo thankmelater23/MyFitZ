@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CocoaPods Info for pod">
+   </FileRef>
+   <FileRef
       location = "group:My_Fitz.xcodeproj">
    </FileRef>
    <FileRef

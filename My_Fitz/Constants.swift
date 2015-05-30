@@ -8,16 +8,20 @@
 
 import Foundation
 ///MARK: - Global
-var closet: Closet!
+//var closet: Closet!
 //Represents the type of Dictionary in Dictionary of Array of Items
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 
 //Picker options
-let CATEGORY_PICKER_OPTIONS = ["Shoes", "Shirt", "Pants", "Underclothes", "Accessories", "Jewelry"]
+let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
 
 let PATHTYPE_CATEGORY_STRING    = "category"
 let PATHTYPE_SUBCATEGORY_STRING = "subCategory"
 let PATHTYPE_INDEX_STRING       = "index"
+
+//Closet
+let MY_CLOSET = "my closet"
+let MY_WANTS_CLOSET = "my wants closet"
 
 //Segue identifiers
 let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
@@ -45,7 +49,7 @@ let CREATION_CELL               = "creationCell"
 let DOUBLE_LABEL_CELL           = "doubleLabel"
 let TEXT_INPUT_CELL             = "textInputCell"
 
-let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"
+let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.archive"
 let BLANK_IMAGE_STRING          = "blank image"
 
 
@@ -65,6 +69,8 @@ let ITEM_FAVORITED_STRING    = "favorited"
 let ITEM_ISTHISNEW_STRING    = "isThisNew"
 let ITEM_TIMESWORN_STRING    = "timesWorn"
 let ITEM_LASTTIMEWORN_STRING = "lastTimeWorn"
+let ITEM_IMAGE_STRING        = "image"
+
 
 //Optional
 let ITEM_DATEPURCHASERD_STRING = "datePurchased"
@@ -73,6 +79,9 @@ let ITEM_LOCATIONPATH_STRING   = "locationPath"
 
 let ITEM_REQUIREDDICTIONARY_STRING = "requiredDictionary"
 let ITEM_OPTIONALDICTIONARY_STRING = "optionalDictionary"
+
+let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
+let CELL_BACKGROUND_IMAGE_MAKE = "cellBlueBlueBG"
 
 ///MARK: - Profile
 

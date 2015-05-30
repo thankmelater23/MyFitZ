@@ -23,8 +23,8 @@ class ModelCustomCell: UITableViewCell{
   override func setSelected(selected: Bool, animated: Bool){
     super.setSelected(selected ,  animated: animated)
   }
-  func setCell(modelImageText: String, brandLabelText: String , modelLabelText: String, timesWornText: Int){
-    self.modelImage.image    = UIImage(named: modelImageText)
+  func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, timesWornText: Int){
+    self.modelImage.image    = modelImageText
     self.brandLabel.text     = brandLabelText
     self.modelLabel.text     = modelLabelText
     self.timesWornLabel.text = "Times Worn: \(timesWornText)"
