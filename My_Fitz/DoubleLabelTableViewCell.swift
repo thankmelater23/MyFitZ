@@ -29,7 +29,7 @@ class DoubleLabelTableViewCell: UITableViewCell {
 
 extension DoubleLabelTableViewCell{
 
-  func configure(#name:  String,  infoString: String){
+  func configure(name name:  String,  infoString: String){
     nameLabel.text = name
     infoLabel.text = infoString
 

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Wardrobe:NSObject, NSCoding, Printable{
+class Wardrobe:NSObject, NSCoding{
   ///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
   var myCloset: CLOSET_TYPE = CLOSET_TYPE()
   var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
@@ -73,26 +73,24 @@ class Wardrobe:NSObject, NSCoding, Printable{
     super.init()
     //Puts Categories from array inside both Closet_Types
     for key in CATEGORY_PICKER_OPTIONS{
-      let item = Item()
       let categoryString = String()
       myCloset.updateValue([categoryString: [Item]()], forKey: key)
       myWantsCloset.updateValue([categoryString: [Item]()], forKey: key)
     }
      closetSelectionString = String()
-    var path = [String: String]()
   }
 }
 
 extension Wardrobe{
   //TODO: - Create sorting of alpabitized for wardrobe 
   func sort(){
-    for (index, value) in selectedCloset as CLOSET_TYPE!{
-      for (secIndex, secValue) in value{
+//    for (_, value) in selectedCloset as CLOSET_TYPE!{
+//      for (secIndex, secValue) in value{
 //        secValue.sort()
-        //        for arrayOfItems in secValue{
-//          arrayOfItems
+//        //        for arrayOfItems in secValue{
+//         arrayOfItems
 //        }
-      }
-    }
+//      }
+//    }
   }
 }

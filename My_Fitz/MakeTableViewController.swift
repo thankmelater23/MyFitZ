@@ -36,9 +36,9 @@ class MakeTableViewController: UITableViewController{
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == SEGUE_MAKE_TO_MODEL
     {
-      var index = self.tableView.indexPathForSelectedRow()
+      let index = self.tableView.indexPathForSelectedRow
 
-      var modelController = segue.destinationViewController as! ModelTableViewController
+      let modelController = segue.destinationViewController as! ModelTableViewController
       let tempItemArray: [Item] = self.itemsInArrayInDictionary.values.array[index!.row]
       path[PATHTYPE_SUBCATEGORY_STRING] = self.itemsInArrayInDictionary.keys.array[index!.row]
       modelController.arrayOfItems = tempItemArray as [Item]!
@@ -102,17 +102,17 @@ extension MakeTableViewController{
     if editingStyle == UITableViewCellEditingStyle.Delete
     {
       //TODO: - Create an alert view that uses method
-      var alert                                       = UIAlertController(title: "Alert", message: "Are you sure you want to delete", preferredStyle: UIAlertControllerStyle.Alert)
+      let alert                                       = UIAlertController(title: "Alert", message: "Are you sure you want to delete", preferredStyle: UIAlertControllerStyle.Alert)
 
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
       self.presentViewController(alert, animated: true, completion: nil)
 
       //TODO: - Set up way for dictionary cell to be deleted
 
-      var subCategoryToDelete = itemsInArrayInDictionary.keys.array[indexPath.row] as String//Gets key for dictionary selected
+      let subCategoryToDelete = itemsInArrayInDictionary.keys.array[indexPath.row] as String//Gets key for dictionary selected
       itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
-      var pathOfFile                                  = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-      var loadedArchived:Wardrobe!                 = loadArchivedObject(pathOfFile) as Wardrobe?
+      let pathOfFile                                  = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+      let loadedArchived:Wardrobe!                 = loadArchivedObject(pathOfFile) as Wardrobe?
       loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
       saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
@@ -138,7 +138,7 @@ extension MakeTableViewController{
 extension MakeTableViewController{
   //Used to save to ios directory
   func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
     return documentsFolderPath
   }
   func fileInDocumentsDirectory(filename: String) -> String {
@@ -170,7 +170,7 @@ extension MakeTableViewController{
 
   }
   func loadAndCreateCloset() -> Wardrobe{
-    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
     return loadArchivedObject(filePath)!
   }
 }

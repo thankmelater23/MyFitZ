@@ -43,14 +43,14 @@ class SelectionViewController: UIViewController{
   //View Methods
   override func viewDidLoad(){
     self.users = Wardrobe()
-    var loadedArchived = loadAndCreateCloset() as Wardrobe
+    let loadedArchived = loadAndCreateCloset() as Wardrobe
     self.users = loadedArchived as Wardrobe!
 
     super.viewDidLoad()
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == SEGUE_SELECTION_TO_MAKE{
-      var makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
+      let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
       makeController.path = self.path
       makeController.itemsInArrayInDictionary = self.users!.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
       magic("Segue transfer: \(segue.identifier)")
@@ -66,7 +66,7 @@ class SelectionViewController: UIViewController{
 extension SelectionViewController{
   //Used to save to ios directory
   func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
     return documentsFolderPath
   }
   func fileInDocumentsDirectory(filename: String) -> String {
@@ -100,7 +100,7 @@ extension SelectionViewController{
       if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
         return wardrobe
       }else{
-        var newWardrobe = Wardrobe()
+        let newWardrobe = Wardrobe()
         saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
         return newWardrobe
       }
@@ -108,7 +108,7 @@ extension SelectionViewController{
     }
   }
   func loadAndCreateCloset() -> Wardrobe{
-    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
     return loadArchivedObject(filePath)!
   }
 }

@@ -13,15 +13,15 @@ import XCTest
 class My_FitzTests: XCTestCase {
 
   func testWardrobeType(){
-    let wardrobe = Wardrobe()
 
 
     //XCTAssertEqual(wardrobe, Wardrobe(), "Not the same")
   }
   func testMultiplyingTwoNegativeNumbersYieldsAPositiveValue() {
-    let x = -6
-    let y = -4
+    let x = 6
+    let y = 4
     let product = x * y
+    XCTAssertTrue(((x + y) == 10), "X + Y = \(x + y)")
 
     XCTAssertTrue(product > 0, "Multiplying two negative numbers should yield a positive number. Product: \(product)")
   }
@@ -41,7 +41,6 @@ class My_FitzTests: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
-          let wardrobe = Wardrobe()
             // Put the code you want to measure the time of here.
         }
 

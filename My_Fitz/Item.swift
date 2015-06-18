@@ -11,7 +11,7 @@ import UIKit
 
 
 ///Holds all the information to an item
-class Item: NSObject, NSCoding, Printable{
+class Item: NSObject, NSCoding{
   ///MARK: - Item Required defined values
   //Item info
   var brand: String!, model: String!

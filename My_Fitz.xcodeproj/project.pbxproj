@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C8AB6547741803DE923F570 /* libPods-My_Fitz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD386133EFD8ED1C0F092A /* libPods-My_Fitz.a */; };
 		C60380E21ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */; };
 		C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
 		C615A7901AE2A69100D055D2 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78F1AE2A69100D055D2 /* Fit.swift */; };
@@ -65,9 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D728DD7DF8F2841A4DCC2C0 /* Pods-My_Fitz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.debug.xcconfig"; sourceTree = "<group>"; };
-		4D9448131F805D2A3FD3BB4B /* Pods-My_Fitz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Fitz.release.xcconfig"; path = "Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz.release.xcconfig"; sourceTree = "<group>"; };
-		55DD386133EFD8ED1C0F092A /* libPods-My_Fitz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My_Fitz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
@@ -141,7 +137,6 @@
 				C6FDC1611ACBAB9F003C2895 /* CFNetwork.framework in Frameworks */,
 				C6FDC15F1ACBAB95003C2895 /* AudioToolbox.framework in Frameworks */,
 				C6FDC1591ACBAAD3003C2895 /* Bolts.framework in Frameworks */,
-				2C8AB6547741803DE923F570 /* libPods-My_Fitz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,15 +150,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		67763086513355274FE92966 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1D728DD7DF8F2841A4DCC2C0 /* Pods-My_Fitz.debug.xcconfig */,
-				4D9448131F805D2A3FD3BB4B /* Pods-My_Fitz.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		C671E3D41ADB3A8500A73593 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +175,6 @@
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
 				C6CCB7771A7070D200353C9B /* Products */,
 				C6FDC1741ACBD2DF003C2895 /* Frameworks */,
-				67763086513355274FE92966 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,7 +259,6 @@
 				C6FDC15E1ACBAB95003C2895 /* AudioToolbox.framework */,
 				C6FDC1571ACBAAD3003C2895 /* Bolts.framework */,
 				C6526AC41ABD0C1200748141 /* Reveal.framework */,
-				55DD386133EFD8ED1C0F092A /* libPods-My_Fitz.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,13 +270,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6CCB7981A7070D200353C9B /* Build configuration list for PBXNativeTarget "My_Fitz" */;
 			buildPhases = (
-				4857AEF11FA9AC73D00A8C95 /* Check Pods Manifest.lock */,
 				C6CCB7721A7070D200353C9B /* Sources */,
 				C6CCB7731A7070D200353C9B /* Frameworks */,
 				C6CCB7741A7070D200353C9B /* Resources */,
-				C6BC15DB1AC1A57700DF23C2 /* ShellScript */,
 				C69F82BA1AE4964B00B087A4 /* ShellScript */,
-				84272D002C679EF0747D9BFF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,7 +308,8 @@
 		C6CCB76E1A7070D200353C9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = BangBangStudios;
 				TargetAttributes = {
 					C6CCB7751A7070D200353C9B = {
@@ -380,36 +362,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4857AEF11FA9AC73D00A8C95 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		84272D002C679EF0747D9BFF /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My_Fitz/Pods-My_Fitz-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C69F82BA1AE4964B00B087A4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,19 +374,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
-		};
-		C6BC15DB1AC1A57700DF23C2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Pods/Fabric/Fabric.framework/run 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -527,7 +466,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -570,6 +511,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -589,7 +531,6 @@
 		};
 		C6CCB7991A7070D200353C9B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D728DD7DF8F2841A4DCC2C0 /* Pods-My_Fitz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -610,6 +551,7 @@
 					Reveal,
 					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BangBangStudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "My_Fitz-Bridging-Header.h";
@@ -619,7 +561,6 @@
 		};
 		C6CCB79A1A7070D200353C9B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D9448131F805D2A3FD3BB4B /* Pods-My_Fitz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -640,6 +581,7 @@
 					Reveal,
 					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BangBangStudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "My_Fitz-Bridging-Header.h";
@@ -660,6 +602,7 @@
 				);
 				INFOPLIST_FILE = My_FitzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BangBangStudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My_Fitz.app/My_Fitz";
 			};
@@ -675,6 +618,7 @@
 				);
 				INFOPLIST_FILE = My_FitzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BangBangStudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My_Fitz.app/My_Fitz";
 			};

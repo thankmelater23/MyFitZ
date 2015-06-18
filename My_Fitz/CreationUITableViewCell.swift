@@ -13,7 +13,7 @@ class CreationUITableViewCell: UITableViewCell{
   @IBOutlet var textInputCellLabel: UILabel!
   @IBOutlet var textInputCellTextField: UITextField!
 
-  func configure(#text: String?, labelString: String!, tag: Int){
+  func configure(text text: String?, labelString: String!, tag: Int){
     textInputCellTextField.text = text
     textInputCellTextField.placeholder = labelString
     textInputCellLabel.text = labelString

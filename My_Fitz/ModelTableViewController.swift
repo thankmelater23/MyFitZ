@@ -26,8 +26,8 @@ class ModelTableViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == SEGUE_MODEL_TO_DETAIL
     {
-      var index = self.tableView.indexPathForSelectedRow()
-      var detailController = segue.destinationViewController as! DetailedViewController
+      let index = self.tableView.indexPathForSelectedRow
+      let detailController = segue.destinationViewController as! DetailedViewController
 
       if let index = index{
         path[PATHTYPE_INDEX_STRING] = "\(index.row)"
@@ -38,11 +38,11 @@ class ModelTableViewController: UITableViewController {
     }else if segue.identifier == SEGUE_MODEL_TO_MAKE{
       magic("Segue transfer: \(segue.identifier)")
 
-      var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-      var loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+      let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+      let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
 
-      var index = self.tableView.indexPathForSelectedRow()
-      var makeTableViewController = segue.destinationViewController as! MakeTableViewController
+      //var index = self.tableView.indexPathForSelectedRow
+      let makeTableViewController = segue.destinationViewController as! MakeTableViewController
       makeTableViewController.path = self.path
 
       makeTableViewController.itemsInArrayInDictionary = loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
@@ -99,8 +99,8 @@ extension ModelTableViewController{
       {
         arrayOfItems.removeAtIndex(indexPath.row)
 
-        var pathOfFile                                                                        = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        var loadedArchived:Wardrobe!                                                       = loadArchivedObject(pathOfFile) as Wardrobe!
+        let pathOfFile                                                                        = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+        let loadedArchived:Wardrobe!                                                       = loadArchivedObject(pathOfFile) as Wardrobe!
         loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
         saveObjectToArchived(pathOfFile, closetInstance: loadedArchived)
 
@@ -125,7 +125,7 @@ extension ModelTableViewController{
 extension ModelTableViewController{
   //Used to save to ios directory
   func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
     return documentsFolderPath
   }
   func fileInDocumentsDirectory(filename: String) -> String {
@@ -157,7 +157,7 @@ extension ModelTableViewController{
 
   }
   func loadAndCreateCloset() -> Wardrobe{
-  var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+  let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
     return loadArchivedObject(filePath)!
   }
 }

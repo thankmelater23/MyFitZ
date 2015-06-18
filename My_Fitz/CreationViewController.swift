@@ -31,18 +31,18 @@ class CreationViewController: UIViewController{
 
   @IBAction func createItem(sender: UIButton) {
 
-    var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-    var loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+    let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
 
     if self.categoryInputTextField.text != nil && self.subCategoryInputTextField.text != nil{
-      loadedArchived.selectedCloset[self.categoryInputTextField.text]?.updateValue([Item](), forKey: self.subCategoryInputTextField.text)
+      loadedArchived.selectedCloset[self.categoryInputTextField.text!]?.updateValue([Item](), forKey: self.subCategoryInputTextField.text!)
       saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
       magic("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
     }else{
       magic("Cateogry and/or SubCategory needs value")
     }
     if !self.viewItem.model.isEmpty{
-      loadedArchived.selectedCloset[categoryInputTextField.text]![subCategoryInputTextField.text]!.append(viewItem)
+      loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.append(viewItem)
       saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
       magic("item Saved Item Saved: \(viewItem)")
 
@@ -105,8 +105,11 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     //self.tableView.reloadData()
     if indexPath.section == 0{
       return  self.createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
-    }else{
+    }else if indexPath.section == 1{
       return self.createCellFromOptionalDictionary(row: indexPath.row) as CreationUITableViewCell
+    }else{
+      assertionFailure("Unexpected value of indexPath.section == \(indexPath.section)")
+      return CreationUITableViewCell()
     }
   }
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -119,8 +122,8 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     }
   }//Puts a text label in the header of the specified section
   ///Returns cell of required dictionary
-  func createCellFromRequiredDictionary(#row: Int) -> CreationUITableViewCell{
-    var cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
+  func createCellFromRequiredDictionary(row row: Int) -> CreationUITableViewCell{
+    let cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
 
     var keyAndValue: String!
 
@@ -140,41 +143,41 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     case 2 :
       keyAndValue = ITEM_PRICE_STRING
       cell.configure(text: viewItem.price?.description, labelString: keyAndValue, tag: row)
-    case 4 :
+    case 3 :
       keyAndValue = ITEM_ISTHISNEW_STRING
       cell.configure(text: viewItem.isThisNew!.description, labelString: keyAndValue, tag: row)
-    case 5 :
+    case 4 :
       keyAndValue = ITEM_TIMESWORN_STRING
       cell.configure(text: viewItem.favorited.description, labelString: keyAndValue, tag: row)
-    case 6 :
+    case 5 :
       keyAndValue = ITEM_LASTTIMEWORN_STRING
       cell.configure(text: viewItem.lastTimeWorn, labelString: keyAndValue, tag: row)
       //    case 10 :
       //      keyAndValue = ITEM_INDEX_STRING
       //      cell.configure(text: viewItem.requiredDictionary[keyAndValue], labelString: keyAndValue, tag: row)
     default:
-      magic("Something Didnt't go right")
+      assertionFailure("Out of scope on the switch statement. row = \(row)")
     }
 
     cell.textInputCellTextField.delegate = self
     return cell as CreationUITableViewCell
   }
   //Returns cell of Optional dictionary
-  func createCellFromOptionalDictionary(#row: Int) -> CreationUITableViewCell{
-    var cell = tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
+  func createCellFromOptionalDictionary(row row: Int) -> CreationUITableViewCell{
+    let cell = tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
 
     var keyAndValue: String!
 
     switch row {
-    case 0 :
-      keyAndValue = ITEM_DATEPURCHASERD_STRING
-      cell.configure(text: viewItem.datePurchased, labelString: keyAndValue, tag: row)
-    case 1 :
-      keyAndValue = ITEM_COLOR_STRING
-      cell.configure(text: viewItem.color, labelString: keyAndValue, tag: row)
 
+    case 0:
+      keyAndValue = ITEM_DATEPURCHASERD_STRING
+      cell.configure(text: viewItem.datePurchased, labelString: keyAndValue, tag: row+100)
+    case 1:
+      keyAndValue = ITEM_COLOR_STRING
+      cell.configure(text: viewItem.color, labelString: keyAndValue, tag: row+100)
     default:
-      magic("Something Didnt't go right")
+      assertionFailure("Out of scope on the switch statement. row = \(row)")
     }
 
     cell.textInputCellTextField.delegate = self
@@ -224,10 +227,10 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
       return pickerRowsPlusAddFieldOption
     }
   }
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     if pickerView == categoryPickerView{
       return categoryPickerOptions[row]
-    }else{
+    }else{ 
       if row == (subCategoryPickerOptions.count){
 
         return "Add New Sub-Category"
@@ -279,21 +282,19 @@ extension CreationViewController:UIImagePickerControllerDelegate, UINavigationCo
     let imagePicker = UIImagePickerController()
     imagePicker.delegate = self
     imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-    imagePicker.mediaTypes = [kUTTypeImage as NSString]
+    imagePicker.mediaTypes = [kUTTypeImage as String]
     imagePicker.allowsEditing = false
 
     self.presentViewController(imagePicker, animated: true, completion: nil)
   }
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     //var video = info[UIImagePickerControllerMediaURL] as? NSURL
-    var picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+    let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
     pictureForSelectedItemImage.image = picture
     viewItem.image = picture
 
     //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
     self.dismissViewControllerAnimated(true, completion: nil)
-
-
   }
 
 }
@@ -301,10 +302,10 @@ extension CreationViewController:UIImagePickerControllerDelegate, UINavigationCo
 
 //Text Field methods
 extension CreationViewController: UITextFieldDelegate{
-  func setValueForTaggedCell(#tag: Int, value: String){
+  func setValueForTaggedCell(tag tag: Int, value: String){
     var bool = true
-    if value == "YES"{
-    }else if value == "NO"{
+    if value.lowercaseString == "YES".lowercaseString{
+    }else if value.lowercaseString == "NO".lowercaseString{
       bool = false
     }
     switch tag{
@@ -317,25 +318,25 @@ extension CreationViewController: UITextFieldDelegate{
     case 3:
       viewItem.subCategory = value
     case 4:
-      viewItem.price = NSNumberFormatter().numberFromString(value)!.doubleValue
+      viewItem.price = Double(value) as Double?//NSNumberFormatter().numberFromString(value)!.doubleValue
       //    case 5:
       //      viewItem.imageName = value
-    case 6:
+    case 5:
       viewItem.favorited = bool
-    case 7:
+    case 6:
       viewItem.isThisNew = bool
-    case 8:
+    case 7:
       viewItem.timesWorn = NSNumberFormatter().numberFromString(value)!.integerValue
-    case 9:
+    case 7:
       viewItem.lastTimeWorn = value
-    case 10:
+    case 8:
       viewItem.index = NSNumberFormatter().numberFromString(value)!.integerValue
-    case 11:
+    case 100:
       viewItem.datePurchased = value
-    case 13:
+    case 101:
       viewItem.color = value
     default:
-      magic("switch statement isn't working for cell with tag: : \(tag)")
+      assertionFailure("switch statement isn't working for cell with tag: : \(tag)")
     }
   }
   func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
@@ -355,18 +356,18 @@ extension CreationViewController: UITextFieldDelegate{
     let tag = textField.tag
     if let stringValue = textField.text{
       self.setValueForTaggedCell(tag: tag, value: stringValue)
-      magic("textFieldDidEndEditing:" + textField.text)
+      magic("textFieldDidEndEditing:" + textField.text!)
     }
 
 
   } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
   func textFieldShouldClear(textField: UITextField) -> Bool{
-    magic("textFieldShouldClear:" + textField.text)
+    magic("textFieldShouldClear:" + textField.text!)
     return true
   } // called when clear button pressed. return NO to ignore (no notifications)
   func textFieldShouldReturn(textField: UITextField) -> Bool{
     //TODO: - Set up to move to next textfielx
-    magic("textFieldShouldReturn:" + textField.text)
+    magic("textFieldShouldReturn:" + textField.text!)
     textField.resignFirstResponder()
     if textField == subCategoryInputTextField || textField == categoryInputTextField{
       subCategoryPickerView.reloadAllComponents()
@@ -381,7 +382,7 @@ extension CreationViewController: UITextFieldDelegate{
 extension CreationViewController{
   //Used to save to ios directory
   func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
     return documentsFolderPath
   }
   func fileInDocumentsDirectory(filename: String) -> String {
@@ -412,7 +413,7 @@ extension CreationViewController{
     }
   }
   func loadAndCreateCloset() -> Wardrobe{
-    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
     return loadArchivedObject(filePath)!
   }
 }

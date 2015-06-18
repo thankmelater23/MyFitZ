@@ -14,8 +14,8 @@ class DetailedViewController: UIViewController{
   ///Views main image of the Item being presented
   @IBOutlet var itemImage: UIImageView!
   @IBAction func duplicateItem() {
-    var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-    var archivedCloset = loadArchivedObject(pathOfFile)!
+    let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    let archivedCloset = loadArchivedObject(pathOfFile)!
     archivedCloset.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]?.append(itemOfObject)
     saveObjectToArchived(pathOfFile, closetInstance: archivedCloset)
   }
@@ -35,11 +35,11 @@ class DetailedViewController: UIViewController{
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
     if segue.identifier == SEGUE_DETAIL_TO_MODEL
     {
-      var pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+      let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
       var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile)!.selectedCloset as CLOSET_TYPE!
 
-      var index = self.tableView.indexPathForSelectedRow()
-      var modelTableViewController = segue.destinationViewController as! ModelTableViewController
+      //var index = self.tableView.indexPathForSelectedRow!
+      let modelTableViewController = segue.destinationViewController as! ModelTableViewController
       modelTableViewController.path = self.path
 
       modelTableViewController.arrayOfItems = loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
@@ -88,8 +88,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
       return "Misc"
     }
   }//Puts a text label in the header of the specified section
-  func createCellFromRequiredDictionary(#row: Int) -> DoubleLabelTableViewCell{
-    var cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
+  func createCellFromRequiredDictionary(row row: Int) -> DoubleLabelTableViewCell{
+    let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
 
     var keyAndValue: String!
 
@@ -192,8 +192,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     return cell as DoubleLabelTableViewCell
   }
   ///Returns cell of Optional dictionary
-  func createCellFromOptionalDictionary(#row: Int) -> DoubleLabelTableViewCell{
-    var cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
+  func createCellFromOptionalDictionary(row row: Int) -> DoubleLabelTableViewCell{
+    let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
 
     var keyAndValue: String!
 
@@ -241,7 +241,7 @@ extension DetailedViewController{
 extension DetailedViewController{
   //Used to save to ios directory
   func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
     return documentsFolderPath
   }
   func fileInDocumentsDirectory(filename: String) -> String {
@@ -273,7 +273,7 @@ extension DetailedViewController{
 
   }
   func loadAndCreateCloset() -> Wardrobe{
-    var filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+    let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
     return loadArchivedObject(filePath)!
   }
 }
