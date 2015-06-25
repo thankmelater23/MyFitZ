@@ -11,6 +11,7 @@
 		C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
 		C615A7901AE2A69100D055D2 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78F1AE2A69100D055D2 /* Fit.swift */; };
 		C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
+		C63746841B3B24E100278346 /* MyFitzUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63746831B3B24E100278346 /* MyFitzUITest.swift */; };
 		C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
 		C6B2DDC51B17BE7600250403 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
 		C6B2DDC61B17BEBA00250403 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
@@ -68,6 +69,7 @@
 		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		C615A7911AE2ABD200D055D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C63746831B3B24E100278346 /* MyFitzUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFitzUITest.swift; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C674D12C1B0E818900E0DC6F /* Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
 		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				C6CCB7941A7070D200353C9B /* My_FitzTests.swift */,
 				C6CCB7921A7070D200353C9B /* Supporting Files */,
+				C63746831B3B24E100278346 /* MyFitzUITest.swift */,
 			);
 			path = My_FitzTests;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				C6B2DDC81B17BEC300250403 /* Item.swift in Sources */,
 				C6CCB7951A7070D200353C9B /* My_FitzTests.swift in Sources */,
 				C6B2DDC61B17BEBA00250403 /* Closet.swift in Sources */,
+				C63746841B3B24E100278346 /* MyFitzUITest.swift in Sources */,
 				C6B2DDC91B193DCF00250403 /* PrintlnMagic.swift in Sources */,
 				C6B2DDC51B17BE7600250403 /* Constants.swift in Sources */,
 				C6B2DDC71B17BEBE00250403 /* Wardrobe.swift in Sources */,
@@ -542,7 +546,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = My_Fitz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -572,7 +576,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = My_Fitz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",

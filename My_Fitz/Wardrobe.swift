@@ -53,7 +53,7 @@ class Wardrobe:NSObject, NSCoding{
 
   }
 
-  required init(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
+  required init?(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
     super.init()
   self.myCloset = decoder.decodeObjectForKey("1") as! CLOSET_TYPE!
   self.myWantsCloset = decoder.decodeObjectForKey("2") as! CLOSET_TYPE!
