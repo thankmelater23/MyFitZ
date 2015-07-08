@@ -13,15 +13,9 @@ class DetailedViewController: UIViewController{
   @IBOutlet var tableView: UITableView!
   ///Views main image of the Item being presented
   @IBOutlet var itemImage: UIImageView!
-  @IBAction func duplicateItem() {
-    let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-    let archivedCloset = loadArchivedObject(pathOfFile)!
-    archivedCloset.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]?.append(itemOfObject)
-    saveObjectToArchived(pathOfFile, closetInstance: archivedCloset)
-  }
   //View Variables
   ///Item selected
-  var itemOfObject: Item! = Item() as Item
+  var itemOfObject: Item! = Item()
   ///Dictionary path to item
   var path: [String: String]! = [String: String]()
 
@@ -29,10 +23,14 @@ class DetailedViewController: UIViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setUp()
+    magic(self.itemOfObject)
 
     // Do view setup here.
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+    defer{
+        magic("Segue transfer: \(segue.identifier)")
+    }
     if segue.identifier == SEGUE_DETAIL_TO_MODEL
     {
       let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
@@ -43,9 +41,8 @@ class DetailedViewController: UIViewController{
       modelTableViewController.path = self.path
 
       modelTableViewController.arrayOfItems = loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
-      magic("Segue transfer: \(segue.identifier)")
+      
     }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
-      magic("Segue transfer: \(segue.identifier)")
     }
   }
 }
@@ -59,7 +56,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
   }// Return the number of sections.
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if (section == 0){
-      return 11
+      return 10
     }
 
     else if (section == 1){
@@ -89,8 +86,9 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     }
   }//Puts a text label in the header of the specified section
   func createCellFromRequiredDictionary(row row: Int) -> DoubleLabelTableViewCell{
-    let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
 
+    let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
+    
     var keyAndValue: String!
 
     switch row {
@@ -124,21 +122,12 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
       }
     case 4 :
       keyAndValue = ITEM_PRICE_STRING
-      let number = self.itemOfObject.price
-      if number != nil{
-        let value = "\(number)"
-        cell.configure(name: keyAndValue, infoString: value)
-      }else{
-        cell.configure(name: keyAndValue, infoString: String())
+      guard let value = itemOfObject.price else{
+        cell.configure(name: keyAndValue, infoString: "N/A")
+        break
       }
-//    case 5 :
-//      keyAndValue = ITEM_IMAGE_STRING
-//      if let value = self.itemOfObject.image{
-//        cell.configure(name: keyAndValue, infoString: value)
-//      }else{
-//        cell.configure(name: keyAndValue, infoString: String())
-//      }
-    case 6 :
+        cell.configure(name: keyAndValue, infoString: String(value))
+    case 5 :
       keyAndValue = ITEM_FAVORITED_STRING
       let bool = self.itemOfObject.favorited
       var value = "No"
@@ -148,7 +137,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
       }else{
         cell.configure(name: keyAndValue, infoString: value)
       }
-    case 7 :
+    case 6 :
       keyAndValue = ITEM_ISTHISNEW_STRING
       let bool = self.itemOfObject.isThisNew
       var value = "No"
@@ -158,23 +147,21 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
       }else{
         cell.configure(name: keyAndValue, infoString: value)
       }
-    case 8 :
+    case 7 :
       keyAndValue = ITEM_TIMESWORN_STRING
-      let number = self.itemOfObject.timesWorn
-      if number != nil{
-        let value = "\(number)"
-        cell.configure(name: keyAndValue, infoString: value)
-      }else{
-        cell.configure(name: keyAndValue, infoString: String())
+      guard let value = itemOfObject.timesWorn else{
+        cell.configure(name: keyAndValue, infoString: "N/A")
+        break
       }
-    case 9 :
+      cell.configure(name: keyAndValue, infoString: String(value))
+    case 8 :
       keyAndValue = ITEM_LASTTIMEWORN_STRING
       if let value = self.itemOfObject.lastTimeWorn{
         cell.configure(name: keyAndValue, infoString: value)
       }else{
-        cell.configure(name: keyAndValue, infoString: String())
+        cell.configure(name: keyAndValue, infoString: "N/A")
       }
-    case 10 :
+    case 9 :
       keyAndValue = ITEM_INDEX_STRING
       let number = self.itemOfObject.index
       if number != nil{
@@ -186,7 +173,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 
 
     default:
-      magic("Row does not exist to create cell of required type. ROW: \(row)")
+      assertionFailure("Row does not exist to create cell of required type. ROW: \(row)")
     }
 
     return cell as DoubleLabelTableViewCell
@@ -214,7 +201,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
       }
 
     default:
-      magic("Row does not exist to create cell of optional type. ROW: \(row)")
+      assertionFailure("Row does not exist to create cell of optional type. ROW: \(row)")
     }
 
     return cell as DoubleLabelTableViewCell

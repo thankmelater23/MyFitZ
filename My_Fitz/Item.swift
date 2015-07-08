@@ -19,7 +19,7 @@ class Item: NSObject, NSCoding{
   var price: Double?
   var image: UIImage!
   var favorited: Bool! = false
-  var isThisNew: Bool?
+  var isThisNew: Bool! = true
   var timesWorn: Int?
   var lastTimeWorn: String?
 
@@ -37,7 +37,7 @@ class Item: NSObject, NSCoding{
   var path: [String: String]! = [String: String]()
 
     override var description: String {
-      let string = "\(self.brand) \n \(self.model) \n \(self.category) \n \(self.subCategory) \n \(self.index) \n"
+      let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)"
       return string
     }
 
@@ -53,7 +53,7 @@ class Item: NSObject, NSCoding{
     self.price        = decoder.decodeDoubleForKey(ITEM_PRICE_STRING) as Double?
     self.image        = decoder.decodeObjectForKey(ITEM_IMAGE_STRING) as! UIImage!
     self.favorited    = decoder.decodeBoolForKey(ITEM_FAVORITED_STRING) as Bool!
-    self.isThisNew    = decoder.decodeBoolForKey(ITEM_ISTHISNEW_STRING) as Bool?
+    self.isThisNew    = decoder.decodeBoolForKey(ITEM_ISTHISNEW_STRING) as Bool!
     self.timesWorn    = decoder.decodeIntegerForKey(ITEM_TIMESWORN_STRING) as Int?
     self.lastTimeWorn = decoder.decodeObjectForKey(ITEM_LASTTIMEWORN_STRING) as! String?
 

@@ -91,7 +91,7 @@ extension MakeTableViewController{
     let keyOfSelectedArray = self.itemsInArrayInDictionary.keys.array[indexPath.row]
 
     if let availableSubCategoryItem = arrayItemCell.first{
-      cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.brand!, numberOfItemsText: arrayItemCell.count)
+      cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
     }else{
       let image = UIImage(named: BLANK_IMAGE_STRING)
       cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)

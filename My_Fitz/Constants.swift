@@ -81,7 +81,7 @@ let ITEM_REQUIREDDICTIONARY_STRING = "requiredDictionary"
 let ITEM_OPTIONALDICTIONARY_STRING = "optionalDictionary"
 
 let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
-let CELL_BACKGROUND_IMAGE_MAKE = "cellBlueBlueBG"
+let CELL_BACKGROUND_IMAGE_MAKE = "cellPatternBlackSpades"
 
 ///MARK: - Profile
 
@@ -207,12 +207,23 @@ let CELL_BACKGROUND_IMAGE_MAKE = "cellBlueBlueBG"
 
 
 
+///GCD
+var GlobalMainQueue: dispatch_queue_t {
+    return dispatch_get_main_queue()
+}
 
+var GlobalUserInteractiveQueue: dispatch_queue_t {
+    return dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
+}
 
+var GlobalUserInitiatedQueue: dispatch_queue_t {
+    return dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
+}
 
+var GlobalUtilityQueue: dispatch_queue_t {
+    return dispatch_get_global_queue(Int(QOS_CLASS_UTILITY.rawValue), 0)
+}
 
-
-
-
-
-
+var GlobalBackgroundQueue: dispatch_queue_t {
+    return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
+}
