@@ -9,7 +9,9 @@
 import UIKit
 import MobileCoreServices
 
-
+enum ErrorType{
+    case modelEmpty, unacceptable
+}
 //MARK: - CreationViewController class
 class CreationViewController: UIViewController{
     @IBOutlet var tableView: UITableView!
@@ -42,10 +44,11 @@ class CreationViewController: UIViewController{
             assert(subCategorySelected != "", "SubCategory == \(subCategorySelected)\n")
             viewItem.category = categorySelected
             viewItem.subCategory = subCategorySelected
-            let num = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
-            loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.insert(viewItem, atIndex: num) //append(viewItem)
+            //let num = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
+            loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.append(viewItem)
+            magic(loadedArchived.selectedCloset)
             saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
-            magic("Item Saved: \(viewItem)")
+            magic("Item Saved: \(viewItem) \nTo: \(viewItem.category)/\(viewItem.subCategory)")
             
             subCategoryPickerView.reloadAllComponents()
             subCategoryPickerView.reloadInputViews()
@@ -304,6 +307,7 @@ extension CreationViewController: UITextFieldDelegate{
         }else if value.lowercaseString == "NO".lowercaseString{
             bool = false
         }
+        //assert((bool != nil), "bool is nil")
         switch tag{
         case 0:
             viewItem.brand = value ?? "N/A"
@@ -316,7 +320,7 @@ extension CreationViewController: UITextFieldDelegate{
         case 4:
             viewItem.isThisNew = bool ?? false
         case 5:
-            viewItem.timesWorn = NSNumberFormatter().numberFromString(value)!.integerValue ?? 0
+            viewItem.timesWorn = NSNumberFormatter().numberFromString(value)?.integerValue ?? 0
         case 6:
             viewItem.lastTimeWorn = value ?? "N/A"
         case 100:
@@ -336,18 +340,6 @@ extension CreationViewController: UITextFieldDelegate{
         textField.becomeFirstResponder()
         magic("textFieldDidBeginEditing: Text:  \(textField.text)\n tag:  \(textField.text)  ")
     } // became first responder
-//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-//        
-//        // Set Next as return key until there is no next field
-//        let nextTag: Int = textField.tag + 1
-//        if let nextField: UITextField = textField.superview?.viewWithTag(nextTag) as? UITextField {
-//            textField.returnKeyType = UIReturnKeyType.Next
-//        } else {
-//            textField.returnKeyType = UIReturnKeyType.Done
-//        }
-//        
-//        return true
-//    }
     func textFieldShouldEndEditing(textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
@@ -384,30 +376,6 @@ extension CreationViewController: UITextFieldDelegate{
         }
     return false
     }
-//    func textFieldShouldReturn(textField: UITextField) -> Bool{
-//        //TODO: - Set up to move to next textfielx
-//        magic("textFieldShouldReturn:" + textField.text!)
-//        textField.resignFirstResponder()
-//        if textField == subCategoryInputTextField || textField == categoryInputTextField{
-//            subCategoryPickerView.reloadAllComponents()
-//        }
-//        let nextTag = textField.tag + 1
-//        if let nextField: UITextField = textField.superview?.viewWithTag(nextTag) as? UITextField {
-//            textField.returnKeyType = UIReturnKeyType.Next
-//        } else {
-//            textField.returnKeyType = UIReturnKeyType.Done
-//        }
-//        return truex
-//    } // called when 'return' key pressed. return NO to ignore.
-//    func textFieldShouldReturn(textField: UITextField) -> Bool{
-//        //TODO: - Set up to move to next textfielx
-//        magic("textFieldShouldReturn:" + textField.text!)
-//        textField.resignFirstResponder()
-//        if textField == subCategoryInputTextField || textField == categoryInputTextField{
-//            subCategoryPickerView.reloadAllComponents()
-//        }
-//        return true
-//    } // called when 'return' key pressed. return NO to ignore.
 }
 
 

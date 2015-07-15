@@ -206,6 +206,14 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 
     return cell as DoubleLabelTableViewCell
   }
+    func customizeTableView(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.reloadData()
+        //self.tableView.backgroundColor = UIColor.blueColor()
+        //self.tableView.style = UITableViewStyle.Grouped
+        //self.tableView.tintColor = UIColor.blueColor()
+    }
 }
 
 
@@ -215,9 +223,7 @@ extension DetailedViewController{
   func setUp(){
     //self.retrieveRequiredDicInfo()
     itemImage.image = itemOfObject.image
-    self.tableView.dataSource = self
-    self.tableView.delegate = self
-    self.tableView.reloadData()
+    self.customizeTableView()
 
   }//Sets up view
 }

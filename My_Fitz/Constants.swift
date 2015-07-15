@@ -81,7 +81,7 @@ let ITEM_REQUIREDDICTIONARY_STRING = "requiredDictionary"
 let ITEM_OPTIONALDICTIONARY_STRING = "optionalDictionary"
 
 let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
-let CELL_BACKGROUND_IMAGE_MAKE = "cellPatternBlackSpades"
+let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 
 ///MARK: - Profile
 

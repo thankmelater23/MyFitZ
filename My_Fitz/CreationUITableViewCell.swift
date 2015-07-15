@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
+enum cellType{
+    case stringCell, dateCell, boolCell, notSet
+}
+
 class CreationUITableViewCell: UITableViewCell{
   @IBOutlet var textInputCellLabel: UILabel!
   @IBOutlet var textInputCellTextField: UITextField!
 
   func configure(text text: String?, labelString: String!, tag: Int){
     
-    if let textField = text{
-        textInputCellTextField.text = textField
-    }else{
-        textInputCellTextField.text = String()
-    }
+    textInputCellTextField.text = String()
     textInputCellTextField.placeholder = labelString
     textInputCellLabel.text = labelString
     self.textInputCellTextField.tag = tag
