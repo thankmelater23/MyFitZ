@@ -9,8 +9,10 @@
 import UIKit
 import MobileCoreServices
 
-enum ErrorType{
-    case modelEmpty, unacceptable
+enum ItemError:ErrorType{
+    case MissingInfo
+    case IncorrectSubCategory
+    case Missing(someInt: Int)
 }
 //MARK: - CreationViewController class
 class CreationViewController: UIViewController{
@@ -31,24 +33,31 @@ class CreationViewController: UIViewController{
     @IBAction func createItem(sender: UIButton) {
         
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+        var loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
         
-        if self.categoryInputTextField.text != nil && self.subCategoryInputTextField.text != nil  && self.categoryInputTextField.text != ""  && self.subCategoryInputTextField.text != ""{
-            loadedArchived.selectedCloset[self.categoryInputTextField.text!]?.updateValue([Item](), forKey: self.subCategoryInputTextField.text!)
-            saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
-            magic("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
-        }else{
-            magic("Cateogry and/or SubCategory needs value")
-        }
+//        if self.categoryInputTextField.text != nil &&
+//            self.subCategoryInputTextField.text != nil  &&
+//            self.categoryInputTextField.text != ""  &&
+//            self.subCategoryInputTextField.text != ""{
+//                loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.updateValue([Item](), forKey: self.subCategoryInputTextField.text!)
+//                saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
+//                print("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
+//        }else{
+//            print("Cateogry and/or SubCategory needs value")
+//        }
+        
         if !self.viewItem.model.isEmpty{
-            assert(subCategorySelected != "", "SubCategory == \(subCategorySelected)\n")
-            viewItem.category = categorySelected
-            viewItem.subCategory = subCategorySelected
-            //let num = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
-            loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.append(viewItem)
-            magic(loadedArchived.selectedCloset)
-            saveObjectToArchived(pathOfFile, wardrobeToSave: loadedArchived)
-            magic("Item Saved: \(viewItem) \nTo: \(viewItem.category)/\(viewItem.subCategory)")
+            //assert(subCategorySelected != "", "SubCategory == \(subCategorySelected)\n")
+            viewItem.category = categoryInputTextField.text
+            viewItem.subCategory = subCategoryInputTextField.text
+            let num = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
+            print(num)
+            loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.insert(viewItem, atIndex: num) //.append([viewItem])
+            let afterNum = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
+            print(afterNum)
+            print(loadedArchived.selectedCloset)
+            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
+            print("Item Saved: \(viewItem) \nTo: \(viewItem.category)/\(viewItem.subCategory)")
             
             subCategoryPickerView.reloadAllComponents()
             subCategoryPickerView.reloadInputViews()
@@ -82,7 +91,7 @@ class CreationViewController: UIViewController{
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
             
         }
-        magic("Segue transfer: \(segue.identifier)")
+        print("Segue transfer: \(segue.identifier)")
     }
 }
 
@@ -267,6 +276,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             }else{
                 subCategorySelected = subCategoryPickerOptions[row]
                 subCategoryInputTextField.text = subCategorySelected
+                viewItem.subCategory = subCategorySelected
                 self.pictureForSelectedItemImage.alpha = 1.0
             }
             self.tableView.hidden = false
@@ -295,7 +305,6 @@ extension CreationViewController:UIImagePickerControllerDelegate, UINavigationCo
         //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }
 
 
@@ -316,7 +325,7 @@ extension CreationViewController: UITextFieldDelegate{
         case 2:
             viewItem.favorited = bool ?? false
         case 3:
-            viewItem.price = Double(value) ?? 0
+            viewItem.price = Double(value) ?? 0.0
         case 4:
             viewItem.isThisNew = bool ?? false
         case 5:
@@ -338,7 +347,6 @@ extension CreationViewController: UITextFieldDelegate{
     }// return NO to disallow editing.
     func textFieldDidBeginEditing(textField: UITextField){
         textField.becomeFirstResponder()
-        magic("textFieldDidBeginEditing: Text:  \(textField.text)\n tag:  \(textField.text)  ")
     } // became first responder
     func textFieldShouldEndEditing(textField: UITextField) -> Bool{
         textField.resignFirstResponder()
@@ -348,13 +356,16 @@ extension CreationViewController: UITextFieldDelegate{
         let tag = textField.tag
         if let stringValue = textField.text{
             self.setValueForTaggedCell(tag: tag, value: stringValue)
-            magic("textFieldDidEndEditing:" + textField.text!)
+                   }
+        
+        if textField == subCategoryInputTextField{
+            viewItem.subCategory = subCategoryInputTextField.text
         }
         
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(textField: UITextField) -> Bool{
-        magic("textFieldShouldClear:" + textField.text! + " cleared")
+        print("textFieldShouldClear:" + textField.text! + " cleared")
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -364,17 +375,21 @@ extension CreationViewController: UITextFieldDelegate{
             let nextTag: Int = textField.tag + 1
             if let nextResponder: UIResponder = self.tableView.viewWithTag(nextTag){
                 nextResponder.becomeFirstResponder()
-            } else{
-                textField.resignFirstResponder()
+            } else if textField == subCategoryInputTextField{
+                subCategorySelected = subCategoryInputTextField.text
+                subCategoryPickerOptions.append(subCategorySelected)
+                if let nextResponder: UIResponder = self.tableView.viewWithTag(0){
+                    nextResponder.becomeFirstResponder()
+                } 
                 
             }
             
             return false
         }else if textField == categoryInputTextField{
             subCategoryInputTextField.becomeFirstResponder()
-        return false
+            return false
         }
-    return false
+        return false
     }
 }
 
@@ -382,16 +397,16 @@ extension CreationViewController: UITextFieldDelegate{
 //File System
 extension CreationViewController{
     //Used to save to ios directory
-    func documentsDirectory() -> String {
-        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
+    func documentsDirectory() -> NSURL {
+        let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         return documentsFolderPath
     }
-    func fileInDocumentsDirectory(filename: String) -> String {
-        return documentsDirectory().stringByAppendingPathComponent(filename)
+    func fileInDocumentsDirectory(filename: String) -> NSURL {
+        return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
     }
     func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
         
-        magic("save: \(filePath)")
+        print("save: \(filePath)")
         
         var success = false
         
@@ -399,18 +414,18 @@ extension CreationViewController{
             success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
         })
         if success {
-            println("Saved successfully")
-        } else {
-            println("Error saving data file")
+            ("Saved successfully")
+        } else{
+            print("Error saving data file")
         }
     }
-    func loadArchivedObject(filePath: String) -> Wardrobe? {
+    func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
         
-        if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as! Wardrobe!{
+        if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
             return wardrobe
         }else{
             let newWardrobe = Wardrobe()
-            saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
+            saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
             return newWardrobe
         }
     }

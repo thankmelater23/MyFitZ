@@ -42,7 +42,7 @@ class Item: NSObject, NSCoding{
     }
 
   //NSCoding methods
-  required init(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
+  required init?(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
     super.init()
     //Required
     self.brand        = decoder.decodeObjectForKey(ITEM_BRAND_STRING) as! String!

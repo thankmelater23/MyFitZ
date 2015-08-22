@@ -13,6 +13,8 @@ class Wardrobe:NSObject, NSCoding{
   ///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
   var myCloset: CLOSET_TYPE = CLOSET_TYPE()
   var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
+    
+  var closetSelectionString: String! = MY_CLOSET
   var selectedCloset: CLOSET_TYPE{
     get{
       if closetSelectionString == MY_CLOSET{
@@ -30,13 +32,13 @@ class Wardrobe:NSObject, NSCoding{
         myWantsCloset = newValue
       }else{
         myCloset = newValue
-        magic("ClosetSelectString was not initialized: ClosetSelectedString: \(closetSelectionString)")
+        print("ClosetSelectString was not initialized: ClosetSelectedString: \(closetSelectionString)", appendNewline: false)
       }
     }
   }
-  var closetSelectionString: String!
+  
   ///Dictionary path to item
-  var path: [String: String]!
+    var path: [String: String]! = [String: String]()
 //  var allItems = [Item]()
 //  var savedFits      = [Fit]()
 //  var closetTotalPrice:Double! = 0
@@ -66,18 +68,18 @@ class Wardrobe:NSObject, NSCoding{
     coder.encodeObject(self.myCloset, forKey: "1")
     coder.encodeObject(self.myWantsCloset, forKey: "2")
     coder.encodeObject(self.closetSelectionString, forKey: "3")
-    coder.encodeObject(self.path, forKey: "4")
+    //coder.encodeObject(self.path, forKey: "4")
   }//Encodes data in class
 
   override init(){
     super.init()
     //Puts Categories from array inside both Closet_Types
     for key in CATEGORY_PICKER_OPTIONS{
-      let categoryString = String()
+      let categoryString = "DEFAULT"
       myCloset.updateValue([categoryString: [Item]()], forKey: key)
       myWantsCloset.updateValue([categoryString: [Item]()], forKey: key)
     }
-     closetSelectionString = String()
+     closetSelectionString = MY_CLOSET
   }
 }
 

@@ -53,9 +53,9 @@ class SelectionViewController: UIViewController{
       let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
       makeController.path = self.path
       makeController.itemsInArrayInDictionary = self.users!.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
-      magic("Segue transfer: \(segue.identifier)")
+      print("Segue transfer: \(segue.identifier)")
     }else{
-      magic("Segue transfer: \(segue.identifier)")
+      print("Segue transfer: \(segue.identifier)")
     }
   }
 }
@@ -64,51 +64,41 @@ class SelectionViewController: UIViewController{
 
 //File System
 extension SelectionViewController{
-  //Used to save to ios directory
-  func documentsDirectory() -> String {
-    let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
-    return documentsFolderPath
-  }
-  func fileInDocumentsDirectory(filename: String) -> String {
-    return documentsDirectory().stringByAppendingPathComponent(filename)
-  }
-  func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
-
-    magic("save: \(filePath)")
-
-    var success = false
-
-    success = NSKeyedArchiver.archiveRootObject(wardrobeToSave!, toFile:filePath)
-
-    if success {
-      println("Saved successfully")
-    } else {
-      println("Error saving data file")
-    }
-  }
-  func loadArchivedObject(filePath: String) -> Wardrobe? {
-
-    if NSFileManager.defaultManager().fileExistsAtPath(filePath){
-      if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
-        return wardrobe
-      }else{
-        let newWardrobe = Wardrobe()
-        saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
-        return newWardrobe
-      }
-    }else{
-      if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? Wardrobe{
-        return wardrobe
-      }else{
-        let newWardrobe = Wardrobe()
-        saveObjectToArchived(filePath, wardrobeToSave: newWardrobe)
-        return newWardrobe
-      }
-
-    }
-  }
-  func loadAndCreateCloset() -> Wardrobe{
-    let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-    return loadArchivedObject(filePath)!
-  }
+        //Used to save to ios directory
+        func documentsDirectory() -> NSURL {
+            let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            return documentsFolderPath
+        }
+        func fileInDocumentsDirectory(filename: String) -> NSURL {
+            return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
+        }
+        func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
+            
+            print("save: \(filePath)")
+            
+            var success = false
+            
+            dispatch_async(GlobalUtilityQueue, {
+                success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
+            })
+            if success {
+                ("Saved successfully")
+            } else{
+                print("Error saving data file")
+            }
+        }
+        func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
+            
+            if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
+                return wardrobe
+            }else{
+                let newWardrobe = Wardrobe()
+                saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
+                return newWardrobe
+            }
+        }
+        func loadAndCreateCloset() -> Wardrobe{
+            let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+            return loadArchivedObject(filePath)!
+        }
 }
