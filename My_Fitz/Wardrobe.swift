@@ -13,6 +13,7 @@ class Wardrobe:NSObject, NSCoding{
   ///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
   var myCloset: CLOSET_TYPE = CLOSET_TYPE()
   var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
+   //var progress: NSProgress
     
   var closetSelectionString: String! = MY_CLOSET
   var selectedCloset: CLOSET_TYPE{
@@ -95,4 +96,13 @@ extension Wardrobe{
 //      }
 //    }
   }
+    func setProgress(){
+//        progress = NSProgress()
+//        progress.totalUnitCount = -1
+//        progress.kind = NSProgressKindFile
+//        progress.setUserInfoObject(NSProgressFileOperationKindCopying, forKey: NSProgressFileOperationKindKey)
+//        
+//        
+        
+    }
 }

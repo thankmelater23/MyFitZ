@@ -33,36 +33,33 @@ class CreationViewController: UIViewController{
     @IBAction func createItem(sender: UIButton) {
         
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        var loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+        let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+        let keysOfCategory = loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.keys.array
+        let isKeyNew = keysOfCategory.contains(subCategorySelected)
         
-//        if self.categoryInputTextField.text != nil &&
-//            self.subCategoryInputTextField.text != nil  &&
-//            self.categoryInputTextField.text != ""  &&
-//            self.subCategoryInputTextField.text != ""{
-//                loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.updateValue([Item](), forKey: self.subCategoryInputTextField.text!)
-//                saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-//                print("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
-//        }else{
-//            print("Cateogry and/or SubCategory needs value")
-//        }
+        if !isKeyNew{
+                loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.updateValue([Item](), forKey: self.subCategorySelected)
+                saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
+                print("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
+        }
         
         if !self.viewItem.model.isEmpty{
-            //assert(subCategorySelected != "", "SubCategory == \(subCategorySelected)\n")
-            viewItem.category = categoryInputTextField.text
-            viewItem.subCategory = subCategoryInputTextField.text
-            let num = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
-            print(num)
-            loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.insert(viewItem, atIndex: num) //.append([viewItem])
-            let afterNum = loadedArchived.selectedCloset[categoryInputTextField.text!]![subCategoryInputTextField.text!]!.count
-            print(afterNum)
-            print(loadedArchived.selectedCloset)
+            viewItem.category = categorySelected
+            viewItem.subCategory = subCategorySelected
+            
+            loadedArchived.selectedCloset[categorySelected]!.count
+            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.count
+            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.append(viewItem) //.append([viewItem])
+            
             saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-            print("Item Saved: \(viewItem) \nTo: \(viewItem.category)/\(viewItem.subCategory)")
+            
+            print("Item Saved: \(viewItem) \nTo: \(categorySelected)/\(subCategorySelected)")
             
             subCategoryPickerView.reloadAllComponents()
             subCategoryPickerView.reloadInputViews()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
@@ -273,6 +270,8 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 subCategoryInputTextField.inputView = nil
                 subCategoryInputTextField.reloadInputViews()
                 subCategoryInputTextField.text = String()
+                subCategoryInputTextField.delegate = self
+                self.pictureForSelectedItemImage.alpha = 1.0
             }else{
                 subCategorySelected = subCategoryPickerOptions[row]
                 subCategoryInputTextField.text = subCategorySelected
@@ -354,9 +353,10 @@ extension CreationViewController: UITextFieldDelegate{
     } // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
     func textFieldDidEndEditing(textField: UITextField){
         let tag = textField.tag
+        
         if let stringValue = textField.text{
             self.setValueForTaggedCell(tag: tag, value: stringValue)
-                   }
+        }
         
         if textField == subCategoryInputTextField{
             viewItem.subCategory = subCategoryInputTextField.text
@@ -371,25 +371,23 @@ extension CreationViewController: UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         // Next as return button, for other fields
-        if textField != subCategoryInputTextField || textField != categoryInputTextField{
+        if textField != subCategoryInputTextField && textField != categoryInputTextField{
             let nextTag: Int = textField.tag + 1
             if let nextResponder: UIResponder = self.tableView.viewWithTag(nextTag){
                 nextResponder.becomeFirstResponder()
-            } else if textField == subCategoryInputTextField{
-                subCategorySelected = subCategoryInputTextField.text
-                subCategoryPickerOptions.append(subCategorySelected)
-                if let nextResponder: UIResponder = self.tableView.viewWithTag(0){
-                    nextResponder.becomeFirstResponder()
-                } 
-                
             }
-            
-            return false
         }else if textField == categoryInputTextField{
+            categorySelected = categoryInputTextField.text
+            subCategoryInputTextField.delegate = self
             subCategoryInputTextField.becomeFirstResponder()
-            return false
+        }else if textField == subCategoryInputTextField{
+            subCategorySelected = subCategoryInputTextField.text
+            subCategoryPickerOptions.append(subCategorySelected)
+            if let nextResponder: UIResponder = self.tableView.viewWithTag(0){
+            nextResponder.becomeFirstResponder()
+            }
         }
-        return false
+        return true
     }
 }
 
