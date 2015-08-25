@@ -11,7 +11,7 @@ import UIKit
 class SelectionViewController: UIViewController{
   //View Variables
   ///A variable that holds the entire sytstem tree  of the project
-  var users: Wardrobe? //{
+//  var users: Wardrobe? //{
 //    get{
 //      if self.users.isEmpty{
 //          if let num = selectedUser as Int{

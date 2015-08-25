@@ -32,29 +32,33 @@ class CreationViewController: UIViewController{
     var path: [String: String] = [String: String]()
     @IBAction func createItem(sender: UIButton) {
         
-        let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
-        let keysOfCategory = loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.keys.array
-        let isKeyNew = keysOfCategory.contains(subCategorySelected)
+//        let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+//        let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+//        let keysOfCategory = loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.keys.array
+//        let isKeyNew = keysOfCategory.contains(subCategorySelected)
+//        
+//        if !isKeyNew{
+//                loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.updateValue([Item](), forKey: self.subCategorySelected)
+//                saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
+//                print("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
+//        }
         
-        if !isKeyNew{
-                loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.updateValue([Item](), forKey: self.subCategorySelected)
-                saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-                print("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
-        }
+        gamesWardrobe.addNewSubCategory(categorySelected, funcSubCategory: subCategorySelected)
         
         if !self.viewItem.model.isEmpty{
             viewItem.category = categorySelected
             viewItem.subCategory = subCategorySelected
-            
-            loadedArchived.selectedCloset[categorySelected]!.count
-            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.count
-            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.append(viewItem) //.append([viewItem])
-            
-            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-            
-            print("Item Saved: \(viewItem) \nTo: \(categorySelected)/\(subCategorySelected)")
-            
+
+            gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+//
+//            loadedArchived.selectedCloset[categorySelected]!.count
+//            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.count
+//            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.append(viewItem) //.append([viewItem])
+//            
+//            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
+//            
+//            print("Item Saved: \(viewItem) \nTo: \(categorySelected)/\(subCategorySelected)")
+//            
             subCategoryPickerView.reloadAllComponents()
             subCategoryPickerView.reloadInputViews()
         }

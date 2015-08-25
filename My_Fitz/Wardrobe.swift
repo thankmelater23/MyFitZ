@@ -84,6 +84,70 @@ class Wardrobe:NSObject, NSCoding{
   }
 }
 
+
+//File System
+extension Wardrobe{
+    //Used to save to ios directory
+    func documentsDirectory() -> NSURL {
+        let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        return documentsFolderPath
+    }
+    func fileInDocumentsDirectory(filename: String) -> NSURL {
+        return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
+    }
+    func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
+        
+        var success = false
+        
+        dispatch_async(GlobalUtilityQueue, {
+            success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
+        })
+        if success {
+            ("Saved file successfully to: \(filePath)")
+        } else{
+            print("Error saving data file to: \(filePath)")
+        }
+    }
+    func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
+        
+        if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
+            return wardrobe
+        }else{
+            let newWardrobe = Wardrobe()
+            saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
+            return newWardrobe
+        }
+    }
+    func loadAndCreateCloset() -> Wardrobe{
+        let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+        return loadArchivedObject(filePath)!
+    }
+
+    func addNewSubCategory(funcCategory:String, funcSubCategory:String){
+        let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+        let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+        let keysOfCategory = loadedArchived.selectedCloset[funcCategory]!.keys.array
+        let isKeyNew = keysOfCategory.contains(funcSubCategory)
+        
+        if !isKeyNew{
+            loadedArchived.selectedCloset[funcCategory]!.updateValue([Item](), forKey: funcSubCategory)
+            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
+            print("Subcategory created: \(funcSubCategory)")
+        }
+    }
+    func save(funcCategory:String, funcSubCategory:String, item: Item){
+        let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+       let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
+        
+            loadedArchived.selectedCloset[funcCategory]![funcSubCategory]!.append(item)
+        
+            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
+            
+            print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
+    }
+}
+
+
 extension Wardrobe{
   //TODO: - Create sorting of alpabitized for wardrobe 
   func sort(){

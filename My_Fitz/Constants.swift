@@ -11,7 +11,7 @@ import Foundation
 //var closet: Closet!
 //Represents the type of Dictionary in Dictionary of Array of Items
 typealias CLOSET_TYPE = [String: [String: [Item]]]
-var gamesWardrobe: CLOSET_TYPE = CLOSET_TYPE()
+var gamesWardrobe:Wardrobe = Wardrobe()
 
 //Picker options
 let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
