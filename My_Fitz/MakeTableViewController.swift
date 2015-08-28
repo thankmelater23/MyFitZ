@@ -39,8 +39,8 @@ class MakeTableViewController: UITableViewController{
             let index = self.tableView.indexPathForSelectedRow
             
             let modelController = segue.destinationViewController as! ModelTableViewController
-            let tempItemArray: [Item] = self.itemsInArrayInDictionary.values.array[index!.row]
-            path[PATHTYPE_SUBCATEGORY_STRING] = self.itemsInArrayInDictionary.keys.array[index!.row]
+            let tempItemArray: [Item] = Array(self.itemsInArrayInDictionary.values)[index!.row]
+            path[PATHTYPE_SUBCATEGORY_STRING] = Array(self.itemsInArrayInDictionary.keys)[index!.row]
             modelController.arrayOfItems = tempItemArray as [Item]!
             modelController.path = self.path
             
@@ -87,8 +87,8 @@ extension MakeTableViewController{
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
         
-        let arrayItemCell: [Item] = self.itemsInArrayInDictionary.values.array[indexPath.row]
-        let keyOfSelectedArray = self.itemsInArrayInDictionary.keys.array[indexPath.row]
+        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
         if let availableSubCategoryItem = arrayItemCell.first{
             cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
@@ -109,7 +109,7 @@ extension MakeTableViewController{
             
             //TODO: - Set up way for dictionary cell to be deleted
             
-            let subCategoryToDelete = itemsInArrayInDictionary.keys.array[indexPath.row] as String//Gets key for dictionary selected
+            let subCategoryToDelete = Array(itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
             itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
             let pathOfFile                                  = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
             let loadedArchived:Wardrobe!                 = loadArchivedObject(pathOfFile) as Wardrobe?

@@ -9,11 +9,7 @@
 import UIKit
 import MobileCoreServices
 
-enum ItemError:ErrorType{
-    case MissingInfo
-    case IncorrectSubCategory
-    case Missing(someInt: Int)
-}
+
 //MARK: - CreationViewController class
 class CreationViewController: UIViewController{
     @IBOutlet var tableView: UITableView!
@@ -31,39 +27,23 @@ class CreationViewController: UIViewController{
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
     @IBAction func createItem(sender: UIButton) {
-        
-//        let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-//        let loadedArchived:Wardrobe! = loadArchivedObject(pathOfFile) as Wardrobe!
-//        let keysOfCategory = loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.keys.array
-//        let isKeyNew = keysOfCategory.contains(subCategorySelected)
-//        
-//        if !isKeyNew{
-//                loadedArchived.selectedCloset[self.categoryInputTextField.text!]!.updateValue([Item](), forKey: self.subCategorySelected)
-//                saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-//                print("Subcategory created: Subcategory: \(subCategoryInputTextField.text)")
-//        }
-        
-        gamesWardrobe.addNewSubCategory(categorySelected, funcSubCategory: subCategorySelected)
-        
-        if !self.viewItem.model.isEmpty{
-            viewItem.category = categorySelected
-            viewItem.subCategory = subCategorySelected
-
-            gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
-//
-//            loadedArchived.selectedCloset[categorySelected]!.count
-//            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.count
-//            loadedArchived.selectedCloset[categorySelected]![subCategorySelected]!.append(viewItem) //.append([viewItem])
-//            
-//            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-//            
-//            print("Item Saved: \(viewItem) \nTo: \(categorySelected)/\(subCategorySelected)")
-//            
+        do{ try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)}//Do and try
+            
+        catch ItemError.IncorrectSubCategory{
+            let alert = UIAlertView(title: "SubCategory Missing", message: "Enter in correct subcateogry", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        }catch ItemError.missingModelString{
+            let alert = UIAlertView(title: "Model String Missing", message: "Enter in correct Model String", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        }catch{
+            assertionFailure("Unknow error type thrown")
+        }
+    
             subCategoryPickerView.reloadAllComponents()
             subCategoryPickerView.reloadInputViews()
-        }
     }
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()

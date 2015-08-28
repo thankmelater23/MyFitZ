@@ -13,6 +13,13 @@ import Foundation
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 var gamesWardrobe:Wardrobe = Wardrobe()
 
+enum ItemError:ErrorType{
+//    case MissingInfo
+    case IncorrectSubCategory
+    case missingModelString
+//    case Missing(someInt: Int)
+}
+
 //Picker options
 let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
 

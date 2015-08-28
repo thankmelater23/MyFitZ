@@ -42,9 +42,7 @@ class SelectionViewController: UIViewController{
 
   //View Methods
   override func viewDidLoad(){
-    self.users = Wardrobe()
-    let loadedArchived = loadAndCreateCloset() as Wardrobe
-    self.users = loadedArchived as Wardrobe!
+      gamesWardrobe = loadAndCreateCloset() as Wardrobe
 
     super.viewDidLoad()
   }
@@ -52,7 +50,7 @@ class SelectionViewController: UIViewController{
     if segue.identifier == SEGUE_SELECTION_TO_MAKE{
       let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
       makeController.path = self.path
-      makeController.itemsInArrayInDictionary = self.users!.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+      makeController.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
       print("Segue transfer: \(segue.identifier)")
     }else{
       print("Segue transfer: \(segue.identifier)")
