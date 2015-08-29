@@ -31,16 +31,13 @@ class DetailedViewController: UIViewController{
     defer{
         print("Segue transfer: \(segue.identifier)")
     }
+    
     if segue.identifier == SEGUE_DETAIL_TO_MODEL
     {
-      let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-      var loadedArchived:CLOSET_TYPE! = loadArchivedObject(pathOfFile)!.selectedCloset as CLOSET_TYPE!
-
-      //var index = self.tableView.indexPathForSelectedRow!
       let modelTableViewController = segue.destinationViewController as! ModelTableViewController
       modelTableViewController.path = self.path
 
-      modelTableViewController.arrayOfItems = loadedArchived[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+      modelTableViewController.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
       
     }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
     }
@@ -226,49 +223,6 @@ extension DetailedViewController{
     self.customizeTableView()
 
   }//Sets up view
-}
-
-
-
-//File System
-extension DetailedViewController{
-    //Used to save to ios directory
-    func documentsDirectory() -> NSURL {
-        let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        return documentsFolderPath
-    }
-    func fileInDocumentsDirectory(filename: String) -> NSURL {
-        return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
-    }
-    func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
-        
-        print("save: \(filePath)")
-        
-        var success = false
-        
-        dispatch_async(GlobalUtilityQueue, {
-            success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
-        })
-        if success {
-            ("Saved successfully")
-        } else{
-            print("Error saving data file")
-        }
-    }
-    func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
-        
-        if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
-            return wardrobe
-        }else{
-            let newWardrobe = Wardrobe()
-            saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
-            return newWardrobe
-        }
-    }
-    func loadAndCreateCloset() -> Wardrobe{
-        let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        return loadArchivedObject(filePath)!
-    }
 }
 
 

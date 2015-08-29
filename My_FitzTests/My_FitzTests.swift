@@ -6,9 +6,8 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 
-import UIKit
+@testable import My_Fitz
 import XCTest
-
 
 class My_FitzTests: XCTestCase {
 
@@ -28,6 +27,11 @@ class My_FitzTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        let drobe = Wardrobe()
+        let item = Item()
+        
+        let model = item.model
+        assert(model != nil, "Model is empty")
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     override func tearDown() {

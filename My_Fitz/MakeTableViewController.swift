@@ -34,6 +34,9 @@ class MakeTableViewController: UITableViewController{
         super.didReceiveMemoryWarning()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        defer{
+            print("Segue transfer: \(segue.identifier)")
+        }
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
             let index = self.tableView.indexPathForSelectedRow
@@ -44,14 +47,10 @@ class MakeTableViewController: UITableViewController{
             modelController.arrayOfItems = tempItemArray as [Item]!
             modelController.path = self.path
             
-            print("Segue transfer: \(segue.identifier)")
-        }else{
-            print("Segue transfer: \(segue.identifier)")
-        }
     }
 }
 
-
+}
 
 //MARK: - Developer Created Methods
 ///Developer Created Methods
@@ -68,7 +67,7 @@ extension MakeTableViewController{
 
 //MARK: - TableView Methods
 ///TableView Methods
-extension MakeTableViewController{
+extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         let count = itemsInArrayInDictionary.count
         return count
@@ -101,24 +100,24 @@ extension MakeTableViewController{
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-            //TODO: - Create an alert view that uses method
-            let alert                                       = UIAlertController(title: "Alert", message: "Are you sure you want to delete", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+            let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+            let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+                let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
+                self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
+                
+                gamesWardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+                gamesWardrobe.quickSave()
+                
+                self.tableView.reloadData()
+            }
             
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-            //TODO: - Set up way for dictionary cell to be deleted
-            
-            let subCategoryToDelete = Array(itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
-            itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
-            let pathOfFile                                  = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-            let loadedArchived:Wardrobe!                 = loadArchivedObject(pathOfFile) as Wardrobe?
-            loadedArchived.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
-            saveObjectToArchived(pathOfFile.path!, wardrobeToSave: loadedArchived)
-            
-            
-            self.tableView.reloadData()
+            alert.addAction(action)
+            alert.addAction(act)
+            self.presentViewController(alert, animated: true, completion: {})
         }
+        
+        
     }//Editing to delete row
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         return path[PATHTYPE_CATEGORY_STRING]
@@ -131,46 +130,4 @@ extension MakeTableViewController{
         return 200
     }//Xcode bug hack that lets cell autosize properly
 }
-
-
-
-//File System
-extension MakeTableViewController{
-    //Used to save to ios directory
-    func documentsDirectory() -> NSURL {
-        let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        return documentsFolderPath
-    }
-    func fileInDocumentsDirectory(filename: String) -> NSURL {
-        return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
-    }
-    func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
-        
-        print("save: \(filePath)")
-        
-        var success = false
-        
-        dispatch_async(GlobalUtilityQueue, {
-            success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
-        })
-        if success {
-            ("Saved successfully")
-        } else{
-            print("Error saving data file")
-        }
-    }
-    func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
-        
-        if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
-            return wardrobe
-        }else{
-            let newWardrobe = Wardrobe()
-            saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
-            return newWardrobe
-        }
-    }
-    func loadAndCreateCloset() -> Wardrobe{
-        let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        return loadArchivedObject(filePath)!
-    }
-}
+ 

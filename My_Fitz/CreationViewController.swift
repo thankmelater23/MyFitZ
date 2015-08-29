@@ -28,12 +28,16 @@ class CreationViewController: UIViewController{
     var path: [String: String] = [String: String]()
     @IBAction func createItem(sender: UIButton) {
         do{ try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)}//Do and try
+
             
         catch ItemError.IncorrectSubCategory{
             let alert = UIAlertView(title: "SubCategory Missing", message: "Enter in correct subcateogry", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         }catch ItemError.missingModelString{
             let alert = UIAlertView(title: "Model String Missing", message: "Enter in correct Model String", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        }catch ItemError.addImage{
+            let alert = UIAlertView(title: "Image not selected", message: "Selctect image", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         }catch{
             assertionFailure("Unknow error type thrown")
@@ -59,7 +63,11 @@ class CreationViewController: UIViewController{
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        //TODO: - Create segue set up to load closet and set in place
+
+        defer{
+            print("Segue transfer: \(segue.identifier)")
+        }
+        
         if segue.identifier == SEGUE_CREATION_TO_SELECTION{
             
         }
@@ -67,12 +75,17 @@ class CreationViewController: UIViewController{
             
         }
         if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            
+//            var make = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
+//            var model: [Item] = Array(model[path[PATHTYPE_SUBCATEGORY_STRING]])
+//            
+//            let modelController = segue.destinationViewController as! ModelTableViewController
+//            modelController.arrayOfItems = gamesWardrobe.selectedCloset.//[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
+//            
         }
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
             
         }
-        print("Segue transfer: \(segue.identifier)")
+        
     }
 }
 
@@ -107,11 +120,12 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        defer{
+            self.tableView.reloadData()
+        }
         if (section == 0){
-            //self.tableView.reloadData()
             return "Required"
         }else{
-            //self.tableView.reloadData()
             return "Optional"
         }
     }//Puts a text label in the header of the specified section
@@ -240,7 +254,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             subCategoryPickerOptions.removeAll(keepCapacity: false)
             
             //FIXME: - Fix the loading of files
-            let loadedArchived = loadAndCreateCloset().selectedCloset
+            let loadedArchived = gamesWardrobe.selectedCloset
             let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
             
             for key in keysOfCategory{
@@ -372,48 +386,6 @@ extension CreationViewController: UITextFieldDelegate{
             }
         }
         return true
-    }
-}
-
-
-//File System
-extension CreationViewController{
-    //Used to save to ios directory
-    func documentsDirectory() -> NSURL {
-        let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        return documentsFolderPath
-    }
-    func fileInDocumentsDirectory(filename: String) -> NSURL {
-        return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
-    }
-    func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
-        
-        print("save: \(filePath)")
-        
-        var success = false
-        
-        dispatch_async(GlobalUtilityQueue, {
-            success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
-        })
-        if success {
-            ("Saved successfully")
-        } else{
-            print("Error saving data file")
-        }
-    }
-    func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
-        
-        if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
-            return wardrobe
-        }else{
-            let newWardrobe = Wardrobe()
-            saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
-            return newWardrobe
-        }
-    }
-    func loadAndCreateCloset() -> Wardrobe{
-        let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-        return loadArchivedObject(filePath)!
     }
 }
 /***********************NOTES*********************/

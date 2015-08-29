@@ -42,7 +42,7 @@ class SelectionViewController: UIViewController{
 
   //View Methods
   override func viewDidLoad(){
-      gamesWardrobe = loadAndCreateCloset() as Wardrobe
+      gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
 
     super.viewDidLoad()
   }
@@ -59,44 +59,3 @@ class SelectionViewController: UIViewController{
 }
 
 
-
-//File System
-extension SelectionViewController{
-        //Used to save to ios directory
-        func documentsDirectory() -> NSURL {
-            let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-            return documentsFolderPath
-        }
-        func fileInDocumentsDirectory(filename: String) -> NSURL {
-            return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
-        }
-        func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
-            
-            print("save: \(filePath)")
-            
-            var success = false
-            
-            dispatch_async(GlobalUtilityQueue, {
-                success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
-            })
-            if success {
-                ("Saved successfully")
-            } else{
-                print("Error saving data file")
-            }
-        }
-        func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
-            
-            if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
-                return wardrobe
-            }else{
-                let newWardrobe = Wardrobe()
-                saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
-                return newWardrobe
-            }
-        }
-        func loadAndCreateCloset() -> Wardrobe{
-            let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
-            return loadArchivedObject(filePath)!
-        }
-}

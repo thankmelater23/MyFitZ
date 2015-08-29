@@ -23,9 +23,6 @@ class CreationUITableViewCell: UITableViewCell{
     textInputCellTextField.placeholder = labelString
     textInputCellLabel.text = labelString
     self.textInputCellTextField.tag = tag
-    self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.UnlessEditing
-
-    print("\nCreating cell: \ntext:\(self.textInputCellTextField.text)\ntag: \(tag)")
-
+    self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.UnlessEditing 
   }
 }

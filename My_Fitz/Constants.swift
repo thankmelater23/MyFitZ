@@ -17,11 +17,14 @@ enum ItemError:ErrorType{
 //    case MissingInfo
     case IncorrectSubCategory
     case missingModelString
+    case addImage
 //    case Missing(someInt: Int)
 }
 
 //Picker options
 let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
+let YES_NO = ["Yes", "No"]
+var SAVED_BRANDS:[String] = [String]()
 
 let PATHTYPE_CATEGORY_STRING    = "category"
 let PATHTYPE_SUBCATEGORY_STRING = "subCategory"

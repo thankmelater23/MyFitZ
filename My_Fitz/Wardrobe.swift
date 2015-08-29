@@ -52,8 +52,6 @@ class Wardrobe:NSObject, NSCoding{
     
     override var description: String {
         return String()
-        
-        
     }
     
     required init?(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
@@ -144,6 +142,10 @@ extension Wardrobe{
         }else{throw ItemError.missingModelString}
         
         //Saves Wardrobe
+        self.quickSave()
+    }
+    
+    func quickSave(){
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
     }

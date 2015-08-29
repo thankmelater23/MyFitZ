@@ -13,11 +13,11 @@
 		C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
 		C63746841B3B24E100278346 /* MyFitzUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63746831B3B24E100278346 /* MyFitzUITest.swift */; };
 		C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
+		C686E3751B912D19001241D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C686E3741B912D19001241D6 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		C6B2DDC51B17BE7600250403 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
 		C6B2DDC61B17BEBA00250403 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
 		C6B2DDC71B17BEBE00250403 /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
 		C6B2DDC81B17BEC300250403 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB79E1A7072FF00353C9B /* Item.swift */; };
-		C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B9C9E91ADC918900892F97 /* Images.xcassets */; };
 		C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77B1A7070D200353C9B /* AppDelegate.swift */; };
 		C6CCB77F1A7070D200353C9B /* My_Fitz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */; };
 		C6CCB7811A7070D200353C9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7801A7070D200353C9B /* ViewController.swift */; };
@@ -25,7 +25,6 @@
 		C6CCB7891A7070D200353C9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CCB7871A7070D200353C9B /* LaunchScreen.xib */; };
 		C6CCB7951A7070D200353C9B /* My_FitzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7941A7070D200353C9B /* My_FitzTests.swift */; };
 		C6CCB7A01A7072FF00353C9B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB79E1A7072FF00353C9B /* Item.swift */; };
-		C6CCB7A11A7072FF00353C9B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB79F1A7072FF00353C9B /* Profile.swift */; };
 		C6CCB7A41A70733100353C9B /* ModelCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */; };
 		C6CCB7A51A70733100353C9B /* MakeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */; };
 		C6CCB7A71A70734800353C9B /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7A61A70734800353C9B /* DetailedViewController.swift */; };
@@ -71,7 +70,7 @@
 		C63746831B3B24E100278346 /* MyFitzUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFitzUITest.swift; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C674D12C1B0E818900E0DC6F /* Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
-		C6B9C9E91ADC918900892F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C686E3741B912D19001241D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CCB77A1A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CCB77B1A7070D200353C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 		C6CCB7931A7070D200353C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CCB7941A7070D200353C9B /* My_FitzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_FitzTests.swift; sourceTree = "<group>"; };
 		C6CCB79E1A7072FF00353C9B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		C6CCB79F1A7072FF00353C9B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCustomCell.swift; sourceTree = "<group>"; };
 		C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCustomCell.swift; sourceTree = "<group>"; };
 		C6CCB7A61A70734800353C9B /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				C615A78F1AE2A69100D055D2 /* Fit.swift */,
 				C615A78D1AE2A67500D055D2 /* Closet.swift */,
 				C674D12C1B0E818900E0DC6F /* Wardrobe.swift */,
-				C6CCB79F1A7072FF00353C9B /* Profile.swift */,
 				C6CCB7A31A70733100353C9B /* MakeCustomCell.swift */,
 				C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */,
 				C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */,
@@ -210,8 +207,8 @@
 				C6CCB77B1A7070D200353C9B /* AppDelegate.swift */,
 				C6FDC15B1ACBAB29003C2895 /* My_Fitz-Bridging-Header.h */,
 				C6CCB77D1A7070D200353C9B /* My_Fitz.xcdatamodeld */,
+				C686E3741B912D19001241D6 /* Images.xcassets */,
 				C6CCB77A1A7070D200353C9B /* Info.plist */,
-				C6B9C9E91ADC918900892F97 /* Images.xcassets */,
 				C6CCB7871A7070D200353C9B /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
@@ -222,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				C6CCB7941A7070D200353C9B /* My_FitzTests.swift */,
-				C6CCB7921A7070D200353C9B /* Supporting Files */,
 				C63746831B3B24E100278346 /* MyFitzUITest.swift */,
+				C6CCB7921A7070D200353C9B /* Supporting Files */,
 			);
 			path = My_FitzTests;
 			sourceTree = "<group>";
@@ -349,7 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6B9C9EA1ADC918900892F97 /* Images.xcassets in Resources */,
+				C686E3751B912D19001241D6 /* Images.xcassets in Resources */,
 				C6CCB7841A7070D200353C9B /* Main.storyboard in Resources */,
 				C6CCB7891A7070D200353C9B /* LaunchScreen.xib in Resources */,
 			);
@@ -387,7 +384,6 @@
 			files = (
 				C6CCB7A01A7072FF00353C9B /* Item.swift in Sources */,
 				C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */,
-				C6CCB7A11A7072FF00353C9B /* Profile.swift in Sources */,
 				C6CCB7A71A70734800353C9B /* DetailedViewController.swift in Sources */,
 				C6D9039C1B8A7B6900909C2A /* SearchViewController.swift in Sources */,
 				C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */,

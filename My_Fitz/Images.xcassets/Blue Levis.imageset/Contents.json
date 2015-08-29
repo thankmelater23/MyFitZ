@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Blue Levis.JPG"
+      "filename" : "Blue Levis.JPG",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
