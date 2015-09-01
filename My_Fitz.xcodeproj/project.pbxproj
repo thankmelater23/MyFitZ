@@ -11,6 +11,7 @@
 		C615A78E1AE2A67500D055D2 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78D1AE2A67500D055D2 /* Closet.swift */; };
 		C615A7901AE2A69100D055D2 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A78F1AE2A69100D055D2 /* Fit.swift */; };
 		C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
+		C62601B91B949C7900D1587D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62601B81B949C7900D1587D /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		C63746841B3B24E100278346 /* MyFitzUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63746831B3B24E100278346 /* MyFitzUITest.swift */; };
 		C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
 		C686E3751B912D19001241D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C686E3741B912D19001241D6 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
@@ -67,6 +68,7 @@
 		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		C615A7911AE2ABD200D055D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C62601B81B949C7900D1587D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C63746831B3B24E100278346 /* MyFitzUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFitzUITest.swift; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		C674D12C1B0E818900E0DC6F /* Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		C6CCB76D1A7070D200353C9B = {
 			isa = PBXGroup;
 			children = (
+				C62601B81B949C7900D1587D /* Extensions.swift */,
 				C6CCB7781A7070D200353C9B /* My_Fitz */,
 				C6CCB7791A7070D200353C9B /* Supporting Files */,
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
@@ -389,6 +392,7 @@
 				C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */,
 				C6CCB7A51A70733100353C9B /* MakeCustomCell.swift in Sources */,
 				C6CCB7A91A70735C00353C9B /* SelectionViewController.swift in Sources */,
+				C62601B91B949C7900D1587D /* Extensions.swift in Sources */,
 				C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */,
 				C60380E21ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift in Sources */,
 				C6CCB7A41A70733100353C9B /* ModelCustomCell.swift in Sources */,

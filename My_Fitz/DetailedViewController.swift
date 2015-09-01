@@ -13,6 +13,21 @@ class DetailedViewController: UIViewController{
   @IBOutlet var tableView: UITableView!
   ///Views main image of the Item being presented
   @IBOutlet var itemImage: UIImageView!
+    @IBAction func deleteItem() {
+        let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+        let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+        let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+            
+            gamesWardrobe.deleteAt(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
+            
+            self.tableView.reloadData()
+        }
+        
+        alert.addAction(action)
+        alert.addAction(act)
+        self.presentViewController(alert, animated: true, completion: {})
+        
+    }
   //View Variables
   ///Item selected
   var itemOfObject: Item! = Item()

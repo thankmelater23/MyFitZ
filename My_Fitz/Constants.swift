@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 ///MARK: - Global
 //var closet: Closet!
 //Represents the type of Dictionary in Dictionary of Array of Items
@@ -20,6 +21,7 @@ enum ItemError:ErrorType{
     case addImage
 //    case Missing(someInt: Int)
 }
+
 
 //Picker options
 let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
@@ -48,12 +50,13 @@ let SEGUE_MODEL_TO_CREATION     = "modelToCreation"
 let SEGUE_DETAIL_TO_MODEL       = "detailedToModel"
 let SEGUE_DETAIL_TO_CREATION    = "detailedToCreation"
 let SEGUE_CREATION_TO_MAIN      = "creationToMain"
-let SEGUE_CREATION_TO_SELECTION = "creationToDetail"
 let SEGUE_CREATION_TO_MAKE      = "creationToMake"
 let SEGUE_CREATION_TO_MODEL     = "creationToModel"
 let SEGUE_CREATION_TO_DETAIL    = "creationToDetail"
+let SEGUE_CREATION_TO_SELECTION = "creationToSelection"
 
 
+//Cell identifiers
 let MAKE_CELL                   = "makeCell"
 let MODEL_CELL                  = "modelCell"
 let CREATION_CELL               = "creationCell"

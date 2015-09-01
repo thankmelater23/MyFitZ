@@ -8,27 +8,7 @@
 import UIKit
 
 //MARK: - SelectionViewController
-class SelectionViewController: UIViewController{
-  //View Variables
-  ///A variable that holds the entire sytstem tree  of the project
-//  var users: Wardrobe? //{
-//    get{
-//      if self.users.isEmpty{
-//          if let num = selectedUser as Int{
-//            return self.users[num]
-//          }else{
-//            return self.users.first!
-//          }
-//      }else{
-//        let wardrobe = Wardrobe()
-//        users.append(wardrobe)
-//        return users.first!
-//      }
-//    }
-//    set{
-//      users.append(newElement)
-//    }
-//  }
+class SelectionViewController: UIViewController{ 
   var selectedUser: Int!
   ///Dictionary path to item
   var path: [String: String]! = [String: String]()
@@ -42,7 +22,7 @@ class SelectionViewController: UIViewController{
 
   //View Methods
   override func viewDidLoad(){
-      gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
+//      gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
 
     super.viewDidLoad()
   }

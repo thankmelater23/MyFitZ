@@ -23,7 +23,8 @@ class Wardrobe:NSObject, NSCoding{
             }else if closetSelectionString == MY_WANTS_CLOSET{
                 return myWantsCloset
             }else{
-                return myCloset
+                assertionFailure("Incorect closet selection string: \(closetSelectionString)")
+                return myWantsCloset
             }
         }
         set{
@@ -32,8 +33,8 @@ class Wardrobe:NSObject, NSCoding{
             }else if closetSelectionString == MY_WANTS_CLOSET{
                 myWantsCloset = newValue
             }else{
+                assertionFailure("Incorect closet selection string: \(closetSelectionString)")
                 myCloset = newValue
-                print("ClosetSelectString was not initialized: ClosetSelectedString: ", closetSelectionString, terminator: "")
             }
         }
     }
@@ -95,7 +96,7 @@ extension Wardrobe{
     }
     func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
         
-                var success = false
+        var success = false
         
         dispatch_async(GlobalUtilityQueue, {
             success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
@@ -127,6 +128,9 @@ extension Wardrobe{
         let keysOfCategory = Array(selectedCloset[funcCategory]!.keys)
         let isKeyNew = keysOfCategory.contains(funcSubCategory)
         
+        item.category = funcCategory
+        item.subCategory = funcSubCategory
+        
         if !isKeyNew{
             self.selectedCloset[funcCategory]!.updateValue([Item](), forKey: funcSubCategory)
             print("Subcategory created: \(funcSubCategory)")
@@ -151,26 +155,85 @@ extension Wardrobe{
     }
 }
 
+
+extension Wardrobe{
+    //TODO: - Create sorting of alpabitized for wardrobe
+    func sort(){
+        //    for (_, value) in selectedCloset as CLOSET_TYPE!{
+        //      for (secIndex, secValue) in value{
+        //        secValue.sort()
+        //        //        for arrayOfItems in secValue{
+        //         arrayOfItems
+        //        }
+        //      }
+        //    }
+    }
+    func setProgress(){
+        //        progress = NSProgress()
+        //        progress.totalUnitCount = -1
+        //        progress.kind = NSProgressKindFile
+        //        progress.setUserInfoObject(NSProgressFileOperationKindCopying, forKey: NSProgressFileOperationKindKey)
+        //
+        //
+        
+    }
     
-    extension Wardrobe{
-        //TODO: - Create sorting of alpabitized for wardrobe
-        func sort(){
-            //    for (_, value) in selectedCloset as CLOSET_TYPE!{
-            //      for (secIndex, secValue) in value{
-            //        secValue.sort()
-            //        //        for arrayOfItems in secValue{
-            //         arrayOfItems
-            //        }
-            //      }
-            //    }
+    //Return functions
+    func returnDictionaryOfCategory(funcCategory: String)-> [String: [Item]]{
+        return [String: [Item]]()
+    }
+    func returnArrayOfKeysOfCategory(funcCategory: String)->[String]{
+        return [String]()
+    }
+    func returnArrayOfValuesOfCategory(funcCategory: String)->[Item]{
+        return [Item]()
+    }
+    func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
+        return [Item]()
+    }
+    //Delete Functions
+    func deleteAt(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
+        let array = self.selectedCloset[funcCategory]![funcSubCategory]!
+        var num = 0
+        for index in array{
+            num++
+            if index.isEqual(item){
+                self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num)
+            }
         }
-        func setProgress(){
-            //        progress = NSProgress()
-            //        progress.totalUnitCount = -1
-            //        progress.kind = NSProgressKindFile
-            //        progress.setUserInfoObject(NSProgressFileOperationKindCopying, forKey: NSProgressFileOperationKindKey)
-            //
-            //
-            
-        }
+        
+        self.quickSave()
+    }
+    func deleteAt(funcCategory: String, funcSubCategory: String){//Deletes subCateogry row
+        selectedCloset[funcCategory]!.removeValueForKey(funcSubCategory)
+        quickSave()
+    }
+    func deleteAt(funcCategory: String, row: Int){//Deletes category row
+        var array = Array(selectedCloset[funcCategory]!.keys)
+        
+        let key = array[row]
+        selectedCloset[funcCategory]?.removeValueForKey(key)
+        
+        quickSave()
+    }
+    
+    func moveObject(funcCategory: String, funcSubCategory: String, index: Int,
+        prevFuncCategory: String, prevFuncSubCategory: String, prevIndex: Int,
+        item: Item){//Deletes object from one place and adds it to another place
+            deleteAt(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
+            selectedCloset[funcCategory]![funcSubCategory]?.append(item)
+            quickSave()
+    }
+    
+    
+    func getCount(funcCategory: String)->Int{
+        return selectedCloset[funcCategory]!.count
+    }
+    func getCount(funcCategory: String, funcSubCategory: String)->Int{
+        return selectedCloset[funcCategory]![funcSubCategory]!.count
+    }
+    func getCount(funcCategory: String, funcSubCategory: String, index: Int)->Int{
+        return selectedCloset[funcCategory]![funcSubCategory]![index].index
+    }
+    
 }

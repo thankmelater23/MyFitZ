@@ -9,6 +9,14 @@
 import UIKit
 import MobileCoreServices
 
+enum ControllerState{
+    case create
+    case edit
+}
+
+enum cellName{
+    case model, brand, favorited, price, new, timesWorn, datePurchased, color
+}
 
 //MARK: - CreationViewController class
 class CreationViewController: UIViewController{
@@ -27,8 +35,16 @@ class CreationViewController: UIViewController{
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
     @IBAction func createItem(sender: UIButton) {
-        do{ try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)}//Do and try
-
+        do{
+            try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+            
+            let alert = UIAlertView(title: "SAVED", message: "\(viewItem.model) saved to: \(categorySelected)/\(subCategorySelected)", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        }
+            
+            
+            
             
         catch ItemError.IncorrectSubCategory{
             let alert = UIAlertView(title: "SubCategory Missing", message: "Enter in correct subcateogry", delegate: self, cancelButtonTitle: "OK")
@@ -42,12 +58,12 @@ class CreationViewController: UIViewController{
         }catch{
             assertionFailure("Unknow error type thrown")
         }
-    
-            subCategoryPickerView.reloadAllComponents()
-            subCategoryPickerView.reloadInputViews()
+        
+        subCategoryPickerView.reloadAllComponents()
+        subCategoryPickerView.reloadInputViews()
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
@@ -63,7 +79,7 @@ class CreationViewController: UIViewController{
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-
+        
         defer{
             print("Segue transfer: \(segue.identifier)")
         }
@@ -75,12 +91,14 @@ class CreationViewController: UIViewController{
             
         }
         if segue.identifier == SEGUE_CREATION_TO_MODEL{
-//            var make = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
-//            var model: [Item] = Array(model[path[PATHTYPE_SUBCATEGORY_STRING]])
-//            
-//            let modelController = segue.destinationViewController as! ModelTableViewController
-//            modelController.arrayOfItems = gamesWardrobe.selectedCloset.//[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
-//            
+            //FIXME: -Fix this segue issue
+            
+            //            var make = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
+            //            var model: [Item] = Array(model[path[PATHTYPE_SUBCATEGORY_STRING]])
+            //
+            //            let modelController = segue.destinationViewController as! ModelTableViewController
+            //            modelController.arrayOfItems = gamesWardrobe.selectedCloset.//[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
+            //
         }
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
             
@@ -94,8 +112,6 @@ class CreationViewController: UIViewController{
 extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
-        
-        
     }// Return the number of sections.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0){
@@ -103,7 +119,6 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         }else{//(section == 1)
             return 2
         }
-        
     }// Return the number of rows in the section.
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
@@ -120,9 +135,6 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        defer{
-            self.tableView.reloadData()
-        }
         if (section == 0){
             return "Required"
         }else{
@@ -243,7 +255,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == categoryPickerView{
+        if pickerView == categoryPickerView{ 
             subCategoryInputTextField.inputView = subCategoryPickerView
             subCategoryPickerView.delegate = self
             self.pictureForSelectedItemImage.alpha = 0.5
@@ -264,19 +276,24 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             subCategoryInputTextField.text = String()
             
         }else{
+            defer{
+                self.tableView.dataSource = self
+                self.tableView.delegate = self
+                self.tableView.reloadData()
+                self.tableView.hidden = false
+            }
             if row == (subCategoryPickerOptions.count){
                 subCategoryInputTextField.inputView = nil
                 subCategoryInputTextField.reloadInputViews()
-                subCategoryInputTextField.text = String()
                 subCategoryInputTextField.delegate = self
+                subCategoryInputTextField.text = String()
                 self.pictureForSelectedItemImage.alpha = 1.0
             }else{
                 subCategorySelected = subCategoryPickerOptions[row]
                 subCategoryInputTextField.text = subCategorySelected
-                viewItem.subCategory = subCategorySelected
                 self.pictureForSelectedItemImage.alpha = 1.0
             }
-            self.tableView.hidden = false
+            
         }
     }
 }
@@ -352,14 +369,18 @@ extension CreationViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(textField: UITextField){
         let tag = textField.tag
         
-        if let stringValue = textField.text{
-            self.setValueForTaggedCell(tag: tag, value: stringValue)
+        if textField != categoryInputTextField || textField != subCategoryInputTextField{
+            if let stringValue = textField.text{
+                self.setValueForTaggedCell(tag: tag, value: stringValue)
+            }
         }
         
         if textField == subCategoryInputTextField{
-            viewItem.subCategory = subCategoryInputTextField.text
+            subCategorySelected = subCategoryInputTextField.text
+//            viewItem.subCategory = subCategorySelected
         }
         
+        textField.resignFirstResponder()
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(textField: UITextField) -> Bool{
@@ -381,8 +402,15 @@ extension CreationViewController: UITextFieldDelegate{
         }else if textField == subCategoryInputTextField{
             subCategorySelected = subCategoryInputTextField.text
             subCategoryPickerOptions.append(subCategorySelected)
+            subCategoryPickerView.removeFromSuperview()
+            
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.reloadData()
+            self.tableView.hidden = false
+            
             if let nextResponder: UIResponder = self.tableView.viewWithTag(0){
-            nextResponder.becomeFirstResponder()
+                nextResponder.becomeFirstResponder()
             }
         }
         return true
