@@ -23,6 +23,7 @@ class CreationViewController: UIViewController{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
+    var datePickerHidden: Bool = false
     var categoryPickerView = UIPickerView()
     var subCategoryPickerView = UIPickerView()
     var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
@@ -63,10 +64,13 @@ class CreationViewController: UIViewController{
         subCategoryPickerView.reloadInputViews()
     }
     
-    
+    func datePickerChanged(){
+//        dateDetail.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        datePickerChanged()
         
         // Do any additional setup after loading the view.
     }
@@ -121,12 +125,21 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }// Return the number of rows in the section.
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
+
+//        if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
+//            return 0
+//        }else{
+//            return 200
+//        }
+        return 150
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //self.tableView.reloadData()
         if indexPath.section == 0{
             return  self.createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
+//        }else if indexPath.section == 1 && indexPath.row == 0{
+//            //FIXME: - This date picker needs to return the correct cell
+//            let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "datePicker")
         }else if indexPath.section == 1{
             return self.createCellFromOptionalDictionary(row: indexPath.row) as CreationUITableViewCell
         }else{
@@ -141,6 +154,24 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
             return "Optional"
         }
     }//Puts a text label in the header of the specified section
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+//        if indexPath.section == 1 && indexPath.row == 0{
+//            toggleDatepicker()
+//        }
+//    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
+//        return 0
+//        }else{
+//            return (tableView.cellForRowAtIndexPath(indexPath)?.frame.height)!
+//        }
+//    }
+    
+    func toggleDatepicker(){
+        datePickerHidden = !datePickerHidden
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
     ///Returns cell of required dictionary
     func createCellFromRequiredDictionary(row row: Int) -> CreationUITableViewCell{
         let cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
@@ -176,7 +207,7 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.textInputCellTextField.delegate = self
         return cell as CreationUITableViewCell
-    }
+     }
     //Returns cell of Optional dictionary
     func createCellFromOptionalDictionary(row row: Int) -> CreationUITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
