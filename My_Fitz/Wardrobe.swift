@@ -13,6 +13,7 @@ class Wardrobe:NSObject, NSCoding{
     ///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
     var myCloset: CLOSET_TYPE = CLOSET_TYPE()
     var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
+    var brandCollection: [String] = [String]()
     //var progress: NSProgress
     
     var closetSelectionString: String! = MY_CLOSET
@@ -61,7 +62,7 @@ class Wardrobe:NSObject, NSCoding{
         self.myWantsCloset = decoder.decodeObjectForKey("2") as! CLOSET_TYPE!
         self.closetSelectionString = decoder.decodeObjectForKey("3") as! String!
         self.path = decoder.decodeObjectForKey("4") as! [String: String]!
-        //  self.selectedCloset = CLOSET_TYPE()
+        self.brandCollection = decoder.decodeObjectForKey("5") as! [String]
         
     }//Decode data in class
     func encodeWithCoder(coder: NSCoder){
@@ -69,6 +70,7 @@ class Wardrobe:NSObject, NSCoding{
         coder.encodeObject(self.myWantsCloset, forKey: "2")
         coder.encodeObject(self.closetSelectionString, forKey: "3")
         coder.encodeObject(self.path, forKey: "4")
+        coder.encodeObject(self.brandCollection)
     }//Encodes data in class
     
     override init(){
@@ -142,6 +144,10 @@ extension Wardrobe{
         
         if item.model != ""{//Appends item to subCategory else throws
             self.selectedCloset[funcCategory]![funcSubCategory]!.append(item)
+            
+            
+            updateBrandCollectiion(item)
+            
             print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
         }else{throw ItemError.missingModelString}
         
@@ -267,5 +273,11 @@ extension Wardrobe{
     }
     func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
         return selectedCloset[funcCategory]![funcSubCategory]!.count
+    }
+    func updateBrandCollectiion(item: Item){
+        let brand = item.brand
+        if !brandCollection.contains(brand){
+            brandCollection.append(brand)
+        }
     }
 }
