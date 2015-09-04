@@ -180,27 +180,33 @@ extension Wardrobe{
     
     //Return functions
     func returnDictionaryOfCategory(funcCategory: String)-> [String: [Item]]{
-        return [String: [Item]]()
+        return selectedCloset[funcCategory]! //?? [String: [Item]]()
     }
     func returnArrayOfKeysOfCategory(funcCategory: String)->[String]{
-        return [String]()
+        let keys = Array(selectedCloset[funcCategory]!.keys)
+        return keys //?? [String]()
     }
-    func returnArrayOfValuesOfCategory(funcCategory: String)->[Item]{
-        return [Item]()
+    func returnArrayOfValuesOfCategory(funcCategory: String)->[String: [Item]]{
+        let values = selectedCloset[funcCategory]!
+        return values //?? [String]()
     }
     func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
-        return [Item]()
+        let array = selectedCloset[funcCategory]![funcSubCategory]!
+        
+        return array
     }
     //Delete Functions
-    func deleteAt(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
+    func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         var num = 0
         for index in array{
-            num++
             if index.isEqual(item){
-                self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num)
+                self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num++)
             }
         }
+        
+        selectedCloset[funcCategory]![funcSubCategory]! = array
+        
         
         self.quickSave()
     }
@@ -216,11 +222,22 @@ extension Wardrobe{
         
         quickSave()
     }
+    //Appending
+    func appendAt(funcCategory: String, funcSubCategory: String, newItem: Item){
+        selectedCloset[funcCategory]![funcSubCategory]!.append(newItem)
+        quickSave()
+    }
+    func appendAt(funcCategory: String, funcSubCategory: String, newArrayForSubCategory: [Item]){
+    
+    }
+    func appendAt(funcCategory: String, row: Int, newSubCategory: [String: [Item]]){
+    
+    }
     
     func moveObject(funcCategory: String, funcSubCategory: String, index: Int,
         prevFuncCategory: String, prevFuncSubCategory: String, prevIndex: Int,
         item: Item){//Deletes object from one place and adds it to another place
-            deleteAt(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
+            deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
             selectedCloset[funcCategory]![funcSubCategory]?.append(item)
             quickSave()
     }

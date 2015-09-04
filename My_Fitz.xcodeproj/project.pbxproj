@@ -13,7 +13,6 @@
 		C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
 		C62601B91B949C7900D1587D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62601B81B949C7900D1587D /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		C63746841B3B24E100278346 /* MyFitzUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63746831B3B24E100278346 /* MyFitzUITest.swift */; };
-		C660E5ED1B95436200C73379 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660E5EC1B95436200C73379 /* DatePickerCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674D12C1B0E818900E0DC6F /* Wardrobe.swift */; };
 		C686E3751B912D19001241D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C686E3741B912D19001241D6 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		C6B2DDC51B17BE7600250403 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A7911AE2ABD200D055D2 /* Constants.swift */; };
@@ -34,6 +33,7 @@
 		C6CCB7AB1A7080D400353C9B /* MakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */; };
 		C6CCB7AD1A70811900353C9B /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */; };
 		C6D9039C1B8A7B6900909C2A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9039B1B8A7B6900909C2A /* SearchViewController.swift */; };
+		C6DD38901B9862F40002C91D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DD388F1B9862F40002C91D /* NotesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C6F1A4D91ACF8D2C00434605 /* CreationUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */; };
 		C6F1A4DB1ACF8F6500434605 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */; };
 		C6FDC1591ACBAAD3003C2895 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FDC1571ACBAAD3003C2895 /* Bolts.framework */; };
@@ -69,10 +69,9 @@
 		C615A78D1AE2A67500D055D2 /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C615A78F1AE2A69100D055D2 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		C615A7911AE2ABD200D055D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C62601B81B949C7900D1587D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C62601B81B949C7900D1587D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		C63746831B3B24E100278346 /* MyFitzUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFitzUITest.swift; sourceTree = "<group>"; };
 		C6526AC41ABD0C1200748141 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
-		C660E5EC1B95436200C73379 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		C674D12C1B0E818900E0DC6F /* Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
 		C686E3741B912D19001241D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6CCB7761A7070D200353C9B /* My_Fitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Fitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +92,7 @@
 		C6CCB7AA1A7080D400353C9B /* MakeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTableViewController.swift; sourceTree = "<group>"; };
 		C6CCB7AC1A70811900353C9B /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
 		C6D9039B1B8A7B6900909C2A /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C6DD388F1B9862F40002C91D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationUITableViewCell.swift; sourceTree = "<group>"; };
 		C6F1A4DA1ACF8F6500434605 /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		C6FDC1571ACBAAD3003C2895 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -156,6 +156,7 @@
 		C671E3D41ADB3A8500A73593 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C62601B81B949C7900D1587D /* Extensions.swift */,
 				C6CCB79E1A7072FF00353C9B /* Item.swift */,
 				C615A7911AE2ABD200D055D2 /* Constants.swift */,
 				C615A78F1AE2A69100D055D2 /* Fit.swift */,
@@ -165,7 +166,7 @@
 				C6CCB7A21A70733100353C9B /* ModelCustomCell.swift */,
 				C6F1A4D81ACF8D2C00434605 /* CreationUITableViewCell.swift */,
 				C60380E11ADDFDCF00FD31EA /* DoubleLabelTableViewCell.swift */,
-				C660E5EC1B95436200C73379 /* DatePickerCell.swift */,
+				C6DD388F1B9862F40002C91D /* NotesViewController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -173,7 +174,6 @@
 		C6CCB76D1A7070D200353C9B = {
 			isa = PBXGroup;
 			children = (
-				C62601B81B949C7900D1587D /* Extensions.swift */,
 				C6CCB7781A7070D200353C9B /* My_Fitz */,
 				C6CCB7791A7070D200353C9B /* Supporting Files */,
 				C6CCB7911A7070D200353C9B /* My_FitzTests */,
@@ -404,10 +404,10 @@
 				C6CCB77C1A7070D200353C9B /* AppDelegate.swift in Sources */,
 				C674D12D1B0E818900E0DC6F /* Wardrobe.swift in Sources */,
 				C6F1A4D91ACF8D2C00434605 /* CreationUITableViewCell.swift in Sources */,
+				C6DD38901B9862F40002C91D /* NotesViewController.swift in Sources */,
 				C615A7901AE2A69100D055D2 /* Fit.swift in Sources */,
 				C6F1A4DB1ACF8F6500434605 /* CreationViewController.swift in Sources */,
 				C615A7921AE2ABD200D055D2 /* Constants.swift in Sources */,
-				C660E5ED1B95436200C73379 /* DatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

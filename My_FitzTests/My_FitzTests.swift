@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 
-@testable import My_Fitz
+//@testable import My_Fitz
 import XCTest
 
 class My_FitzTests: XCTestCase {
@@ -51,6 +51,18 @@ class My_FitzTests: XCTestCase {
       func testSetCell(){
 
       }
+        
+        func testWardrobeTypeAppending(){
+            let testWardrobe:Wardrobe? = Wardrobe()
+            let testItem: Item! = Item()
+            let testCategoryString: String = CATEGORY_PICKER_OPTIONS[0]
+            let testSubCategoryString: String = "Test Sub Category"
+            
+            //Check for nil
+            assert(testWardrobe != nil)
+            
+            
+        }
 
 
     }
