@@ -60,8 +60,6 @@ class My_FitzTests: XCTestCase {
             
             //Check for nil
             assert(testWardrobe != nil)
-            
-            
         }
 
 

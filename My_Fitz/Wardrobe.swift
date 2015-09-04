@@ -184,10 +184,12 @@ extension Wardrobe{
     }
     func returnArrayOfKeysOfCategory(funcCategory: String)->[String]{
         let keys = Array(selectedCloset[funcCategory]!.keys)
+        
         return keys //?? [String]()
     }
     func returnArrayOfValuesOfCategory(funcCategory: String)->[String: [Item]]{
         let values = selectedCloset[funcCategory]!
+        
         return values //?? [String]()
     }
     func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
@@ -237,20 +239,33 @@ extension Wardrobe{
     func moveObject(funcCategory: String, funcSubCategory: String, index: Int,
         prevFuncCategory: String, prevFuncSubCategory: String, prevIndex: Int,
         item: Item){//Deletes object from one place and adds it to another place
-            deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
             selectedCloset[funcCategory]![funcSubCategory]?.append(item)
-            quickSave()
+
+            deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
     }
     
-    
-    func getCount(funcCategory: String)->Int{
+    //Check for availibility
+    func doesItemExistAt(funcCategory: String, funcSubCategory: String, item: Item)-> Bool{//Deletes item
+        let array = self.selectedCloset[funcCategory]![funcSubCategory]!
+
+        for index in array{
+            if index.isEqual(item){
+                return true
+            }
+        }
+        return false
+    }
+    func isSubCatCategoryEmptyAt(funcCategory: String, funcSubCategory: String)-> Bool{//Deletes subCateogry row
+        return (selectedCloset[funcCategory]![funcSubCategory]?.isEmpty)!
+    }
+    func isCategoryEmptyAt(funcCategory: String)-> Bool{//Deletes category row
+        return (selectedCloset[funcCategory]!.isEmpty)
+    }
+
+    func getCountOfCategories(funcCategory: String)->Int{
         return selectedCloset[funcCategory]!.count
     }
-    func getCount(funcCategory: String, funcSubCategory: String)->Int{
+    func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
         return selectedCloset[funcCategory]![funcSubCategory]!.count
     }
-    func getCount(funcCategory: String, funcSubCategory: String, index: Int)->Int{
-        return selectedCloset[funcCategory]![funcSubCategory]![index].index
-    }
-    
 }

@@ -79,8 +79,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "Wardrobe"
-            landmarkType = "3">
+            landmarkName = "init(coder:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -207,7 +207,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
-            landmarkName = "saveObjectToArchived(_:wardrobeToSave:)"
+            landmarkName = "loadArchivedObject(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
-            landmarkName = "documentsDirectory()"
+            landmarkName = "saveObjectToArchived(_:wardrobeToSave:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
