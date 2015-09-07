@@ -30,11 +30,13 @@ class CreationViewController: UIViewController{
     var subCategoryPickerOptions = [String]()
     var categorySelected: String! = String()
     var subCategorySelected: String! = String()
-    var cellPickerView = UIPickerView()
+    var cellBrandPickerView = UIPickerView()
     var cellDatePicker = UIDatePicker()
+    var cellYesNoPicker = UIPickerView()
     @IBOutlet var pictureForSelectedItemImage: UIImageView!
     //CreationViewController Item to be created and modified to be saved
     var viewItem: Item! = Item()
+    var currentIndex = 0
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
     @IBAction func createItem(sender: UIButton) {
@@ -141,7 +143,9 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
             return  self.createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
 //        }else if indexPath.section == 1 && indexPath.row == 0{
 //            //FIXME: - This date picker needs to return the correct cell
+//            let cell = createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
 //            let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "datePicker")
+//            cell.textInputMode = cellDatePicker
         }else if indexPath.section == 1{
             return self.createCellFromOptionalDictionary(row: indexPath.row) as CreationUITableViewCell
         }else{
@@ -156,18 +160,20 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
             return "Optional"
         }
     }//Puts a text label in the header of the specified section
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-//        if indexPath.section == 1 && indexPath.row == 0{
-//            toggleDatepicker()
-//        }
-//    }
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
-//        return 0
-//        }else{
-//            return (tableView.cellForRowAtIndexPath(indexPath)?.frame.height)!
-//        }
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        currentIndex = indexPath.row
+        if indexPath.section == 1 && indexPath.row == 0{//Date picker
+            toggleDatepicker()
+        }
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
+        return 0
+        }else{
+            //FIXME: - This is controlling the cell size find way to get automated
+            return 25// (tableView.cellForRowAtIndexPath(indexPath)?.frame.height)!
+        }
+    }
     
     func toggleDatepicker(){
         datePickerHidden = !datePickerHidden
@@ -184,27 +190,39 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         case 0 :
             keyAndValue = ITEM_BRAND_STRING
             cell.configure(text: viewItem.brand, labelString: keyAndValue, tag: row)
+            cell.textInputCellTextField.inputView = cellBrandPickerView
         case 1 :
             keyAndValue = ITEM_MODEL_STRING
             cell.configure(text: viewItem.model, labelString: keyAndValue, tag: row)
+            cell.textInputCellTextField.keyboardType = UIKeyboardType.NamePhonePad
         case 2 :
             keyAndValue = ITEM_FAVORITED_STRING
             cell.configure(text: viewItem.favorited?.description, labelString: keyAndValue, tag: row)
+            cell.textInputCellTextField.inputView = cellYesNoPicker
         case 3 :
             keyAndValue = ITEM_PRICE_STRING
             cell.configure(text: viewItem.price?.description, labelString: keyAndValue, tag: row)
+            cell.textInputCellTextField.keyboardType = UIKeyboardType.NumberPad
         case 4 :
             keyAndValue = ITEM_ISTHISNEW_STRING
             cell.configure(text: viewItem.isThisNew?.description, labelString: keyAndValue, tag: row)
+            cell.textInputCellTextField.inputView = cellYesNoPicker
         case 5 :
             keyAndValue = ITEM_TIMESWORN_STRING
             cell.configure(text: viewItem.timesWorn?.description, labelString: keyAndValue, tag: row)
+            cell.textInputCellTextField.keyboardType = UIKeyboardType.NumberPad
         case 6 :
             keyAndValue = ITEM_LASTTIMEWORN_STRING
             cell.configure(text: viewItem.favorited!.description, labelString: keyAndValue, tag: row)
             
         default:
             assertionFailure("Out of scope on the switch statement. row = \(row)")
+        }
+        
+        if row < 6{
+            cell.textInputCellTextField.returnKeyType = UIReturnKeyType.Next
+        }else{
+            cell.textInputCellTextField.returnKeyType = UIReturnKeyType.Done
         }
         
         cell.textInputCellTextField.delegate = self
@@ -228,6 +246,12 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
             assertionFailure("Out of scope on the switch statement. row = \(row)")
         }
         
+        if row < 1{
+            cell.textInputCellTextField.returnKeyType = UIReturnKeyType.Next
+        }else{
+            cell.textInputCellTextField.returnKeyType = UIReturnKeyType.Done
+        }
+        
         cell.textInputCellTextField.delegate = self
         return cell as CreationUITableViewCell
     }
@@ -246,7 +270,9 @@ extension CreationViewController{
         subCategoryInputTextField.inputView = subCategoryPickerView
         subCategoryInputTextField.enabled = false
         
-        cellPickerView.delegate = self
+//        cellDatePicker.
+        cellBrandPickerView.delegate = self
+        cellYesNoPicker.delegate = self
         
         //Image
         self.pictureForSelectedItemImage.alpha = 0.5
@@ -256,7 +282,9 @@ extension CreationViewController{
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.reloadData()
-        self.tableView.hidden = true
+        self.tableView.hidden = true 
+        
+        viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
     }//Sets up data
 }
 
@@ -275,8 +303,19 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             
             
             return pickerRowsPlusAddFieldOption
-        }else {//if pickerView == cellPickerView{
-            return gamesWardrobe.brandCollection.count
+        }else if pickerView == cellBrandPickerView{
+            let brandArrayPlus1 = gamesWardrobe.brandCollection.count + 1
+            
+            
+            return brandArrayPlus1
+        }else if pickerView == cellYesNoPicker{
+            return YES_NO.count
+        }else if pickerView == cellDatePicker{
+            print("Date picker selected and not implemented")
+            return 1
+        }else{
+            assertionFailure()
+            return 0
         }
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -289,16 +328,17 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             }else{
                 return subCategoryPickerOptions[row]
             }
-        }else {//if pickerView == cellPickerView{
-            let index = tableView.indexPathForSelectedRow!
-            
-            switch index{
-            case 0:
+        }else if pickerView == cellBrandPickerView{//if pickerView == cellPickerView{
+            if row == (gamesWardrobe.brandCollection.count){
+                return "Add New Sub-Category"
+            }else{
                 return gamesWardrobe.brandCollection[row]
-            default:
-                assertionFailure()
-                return String()
             }
+        }else if pickerView == cellYesNoPicker{
+            return YES_NO[row]
+        }else{
+            assertionFailure()
+            return String()
         }
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -340,17 +380,21 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 subCategoryInputTextField.text = subCategorySelected
                 self.pictureForSelectedItemImage.alpha = 1.0
             }
-        }else if pickerView == cellPickerView{
-            let index = tableView.indexPathForSelectedRow!
-            
-            switch index{
-            case 0:
-                let cell = self.tableView.cellForRowAtIndexPath(index) as! CreationUITableViewCell
-                cell.textInputCellTextField.inputView = cellPickerView
-                cell.textInputCellTextField.text = gamesWardrobe.brandCollection[row]
-            default:
-                assertionFailure()
-            }
+        }else if pickerView == cellBrandPickerView{
+//            let myIndex = tableView.indexPathForSelectedRow?.row
+//            let cell = self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
+            if row == gamesWardrobe.brandCollection.count{
+//                cell.textInputCellTextField.inputView = nil
+//                cell.textInputCellTextField.reloadInputViews()
+//                cell.textInputCellTextField.delegate = self
+//                cell.textInputCellTextField.text = String()
+            }else if pickerView == cellYesNoPicker{
+//                cell.textInputCellTextField.text = YES_NO[row]!
+            }else if pickerView == cellDatePicker{
+                
+            }else{
+                
+            } 
         }
     }
 }
