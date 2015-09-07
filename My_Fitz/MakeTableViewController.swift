@@ -48,9 +48,9 @@ class MakeTableViewController: UITableViewController{
             modelController.arrayOfItems = tempItemArray as [Item]!
             modelController.path = self.path
             
+        }
     }
-}
-
+    
 }
 
 //MARK: - Developer Created Methods
@@ -126,6 +126,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
     }//Category name is shown in the title header
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        path[PATHTYPE_INDEX_STRING] = String(indexPath.row)
     }//Shows when a cell at row was selected
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200

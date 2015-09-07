@@ -291,6 +291,7 @@ extension Wardrobe{
         let brand = item.brand
         if !brandCollection.contains(brand)  && brand != ""{
             brandCollection.append(brand)
+            brandCollection = brandCollection.sort()
         }
     }
 }

@@ -69,7 +69,7 @@ class CreationViewController: UIViewController{
     }
     
     func datePickerChanged(){
-//        dateDetail.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+        //        dateDetail.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,14 +99,14 @@ class CreationViewController: UIViewController{
             
         }
         if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            //FIXME: -Fix this segue issue
+            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
             
-            //            var make = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
-            //            var model: [Item] = Array(model[path[PATHTYPE_SUBCATEGORY_STRING]])
-            //
-            //            let modelController = segue.destinationViewController as! ModelTableViewController
-            //            modelController.arrayOfItems = gamesWardrobe.selectedCloset.//[path[PATHTYPE_CATEGORY_STRING]!][path[PATHTYPE_SUBCATEGORY_STRING]!]
-            //
+            let modelController = segue.destinationViewController as! ModelTableViewController
+            modelController.arrayOfItems = array
+            modelController.path = self.path
+            
+            
+            
         }
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
             
@@ -129,23 +129,23 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }// Return the number of rows in the section.
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-
-//        if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
-//            return 0
-//        }else{
-//            return 200
-//        }
+        
+        //        if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
+        //            return 0
+        //        }else{
+        //            return 200
+        //        }
         return 150
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //self.tableView.reloadData()
         if indexPath.section == 0{
             return  self.createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
-//        }else if indexPath.section == 1 && indexPath.row == 0{
-//            //FIXME: - This date picker needs to return the correct cell
-//            let cell = createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
-//            let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "datePicker")
-//            cell.textInputMode = cellDatePicker
+            //        }else if indexPath.section == 1 && indexPath.row == 0{
+            //            //FIXME: - This date picker needs to return the correct cell
+            //            let cell = createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
+            //            let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "datePicker")
+            //            cell.textInputMode = cellDatePicker
         }else if indexPath.section == 1{
             return self.createCellFromOptionalDictionary(row: indexPath.row) as CreationUITableViewCell
         }else{
@@ -168,7 +168,7 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if datePickerHidden && indexPath.section == 1 && indexPath.row == 0{
-        return 0
+            return 0
         }else{
             //FIXME: - This is controlling the cell size find way to get automated
             return 25// (tableView.cellForRowAtIndexPath(indexPath)?.frame.height)!
@@ -227,7 +227,7 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.textInputCellTextField.delegate = self
         return cell as CreationUITableViewCell
-     }
+    }
     //Returns cell of Optional dictionary
     func createCellFromOptionalDictionary(row row: Int) -> CreationUITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
@@ -270,7 +270,7 @@ extension CreationViewController{
         subCategoryInputTextField.inputView = subCategoryPickerView
         subCategoryInputTextField.enabled = false
         
-//        cellDatePicker.
+        //        cellDatePicker.
         cellBrandPickerView.delegate = self
         cellYesNoPicker.delegate = self
         
@@ -282,7 +282,7 @@ extension CreationViewController{
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.reloadData()
-        self.tableView.hidden = true 
+        self.tableView.hidden = true
         
         viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
     }//Sets up data
@@ -342,7 +342,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == categoryPickerView{ 
+        if pickerView == categoryPickerView{
             subCategoryInputTextField.inputView = subCategoryPickerView
             subCategoryPickerView.delegate = self
             self.pictureForSelectedItemImage.alpha = 0.5
@@ -381,20 +381,20 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 self.pictureForSelectedItemImage.alpha = 1.0
             }
         }else if pickerView == cellBrandPickerView{
-//            let myIndex = tableView.indexPathForSelectedRow?.row
-//            let cell = self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
+            //            let myIndex = tableView.indexPathForSelectedRow?.row
+            //            let cell = self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
             if row == gamesWardrobe.brandCollection.count{
-//                cell.textInputCellTextField.inputView = nil
-//                cell.textInputCellTextField.reloadInputViews()
-//                cell.textInputCellTextField.delegate = self
-//                cell.textInputCellTextField.text = String()
+                //                cell.textInputCellTextField.inputView = nil
+                //                cell.textInputCellTextField.reloadInputViews()
+                //                cell.textInputCellTextField.delegate = self
+                //                cell.textInputCellTextField.text = String()
             }else if pickerView == cellYesNoPicker{
-//                cell.textInputCellTextField.text = YES_NO[row]!
+                //                cell.textInputCellTextField.text = YES_NO[row]!
             }else if pickerView == cellDatePicker{
                 
             }else{
                 
-            } 
+            }
         }
     }
 }
@@ -476,7 +476,7 @@ extension CreationViewController: UITextFieldDelegate{
         
         if textField == subCategoryInputTextField{
             subCategorySelected = subCategoryInputTextField.text
-//            viewItem.subCategory = subCategorySelected
+            //            viewItem.subCategory = subCategorySelected
         }
         
         textField.resignFirstResponder()
