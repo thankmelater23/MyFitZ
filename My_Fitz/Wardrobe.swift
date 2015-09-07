@@ -11,7 +11,8 @@ import UIKit
 
 class Wardrobe:NSObject, NSCoding{
     ///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
-    var myCloset: CLOSET_TYPE = CLOSET_TYPE()
+//    var myCloset: CLOSET_TYPE = CLOSET_TYPE()
+    var myCloset = CLOSET_TYPE()
     var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
     var brandCollection: [String] = [String]()
     //var progress: NSProgress
@@ -25,9 +26,10 @@ class Wardrobe:NSObject, NSCoding{
                 return myWantsCloset
             }else{
                 assertionFailure("Incorect closet selection string: \(closetSelectionString)")
-                return myWantsCloset
+                return myCloset
             }
         }
+        
         set{
             if closetSelectionString == MY_CLOSET{
                 myCloset = newValue
@@ -62,7 +64,10 @@ class Wardrobe:NSObject, NSCoding{
         self.myWantsCloset = decoder.decodeObjectForKey("2") as! CLOSET_TYPE!
         self.closetSelectionString = decoder.decodeObjectForKey("3") as! String!
         self.path = decoder.decodeObjectForKey("4") as! [String: String]!
-        self.brandCollection = decoder.decodeObjectForKey("5") as! [String]
+        self.brandCollection = decoder.decodeObjectForKey("5") as! [String]!
+        //self.selectedCloset = CLOSET_TYPE()
+        
+        print(myCloset, myWantsCloset, closetSelectionString, path, brandCollection)
         
     }//Decode data in class
     func encodeWithCoder(coder: NSCoder){
@@ -70,7 +75,7 @@ class Wardrobe:NSObject, NSCoding{
         coder.encodeObject(self.myWantsCloset, forKey: "2")
         coder.encodeObject(self.closetSelectionString, forKey: "3")
         coder.encodeObject(self.path, forKey: "4")
-        coder.encodeObject(self.brandCollection)
+        coder.encodeObject(self.brandCollection, forKey: "5")
     }//Encodes data in class
     
     override init(){
@@ -82,6 +87,7 @@ class Wardrobe:NSObject, NSCoding{
             myWantsCloset.updateValue([categoryString: [Item]()], forKey: key)
         }
         closetSelectionString = MY_CLOSET
+        
     }
 }
 
@@ -113,6 +119,7 @@ extension Wardrobe{
     func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
         
         if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
+            
             return wardrobe
         }else{
             let newWardrobe = Wardrobe()
@@ -154,7 +161,6 @@ extension Wardrobe{
         //Saves Wardrobe
         self.quickSave()
     }
-    
     func quickSave(){
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
@@ -186,7 +192,9 @@ extension Wardrobe{
     
     //Return functions
     func returnDictionaryOfCategory(funcCategory: String)-> [String: [Item]]{
-        return selectedCloset[funcCategory]! //?? [String: [Item]]()
+        let dictionaryOfArray = selectedCloset[funcCategory]!
+        
+        return dictionaryOfArray
     }
     func returnArrayOfKeysOfCategory(funcCategory: String)->[String]{
         let keys = Array(selectedCloset[funcCategory]!.keys)
@@ -203,6 +211,7 @@ extension Wardrobe{
         
         return array
     }
+    
     //Delete Functions
     func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
@@ -230,30 +239,33 @@ extension Wardrobe{
         
         quickSave()
     }
+    
     //Appending
-    func appendAt(funcCategory: String, funcSubCategory: String, newItem: Item){
+    func appendItemAt(funcCategory: String, funcSubCategory: String, newItem: Item){
         selectedCloset[funcCategory]![funcSubCategory]!.append(newItem)
         quickSave()
     }
     func appendAt(funcCategory: String, funcSubCategory: String, newArrayForSubCategory: [Item]){
-    
+        
+        
     }
     func appendAt(funcCategory: String, row: Int, newSubCategory: [String: [Item]]){
-    
+        
     }
     
-    func moveObject(funcCategory: String, funcSubCategory: String, index: Int,
-        prevFuncCategory: String, prevFuncSubCategory: String, prevIndex: Int,
+    //Swaps Item from one place to another
+    func swapItem(funcCategory:     String, funcSubCategory:     String,
+        prevFuncCategory: String, prevFuncSubCategory: String,
         item: Item){//Deletes object from one place and adds it to another place
             selectedCloset[funcCategory]![funcSubCategory]?.append(item)
-
+            
             deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
     }
     
     //Check for availibility
     func doesItemExistAt(funcCategory: String, funcSubCategory: String, item: Item)-> Bool{//Deletes item
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
-
+        
         for index in array{
             if index.isEqual(item){
                 return true
@@ -267,7 +279,8 @@ extension Wardrobe{
     func isCategoryEmptyAt(funcCategory: String)-> Bool{//Deletes category row
         return (selectedCloset[funcCategory]!.isEmpty)
     }
-
+    
+    //Gets count
     func getCountOfCategories(funcCategory: String)->Int{
         return selectedCloset[funcCategory]!.count
     }
@@ -276,7 +289,7 @@ extension Wardrobe{
     }
     func updateBrandCollectiion(item: Item){
         let brand = item.brand
-        if !brandCollection.contains(brand){
+        if !brandCollection.contains(brand)  && brand != ""{
             brandCollection.append(brand)
         }
     }

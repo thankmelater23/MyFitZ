@@ -89,6 +89,7 @@ class Item: NSObject, NSCoding{
 
   ///Creates blank Item
   override init(){
+    super.init()
     //TODO: - Set all initilizars to just initialized no values store
 
     self.brand         = String()
@@ -118,14 +119,13 @@ class Item: NSObject, NSCoding{
     self.color        = String()
 
     self.path = [String: String]()
-    
-    super.init()
   }
   ///Creates custom item
   init(make: String?, model: String?, category: String?, subCategory: String?, price: Double?,
     Image: UIImage?, favorited: Bool, isThisNew: Bool?, timesWorn: Int?, lastTImeWorn: String?,
     index: Int?, datePurchased: String?, color: String?){
 
+        super.init()
       self.brand        = make
       self.model        = model
       self.category     = category
@@ -142,7 +142,7 @@ class Item: NSObject, NSCoding{
       self.datePurchased = datePurchased
       self.color         = color
         
-        super.init()
+        
   }
 }
 

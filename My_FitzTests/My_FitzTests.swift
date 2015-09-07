@@ -47,22 +47,23 @@ class My_FitzTests: XCTestCase {
         self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
-
-      func testSetCell(){
-
-      }
-        
-        func testWardrobeTypeAppending(){
-            let testWardrobe:Wardrobe? = Wardrobe()
-            let testItem: Item! = Item()
-            let testCategoryString: String = CATEGORY_PICKER_OPTIONS[0]
-            let testSubCategoryString: String = "Test Sub Category"
-            
-            //Check for nil
-            assert(testWardrobe != nil)
-        }
-
-
     }
 
+//      func testSetCell(){
+//
+//      }
+    
+//        func testWardrobeTypeAppending(){
+//            let testWardrobe:Wardrobe? = Wardrobe()
+//            let testItem: Item! = Item()
+//            let testCategoryString: String = CATEGORY_PICKER_OPTIONS[0]
+//            let testSubCategoryString: String = "Test Sub Category"
+//            
+//            //Check for nil
+//            assert(testWardrobe != nil)
+//            
+//            testWardrobe?.appendItemAt(testCategoryString, funcSubCategory: testSubCategoryString, newItem: testItem)
+//            
+//            assert((testWardrobe?.doesItemExistAt(testCategoryString, funcSubCategory: testSubCategoryString, item: testItem))!)
+//    }
 }

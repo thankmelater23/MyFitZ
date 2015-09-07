@@ -25,8 +25,7 @@ enum ItemError:ErrorType{
 
 //Picker options
 let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
-let YES_NO = ["Yes", "No"]
-var SAVED_BRANDS:[String] = [String]()
+let YES_NO = ["Yes", "No"] 
 
 let PATHTYPE_CATEGORY_STRING    = "category"
 let PATHTYPE_SUBCATEGORY_STRING = "subCategory"

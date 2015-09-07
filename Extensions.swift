@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-extension UIImage{
-    
-    enum AssetIdentifier: String{
-        case Player, Boss
-    }
-    convenience init!(assetIdentifier: AssetIdentifier){
-        self.init(named: assetIdentifier.rawValue)
-    }
-}
-
-let playerAss = UIImage(assetIdentifier: .Player)
+//extension UIImage{
+//    
+//    enum AssetIdentifier: String{
+//        case Player, Boss
+//    }
+//    convenience init!(assetIdentifier: AssetIdentifier){
+//        self.init(named: assetIdentifier.rawValue)
+//    }
+//}
+//
+//let playerAss = UIImage(assetIdentifier: .Player)

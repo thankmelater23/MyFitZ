@@ -18,7 +18,7 @@ class DetailedViewController: UIViewController{
         let act = UIAlertAction(title: "cancel", style: .Default){_ in}
         let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
             
-            gamesWardrobe.deleteAt(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
+            gamesWardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
             
             self.tableView.reloadData()
         }

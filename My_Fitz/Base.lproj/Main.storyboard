@@ -93,21 +93,6 @@
                                     <segue destination="bSz-CY-cts" kind="push" identifier="mainToSelection" id="2XV-p6-P2f"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5i-s6-7fD">
-                                <rect key="frame" x="20" y="20" width="65" height="68"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="TZG-dH-8jo"/>
-                                    <constraint firstAttribute="height" constant="68" id="gkB-hF-FHr"/>
-                                </constraints>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7BP-il-blL" kind="show" identifier="selectionToSearch" id="XTX-6Q-pz0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-gx-wFs">
                                 <rect key="frame" x="546" y="24" width="22" height="22"/>
                                 <animations/>
@@ -127,7 +112,6 @@
                             <constraint firstItem="NMU-gx-wFs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="J1M-9G-pMZ"/>
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="width" secondItem="SZY-Mh-avb" secondAttribute="width" id="K8d-Hk-m6F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NMU-gx-wFs" secondAttribute="trailing" constant="12" id="Yai-do-hth"/>
-                            <constraint firstItem="l5i-s6-7fD" firstAttribute="top" secondItem="SZY-Mh-avb" secondAttribute="top" id="bni-If-uiR"/>
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="top" secondItem="SZY-Mh-avb" secondAttribute="bottom" constant="2" id="ejZ-8Z-Yfu"/>
                             <constraint firstItem="2No-5D-ZdP" firstAttribute="top" secondItem="NpU-xK-0NJ" secondAttribute="bottom" constant="1" id="kPr-vK-tCq"/>
                             <constraint firstItem="SZY-Mh-avb" firstAttribute="trailing" secondItem="NpU-xK-0NJ" secondAttribute="trailing" id="mSQ-qZ-W6P"/>
@@ -135,7 +119,6 @@
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="width" secondItem="2No-5D-ZdP" secondAttribute="width" id="rHn-35-fTc"/>
                             <constraint firstItem="2No-5D-ZdP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="smb-j8-Woz"/>
                             <constraint firstItem="2No-5D-ZdP" firstAttribute="leading" secondItem="NpU-xK-0NJ" secondAttribute="leading" id="syB-7o-w4y"/>
-                            <constraint firstItem="l5i-s6-7fD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ytA-Mq-oyn"/>
                             <constraint firstItem="NpU-xK-0NJ" firstAttribute="height" secondItem="2No-5D-ZdP" secondAttribute="height" id="z1T-ty-UrZ"/>
                         </constraints>
                     </view>
@@ -348,6 +331,21 @@
                                 <connections>
                                     <action selector="categoryIsButtonName:" destination="bSz-CY-cts" eventType="touchUpInside" id="cBo-ho-ZvL"/>
                                     <segue destination="s0P-1K-Y6L" kind="show" identifier="selectionToMake" id="b4C-pw-4fc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5i-s6-7fD">
+                                <rect key="frame" x="268" y="254" width="65" height="68"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="TZG-dH-8jo"/>
+                                    <constraint firstAttribute="height" constant="68" id="gkB-hF-FHr"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7BP-il-blL" kind="show" identifier="selectionToSearch" id="XTX-6Q-pz0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1268,7 +1266,7 @@
                                             <constraint firstAttribute="width" constant="46" id="w3x-yW-z9t"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7c-NB-1iN">

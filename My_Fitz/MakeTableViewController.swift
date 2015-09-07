@@ -23,6 +23,7 @@ class MakeTableViewController: UITableViewController{
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         
         self.setUpTypes()
     }

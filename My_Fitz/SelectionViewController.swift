@@ -9,7 +9,7 @@ import UIKit
 
 //MARK: - SelectionViewController
 class SelectionViewController: UIViewController{ 
-  var selectedUser: Int!
+  var selectedUser: Int! = 0//Check on what this is
   ///Dictionary path to item
   var path: [String: String]! = [String: String]()
 

@@ -30,6 +30,8 @@ class CreationViewController: UIViewController{
     var subCategoryPickerOptions = [String]()
     var categorySelected: String! = String()
     var subCategorySelected: String! = String()
+    var cellPickerView = UIPickerView()
+    var cellDatePicker = UIDatePicker()
     @IBOutlet var pictureForSelectedItemImage: UIImageView!
     //CreationViewController Item to be created and modified to be saved
     var viewItem: Item! = Item()
@@ -244,6 +246,8 @@ extension CreationViewController{
         subCategoryInputTextField.inputView = subCategoryPickerView
         subCategoryInputTextField.enabled = false
         
+        cellPickerView.delegate = self
+        
         //Image
         self.pictureForSelectedItemImage.alpha = 0.5
         
@@ -266,22 +270,34 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == categoryPickerView{
             return categoryPickerOptions.count
-        }else{
+        }else if pickerView == subCategoryPickerView{
             let pickerRowsPlusAddFieldOption = subCategoryPickerOptions.count + 1
             
             
             return pickerRowsPlusAddFieldOption
+        }else {//if pickerView == cellPickerView{
+            return gamesWardrobe.brandCollection.count
         }
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == categoryPickerView{
             return categoryPickerOptions[row]
-        }else{
+        }else if pickerView == subCategoryPickerView{
             if row == (subCategoryPickerOptions.count){
                 
                 return "Add New Sub-Category"
             }else{
                 return subCategoryPickerOptions[row]
+            }
+        }else {//if pickerView == cellPickerView{
+            let index = tableView.indexPathForSelectedRow!
+            
+            switch index{
+            case 0:
+                return gamesWardrobe.brandCollection[row]
+            default:
+                assertionFailure()
+                return String()
             }
         }
     }
@@ -306,7 +322,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             
             subCategoryInputTextField.text = String()
             
-        }else{
+        }else if pickerView == subCategoryPickerView{
             defer{
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
@@ -324,12 +340,20 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 subCategoryInputTextField.text = subCategorySelected
                 self.pictureForSelectedItemImage.alpha = 1.0
             }
+        }else if pickerView == cellPickerView{
+            let index = tableView.indexPathForSelectedRow!
             
+            switch index{
+            case 0:
+                let cell = self.tableView.cellForRowAtIndexPath(index) as! CreationUITableViewCell
+                cell.textInputCellTextField.inputView = cellPickerView
+                cell.textInputCellTextField.text = gamesWardrobe.brandCollection[row]
+            default:
+                assertionFailure()
+            }
         }
     }
 }
-
-
 //MARK: - ImagePickerView Methods
 extension CreationViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func setImagePicker(){
