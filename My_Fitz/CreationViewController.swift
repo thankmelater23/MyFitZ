@@ -31,8 +31,10 @@ class CreationViewController: UIViewController{
     var categorySelected: String! = String()
     var subCategorySelected: String! = String()
     var cellBrandPickerView = UIPickerView()
+    var brandSelected = String()
     var cellDatePicker = UIDatePicker()
     var cellYesNoPicker = UIPickerView()
+    var tutorialImage = UIImage()
     @IBOutlet var pictureForSelectedItemImage: UIImageView!
     //CreationViewController Item to be created and modified to be saved
     var viewItem: Item! = Item()
@@ -189,7 +191,9 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         switch row {
         case 0 :
             keyAndValue = ITEM_BRAND_STRING
-            cell.configure(text: viewItem.brand, labelString: keyAndValue, tag: row)
+            
+            
+            cell.configure(text: brandSelected, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.inputView = cellBrandPickerView
         case 1 :
             keyAndValue = ITEM_MODEL_STRING
@@ -381,20 +385,24 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 self.pictureForSelectedItemImage.alpha = 1.0
             }
         }else if pickerView == cellBrandPickerView{
-            //            let myIndex = tableView.indexPathForSelectedRow?.row
-            //            let cell = self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
+            
+//                        let myIndex = tableView.indexPathForSelectedRow?.row
+//                        let cell = tableView(self.tableView, cellForRowAtIndexPath: myIndex)
+            //self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
             if row == gamesWardrobe.brandCollection.count{
-                //                cell.textInputCellTextField.inputView = nil
-                //                cell.textInputCellTextField.reloadInputViews()
-                //                cell.textInputCellTextField.delegate = self
-                //                cell.textInputCellTextField.text = String()
-            }else if pickerView == cellYesNoPicker{
-                //                cell.textInputCellTextField.text = YES_NO[row]!
-            }else if pickerView == cellDatePicker{
-                
+//                                cell.textInputCellTextField.inputView = nil
+//                                cell.textInputCellTextField.reloadInputViews()
+//                                cell.textInputCellTextField.delegate = self
+//                                cell.textInputCellTextField.text = String()
             }else{
-                
+                brandSelected = gamesWardrobe.brandCollection[row]
             }
+        }else if pickerView == cellYesNoPicker{
+            //                cell.textInputCellTextField.text = YES_NO[row]!
+        }else if pickerView == cellDatePicker{
+            
+        }else{
+            
         }
     }
 }
@@ -454,8 +462,17 @@ extension CreationViewController: UITextFieldDelegate{
         }
     }
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
-        textField.isFirstResponder()
-        return true
+//        let pointInTable:CGPoint = textField.superview!.convertPoint(textField.frame.origin, toView: tableView)
+//        var contentOffset:CGPoint = tableView.contentOffset
+//        contentOffset.y  = pointInTable.y
+//        if let accessoryView = textField.inputAccessoryView {
+//            contentOffset.y -= accessoryView.frame.size.height
+//        }
+//        tableView.contentOffset = contentOffset
+//        return true
+//        
+                textField.isFirstResponder()
+                return true
         
     }// return NO to disallow editing.
     func textFieldDidBeginEditing(textField: UITextField){
@@ -469,6 +486,10 @@ extension CreationViewController: UITextFieldDelegate{
         let tag = textField.tag
         
         if textField != categoryInputTextField || textField != subCategoryInputTextField{
+            if tag == 0{
+                textField.text = brandSelected
+            }
+            
             if let stringValue = textField.text{
                 self.setValueForTaggedCell(tag: tag, value: stringValue)
             }
