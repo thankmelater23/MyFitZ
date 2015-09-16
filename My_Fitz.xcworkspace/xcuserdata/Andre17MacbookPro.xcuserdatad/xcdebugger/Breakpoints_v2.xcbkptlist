@@ -109,8 +109,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
             endingLineNumber = "147"
-            landmarkName = "init(make:model:category:subCategory:price:Image:favorited:isThisNew:timesWorn:lastTImeWorn:index:datePurchased:color:)"
-            landmarkType = "5">
+            landmarkName = "Item"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -353,8 +353,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "Wardrobe"
-            landmarkType = "3">
+            landmarkName = "init(coder:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -417,7 +417,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "encodeWithCoder(_:)"
+            landmarkName = "init(coder:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -433,8 +433,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "init(coder:)"
-            landmarkType = "5">
+            landmarkName = "Wardrobe"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -504,7 +504,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My_Fitz/Wardrobe.swift"
@@ -691,38 +691,6 @@
             endingLineNumber = "173"
             landmarkName = "createCellFromRequiredDictionary(row:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.DetailedViewController.createCellFromRequiredDictionary (My_Fitz.DetailedViewController)(row : Swift.Int) -&gt; My_Fitz.DoubleLabelTableViewCell"
-                  moduleName = "My_Fitz"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/DetailedViewController.swift"
-                  timestampString = "460113208.472457"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "10080">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "My_Fitz.DetailedViewController.(createCellFromRequiredDictionary (My_Fitz.DetailedViewController) -&gt; (row : Swift.Int) -&gt; My_Fitz.DoubleLabelTableViewCell).(implicit closure #1)"
-                  moduleName = "My_Fitz"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/DetailedViewController.swift"
-                  timestampString = "460113208.472633"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -821,6 +789,99 @@
             endingLineNumber = "34"
             landmarkName = "createItem(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Fitz.CreationViewController.brandSelected.getter : Swift.String"
+                  moduleName = "My_Fitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/CreationViewController.swift"
+                  timestampString = "463840575.189112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Fitz.CreationViewController.brandSelected.setter : Swift.String"
+                  moduleName = "My_Fitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/CreationViewController.swift"
+                  timestampString = "463840575.18937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Fitz.CreationViewController.brandSelected.materializeForSet : Swift.String"
+                  moduleName = "My_Fitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/CreationViewController.swift"
+                  timestampString = "463840575.189592"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Fitz.CreationViewController.init (My_Fitz.CreationViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; My_Fitz.CreationViewController"
+                  moduleName = "My_Fitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/CreationViewController.swift"
+                  timestampString = "463840575.189811"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Fitz.CreationViewController.init (My_Fitz.CreationViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Swift.Optional&lt;My_Fitz.CreationViewController&gt;"
+                  moduleName = "My_Fitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/Dropbox/Xcode%206/My%20Projects/My_Fitz/My_Fitz/CreationViewController.swift"
+                  timestampString = "463840575.19002"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "408">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Fitz/Wardrobe.swift"
+            timestampString = "463838274.066322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "Wardrobe"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
