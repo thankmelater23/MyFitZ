@@ -1,25 +1,34 @@
-//
+
 //  ViewController.swift
-//  MyFitZ
+//  My_Fitz
 //
-//  Created by Andre Villanueva on 10/27/15.
-//  Copyright © 2015 Bang Bang Studios. All rights reserved.
+//  Created by Andre Villanueva on 1/21/15.
+//  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController:  UIViewController{
+    @IBAction func selectedCloset() {
+        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
+        gamesWardrobe.closetSelectionString = MY_CLOSET
+        
+    }
 
-    override func viewDidLoad() {
+
+    
+    @IBAction func selectedWants() {
+        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
+        gamesWardrobe.closetSelectionString = MY_WANTS_CLOSET
+    }
+    
+    override func viewDidLoad(){
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
