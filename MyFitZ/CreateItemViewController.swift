@@ -29,21 +29,28 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var miscSection:RETableViewSection?
     
     var model:RETextItem?
-    var brand:REPickerItem?
+//    var brand:REPickerItem?
+    var brand:RETextItem?
     var favorited:REBoolItem?
     var price:RENumberItem?
     var timesWorn:RENumberItem?
     var lastTimeWorn:REDateTimeItem?
     var datePurchased:REDateTimeItem?
-    var color:REPickerItem?
-    var secondaryColor:REPickerItem?
-    var thirdColor:REPickerItem?
+//    var color:REPickerItem?
+    var color:RETextItem?
+//    var secondaryColor:REPickerItem?
+    var secondaryColor:RETextItem?
+//    var thirdColor:REPickerItem?
+    var thirdColor:RETextItem?
     var itemDescription: RELongTextItem?
     var dateReleased:REDateTimeItem?
     var retailPrice:RENumberItem?
-    var condition:REPickerItem?
-    var primaryMaterial:REPickerItem?
-    var secondaryMaterial:REPickerItem?
+//    var condition:REPickerItem?
+    var condition:RETextItem?
+//    var primaryMaterial:REPickerItem?
+    var primaryMaterial:RETextItem?
+//    var secondaryMaterial:REPickerItem?
+    var secondaryMaterial:RETextItem?
     var storeLocationURL:RETextItem?
 //    var arrayOfImages:R?
     var isThisNew:REBoolItem?//{willSet:
@@ -88,7 +95,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     }
     func saveItemVars(){
         viewItem.model = model?.value  ?? "N/A"
-        viewItem.brand = brand?.value.description  ?? "N/A"
+        viewItem.brand = brand?.value  ?? "N/A"
         viewItem.favorited = favorited?.value  ?? false
         viewItem.price = Double((price?.value)!)  ?? 0.0
         viewItem.timesWorn = Int((timesWorn?.value)!)  ?? 0
@@ -150,36 +157,64 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     extension CreateItemViewController{
     func setUp(){
         
+        //Category
+        categoryPickerView.delegate = self
+        categoryInputTextField.inputView = categoryPickerView
+        
+        
+        //Sub-Category
+        subCategoryPickerView.delegate = self
+        subCategoryInputTextField.inputView = subCategoryPickerView
+        subCategoryInputTextField.enabled = false
+        
+        //Image
+        self.pictureForSelectedItemImage.alpha = 0.5
+        
         manager = RETableViewManager.init(tableView: self.tableView, delegate: self)
         
         self.basicSection = RETableViewSection(headerTitle: "Basic Section")
         self.miscSection = RETableViewSection(headerTitle: "Misc Section")
         
-        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
-            self.model = RETextItem(title: "Model", value: String(), placeholder: "Enter Item Name")
-        self.brand = REPickerItem(title: "Brands", value: [["one", "two"], ["one", "two"]], placeholder: "Brands", options: [])
+//        self.manager!.tableView?.scrollEnabled = false
+        self.manager!.tableView?.layer.shadowOpacity = 1
+        self.manager!.tableView?.layer.shadowRadius = 10
+        self.manager!.tableView?.layer.shadowOffset = CGSizeMake(0, 0)
+        self.manager!.tableView?.layer.shadowColor = UIColor.grayColor().CGColor
+        self.manager!.tableView?.clipsToBounds = false
+//        self.manager!.style.cellHeight = 100 
+        
+//        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
+        self.model = RETextItem(title: "Model", value: String(), placeholder: "Enter Item Name")
+//        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
+        self.brand = RETextItem(title: "brand", value: String(), placeholder: "Enter Item brand")
         self.favorited = REBoolItem(title: "Favorite", value: false)
         self.price = RENumberItem(title: "Price/Value", value: String(), placeholder: "Enter Value for The Item")
         self.timesWorn = RENumberItem(title: "Times Worn/Used", value: String(), placeholder: "Enter Value for times worn")
         self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn", value: nil , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
         self.datePurchased = REDateTimeItem(title: "Date purchased", value: nil , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
-        self.color = REPickerItem(title: "Color", value: COLOR_TYPE, placeholder: "Color", options: [])
-        self.secondaryColor = REPickerItem(title: "Secondary Color", value: COLOR_TYPE, placeholder: nil, options: [])
-        self.thirdColor = REPickerItem(title: "Third Color", value: COLOR_TYPE, placeholder: nil, options: [])
+//        self.color = REPickerItem(title: "Color", value: COLOR_TYPE, placeholder: "Color", options: [])
+        self.color = RETextItem(title: "color", value: String(), placeholder: "Enter Item color")
+//        self.secondaryColor = REPickerItem(title: "Secondary Color", value: COLOR_TYPE, placeholder: nil, options: [])
+        self.secondaryColor = RETextItem(title: "secondaryColor", value: String(), placeholder: "Enter Item secondaryColor")
+//        self.thirdColor = REPickerItem(title: "Third Color", value: COLOR_TYPE, placeholder: nil, options: [])
+        self.thirdColor = RETextItem(title: "thirdColor", value: String(), placeholder: "Enter Item thirdColor")
         self.itemDescription = RELongTextItem(title: "Item Description", value: String(), placeholder: nil)
         self.isThisNew = REBoolItem(title: "New", value: false)
         self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
         self.retailPrice = RENumberItem(title: "Price/Value", value: String(), placeholder: "Enter Value for The Item")
-        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
-        self.primaryMaterial = REPickerItem(title: "Primary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
-        self.secondaryMaterial = REPickerItem(title: "Secondary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
+//        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
+        self.condition = RETextItem(title: "condition", value: String(), placeholder: "Enter Item condition")
+//        self.primaryMaterial = REPickerItem(title: "Primary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
+        self.primaryMaterial = RETextItem(title: "primaryMaterial", value: String(), placeholder: "Enter Item Primary Material")
+//        self.secondaryMaterial = REPickerItem(title: "Secondary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
+        self.secondaryMaterial = RETextItem(title: "secondaryMaterial", value: String(), placeholder: "Enter Secondary Material Name")
         self.storeLocationURL = RETextItem(title: "Store Location Or URL", value: String(), placeholder: "Enter Location")
         
         
         self.manager!.addSection(basicSection)
         self.manager!.addSection(miscSection)
         
-        self.basicSection?.addItem(radio)
+//        self.basicSection?.addItem(radio)
         self.basicSection?.addItem(model)
         self.basicSection?.addItem(brand)
         self.basicSection?.addItem(favorited)
@@ -200,19 +235,6 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         self.miscSection?.addItem(primaryMaterial)
         self.miscSection?.addItem(secondaryMaterial)
         self.miscSection?.addItem(storeLocationURL)
-        
-        //Category
-        categoryPickerView.delegate = self
-        categoryInputTextField.inputView = categoryPickerView
-        
-        
-        //Sub-Category
-        subCategoryPickerView.delegate = self
-        subCategoryInputTextField.inputView = subCategoryPickerView
-        subCategoryInputTextField.enabled = false
-        
-        //Image
-        self.pictureForSelectedItemImage.alpha = 0.5
         
         //Table View Init
         //        self.tableView.dataSource = self

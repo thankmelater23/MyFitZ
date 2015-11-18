@@ -7,11 +7,28 @@
 //
 
 import XCTest
+//import SnapshotHelper
 
 class MyFitZUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
+        
+        let app = XCUIApplication()
+        setLanguage(app)
+        app.launch()
+        
+        app.buttons["Closet"].tap()
+        snapshot("0Launch")
+        app.buttons["Search"].tap()
+        snapshot("1Launch")
+        app.navigationBars["MyFitZ.SearchView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        snapshot("2Launch")
+        app.buttons["Footware"].tap()
+        snapshot("3Launch")
+        // Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+        // Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+        
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
         

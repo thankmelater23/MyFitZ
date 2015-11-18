@@ -13,6 +13,8 @@ class MyFitZTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        var currWar: Wardrobe = Wardrobe()
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -24,6 +26,13 @@ class MyFitZTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var currWar: Wardrobe = Wardrobe()
+        XCTAssert(currWar.selectedCloset.count != 0, "Empty wardrobe")
+        XCTAssert(currWar.selectedCloset.first != nil, "Uninitialized")
+    }
+    
+    func testWardrobeInitializedProperly(){
+        
     }
     
     func testPerformanceExample() {

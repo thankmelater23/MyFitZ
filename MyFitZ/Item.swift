@@ -16,26 +16,26 @@ class Item: NSObject, NSCoding{
   //Item info
     var brand: String!, model: String!
     var category: String!, subCategory : String!, index : Int!
-    var price: Double?
+    var price: Double!
     var image: UIImage!
     var favorited: Bool! = false
     var isThisNew: Bool! = true
-    var timesWorn: Int?
-    var lastTimeWorn: String?
+    var timesWorn: Int!
+    var lastTimeWorn: String!
     
 
     //MARK: - Item Required defined values
-    var datePurchased: String?
-    var color: String?
-    var secondaryColor: String?
-    var thirdColor: String?
-    var dateReleased: String?
-    var itemDescription: String?
-    var condition: String?
-    var primaryMaterial: String?
-    var secondaryMaterial: String?
-    var retailPrice: Double?
-    var storeLocationURL: String?
+    var datePurchased: String!
+    var color: String!
+    var secondaryColor: String!
+    var thirdColor: String!
+    var dateReleased: String!
+    var itemDescription: String!
+    var condition: String!
+    var primaryMaterial: String!
+    var secondaryMaterial: String!
+    var retailPrice: Double!
+    var storeLocationURL: String!
 //    var arrayOfImages: [UIImages]
 //  var numberOfDifferentFitsWornWith
     
@@ -56,25 +56,25 @@ class Item: NSObject, NSCoding{
     self.category     = decoder.decodeObjectForKey(ITEM_CATEGORY_STRING) as! String!
     self.subCategory  = decoder.decodeObjectForKey(ITEM_SUBCATEGORY_STRING) as! String!
     self.index        = decoder.decodeIntegerForKey((ITEM_INDEX_STRING)) as Int!
-    self.price        = decoder.decodeDoubleForKey(ITEM_PRICE_STRING) as Double?
+    self.price        = decoder.decodeDoubleForKey(ITEM_PRICE_STRING) as Double!
     self.image        = decoder.decodeObjectForKey(ITEM_IMAGE_STRING) as! UIImage!
     self.favorited    = decoder.decodeBoolForKey(ITEM_FAVORITED_STRING) as Bool!
     self.isThisNew    = decoder.decodeBoolForKey(ITEM_ISTHISNEW_STRING) as Bool!
-    self.timesWorn    = decoder.decodeIntegerForKey(ITEM_TIMESWORN_STRING) as Int?
-    self.lastTimeWorn = decoder.decodeObjectForKey(ITEM_LASTTIMEWORN_STRING) as! String?
+    self.timesWorn    = decoder.decodeIntegerForKey(ITEM_TIMESWORN_STRING) as Int!
+    self.lastTimeWorn = decoder.decodeObjectForKey(ITEM_LASTTIMEWORN_STRING) as! String!
 
     //Optional
-    self.datePurchased = decoder.decodeObjectForKey(ITEM_DATEPURCHASERD_STRING) as! String?
-    self.color         = decoder.decodeObjectForKey(ITEM_COLOR_STRING) as! String?
-    self.secondaryColor = decoder.decodeObjectForKey(ITEM_SECONDARYCOLOR_STRING) as! String?
-    self.thirdColor = decoder.decodeObjectForKey(ITEM_THIRDCOLOR_STRING) as! String?
-    self.dateReleased = decoder.decodeObjectForKey(ITEM_DATERELEASED_STRING) as! String?
-    self.itemDescription = decoder.decodeObjectForKey(ITEM_ITEMDESCRIPTION_STRING) as! String?
-    self.condition = decoder.decodeObjectForKey(ITEM_CONDITION_STRING) as! String?
-    self.primaryMaterial = decoder.decodeObjectForKey(ITEM_PRIMARYMATERIAL_STRING) as! String?
-    self.secondaryMaterial = decoder.decodeObjectForKey(ITEM_SECONDAY_MATERIAL_STRING) as! String?
-    self.retailPrice = decoder.decodeObjectForKey(ITEM_RETAILPRICE_STRING) as! Double?
-    self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String?
+    self.datePurchased = decoder.decodeObjectForKey(ITEM_DATEPURCHASERD_STRING) as! String!
+    self.color         = decoder.decodeObjectForKey(ITEM_COLOR_STRING) as! String!
+    self.secondaryColor = decoder.decodeObjectForKey(ITEM_SECONDARYCOLOR_STRING) as! String!
+    self.thirdColor = decoder.decodeObjectForKey(ITEM_THIRDCOLOR_STRING) as! String!
+    self.dateReleased = decoder.decodeObjectForKey(ITEM_DATERELEASED_STRING) as! String!
+    self.itemDescription = decoder.decodeObjectForKey(ITEM_ITEMDESCRIPTION_STRING) as! String!
+    self.condition = decoder.decodeObjectForKey(ITEM_CONDITION_STRING) as! String!
+    self.primaryMaterial = decoder.decodeObjectForKey(ITEM_PRIMARYMATERIAL_STRING) as! String!
+    self.secondaryMaterial = decoder.decodeObjectForKey(ITEM_SECONDAY_MATERIAL_STRING) as! String!
+    self.retailPrice = decoder.decodeObjectForKey(ITEM_RETAILPRICE_STRING) as! Double!
+    self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
 
     //Others
     self.path = decoder.decodeObjectForKey(ITEM_LOCATIONPATH_STRING) as! [String: String]!

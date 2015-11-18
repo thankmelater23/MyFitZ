@@ -11,6 +11,8 @@
 		C626B9391BE0A48C00BB5E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C626B9381BE0A48C00BB5E86 /* Assets.xcassets */; };
 		C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */; };
 		C626B9521BE0A48C00BB5E86 /* MyFitZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9511BE0A48C00BB5E86 /* MyFitZUITests.swift */; };
+		C63BA5C91BEF93C600DCDD61 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */; };
+		C63BA5CA1BEF93CE00DCDD61 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */; };
 		C64503B71BE1A0460065EC2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B11BE1A0460065EC2F /* Constants.swift */; };
 		C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B21BE1A0460065EC2F /* Extensions.swift */; };
 		C64503B91BE1A0460065EC2F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B31BE1A0460065EC2F /* Item.swift */; };
@@ -88,6 +90,7 @@
 		C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		E8B0101EB440F6385F917B92 /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +131,7 @@
 		C626B9251BE0A48C00BB5E86 = {
 			isa = PBXGroup;
 			children = (
+				C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */,
 				C626B9301BE0A48C00BB5E86 /* MyFitZ */,
 				C626B9451BE0A48C00BB5E86 /* MyFitZTests */,
 				C626B9501BE0A48C00BB5E86 /* MyFitZUITests */,
@@ -276,6 +280,7 @@
 				TargetAttributes = {
 					C626B92D1BE0A48C00BB5E86 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = ZJWNZ643CG;
 					};
 					C626B9411BE0A48C00BB5E86 = {
 						CreatedOnToolsVersion = 7.0;
@@ -416,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */,
+				C63BA5C91BEF93C600DCDD61 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C626B9521BE0A48C00BB5E86 /* MyFitZUITests.swift in Sources */,
+				C63BA5CA1BEF93CE00DCDD61 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
