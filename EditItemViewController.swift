@@ -1,8 +1,8 @@
 //
-//  CreateItemViewController.swift
+//  EditItemViewController.swift
 //  MyFitZ
 //
-//  Created by Andre Villanueva on 10/13/15.
+//  Created by Andre Villanueva on 11/18/15.
 //  Copyright © 2015 Bang Bang Studios. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import UIKit
 import DKChainableAnimationKit
 import RETableViewManager
 
-class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
+class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
@@ -29,7 +29,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var miscSection:RETableViewSection?
     
     var model:RETextItem?
-    //    var brand:REPickerItem?
+    var brands:RETableViewPickerCell?
     var brand:RETextItem?
     var favorited:REBoolItem?
     var price:RENumberItem?
@@ -94,73 +94,30 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         self.setUp()
     }
     func saveItemVars(){
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .ShortStyle
-        
-        var tempDateReleased:String?
-        var templastTimeWorn:String?
-        var tempdatePurchased:String?
-        
-        
-        if (dateReleased?.value != nil){
-            tempDateReleased = dateFormatter.stringFromDate(self.dateReleased!.value)
-            tempDateReleased = tempDateReleased!.stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-        }else{tempDateReleased = nil}
-        //         templastTimeWorn = String([dateFormatter .stringFromDate((self.lastTimeWorn?.value)!)])
-        if (lastTimeWorn?.value != nil){
-            templastTimeWorn = dateFormatter.stringFromDate(self.lastTimeWorn!.value)
-            templastTimeWorn = templastTimeWorn!.stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-        }else{templastTimeWorn = nil}
-        //         tempdatePurchased = String([dateFormatter .stringFromDate((self.datePurchased?.value)!)])
-        if (datePurchased?.value != nil){
-            tempdatePurchased = dateFormatter.stringFromDate(self.datePurchased!.value)
-            tempdatePurchased = tempdatePurchased!.stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-        }else{tempdatePurchased = nil}
-        
-        //        dateReleased.filter({$0 != "["})
-        //        viewItem.model = model!.value  ?? "N/A"
-        if(model!.value != ""){viewItem.model = model!.value}else{viewItem.model = "N/A"}
-        //        viewItem.brand = brand!.value  ?? "N/A"
-        if(brand!.value != ""){viewItem.brand = brand!.value}else{viewItem.brand = "N/A"}
-        viewItem.favorited = favorited!.value  ?? false
-        viewItem.price = Double((price!.value)!)  ?? 0.0
-        viewItem.timesWorn = Int((timesWorn!.value)!)  ?? 0
-        //        viewItem.lastTimeWorn = templastTimeWorn//String(lastTimeWorn!.value)  ?? "N/A"
-        //        if(lastTimeWorn!.value != ""){viewItem.lastTimeWorn = templastTimeWorn}else{viewItem.lastTimeWorn = "N/A"}
-        if(templastTimeWorn != ""  && templastTimeWorn != nil){viewItem.lastTimeWorn = templastTimeWorn}else{viewItem.dateReleased = "N/A"}
-        //        viewItem.datePurchased = tempdatePurchased//String(datePurchased!.value)  ?? "N/A"
-        //        if(datePurchased!.value != ""){viewItem.datePurchased = tempdatePurchased}else{viewItem.datePurchased = "N/A"}
-        if(tempdatePurchased != ""  && tempdatePurchased != nil){viewItem.datePurchased = tempdatePurchased}else{viewItem.dateReleased = "N/A"}
-        //        viewItem.color = String(color!.value)  ?? "N/A"
-        if(color!.value != ""){viewItem.color = color!.value}else{viewItem.color = "N/A"}
-        //        viewItem.secondaryColor = String(secondaryColor!.value)  ?? "N/A"
-        if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
-        //        viewItem.thirdColor = String(thirdColor!.value)  ?? "N/A"
-        if(thirdColor!.value != ""){viewItem.thirdColor = thirdColor!.value}else{viewItem.thirdColor = "N/A"}
-        //        viewItem.itemDescription = itemDescription!.value ?? "N/A"
-        if(itemDescription!.value != ""){viewItem.itemDescription = itemDescription!.value}else{viewItem.itemDescription = "N/A"}
-        //        viewItem.dateReleased = tempDateReleased//String(dateReleased!.value)  ?? "N/A"
-        if(tempDateReleased != ""  && tempDateReleased != nil){viewItem.dateReleased = tempDateReleased}else{viewItem.dateReleased = "N/A"}
-        viewItem.retailPrice = Double((retailPrice!.value)!)  ?? 0.0
-        //        viewItem.condition = String(condition!.value)  ?? "N/A"
-        if(condition!.value != ""){viewItem.condition = condition!.value}else{viewItem.condition = "N/A"}
-        //        viewItem.primaryMaterial = String(primaryMaterial!.value)  ?? "N/A"
-        if(primaryMaterial!.value != ""){viewItem.primaryMaterial = primaryMaterial!.value}else{viewItem.primaryMaterial = "N/A"}
-        //        viewItem.secondaryColor = String(secondaryColor!.value)  ?? "N/A"
-        if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
-        //        viewItem.storeLocationURL = storeLocationURL!.value  ?? "N/A"
-        if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
-        viewItem.isThisNew = isThisNew!.value  ?? false
+        viewItem.model = model?.value  ?? "N/A"
+        viewItem.brand = brand?.value  ?? "N/A"
+        viewItem.favorited = favorited?.value  ?? false
+        viewItem.price = Double((price?.value)!)  ?? 0.0
+        viewItem.timesWorn = Int((timesWorn?.value)!)  ?? 0
+        viewItem.lastTimeWorn = String(lastTimeWorn?.value)  ?? "N/A"
+        viewItem.datePurchased = String(datePurchased?.value)  ?? "N/A"
+        viewItem.color = String(color?.value)  ?? "N/A"
+        viewItem.secondaryColor = String(secondaryColor?.value)  ?? "N/A"
+        viewItem.thirdColor = String(thirdColor?.value)  ?? "N/A"
+        viewItem.itemDescription = itemDescription?.value ?? "N/A"
+        viewItem.dateReleased = String(dateReleased?.value)  ?? "N/A"
+        viewItem.retailPrice = Double((retailPrice?.value)!)  ?? 0.0
+        viewItem.condition = String(condition?.value)  ?? "N/A"
+        viewItem.primaryMaterial = String(primaryMaterial?.value)  ?? "N/A"
+        viewItem.secondaryColor = String(secondaryColor?.value)  ?? "N/A"
+        viewItem.storeLocationURL = storeLocationURL?.value  ?? "N/A"
+        viewItem.isThisNew = isThisNew?.value  ?? false
         
         
     }
     @IBAction func setItemImage(sender: UIButton) {
         self.setImagePicker()
     }
-    @IBAction func ClearInputs() {
-        self.clear()
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -197,7 +154,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 }
 
 //MARK: - Developer Created Methods
-extension CreateItemViewController{
+extension EditItemViewController{
     func setUp(){
         
         //Category
@@ -229,12 +186,13 @@ extension CreateItemViewController{
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         self.model = RETextItem(title: "Model", value: String(), placeholder: "Enter Item Name")
         //        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
+        self.brands = RETableViewPickerCell()
         self.brand = RETextItem(title: "brand", value: String(), placeholder: "Enter Item brand")
         self.favorited = REBoolItem(title: "Favorite", value: false)
         self.price = RENumberItem(title: "Price/Value", value: String(), placeholder: "Enter Value for The Item")
         self.timesWorn = RENumberItem(title: "Times Worn/Used", value: String(), placeholder: "Enter Value for times worn")
-        self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
-        self.datePurchased = REDateTimeItem(title: "Date purchased", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn", value: nil , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.datePurchased = REDateTimeItem(title: "Date purchased", value: nil , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
         //        self.color = REPickerItem(title: "Color", value: COLOR_TYPE, placeholder: "Color", options: [])
         self.color = RETextItem(title: "color", value: String(), placeholder: "Enter Item color")
         //        self.secondaryColor = REPickerItem(title: "Secondary Color", value: COLOR_TYPE, placeholder: nil, options: [])
@@ -243,7 +201,7 @@ extension CreateItemViewController{
         self.thirdColor = RETextItem(title: "thirdColor", value: String(), placeholder: "Enter Item thirdColor")
         self.itemDescription = RELongTextItem(title: "Item Description", value: String(), placeholder: nil)
         self.isThisNew = REBoolItem(title: "New", value: false)
-        self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
         self.retailPrice = RENumberItem(title: "Price/Value", value: String(), placeholder: "Enter Value for The Item")
         //        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
         self.condition = RETextItem(title: "condition", value: String(), placeholder: "Enter Item condition")
@@ -260,6 +218,7 @@ extension CreateItemViewController{
         //        self.basicSection?.addItem(radio)
         self.basicSection?.addItem(model)
         self.basicSection?.addItem(brand)
+        self.basicSection?.addItem(brands)
         self.basicSection?.addItem(favorited)
         self.basicSection?.addItem(price)
         self.basicSection?.addItem(timesWorn)
@@ -293,40 +252,12 @@ extension CreateItemViewController{
     func createMiscCells(){
         
     }
-    func clear(){
-        self.categoryInputTextField.text = ""
-        self.subCategoryInputTextField.text = ""
-        
-        self.pictureForSelectedItemImage.image = UIImage(named: BLANK_IMAGE_STRING)
-        
-        
-        self.model?.value = "N/A"
-        self.brand?.value = "N/A"
-        self.favorited?.value = false
-        self.price?.value = "0.0"
-        self.timesWorn?.value = "0.0"
-        self.lastTimeWorn?.value = nil
-        self.datePurchased?.value = nil
-        self.color?.value = "N/A"
-        self.secondaryColor?.value = "N/A"
-        self.thirdColor?.value = "N/A"
-        self.itemDescription?.value = "N/A"
-        self.dateReleased?.value = nil
-        self.retailPrice?.value = "0.0"
-        self.condition?.value = "N/A"
-        self.primaryMaterial?.value = "N/A"
-        self.secondaryMaterial?.value = "N/A"
-        self.storeLocationURL?.value = "N/A"
-        self.isThisNew?.value = false
-        
-        self.tableView.reloadData()
-    }
 }
 
 
 
 //MARK: - PickerView Methods
-extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+extension EditItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -412,7 +343,7 @@ extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource
 }
 
 //MARK: - ImagePickerView Methods
-extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func setImagePicker(){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -435,7 +366,7 @@ extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigation
 
 
 //Text Field methods
-extension CreateItemViewController: UITextFieldDelegate{
+extension EditItemViewController: UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
         
         textField.isFirstResponder()

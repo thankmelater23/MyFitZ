@@ -43,7 +43,7 @@ class Item: NSObject, NSCoding{
   var path: [String: String]! = [String: String]()
 
     override var description: String {
-      let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price)? \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)"
+      let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)"
       return string
     }
 
@@ -114,16 +114,15 @@ class Item: NSObject, NSCoding{
 
   ///Creates blank Item
   override init(){
-    super.init()
-    //TODO: - Set all initilizars to just initialized no values store
+    super.init() 
 
-    self.brand         = String()
+    self.brand        = "N/A"
 
-    self.model        = String()
+    self.model        = "N/A"
 
-    self.category     = String()
+    self.category     = "N/A"
 
-    self.subCategory  = String()
+    self.subCategory  = "N/A"
 
     self.price        = NSNumber().doubleValue
 
@@ -135,22 +134,22 @@ class Item: NSObject, NSCoding{
 
     self.timesWorn    = NSNumber().integerValue
 
-    self.lastTimeWorn = String()
+    self.lastTimeWorn = "N/A"
 
     self.index        = NSNumber().integerValue
 
     //Optionals
-    self.datePurchased = String()
-    self.color        = String()
-    self.secondaryColor = String()
-    self.thirdColor = String()
-    self.dateReleased = String()
-    self.itemDescription = String()
-    self.condition = String()
-    self.primaryMaterial = String()
-    self.secondaryColor = String()
+    self.datePurchased = "N/A"
+    self.color        = "N/A"
+    self.secondaryColor = "N/A"
+    self.thirdColor = "N/A"
+    self.dateReleased = "N/A"
+    self.itemDescription = "N/A"
+    self.condition = "N/A"
+    self.primaryMaterial = "N/A"
+    self.secondaryColor = "N/A"
     self.retailPrice = Double()
-    self.storeLocationURL = String()
+    self.storeLocationURL = "N/A"
 
     self.path = [String: String]()
   }
@@ -165,7 +164,7 @@ class Item: NSObject, NSCoding{
       self.category     = category
       self.subCategory  = subCategory
       self.price        = price
-      self.image      = Image
+      self.image        = Image
       self.favorited    = favorited
       self.isThisNew    = isThisNew
       self.timesWorn    = timesWorn

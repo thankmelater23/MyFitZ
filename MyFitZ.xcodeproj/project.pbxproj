@@ -35,6 +35,7 @@
 		C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */; };
 		C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */; };
 		C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64503DA1BE1A17F0065EC2F /* Main.storyboard */; };
+		C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D73731BFD898D0084842B /* EditItemViewController.swift */; };
 		F700C3D70F2D041CBEB78984 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; };
 		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		E8B0101EB440F6385F917B92 /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 				C64503C01BE1A1160065EC2F /* MakeTableViewController.swift */,
 				C64503C11BE1A1160065EC2F /* ModelTableViewController.swift */,
 				C64503C21BE1A1160065EC2F /* DetailedViewController.swift */,
+				C66D73731BFD898D0084842B /* EditItemViewController.swift */,
 				C64503C31BE1A1160065EC2F /* CreateItemViewController.swift */,
 				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
 				C64503C51BE1A1160065EC2F /* CreationViewController.swift */,
@@ -407,6 +410,7 @@
 				C64503D51BE1A1210065EC2F /* MakeCustomCell.swift in Sources */,
 				C64503C71BE1A1160065EC2F /* NotesViewController.swift in Sources */,
 				C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */,
+				C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */,
 				C64503D71BE1A1210065EC2F /* CreationUITableViewCell.swift in Sources */,
 				C64503CF1BE1A1160065EC2F /* CreationViewController.swift in Sources */,
 				C64503BB1BE1A0460065EC2F /* Closet.swift in Sources */,

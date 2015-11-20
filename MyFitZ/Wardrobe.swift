@@ -111,10 +111,10 @@ extension Wardrobe{
         
         
         dispatch_async(GlobalMainQueue, {
-
-                        SVProgressHUD.show()
+            
+            SVProgressHUD.show()
             //            MRProgressOverlayView.
-//                        [MRProgressOverlayView showOverlayAddedTo:self.super.view animated:YES]
+            //                        [MRProgressOverlayView showOverlayAddedTo:self.super.view animated:YES]
             
             let dicOfOptions = [kCRToastTextKey: "File Saving", kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
                 kCRToastBackgroundColorKey : UIColor.greenColor(),
@@ -126,8 +126,9 @@ extension Wardrobe{
             success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
             
             CRToastManager .showNotificationWithOptions(dicOfOptions, completionBlock: {
-                                    SVProgressHUD.showSuccessWithStatus("Saved")
-                                    SVProgressHUD.dismiss()
+                SVProgressHUD.showSuccessWithStatus("Saved")
+                wait(w_status: 1)
+                SVProgressHUD.dismiss()
                 //                    [MRProgressOverlayView dismissOverlayForView:self.view animated:YES]
                 print("File Saved Successfully")})
         })
@@ -274,9 +275,11 @@ extension Wardrobe{
     func swapItem(funcCategory:     String, funcSubCategory:     String,
         prevFuncCategory: String, prevFuncSubCategory: String,
         item: Item){//Deletes object from one place and adds it to another place
+            deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
+            
             selectedCloset[funcCategory]![funcSubCategory]?.append(item)
             
-            deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
+            
     }
     
     //Check for availibility
