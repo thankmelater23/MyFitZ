@@ -23,10 +23,10 @@ class ModelCustomCell: UITableViewCell{
   override func setSelected(selected: Bool, animated: Bool){
     super.setSelected(selected ,  animated: animated)
   }
-  func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, timesWornText: Int){
+  func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String){
     self.modelImage.image    = modelImageText
     self.brandLabel.text     = brandLabelText
     self.modelLabel.text     = modelLabelText
-    self.timesWornLabel.text = "Times Worn: \(timesWornText)"
+    self.timesWornLabel.text = "Last Time Worn: \(lastTimeWornText)"
   }
 }

@@ -6,6 +6,7 @@
 //
 import UIKit
 import CRToast
+import DKChainableAnimationKit
 
 //MARK: - DetailedViewController Class
 class DetailedViewController: UIViewController{
@@ -33,7 +34,7 @@ class DetailedViewController: UIViewController{
     @IBAction func wear() {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
-        let newDate = String([dateFormatter .stringFromDate((NSDate()))])
+        let newDate = dateFormatter.stringFromDate((NSDate()))
         
         
         
@@ -48,10 +49,11 @@ class DetailedViewController: UIViewController{
         
         
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
-            wait(w_status: 1)
+            wait(w_status: 1)//Put something valid
             self.itemOfObject.lastTimeWorn = newDate
+            gamesWardrobe.quickSave()
         })
-        
+        self.tableView.reloadData()
     }
     //View Variables
     ///Item selected
@@ -80,6 +82,12 @@ class DetailedViewController: UIViewController{
             modelTableViewController.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
             
         }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
+            print("a")
+        }else if segue.identifier == SEGUE_DETAIL_TO_EDIT{
+            let editItemViewController = segue.destinationViewController as! EditItemViewController
+            editItemViewController.path = self.path
+            editItemViewController.viewItem = self.itemOfObject
+            editItemViewController.previousItem = self.itemOfObject
         }
     }
 }
@@ -208,18 +216,18 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 if let value = self.itemOfObject.lastTimeWorn{
                     switch(components.day){
                     case 0...500:
-                        cell.configure(name: keyAndValue, infoString: value + " -Days " + String((components.day)) + " ago")
+                        cell.configure(name: keyAndValue, infoString:value + "- " + String((components.day)) + "Days ago")
                     case 500...1000:
-                        cell.configure(name: keyAndValue, infoString: value + " -Months " + String((components.month)) + " ago")
-                    case 1000...1000000:
-                        cell.configure(name: keyAndValue, infoString: value + " -Years " + String((components.year)) + " ago")
+                        cell.configure(name: keyAndValue, infoString:value + "- " + String((components.month)) + "Months ago")
+                    case 1000..<1000:
+                        cell.configure(name: keyAndValue, infoString:value + "- " + String((components.year)) + "Years ago")
                     default: break
-                        //            assert("Shouldn't happen")
+                        assertionFailure("This shouldint happen")
                     }
                 }
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
-            } 
+            }
         case 9 :
             keyAndValue = ITEM_INDEX_STRING
             let number = self.itemOfObject.index
@@ -351,6 +359,12 @@ extension DetailedViewController{
         //self.retrieveRequiredDicInfo()
         itemImage.image = itemOfObject.image
         self.customizeTableView()
+        self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)
+        self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
+        self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
+            //Play Sound
+        })
+        
         
     }//Sets up view
     func customizeTableView(){

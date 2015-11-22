@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 import UIKit
+import DKChainableAnimationKit
 //import Crashlytics
 
 //MARK: - SelectionViewController
 class SelectionViewController: UIViewController{
+    @IBOutlet weak var searchButton: UIButton!
     var selectedUser: Int! = 0//Check on what this is
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
@@ -23,9 +25,9 @@ class SelectionViewController: UIViewController{
     
     //View Methods
     override func viewDidLoad(){
-        //      gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
-        
         super.viewDidLoad()
+        self.searchButton.animation.makeScale(3.5).moveY(20).animate(2.0)
+        
     }
     
     //    @IBAction func crashButtonTapped(sender: AnyObject) {
