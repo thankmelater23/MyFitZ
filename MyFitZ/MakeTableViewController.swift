@@ -40,12 +40,9 @@ class MakeTableViewController: UITableViewController{
         }
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
-            let index = self.tableView.indexPathForSelectedRow
+//            let index = self.tableView.indexPathForSelectedRow
             
             let modelController = segue.destinationViewController as! ModelTableViewController
-            let tempItemArray: [Item] = Array(self.itemsInArrayInDictionary.values)[index!.row]
-            path[PATHTYPE_SUBCATEGORY_STRING] = Array(self.itemsInArrayInDictionary.keys)[index!.row]
-            modelController.arrayOfItems = tempItemArray as [Item]!
             modelController.path = self.path
             
         }
@@ -57,7 +54,7 @@ class MakeTableViewController: UITableViewController{
 ///Developer Created Methods
 extension MakeTableViewController{
     func setUpTypes(){
-        
+        self.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
     }//Sets up
     func selection(){
         TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!
@@ -96,6 +93,9 @@ extension MakeTableViewController:UIAlertViewDelegate{
             let image = UIImage(named: BLANK_IMAGE_STRING)
             cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
         }
+        
+        path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
+        
         return cell
     }//Returns a tableView cell at a specific row
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){

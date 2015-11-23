@@ -26,7 +26,8 @@ class SelectionViewController: UIViewController{
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.searchButton.animation.makeScale(3.5).moveY(20).animate(2.0)
+        self.searchButton.animation.makeScale(2.5).makeScale(0.5).makeScale(1.0).animate(2.0)
+        self.title = "Selection"
         
     }
     
@@ -35,15 +36,14 @@ class SelectionViewController: UIViewController{
     //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        defer{
+            print("Segue transfer: \(segue.identifier)")
+        }
         if segue.identifier == SEGUE_SELECTION_TO_MAKE{
             let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
-            makeController.path = self.path
-            makeController.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
-            print("Segue transfer: \(segue.identifier)")
-        }else if segue.identifier == SEGUE_SELECTION_TO_MAKE{
-            print("Segue transfer: \(segue.identifier)")
+            makeController.path = self.path        }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
         }else{
-            print("Segue transfer: \(segue.identifier)")
+//            print("Segue transfer: \(segue.identifier)")
         }
     }
 }

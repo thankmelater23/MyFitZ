@@ -39,16 +39,17 @@ class ModelTableViewController: UITableViewController {
             if let index = index{
                 
                 detailController.itemOfObject = self.arrayOfItems[index.row] as Item!
+            
                 detailController.path = self.path
+            }else{
+                assertionFailure("This shouldn't happen")
             }
+            
         }else if segue.identifier == SEGUE_MODEL_TO_MAKE{
             let makeTableViewController = segue.destinationViewController as! MakeTableViewController
             
             makeTableViewController.path = self.path
-            
-            makeTableViewController.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
-            
-        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
+                    }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
             
         }
     }
@@ -99,10 +100,6 @@ extension ModelTableViewController{
         forRowAtIndexPath indexPath: NSIndexPath) {
             if editingStyle == UITableViewCellEditingStyle.Delete
             {
-                
-                
-                
-                
                 let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
@@ -126,6 +123,6 @@ extension ModelTableViewController{
 ///ModelTableViewController Developer Created Methods
 extension ModelTableViewController{
     func SetUpTypes() {
-        
-    }
+        self.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
+        }
 }

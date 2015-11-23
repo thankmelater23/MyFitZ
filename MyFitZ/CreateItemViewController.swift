@@ -174,10 +174,12 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         }
         
         if segue.identifier == SEGUE_CREATION_TO_SELECTION{
-            
+            let selectionViewController = segue.destinationViewController as! SelectionViewController
+            selectionViewController.path = self.path
         }
         if segue.identifier == SEGUE_CREATION_TO_MAKE{
-            
+            let makeTableViewController = segue.destinationViewController as! MakeTableViewController
+            makeTableViewController.path = self.path
         }
         if segue.identifier == SEGUE_CREATION_TO_MODEL{
             let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
@@ -190,7 +192,9 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
             
         }
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
-            
+            let detailedViewController = segue.destinationViewController as! DetailedViewController
+            detailedViewController.path = self.path
+
         }
         
     }

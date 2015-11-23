@@ -60,7 +60,6 @@ class DetailedViewController: UIViewController{
     var itemOfObject: Item! = Item()
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
-    
     //View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +76,11 @@ class DetailedViewController: UIViewController{
         if segue.identifier == SEGUE_DETAIL_TO_MODEL
         {
             let modelTableViewController = segue.destinationViewController as! ModelTableViewController
+            
             modelTableViewController.path = self.path
-            
-            modelTableViewController.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
-            
         }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
-            print("a")
+            let createItemViewController = segue.destinationViewController as! CreateItemViewController
+            
         }else if segue.identifier == SEGUE_DETAIL_TO_EDIT{
             let editItemViewController = segue.destinationViewController as! EditItemViewController
             editItemViewController.path = self.path
@@ -216,11 +214,11 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 if let value = self.itemOfObject.lastTimeWorn{
                     switch(components.day){
                     case 0...500:
-                        cell.configure(name: keyAndValue, infoString:value + "- " + String((components.day)) + "Days ago")
+                        cell.configure(name: keyAndValue, infoString:value + "-" + String((components.day)) + " Days ago")
                     case 500...1000:
-                        cell.configure(name: keyAndValue, infoString:value + "- " + String((components.month)) + "Months ago")
+                        cell.configure(name: keyAndValue, infoString:value + "-" + String((components.month)) + " Months ago")
                     case 1000..<1000:
-                        cell.configure(name: keyAndValue, infoString:value + "- " + String((components.year)) + "Years ago")
+                        cell.configure(name: keyAndValue, infoString:value + "-" + String((components.year)) + " Years ago")
                     default: break
                         assertionFailure("This shouldint happen")
                     }

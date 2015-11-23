@@ -14,8 +14,6 @@ class ViewController:  UIViewController{
         gamesWardrobe.closetSelectionString = MY_CLOSET
         
     }
-
-
     
     @IBAction func selectedWants() {
         gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
