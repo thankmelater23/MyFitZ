@@ -26,8 +26,16 @@ class SelectionViewController: UIViewController{
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = false
+            
         self.searchButton.animation.makeScale(2.5).makeScale(0.5).makeScale(1.0).animate(2.0)
-        self.title = "Selection"
+        
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
         
     }
     
@@ -39,9 +47,12 @@ class SelectionViewController: UIViewController{
         defer{
             print("Segue transfer: \(segue.identifier)")
         }
+        
         if segue.identifier == SEGUE_SELECTION_TO_MAKE{
             let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
-            makeController.path = self.path        }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
+            makeController.path = self.path
+        }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
+            
         }else{
 //            print("Segue transfer: \(segue.identifier)")
         }

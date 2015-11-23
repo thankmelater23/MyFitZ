@@ -124,5 +124,13 @@ extension ModelTableViewController{
 extension ModelTableViewController{
     func SetUpTypes() {
         self.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
+        
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        
         }
 }

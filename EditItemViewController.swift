@@ -198,6 +198,13 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - Developer Created Methods
 extension EditItemViewController{
     func setUp(){
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Edit")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         let tempLastTimeWorn = dateFormatter.dateFromString(viewItem.lastTimeWorn)

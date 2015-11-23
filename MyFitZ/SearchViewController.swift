@@ -52,6 +52,14 @@ import UIKit
     }
     
     override func viewDidLoad() {
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Search")
+        
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+
         //Category
         categoryPickerView.delegate = self
         categoryInputTextField.inputView = categoryPickerView

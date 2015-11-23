@@ -30,7 +30,7 @@ class DoubleLabelTableViewCell: UITableViewCell {
 extension DoubleLabelTableViewCell{
 
   func configure(name name:  String,  infoString: String){
-    nameLabel.text = name
+    nameLabel.text = name + ":"
     infoLabel.text = infoString
 
   }

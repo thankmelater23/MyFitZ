@@ -22,6 +22,16 @@ class ViewController:  UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBarHidden = true
+        
+        self.title = gamesWardrobe.closetSelectionString
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func didReceiveMemoryWarning() {

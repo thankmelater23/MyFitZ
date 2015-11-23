@@ -203,6 +203,12 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - Developer Created Methods
 extension CreateItemViewController{
     func setUp(){
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Item Create")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
         
         //Category
         categoryPickerView.delegate = self

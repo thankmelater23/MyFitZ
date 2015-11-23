@@ -354,7 +354,13 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 //MARK: - Developer Created Methods
 extension DetailedViewController{
     func setUp(){
-        //self.retrieveRequiredDicInfo()
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Detail")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        
         itemImage.image = itemOfObject.image
         self.customizeTableView()
         self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)

@@ -55,6 +55,13 @@ class MakeTableViewController: UITableViewController{
 extension MakeTableViewController{
     func setUpTypes(){
         self.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        
     }//Sets up
     func selection(){
         TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!

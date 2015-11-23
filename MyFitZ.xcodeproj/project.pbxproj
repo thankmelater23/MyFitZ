@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60C6AD11C02C92300C8935A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C6AD01C02C92300C8935A /* Functions.swift */; };
 		C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */; };
 		C626B9391BE0A48C00BB5E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C626B9381BE0A48C00BB5E86 /* Assets.xcassets */; };
 		C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		3AE8CA4F108BC06CB6B0BAD8 /* Pods-MyFitZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.debug.xcconfig"; sourceTree = "<group>"; };
 		BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C60C6AD01C02C92300C8935A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		C626B92E1BE0A48C00BB5E86 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C626B9381BE0A48C00BB5E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				C64503B11BE1A0460065EC2F /* Constants.swift */,
 				C64503B21BE1A0460065EC2F /* Extensions.swift */,
+				C60C6AD01C02C92300C8935A /* Functions.swift */,
 				C64503B31BE1A0460065EC2F /* Item.swift */,
 				C64503B41BE1A0460065EC2F /* Fit.swift */,
 				C64503B51BE1A0460065EC2F /* Closet.swift */,
@@ -407,6 +410,7 @@
 				C64503C91BE1A1160065EC2F /* SelectionViewController.swift in Sources */,
 				C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */,
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,
+				C60C6AD11C02C92300C8935A /* Functions.swift in Sources */,
 				C64503D51BE1A1210065EC2F /* MakeCustomCell.swift in Sources */,
 				C64503C71BE1A1160065EC2F /* NotesViewController.swift in Sources */,
 				C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */,
