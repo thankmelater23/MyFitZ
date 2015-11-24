@@ -12,18 +12,23 @@ class ViewController:  UIViewController{
     @IBAction func selectedCloset() {
         gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
         gamesWardrobe.closetSelectionString = MY_CLOSET
-        
+        playSoundEffects(closetSFX)
+//        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     
     @IBAction func selectedWants() {
         gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
         gamesWardrobe.closetSelectionString = MY_WANTS_CLOSET
+        playSoundEffects(wishlistSFX)
+//        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        initializeSounds()
         
         self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBar.translucent = false
         
         self.title = gamesWardrobe.closetSelectionString
         if self.title == MY_CLOSET{

@@ -27,7 +27,8 @@ class DetailedViewController: UIViewController{
         
         alert.addAction(action)
         alert.addAction(act)
-        self.presentViewController(alert, animated: true, completion: {})
+        self.presentViewController(alert, animated: true, completion: {
+        playSoundEffects(deleteSFX)})
         
     }
     @IBOutlet weak var wearButton: UIButton!
@@ -51,9 +52,11 @@ class DetailedViewController: UIViewController{
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
             wait(w_status: 1)//Put something valid
             self.itemOfObject.lastTimeWorn = newDate
+            gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
             gamesWardrobe.quickSave()
         })
         self.tableView.reloadData()
+        playSoundEffects(wearSFX)
     }
     //View Variables
     ///Item selected
@@ -360,6 +363,7 @@ extension DetailedViewController{
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
+        self.navigationController?.navigationBar.translucent = false
         
         itemImage.image = itemOfObject.image
         self.customizeTableView()

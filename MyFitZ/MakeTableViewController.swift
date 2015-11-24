@@ -61,6 +61,7 @@ extension MakeTableViewController{
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
+        self.navigationController?.navigationBar.translucent = false
         
     }//Sets up
     func selection(){
@@ -136,7 +137,9 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
         path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
         
-        performSegueWithIdentifier(SEGUE_MAKE_TO_MODEL, sender: nil)
+        playSoundEffects(itemSelectSFX)
+        
+        performSegueWithIdentifier(SEGUE_MAKE_TO_MODEL, sender: self)
     }//Shows when a cell at row was selected
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200

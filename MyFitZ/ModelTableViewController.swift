@@ -88,7 +88,8 @@ extension ModelTableViewController{
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         indexToSend = indexPath.row
-        performSegueWithIdentifier(SEGUE_MODEL_TO_DETAIL, sender: nil)
+        playSoundEffects(itemSelectSFX)
+        performSegueWithIdentifier(SEGUE_MODEL_TO_DETAIL, sender: self)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -133,6 +134,7 @@ extension ModelTableViewController{
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
+        self.navigationController?.navigationBar.translucent = false
         
         }
 }

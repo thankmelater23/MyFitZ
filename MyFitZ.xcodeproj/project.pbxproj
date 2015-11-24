@@ -37,6 +37,22 @@
 		C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */; };
 		C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64503DA1BE1A17F0065EC2F /* Main.storyboard */; };
 		C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D73731BFD898D0084842B /* EditItemViewController.swift */; };
+		C6B4928A1C04457200A1D237 /* add0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927A1C04457200A1D237 /* add0.wav */; };
+		C6B4928B1C04457200A1D237 /* alert0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927B1C04457200A1D237 /* alert0.wav */; };
+		C6B4928C1C04457200A1D237 /* animationPop0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927C1C04457200A1D237 /* animationPop0.wav */; };
+		C6B4928D1C04457200A1D237 /* back0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927D1C04457200A1D237 /* back0.wav */; };
+		C6B4928E1C04457200A1D237 /* cellselect1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927E1C04457200A1D237 /* cellselect1.wav */; };
+		C6B4928F1C04457200A1D237 /* clear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927F1C04457200A1D237 /* clear0.wav */; };
+		C6B492901C04457200A1D237 /* delete0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492801C04457200A1D237 /* delete0.wav */; };
+		C6B492911C04457200A1D237 /* edit0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492811C04457200A1D237 /* edit0.wav */; };
+		C6B492921C04457200A1D237 /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492821C04457200A1D237 /* mycloset0.wav */; };
+		C6B492931C04457200A1D237 /* notification1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492831C04457200A1D237 /* notification1.wav */; };
+		C6B492941C04457200A1D237 /* notification0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492841C04457200A1D237 /* notification0.wav */; };
+		C6B492951C04457200A1D237 /* save0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492851C04457200A1D237 /* save0.wav */; };
+		C6B492961C04457200A1D237 /* cellselect0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492861C04457200A1D237 /* cellselect0.wav */; };
+		C6B492971C04457200A1D237 /* update0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492871C04457200A1D237 /* update0.wav */; };
+		C6B492981C04457200A1D237 /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear0.wav */; };
+		C6B492991C04457200A1D237 /* wishlist0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492891C04457200A1D237 /* wishlist0.wav */; };
 		F700C3D70F2D041CBEB78984 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +111,22 @@
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; };
 		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
+		C6B4927A1C04457200A1D237 /* add0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add0.wav; sourceTree = "<group>"; };
+		C6B4927B1C04457200A1D237 /* alert0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alert0.wav; sourceTree = "<group>"; };
+		C6B4927C1C04457200A1D237 /* animationPop0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = animationPop0.wav; sourceTree = "<group>"; };
+		C6B4927D1C04457200A1D237 /* back0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = back0.wav; sourceTree = "<group>"; };
+		C6B4927E1C04457200A1D237 /* cellselect1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cellselect1.wav; sourceTree = "<group>"; };
+		C6B4927F1C04457200A1D237 /* clear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clear0.wav; sourceTree = "<group>"; };
+		C6B492801C04457200A1D237 /* delete0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = delete0.wav; sourceTree = "<group>"; };
+		C6B492811C04457200A1D237 /* edit0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = edit0.wav; sourceTree = "<group>"; };
+		C6B492821C04457200A1D237 /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
+		C6B492831C04457200A1D237 /* notification1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification1.wav; sourceTree = "<group>"; };
+		C6B492841C04457200A1D237 /* notification0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification0.wav; sourceTree = "<group>"; };
+		C6B492851C04457200A1D237 /* save0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = save0.wav; sourceTree = "<group>"; };
+		C6B492861C04457200A1D237 /* cellselect0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cellselect0.wav; sourceTree = "<group>"; };
+		C6B492871C04457200A1D237 /* update0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = update0.wav; sourceTree = "<group>"; };
+		C6B492881C04457200A1D237 /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
+		C6B492891C04457200A1D237 /* wishlist0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wishlist0.wav; sourceTree = "<group>"; };
 		E8B0101EB440F6385F917B92 /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +217,22 @@
 				C626B9381BE0A48C00BB5E86 /* Assets.xcassets */,
 				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
 				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
+				C6B4927A1C04457200A1D237 /* add0.wav */,
+				C6B4927B1C04457200A1D237 /* alert0.wav */,
+				C6B4927C1C04457200A1D237 /* animationPop0.wav */,
+				C6B4927D1C04457200A1D237 /* back0.wav */,
+				C6B4927E1C04457200A1D237 /* cellselect1.wav */,
+				C6B4927F1C04457200A1D237 /* clear0.wav */,
+				C6B492801C04457200A1D237 /* delete0.wav */,
+				C6B492811C04457200A1D237 /* edit0.wav */,
+				C6B492821C04457200A1D237 /* mycloset0.wav */,
+				C6B492831C04457200A1D237 /* notification1.wav */,
+				C6B492841C04457200A1D237 /* notification0.wav */,
+				C6B492851C04457200A1D237 /* save0.wav */,
+				C6B492861C04457200A1D237 /* cellselect0.wav */,
+				C6B492871C04457200A1D237 /* update0.wav */,
+				C6B492881C04457200A1D237 /* wear0.wav */,
+				C6B492891C04457200A1D237 /* wishlist0.wav */,
 			);
 			path = MyFitZ;
 			sourceTree = "<group>";
@@ -323,8 +371,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B4928B1C04457200A1D237 /* alert0.wav in Resources */,
+				C6B492921C04457200A1D237 /* mycloset0.wav in Resources */,
+				C6B492981C04457200A1D237 /* wear0.wav in Resources */,
+				C6B4928C1C04457200A1D237 /* animationPop0.wav in Resources */,
+				C6B492941C04457200A1D237 /* notification0.wav in Resources */,
 				C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */,
+				C6B492961C04457200A1D237 /* cellselect0.wav in Resources */,
+				C6B492951C04457200A1D237 /* save0.wav in Resources */,
+				C6B492971C04457200A1D237 /* update0.wav in Resources */,
+				C6B492991C04457200A1D237 /* wishlist0.wav in Resources */,
+				C6B492911C04457200A1D237 /* edit0.wav in Resources */,
+				C6B492901C04457200A1D237 /* delete0.wav in Resources */,
+				C6B4928F1C04457200A1D237 /* clear0.wav in Resources */,
+				C6B4928E1C04457200A1D237 /* cellselect1.wav in Resources */,
+				C6B4928A1C04457200A1D237 /* add0.wav in Resources */,
+				C6B492931C04457200A1D237 /* notification1.wav in Resources */,
 				C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */,
+				C6B4928D1C04457200A1D237 /* back0.wav in Resources */,
 				C626B9391BE0A48C00BB5E86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

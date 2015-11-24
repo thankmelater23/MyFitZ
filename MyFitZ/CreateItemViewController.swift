@@ -77,11 +77,19 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
             
         catch ItemError.IncorrectSubCategory{
             let alert = UIAlertController(title: "SubCategory Missing", message: "Enter in correct subcateogry", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                playSoundEffects(incorrectSFX)})
         }catch ItemError.missingModelString{
             let alert = UIAlertController(title: "Model String Missing", message: "Enter in correct Model String", preferredStyle: UIAlertControllerStyle.Alert)
-            //             alert.show()
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                playSoundEffects(incorrectSFX)})
         }catch ItemError.addImage{
             let alert = UIAlertController(title: "Image not selected", message: "Selctect image", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                playSoundEffects(incorrectSFX)})
         }catch{
             assertionFailure("Unknow error type thrown")
         }
@@ -203,8 +211,10 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - Developer Created Methods
 extension CreateItemViewController{
     func setUp(){
+        playSoundEffects(addSFX)
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Item Create")
         if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.translucent = false
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
@@ -331,6 +341,8 @@ extension CreateItemViewController{
         self.isThisNew?.value = false
         
         self.tableView.reloadData()
+        
+        playSoundEffects(clearSFX)
     }
 }
 

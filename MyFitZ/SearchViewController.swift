@@ -59,7 +59,8 @@ import UIKit
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
-
+        self.navigationController?.navigationBar.translucent = false
+        
         //Category
         categoryPickerView.delegate = self
         categoryInputTextField.inputView = categoryPickerView
@@ -184,7 +185,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 //        }
     }
     func iteratePrevInCurrentItems(){
-        if indexOfController >= 0{
+        if indexOfController > 0{
             indexOfController--
             item = retrieveItem()
             

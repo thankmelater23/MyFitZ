@@ -90,6 +90,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
+        playSoundEffects(updateSFX)
     }
 
     override func viewDidLoad() {
@@ -212,6 +213,7 @@ extension EditItemViewController{
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
+        self.navigationController?.navigationBar.translucent = false
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle

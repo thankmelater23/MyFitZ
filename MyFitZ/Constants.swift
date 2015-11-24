@@ -8,11 +8,13 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 ///MARK: - Global
 //var closet: Closet!
 //Represents the type of Dictionary in Dictionary of Array of Items
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 var gamesWardrobe:Wardrobe = Wardrobe()
+
 
 enum ItemError:ErrorType{
 //    case MissingInfo
@@ -239,7 +241,25 @@ let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 
 ///MARK: - CreationViewController
 
+///MARK: - Audio
+var audioPlayer: AVAudioPlayer! = AVAudioPlayer()
 
+var clearSFX : SystemSoundID = 0
+var saveSFX : SystemSoundID = 1
+var deleteSFX : SystemSoundID = 2
+var editSFX : SystemSoundID = 3
+var addSFX : SystemSoundID = 4
+var backSFX : SystemSoundID = 5
+var closetSFX : SystemSoundID = 6
+var wishlistSFX : SystemSoundID = 7
+var wearSFX : SystemSoundID = 8
+var categorySFX : SystemSoundID = 9
+var subCategorySFX : SystemSoundID = 10
+var itemSelectSFX : SystemSoundID = 11
+var updateSFX : SystemSoundID = 12
+var animationSFX : SystemSoundID = 13
+var incorrectSFX : SystemSoundID = 14
+var notificationSFX : SystemSoundID = 15
 
 
 ///GCD

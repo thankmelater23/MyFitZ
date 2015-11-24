@@ -185,6 +185,7 @@ extension Wardrobe{
     func quickSave(){
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
+        playSoundEffects(saveSFX)
     }
 }
 
@@ -206,6 +207,13 @@ extension Wardrobe{
             $0.lastTimeWorn.returnDaysInDate() < $1.lastTimeWorn.returnDaysInDate()
         })
         
+        var sum = 1
+        
+        for value in sorted{
+            value.index = sum++
+            value.path[PATHTYPE_INDEX_STRING] = String(value.index)
+        }
+
         self.selectedCloset[funcCategory]![funcSubCategory]! = sorted
     }
     func setProgress(){

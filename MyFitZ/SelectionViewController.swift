@@ -27,6 +27,12 @@ class SelectionViewController: UIViewController{
     ///An action that takes the buttonn(sender).text and stores it into categoryString
     @IBAction func categoryIsButtonName(sender: UIButton) {
         path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
+        playSoundEffects(itemSelectSFX)
+//        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_MAKE, sender: self)
+    }
+    @IBAction func backButton(sender: AnyObject) {
+        playSoundEffects(backSFX)
+//        performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
     }
     
     //View Methods
@@ -42,6 +48,7 @@ class SelectionViewController: UIViewController{
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
+        self.navigationController?.navigationBar.translucent = false
         
         self.assignCategoriesItemCount()
         
