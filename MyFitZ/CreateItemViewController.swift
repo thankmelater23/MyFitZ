@@ -224,17 +224,18 @@ extension CreateItemViewController{
         self.pictureForSelectedItemImage.alpha = 0.5
         
         manager = RETableViewManager.init(tableView: self.tableView, delegate: self)
-        
+
         self.basicSection = RETableViewSection(headerTitle: "Basic Section")
         self.miscSection = RETableViewSection(headerTitle: "Misc Section")
         
-        //        self.manager!.tableView?.scrollEnabled = false
-        self.manager!.tableView?.layer.shadowOpacity = 1
-        self.manager!.tableView?.layer.shadowRadius = 10
-        self.manager!.tableView?.layer.shadowOffset = CGSizeMake(0, 0)
-        self.manager!.tableView?.layer.shadowColor = UIColor.grayColor().CGColor
-        self.manager!.tableView?.clipsToBounds = false
-        //        self.manager!.style.cellHeight = 100
+        
+        self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
+//        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
+        self.manager!.tableView?.tintColor = UIColor.purpleColor()
+//        self.manager!.tableView?.sectionIndexBackgroundColor = UIColor.greenColor()
+        self.manager!.tableView?.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.manager!.tableView?.backgroundColor = UIColor.greenColor()
+        self.manager!.tableView?.separatorColor = UIColor.blackColor()
         
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         self.model = RETextItem(title: "Model:", value: String(), placeholder: "Enter Item Name")

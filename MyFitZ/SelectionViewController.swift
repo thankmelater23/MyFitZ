@@ -12,6 +12,12 @@ import DKChainableAnimationKit
 //MARK: - SelectionViewController
 class SelectionViewController: UIViewController{
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var topCounter: UILabel!
+    @IBOutlet weak var bottomCounter: UILabel!
+    @IBOutlet weak var footwareCounter: UILabel!
+    @IBOutlet weak var underClothesCounter: UILabel!
+    @IBOutlet weak var headwareCounter: UILabel!
+    @IBOutlet weak var accessoriesCounter: UILabel!
     var selectedUser: Int! = 0//Check on what this is
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
@@ -37,8 +43,10 @@ class SelectionViewController: UIViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
         
+        self.assignCategoriesItemCount()
+        
     }
-    
+
     //    @IBAction func crashButtonTapped(sender: AnyObject) {
     //        Crashlytics.sharedInstance().crash()
     //    }
@@ -56,6 +64,24 @@ class SelectionViewController: UIViewController{
         }else{
 //            print("Segue transfer: \(segue.identifier)")
         }
+    }
+    func assignCategoriesItemCount(){
+        var catCountDic: [String: Int] = [String: Int]()
+        
+        //TODO: -Add a GCD to load it in background
+        for category in CATEGORY_PICKER_OPTIONS{
+            catCountDic[category] = gamesWardrobe.getCountOfAllItemsInCategory(category)
+        }
+        
+        topCounter.text = String(catCountDic[TOPS]!)
+        bottomCounter.text = String(catCountDic[BOTTOMS]!)
+        footwareCounter.text = String(catCountDic[FOOTWARE]!)
+        underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
+        accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
+        headwareCounter.text = String(catCountDic[HEADWARE]!)
+
+        
+        
     }
 }
 

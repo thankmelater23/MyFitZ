@@ -154,7 +154,13 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         //        viewItem.storeLocationURL = storeLocationURL!.value  ?? "N/A"
         if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
         
-        
+        self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
+        //        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
+        self.manager!.tableView?.tintColor = UIColor.greenColor()
+        //        self.manager!.tableView?.sectionIndexBackgroundColor = UIColor.greenColor()
+        self.manager!.tableView?.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.manager!.tableView?.backgroundColor = UIColor.greenColor()
+        self.manager!.tableView?.separatorColor = UIColor.blueColor()
     }
     
     @IBAction func setItemImage(sender: UIButton) {
@@ -198,6 +204,8 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - Developer Created Methods
 extension EditItemViewController{
     func setUp(){
+        
+        
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Edit")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR

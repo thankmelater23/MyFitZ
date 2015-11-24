@@ -375,9 +375,10 @@ extension DetailedViewController{
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.reloadData()
-        //self.tableView.backgroundColor = UIColor.blueColor()
-        //self.tableView.style = UITableViewStyle.Grouped
-        //self.tableView.tintColor = UIColor.blueColor()
+        self.tableView.backgroundColor = UIColor.greenColor()
+        self.tableView?.tintColor = UIColor.greenColor()
+        self.tableView?.separatorColor = UIColor.blackColor()
+        self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor() 
     }
 }
 

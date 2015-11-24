@@ -13,4 +13,4 @@ func grabTitle(closet:String, view: String)->String{
     var string: String = String()
     string = closet + "/" + view
     return string
-}
+} 

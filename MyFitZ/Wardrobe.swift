@@ -150,6 +150,7 @@ extension Wardrobe{
         return loadArchivedObject(filePath)!
     }
     func save(funcCategory:String, funcSubCategory:String, item: Item)throws{
+        
         if funcSubCategory == ""{throw ItemError.IncorrectSubCategory}
         
         let keysOfCategory = Array(selectedCloset[funcCategory]!.keys)
@@ -176,6 +177,8 @@ extension Wardrobe{
             print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
         }else{throw ItemError.missingModelString}
         
+        self.sort(funcCategory, funcSubCategory: funcSubCategory)
+        
         //Saves Wardrobe
         self.quickSave()
     }
@@ -188,15 +191,22 @@ extension Wardrobe{
 
 extension Wardrobe{
     //TODO: - Create sorting of alpabitized for wardrobe
-    func sort(){
-        //    for (_, value) in selectedCloset as CLOSET_TYPE!{
-        //      for (secIndex, secValue) in value{
-        //        secValue.sort()
-        //        //        for arrayOfItems in secValue{
-        //         arrayOfItems
-        //        }
-        //      }
-        //    }
+    func sort(funcCategory:String, funcSubCategory:String){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        
+        let cal = NSCalendar.currentCalendar()
+        let unit:NSCalendarUnit = .Day
+        
+        let today = NSDate()
+        
+        
+        let unSortedArray = self.selectedCloset[funcCategory]![funcSubCategory]!
+        let sorted = unSortedArray.sort({ 
+            $0.lastTimeWorn.returnDaysInDate() < $1.lastTimeWorn.returnDaysInDate()
+        })
+        
+        self.selectedCloset[funcCategory]![funcSubCategory]! = sorted
     }
     func setProgress(){
         //        progress = NSProgress()
@@ -303,6 +313,13 @@ extension Wardrobe{
     //Gets count
     func getCountOfCategories(funcCategory: String)->Int{
         return selectedCloset[funcCategory]!.count
+    }
+    func getCountOfAllItemsInCategory(funcCategory: String)->Int{
+        var sum = 0
+        for (key, value) in selectedCloset[funcCategory]!{
+            sum += value.count
+        }
+        return sum
     }
     func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
         return selectedCloset[funcCategory]![funcSubCategory]!.count

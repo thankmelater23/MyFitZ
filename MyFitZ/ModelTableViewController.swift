@@ -15,6 +15,7 @@ class ModelTableViewController: UITableViewController {
     var arrayOfItems: [Item]! = [Item]()
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
+    var indexToSend:Int?
     
     
     //MARK: - View Methods
@@ -31,14 +32,14 @@ class ModelTableViewController: UITableViewController {
         
         if segue.identifier == SEGUE_MODEL_TO_DETAIL
         {
-            let index = self.tableView.indexPathForSelectedRow
-            path[PATHTYPE_INDEX_STRING] = "\(index!.row)"
+            let index = indexToSend
+            path[PATHTYPE_INDEX_STRING] = String(index!)
             
             let detailController = segue.destinationViewController as! DetailedViewController
             
             if let index = index{
                 
-                detailController.itemOfObject = self.arrayOfItems[index.row] as Item!
+                detailController.itemOfObject = self.arrayOfItems[index] as Item!
             
                 detailController.path = self.path
             }else{
@@ -86,7 +87,8 @@ extension ModelTableViewController{
     }
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        indexToSend = indexPath.row
+        performSegueWithIdentifier(SEGUE_MODEL_TO_DETAIL, sender: nil)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         

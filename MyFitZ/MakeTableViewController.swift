@@ -40,8 +40,8 @@ class MakeTableViewController: UITableViewController{
         }
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
-//            let index = self.tableView.indexPathForSelectedRow
-            
+            let index = self.tableView.indexPathForSelectedRow
+
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.path = self.path
             
@@ -101,8 +101,6 @@ extension MakeTableViewController:UIAlertViewDelegate{
             cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
         }
         
-        path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
-        
         return cell
     }//Returns a tableView cell at a specific row
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
@@ -133,7 +131,12 @@ extension MakeTableViewController:UIAlertViewDelegate{
     }//Category name is shown in the title header
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        path[PATHTYPE_INDEX_STRING] = String(indexPath.row)
+        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
+        
+        path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
+        
+        performSegueWithIdentifier(SEGUE_MAKE_TO_MODEL, sender: nil)
     }//Shows when a cell at row was selected
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200

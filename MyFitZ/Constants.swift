@@ -24,7 +24,14 @@ enum ItemError:ErrorType{
 
 
 //Picker options
-let CATEGORY_PICKER_OPTIONS = ["Tops", "Bottoms", "Headware", "Footware", "Accessories", "Underclothing"]
+let CATEGORY_PICKER_OPTIONS = [TOPS, BOTTOMS, HEADWARE, FOOTWARE, ACCESSORIES, UNDERCLOTHING]
+let TOPS = "Tops"
+let BOTTOMS = "Bottoms"
+let HEADWARE = "Headware"
+let FOOTWARE =  "Footware"
+let ACCESSORIES = "Accessories"
+let UNDERCLOTHING = "Underclothing"
+
 let YES_NO = ["Yes", "No"]
 let ITEM_CONDITION = ["Unwearable", "Old/Damaged", "Worn Down", "Good", "Clean", "Prestine"]
 let COLOR_TYPE = ["Red", "Blue", "Green", "Black", "White", "Yellow", "Orange", "Grey", "Pink", "Purple", "Brown"]
@@ -35,7 +42,7 @@ let PATHTYPE_INDEX_STRING       = "Index"
 
 //Closet
 let MY_CLOSET = "My Closet"
-let MY_WANTS_CLOSET = "My Wants Closet"
+let MY_WANTS_CLOSET = "Wish List"
 
 //Segue identifiers
 let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
@@ -69,8 +76,8 @@ let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"
 let BLANK_IMAGE_STRING          = "blank image"
 
 //Colors
-let MY_CLOSET_BAR_COLOR = UIColor.purpleColor()
-let MY_WANTS_CLOSET_BAR_COLOR = UIColor.greenColor()
+let MY_CLOSET_BAR_COLOR = UIColor.blackColor()
+let MY_WANTS_CLOSET_BAR_COLOR = UIColor.darkGrayColor()
 
 
 

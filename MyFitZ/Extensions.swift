@@ -20,3 +20,22 @@ import UIKit
 //}
 //
 //let playerAss = UIImage(assetIdentifier: .Player)
+
+extension String{
+    func returnDaysInDate()->Int{
+        let today = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        
+        let cal = NSCalendar.currentCalendar()
+        let unit:NSCalendarUnit = .Day
+        
+        guard let date = dateFormatter.dateFromString(self) else{
+            return 10000
+        }
+        
+        let components = cal.components(unit, fromDate: date, toDate: today, options: .WrapComponents)
+        
+        return components.day ?? 10000
+    }
+}
