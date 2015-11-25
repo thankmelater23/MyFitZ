@@ -27,7 +27,7 @@ class SelectionViewController: UIViewController{
     ///An action that takes the buttonn(sender).text and stores it into categoryString
     @IBAction func categoryIsButtonName(sender: UIButton) {
         path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
-        playSoundEffects(itemSelectSFX)
+        playSoundEffects(categorySFX)
 //        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_MAKE, sender: self)
     }
     @IBAction func backButton(sender: AnyObject) {
