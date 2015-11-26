@@ -32,7 +32,7 @@ class SelectionViewController: UIViewController{
     }
     @IBAction func backButton(sender: AnyObject) {
         playSoundEffects(backSFX)
-//        performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
     }
     
     //View Methods
@@ -49,6 +49,13 @@ class SelectionViewController: UIViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
         self.navigationController?.navigationBar.translucent = false
+//        self.navigationController?.navigationBar.titleTextAttributes = [
+//            NSBackgroundColorAttributeName: UIColor.purpleColor(),
+//            NSFontAttributeName: "Chalkduster",
+////            NSBackgroundColorAttributeName: UIColor.whiteColor(),
+////            NSBackgroundColorAttributeName: UIColor.whiteColor(),
+//            NSTextEffectAttributeName: NSTextEffectLetterpressStyle
+//            ]
         
         self.assignCategoriesItemCount()
         
@@ -67,7 +74,8 @@ class SelectionViewController: UIViewController{
             let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
             makeController.path = self.path
         }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
-            
+            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
+            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_SELECTION
         }else{
 //            print("Segue transfer: \(segue.identifier)")
         }

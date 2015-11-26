@@ -22,6 +22,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var subCategoryPickerOptions = [String]()
     var categorySelected: String! = String()
     var subCategorySelected: String! = String()
+    var lastVCSegue = String()
     
     var manager:RETableViewManager?
     
@@ -76,26 +77,30 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
             
             
         catch ItemError.IncorrectSubCategory{
+            playSoundEffects(incorrectSFX)
             let alert = UIAlertController(title: "SubCategory Missing", message: "Enter in correct subcateogry", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: {
-                playSoundEffects(incorrectSFX)})
+            self.presentViewController(alert, animated: true, completion:nil)
         }catch ItemError.missingModelString{
+            playSoundEffects(incorrectSFX)
             let alert = UIAlertController(title: "Model String Missing", message: "Enter in correct Model String", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: {
-                playSoundEffects(incorrectSFX)})
+            self.presentViewController(alert, animated: true, completion:nil)
         }catch ItemError.addImage{
+            
+            playSoundEffects(incorrectSFX)
             let alert = UIAlertController(title: "Image not selected", message: "Selctect image", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: {
-                playSoundEffects(incorrectSFX)})
+            self.presentViewController(alert, animated: true, completion:nil)
         }catch{
+            playSoundEffects(incorrectSFX)
             assertionFailure("Unknow error type thrown")
         }
         
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
+        
+//        performSegueWithIdentifier(self.lastVCSegue, sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,7 +174,6 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         self.clear()
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -206,6 +210,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         }
         
     }
+    
 }
 
 //MARK: - Developer Created Methods

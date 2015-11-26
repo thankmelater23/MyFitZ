@@ -27,12 +27,11 @@ class DetailedViewController: UIViewController{
         
         alert.addAction(action)
         alert.addAction(act)
-        self.presentViewController(alert, animated: true, completion: {
-        playSoundEffects(deleteSFX)})
-        
+        self.presentViewController(alert, animated: true, completion:nil)
     }
     @IBOutlet weak var wearButton: UIButton!
     @IBAction func wear() {
+        playSoundEffects(wearSFX)
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         let newDate = dateFormatter.stringFromDate((NSDate()))
@@ -50,13 +49,11 @@ class DetailedViewController: UIViewController{
         
         
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
-            wait(w_status: 1)//Put something valid
             self.itemOfObject.lastTimeWorn = newDate
             gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
             gamesWardrobe.quickSave()
         })
         self.tableView.reloadData()
-        playSoundEffects(wearSFX)
     }
     //View Variables
     ///Item selected
@@ -81,15 +78,23 @@ class DetailedViewController: UIViewController{
             let modelTableViewController = segue.destinationViewController as! ModelTableViewController
             
             modelTableViewController.path = self.path
-        }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
-            let createItemViewController = segue.destinationViewController as! CreateItemViewController
-            
         }else if segue.identifier == SEGUE_DETAIL_TO_EDIT{
             let editItemViewController = segue.destinationViewController as! EditItemViewController
             editItemViewController.path = self.path
             editItemViewController.viewItem = self.itemOfObject
             editItemViewController.previousItem = self.itemOfObject
+        }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
+            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
+            createItemViewController.lastVCSegue = SEGUE_DETAIL_TO_CREATION
         }
+    }
+    @IBAction func editButtonPressed() {
+        playSoundEffects(editSFX)
+        performSegueWithIdentifier(SEGUE_DETAIL_TO_EDIT, sender: self)
+    }
+    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+        playSoundEffects(backSFX)
+        performSegueWithIdentifier(SEGUE_DETAIL_TO_MODEL, sender: self)
     }
 }
 

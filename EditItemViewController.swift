@@ -68,6 +68,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     var path: [String: String] = [String: String]()
     @IBAction func updateItem() {
         do{
+            playSoundEffects(updateSFX)
             saveItemVars()
             //gamesWardrobe.swapItem(viewItem.category, funcSubCategory: viewItem.subCategory, prevFuncCategory: previousItem.category, prevFuncSubCategory: previousItem.subCategory, item: viewItem)
             gamesWardrobe.deleteItem(previousItem.category, funcSubCategory: previousItem.subCategory, item: previousItem)
@@ -90,7 +91,6 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
-        playSoundEffects(updateSFX)
     }
 
     override func viewDidLoad() {

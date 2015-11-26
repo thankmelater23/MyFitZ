@@ -44,8 +44,14 @@ class MakeTableViewController: UITableViewController{
 
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.path = self.path
-            
+        }else if segue.identifier == SEGUE_MAKE_TO_CREATION{
+            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
+            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MAKE
         }
+    }
+    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+        playSoundEffects(backSFX)
+        performSegueWithIdentifier(SEGUE_MAKE_TO_SELECTION, sender: self)
     }
     
 }

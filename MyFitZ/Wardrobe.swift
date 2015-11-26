@@ -151,7 +151,7 @@ extension Wardrobe{
     }
     func save(funcCategory:String, funcSubCategory:String, item: Item)throws{
         
-        if funcSubCategory == ""{throw ItemError.IncorrectSubCategory}
+        if funcSubCategory.isEmpty == true{throw ItemError.IncorrectSubCategory}
         
         let keysOfCategory = Array(selectedCloset[funcCategory]!.keys)
         let isKeyNew = keysOfCategory.contains(funcSubCategory)
@@ -250,12 +250,17 @@ extension Wardrobe{
     
     //Delete Functions
     func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
+        playSoundEffects(deleteSFX)
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         var num = 0
         for index in array{
             if index.isEqual(item){
-                self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num++)
+                self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num)
+                break
+            }else{
+                num++
             }
+            
         }
         
         selectedCloset[funcCategory]![funcSubCategory]! = array
@@ -264,10 +269,12 @@ extension Wardrobe{
         self.quickSave()
     }
     func deleteAt(funcCategory: String, funcSubCategory: String){//Deletes subCateogry row
+        playSoundEffects(deleteSFX)
         selectedCloset[funcCategory]!.removeValueForKey(funcSubCategory)
         quickSave()
     }
     func deleteAt(funcCategory: String, row: Int){//Deletes category row
+        playSoundEffects(deleteSFX)
         var array = Array(selectedCloset[funcCategory]!.keys)
         
         let key = array[row]
@@ -340,3 +347,9 @@ extension Wardrobe{
         }
     }
 }
+
+//extension Wardrobe: Equatable{
+//    func ==(lhs: Wardrobe, rhs: Wardrobe){
+//
+//    }
+//}

@@ -24,6 +24,10 @@ class ModelTableViewController: UITableViewController {
         self.SetUpTypes()
         
     }
+    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+        playSoundEffects(backSFX)
+        performSegueWithIdentifier(SEGUE_MODEL_TO_MAKE, sender: self)
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
             print("Segue transfer: \(segue.identifier)")
@@ -52,6 +56,9 @@ class ModelTableViewController: UITableViewController {
             makeTableViewController.path = self.path
                     }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
             
+        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
+            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
+            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MODEL
         }
     }
     override func didReceiveMemoryWarning() {
