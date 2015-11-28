@@ -60,6 +60,10 @@ class SelectionViewController: UIViewController{
         self.assignCategoriesItemCount()
         
     }
+    func incrementViewOpened(){
+        //If view opened 0 times run tip animation
+        //StandardDef
+    }
 
     //    @IBAction func crashButtonTapped(sender: AnyObject) {
     //        Crashlytics.sharedInstance().crash()
