@@ -254,6 +254,7 @@ extension CreateItemViewController{
         
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         self.model = RETextItem(title: "Model:", value: String(), placeholder: "Enter Item Name")
+        self.model?.style
         //        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
         self.brand = RETextItem(title: "Brand:", value: String(), placeholder: "Enter Item brand")
         self.favorited = REBoolItem(title: "Favorite:", value: false)
@@ -349,6 +350,7 @@ extension CreateItemViewController{
         
         playSoundEffects(clearSFX)
     }
+    
 }
 
 
@@ -462,7 +464,7 @@ extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigation
 }
 
 
-//Text Field methods
+//MARK: -Field methods
 extension CreateItemViewController: UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
         

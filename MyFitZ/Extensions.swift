@@ -9,33 +9,31 @@
 import Foundation
 import UIKit
 
-//extension UIImage{
-//    
-//    enum AssetIdentifier: String{
-//        case Player, Boss
-//    }
-//    convenience init!(assetIdentifier: AssetIdentifier){
-//        self.init(named: assetIdentifier.rawValue)
-//    }
-//}
-//
-//let playerAss = UIImage(assetIdentifier: .Player)
-
 extension String{
     func returnDaysInDate()->Int{
-        let today = NSDate()
         let dateFormatter = NSDateFormatter()
-        
-        
-        let cal = NSCalendar.currentCalendar()
-        let unit:NSCalendarUnit = .Minute
+        dateFormatter.dateStyle = .ShortStyle
         
         guard let date = dateFormatter.dateFromString(self) else{
             return 10000
         }
         
-        let components = cal.components(unit, fromDate: date, toDate: today, options: .WrapComponents)
-        
-        return components.minute ?? 1000000000
+        return date.returnDaysInDate()
     }
+}
+    extension NSDate{
+        func returnDaysInDate()->Int{
+            let today = NSDate()
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = .ShortStyle
+            
+            let cal = NSCalendar.currentCalendar()
+            let unit:NSCalendarUnit = .Day
+            
+            let date = self
+            
+            let components = cal.components(unit, fromDate: date, toDate: today, options: .WrapComponents)
+            
+            return components.day ?? 100000
+        }
 }

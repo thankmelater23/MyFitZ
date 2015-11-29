@@ -31,28 +31,13 @@ class DetailedViewController: UIViewController{
     }
     @IBOutlet weak var wearButton: UIButton!
     @IBAction func wear() {
-        playSoundEffects(wearSFX)
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .ShortStyle
-        let newDate = dateFormatter.stringFromDate((NSDate()))
+        let closet = gamesWardrobe.closetSelectionString
         
-        
-        
-        let dicOfOptions = [
-            kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
-            kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
-            kCRToastBackgroundColorKey : UIColor.blueColor(),
-            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
-            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
-            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
-            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
-        
-        
-        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
-            self.itemOfObject.lastTimeWorn = newDate
-            gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
-            gamesWardrobe.quickSave()
-        })
+        if true{
+            self.wearActivate()
+        }else{
+            self.sendItemToMyCloset()
+        }
         self.tableView.reloadData()
     }
     //View Variables
@@ -179,11 +164,11 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case 4 :
             keyAndValue = ITEM_PRICE_STRING
-            guard let value = itemOfObject.price else{
+            if let value = itemOfObject.price{
+                cell.configure(name: keyAndValue, infoString: String(value))
+            }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
-                break
             }
-            cell.configure(name: keyAndValue, infoString: "N/A")
         case 5 :
             keyAndValue = ITEM_FAVORITED_STRING
             let bool = self.itemOfObject.favorited
@@ -206,9 +191,10 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case 7 :
             keyAndValue = ITEM_TIMESWORN_STRING
-            guard let value = itemOfObject.timesWorn else{
+            if let value = itemOfObject.timesWorn{
+                cell.configure(name: keyAndValue, infoString: String(value))
+            }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
-                break
             }
             cell.configure(name: keyAndValue, infoString: "N/A")
         case 8 :
@@ -218,17 +204,23 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             if(lastDate != nil){
                 let today = NSDate()
                 
-                let components = cal.components(unit, fromDate: lastDate!, toDate: today, options: .WrapComponents)
+                let unitDay:NSCalendarUnit = .Day
+                let unitMonth:NSCalendarUnit = .Month
+                let unitYear:NSCalendarUnit = .Year
+                
+                let components = cal.components(unitDay, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                 if let value = self.itemOfObject.lastTimeWorn{
                     switch(components.day){
                     case 0...500:
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.day)) + " Days ago")
                     case 500...1000:
+                        let components = cal.components(unitMonth, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.month)) + " Months ago")
                     case 1000..<1000:
+                        let components = cal.components(unitYear, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.year)) + " Years ago")
                     default: break
-                        assertionFailure("This shouldint happen")
+                    assertionFailure("This shouldint happen")
                     }
                 }
             }else{
@@ -362,6 +354,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 //MARK: - Developer Created Methods
 extension DetailedViewController{
     func setUp(){
+        self.buttonIsWearOrGot()
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Detail")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -376,6 +369,7 @@ extension DetailedViewController{
         self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
         self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
             //Play Sound
+            self.wearButtonAvailable()
         })
         
         
@@ -387,7 +381,55 @@ extension DetailedViewController{
         self.tableView.backgroundColor = UIColor.greenColor()
         self.tableView?.tintColor = UIColor.greenColor()
         self.tableView?.separatorColor = UIColor.blackColor()
-        self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor() 
+        self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor()
+    }
+    func wearButtonAvailable(){
+        let daysLastWorn:Int = itemOfObject.lastTimeWorn.returnDaysInDate()
+        
+        if daysLastWorn < 1{
+            hideWearButton()
+        }
+    }
+    func hideWearButton(){
+        wearButton.alpha = 0.3
+        wearButton.backgroundColor = UIColor.grayColor()
+        wearButton.userInteractionEnabled = false
+    }
+    func buttonIsWearOrGot(){
+        let closet = gamesWardrobe.closetSelectionString
+        
+        if closet == MY_CLOSET{
+            wearButton.titleLabel?.text = "WEAR"
+        }else if closet == MY_WANTS_CLOSET{
+            wearButton.titleLabel?.text = "GOT"
+        }
+}
+    func sendItemToMyCloset(){
+        //Put code here to send to closet
+    }
+    func wearActivate(){
+        playSoundEffects(wearSFX)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        let newDate = dateFormatter.stringFromDate((NSDate()))
+        
+        
+        
+        let dicOfOptions = [
+            kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
+            kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
+            kCRToastBackgroundColorKey : UIColor.blueColor(),
+            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
+            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
+            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
+            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
+        
+        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
+            self.itemOfObject.lastTimeWorn = newDate
+            gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
+            gamesWardrobe.quickSave()
+        })
+
     }
 }
 

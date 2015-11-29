@@ -103,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "470231304.165459"
+            timestampString = "470493892.352111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "createCellFromRequiredDictionary(row:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -228,28 +228,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "470045431.343303"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "quickSave()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MyFitZ/ViewController.swift"
-            timestampString = "470050361.233575"
+            timestampString = "470481580.881756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "selectedWants()"
             landmarkType = "5">
          </BreakpointContent>
@@ -277,11 +261,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "470229196.623488"
+            timestampString = "470493892.352111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "wear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -293,11 +277,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "470189458.979225"
+            timestampString = "470493892.352111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "deleteItem(_:funcSubCategory:item:)"
             landmarkType = "5">
          </BreakpointContent>

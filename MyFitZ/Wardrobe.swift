@@ -18,6 +18,7 @@ class Wardrobe:NSObject, NSCoding{
     var myCloset = CLOSET_TYPE()
     var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
     var brandCollection: [String] = [String]()
+    var brandCategoryCollection: [String: [String]] = [String: [String]]()
     //var progress: NSProgress
     
     var closetSelectionString: String! = MY_CLOSET
@@ -171,7 +172,6 @@ extension Wardrobe{
         if item.model != ""{//Appends item to subCategory else throws
             self.selectedCloset[funcCategory]![funcSubCategory]!.append(item)
             
-            
             updateBrandCollectiion(item)
             
             print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
@@ -183,9 +183,9 @@ extension Wardrobe{
         self.quickSave()
     }
     func quickSave(){
+        playSoundEffects(saveSFX)
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
-        playSoundEffects(saveSFX)
     }
 }
 
@@ -203,7 +203,7 @@ extension Wardrobe{
         
         
         let unSortedArray = self.selectedCloset[funcCategory]![funcSubCategory]!
-        let sorted = unSortedArray.sort({ 
+        let sorted = unSortedArray.sort({
             $0.lastTimeWorn.returnDaysInDate() < $1.lastTimeWorn.returnDaysInDate()
         })
         
@@ -213,7 +213,7 @@ extension Wardrobe{
             value.index = sum++
             value.path[PATHTYPE_INDEX_STRING] = String(value.index)
         }
-
+        
         self.selectedCloset[funcCategory]![funcSubCategory]! = sorted
     }
     func setProgress(){
@@ -242,6 +242,7 @@ extension Wardrobe{
         
         return values //?? [String]()
     }
+
     func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
         let array = selectedCloset[funcCategory]![funcSubCategory]!
         
@@ -331,7 +332,7 @@ extension Wardrobe{
     }
     func getCountOfAllItemsInCategory(funcCategory: String)->Int{
         var sum = 0
-        for (key, value) in selectedCloset[funcCategory]!{
+        for (_, value) in selectedCloset[funcCategory]!{
             sum += value.count
         }
         return sum
@@ -343,10 +344,30 @@ extension Wardrobe{
         let brand = item.brand
         if !brandCollection.contains(brand)  && brand != ""{
             brandCollection.append(brand)
-            brandCollection = brandCollection.sort()
+            brandCollection = brandCollection.sort{$0 <  $1}
         }
     }
+    
+//    func updateBrandCatCollectiion(item: Item){
+//        let brand = item.brand
+//        let category = item.category
+//        
+//        var brandArray = self.brandCategoryCollection[category]!
+//        
+//        
+//        if !brandArray.contains(brand)  && brand != ""{
+//            brandArray.append(brand)
+//            brandArray = brandArray.sort{$0 <  $1}
+//            self.brandCategoryCollection[category] = brandArray
+//        }
+//    }
+    
+//    func updateCategoryOrder(category: String){
+//        let sortedCategory = self.returnArrayOfValuesOfCategory(category)//.sort({$0.array[0].category < $1.array[0].category})
+//        selectedCloset[category] = sortedCategory
+//    }
 }
+
 
 //extension Wardrobe: Equatable{
 //    func ==(lhs: Wardrobe, rhs: Wardrobe){
