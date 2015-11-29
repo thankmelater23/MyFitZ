@@ -23,7 +23,7 @@ class Wardrobe:NSObject, NSCoding{
     
     var closetSelectionString: String! = MY_CLOSET
     var selectedCloset: CLOSET_TYPE{
-        get{
+        get{ 
             if closetSelectionString == MY_CLOSET{
                 return myCloset
             }else if closetSelectionString == MY_WANTS_CLOSET{
