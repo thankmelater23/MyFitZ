@@ -114,8 +114,6 @@ extension Wardrobe{
         dispatch_async(GlobalMainQueue, {
             
             SVProgressHUD.show()
-            //            MRProgressOverlayView.
-            //                        [MRProgressOverlayView showOverlayAddedTo:self.super.view animated:YES]
             
             let dicOfOptions = [kCRToastTextKey: "File Saving", kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
                 kCRToastBackgroundColorKey : UIColor.greenColor(),
@@ -124,16 +122,18 @@ extension Wardrobe{
                 kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
                 kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
             
-            success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
             
             CRToastManager .showNotificationWithOptions(dicOfOptions, completionBlock: {
-                SVProgressHUD.showSuccessWithStatus("Saved")
-                wait(w_status: 1)
-                SVProgressHUD.dismiss()
-                //                    [MRProgressOverlayView dismissOverlayForView:self.view animated:YES]
-                print("File Saved Successfully")})
+                dispatch_sync(GlobalUtilityQueue, {
+                    success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
+
+                    SVProgressHUD.showSuccessWithStatus("Saved")
+                    SVProgressHUD.dismiss()
+                    
+                    print("File Saved Successfully")
+                })
+            })
         })
-        
     }
     func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
         

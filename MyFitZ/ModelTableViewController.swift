@@ -88,7 +88,7 @@ extension ModelTableViewController{
         let item: Item            = arrayOfItems[indexPath.row] as Item!
         
         //TODO: -Change brand to subacategory instead
-        cell.setCell(item.image!, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: item.lastTimeWorn!)
+        cell.setCell(item.image!, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: item.lastTimeWorn!, favorited: item.favorited)
         
         return cell
     }

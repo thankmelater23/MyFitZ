@@ -12,7 +12,6 @@
 		C606C0101C0B16700012AD13 /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = C606C00D1C0B16700012AD13 /* set_build_number.sh */; };
 		C60C6AD11C02C92300C8935A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C6AD01C02C92300C8935A /* Functions.swift */; };
 		C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */; };
-		C626B9391BE0A48C00BB5E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C626B9381BE0A48C00BB5E86 /* Assets.xcassets */; };
 		C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */; };
 		C626B9521BE0A48C00BB5E86 /* MyFitZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9511BE0A48C00BB5E86 /* MyFitZUITests.swift */; };
 		C63BA5C91BEF93C600DCDD61 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */; };
@@ -58,6 +57,7 @@
 		C6B492971C04457200A1D237 /* update0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492871C04457200A1D237 /* update0.wav */; };
 		C6B492981C04457200A1D237 /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear0.wav */; };
 		C6B492991C04457200A1D237 /* wishlist0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492891C04457200A1D237 /* wishlist0.wav */; };
+		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
 		F700C3D70F2D041CBEB78984 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +87,6 @@
 		C60C6AD01C02C92300C8935A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		C626B92E1BE0A48C00BB5E86 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C626B9381BE0A48C00BB5E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C626B93D1BE0A48C00BB5E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C626B9421BE0A48C00BB5E86 /* MyFitZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFitZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFitZTests.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		C6B492871C04457200A1D237 /* update0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = update0.wav; sourceTree = "<group>"; };
 		C6B492881C04457200A1D237 /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
 		C6B492891C04457200A1D237 /* wishlist0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wishlist0.wav; sourceTree = "<group>"; };
+		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8B0101EB440F6385F917B92 /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,9 +239,9 @@
 				C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */,
 				C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */,
 				C64503DA1BE1A17F0065EC2F /* Main.storyboard */,
-				C626B9381BE0A48C00BB5E86 /* Assets.xcassets */,
 				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
 				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
+				C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */,
 				C6B4927A1C04457200A1D237 /* add0.wav */,
 				C6B4927B1C04457200A1D237 /* alert0.wav */,
 				C6B4927C1C04457200A1D237 /* animationPop0.wav */,
@@ -402,6 +402,7 @@
 			files = (
 				C6B4928B1C04457200A1D237 /* alert0.wav in Resources */,
 				C6B492921C04457200A1D237 /* mycloset0.wav in Resources */,
+				C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */,
 				C6B492981C04457200A1D237 /* wear0.wav in Resources */,
 				C6B4928C1C04457200A1D237 /* animationPop0.wav in Resources */,
 				C6B492941C04457200A1D237 /* notification0.wav in Resources */,
@@ -420,7 +421,6 @@
 				C6B492931C04457200A1D237 /* notification1.wav in Resources */,
 				C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */,
 				C6B4928D1C04457200A1D237 /* back0.wav in Resources */,
-				C626B9391BE0A48C00BB5E86 /* Assets.xcassets in Resources */,
 				C606C0101C0B16700012AD13 /* set_build_number.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

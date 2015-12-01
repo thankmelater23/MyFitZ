@@ -703,7 +703,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226-Fu-IJJ" userLabel="Times Worn Label">
-                                            <rect key="frame" x="124" y="96" width="300" height="21"/>
+                                            <rect key="frame" x="124" y="95" width="443" height="22"/>
                                             <animations/>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -718,18 +718,29 @@
                                             <color key="textColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rel-3R-xIw" userLabel="Star">
+                                            <rect key="frame" x="502" y="0.0" width="65" height="73"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Rel-3R-xIw" secondAttribute="height" multiplier="1:1" constant="-8" id="csV-Gj-blP"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <animations/>
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="bottom" secondItem="226-Fu-IJJ" secondAttribute="bottom" constant="-44" id="1pd-NV-Vsr"/>
                                         <constraint firstItem="7r6-ur-tny" firstAttribute="top" secondItem="vII-SZ-QfF" secondAttribute="topMargin" constant="1" id="2iA-qX-qXX"/>
                                         <constraint firstItem="PVQ-xa-hdg" firstAttribute="top" secondItem="Il3-OU-fF3" secondAttribute="bottom" constant="22" id="6Xg-QC-I6b"/>
                                         <constraint firstItem="Il3-OU-fF3" firstAttribute="top" secondItem="7r6-ur-tny" secondAttribute="top" id="Arj-ng-HfB"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="leading" secondItem="Il3-OU-fF3" secondAttribute="trailing" constant="78" id="G2k-D0-3fk"/>
                                         <constraint firstItem="7r6-ur-tny" firstAttribute="leading" secondItem="vII-SZ-QfF" secondAttribute="leadingMargin" id="HvG-hy-Kil"/>
-                                        <constraint firstItem="226-Fu-IJJ" firstAttribute="trailing" secondItem="PVQ-xa-hdg" secondAttribute="trailing" id="ITQ-7p-O1a"/>
-                                        <constraint firstItem="226-Fu-IJJ" firstAttribute="top" secondItem="PVQ-xa-hdg" secondAttribute="bottom" constant="23" id="Kc6-nM-F0c"/>
+                                        <constraint firstItem="226-Fu-IJJ" firstAttribute="trailing" secondItem="PVQ-xa-hdg" secondAttribute="trailing" constant="143" id="ITQ-7p-O1a"/>
+                                        <constraint firstItem="226-Fu-IJJ" firstAttribute="top" secondItem="PVQ-xa-hdg" secondAttribute="bottom" constant="22" id="Kc6-nM-F0c"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="trailing" secondItem="vII-SZ-QfF" secondAttribute="trailingMargin" constant="8" id="Sn5-he-cgP"/>
                                         <constraint firstItem="PVQ-xa-hdg" firstAttribute="leading" secondItem="Il3-OU-fF3" secondAttribute="leading" id="XkI-AG-CiH"/>
                                         <constraint firstItem="PVQ-xa-hdg" firstAttribute="centerY" secondItem="vII-SZ-QfF" secondAttribute="centerY" id="bQl-qZ-2NP"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="centerY" secondItem="PVQ-xa-hdg" secondAttribute="centerY" constant="-26" id="dpc-fU-CZo"/>
                                         <constraint firstItem="7r6-ur-tny" firstAttribute="bottom" secondItem="226-Fu-IJJ" secondAttribute="bottom" id="gun-uk-Mbd"/>
                                         <constraint firstItem="Il3-OU-fF3" firstAttribute="trailing" secondItem="PVQ-xa-hdg" secondAttribute="trailing" id="ktz-3m-j6L"/>
                                         <constraint firstItem="Il3-OU-fF3" firstAttribute="leading" secondItem="7r6-ur-tny" secondAttribute="trailing" constant="8" symbolic="YES" id="zGb-GS-D7L"/>
@@ -744,6 +755,7 @@
                                     <outlet property="brandLabel" destination="PVQ-xa-hdg" id="GDV-wN-jPK"/>
                                     <outlet property="modelImage" destination="7r6-ur-tny" id="SCh-16-8Ox"/>
                                     <outlet property="modelLabel" destination="Il3-OU-fF3" id="RCm-va-c07"/>
+                                    <outlet property="star" destination="Rel-3R-xIw" id="qas-vt-DLF"/>
                                     <outlet property="timesWornLabel" destination="226-Fu-IJJ" id="yfS-lV-iaO"/>
                                 </connections>
                             </tableViewCell>
@@ -1939,14 +1951,15 @@
         <image name="Socks" width="225" height="225"/>
         <image name="add image" width="204" height="204"/>
         <image name="blank image" width="225" height="225"/>
+        <image name="error.png" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Fb-bj-RMJ"/>
-        <segue reference="Hhi-FQ-vv8"/>
+        <segue reference="Iik-tP-R1T"/>
         <segue reference="yz2-3b-uLd"/>
+        <segue reference="CTt-wg-tez"/>
+        <segue reference="rAA-9Q-Vmk"/>
         <segue reference="0BF-nb-8YO"/>
-        <segue reference="opv-1h-Bzj"/>
-        <segue reference="XTX-6Q-pz0"/>
         <segue reference="1tB-kg-ppv"/>
+        <segue reference="XTX-6Q-pz0"/>
     </inferredMetricsTieBreakers>
 </document>

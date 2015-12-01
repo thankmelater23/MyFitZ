@@ -215,7 +215,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.day)) + " Days ago")
                     case 500...1000:
                         let components = cal.components(unitMonth, fromDate: lastDate!, toDate: today, options: .WrapComponents)
-                        cell.configure(name: keyAndValue, infoString:value + "-" + String((components.month)) + " Months ago")
+                        cell.configure(name: keyAndValue, infoString:value + "-" + String((components.month)) + " Mnths ago")
                     case 1000..<1000:
                         let components = cal.components(unitYear, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.year)) + " Years ago")

@@ -16,6 +16,7 @@ class ModelCustomCell: UITableViewCell{
   @IBOutlet weak var modelLabel: UILabel!
   @IBOutlet weak var timesWornLabel: UILabel!
 
+  @IBOutlet weak var star: UIImageView!
 
   override func  awakeFromNib(){
     super.awakeFromNib()
@@ -23,10 +24,21 @@ class ModelCustomCell: UITableViewCell{
   override func setSelected(selected: Bool, animated: Bool){
     super.setSelected(selected ,  animated: animated)
   }
-  func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String){
+    func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String, favorited: Bool){
     self.modelImage.image    = modelImageText
     self.brandLabel.text     = brandLabelText
     self.modelLabel.text     = modelLabelText
     self.timesWornLabel.text = "Last Time Worn: \(lastTimeWornText)"
+        
+        self.setFavoritedStar(favorited)
+        
   }
+    
+    func setFavoritedStar(fav: Bool){
+        if fav == true{
+            star.image = UIImage(named: "star_on")
+        }else{
+            star.image = UIImage(named: "star_off")
+        }
+    }
 }
