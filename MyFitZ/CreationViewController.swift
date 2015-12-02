@@ -36,10 +36,6 @@ class CreationViewController: UIViewController{
     @IBAction func createItem(sender: UIButton) {
         do{
             try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
-            
-//            let alert = UIAlertView(title: "SAVED", message: "\(viewItem.model) saved to: \(categorySelected)/\(subCategorySelected)", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
-            
         }
             
             

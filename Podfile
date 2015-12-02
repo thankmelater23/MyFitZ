@@ -12,6 +12,16 @@ target 'MyFitZ' do
     pod 'DKChainableAnimationKit'
     pod 'MRProgress' #Multiple tipes of loading bars and circles
     pod 'SVProgressHUD'
+    pod 'TSMessages'
+    pod 'DZNEmptyDataSet'
+    pod 'ChameleonFramework'
+    pod 'iRate'
+    pod 'SlackTextViewController'
+    pod 'FontAwesomeKit'
+    #pod 'KLCPopup'
+    #pod 'PermissionScope'
+    #pod 'PKRevealController'
+    #pod 'Charts'
     #    pod 'iRate'#Ask's user to rate app after x amount of days
 end
 

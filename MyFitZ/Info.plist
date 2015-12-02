@@ -32,6 +32,15 @@
 				<key>KitName</key>
 				<string>Crashlytics</string>
 			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>apikey</key>
+					<string>e845f067393948c4b497cac6019039e9</string>
+				</dict>
+				<key>KitName</key>
+				<string>Appsee</string>
+			</dict>
 		</array>
 	</dict>
 	<key>LSRequiresIPhoneOS</key>

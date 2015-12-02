@@ -14,4 +14,5 @@
 #import "CRToastView.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "DKChainableAnimationKit.h"
+#import "UIScrollView+EmptyDataSet.h"
 #endif /* MyFitZ_Bridging_Header_h */

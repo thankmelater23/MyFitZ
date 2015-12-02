@@ -14,14 +14,26 @@ class ViewController:  UIViewController{
         gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
         gamesWardrobe.closetSelectionString = MY_CLOSET
         playSoundEffects(closetSFX)
-//        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("CLOSET_SELECTION_COUNT")
+        
+        self.logPageView()
+        
+        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     
     @IBAction func selectedWants() {
         gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
         gamesWardrobe.closetSelectionString = MY_WANTS_CLOSET
         playSoundEffects(wishlistSFX)
-//        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("WISHLIST_SELECTION_COUNT")
+        
+        self.logPageView()
+        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     
     override func viewDidLoad(){
@@ -40,11 +52,17 @@ class ViewController:  UIViewController{
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        let button = UIButton(type: UIButtonType.RoundedRect)
-        button.frame = CGRectMake(100, 100, 200, 200)
-        button.setTitle("Crash", forState: UIControlState.Normal)
-        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(button)
+        //        let button = UIButton(type: UIButtonType.RoundedRect)
+        //        button.frame = CGRectMake(100, 100, 200, 200)
+        //        button.setTitle("Crash", forState: UIControlState.Normal)
+        //        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        //        view.addSubview(button)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("MAIN_PAGE_COUNT")
+        
+        self.logPageView()
     }
     
     @IBAction func crashButtonTapped(sender: AnyObject) {
@@ -54,6 +72,26 @@ class ViewController:  UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("MAIN_PAGE_COUNT")
+        
+        let closetSelectionCount:Int? = defaults.returnIntValue("CLOSET_SELECTION_COUNT")
+        
+        let wishListSelectionCount:Int? = defaults.returnIntValue("WISHLIST_SELECTION_COUNT")
+        
+        
+
+        Answers.logContentViewWithName("Main View Content View",
+            contentType: "Main Menu",
+            contentId: "MF1",
+            customAttributes: ["MAIN_PAGE_COUNT": pageCount!,
+                "CLOSET_SELECTION_COUNT": closetSelectionCount!,
+                "WISHLIST_SELECTION_COUNT": wishListSelectionCount!
+            ])
     }
 }
 

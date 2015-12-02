@@ -7,6 +7,7 @@
 import UIKit
 import CRToast
 import DKChainableAnimationKit
+import Crashlytics
 
 //MARK: - DetailedViewController Class
 class DetailedViewController: UIViewController{
@@ -52,6 +53,26 @@ class DetailedViewController: UIViewController{
         print(self.itemOfObject)
         
         // Do view setup here.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("DETAIL_PAGE_COUNT")
+        
+        self.logPageView()
+    }
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
+        let wearPressedCount:Int? = defaults.returnIntValue("WEAR_PRESSED_COUNT")
+        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
+        
+        Answers.logContentViewWithName("Detail Content View",
+            contentType: "Detail View",
+            contentId: "MF5",
+            customAttributes: ["DETAIL_PAGE_COUNT": pageCount!,
+                "WEAR_PRESSED_COUNT": wearPressedCount!,
+                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
+            ])
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
@@ -75,6 +96,9 @@ class DetailedViewController: UIViewController{
     }
     @IBAction func editButtonPressed() {
         playSoundEffects(editSFX)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("EDIT_BUTTON_BUTTON_PRESSED")
+        
         performSegueWithIdentifier(SEGUE_DETAIL_TO_EDIT, sender: self)
     }
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
@@ -90,13 +114,14 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2//Create constant
     }// Return the number of sections.
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0){
-            return 10
+            return DETAIL_TABLEVIEW_BASIC_SECTION_COUNT
         }
             
         else if (section == 1){
-            return 8
+            return DETAIL_TABLEVIEW_MISC_SECTION_COUNT
         }
             
         else{
@@ -104,9 +129,11 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             return 0
         }
     }// Return the number of rows in the section.
+    
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
     }//Random number returned to fix xcode bug
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             return createCellFromRequiredDictionary(row: indexPath.row) as DoubleLabelTableViewCell
@@ -114,6 +141,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             return createCellFromOptionalDictionary(row: indexPath.row) as DoubleLabelTableViewCell
         }
     }
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0){
             return "Basic"
@@ -227,6 +255,20 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 9 :
+            keyAndValue = ITEM_KIND_STRING
+            if let value = self.itemOfObject.kind{
+                cell.configure(name: keyAndValue, infoString: value)
+            }else{
+                cell.configure(name: keyAndValue, infoString: "N/A")
+            }
+        case 10 :
+            keyAndValue = ITEM_SIZE_STRING
+            if let value = self.itemOfObject.size{
+                cell.configure(name: keyAndValue, infoString: value)
+            }else{
+                cell.configure(name: keyAndValue, infoString: "N/A")
+            }
+        case 11 :
             keyAndValue = ITEM_INDEX_STRING
             let number = self.itemOfObject.index
             if number != nil{
@@ -414,6 +456,13 @@ extension DetailedViewController{
         let newDate = dateFormatter.stringFromDate((NSDate()))
         
         
+//        var message:TSMessage = TSMessage()
+//            TSMessage.showNotificationWithTitle("Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate, type: TSMessageNotificationType.Message)
+        
+//        self.itemOfObject.lastTimeWorn = newDate
+//        gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
+//        gamesWardrobe.quickSave()
+        
         
         let dicOfOptions = [
             kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
@@ -430,7 +479,11 @@ extension DetailedViewController{
             gamesWardrobe.quickSave()
         })
 
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("WEAR_PRESSED_COUNT")
     }
+    
+    
 }
 
 

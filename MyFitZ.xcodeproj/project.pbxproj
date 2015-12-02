@@ -39,6 +39,7 @@
 		C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */; };
 		C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64503DA1BE1A17F0065EC2F /* Main.storyboard */; };
 		C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D73731BFD898D0084842B /* EditItemViewController.swift */; };
+		C68F51061C0EE34C00424646 /* Appsee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68F51051C0EE34C00424646 /* Appsee.framework */; };
 		C69D74451C0AF5D100C74D19 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74431C0AF5D100C74D19 /* Fabric.framework */; };
 		C69D74461C0AF5D100C74D19 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74441C0AF5D100C74D19 /* Crashlytics.framework */; };
 		C6B4928A1C04457200A1D237 /* add0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927A1C04457200A1D237 /* add0.wav */; };
@@ -49,15 +50,19 @@
 		C6B4928F1C04457200A1D237 /* clear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927F1C04457200A1D237 /* clear0.wav */; };
 		C6B492901C04457200A1D237 /* delete0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492801C04457200A1D237 /* delete0.wav */; };
 		C6B492911C04457200A1D237 /* edit0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492811C04457200A1D237 /* edit0.wav */; };
-		C6B492921C04457200A1D237 /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492821C04457200A1D237 /* mycloset0.wav */; };
+		C6B492921C04457200A1D237 /* mycloset1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492821C04457200A1D237 /* mycloset1.wav */; };
 		C6B492931C04457200A1D237 /* notification1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492831C04457200A1D237 /* notification1.wav */; };
 		C6B492941C04457200A1D237 /* notification0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492841C04457200A1D237 /* notification0.wav */; };
 		C6B492951C04457200A1D237 /* save0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492851C04457200A1D237 /* save0.wav */; };
 		C6B492961C04457200A1D237 /* cellselect0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492861C04457200A1D237 /* cellselect0.wav */; };
 		C6B492971C04457200A1D237 /* update0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492871C04457200A1D237 /* update0.wav */; };
-		C6B492981C04457200A1D237 /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear0.wav */; };
+		C6B492981C04457200A1D237 /* wear1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear1.wav */; };
 		C6B492991C04457200A1D237 /* wishlist0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492891C04457200A1D237 /* wishlist0.wav */; };
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
+		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
+		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
+		C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */; };
+		C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */; };
 		F700C3D70F2D041CBEB78984 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,7 +122,8 @@
 		C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; };
-		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
+		C68F51051C0EE34C00424646 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
+		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		C69D74431C0AF5D100C74D19 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C69D74441C0AF5D100C74D19 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C6B4927A1C04457200A1D237 /* add0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add0.wav; sourceTree = "<group>"; };
@@ -128,15 +134,19 @@
 		C6B4927F1C04457200A1D237 /* clear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clear0.wav; sourceTree = "<group>"; };
 		C6B492801C04457200A1D237 /* delete0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = delete0.wav; sourceTree = "<group>"; };
 		C6B492811C04457200A1D237 /* edit0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = edit0.wav; sourceTree = "<group>"; };
-		C6B492821C04457200A1D237 /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
+		C6B492821C04457200A1D237 /* mycloset1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset1.wav; sourceTree = "<group>"; };
 		C6B492831C04457200A1D237 /* notification1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification1.wav; sourceTree = "<group>"; };
 		C6B492841C04457200A1D237 /* notification0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification0.wav; sourceTree = "<group>"; };
 		C6B492851C04457200A1D237 /* save0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = save0.wav; sourceTree = "<group>"; };
 		C6B492861C04457200A1D237 /* cellselect0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cellselect0.wav; sourceTree = "<group>"; };
 		C6B492871C04457200A1D237 /* update0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = update0.wav; sourceTree = "<group>"; };
-		C6B492881C04457200A1D237 /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
+		C6B492881C04457200A1D237 /* wear1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear1.wav; sourceTree = "<group>"; };
 		C6B492891C04457200A1D237 /* wishlist0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wishlist0.wav; sourceTree = "<group>"; };
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
+		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
+		C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
+		C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackMessanger.swift; sourceTree = "<group>"; };
 		E8B0101EB440F6385F917B92 /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +157,7 @@
 			files = (
 				F700C3D70F2D041CBEB78984 /* Pods_MyFitZ.framework in Frameworks */,
 				C69D74461C0AF5D100C74D19 /* Crashlytics.framework in Frameworks */,
+				C68F51061C0EE34C00424646 /* Appsee.framework in Frameworks */,
 				C69D74451C0AF5D100C74D19 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +182,9 @@
 		9EFD7CBF6723C7EBEC4040E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C68F51051C0EE34C00424646 /* Appsee.framework */,
+				C69D74431C0AF5D100C74D19 /* Fabric.framework */,
+				C69D74441C0AF5D100C74D19 /* Crashlytics.framework */,
 				BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */,
 			);
 			name = Frameworks;
@@ -189,14 +203,11 @@
 		C626B9251BE0A48C00BB5E86 = {
 			isa = PBXGroup;
 			children = (
-				C606C0231C0B16A30012AD13 /* Scripts */,
-				C69D74431C0AF5D100C74D19 /* Fabric.framework */,
-				C69D74441C0AF5D100C74D19 /* Crashlytics.framework */,
-				C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */,
 				C626B9301BE0A48C00BB5E86 /* MyFitZ */,
 				C626B9451BE0A48C00BB5E86 /* MyFitZTests */,
 				C626B9501BE0A48C00BB5E86 /* MyFitZUITests */,
 				C626B92F1BE0A48C00BB5E86 /* Products */,
+				C606C0231C0B16A30012AD13 /* Scripts */,
 				ECE78C122D8E6CF0118BEAB7 /* Pods */,
 				9EFD7CBF6723C7EBEC4040E5 /* Frameworks */,
 			);
@@ -215,49 +226,14 @@
 		C626B9301BE0A48C00BB5E86 /* MyFitZ */ = {
 			isa = PBXGroup;
 			children = (
-				C64503B11BE1A0460065EC2F /* Constants.swift */,
-				C64503B21BE1A0460065EC2F /* Extensions.swift */,
-				C60C6AD01C02C92300C8935A /* Functions.swift */,
-				C64503B31BE1A0460065EC2F /* Item.swift */,
-				C64503B41BE1A0460065EC2F /* Fit.swift */,
-				C64503B51BE1A0460065EC2F /* Closet.swift */,
-				C64503B61BE1A0460065EC2F /* Wardrobe.swift */,
-				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
-				C64503BE1BE1A1160065EC2F /* ViewController.swift */,
-				C64503BF1BE1A1160065EC2F /* SelectionViewController.swift */,
-				C64503C01BE1A1160065EC2F /* MakeTableViewController.swift */,
-				C64503C11BE1A1160065EC2F /* ModelTableViewController.swift */,
-				C64503C21BE1A1160065EC2F /* DetailedViewController.swift */,
-				C66D73731BFD898D0084842B /* EditItemViewController.swift */,
-				C64503C31BE1A1160065EC2F /* CreateItemViewController.swift */,
-				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
-				C64503C51BE1A1160065EC2F /* CreationViewController.swift */,
-				C64503C61BE1A1160065EC2F /* PodTesterTableViewController.swift */,
-				C64503D11BE1A1210065EC2F /* MakeCustomCell.swift */,
-				C64503D21BE1A1210065EC2F /* ModelCustomCell.swift */,
-				C64503D31BE1A1210065EC2F /* CreationUITableViewCell.swift */,
-				C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */,
-				C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */,
-				C64503DA1BE1A17F0065EC2F /* Main.storyboard */,
-				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
-				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
-				C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */,
-				C6B4927A1C04457200A1D237 /* add0.wav */,
-				C6B4927B1C04457200A1D237 /* alert0.wav */,
-				C6B4927C1C04457200A1D237 /* animationPop0.wav */,
-				C6B4927D1C04457200A1D237 /* back0.wav */,
-				C6B4927E1C04457200A1D237 /* cellselect1.wav */,
-				C6B4927F1C04457200A1D237 /* clear0.wav */,
-				C6B492801C04457200A1D237 /* delete0.wav */,
-				C6B492811C04457200A1D237 /* edit0.wav */,
-				C6B492821C04457200A1D237 /* mycloset0.wav */,
-				C6B492831C04457200A1D237 /* notification1.wav */,
-				C6B492841C04457200A1D237 /* notification0.wav */,
-				C6B492851C04457200A1D237 /* save0.wav */,
-				C6B492861C04457200A1D237 /* cellselect0.wav */,
-				C6B492871C04457200A1D237 /* update0.wav */,
-				C6B492881C04457200A1D237 /* wear0.wav */,
-				C6B492891C04457200A1D237 /* wishlist0.wav */,
+				C6CF09161C0DEA7D00767B72 /* Global Vars */,
+				C633470A1C0ECF61008C9E37 /* Methods */,
+				C633470B1C0ECFC3008C9E37 /* Models */,
+				C633470C1C0ECFDA008C9E37 /* ViewControllers */,
+				C633470D1C0ECFE8008C9E37 /* Cells */,
+				C633470E1C0ECFF5008C9E37 /* StoryBoards */,
+				C63347101C0ED0EC008C9E37 /* Support */,
+				C633470F1C0ED005008C9E37 /* Audio */,
 			);
 			path = MyFitZ;
 			sourceTree = "<group>";
@@ -278,6 +254,110 @@
 				C626B9531BE0A48C00BB5E86 /* Info.plist */,
 			);
 			path = MyFitZUITests;
+			sourceTree = "<group>";
+		};
+		C633470A1C0ECF61008C9E37 /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				C64503B21BE1A0460065EC2F /* Extensions.swift */,
+				C60C6AD01C02C92300C8935A /* Functions.swift */,
+			);
+			name = Methods;
+			sourceTree = "<group>";
+		};
+		C633470B1C0ECFC3008C9E37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C64503B31BE1A0460065EC2F /* Item.swift */,
+				C64503B41BE1A0460065EC2F /* Fit.swift */,
+				C64503B51BE1A0460065EC2F /* Closet.swift */,
+				C64503B61BE1A0460065EC2F /* Wardrobe.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C633470C1C0ECFDA008C9E37 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C64503BE1BE1A1160065EC2F /* ViewController.swift */,
+				C64503BF1BE1A1160065EC2F /* SelectionViewController.swift */,
+				C64503C01BE1A1160065EC2F /* MakeTableViewController.swift */,
+				C64503C11BE1A1160065EC2F /* ModelTableViewController.swift */,
+				C64503C21BE1A1160065EC2F /* DetailedViewController.swift */,
+				C66D73731BFD898D0084842B /* EditItemViewController.swift */,
+				C64503C31BE1A1160065EC2F /* CreateItemViewController.swift */,
+				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
+				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
+				C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */,
+				C64503C51BE1A1160065EC2F /* CreationViewController.swift */,
+				C64503C61BE1A1160065EC2F /* PodTesterTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C633470D1C0ECFE8008C9E37 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C64503D11BE1A1210065EC2F /* MakeCustomCell.swift */,
+				C64503D21BE1A1210065EC2F /* ModelCustomCell.swift */,
+				C64503D31BE1A1210065EC2F /* CreationUITableViewCell.swift */,
+				C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C633470E1C0ECFF5008C9E37 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */,
+				C64503DA1BE1A17F0065EC2F /* Main.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		C633470F1C0ED005008C9E37 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				C6B4927A1C04457200A1D237 /* add0.wav */,
+				C6B4927B1C04457200A1D237 /* alert0.wav */,
+				C6B4927C1C04457200A1D237 /* animationPop0.wav */,
+				C6B4927D1C04457200A1D237 /* back0.wav */,
+				C6B4927E1C04457200A1D237 /* cellselect1.wav */,
+				C6B4927F1C04457200A1D237 /* clear0.wav */,
+				C6B492801C04457200A1D237 /* delete0.wav */,
+				C6B492811C04457200A1D237 /* edit0.wav */,
+				C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */,
+				C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */,
+				C6B492821C04457200A1D237 /* mycloset1.wav */,
+				C6B492831C04457200A1D237 /* notification1.wav */,
+				C6B492841C04457200A1D237 /* notification0.wav */,
+				C6B492851C04457200A1D237 /* save0.wav */,
+				C6B492861C04457200A1D237 /* cellselect0.wav */,
+				C6B492871C04457200A1D237 /* update0.wav */,
+				C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */,
+				C6B492881C04457200A1D237 /* wear1.wav */,
+				C6B492891C04457200A1D237 /* wishlist0.wav */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		C63347101C0ED0EC008C9E37 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */,
+				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
+				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
+				C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		C6CF09161C0DEA7D00767B72 /* Global Vars */ = {
+			isa = PBXGroup;
+			children = (
+				C64503B11BE1A0460065EC2F /* Constants.swift */,
+			);
+			name = "Global Vars";
 			sourceTree = "<group>";
 		};
 		ECE78C122D8E6CF0118BEAB7 /* Pods */ = {
@@ -401,11 +481,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6B4928B1C04457200A1D237 /* alert0.wav in Resources */,
-				C6B492921C04457200A1D237 /* mycloset0.wav in Resources */,
+				C6B492921C04457200A1D237 /* mycloset1.wav in Resources */,
 				C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */,
-				C6B492981C04457200A1D237 /* wear0.wav in Resources */,
+				C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */,
+				C6B492981C04457200A1D237 /* wear1.wav in Resources */,
 				C6B4928C1C04457200A1D237 /* animationPop0.wav in Resources */,
 				C6B492941C04457200A1D237 /* notification0.wav in Resources */,
+				C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */,
 				C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */,
 				C6B492961C04457200A1D237 /* cellselect0.wav in Resources */,
 				C606C00E1C0B16700012AD13 /* CodeComplexity.sh in Resources */,
@@ -416,6 +498,7 @@
 				C6B492901C04457200A1D237 /* delete0.wav in Resources */,
 				C606C00F1C0B16700012AD13 /* LinesOfCode.sh in Resources */,
 				C6B4928F1C04457200A1D237 /* clear0.wav in Resources */,
+				C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */,
 				C6B4928E1C04457200A1D237 /* cellselect1.wav in Resources */,
 				C6B4928A1C04457200A1D237 /* add0.wav in Resources */,
 				C6B492931C04457200A1D237 /* notification1.wav in Resources */,
@@ -568,6 +651,7 @@
 				C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */,
 				C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */,
 				C64503D71BE1A1210065EC2F /* CreationUITableViewCell.swift in Sources */,
+				C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */,
 				C64503CF1BE1A1160065EC2F /* CreationViewController.swift in Sources */,
 				C64503BB1BE1A0460065EC2F /* Closet.swift in Sources */,
 				C64503CD1BE1A1160065EC2F /* CreateItemViewController.swift in Sources */,

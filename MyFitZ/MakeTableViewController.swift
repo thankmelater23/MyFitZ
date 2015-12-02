@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 ///MakeTableViewController Class
 class MakeTableViewController: UITableViewController{
@@ -26,6 +27,24 @@ class MakeTableViewController: UITableViewController{
         itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         
         self.setUpTypes()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("MAKE_PAGE_COUNT")
+        
+        self.logPageView()
+        
+    }
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Category Content View",
+            contentType: "Category View",
+            contentId: "MF3",
+            customAttributes: ["MAKE_PAGE_COUNT": pageCount!
+            ])
     }
     override func viewDidAppear(animated: Bool){
         
@@ -90,16 +109,18 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
         if indexPath.row % 2 == 0//If even number make this color
         {
-            //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
-            //cell.backgroundColor     = UIColor.cyanColor()
             cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }else{
             //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
         
-        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
         let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
+        
+        if arrayItemCell.count > 1{
+        arrayItemCell = arrayItemCell.sort({$0.category > $1.category})
+        }
         
         if let availableSubCategoryItem = arrayItemCell.first{
             cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)

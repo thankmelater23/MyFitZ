@@ -11,6 +11,7 @@ import MobileCoreServices
 import UIKit
 import DKChainableAnimationKit
 import RETableViewManager
+import Crashlytics
 
 class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet var tableView: UITableView!
@@ -36,6 +37,8 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var price:RENumberItem?
     var timesWorn:RENumberItem?
     var lastTimeWorn:REDateTimeItem?
+    var kind:RETextItem?
+    var size:RETextItem?
     var datePurchased:REDateTimeItem?
     //    var color:REPickerItem?
     var color:RETextItem?
@@ -99,12 +102,35 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
+        //        unwindForSegue(self.storyboard, towardsViewController: SelectionViewController)
         
-//        performSegueWithIdentifier(self.lastVCSegue, sender: self)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("SAVE_BUTTON_BUTTON_PRESSED")
+        
+        performSegueWithIdentifier(SEGUE_CREATION_TO_SELECTION, sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("CREATE_PAGE_COUNT")
+        
+        self.logPageView()
+    }
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
+        let saveButtonPressed:Int? = defaults.returnIntValue("SAVE_BUTTON_BUTTON_PRESSED")
+        
+        
+        Answers.logContentViewWithName("Create Content View",
+            contentType: "Create Item View",
+            contentId: "MF7",
+            customAttributes: ["CREATE_PAGE_COUNT": pageCount!,
+                "SAVE_BUTTON_BUTTON_PRESSED": saveButtonPressed!
+            ])
     }
     func saveItemVars(){
         let dateFormatter = NSDateFormatter()
@@ -117,55 +143,52 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         
         if (dateReleased?.value != nil){
             tempDateReleased = dateFormatter.stringFromDate(self.dateReleased!.value)
-            tempDateReleased = tempDateReleased!.stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-        }else{tempDateReleased = nil}
-        //         templastTimeWorn = String([dateFormatter .stringFromDate((self.lastTimeWorn?.value)!)])
+        }
         if (lastTimeWorn?.value != nil){
             templastTimeWorn = dateFormatter.stringFromDate(self.lastTimeWorn!.value)
-            templastTimeWorn = templastTimeWorn!.stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-        }else{templastTimeWorn = nil}
-        //         tempdatePurchased = String([dateFormatter .stringFromDate((self.datePurchased?.value)!)])
+        }
         if (datePurchased?.value != nil){
             tempdatePurchased = dateFormatter.stringFromDate(self.datePurchased!.value)
-            tempdatePurchased = tempdatePurchased!.stringByReplacingOccurrencesOfString("[", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-        }else{tempdatePurchased = nil}
-        
-        //        dateReleased.filter({$0 != "["})
-        //        viewItem.model = model!.value  ?? "N/A"
+        }
         if(model!.value != ""){viewItem.model = model!.value}else{viewItem.model = "N/A"}
-        //        viewItem.brand = brand!.value  ?? "N/A"
+
         if(brand!.value != ""){viewItem.brand = brand!.value}else{viewItem.brand = "N/A"}
+        
         viewItem.favorited = favorited!.value  ?? false
         viewItem.price = Double((price!.value)!)  ?? 0.0
+        
         viewItem.timesWorn = Int((timesWorn!.value)!)  ?? 0
-        //        viewItem.lastTimeWorn = templastTimeWorn//String(lastTimeWorn!.value)  ?? "N/A"
-        //        if(lastTimeWorn!.value != ""){viewItem.lastTimeWorn = templastTimeWorn}else{viewItem.lastTimeWorn = "N/A"}
+        
         if(templastTimeWorn != ""  && templastTimeWorn != nil){viewItem.lastTimeWorn = templastTimeWorn}else{viewItem.dateReleased = "N/A"}
-        //        viewItem.datePurchased = tempdatePurchased//String(datePurchased!.value)  ?? "N/A"
-        //        if(datePurchased!.value != ""){viewItem.datePurchased = tempdatePurchased}else{viewItem.datePurchased = "N/A"}
+        
+        if(kind!.value != ""){viewItem.kind = model!.value}else{viewItem.kind = "N/A"}
+        
+        if(size!.value != ""){viewItem.size = size!.value}else{viewItem.size = "N/A"}
+        
         if(tempdatePurchased != ""  && tempdatePurchased != nil){viewItem.datePurchased = tempdatePurchased}else{viewItem.dateReleased = "N/A"}
-        //        viewItem.color = String(color!.value)  ?? "N/A"
+        
+
         if(color!.value != ""){viewItem.color = color!.value}else{viewItem.color = "N/A"}
-        //        viewItem.secondaryColor = String(secondaryColor!.value)  ?? "N/A"
+
         if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
-        //        viewItem.thirdColor = String(thirdColor!.value)  ?? "N/A"
+
         if(thirdColor!.value != ""){viewItem.thirdColor = thirdColor!.value}else{viewItem.thirdColor = "N/A"}
-        //        viewItem.itemDescription = itemDescription!.value ?? "N/A"
+
         if(itemDescription!.value != ""){viewItem.itemDescription = itemDescription!.value}else{viewItem.itemDescription = "N/A"}
-        //        viewItem.dateReleased = tempDateReleased//String(dateReleased!.value)  ?? "N/A"
+
         if(tempDateReleased != ""  && tempDateReleased != nil){viewItem.dateReleased = tempDateReleased}else{viewItem.dateReleased = "N/A"}
+        
         viewItem.retailPrice = Double((retailPrice!.value)!)  ?? 0.0
-        //        viewItem.condition = String(condition!.value)  ?? "N/A"
+
         if(condition!.value != ""){viewItem.condition = condition!.value}else{viewItem.condition = "N/A"}
-        //        viewItem.primaryMaterial = String(primaryMaterial!.value)  ?? "N/A"
+
         if(primaryMaterial!.value != ""){viewItem.primaryMaterial = primaryMaterial!.value}else{viewItem.primaryMaterial = "N/A"}
-        //        viewItem.secondaryColor = String(secondaryColor!.value)  ?? "N/A"
+
         if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
-        //        viewItem.storeLocationURL = storeLocationURL!.value  ?? "N/A"
+
         if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
+        
         viewItem.isThisNew = isThisNew!.value  ?? false
-        
-        
     }
     @IBAction func setItemImage(sender: UIButton) {
         self.setImagePicker()
@@ -199,14 +222,10 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
             modelController.path = self.path
-            
-            
-            
         }
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
             let detailedViewController = segue.destinationViewController as! DetailedViewController
             detailedViewController.path = self.path
-
         }
         
     }
@@ -216,101 +235,15 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - Developer Created Methods
 extension CreateItemViewController{
     func setUp(){
+        
         playSoundEffects(addSFX)
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Item Create")
-        if self.title == MY_CLOSET{
-            self.navigationController?.navigationBar.translucent = false
-            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-        }else if self.title == MY_WANTS_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-        }
+        self.setUI()
+        self.setPickerInfo()
         
-        //Category
-        categoryPickerView.delegate = self
-        categoryInputTextField.inputView = categoryPickerView
-        
-        
-        //Sub-Category
-        subCategoryPickerView.delegate = self
-        subCategoryInputTextField.inputView = subCategoryPickerView
-        subCategoryInputTextField.enabled = false
-        
-        //Image
-        self.pictureForSelectedItemImage.alpha = 0.5
-        
-        manager = RETableViewManager.init(tableView: self.tableView, delegate: self)
-
-        self.basicSection = RETableViewSection(headerTitle: "Basic Section")
-        self.miscSection = RETableViewSection(headerTitle: "Misc Section")
-        
-        
-        self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
-//        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
-        self.manager!.tableView?.tintColor = UIColor.purpleColor()
-//        self.manager!.tableView?.sectionIndexBackgroundColor = UIColor.greenColor()
-        self.manager!.tableView?.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        self.manager!.tableView?.backgroundColor = UIColor.greenColor()
-        self.manager!.tableView?.separatorColor = UIColor.blackColor()
-        
-        //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
-        self.model = RETextItem(title: "Model:", value: String(), placeholder: "Enter Item Name")
-        self.model?.style
-        //        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
-        self.brand = RETextItem(title: "Brand:", value: String(), placeholder: "Enter Item brand")
-        self.favorited = REBoolItem(title: "Favorite:", value: false)
-        self.price = RENumberItem(title: "Originl Price:", value: String(), placeholder: "Enter Value for The Item")
-        self.timesWorn = RENumberItem(title: "Times Worn/Used:", value: String(), placeholder: "Enter Value for times worn")
-        self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn:", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
-        self.datePurchased = REDateTimeItem(title: "Date Purchased:", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
-        //        self.color = REPickerItem(title: "Color", value: COLOR_TYPE, placeholder: "Color", options: [])
-        self.color = RETextItem(title: "Color:", value: String(), placeholder: "Enter Item color")
-        //        self.secondaryColor = REPickerItem(title: "Secondary Color", value: COLOR_TYPE, placeholder: nil, options: [])
-        self.secondaryColor = RETextItem(title: "SecondaryColor:", value: String(), placeholder: "Enter Item SecondaryColor")
-        //        self.thirdColor = REPickerItem(title: "Third Color", value: COLOR_TYPE, placeholder: nil, options: [])
-        self.thirdColor = RETextItem(title: "Third Color:", value: String(), placeholder: "Enter Item Third Color")
-        self.itemDescription = RELongTextItem(title: "Item Notes:", value: String(), placeholder: nil)
-        self.isThisNew = REBoolItem(title: "New Item:", value: false)
-        self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
-        self.retailPrice = RENumberItem(title: "Paid Price:", value: String(), placeholder: "Enter Paid Price For The Item")
-        //        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
-        self.condition = RETextItem(title: "Condition:", value: String(), placeholder: "Enter Item condition")
-        //        self.primaryMaterial = REPickerItem(title: "Primary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
-        self.primaryMaterial = RETextItem(title: "Primary Material:", value: String(), placeholder: "Enter Item Primary Material")
-        //        self.secondaryMaterial = REPickerItem(title: "Secondary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
-        self.secondaryMaterial = RETextItem(title: "Secondary Material:", value: String(), placeholder: "Enter Secondary Material Name")
-        self.storeLocationURL = RETextItem(title: "Store Location Or URL:", value: String(), placeholder: "Enter Location")
-        
-        
-        self.manager!.addSection(basicSection)
-        self.manager!.addSection(miscSection)
-        
-        //        self.basicSection?.addItem(radio)
-        self.basicSection?.addItem(favorited)
-        self.basicSection?.addItem(model)
-        self.basicSection?.addItem(brand)
-        self.basicSection?.addItem(price)
-        self.basicSection?.addItem(timesWorn)
-        self.basicSection?.addItem(lastTimeWorn)
-        
-        
-        self.miscSection?.addItem(datePurchased)
-        self.miscSection?.addItem(color)
-        self.miscSection?.addItem(secondaryColor)
-        self.miscSection?.addItem(thirdColor)
-        self.miscSection?.addItem(isThisNew)
-        self.miscSection?.addItem(dateReleased)
-        self.miscSection?.addItem(retailPrice)
-        self.miscSection?.addItem(condition)
-        self.miscSection?.addItem(primaryMaterial)
-        self.miscSection?.addItem(secondaryMaterial)
-        self.miscSection?.addItem(storeLocationURL)
-        self.miscSection?.addItem(itemDescription)
-        
-        //Table View Init
-        //        self.tableView.dataSource = self
-        //        self.tableView.delegate = self
-        //        self.tableView.reloadData()
-        //        self.tableView.hidden = true
+        dispatch_sync(GlobalUtilityQueue, {
+            self.initializeRETableView()
+            self.setUpTableView()
+        })
         
         viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
     }//Sets up data
@@ -350,7 +283,101 @@ extension CreateItemViewController{
         
         playSoundEffects(clearSFX)
     }
-    
+    func setTitle(){
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Item Create")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.translucent = false
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+    }
+    func setPickerInfo(){
+        dispatch_async(GlobalBackgroundQueue, {
+            self.categoryPickerView.delegate = self
+            self.categoryInputTextField.inputView = self.categoryPickerView
+            
+            
+            //Sub-Category
+            self.subCategoryPickerView.delegate = self
+            self.subCategoryInputTextField.inputView = self.subCategoryPickerView
+            self.subCategoryInputTextField.enabled = false
+        })
+    }
+    func setUI(){
+        self.setTitle()
+        self.pictureForSelectedItemImage.alpha = 0.5
+    }
+    func initializeRETableView(){
+        self.manager = RETableViewManager.init(tableView: self.tableView, delegate: self)
+        
+        self.basicSection = RETableViewSection(headerTitle: "Basic Section")
+        self.miscSection = RETableViewSection(headerTitle: "Misc Section")
+        
+        self.model = RETextItem(title: "Model:", value: String(), placeholder: "Enter Item Name")
+        self.model?.style
+        //        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
+        self.brand = RETextItem(title: "Brand:", value: String(), placeholder: "Enter Item brand")
+        self.favorited = REBoolItem(title: "Favorite:", value: false)
+        self.price = RENumberItem(title: "Originl Price:", value: String(), placeholder: "Enter Value for The Item")
+        self.timesWorn = RENumberItem(title: "Times Worn/Used:", value: String(), placeholder: "Enter Value for times worn")
+        self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn:", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.kind = RETextItem(title: "Kind:", value: String(), placeholder: "Enter Item kind")
+        self.size = RETextItem(title: "Size:", value: String(), placeholder: "Enter Item size")
+        self.datePurchased = REDateTimeItem(title: "Date Purchased:", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
+        //        self.color = REPickerItem(title: "Color", value: COLOR_TYPE, placeholder: "Color", options: [])
+        self.color = RETextItem(title: "Color:", value: String(), placeholder: "Enter Item color")
+        //        self.secondaryColor = REPickerItem(title: "Secondary Color", value: COLOR_TYPE, placeholder: nil, options: [])
+        self.secondaryColor = RETextItem(title: "SecondaryColor:", value: String(), placeholder: "Enter Item SecondaryColor")
+        //        self.thirdColor = REPickerItem(title: "Third Color", value: COLOR_TYPE, placeholder: nil, options: [])
+        self.thirdColor = RETextItem(title: "Third Color:", value: String(), placeholder: "Enter Item Third Color")
+        self.itemDescription = RELongTextItem(title: "Item Notes:", value: String(), placeholder: nil)
+        self.isThisNew = REBoolItem(title: "New Item:", value: false)
+        self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.retailPrice = RENumberItem(title: "Paid Price:", value: String(), placeholder: "Enter Paid Price For The Item")
+        //        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
+        self.condition = RETextItem(title: "Condition:", value: String(), placeholder: "Enter Item condition")
+        //        self.primaryMaterial = REPickerItem(title: "Primary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
+        self.primaryMaterial = RETextItem(title: "Primary Material:", value: String(), placeholder: "Enter Item Primary Material")
+        //        self.secondaryMaterial = REPickerItem(title: "Secondary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
+        self.secondaryMaterial = RETextItem(title: "Secondary Material:", value: String(), placeholder: "Enter Secondary Material Name")
+        self.storeLocationURL = RETextItem(title: "Store Location Or URL:", value: String(), placeholder: "Enter Location")
+    }
+    func setUpTableView(){
+        self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
+        //        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
+        self.manager!.tableView?.tintColor = UIColor.purpleColor()
+        //        self.manager!.tableView?.sectionIndexBackgroundColor = UIColor.greenColor()
+        self.manager!.tableView?.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.manager!.tableView?.backgroundColor = UIColor.greenColor()
+        self.manager!.tableView?.separatorColor = UIColor.blackColor()
+        
+        
+        self.manager!.addSection(basicSection)
+        self.manager!.addSection(miscSection)
+        
+        self.basicSection?.addItem(favorited)
+        self.basicSection?.addItem(model)
+        self.basicSection?.addItem(brand)
+        self.basicSection?.addItem(price)
+        self.basicSection?.addItem(timesWorn)
+        self.basicSection?.addItem(lastTimeWorn)
+        self.basicSection?.addItem(kind)
+        self.basicSection?.addItem(size)
+        
+        self.miscSection?.addItem(datePurchased)
+        self.miscSection?.addItem(color)
+        self.miscSection?.addItem(secondaryColor)
+        self.miscSection?.addItem(thirdColor)
+        self.miscSection?.addItem(isThisNew)
+        self.miscSection?.addItem(dateReleased)
+        self.miscSection?.addItem(retailPrice)
+        self.miscSection?.addItem(condition)
+        self.miscSection?.addItem(primaryMaterial)
+        self.miscSection?.addItem(secondaryMaterial)
+        self.miscSection?.addItem(storeLocationURL)
+        self.miscSection?.addItem(itemDescription)
+    }
 }
 
 

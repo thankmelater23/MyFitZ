@@ -348,6 +348,24 @@ extension Wardrobe{
         }
     }
     
+//    func removeMissingBrand(item: Item){
+//        let size = item.size
+//        
+//        for var index = 0, index < sizes.count, index++{
+//            
+//            if sizes[index] == size){
+//                sizes.removeAtIndex(index)
+//            }
+//        }
+//        
+//    }
+    func updateSizesCollectiion(item: Item){
+        let size = item.size
+        if !sizes.contains(size)  && size != ""{
+            sizes.append(size)
+            sizes = sizes.sort{$0 <  $1}
+        }
+    }
 //    func updateBrandCatCollectiion(item: Item){
 //        let brand = item.brand
 //        let category = item.category

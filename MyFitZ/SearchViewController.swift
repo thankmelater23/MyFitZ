@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 @IBDesignable class SearchViewController: UIViewController {
     @IBOutlet weak var categoryPrev: UIButton!
@@ -73,6 +74,22 @@ import UIKit
         // Do any additional setup after loading the view.
         
         super.viewDidLoad()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("SEARCH_PAGE_COUNT")
+        
+        self.logPageView()
+    }
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Search Content View",
+            contentType: "Search View",
+            contentId: "MF8",
+            customAttributes: ["SEARCH_PAGE_COUNT": pageCount!
+            ])
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

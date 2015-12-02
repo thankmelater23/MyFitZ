@@ -7,7 +7,7 @@
 //
 import UIKit
 import DKChainableAnimationKit
-//import Crashlytics
+import Crashlytics
 
 //MARK: - SelectionViewController
 class SelectionViewController: UIViewController{
@@ -59,15 +59,25 @@ class SelectionViewController: UIViewController{
         
         self.assignCategoriesItemCount()
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("SELECTION_PAGE_COUNT")
+        
+        self.logPageView()
+        
     }
-    func incrementViewOpened(){
-        //If view opened 0 times run tip animation
-        //StandardDef
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Main View Content View",
+            contentType: "Category Selection Menu",
+            contentId: "MF2",
+            customAttributes: ["SELECTION_PAGE_COUNT": pageCount!
+            ])
     }
 
-    //    @IBAction func crashButtonTapped(sender: AnyObject) {
-    //        Crashlytics.sharedInstance().crash()
-    //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
@@ -80,8 +90,6 @@ class SelectionViewController: UIViewController{
         }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
             createItemViewController.lastVCSegue = SEGUE_CREATION_TO_SELECTION
-        }else{
-//            print("Segue transfer: \(segue.identifier)")
         }
     }
     func assignCategoriesItemCount(){

@@ -85,19 +85,33 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MyFitZ/CRToast.framework"
+  install_framework "Pods-MyFitZ/ChameleonFramework.framework"
   install_framework "Pods-MyFitZ/DKChainableAnimationKit.framework"
+  install_framework "Pods-MyFitZ/DZNEmptyDataSet.framework"
+  install_framework "Pods-MyFitZ/FontAwesomeKit.framework"
+  install_framework "Pods-MyFitZ/HexColors.framework"
   install_framework "Pods-MyFitZ/MRProgress.framework"
   install_framework "Pods-MyFitZ/REFormattedNumberField.framework"
   install_framework "Pods-MyFitZ/RETableViewManager.framework"
   install_framework "Pods-MyFitZ/REValidation.framework"
   install_framework "Pods-MyFitZ/SVProgressHUD.framework"
+  install_framework "Pods-MyFitZ/SlackTextViewController.framework"
+  install_framework "Pods-MyFitZ/TSMessages.framework"
+  install_framework "Pods-MyFitZ/iRate.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MyFitZ/CRToast.framework"
+  install_framework "Pods-MyFitZ/ChameleonFramework.framework"
   install_framework "Pods-MyFitZ/DKChainableAnimationKit.framework"
+  install_framework "Pods-MyFitZ/DZNEmptyDataSet.framework"
+  install_framework "Pods-MyFitZ/FontAwesomeKit.framework"
+  install_framework "Pods-MyFitZ/HexColors.framework"
   install_framework "Pods-MyFitZ/MRProgress.framework"
   install_framework "Pods-MyFitZ/REFormattedNumberField.framework"
   install_framework "Pods-MyFitZ/RETableViewManager.framework"
   install_framework "Pods-MyFitZ/REValidation.framework"
   install_framework "Pods-MyFitZ/SVProgressHUD.framework"
+  install_framework "Pods-MyFitZ/SlackTextViewController.framework"
+  install_framework "Pods-MyFitZ/TSMessages.framework"
+  install_framework "Pods-MyFitZ/iRate.framework"
 fi

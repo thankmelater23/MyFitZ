@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/CreateItemViewController.swift"
-            timestampString = "469602805.643971"
+            timestampString = "470672619.356505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "CreateItemViewController"
             landmarkType = "3">
             <Locations>
@@ -86,28 +86,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyFitZ/CreateItemViewController.swift"
-            timestampString = "470229767.965777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "saveItemVars()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "470493892.352111"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "createCellFromRequiredDictionary(row:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -119,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/ModelTableViewController.swift"
-            timestampString = "470191820.753037"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -135,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "470012618.536883"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -151,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "470229767.965777"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58">
+            startingLineNumber = "77"
+            endingLineNumber = "77">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -165,11 +149,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/ModelTableViewController.swift"
-            timestampString = "470229767.965777"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "SetUpTypes()"
             landmarkType = "5">
          </BreakpointContent>
@@ -181,11 +165,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "470229767.965777"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "tableView(_:titleForHeaderInSection:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -197,11 +181,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "470229767.965777"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -213,11 +197,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/ModelTableViewController.swift"
-            timestampString = "470191820.753037"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -229,11 +213,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/ViewController.swift"
-            timestampString = "470481580.881756"
+            timestampString = "470671333.697778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "selectedWants()"
             landmarkType = "5">
          </BreakpointContent>
@@ -261,11 +245,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "470493892.352111"
+            timestampString = "470655128.808934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "wear()"
             landmarkType = "5">
          </BreakpointContent>
@@ -277,11 +261,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "470631230.884468"
+            timestampString = "470731943.680581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "deleteItem(_:funcSubCategory:item:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -309,13 +293,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "470229767.965777"
+            timestampString = "470676645.724805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Item.swift"
+            timestampString = "470649751.47876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "init(coder:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/DetailedViewController.swift"
+            timestampString = "470676645.724805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
+            landmarkName = "DetailedViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

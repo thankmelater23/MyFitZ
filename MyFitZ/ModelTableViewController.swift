@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 //MARK: - ModelTableViewController Class
 class ModelTableViewController: UITableViewController {
@@ -23,6 +24,22 @@ class ModelTableViewController: UITableViewController {
         super.viewDidLoad()
         self.SetUpTypes()
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("MODEL_PAGE_COUNT")
+        
+        self.logPageView()
+    }
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("MODEL_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Sub-Category Content View",
+            contentType: "Sub-Category View",
+            contentId: "MF4",
+            customAttributes: ["MODEL_PAGE_COUNT": pageCount!
+            ])
     }
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
@@ -78,10 +95,8 @@ extension ModelTableViewController{
         
         if indexPath.row % 2 == 0//If even number make this color
         {
-            //cell.backgroundColor      = UIColor.grayColor()
             cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
         }else{
-            //cell.backgroundColor      = UIColor.darkGrayColor()
             cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
         }
         

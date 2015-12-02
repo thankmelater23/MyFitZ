@@ -33,6 +33,9 @@ let HEADWARE = "Headware"
 let FOOTWARE =  "Footware"
 let ACCESSORIES = "Accessories"
 let UNDERCLOTHING = "Underclothing"
+let SIZETYPES: [String: [String]] = ["Shirt": SHIRT_SIZES, "Pant's": [], "Belt": [], "Shoe": SHOE_SIZES]
+let SHIRT_SIZES: [String] = ["small", "medium", "Large"]
+let SHOE_SIZES:[String] = ["Kids:1", "Kids:2"]//ect
 
 let YES_NO = ["Yes", "No"]
 let ITEM_CONDITION = ["Unwearable", "Old/Damaged", "Worn Down", "Good", "Clean", "Prestine"]
@@ -97,7 +100,8 @@ let ITEM_ISTHISNEW_STRING    = "New Item"
 let ITEM_TIMESWORN_STRING    = "Times Worn"
 let ITEM_LASTTIMEWORN_STRING = "Last Time Worn"
 let ITEM_IMAGE_STRING        = "Image"
-
+let ITEM_KIND_STRING        = "kind"
+let ITEM_SIZE_STRING        = "size"
 
 //Optional
 let ITEM_DATEPURCHASERD_STRING = "Date Purchased"
@@ -225,7 +229,8 @@ let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 
 
 ///MARK: - DetailedViewController
-
+let DETAIL_TABLEVIEW_BASIC_SECTION_COUNT = 12
+let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 8
 
 
 

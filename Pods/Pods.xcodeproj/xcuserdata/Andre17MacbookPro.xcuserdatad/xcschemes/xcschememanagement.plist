@@ -9,7 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DKChainableAnimationKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesomeKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>HexColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,20 +69,60 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SlackTextViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TSMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>iRate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D5C7BB809CF4F70F7D73BFEE124BCE6</key>
+		<key>00E74CED770597EF76DEE6FE824D1B7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>138E84902B25087CBEC5622E4FE5A547</key>
+		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>186526C95A6E6A368E316AEBD475C8CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6789E7A27BDE786B2CEF95AF1FF457D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7077A528E6B7FCB58EDD89DEB0A0044C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BE9D4B6FF6D92923152CB0534F2BB94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92021464B2F2304BF75F0ACF8A52F3BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +137,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB1A93CE1C3BEFF014FF7B4F776FF33A</key>
+		<key>C408D4E183A88B763793C217A66A1950</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E8383EF2C91B82FABD4BE06D65DF7376</key>
+		<key>CDE5A130084460AC3C0AABF95DF2D0F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4157178287C96419BB702A4FB18216D</key>
+		<key>D43218CE98219E02181395808FB1B131</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEA5E94762BB244436EB6775FF0E4F20</key>
+		<key>DB5AB94B4FA3D78561F5A8C9220A00F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E218962E02CDC822C0F7F4F2D102987A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF91947C19DAB4CCD0543D726A62B114</key>
 		<dict>
 			<key>primary</key>
 			<true/>
