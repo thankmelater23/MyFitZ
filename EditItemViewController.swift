@@ -13,10 +13,18 @@ import DKChainableAnimationKit
 import RETableViewManager
 import Crashlytics
 
+
+
+//MARK: -EditItemViewController Class
 class EditItemViewController: UIViewController, RETableViewManagerDelegate{
+    //MARK: -Outlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
+    @IBOutlet var pictureForSelectedItemImage: UIImageView!
+    
+    
+    //MARK: Variables
     var categoryPickerView = UIPickerView()
     var subCategoryPickerView = UIPickerView()
     var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
@@ -24,6 +32,8 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     var categorySelected: String! = String()
     var subCategorySelected: String! = String()
     
+    
+    //MARK: RETableVIewManager Vars
     var manager:RETableViewManager?
     
     var basicSection:RETableViewSection?
@@ -63,14 +73,63 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     //            self =
     //        }
     //    }
-    
-    @IBOutlet var pictureForSelectedItemImage: UIImageView!
-    //CreateItemViewController Item to be created and modified to be saved
     var viewItem: Item! = Item()
     var previousItem: Item! = Item()
     var currentIndex = 0
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
+    
+    
+    
+    //MARK: -View Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setUp()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("EDIT_PAGE_COUNT")
+        
+        self.logPageView()
+        
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        defer{
+            print("Segue transfer: \(segue.identifier)")
+        }
+        
+        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
+            
+        }
+        if segue.identifier == SEGUE_CREATION_TO_MAKE{
+            
+        }
+        if segue.identifier == SEGUE_CREATION_TO_MODEL{
+            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+            
+            let modelController = segue.destinationViewController as! ModelTableViewController
+            modelController.arrayOfItems = array
+            modelController.path = self.path
+            
+            
+            
+        }
+        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
+            
+        }
+        
+    }
+}
+
+
+
+//MARK: -Actions
+extension EditItemViewController{
     @IBAction func updateItem() {
         do{
             playSoundEffects(updateSFX)
@@ -97,31 +156,11 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setUp()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        defaults.addAndSend("EDIT_PAGE_COUNT")
-        
-        self.logPageView()
-        
+    @IBAction func setItemImage(sender: UIButton) {
+        self.setImagePicker()
     }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("EDIT_PAGE_COUNT")
-//        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
-        
-        Answers.logContentViewWithName("Edit Content View",
-            contentType: "Edit View",
-            contentId: "MF6",
-            customAttributes: ["EDIT_PAGE_COUNT": pageCount!
-                
-//                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
-            ])
-    }
+    
+    //MARK: -Action sum functions
     func saveItemVars(){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
@@ -134,11 +173,11 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         if (dateReleased?.value != nil){
             tempDateReleased = dateFormatter.stringFromDate(self.dateReleased!.value)
         }else{tempDateReleased = nil}
-     
+        
         if (lastTimeWorn?.value != nil){
             templastTimeWorn = dateFormatter.stringFromDate(self.lastTimeWorn!.value)
         }else{templastTimeWorn = nil}
-     
+        
         if (datePurchased?.value != nil){
             tempdatePurchased = dateFormatter.stringFromDate(self.datePurchased!.value)
         }else{tempdatePurchased = nil}
@@ -195,46 +234,11 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         self.manager!.tableView?.backgroundColor = UIColor.greenColor()
         self.manager!.tableView?.separatorColor = UIColor.blueColor()
     }
-    
-    @IBAction func setItemImage(sender: UIButton) {
-        self.setImagePicker()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        
-        defer{
-            print("Segue transfer: \(segue.identifier)")
-        }
-        
-        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
-            
-        }
-        if segue.identifier == SEGUE_CREATION_TO_MAKE{
-            
-        }
-        if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
-            
-            let modelController = segue.destinationViewController as! ModelTableViewController
-            modelController.arrayOfItems = array
-            modelController.path = self.path
-            
-            
-            
-        }
-        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
-            
-        }
-        
-    }
 }
 
-//MARK: - Developer Created Methods
+
+
+//MARK: -Initializers
 extension EditItemViewController{
     func setUp(){
         self.setUI()
@@ -260,22 +264,6 @@ extension EditItemViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
         self.navigationController?.navigationBar.translucent = false
-    }
-    func setPickerInfo(){
-        dispatch_async(GlobalBackgroundQueue, {
-            //Category
-            self.categoryPickerView.delegate = self
-            self.categoryInputTextField.inputView = self.categoryPickerView
-            
-            
-            //Sub-Category
-            self.subCategoryPickerView.delegate = self
-            self.subCategoryInputTextField.inputView = self.subCategoryPickerView
-            
-            self.categoryInputTextField.text = self.viewItem.category
-            self.subCategoryInputTextField.text = self.viewItem.subCategory
-            self.pictureForSelectedItemImage.image = self.viewItem.image
-        })
     }
     func setUI(){
         self.setTitle()
@@ -470,7 +458,9 @@ extension EditItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
 }
 
-//MARK: - ImagePickerView Methods
+
+
+//MARK: - ImagePickerView
 extension EditItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func setImagePicker(){
         let imagePicker = UIImagePickerController()
@@ -490,10 +480,30 @@ extension EditItemViewController:UIImagePickerControllerDelegate, UINavigationCo
         //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    //MARK: -Picker Sub Methods
+    func setPickerInfo(){
+        dispatch_async(GlobalBackgroundQueue, {
+            //Category
+            self.categoryPickerView.delegate = self
+            self.categoryInputTextField.inputView = self.categoryPickerView
+            
+            
+            //Sub-Category
+            self.subCategoryPickerView.delegate = self
+            self.subCategoryInputTextField.inputView = self.subCategoryPickerView
+            
+            self.categoryInputTextField.text = self.viewItem.category
+            self.subCategoryInputTextField.text = self.viewItem.subCategory
+            self.pictureForSelectedItemImage.image = self.viewItem.image
+        })
+    }
 }
 
 
-//Text Field methods
+
+//MARK: -Text Field
 extension EditItemViewController: UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
         
@@ -540,6 +550,25 @@ extension EditItemViewController: UITextFieldDelegate{
         return true
     }
 }
-/***********************NOTES*********************/
-// Use pickerView Object to choose categories and sub-categories that already exist and at the bottom have an option to add new one
+
+
+
+//MARK: -Anylitics-EditItemViewController Extension
+extension EditItemViewController{
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("EDIT_PAGE_COUNT")
+        //        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
+        
+        Answers.logContentViewWithName("Edit Content View",
+            contentType: "Edit View",
+            contentId: "MF6",
+            customAttributes: ["EDIT_PAGE_COUNT": pageCount!
+                
+                //                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
+            ])
+    }
+}
+
 

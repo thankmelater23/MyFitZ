@@ -9,8 +9,9 @@ import UIKit
 import DKChainableAnimationKit
 import Crashlytics
 
-//MARK: - SelectionViewController
+//MARK: -SelectionViewController Class
 class SelectionViewController: UIViewController{
+    //MARK: -Outlets
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var topCounter: UILabel!
     @IBOutlet weak var bottomCounter: UILabel!
@@ -18,34 +19,19 @@ class SelectionViewController: UIViewController{
     @IBOutlet weak var underClothesCounter: UILabel!
     @IBOutlet weak var headwareCounter: UILabel!
     @IBOutlet weak var accessoriesCounter: UILabel!
-    var selectedUser: Int! = 0//Check on what this is
+    
+    
+    //MARK: -Variables
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
     
-    //View IBActions
-    ///An action that takes the buttonn(sender).text and stores it into categoryString
-    @IBAction func categoryIsButtonName(sender: UIButton) {
-        path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
-        playSoundEffects(categorySFX)
-//        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_MAKE, sender: self)
-    }
-    @IBAction func backButton(sender: AnyObject) {
-        playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
-    }
-    @IBAction func favoriteButton() {
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_FAVORITED, sender: self)
-    }
-    @IBAction func hamperButton() {
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_RECENT, sender: self)
-    }
     
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = false
-            
+        
         self.searchButton.animation.makeScale(2.5).makeScale(0.5).makeScale(1.0).animate(2.0)
         
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
@@ -55,13 +41,13 @@ class SelectionViewController: UIViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
         self.navigationController?.navigationBar.translucent = false
-//        self.navigationController?.navigationBar.titleTextAttributes = [
-//            NSBackgroundColorAttributeName: UIColor.purpleColor(),
-//            NSFontAttributeName: "Chalkduster",
-////            NSBackgroundColorAttributeName: UIColor.whiteColor(),
-////            NSBackgroundColorAttributeName: UIColor.whiteColor(),
-//            NSTextEffectAttributeName: NSTextEffectLetterpressStyle
-//            ]
+        //        self.navigationController?.navigationBar.titleTextAttributes = [
+        //            NSBackgroundColorAttributeName: UIColor.purpleColor(),
+        //            NSFontAttributeName: "Chalkduster",
+        ////            NSBackgroundColorAttributeName: UIColor.whiteColor(),
+        ////            NSBackgroundColorAttributeName: UIColor.whiteColor(),
+        //            NSTextEffectAttributeName: NSTextEffectLetterpressStyle
+        //            ]
         
         self.assignCategoriesItemCount()
         
@@ -72,19 +58,6 @@ class SelectionViewController: UIViewController{
         self.logPageView()
         
     }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Main View Content View",
-            contentType: "Category Selection Menu",
-            contentId: "MF2",
-            customAttributes: ["SELECTION_PAGE_COUNT": pageCount!
-            ])
-    }
-
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
             print("Segue transfer: \(segue.identifier)")
@@ -112,10 +85,54 @@ class SelectionViewController: UIViewController{
         underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
         accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
         headwareCounter.text = String(catCountDic[HEADWARE]!)
-
+        
         
         
     }
 }
 
 
+
+//MARK: -Actions-SelectionViewController Extension
+extension SelectionViewController{
+    ///An action that takes the buttonn(sender).text and stores it into categoryString
+    @IBAction func categoryIsButtonName(sender: UIButton) {
+        path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
+        playSoundEffects(categorySFX)
+        //        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_MAKE, sender: self)
+    }
+    @IBAction func backButton(sender: AnyObject) {
+        playSoundEffects(backSFX)
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
+    }
+    @IBAction func favoriteButton() {
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_FAVORITED, sender: self)
+    }
+    @IBAction func hamperButton() {
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_RECENT, sender: self)
+    }
+    
+}
+
+
+
+//MARK: -General-SelectionViewController Extension
+extension SelectionViewController{
+}
+
+
+
+//MARK: -Anylitics-SelectionViewController Extension
+extension SelectionViewController{
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Main View Content View",
+            contentType: "Category Selection Menu",
+            contentId: "MF2",
+            customAttributes: ["SELECTION_PAGE_COUNT": pageCount!
+            ])
+    }
+}

@@ -9,14 +9,17 @@
 import UIKit
 import Crashlytics
 
+
+
 //MARK: - ModelTableViewController Class
 class ModelTableViewController: UITableViewController {
-    //MARK: - View Variables
+    //MARK: -Variables
     ///items in an Array holds the sub-categories of the items
     var arrayOfItems: [Item]! = [Item]()
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     var indexToSend:Int?
+    
     
     
     //MARK: - View Methods
@@ -29,21 +32,6 @@ class ModelTableViewController: UITableViewController {
         defaults.addAndSend("MODEL_PAGE_COUNT")
         
         self.logPageView()
-    }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("MODEL_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Sub-Category Content View",
-            contentType: "Sub-Category View",
-            contentId: "MF4",
-            customAttributes: ["MODEL_PAGE_COUNT": pageCount!
-            ])
-    }
-    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
-        playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_MODEL_TO_MAKE, sender: self)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
@@ -61,7 +49,7 @@ class ModelTableViewController: UITableViewController {
             if let index = index{
                 
                 detailController.itemOfObject = self.arrayOfItems[index] as Item!
-            
+                
                 detailController.path = self.path
             }else{
                 assertionFailure("This shouldn't happen")
@@ -71,7 +59,7 @@ class ModelTableViewController: UITableViewController {
             let makeTableViewController = segue.destinationViewController as! MakeTableViewController
             
             makeTableViewController.path = self.path
-                    }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
+        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
             
         }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
@@ -83,8 +71,9 @@ class ModelTableViewController: UITableViewController {
     }
 }
 
+
+
 //MARK: - TableView Methods
-///ModelTableViewController TableView Methods
 extension ModelTableViewController{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfItems.count
@@ -144,8 +133,17 @@ extension ModelTableViewController{
 
 
 
-//MARK: - Developer Created Methods
-///ModelTableViewController Developer Created Methods
+//MARK: - Actions-ModelTableViewController Extension
+extension ModelTableViewController{
+    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+        playSoundEffects(backSFX)
+        performSegueWithIdentifier(SEGUE_MODEL_TO_MAKE, sender: self)
+    }
+}
+
+
+
+//MARK: - Initializer-ModelTableViewController Extension
 extension ModelTableViewController{
     func SetUpTypes() {
         self.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
@@ -158,5 +156,22 @@ extension ModelTableViewController{
         }
         self.navigationController?.navigationBar.translucent = false
         
-        }
+    }
+}
+
+
+
+//MARK: -Anylitics-MakeTableViewController Extension
+extension ModelTableViewController{
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("MODEL_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Sub-Category Content View",
+            contentType: "Sub-Category View",
+            contentId: "MF4",
+            customAttributes: ["MODEL_PAGE_COUNT": pageCount!
+            ])
+    }
 }

@@ -9,44 +9,24 @@ import CRToast
 import DKChainableAnimationKit
 import Crashlytics
 
+
+
 //MARK: - DetailedViewController Class
 class DetailedViewController: UIViewController{
-    
-    //View IBOutlets
+    //MARK: -Outlets
     @IBOutlet var tableView: UITableView!
     ///Views main image of the Item being presented
     @IBOutlet var itemImage: UIImageView!
-    @IBAction func deleteItem() {
-        let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
-        let act = UIAlertAction(title: "cancel", style: .Default){_ in}
-        let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-            
-            gamesWardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
-            
-            self.tableView.reloadData()
-        }
-        
-        alert.addAction(action)
-        alert.addAction(act)
-        self.presentViewController(alert, animated: true, completion:nil)
-    }
     @IBOutlet weak var wearButton: UIButton!
-    @IBAction func wear() {
-        let closet = gamesWardrobe.closetSelectionString
-        
-        if true{
-            self.wearActivate()
-        }else{
-            self.sendItemToMyCloset()
-        }
-        self.tableView.reloadData()
-    }
-    //View Variables
-    ///Item selected
+    
+    //MARK: -Variables
     var itemOfObject: Item! = Item()
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
-    //View Methods
+    
+    
+    
+    //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
@@ -58,21 +38,6 @@ class DetailedViewController: UIViewController{
         defaults.addAndSend("DETAIL_PAGE_COUNT")
         
         self.logPageView()
-    }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
-        let wearPressedCount:Int? = defaults.returnIntValue("WEAR_PRESSED_COUNT")
-        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
-        
-        Answers.logContentViewWithName("Detail Content View",
-            contentType: "Detail View",
-            contentId: "MF5",
-            customAttributes: ["DETAIL_PAGE_COUNT": pageCount!,
-                "WEAR_PRESSED_COUNT": wearPressedCount!,
-                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
-            ])
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
@@ -94,6 +59,12 @@ class DetailedViewController: UIViewController{
             createItemViewController.lastVCSegue = SEGUE_DETAIL_TO_CREATION
         }
     }
+}
+
+
+
+//MARK: -Actions-DetailedViewController Extension
+extension DetailedViewController{
     @IBAction func editButtonPressed() {
         playSoundEffects(editSFX)
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -105,7 +76,73 @@ class DetailedViewController: UIViewController{
         playSoundEffects(backSFX)
         performSegueWithIdentifier(SEGUE_DETAIL_TO_MODEL, sender: self)
     }
+    @IBAction func deleteItem() {
+        let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+        let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+        let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+            
+            gamesWardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
+            
+            self.tableView.reloadData()
+        }
+        
+        alert.addAction(action)
+        alert.addAction(act)
+        self.presentViewController(alert, animated: true, completion:nil)
+    }
+    @IBAction func wear() {
+        let closet = gamesWardrobe.closetSelectionString
+        
+        if true{
+            self.wearActivate()
+        }else{
+            self.sendItemToMyCloset()
+        }
+        self.tableView.reloadData()
+    }
+    
+    //MARK: -Action sum Methods
+    func wearActivate(){
+        playSoundEffects(wearSFX)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        let newDate = dateFormatter.stringFromDate((NSDate()))
+        
+        
+        //        var message:TSMessage = TSMessage()
+        //            TSMessage.showNotificationWithTitle("Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate, type: TSMessageNotificationType.Message)
+        
+        //        self.itemOfObject.lastTimeWorn = newDate
+        //        gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
+        //        gamesWardrobe.quickSave()
+        
+        
+        let dicOfOptions = [
+            kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
+            kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
+            kCRToastBackgroundColorKey : UIColor.blueColor(),
+            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
+            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
+            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
+            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
+        
+        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
+            self.itemOfObject.lastTimeWorn = newDate
+            gamesWardrobe.updateRecentWornCollectiion(self.itemOfObject)
+            gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
+            gamesWardrobe.quickSave()
+        })
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("WEAR_PRESSED_COUNT")
+    }
+    func hideWearButton(){
+        wearButton.alpha = 0.3
+        wearButton.backgroundColor = UIColor.grayColor()
+        wearButton.userInteractionEnabled = false
+    }
 }
+
 
 
 
@@ -114,7 +151,6 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2//Create constant
     }// Return the number of sections.
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0){
             return DETAIL_TABLEVIEW_BASIC_SECTION_COUNT
@@ -129,11 +165,9 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             return 0
         }
     }// Return the number of rows in the section.
-    
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
     }//Random number returned to fix xcode bug
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             return createCellFromRequiredDictionary(row: indexPath.row) as DoubleLabelTableViewCell
@@ -141,7 +175,6 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             return createCellFromOptionalDictionary(row: indexPath.row) as DoubleLabelTableViewCell
         }
     }
-    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0){
             return "Basic"
@@ -415,7 +448,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 
 
 
-//MARK: - Developer Created Methods
+//MARK: - Initializer Created Methods
 extension DetailedViewController{
     func setUp(){
         self.buttonIsWearOrGot()
@@ -447,17 +480,27 @@ extension DetailedViewController{
         self.tableView?.separatorColor = UIColor.blackColor()
         self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor()
     }
+}
+
+
+
+//MARK: - General Methods-DetailedViewController Exension
+extension DetailedViewController{
+    func sendItemToMyCloset(){
+        //Put code here to send to closet
+    }
+}
+
+
+
+//MARK: - Animations-DetailedViewController Exension
+extension DetailedViewController{
     func wearButtonAvailable(){
         let daysLastWorn:Int = itemOfObject.lastTimeWorn.returnDaysInDate()
         
         if daysLastWorn < 1{
             hideWearButton()
         }
-    }
-    func hideWearButton(){
-        wearButton.alpha = 0.3
-        wearButton.backgroundColor = UIColor.grayColor()
-        wearButton.userInteractionEnabled = false
     }
     func buttonIsWearOrGot(){
         let closet = gamesWardrobe.closetSelectionString
@@ -467,46 +510,28 @@ extension DetailedViewController{
         }else if closet == MY_WANTS_CLOSET{
             wearButton.titleLabel?.text = "GOT"
         }
+    }
 }
-    func sendItemToMyCloset(){
-        //Put code here to send to closet
-    }
-    func wearActivate(){
-        playSoundEffects(wearSFX)
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .ShortStyle
-        let newDate = dateFormatter.stringFromDate((NSDate()))
-        
-        
-//        var message:TSMessage = TSMessage()
-//            TSMessage.showNotificationWithTitle("Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate, type: TSMessageNotificationType.Message)
-        
-//        self.itemOfObject.lastTimeWorn = newDate
-//        gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
-//        gamesWardrobe.quickSave()
-        
-        
-        let dicOfOptions = [
-            kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
-            kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
-            kCRToastBackgroundColorKey : UIColor.blueColor(),
-            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
-            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
-            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
-            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
-        
-        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
-            self.itemOfObject.lastTimeWorn = newDate
-            gamesWardrobe.updateRecentWornCollectiion(self.itemOfObject)
-            gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
-            gamesWardrobe.quickSave()
-        })
 
+
+
+//MARK: -Anylitics-MakeTableViewController Extension
+extension DetailedViewController{
+    func logPageView(){
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.addAndSend("WEAR_PRESSED_COUNT")
+        
+        let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
+        let wearPressedCount:Int? = defaults.returnIntValue("WEAR_PRESSED_COUNT")
+        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
+        
+        Answers.logContentViewWithName("Detail Content View",
+            contentType: "Detail View",
+            contentId: "MF5",
+            customAttributes: ["DETAIL_PAGE_COUNT": pageCount!,
+                "WEAR_PRESSED_COUNT": wearPressedCount!,
+                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
+            ])
     }
-    
-    
 }
 
 

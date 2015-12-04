@@ -9,20 +9,24 @@
 import Foundation
 import UIKit
 
-enum cellType{
-    case stringCell, dateCell, boolCell, notSet
-}
 
+
+
+//MARK: -CreationUITableViewCell Class
 class CreationUITableViewCell: UITableViewCell{
-  @IBOutlet var textInputCellLabel: UILabel!
-  @IBOutlet var textInputCellTextField: UITextField!
-
-  func configure(text text: String?, labelString: String!, tag: Int){
+    //MARK: -Outlets
+    @IBOutlet var textInputCellLabel: UILabel!
+    @IBOutlet var textInputCellTextField: UITextField!
     
-    textInputCellTextField.text = String()
-    textInputCellTextField.placeholder = labelString
-    textInputCellLabel.text = labelString
-    self.textInputCellTextField.tag = tag
-    self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.UnlessEditing 
-  }
+    
+    
+    //MARK: -View Methods
+    func configure(text text: String?, labelString: String!, tag: Int){
+        
+        textInputCellTextField.text = String()
+        textInputCellTextField.placeholder = labelString
+        textInputCellLabel.text = labelString
+        self.textInputCellTextField.tag = tag
+        self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.UnlessEditing
+    }
 }

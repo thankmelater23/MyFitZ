@@ -8,30 +8,37 @@
 
 import UIKit
 
+
+
+//MARK: -DoubleLabelTableViewCell Class
 class DoubleLabelTableViewCell: UITableViewCell {
-  ///The second label in the cell that holds the name of the info that will be displayed in the second label
-  @IBOutlet var nameLabel: UILabel!
-  ///The second label in the cell that holds information of the first labels name
-  @IBOutlet var infoLabel: UILabel!
-
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-  }
-  override func setSelected(selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
-    // Configure the view for the selected state
-  }
+    //MARK: -Outlets
+    ///The second label in the cell that holds the name of the info that will be displayed in the second label
+    @IBOutlet var nameLabel: UILabel!
+    ///The second label in the cell that holds information of the first labels name
+    @IBOutlet var infoLabel: UILabel!
+    
+    
+    
+    //MARK: -View Methods
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
 }
 
 
+
+//MARK: -Initializers
 extension DoubleLabelTableViewCell{
-
-  func configure(name name:  String,  infoString: String){
-    nameLabel.text = name + ":"
-    infoLabel.text = infoString
-
-  }
+    func configure(name name:  String,  infoString: String){
+        nameLabel.text = name + ":"
+        infoLabel.text = infoString
+        
+    }
 }

@@ -20,7 +20,6 @@
 		C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B21BE1A0460065EC2F /* Extensions.swift */; };
 		C64503B91BE1A0460065EC2F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B31BE1A0460065EC2F /* Item.swift */; };
 		C64503BA1BE1A0460065EC2F /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B41BE1A0460065EC2F /* Fit.swift */; };
-		C64503BB1BE1A0460065EC2F /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B51BE1A0460065EC2F /* Closet.swift */; };
 		C64503BC1BE1A0460065EC2F /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B61BE1A0460065EC2F /* Wardrobe.swift */; };
 		C64503C71BE1A1160065EC2F /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503BD1BE1A1160065EC2F /* NotesViewController.swift */; };
 		C64503C81BE1A1160065EC2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503BE1BE1A1160065EC2F /* ViewController.swift */; };
@@ -105,7 +104,6 @@
 		C64503B21BE1A0460065EC2F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C64503B31BE1A0460065EC2F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C64503B41BE1A0460065EC2F /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
-		C64503B51BE1A0460065EC2F /* Closet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		C64503B61BE1A0460065EC2F /* Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
 		C64503BD1BE1A1160065EC2F /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		C64503BE1BE1A1160065EC2F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 			children = (
 				C64503B31BE1A0460065EC2F /* Item.swift */,
 				C64503B41BE1A0460065EC2F /* Fit.swift */,
-				C64503B51BE1A0460065EC2F /* Closet.swift */,
 				C64503B61BE1A0460065EC2F /* Wardrobe.swift */,
 			);
 			name = Models;
@@ -661,7 +658,6 @@
 				C64503D71BE1A1210065EC2F /* CreationUITableViewCell.swift in Sources */,
 				C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */,
 				C64503CF1BE1A1160065EC2F /* CreationViewController.swift in Sources */,
-				C64503BB1BE1A0460065EC2F /* Closet.swift in Sources */,
 				C64503CD1BE1A1160065EC2F /* CreateItemViewController.swift in Sources */,
 				C64503CA1BE1A1160065EC2F /* MakeTableViewController.swift in Sources */,
 				C64503BC1BE1A0460065EC2F /* Wardrobe.swift in Sources */,

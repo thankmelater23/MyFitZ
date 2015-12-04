@@ -9,19 +9,20 @@
 import UIKit
 import Crashlytics
 
-///MakeTableViewController Class
+//MARK: -MakeTableViewController Class
 class MakeTableViewController: UITableViewController{
-    //View IBOutlets
+    //MARK: -Outlets
     @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
     
-    //View Variables
+    //MARK: - Variables
     ///items in a dictionary of arrays holds the categories of the items
     var itemsInArrayInDictionary: [String: [Item]]! = [String: [Item]]()
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
     
-    //View Methods
+    
+    //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
         itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
@@ -34,17 +35,6 @@ class MakeTableViewController: UITableViewController{
         
         self.logPageView()
         
-    }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Category Content View",
-            contentType: "Category View",
-            contentId: "MF3",
-            customAttributes: ["MAKE_PAGE_COUNT": pageCount!
-            ])
     }
     override func viewDidAppear(animated: Bool){
         
@@ -60,7 +50,7 @@ class MakeTableViewController: UITableViewController{
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
             let index = self.tableView.indexPathForSelectedRow
-
+            
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.path = self.path
         }else if segue.identifier == SEGUE_MAKE_TO_CREATION{
@@ -68,15 +58,21 @@ class MakeTableViewController: UITableViewController{
             createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MAKE
         }
     }
+}
+
+
+
+//MARK: - Action-MakeTableViewController Extension
+extension MakeTableViewController{
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
         performSegueWithIdentifier(SEGUE_MAKE_TO_SELECTION, sender: self)
     }
-    
 }
 
-//MARK: - Developer Created Methods
-///Developer Created Methods
+
+
+//MARK: - Initializer Created Methods
 extension MakeTableViewController{
     func setUpTypes(){
         self.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
@@ -96,8 +92,7 @@ extension MakeTableViewController{
 
 
 
-//MARK: - TableView Methods
-///TableView Methods
+//MARK: -TableView Methods-MakeTableViewController Extension
 extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         let count = itemsInArrayInDictionary.count
@@ -119,7 +114,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
         if arrayItemCell.count > 1{
-        arrayItemCell = arrayItemCell.sort({$0.category > $1.category})
+            arrayItemCell = arrayItemCell.sort({$0.category > $1.category})
         }
         
         if let availableSubCategoryItem = arrayItemCell.first{
@@ -171,5 +166,22 @@ extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
     }//Xcode bug hack that lets cell autosize properly
+}
+
+
+
+//MARK: -Anylitics-MakeTableViewController Extension
+extension MakeTableViewController{
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Category Content View",
+            contentType: "Category View",
+            contentId: "MF3",
+            customAttributes: ["MAKE_PAGE_COUNT": pageCount!
+            ])
+    }
 }
  

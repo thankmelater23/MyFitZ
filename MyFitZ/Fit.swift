@@ -8,7 +8,9 @@
 
 import Foundation
 
+//MARK: -Fit Class
 class Fit{
+//MARK: -Variables
   var items = [Item]()
   var timesWorn: Int!
   var favorited: Bool!
@@ -16,4 +18,6 @@ class Fit{
   var fitTotalPrice: Double!
   var mostExpensiveItem: Item!
   var mostDiverseItem: Item!
+    
+    ///MARK: -Methods
 }

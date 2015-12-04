@@ -1221,7 +1221,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="setItemImage:" destination="T2B-E3-RZG" eventType="touchUpInside" id="mYk-zE-aHt"/>
+                                    <action selector="setItemImage:" destination="T2B-E3-RZG" eventType="touchUpInside" id="7iP-wx-DZF"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8rX-lH-cue">
@@ -1344,7 +1344,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ClearInputs" destination="T2B-E3-RZG" eventType="touchUpInside" id="iJi-KL-SgV"/>
+                                    <action selector="ClearInputs:" destination="T2B-E3-RZG" eventType="touchUpInside" id="a5K-If-yJH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KZ-uZ-bhn">
@@ -2293,11 +2293,11 @@
         <image name="error.png" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CTt-wg-tez"/>
-        <segue reference="9Z4-uK-DHR"/>
-        <segue reference="Iik-tP-R1T"/>
+        <segue reference="AxF-CJ-HYS"/>
         <segue reference="rAA-9Q-Vmk"/>
-        <segue reference="YnA-Uu-MBM"/>
+        <segue reference="lWZ-GO-61G"/>
+        <segue reference="uN0-C1-lf5"/>
+        <segue reference="1Fb-bj-RMJ"/>
         <segue reference="1tB-kg-ppv"/>
     </inferredMetricsTieBreakers>
 </document>

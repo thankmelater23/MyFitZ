@@ -12,23 +12,25 @@ import MRProgress
 import SVProgressHUD
 import CRToast
 
+
+
+//MARK: -Wardrobe Class
+///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
 class Wardrobe:NSObject, NSCoding{
-    ///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
-    //    var myCloset: CLOSET_TYPE = CLOSET_TYPE()
+    //MARK: -Variables
     var myCloset = CLOSET_TYPE()
     var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
     var brandCollection: [String] = [String]()
-//    var brandCategoryCollection: [String: [String]] = [String: [String]]()
+    //    var brandCategoryCollection: [String: [String]] = [String: [String]]()
     var sizes:[String] = [String]()
     var closetItemCountID: Int?
     var wishListItemCountID: Int?
     var recentWornItems: [Item] = [Item]()
     var favoritedItems: [Item] = [Item]()
     
-    
     var closetSelectionString: String! = MY_CLOSET
     var selectedCloset: CLOSET_TYPE{
-        get{ 
+        get{
             if closetSelectionString == MY_CLOSET{
                 return myCloset
             }else if closetSelectionString == MY_WANTS_CLOSET{
@@ -53,6 +55,8 @@ class Wardrobe:NSObject, NSCoding{
     
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
+    
+    //MARK: -Arrays
     //  var allItems = [Item]()
     //  var savedFits      = [Fit]()
     //  var closetTotalPrice:Double! = 0
@@ -63,6 +67,10 @@ class Wardrobe:NSObject, NSCoding{
     //  var favoritedFits  = [Fit]()
     //  var recentWornFits = [Fit]()
     
+    
+    
+    //MARK: -Methods
+    //MARK: -Initializers
     override var description: String {
         return String()
     }
@@ -107,9 +115,9 @@ class Wardrobe:NSObject, NSCoding{
 }
 
 
-//File System
+
+//MARK: -File System-Wardrobe Extension
 extension Wardrobe{
-    //Used to save to ios directory
     func documentsDirectory() -> NSURL {
         let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         return documentsFolderPath
@@ -137,7 +145,7 @@ extension Wardrobe{
             CRToastManager .showNotificationWithOptions(dicOfOptions, completionBlock: {
                 dispatch_sync(GlobalUtilityQueue, {
                     success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
-
+                    
                     SVProgressHUD.showSuccessWithStatus("Saved")
                     SVProgressHUD.dismiss()
                     
@@ -198,6 +206,13 @@ extension Wardrobe{
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
     }
+    
+}
+
+
+
+//MARK: -Counter Methods-Wardrobe Extension
+extension Wardrobe{
     func countClosetUp()->Int{
         defer{
             closetItemCountID! += 1
@@ -217,11 +232,47 @@ extension Wardrobe{
         }
         return wishListItemCountID!
     }
+    func getsCountOfMyCloset()-> Int{
+        var sum = 0
+        for (_, value) in myCloset{
+            for (_, value) in value{
+                for _ in value{
+                    sum++
+                }
+            }
+        }
+        return sum
+    }
+    func getsCountOfMyWishList()-> Int{
+        var sum = 0
+        for (_, value) in myWantsCloset{
+            for (_, value) in value{
+                for _ in value{
+                    sum++
+                }
+            }
+        }
+        return sum
+    }
+    func getCountOfCategories(funcCategory: String)->Int{
+        return selectedCloset[funcCategory]!.count
+    }
+    func getCountOfAllItemsInCategory(funcCategory: String)->Int{
+        var sum = 0
+        for (_, value) in selectedCloset[funcCategory]!{
+            sum += value.count
+        }
+        return sum
+    }
+    func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
+        return selectedCloset[funcCategory]![funcSubCategory]!.count
+    }
 }
 
 
+
+//MARK: -General-Wardrobe Extension
 extension Wardrobe{
-    //TODO: - Create sorting of alpabitized for wardrobe
     func sort(funcCategory:String, funcSubCategory:String){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
@@ -255,8 +306,18 @@ extension Wardrobe{
         //
         
     }
-    
-    //Return functions
+        //TODO: - Create sorting for
+    func updateCategoryOrder(category: String){
+        let sortedCategory = self.returnArrayOfValuesOfCategory(category)//.sort({$0.array[0].category < $1.array[0].category})
+        selectedCloset[category] = sortedCategory
+    }
+}
+
+
+
+//MARK: -Wardrobe Modification-Wardrobe Extension
+extension Wardrobe{
+    //MARK: -Return functions
     func returnDictionaryOfCategory(funcCategory: String)-> [String: [Item]]{
         let dictionaryOfArray = selectedCloset[funcCategory]!
         
@@ -272,14 +333,13 @@ extension Wardrobe{
         
         return values //?? [String]()
     }
-
     func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
         let array = selectedCloset[funcCategory]![funcSubCategory]!
         
         return array
     }
     
-    //Delete Functions
+    //MARK: -Delete Functions
     func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
         playSoundEffects(deleteSFX)
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
@@ -314,7 +374,7 @@ extension Wardrobe{
         quickSave()
     }
     
-    //Appending
+    //MARK: -Appending
     func appendItemAt(funcCategory: String, funcSubCategory: String, newItem: Item){
         selectedCloset[funcCategory]![funcSubCategory]!.append(newItem)
         quickSave()
@@ -327,7 +387,7 @@ extension Wardrobe{
         
     }
     
-    //Swaps Item from one place to another
+    //MARK: -Swap Item
     func swapItem(funcCategory:     String, funcSubCategory:     String,
         prevFuncCategory: String, prevFuncSubCategory: String,
         item: Item){//Deletes object from one place and adds it to another place
@@ -338,7 +398,7 @@ extension Wardrobe{
             
     }
     
-    //Check for availibility
+    //MARK: -Check for availibility
     func doesItemExistAt(funcCategory: String, funcSubCategory: String, item: Item)-> Bool{//Deletes item
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         
@@ -355,45 +415,13 @@ extension Wardrobe{
     func isCategoryEmptyAt(funcCategory: String)-> Bool{//Deletes category row
         return (selectedCloset[funcCategory]!.isEmpty)
     }
-    
-    func getsCountOfMyCloset()-> Int{
-        var sum = 0
-        for (_, value) in myCloset{
-                        for (_, value) in value{
-                            for _ in value{
-                                sum++
-                            }
-                        }
-                    }
-        return sum
-    }
-    
-    func getsCountOfMyWishList()-> Int{
-        var sum = 0
-        for (_, value) in myWantsCloset{
-            for (_, value) in value{
-                for _ in value{
-                    sum++
-                }
-            }
-        }
-        return sum
-    }
-    
-    //Gets count
-    func getCountOfCategories(funcCategory: String)->Int{
-        return selectedCloset[funcCategory]!.count
-    }
-    func getCountOfAllItemsInCategory(funcCategory: String)->Int{
-        var sum = 0
-        for (_, value) in selectedCloset[funcCategory]!{
-            sum += value.count
-        }
-        return sum
-    }
-    func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
-        return selectedCloset[funcCategory]![funcSubCategory]!.count
-    }
+}
+
+
+
+//MARK: -Array Modifiers-Wardrobe Extension
+extension Wardrobe{
+    //MARK: -Brand
     func updateBrandCollectiion(item: Item){
         let brand = item.brand
         if !brandCollection.contains(brand)  && brand != ""{

@@ -9,23 +9,29 @@
 import Foundation
 import UIKit
 import AVFoundation
-///MARK: - Global
-//var closet: Closet!
-//Represents the type of Dictionary in Dictionary of Array of Items
+
+
+
+///MARK: - Global Variables
+
+//MARK: -App Variables
+///Represents the type of Dictionary in Dictionary of Array of Items
 typealias CLOSET_TYPE = [String: [String: [Item]]]
+/// The app entire system
 var gamesWardrobe:Wardrobe = Wardrobe()
 
 
+//MARK: -App Enums
 enum ItemError:ErrorType{
-//    case MissingInfo
+    //    case MissingInfo
     case IncorrectSubCategory
     case missingModelString
     case addImage
-//    case Missing(someInt: Int)
+    //    case Missing(someInt: Int)
 }
 
 
-//Picker options
+//MARK: -App Arrays & Dictionary Constants
 let CATEGORY_PICKER_OPTIONS = [TOPS, BOTTOMS, HEADWARE, FOOTWARE, ACCESSORIES, UNDERCLOTHING]
 let TOPS = "Tops"
 let BOTTOMS = "Bottoms"
@@ -33,25 +39,34 @@ let HEADWARE = "Headware"
 let FOOTWARE =  "Footware"
 let ACCESSORIES = "Accessories"
 let UNDERCLOTHING = "Underclothing"
+//MARK: -Size arrays
 let SIZETYPES: [String: [String]] = ["Shirt": SHIRT_SIZES, "Pant's": [], "Belt": [], "Shoe": SHOE_SIZES]
 let SHIRT_SIZES: [String] = ["small", "medium", "Large"]
 let SHOE_SIZES:[String] = ["Kids:1", "Kids:2"]//ect
 
+//MARK: -Picker Options
 let YES_NO = ["Yes", "No"]
 let ITEM_CONDITION = ["Unwearable", "Old/Damaged", "Worn Down", "Good", "Clean", "Prestine"]
 let COLOR_TYPE = ["Red", "Blue", "Green", "Black", "White", "Yellow", "Orange", "Grey", "Pink", "Purple", "Brown"]
 let MATERIAL_TYPE = ["Cotton", "Leather"]
+
+
+//MARK: -App Path types
 let PATHTYPE_CATEGORY_STRING    = "Category"
 let PATHTYPE_SUBCATEGORY_STRING = "SubCategory"
 let PATHTYPE_INDEX_STRING       = "Index"
 
 
-//Closet
+//MARK: -Cloest Names
 let MY_CLOSET = "My Closet"
 let MY_WANTS_CLOSET = "Wish List"
+
+
+//MARK: -App Integers
 let RECENTLY_WORN_CONTAINER_MAX = 50
 
-//Segue identifiers
+
+//MARK: -Segue identifiers
 let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
 let SEGUE_MAIN_TO_FITMAKER      = "mainToFitMaker"
 let SEGUE_SELECTION_TO_MAKE     = "selectionToMake"
@@ -76,24 +91,17 @@ let SEGUE_RECENT_TO_SELECTION = "recentToSelection"
 let SEGUE_SELECTION_TO_FAVORITED = "selectionToFavorited"
 let SEGUE_FAVORITED_TO_SELECTION = "favoritedToSelection"
 
-//Cell identifiers
+
+//MARK: -Cell identifiers
 let MAKE_CELL                   = "makeCell"
 let MODEL_CELL                  = "modelCell"
 let CREATION_CELL               = "creationCell"
 let DOUBLE_LABEL_CELL           = "doubleLabel"
 let TEXT_INPUT_CELL             = "textInputCell"
 
-let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"
-let BLANK_IMAGE_STRING          = "blank image"
 
-//Colors
-let MY_CLOSET_BAR_COLOR = UIColor.blackColor()
-let MY_WANTS_CLOSET_BAR_COLOR = UIColor.darkGrayColor()
-
-
-
-///MARK: - Item
-//Required
+///MARK: - Item Settings
+//MARK: -Required
 let ITEM_BRAND_STRING        = "Brand"
 let ITEM_MODEL_STRING        = "Model"
 let ITEM_CATEGORY_STRING     = "Category"
@@ -109,9 +117,7 @@ let ITEM_IMAGE_STRING        = "Image"
 let ITEM_KIND_STRING        = "Kind"
 let ITEM_SIZE_STRING        = "Size"
 let ITEM_ID_STRING        = "ID"
-
-
-//Optional
+//MARK: -Optional
 let ITEM_DATEPURCHASERD_STRING = "Date Purchased"
 let ITEM_COLOR_STRING          = "Primary Color"
 let ITEM_SECONDARYCOLOR_STRING = "Secondary Color"
@@ -124,140 +130,35 @@ let ITEM_SECONDAY_MATERIAL_STRING = "Secondary Material"
 let ITEM_RETAILPRICE_STRING = "Payed Price"
 let ITEM_STORELURL_STRING = "Store URL/Website"
 let ITEM_STORELOCATION_STRING = "Store Location"
-let ITEM_SELLERNAME_STRING        = "Seller Name" 
+let ITEM_SELLERNAME_STRING        = "Seller Name"
 let ITEM_LOCATIONPATH_STRING   = "Location Path"
 
+
+//MARK: -Wardrobe Settings
 let ITEM_REQUIREDDICTIONARY_STRING = "requiredDictionary"
 let ITEM_OPTIONALDICTIONARY_STRING = "optionalDictionary"
 
-let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
-let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 
 ///MARK: - Profile
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - Closet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - Fit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - ViewController
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - SelectionViewController
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - MakeTableViewController
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - ModelTableViewController
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - DetailedViewController
+//MARK: -TableView
 let DETAIL_TABLEVIEW_BASIC_SECTION_COUNT = 13
 let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 14
 
 
-
-
-
-
-
-
-
-
-
-
-
 ///MARK: - CreationViewController
 
-///MARK: - Audio
-var audioPlayer: AVAudioPlayer! = AVAudioPlayer()
 
+///MARK: - Audio
+//MARK: -Variable
+var audioPlayer: AVAudioPlayer! = AVAudioPlayer()
+//MARK: -SystemSoundID
 var clearSFX : SystemSoundID = 0
 var saveSFX : SystemSoundID = 1
 var deleteSFX : SystemSoundID = 2
@@ -276,7 +177,20 @@ var incorrectSFX : SystemSoundID = 14
 var notificationSFX : SystemSoundID = 15
 
 
-///GCD
+//MARK: -Document Settings
+let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"
+
+
+//MARK: -Image Settings
+let BLANK_IMAGE_STRING          = "blank image"
+let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
+let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
+
+//MARK: -Color Settings
+let MY_CLOSET_BAR_COLOR = UIColor.blackColor()
+let MY_WANTS_CLOSET_BAR_COLOR = UIColor.darkGrayColor()
+
+//MARK: -GCD
 var GlobalMainQueue: dispatch_queue_t {
     return dispatch_get_main_queue()
 }//First, the system provides you with a special serial queue known as the main queue. Like any serial queue, tasks in this queue execute one at a time. However, it’s guaranteed that all tasks will execute on the main thread, which is the only thread allowed to update your UI. This queue is the one to use for sending messages to UIView objects or posting notifications.

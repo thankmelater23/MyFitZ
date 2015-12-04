@@ -9,31 +9,40 @@
 import Foundation
 import UIKit
 
-
+//MARK: -ModelCustomCell Class
 class ModelCustomCell: UITableViewCell{
-  @IBOutlet weak var modelImage: UIImageView!
-  @IBOutlet weak var brandLabel: UILabel!
-  @IBOutlet weak var modelLabel: UILabel!
-  @IBOutlet weak var timesWornLabel: UILabel!
+    //MARK: -Outlets
+    @IBOutlet weak var modelImage: UIImageView!
+    @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var modelLabel: UILabel!
+    @IBOutlet weak var timesWornLabel: UILabel!
+    @IBOutlet weak var star: UIImageView!
+    
+    
+    
+    //MARK: -View Methods
+    override func  awakeFromNib(){
+        super.awakeFromNib()
+    }
+    override func setSelected(selected: Bool, animated: Bool){
+        super.setSelected(selected ,  animated: animated)
+    }
+    
+}
 
-  @IBOutlet weak var star: UIImageView!
 
-  override func  awakeFromNib(){
-    super.awakeFromNib()
-  }
-  override func setSelected(selected: Bool, animated: Bool){
-    super.setSelected(selected ,  animated: animated)
-  }
+
+//MARK: -Initializers
+extension ModelCustomCell{
     func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String, favorited: Bool){
-    self.modelImage.image    = modelImageText
-    self.brandLabel.text     = brandLabelText
-    self.modelLabel.text     = modelLabelText
-    self.timesWornLabel.text = "Last Time Worn: \(lastTimeWornText)"
+        self.modelImage.image    = modelImageText
+        self.brandLabel.text     = brandLabelText
+        self.modelLabel.text     = modelLabelText
+        self.timesWornLabel.text = "Last Time Worn: \(lastTimeWornText)"
         
         self.setFavoritedStar(favorited)
         
-  }
-    
+    }
     func setFavoritedStar(fav: Bool){
         if fav == true{
             star.image = UIImage(named: "star_on")
@@ -42,3 +51,4 @@ class ModelCustomCell: UITableViewCell{
         }
     }
 }
+ 

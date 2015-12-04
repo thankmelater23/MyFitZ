@@ -10,6 +10,7 @@ import UIKit
 import Crashlytics
 
 @IBDesignable class SearchViewController: UIViewController {
+    //MARK: -Outlet
     @IBOutlet weak var categoryPrev: UIButton!
     @IBOutlet weak var categoryNext: UIButton!
     @IBOutlet weak var subCategoryNext: UIButton!
@@ -23,6 +24,7 @@ import Crashlytics
     @IBOutlet weak var subCategoryInputTextField: UITextField!
     @IBOutlet weak var indexNumberLabel: UILabel!
     
+    //MARK: -Variable
     var categoryPickerView = UIPickerView()
     var subCategoryPickerView = UIPickerView()
     var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
@@ -38,20 +40,9 @@ import Crashlytics
         }
     }
     
-    func setUI(){
-        modelLabel.text = item.model
-        brandLabel.text = item.brand
-        image.image = item.image
-        setButtonsEnabled()
-    }
-
-    @IBAction func prevItem() {
-        iteratePrevInCurrentItems()
-    }
-    @IBAction func nextItem() {
-        iterateNextInCurrentItems()
-    }
     
+    
+    //MARK: -View Methods
     override func viewDidLoad() {
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Search")
         
@@ -80,22 +71,37 @@ import Crashlytics
         
         self.logPageView()
     }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Search Content View",
-            contentType: "Search View",
-            contentId: "MF8",
-            customAttributes: ["SEARCH_PAGE_COUNT": pageCount!
-            ])
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
+
+
+
+//MARK: - Action Methods
+extension SearchViewController{
+    @IBAction func prevItem() {
+        iteratePrevInCurrentItems()
+    }
+    @IBAction func nextItem() {
+        iterateNextInCurrentItems()
+    }
+}
+
+
+
+//MARK: -Initializers-SearchViewController Extension
+extension SearchViewController{
+    func setUI(){
+        modelLabel.text = item.model
+        brandLabel.text = item.brand
+        image.image = item.image
+        setButtonsEnabled()
+    }
+}
+
+
 
 //MARK: - PickerView Methods
 extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -117,13 +123,13 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        defer{
-//            setUI()
-//        }
+        //        defer{
+        //            setUI()
+        //        }
         
         if pickerView == categoryPickerView{
             defer{
-                 indexOfController = 0
+                indexOfController = 0
             }
             categorySelected = categoryPickerOptions[row]
             categoryInputTextField.text = categorySelected
@@ -156,75 +162,21 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             subCategoryInputTextField.userInteractionEnabled = false
         }
     }
-    
-    func retrieveSubCat(){
-//        indexOfController = 0
-        //Make an array an of the subclass move to the next one from here
-        item = retrieveItem()
-    }
-    func retrieveItem()->Item{
-        let array = gamesWardrobe.selectedCloset[categorySelected]![subCategorySelected]!
-        
-        defer{
-            setButtonsEnabled()
-//            setUI()
-        }
-        
-        if !array.isEmpty{
-            arrayCount = array.count
-            let newIndex = array[indexOfController] as Item?
-            return newIndex!
-        }else{
-            arrayCount = 0
-            let newItem = Item()
-            item.model = "empty"
-            item.brand = "empty"
-            
-            return newItem
-        }
-    }
-    
-    func iterateNextInCurrentItems(){
-        let array = gamesWardrobe.selectedCloset[categorySelected]![subCategorySelected]!
-        let num = array.count
-        
-        if indexOfController < num{
-            indexOfController++
-            item = retrieveItem()
-        }
-        
-//        if indexOfController >= (num - 1){
-//            nextItemOutlet.userInteractionEnabled = false
-//            nextItemOutlet.alpha = 0.5
-//        }else{
-//            nextItemOutlet.userInteractionEnabled = true
-//            nextItemOutlet.alpha = 1
-//        }
-    }
-    func iteratePrevInCurrentItems(){
-        if indexOfController > 0{
-            indexOfController--
-            item = retrieveItem()
-            
-        }
-        
-//        if indexOfController == 0{
-//            prevItemOutlet.userInteractionEnabled = false
-//            prevItemOutlet.alpha = 0.5
-//        }else{
-//            prevItemOutlet.userInteractionEnabled = true
-//            prevItemOutlet.alpha = 1
-//        }
-    }
+}
+
+
+
+//MARK: -Controls-SearchViewController Extension
+extension SearchViewController{
     func setButtonsEnabled(){
-            
-            if indexOfController == arrayCount - 1{
-                nextItemOutlet.userInteractionEnabled = false
-                nextItemOutlet.alpha = 0.5
-            }else {//if indexOfController < arrayCount  && indexOfController >= 0{
-                nextItemOutlet.userInteractionEnabled = true
-                nextItemOutlet.alpha = 1.0
-            }
+        
+        if indexOfController == arrayCount - 1{
+            nextItemOutlet.userInteractionEnabled = false
+            nextItemOutlet.alpha = 0.5
+        }else {//if indexOfController < arrayCount  && indexOfController >= 0{
+            nextItemOutlet.userInteractionEnabled = true
+            nextItemOutlet.alpha = 1.0
+        }
         
         if indexOfController == 0{
             prevItemOutlet.userInteractionEnabled = false
@@ -247,5 +199,82 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             prevItemOutlet.alpha = 0.5
             prevItemOutlet.userInteractionEnabled = false
         }
+    }
+    
+    func retrieveSubCat(){
+        //        indexOfController = 0
+        //Make an array an of the subclass move to the next one from here
+        item = retrieveItem()
+    }
+    func retrieveItem()->Item{
+        let array = gamesWardrobe.selectedCloset[categorySelected]![subCategorySelected]!
+        
+        defer{
+            setButtonsEnabled()
+            //            setUI()
+        }
+        
+        if !array.isEmpty{
+            arrayCount = array.count
+            let newIndex = array[indexOfController] as Item?
+            return newIndex!
+        }else{
+            arrayCount = 0
+            let newItem = Item()
+            item.model = "empty"
+            item.brand = "empty"
+            
+            return newItem
+        }
+    }
+    func iterateNextInCurrentItems(){
+        let array = gamesWardrobe.selectedCloset[categorySelected]![subCategorySelected]!
+        let num = array.count
+        
+        if indexOfController < num{
+            indexOfController++
+            item = retrieveItem()
+        }
+        
+        //        if indexOfController >= (num - 1){
+        //            nextItemOutlet.userInteractionEnabled = false
+        //            nextItemOutlet.alpha = 0.5
+        //        }else{
+        //            nextItemOutlet.userInteractionEnabled = true
+        //            nextItemOutlet.alpha = 1
+        //        }
+    }
+    func iteratePrevInCurrentItems(){
+        if indexOfController > 0{
+            indexOfController--
+            item = retrieveItem()
+            
+        }
+        
+        //        if indexOfController == 0{
+        //            prevItemOutlet.userInteractionEnabled = false
+        //            prevItemOutlet.alpha = 0.5
+        //        }else{
+        //            prevItemOutlet.userInteractionEnabled = true
+        //            prevItemOutlet.alpha = 1
+        //        }
+    }
+}
+
+
+
+
+//MARK: -Anylitics-SearchViewController Extension
+extension SearchViewController{
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
+        
+        Answers.logContentViewWithName("Search Content View",
+            contentType: "Search View",
+            contentId: "MF8",
+            customAttributes: ["SEARCH_PAGE_COUNT": pageCount!
+            ])
     }
 }

@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+
+
+//MARK: -Extensions
+
+//MARK: -String Extension
 extension String{
     func returnDaysInDate()->Int{
         let dateFormatter = NSDateFormatter()
@@ -38,6 +43,9 @@ extension NSDate{
     }
 }
 
+
+
+//MARK: -NSUserDefaults Extensions
 extension NSUserDefaults{
     func unNilInt(optionalInt: Int?)-> Int!{
         if optionalInt == nil{
@@ -46,18 +54,15 @@ extension NSUserDefaults{
             return optionalInt
         }
     }
-    
     func add(num: Int)->Int{
          let number = self.unNilInt(num)
         return number+1
     }
-    
     func sendToDefaults(path: String, num: Int){
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setInteger(num, forKey: path)
     }
-    
     func addAndSend(path: String){
         let defaults = NSUserDefaults.standardUserDefaults()
         
@@ -69,7 +74,6 @@ extension NSUserDefaults{
         
         sendToDefaults(path, num: total!)
     }
-    
     func returnIntValue(path:String)->Int!{
         let defaults = NSUserDefaults.standardUserDefaults()
         

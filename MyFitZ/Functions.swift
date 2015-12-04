@@ -16,25 +16,12 @@ func grabTitle(closet:String, view: String)->String{
     return string
 }
 
-//func playSoundEffects(url:NSURL){
-//    do{
-//        let sound = try AVAudioPlayer(contentsOfURL: url)
-//        audioPlayer = sound
-//        audioPlayer.play()
-//        print("Played SFX: " + url.path!)
-//    }catch{
-//        assertionFailure("Sound didn't play")
-//    }
-//    
-//}
-//
-//func stopSoundEffects(){
-//    if audioPlayer != nil{
-//        audioPlayer.stop()
-////        audioPlayer = nil
-//    }
-//}
 
+
+//MARK: -Sound Methods
+func playSoundEffects(soundID: SystemSoundID) {
+    AudioServicesPlaySystemSound(soundID)
+}
 func initializeSounds() {
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
@@ -46,15 +33,16 @@ func initializeSounds() {
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("wishlist0", withExtension: "wav")!, &wishlistSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("wear0", withExtension: "wav")!, &wearSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification1", withExtension: "wav")!, &categorySFX)
-//    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("path", withExtension: "wav")!, &subCategorySFX)
+    //    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("path", withExtension: "wav")!, &subCategorySFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("cellselect0", withExtension: "wav")!, &itemSelectSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("update0", withExtension: "wav")!, &updateSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("animationPop0", withExtension: "wav")!, &animationSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("alert0", withExtension: "wav")!, &incorrectSFX)
-     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
+    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
 }
 
-func playSoundEffects(soundID: SystemSoundID) {
-    AudioServicesPlaySystemSound(soundID)
-}
+
+
+
+
 

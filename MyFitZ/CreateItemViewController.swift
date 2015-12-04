@@ -13,10 +13,18 @@ import DKChainableAnimationKit
 import RETableViewManager
 import Crashlytics
 
+
+
+//MARK: -CreateItemViewController Class
 class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
+    //MARK: -Outlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
+    @IBOutlet var pictureForSelectedItemImage: UIImageView!
+    
+    
+    //MARK: -Variables
     var categoryPickerView = UIPickerView()
     var subCategoryPickerView = UIPickerView()
     var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
@@ -25,8 +33,8 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var subCategorySelected: String! = String()
     var lastVCSegue = String()
     
+    //MARK: -RETableView Vars
     var manager:RETableViewManager?
-    
     var basicSection:RETableViewSection?
     var miscSection:RETableViewSection?
     
@@ -65,12 +73,63 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     //        }
     //    }
     
-    @IBOutlet var pictureForSelectedItemImage: UIImageView!
-    //CreateItemViewController Item to be created and modified to be saved
     var viewItem: Item! = Item()
     var currentIndex = 0
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
+}
+
+
+
+//MARK: - View Functions -Extension CreateItemViewController
+extension CreateItemViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setUp()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("CREATE_PAGE_COUNT")
+        
+        self.logPageView()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        defer{
+            print("Segue transfer: \(segue.identifier)")
+        }
+        
+        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
+            let selectionViewController = segue.destinationViewController as! SelectionViewController
+            selectionViewController.path = self.path
+        }
+        if segue.identifier == SEGUE_CREATION_TO_MAKE{
+            let makeTableViewController = segue.destinationViewController as! MakeTableViewController
+            makeTableViewController.path = self.path
+        }
+        if segue.identifier == SEGUE_CREATION_TO_MODEL{
+            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+            
+            let modelController = segue.destinationViewController as! ModelTableViewController
+            modelController.arrayOfItems = array
+            modelController.path = self.path
+        }
+        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
+            let detailedViewController = segue.destinationViewController as! DetailedViewController
+            detailedViewController.path = self.path
+        }
+        
+    }
+}
+
+
+
+//MARK: - IBAction Function -Extension CreateItemViewController
+extension CreateItemViewController{
     @IBAction func createItem(sender: UIButton) {
         
         do{
@@ -111,29 +170,15 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         
         performSegueWithIdentifier(SEGUE_CREATION_TO_SELECTION, sender: self)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setUp()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        defaults.addAndSend("CREATE_PAGE_COUNT")
-        
-        self.logPageView()
+    @IBAction func setItemImage(sender: UIButton) {
+        self.setImagePicker()
     }
-    func logPageView(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
-        let saveButtonPressed:Int? = defaults.returnIntValue("SAVE_BUTTON_BUTTON_PRESSED")
-        
-        
-        Answers.logContentViewWithName("Create Content View",
-            contentType: "Create Item View",
-            contentId: "MF7",
-            customAttributes: ["CREATE_PAGE_COUNT": pageCount!,
-                "SAVE_BUTTON_BUTTON_PRESSED": saveButtonPressed!
-            ])
+    @IBAction func ClearInputs(sender: UIButton) {
+        self.clear()
     }
+    
+    
+    //MARK: -Action Sub Functions
     func saveItemVars(){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
@@ -153,7 +198,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
             tempdatePurchased = dateFormatter.stringFromDate(self.datePurchased!.value)
         }
         if(model!.value != ""){viewItem.model = model!.value}else{viewItem.model = "N/A"}
-
+        
         if(brand!.value != ""){viewItem.brand = brand!.value}else{viewItem.brand = "N/A"}
         
         viewItem.favorited = favorited!.value  ?? false
@@ -169,25 +214,25 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         
         if(tempdatePurchased != ""  && tempdatePurchased != nil){viewItem.datePurchased = tempdatePurchased}else{viewItem.dateReleased = "N/A"}
         
-
+        
         if(color!.value != ""){viewItem.color = color!.value}else{viewItem.color = "N/A"}
-
+        
         if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
-
+        
         if(thirdColor!.value != ""){viewItem.thirdColor = thirdColor!.value}else{viewItem.thirdColor = "N/A"}
-
+        
         if(itemDescription!.value != ""){viewItem.itemDescription = itemDescription!.value}else{viewItem.itemDescription = "N/A"}
-
+        
         if(tempDateReleased != ""  && tempDateReleased != nil){viewItem.dateReleased = tempDateReleased}else{viewItem.dateReleased = "N/A"}
         
         viewItem.retailPrice = Double((retailPrice!.value)!)  ?? 0.0
-
+        
         if(condition!.value != ""){viewItem.condition = condition!.value}else{viewItem.condition = "N/A"}
-
+        
         if(primaryMaterial!.value != ""){viewItem.primaryMaterial = primaryMaterial!.value}else{viewItem.primaryMaterial = "N/A"}
-
+        
         if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
-
+        
         if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
         
         if(storeLocation!.value != ""){viewItem.storeLocation = storeLocation!.value}else{viewItem.storeLocation = "N/A"}
@@ -197,76 +242,6 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         viewItem.isThisNew = isThisNew!.value  ?? false
         
         self.addIdToItem()
-        
-    }
-    @IBAction func setItemImage(sender: UIButton) {
-        self.setImagePicker()
-    }
-    @IBAction func ClearInputs() {
-        self.clear()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        
-        defer{
-            print("Segue transfer: \(segue.identifier)")
-        }
-        
-        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
-            let selectionViewController = segue.destinationViewController as! SelectionViewController
-            selectionViewController.path = self.path
-        }
-        if segue.identifier == SEGUE_CREATION_TO_MAKE{
-            let makeTableViewController = segue.destinationViewController as! MakeTableViewController
-            makeTableViewController.path = self.path
-        }
-        if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
-            
-            let modelController = segue.destinationViewController as! ModelTableViewController
-            modelController.arrayOfItems = array
-            modelController.path = self.path
-        }
-        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
-            let detailedViewController = segue.destinationViewController as! DetailedViewController
-            detailedViewController.path = self.path
-        }
-        
-    }
-    func addIdToItem(){
-        if gamesWardrobe.closetSelectionString == MY_CLOSET{
-            viewItem.id = gamesWardrobe.countClosetUp()
-        }else if gamesWardrobe.closetSelectionString == MY_WANTS_CLOSET{
-            viewItem.id = gamesWardrobe.countWishlistDown()
-        }
-    }
-}
-
-//MARK: - Developer Created Methods
-extension CreateItemViewController{
-    func setUp(){
-        
-        playSoundEffects(addSFX)
-        self.setUI()
-        self.setPickerInfo()
-        
-        dispatch_sync(GlobalUtilityQueue, {
-            self.initializeRETableView()
-            self.setUpTableView()
-        })
-        
-        viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
-    }//Sets up data
-    func createBasicCells(){
-        
-    }
-    func createMiscCells(){
-        
     }
     func clear(){
         self.categoryInputTextField.text = ""
@@ -297,6 +272,38 @@ extension CreateItemViewController{
         self.tableView.reloadData()
         
         playSoundEffects(clearSFX)
+    }
+    func addIdToItem(){
+        if gamesWardrobe.closetSelectionString == MY_CLOSET{
+            viewItem.id = gamesWardrobe.countClosetUp()
+        }else if gamesWardrobe.closetSelectionString == MY_WANTS_CLOSET{
+            viewItem.id = gamesWardrobe.countWishlistDown()
+        }
+    }
+}
+
+
+
+//MARK: - Initializers Created Methods -Extension CreateItemViewController
+extension CreateItemViewController{
+    func setUp(){
+        
+        playSoundEffects(addSFX)
+        self.setUI()
+        self.setPickerInfo()
+        
+        dispatch_sync(GlobalUtilityQueue, {
+            self.initializeRETableView()
+            self.setUpTableView()
+        })
+        
+        viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
+    }//Sets up data
+    func createBasicCells(){
+        
+    }
+    func createMiscCells(){
+        
     }
     func setTitle(){
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Item Create")
@@ -402,7 +409,14 @@ extension CreateItemViewController{
 
 
 
-//MARK: - PickerView Methods
+//MARK: -General-Extension CreateItemViewController
+extension CreateItemViewController{
+    
+}
+
+
+
+//MARK: - PickerView Methods -Extension CreateItemViewController
 extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -488,7 +502,9 @@ extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
 }
 
-//MARK: - ImagePickerView Methods
+
+
+//MARK: - ImagePickerView Methods -Extension CreateItemViewController
 extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func setImagePicker(){
         let imagePicker = UIImagePickerController()
@@ -511,7 +527,8 @@ extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigation
 }
 
 
-//MARK: -Field methods
+
+//MARK: -Field methods -Extension CreateItemViewController
 extension CreateItemViewController: UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
         
@@ -558,6 +575,24 @@ extension CreateItemViewController: UITextFieldDelegate{
         return true
     }
 }
-/***********************NOTES*********************/
-// Use pickerView Object to choose categories and sub-categories that already exist and at the bottom have an option to add new one
+
+
+
+//MARK: -Anylitics-CreateItemViewController Extension
+extension CreateItemViewController{
+    func logPageView(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
+        let saveButtonPressed:Int? = defaults.returnIntValue("SAVE_BUTTON_BUTTON_PRESSED")
+        
+        
+        Answers.logContentViewWithName("Create Content View",
+            contentType: "Create Item View",
+            contentId: "MF7",
+            customAttributes: ["CREATE_PAGE_COUNT": pageCount!,
+                "SAVE_BUTTON_BUTTON_PRESSED": saveButtonPressed!
+            ])
+    }
+}
 

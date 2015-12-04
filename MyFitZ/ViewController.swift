@@ -9,33 +9,11 @@
 import UIKit
 import Crashlytics
 
+
+
+//MARK: -ViewController Class
 class ViewController:  UIViewController{
-    @IBAction func selectedCloset() {
-        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
-        gamesWardrobe.closetSelectionString = MY_CLOSET
-        playSoundEffects(closetSFX)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        defaults.addAndSend("CLOSET_SELECTION_COUNT")
-        
-        self.logPageView()
-        
-        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
-    }
-    
-    @IBAction func selectedWants() {
-        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
-        gamesWardrobe.closetSelectionString = MY_WANTS_CLOSET
-        playSoundEffects(wishlistSFX)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.addAndSend("WISHLIST_SELECTION_COUNT")
-        
-        self.logPageView()
-        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
-    }
-    
+    //MARK: -Methods
     override func viewDidLoad(){
         super.viewDidLoad()
         initializeSounds()
@@ -64,16 +42,48 @@ class ViewController:  UIViewController{
         
         self.logPageView()
     }
-    
-    @IBAction func crashButtonTapped(sender: AnyObject) {
-        Crashlytics.sharedInstance().crash()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
+
+
+
+//MARK: -Actions-ViewController Extension
+extension ViewController{
+    @IBAction func selectedCloset() {
+        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
+        gamesWardrobe.closetSelectionString = MY_CLOSET
+        playSoundEffects(closetSFX)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.addAndSend("CLOSET_SELECTION_COUNT")
+        
+        self.logPageView()
+        
+        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
+    }
+    @IBAction func selectedWants() {
+        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
+        gamesWardrobe.closetSelectionString = MY_WANTS_CLOSET
+        playSoundEffects(wishlistSFX)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("WISHLIST_SELECTION_COUNT")
+        
+        self.logPageView()
+        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
+    }
+    @IBAction func crashButtonTapped(sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
+    }
+}
+
+
+//MARK: -Anylitics-ViewController Extension
+extension ViewController{
     func logPageView(){
         let defaults = NSUserDefaults.standardUserDefaults()
         
@@ -84,7 +94,7 @@ class ViewController:  UIViewController{
         let wishListSelectionCount:Int? = defaults.returnIntValue("WISHLIST_SELECTION_COUNT")
         
         
-
+        
         Answers.logContentViewWithName("Main View Content View",
             contentType: "Main Menu",
             contentId: "MF1",
@@ -94,4 +104,3 @@ class ViewController:  UIViewController{
             ])
     }
 }
-
