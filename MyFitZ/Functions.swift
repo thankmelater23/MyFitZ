@@ -10,6 +10,21 @@ import Foundation
 import AVFoundation
 import UIKit
 
+
+//MARK: -Global Methods
+
+//MARK: -General
+func createUserId(){
+    //TODO: -Add create user id
+    //standard defaults
+    //Get value for bool isNew
+    //If true get last id from system assign to self, increment system value, save back to system
+    //set in stadard defaults the id
+}
+
+
+
+//MARK: -Generators
 func grabTitle(closet:String, view: String)->String{
     var string: String = String()
     string = closet + "/" + view
@@ -43,6 +58,46 @@ func initializeSounds() {
 
 
 
+//MARK: -Animations
+func buttonAnimation(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 2.0
+    view.layer.borderColor = UIColor.greenColor().CGColor
+    
+    
+    //        self.searchButton.animation.makeScale(0.0).animate(0.0)
+    view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
+    
+//    title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
+//    if self.title == MY_CLOSET{
+//        self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+//    }else if self.title == MY_WANTS_CLOSET{
+//        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+//    }
+    
+    func wearButtonAnimation(view: UIView){
+        view.layer.cornerRadius = view.frame.size.width / 20
+        view.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        view.clipsToBounds = true
+        view.layer.borderWidth = 2.5
+        view.layer.borderColor = UIColor.blackColor().CGColor
+        
+        
+        //        self.searchButton.animation.makeScale(0.0).animate(0.0)
+        view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
+        
+        //    title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
+        //    if self.title == MY_CLOSET{
+        //        self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        //    }else if self.title == MY_WANTS_CLOSET{
+        //        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        //    }
+    }
+}
 
 
 

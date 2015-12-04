@@ -203,3 +203,19 @@ class Item: NSObject, NSCoding{
     }
 }
 
+
+
+
+//MARK: -General Methods
+extension Item{
+    func incrementTimesWorn(){
+        self.timesWorn = self.timesWorn + 1
+    }
+    
+//    override func dealloc(){
+    //TODO: -When its destroyed check remove it if its favorited or in the recents
+//        super.dealloc()
+//        gamesWardrobe.removeFromFavoriteList(self)
+//        gamesWardrobe.checkItemFavorited(self)
+//    }
+}

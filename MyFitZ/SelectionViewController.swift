@@ -13,12 +13,15 @@ import Crashlytics
 class SelectionViewController: UIViewController{
     //MARK: -Outlets
     @IBOutlet weak var searchButton: UIButton!
+    
     @IBOutlet weak var topCounter: UILabel!
     @IBOutlet weak var bottomCounter: UILabel!
     @IBOutlet weak var footwareCounter: UILabel!
     @IBOutlet weak var underClothesCounter: UILabel!
     @IBOutlet weak var headwareCounter: UILabel!
     @IBOutlet weak var accessoriesCounter: UILabel!
+    @IBOutlet weak var recentlyWonrItem: UIButton!
+    @IBOutlet weak var favortiedItems: UIButton!
     
     
     //MARK: -Variables
@@ -32,14 +35,8 @@ class SelectionViewController: UIViewController{
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = false
         
-        self.searchButton.animation.makeScale(2.5).makeScale(0.5).makeScale(1.0).animate(2.0)
+        self.animateAllButtons()
         
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
-        if self.title == MY_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-        }else if self.title == MY_WANTS_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-        }
         self.navigationController?.navigationBar.translucent = false
         //        self.navigationController?.navigationBar.titleTextAttributes = [
         //            NSBackgroundColorAttributeName: UIColor.purpleColor(),
@@ -120,6 +117,43 @@ extension SelectionViewController{
 extension SelectionViewController{
 }
 
+
+
+//MARK: -Animations-SelectionViewController Extension
+extension SelectionViewController{
+    func animateAllButtons(){
+        self.animateSearchButton()
+        self.animateStarButton()
+        self.animateHamperButton()
+    }
+    func animateSearchButton(){
+        self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 10
+        self.searchButton.contentMode = UIViewContentMode.ScaleAspectFit
+        
+        self.searchButton.clipsToBounds = true
+        self.searchButton.layer.borderWidth = 2.0
+        self.searchButton.layer.borderColor = UIColor.greenColor().CGColor
+        
+        
+        //        self.searchButton.animation.makeScale(0.0).animate(0.0)
+        //        self.searchButton.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScaleUIView(1.0).animate(0.3)
+        
+        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+    }
+    func animateHamperButton(){
+                buttonAnimation(recentlyWonrItem)
+    }
+    
+    func animateStarButton(){
+        buttonAnimation(favortiedItems)
+    }
+    
+}
 
 
 //MARK: -Anylitics-SelectionViewController Extension

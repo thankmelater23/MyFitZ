@@ -18,6 +18,8 @@ class DetailedViewController: UIViewController{
     ///Views main image of the Item being presented
     @IBOutlet var itemImage: UIImageView!
     @IBOutlet weak var wearButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     //MARK: -Variables
     var itemOfObject: Item! = Item()
@@ -128,6 +130,7 @@ extension DetailedViewController{
         
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
             self.itemOfObject.lastTimeWorn = newDate
+            self.itemOfObject.incrementTimesWorn()
             gamesWardrobe.updateRecentWornCollectiion(self.itemOfObject)
             gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
             gamesWardrobe.quickSave()
@@ -431,9 +434,9 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 13 :
-            keyAndValue = ITEM_ISTHISNEW_STRING
-            if let value = self.itemOfObject.isThisNew{
-                cell.configure(name: keyAndValue, infoString: value.description)
+            keyAndValue = ITEM_ITEMDESCRIPTION_STRING
+            if let value = self.itemOfObject.itemDescription{
+                cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
@@ -451,6 +454,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 //MARK: - Initializer Created Methods
 extension DetailedViewController{
     func setUp(){
+        self.setButtonsView()
         self.buttonIsWearOrGot()
         self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Detail")
         if self.title == MY_CLOSET{
@@ -495,6 +499,11 @@ extension DetailedViewController{
 
 //MARK: - Animations-DetailedViewController Exension
 extension DetailedViewController{
+    func setButtonsView(){
+        buttonAnimation(self.wearButton)
+        buttonAnimation(self.deleteButton)
+        buttonAnimation(self.editButton)
+    }
     func wearButtonAvailable(){
         let daysLastWorn:Int = itemOfObject.lastTimeWorn.returnDaysInDate()
         

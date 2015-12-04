@@ -34,7 +34,9 @@ class CreationViewController: UIViewController{
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
     @IBAction func createItem(sender: UIButton) {
+        
         do{
+            gamesWardrobe.checkItemFavorited(viewItem)
             try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
         }
             

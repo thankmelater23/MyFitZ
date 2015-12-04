@@ -210,3 +210,8 @@ var GlobalUtilityQueue: dispatch_queue_t {
 var GlobalBackgroundQueue: dispatch_queue_t {
     return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
 }//QOS_CLASS_BACKGROUND: The background class represents tasks that the user is not directly aware of. Use it for prefetching, maintenance, and other tasks that don’t require user interaction and aren’t time-sensitive.
+
+
+
+//MARK: -Anylitics Constants
+//TODO: -Add anylitic constants from detail VC

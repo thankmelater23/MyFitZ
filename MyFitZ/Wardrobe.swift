@@ -429,18 +429,22 @@ extension Wardrobe{
             brandCollection = brandCollection.sort{$0 <  $1}
         }
     }
-    
-//    func removeMissingBrand(item: Item){
-//        let size = item.size
-//        
-//        for var index = 0, index < sizes.count, index++{
-//            
-//            if sizes[index] == size){
-//                sizes.removeAtIndex(index)
-//            }
-//        }
-//        
-//    }
+    func removeBrandIfNoBrandItemsExist(brand: String){
+        //TODO: -Add this method to the places it needs to go to remove brand from the list when it is no longer needed
+        var sum = 0
+        
+        for currBrand in brandCollection{
+            
+            if brand == currBrand as String{
+                brandCollection.removeAtIndex(sum)
+            }else{
+                continue
+            }
+            sum++
+        }
+        
+    }
+    //MARK: -Size
     func updateSizesCollectiion(item: Item){
         let size = item.size
         if !sizes.contains(size)  && size != ""{
@@ -448,25 +452,44 @@ extension Wardrobe{
             sizes = sizes.sort{$0 <  $1}
         }
     }
-//    func updateBrandCatCollectiion(item: Item){
-//        let brand = item.brand
-//        let category = item.category
-//        
-//        var brandArray = self.brandCategoryCollection[category]!
-//        
-//        
-//        if !brandArray.contains(brand)  && brand != ""{
-//            brandArray.append(brand)
-//            brandArray = brandArray.sort{$0 <  $1}
-//            self.brandCategoryCollection[category] = brandArray
-//        }
-//    }
-    
-//    func updateCategoryOrder(category: String){
-//        let sortedCategory = self.returnArrayOfValuesOfCategory(category)//.sort({$0.array[0].category < $1.array[0].category})
-//        selectedCloset[category] = sortedCategory
-//    }
-    
+    //MARK: -Favorites
+    func checkItemFavorited(item: Item){
+        if item.favorited == true{
+            updateFavoritedWornCollectiion(item)
+        }else{
+            removeFromFavoriteList(item)
+        }
+    }
+    func updateFavoritedWornCollectiion(item: Item){
+        var count = 0
+        
+        for itemWithId in favoritedItems{
+            if itemWithId.id == item.id{
+                favoritedItems.removeAtIndex(count)
+                favoritedItems.insert(item, atIndex: 0)
+                return
+            }
+            
+            count++
+        }
+        
+        favoritedItems.insert(item, atIndex: 0)
+    }
+    func removeFromFavoriteList(item: Item){
+        var count = 0
+        
+        for itemWithId in favoritedItems{
+            if itemWithId.id == item.id{
+                favoritedItems.removeAtIndex(count)
+                return
+            }
+            
+            count++
+        }
+        
+        favoritedItems.insert(item, atIndex: 0)
+    }
+    //MARK: -RecentWorn
     func updateRecentWornCollectiion(item: Item){
         var count = 0
         for itemWithId in recentWornItems{
@@ -486,7 +509,8 @@ extension Wardrobe{
     }
 }
 
-
+//TODO: Create equatable functions
+//MARK: -Equatable-Wardrobe Extension
 //extension Wardrobe: Equatable{
 //    func ==(lhs: Wardrobe, rhs: Wardrobe){
 //

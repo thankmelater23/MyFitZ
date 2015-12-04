@@ -13,6 +13,12 @@ import Crashlytics
 
 //MARK: -ViewController Class
 class ViewController:  UIViewController{
+    //MARK: -Outlets
+    @IBOutlet weak var closetButton: UIButton!
+    @IBOutlet weak var wishListButton: UIButton!
+    
+    
+    
     //MARK: -Methods
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -82,6 +88,16 @@ extension ViewController{
 }
 
 
+//MARK: - Animations-ViewController Exension
+extension ViewController{
+    func setButtonsView(){
+        buttonAnimation(self.closetButton)
+        buttonAnimation(self.wishListButton)
+    }
+}
+
+
+    
 //MARK: -Anylitics-ViewController Extension
 extension ViewController{
     func logPageView(){

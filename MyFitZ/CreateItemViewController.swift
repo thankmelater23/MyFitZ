@@ -21,8 +21,10 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
+    @IBOutlet weak var pictureButton: UIButton!
     @IBOutlet var pictureForSelectedItemImage: UIImageView!
-    
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
     
     //MARK: -Variables
     var categoryPickerView = UIPickerView()
@@ -132,6 +134,7 @@ extension CreateItemViewController{
 extension CreateItemViewController{
     @IBAction func createItem(sender: UIButton) {
         
+        gamesWardrobe.checkItemFavorited(viewItem)
         do{
             saveItemVars()
             try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
@@ -409,9 +412,15 @@ extension CreateItemViewController{
 
 
 
-//MARK: -General-Extension CreateItemViewController
+//MARK: -Animation-Extension CreateItemViewController
 extension CreateItemViewController{
-    
+    func setButtonsView(){
+        buttonAnimation(self.saveButton)
+        buttonAnimation(self.categoryInputTextField)
+        buttonAnimation(self.subCategoryInputTextField)
+        buttonAnimation(self.pictureForSelectedItemImage)
+        buttonAnimation(self.clearButton)
+    }
 }
 
 

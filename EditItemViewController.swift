@@ -133,6 +133,7 @@ extension EditItemViewController{
     @IBAction func updateItem() {
         do{
             playSoundEffects(updateSFX)
+            gamesWardrobe.checkItemFavorited(viewItem)
             saveItemVars()
             //gamesWardrobe.swapItem(viewItem.category, funcSubCategory: viewItem.subCategory, prevFuncCategory: previousItem.category, prevFuncSubCategory: previousItem.subCategory, item: viewItem)
             gamesWardrobe.deleteItem(previousItem.category, funcSubCategory: previousItem.subCategory, item: previousItem)
@@ -244,10 +245,10 @@ extension EditItemViewController{
         self.setUI()
         self.setPickerInfo()
         
-        dispatch_sync(GlobalUtilityQueue, {
+
             self.initializeRETableView()
             self.setUpTableView()
-        })
+
         
     }//Sets up data
     func createBasicCells(){
@@ -271,9 +272,29 @@ extension EditItemViewController{
     func initializeRETableView(){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
-        let tempLastTimeWorn = dateFormatter.dateFromString(viewItem.lastTimeWorn)
-        let tempDatePurchased = dateFormatter.dateFromString(viewItem.datePurchased)
-        let tempDateReleased = dateFormatter.dateFromString(viewItem.dateReleased)
+        
+        var tempDateReleased:NSDate?
+        var templastTimeWorn:NSDate?
+        var tempdatePurchased:NSDate?
+        
+        if (self.viewItem.dateReleased != nil){
+            tempDateReleased = dateFormatter.dateFromString(self.viewItem.dateReleased!)
+        }else{self.dateReleased?.value = nil}
+        
+        if (self.viewItem.lastTimeWorn != nil){
+            templastTimeWorn = dateFormatter.dateFromString(self.viewItem.lastTimeWorn)
+        }else{self.dateReleased?.value = nil}
+        
+        if (self.viewItem.datePurchased != nil){
+            tempdatePurchased = dateFormatter.dateFromString(self.viewItem.datePurchased)
+        }else{self.dateReleased?.value = nil}
+        
+        
+        
+        
+//        let tempLastTimeWorn = dateFormatter.dateFromString(viewItem.lastTimeWorn) as NSDate?
+//        let tempDatePurchased = dateFormatter.dateFromString(viewItem.datePurchased) as NSDate?
+//        let tempDateReleased = dateFormatter.dateFromString(viewItem.dateReleased) as NSDate?
         
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         
@@ -288,13 +309,14 @@ extension EditItemViewController{
         
         self.timesWorn = RENumberItem(title: "Times Worn/Used", value: String(self.viewItem.timesWorn), placeholder: "Enter Value for times worn")
         
-        self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn", value: tempLastTimeWorn, placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn", value: templastTimeWorn, placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
+        
         
         self.kind = RETextItem(title: "Kind", value: self.viewItem.kind, placeholder: "Enter Item kind")
         
         self.size = RETextItem(title: "Size", value: self.viewItem.size, placeholder: "Enter Item size")
         
-        self.datePurchased = REDateTimeItem(title: "Date Purchased", value: tempDatePurchased , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
+        self.datePurchased = REDateTimeItem(title: "Date Purchased", value: tempdatePurchased , placeholder: nil, format: "MM/dd/yyyy", datePickerMode: UIDatePickerMode.Date)
         
         //        self.color = REPickerItem(title: "Color", value: COLOR_TYPE, placeholder: "Color", options: [])
         self.color = RETextItem(title: "Color", value: self.viewItem.color, placeholder: "Enter Item color")
