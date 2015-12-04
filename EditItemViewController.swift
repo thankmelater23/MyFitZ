@@ -55,6 +55,8 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     //    var secondaryMaterial:REPickerItem?
     var secondaryMaterial:RETextItem?
     var storeLocationURL:RETextItem?
+    var storeLocation:RETextItem?
+    var sellerName:RETextItem?
     //    var arrayOfImages:R?
     var isThisNew:REBoolItem?//{willSet:
     //        if timesWorn > 0{
@@ -153,7 +155,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         
         if(templastTimeWorn != ""  && templastTimeWorn != nil){viewItem.lastTimeWorn = templastTimeWorn}else{viewItem.dateReleased = "N/A"}
         
-        if(kind!.value != ""){viewItem.kind = model!.value}else{viewItem.kind = "N/A"}
+        if(kind!.value != ""){viewItem.kind = kind!.value}else{viewItem.kind = "N/A"}
         
         if(size!.value != ""){viewItem.size = size!.value}else{viewItem.size = "N/A"}
         
@@ -178,6 +180,12 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
         //        viewItem.storeLocationURL = storeLocationURL!.value  ?? "N/A"
         if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
+        
+        if(storeLocation!.value != ""){viewItem.storeLocation = storeLocation!.value}else{viewItem.storeLocation = "N/A"}
+        
+        if(sellerName!.value != ""){viewItem.sellerName = sellerName!.value}else{viewItem.sellerName = "N/A"}
+        
+        
         
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
         //        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
@@ -327,6 +335,9 @@ extension EditItemViewController{
         self.secondaryMaterial = RETextItem(title: "Secondary Material", value: self.viewItem.secondaryColor, placeholder: "Enter Secondary Material Name")
         
         self.storeLocationURL = RETextItem(title: "Store Website/URL", value: self.viewItem.storeLocationURL, placeholder: "Enter Location")
+        self.storeLocation = RETextItem(title: "Store Location", value: self.viewItem.storeLocation, placeholder: "Enter Item storeLocation")
+        
+        self.sellerName = RETextItem(title: "Seller Name", value: self.viewItem.sellerName, placeholder: "Enter Item Seller Name")
     }
     func setUpTableView(){
         manager = RETableViewManager.init(tableView: self.tableView, delegate: self)
@@ -368,6 +379,8 @@ extension EditItemViewController{
         self.miscSection?.addItem(primaryMaterial)
         self.miscSection?.addItem(secondaryMaterial)
         self.miscSection?.addItem(storeLocationURL)
+        self.miscSection?.addItem(storeLocation)
+        self.miscSection?.addItem(sellerName)
         self.miscSection?.addItem(itemDescription)
     }
 }

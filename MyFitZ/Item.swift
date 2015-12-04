@@ -24,7 +24,7 @@ class Item: NSObject, NSCoding{
     var lastTimeWorn: String!
     var kind: String!
     var size: String!
-    
+    var id: Int!
 
     //MARK: - Item Required defined values
     var datePurchased: String!
@@ -38,8 +38,8 @@ class Item: NSObject, NSCoding{
     var secondaryMaterial: String!
     var retailPrice: Double!
     var storeLocationURL: String!
-//    var storeLocation: (String, String)!
-//    var sellerName: String!
+    var storeLocation: String!
+    var sellerName: String!
 //    var arrayOfImages: [UIImages]
 //  var numberOfDifferentFitsWornWith
     
@@ -47,7 +47,7 @@ class Item: NSObject, NSCoding{
   var path: [String: String]! = [String: String]()
 
     override var description: String {
-      let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)"
+      let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
       return string
     }
 
@@ -66,9 +66,10 @@ class Item: NSObject, NSCoding{
     self.isThisNew    = decoder.decodeBoolForKey(ITEM_ISTHISNEW_STRING) as Bool!
     self.timesWorn    = decoder.decodeIntegerForKey(ITEM_TIMESWORN_STRING) as Int!
     self.lastTimeWorn = decoder.decodeObjectForKey(ITEM_LASTTIMEWORN_STRING) as! String!
-    
     self.kind = decoder.decodeObjectForKey(ITEM_KIND_STRING) as! String!
     self.size = decoder.decodeObjectForKey(ITEM_SIZE_STRING) as! String!
+    self.id    = decoder.decodeIntegerForKey(ITEM_ID_STRING) as Int!
+
     
     //Optional
     self.datePurchased = decoder.decodeObjectForKey(ITEM_DATEPURCHASERD_STRING) as! String!
@@ -81,9 +82,9 @@ class Item: NSObject, NSCoding{
     self.primaryMaterial = decoder.decodeObjectForKey(ITEM_PRIMARYMATERIAL_STRING) as! String!
     self.secondaryMaterial = decoder.decodeObjectForKey(ITEM_SECONDAY_MATERIAL_STRING) as! String!
     self.retailPrice = decoder.decodeObjectForKey(ITEM_RETAILPRICE_STRING) as! Double!
-    self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
-//    self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
-//    self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
+    self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELURL_STRING) as! String!
+    self.storeLocation = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
+    self.sellerName = decoder.decodeObjectForKey(ITEM_SELLERNAME_STRING) as! String!
     
     //Others
     self.path = decoder.decodeObjectForKey(ITEM_LOCATIONPATH_STRING) as! [String: String]!
@@ -104,6 +105,7 @@ class Item: NSObject, NSCoding{
     coder.encodeObject(self.lastTimeWorn, forKey: ITEM_LASTTIMEWORN_STRING)
     coder.encodeObject(self.kind, forKey: ITEM_KIND_STRING)
     coder.encodeObject(self.size, forKey: ITEM_SIZE_STRING)
+    coder.encodeInteger(self.id, forKey: ITEM_ID_STRING)
     //Optional
     coder.encodeObject(self.datePurchased, forKey: ITEM_DATEPURCHASERD_STRING)
     coder.encodeObject(self.color, forKey: ITEM_COLOR_STRING)
@@ -115,9 +117,9 @@ class Item: NSObject, NSCoding{
     coder.encodeObject(self.primaryMaterial, forKey: ITEM_PRIMARYMATERIAL_STRING)
     coder.encodeObject(self.secondaryMaterial, forKey: ITEM_SECONDAY_MATERIAL_STRING)
     coder.encodeObject(self.retailPrice, forKey: ITEM_RETAILPRICE_STRING)
-    coder.encodeObject(self.storeLocationURL, forKey: ITEM_STORELOCATION_STRING)
-//    coder.encodeObject(self.storeLocation, forKey: ITEM_STORELOCATION_STRING)
-//    coder.encodeObject(self.sellerName, forKey: ITEM_STORELOCATION_STRING)
+    coder.encodeObject(self.storeLocationURL, forKey: ITEM_STORELURL_STRING)
+    coder.encodeObject(self.storeLocation, forKey: ITEM_STORELOCATION_STRING)
+    coder.encodeObject(self.sellerName, forKey: ITEM_SELLERNAME_STRING)
     
 
     coder.encodeObject(self.path, forKey: ITEM_LOCATIONPATH_STRING)
@@ -152,6 +154,8 @@ class Item: NSObject, NSCoding{
     self.size = "N/A"
     
     self.index        = NSNumber().integerValue
+    
+    self.id        = NSNumber().integerValue
 
     //Optionals
     self.datePurchased = "N/A"
@@ -165,8 +169,8 @@ class Item: NSObject, NSCoding{
     self.secondaryColor = "N/A"
     self.retailPrice = Double()
     self.storeLocationURL = "N/A"
-//    self.storeLocation = "N/A"
-//    self.sellerName = "N/A"
+    self.storeLocation = "N/A"
+    self.sellerName = "N/A"
     self.path = [String: String]()
   }
   ///Creates custom item

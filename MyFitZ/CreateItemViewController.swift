@@ -56,6 +56,8 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     //    var secondaryMaterial:REPickerItem?
     var secondaryMaterial:RETextItem?
     var storeLocationURL:RETextItem?
+    var storeLocation:RETextItem?
+    var sellerName:RETextItem?
     //    var arrayOfImages:R?
     var isThisNew:REBoolItem?//{willSet:
     //        if timesWorn > 0{
@@ -188,7 +190,14 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 
         if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
         
+        if(storeLocation!.value != ""){viewItem.storeLocation = storeLocation!.value}else{viewItem.storeLocation = "N/A"}
+        
+        if(sellerName!.value != ""){viewItem.sellerName = sellerName!.value}else{viewItem.sellerName = "N/A"}
+        
         viewItem.isThisNew = isThisNew!.value  ?? false
+        
+        self.addIdToItem()
+        
     }
     @IBAction func setItemImage(sender: UIButton) {
         self.setImagePicker()
@@ -229,7 +238,13 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
         }
         
     }
-    
+    func addIdToItem(){
+        if gamesWardrobe.closetSelectionString == MY_CLOSET{
+            viewItem.id = gamesWardrobe.countClosetUp()
+        }else if gamesWardrobe.closetSelectionString == MY_WANTS_CLOSET{
+            viewItem.id = gamesWardrobe.countWishlistDown()
+        }
+    }
 }
 
 //MARK: - Developer Created Methods
@@ -342,6 +357,9 @@ extension CreateItemViewController{
         //        self.secondaryMaterial = REPickerItem(title: "Secondary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
         self.secondaryMaterial = RETextItem(title: "Secondary Material:", value: String(), placeholder: "Enter Secondary Material Name")
         self.storeLocationURL = RETextItem(title: "Store Location Or URL:", value: String(), placeholder: "Enter Location")
+        self.storeLocation = RETextItem(title: "Store Location", value: self.viewItem.storeLocation, placeholder: "Enter Item storeLocation")
+        
+        self.sellerName = RETextItem(title: "Seller Name", value: self.viewItem.sellerName, placeholder: "Enter Item Seller Name")
     }
     func setUpTableView(){
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
@@ -376,6 +394,8 @@ extension CreateItemViewController{
         self.miscSection?.addItem(primaryMaterial)
         self.miscSection?.addItem(secondaryMaterial)
         self.miscSection?.addItem(storeLocationURL)
+        self.miscSection?.addItem(storeLocation)
+        self.miscSection?.addItem(sellerName)
         self.miscSection?.addItem(itemDescription)
     }
 }

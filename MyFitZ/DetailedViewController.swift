@@ -277,7 +277,15 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
-            
+        case 12 :
+            keyAndValue = ITEM_ID_STRING
+            let number = self.itemOfObject.id
+            if number != nil{
+                let value = "\(number)"
+                cell.configure(name: keyAndValue, infoString: value)
+            }else{
+                cell.configure(name: keyAndValue, infoString: "N/A")
+            }
             
         default:
             assertionFailure("Row does not exist to create cell of required type. ROW: \(row)")
@@ -361,21 +369,35 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
-        case 8 :
+        case 9:
             keyAndValue = ITEM_SECONDAY_MATERIAL_STRING
             if let value = self.itemOfObject.secondaryMaterial{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
-        case 8 :
-            keyAndValue = ITEM_STORELOCATION_STRING
+        case 10:
+            keyAndValue = ITEM_STORELURL_STRING
             if let value = self.itemOfObject.storeLocationURL{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
-        case 8 :
+        case 11 :
+            keyAndValue = ITEM_STORELOCATION_STRING
+            if let value = self.itemOfObject.storeLocation{
+                cell.configure(name: keyAndValue, infoString: value)
+            }else{
+                cell.configure(name: keyAndValue, infoString: "N/A")
+            }
+        case 12 :
+            keyAndValue = ITEM_SELLERNAME_STRING
+            if let value = self.itemOfObject.sellerName{
+                cell.configure(name: keyAndValue, infoString: value)
+            }else{
+                cell.configure(name: keyAndValue, infoString: "N/A")
+            }
+        case 13 :
             keyAndValue = ITEM_ISTHISNEW_STRING
             if let value = self.itemOfObject.isThisNew{
                 cell.configure(name: keyAndValue, infoString: value.description)
@@ -475,6 +497,7 @@ extension DetailedViewController{
         
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
             self.itemOfObject.lastTimeWorn = newDate
+            gamesWardrobe.updateRecentWornCollectiion(self.itemOfObject)
             gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
             gamesWardrobe.quickSave()
         })

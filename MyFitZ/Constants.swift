@@ -45,9 +45,11 @@ let PATHTYPE_CATEGORY_STRING    = "Category"
 let PATHTYPE_SUBCATEGORY_STRING = "SubCategory"
 let PATHTYPE_INDEX_STRING       = "Index"
 
+
 //Closet
 let MY_CLOSET = "My Closet"
 let MY_WANTS_CLOSET = "Wish List"
+let RECENTLY_WORN_CONTAINER_MAX = 50
 
 //Segue identifiers
 let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
@@ -69,6 +71,10 @@ let SEGUE_CREATION_TO_MODEL     = "creationToModel"
 let SEGUE_CREATION_TO_DETAIL    = "creationToDetail"
 let SEGUE_CREATION_TO_SELECTION = "creationToSelection"
 let SEGUE_DETAIL_TO_EDIT        = "detailToEdit"
+let SEGUE_SELECTION_TO_RECENT = "selectionToRecent"
+let SEGUE_RECENT_TO_SELECTION = "recentToSelection"
+let SEGUE_SELECTION_TO_FAVORITED = "selectionToFavorited"
+let SEGUE_FAVORITED_TO_SELECTION = "favoritedToSelection"
 
 //Cell identifiers
 let MAKE_CELL                   = "makeCell"
@@ -100,22 +106,25 @@ let ITEM_ISTHISNEW_STRING    = "New Item"
 let ITEM_TIMESWORN_STRING    = "Times Worn"
 let ITEM_LASTTIMEWORN_STRING = "Last Time Worn"
 let ITEM_IMAGE_STRING        = "Image"
-let ITEM_KIND_STRING        = "kind"
-let ITEM_SIZE_STRING        = "size"
+let ITEM_KIND_STRING        = "Kind"
+let ITEM_SIZE_STRING        = "Size"
+let ITEM_ID_STRING        = "ID"
+
 
 //Optional
 let ITEM_DATEPURCHASERD_STRING = "Date Purchased"
-let ITEM_COLOR_STRING          = "Color"
+let ITEM_COLOR_STRING          = "Primary Color"
 let ITEM_SECONDARYCOLOR_STRING = "Secondary Color"
 let ITEM_THIRDCOLOR_STRING = "Third Color"
-let ITEM_DATERELEASED_STRING = "DateReleased"
-let ITEM_ITEMDESCRIPTION_STRING = "Item Description"
+let ITEM_DATERELEASED_STRING = "Date Released"
+let ITEM_ITEMDESCRIPTION_STRING = "Item Note"
 let ITEM_CONDITION_STRING = "Condition"
 let ITEM_PRIMARYMATERIAL_STRING = "Primary Material"
 let ITEM_SECONDAY_MATERIAL_STRING = "Secondary Material"
 let ITEM_RETAILPRICE_STRING = "Payed Price"
 let ITEM_STORELURL_STRING = "Store URL/Website"
 let ITEM_STORELOCATION_STRING = "Store Location"
+let ITEM_SELLERNAME_STRING        = "Seller Name" 
 let ITEM_LOCATIONPATH_STRING   = "Location Path"
 
 let ITEM_REQUIREDDICTIONARY_STRING = "requiredDictionary"
@@ -229,8 +238,8 @@ let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 
 
 ///MARK: - DetailedViewController
-let DETAIL_TABLEVIEW_BASIC_SECTION_COUNT = 12
-let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 8
+let DETAIL_TABLEVIEW_BASIC_SECTION_COUNT = 13
+let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 14
 
 
 

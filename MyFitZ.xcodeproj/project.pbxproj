@@ -40,6 +40,8 @@
 		C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64503DA1BE1A17F0065EC2F /* Main.storyboard */; };
 		C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D73731BFD898D0084842B /* EditItemViewController.swift */; };
 		C68F51061C0EE34C00424646 /* Appsee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68F51051C0EE34C00424646 /* Appsee.framework */; };
+		C68F55171C0F0F2400424646 /* RecentlyWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */; };
+		C68F59E51C0F5B1F00424646 /* FavoritedWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F59E41C0F5B1F00424646 /* FavoritedWornTableViewController.swift */; };
 		C69D74451C0AF5D100C74D19 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74431C0AF5D100C74D19 /* Fabric.framework */; };
 		C69D74461C0AF5D100C74D19 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74441C0AF5D100C74D19 /* Crashlytics.framework */; };
 		C6B4928A1C04457200A1D237 /* add0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927A1C04457200A1D237 /* add0.wav */; };
@@ -123,6 +125,8 @@
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; };
 		C68F51051C0EE34C00424646 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
+		C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentlyWornTableViewController.swift; sourceTree = "<group>"; };
+		C68F59E41C0F5B1F00424646 /* FavoritedWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritedWornTableViewController.swift; sourceTree = "<group>"; };
 		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		C69D74431C0AF5D100C74D19 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C69D74441C0AF5D100C74D19 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				C64503C21BE1A1160065EC2F /* DetailedViewController.swift */,
 				C66D73731BFD898D0084842B /* EditItemViewController.swift */,
 				C64503C31BE1A1160065EC2F /* CreateItemViewController.swift */,
+				C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */,
+				C68F59E41C0F5B1F00424646 /* FavoritedWornTableViewController.swift */,
 				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
 				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
 				C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */,
@@ -633,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68F55171C0F0F2400424646 /* RecentlyWornTableViewController.swift in Sources */,
 				C64503CE1BE1A1160065EC2F /* SearchViewController.swift in Sources */,
 				C64503D61BE1A1210065EC2F /* ModelCustomCell.swift in Sources */,
 				C64503CC1BE1A1160065EC2F /* DetailedViewController.swift in Sources */,
@@ -642,6 +649,7 @@
 				C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */,
 				C64503C81BE1A1160065EC2F /* ViewController.swift in Sources */,
 				C64503B71BE1A0460065EC2F /* Constants.swift in Sources */,
+				C68F59E51C0F5B1F00424646 /* FavoritedWornTableViewController.swift in Sources */,
 				C64503C91BE1A1160065EC2F /* SelectionViewController.swift in Sources */,
 				C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */,
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,

@@ -34,6 +34,12 @@ class SelectionViewController: UIViewController{
         playSoundEffects(backSFX)
         performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
     }
+    @IBAction func favoriteButton() {
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_FAVORITED, sender: self)
+    }
+    @IBAction func hamperButton() {
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_RECENT, sender: self)
+    }
     
     //View Methods
     override func viewDidLoad(){

@@ -18,8 +18,13 @@ class Wardrobe:NSObject, NSCoding{
     var myCloset = CLOSET_TYPE()
     var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
     var brandCollection: [String] = [String]()
-    var brandCategoryCollection: [String: [String]] = [String: [String]]()
-    //var progress: NSProgress
+//    var brandCategoryCollection: [String: [String]] = [String: [String]]()
+    var sizes:[String] = [String]()
+    var closetItemCountID: Int?
+    var wishListItemCountID: Int?
+    var recentWornItems: [Item] = [Item]()
+    var favoritedItems: [Item] = [Item]()
+    
     
     var closetSelectionString: String! = MY_CLOSET
     var selectedCloset: CLOSET_TYPE{
@@ -66,9 +71,12 @@ class Wardrobe:NSObject, NSCoding{
         super.init()
         self.myCloset = decoder.decodeObjectForKey("1") as! CLOSET_TYPE!
         self.myWantsCloset = decoder.decodeObjectForKey("2") as! CLOSET_TYPE!
-        self.closetSelectionString = decoder.decodeObjectForKey("3") as! String!
-        self.path = decoder.decodeObjectForKey("4") as! [String: String]!
-        self.brandCollection = decoder.decodeObjectForKey("5") as! [String]!
+        self.closetSelectionString = decoder.decodeObjectForKey("3") as! String! ?? String()
+        self.path = decoder.decodeObjectForKey("4") as! [String: String]! ?? [String: String]()
+        self.brandCollection = decoder.decodeObjectForKey("5") as! [String]! ?? [String]()
+        self.recentWornItems = decoder.decodeObjectForKey("6") as! [Item]! ?? [Item]()
+        self.favoritedItems = decoder.decodeObjectForKey("7") as! [Item]! ?? [Item]()
+        self.sizes = decoder.decodeObjectForKey("8") as! [String]! ?? [String]()
         //self.selectedCloset = CLOSET_TYPE()
         
         print(myCloset, myWantsCloset, closetSelectionString, path, brandCollection)
@@ -80,6 +88,9 @@ class Wardrobe:NSObject, NSCoding{
         coder.encodeObject(self.closetSelectionString, forKey: "3")
         coder.encodeObject(self.path, forKey: "4")
         coder.encodeObject(self.brandCollection, forKey: "5")
+        coder.encodeObject(self.recentWornItems, forKey: "6")
+        coder.encodeObject(self.favoritedItems, forKey: "7")
+        coder.encodeObject(self.sizes, forKey: "8")
     }//Encodes data in class
     
     override init(){
@@ -186,6 +197,25 @@ extension Wardrobe{
         playSoundEffects(saveSFX)
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
+    }
+    func countClosetUp()->Int{
+        defer{
+            closetItemCountID! += 1
+        }
+        if closetItemCountID == nil{
+            closetItemCountID = 0
+        }
+        return closetItemCountID!
+    }
+    func countWishlistDown()->Int{
+        defer{
+            wishListItemCountID! -= 1
+        }
+        
+        if wishListItemCountID == nil{
+            wishListItemCountID = 100000
+        }
+        return wishListItemCountID!
     }
 }
 
@@ -326,6 +356,30 @@ extension Wardrobe{
         return (selectedCloset[funcCategory]!.isEmpty)
     }
     
+    func getsCountOfMyCloset()-> Int{
+        var sum = 0
+        for (_, value) in myCloset{
+                        for (_, value) in value{
+                            for _ in value{
+                                sum++
+                            }
+                        }
+                    }
+        return sum
+    }
+    
+    func getsCountOfMyWishList()-> Int{
+        var sum = 0
+        for (_, value) in myWantsCloset{
+            for (_, value) in value{
+                for _ in value{
+                    sum++
+                }
+            }
+        }
+        return sum
+    }
+    
     //Gets count
     func getCountOfCategories(funcCategory: String)->Int{
         return selectedCloset[funcCategory]!.count
@@ -384,6 +438,24 @@ extension Wardrobe{
 //        let sortedCategory = self.returnArrayOfValuesOfCategory(category)//.sort({$0.array[0].category < $1.array[0].category})
 //        selectedCloset[category] = sortedCategory
 //    }
+    
+    func updateRecentWornCollectiion(item: Item){
+        var count = 0
+        for itemWithId in recentWornItems{
+            if itemWithId.id == item.id{
+                recentWornItems.removeAtIndex(count)
+                recentWornItems.insert(item, atIndex: 0)
+                return
+            }else{
+                
+            }
+            count++
+        }
+        if recentWornItems.count == RECENTLY_WORN_CONTAINER_MAX{
+            recentWornItems.popLast()
+        }
+        recentWornItems.insert(item, atIndex: 0)
+    }
 }
 
 
