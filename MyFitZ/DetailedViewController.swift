@@ -500,7 +500,7 @@ extension DetailedViewController{
 //MARK: - Animations-DetailedViewController Exension
 extension DetailedViewController{
     func setButtonsView(){
-        buttonAnimation(self.wearButton)
+        wearButtonAnimation(self.wearButton)
         buttonAnimation(self.deleteButton)
         buttonAnimation(self.editButton)
     }

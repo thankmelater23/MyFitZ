@@ -22,7 +22,9 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
     @IBOutlet var pictureForSelectedItemImage: UIImageView!
-    
+    @IBOutlet weak var pictureButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var updateButton: UIButton!
     
     //MARK: Variables
     var categoryPickerView = UIPickerView()
@@ -85,6 +87,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        self.setButtonsView()
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("EDIT_PAGE_COUNT")
@@ -392,6 +395,21 @@ extension EditItemViewController{
         self.miscSection?.addItem(storeLocation)
         self.miscSection?.addItem(sellerName)
         self.miscSection?.addItem(itemDescription)
+    }
+}
+
+
+
+//MARK: -Animations-EditItemViewController Extension
+extension EditItemViewController{
+    func setButtonsView(){
+//        buttonAnimation(categoryInputTextField)
+//        buttonAnimation(subCategoryInputTextField)
+//        buttonAnimation(pictureForSelectedItemImage)
+//        buttonAnimation(pictureButton)
+        buttonAnimation(updateButton)
+        buttonAnimation(deleteButton)
+        
     }
 }
 

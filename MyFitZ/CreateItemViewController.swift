@@ -88,6 +88,7 @@ extension CreateItemViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        self.setButtonsView()
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("CREATE_PAGE_COUNT")
@@ -245,6 +246,7 @@ extension CreateItemViewController{
         viewItem.isThisNew = isThisNew!.value  ?? false
         
         self.addIdToItem()
+    
     }
     func clear(){
         self.categoryInputTextField.text = ""
@@ -416,9 +418,9 @@ extension CreateItemViewController{
 extension CreateItemViewController{
     func setButtonsView(){
         buttonAnimation(self.saveButton)
-        buttonAnimation(self.categoryInputTextField)
-        buttonAnimation(self.subCategoryInputTextField)
-        buttonAnimation(self.pictureForSelectedItemImage)
+//        buttonAnimation(self.categoryInputTextField)
+//        buttonAnimation(self.subCategoryInputTextField)
+//        buttonAnimation(self.pictureForSelectedItemImage)
         buttonAnimation(self.clearButton)
     }
 }

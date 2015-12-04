@@ -78,26 +78,55 @@ func buttonAnimation(view: UIView){
 //        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
 //    }
     
-    func wearButtonAnimation(view: UIView){
-        view.layer.cornerRadius = view.frame.size.width / 20
-        view.contentMode = UIViewContentMode.ScaleAspectFit
-        
-        view.clipsToBounds = true
-        view.layer.borderWidth = 2.5
-        view.layer.borderColor = UIColor.blackColor().CGColor
-        
-        
-        //        self.searchButton.animation.makeScale(0.0).animate(0.0)
-        view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
-        
-        //    title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
-        //    if self.title == MY_CLOSET{
-        //        self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-        //    }else if self.title == MY_WANTS_CLOSET{
-        //        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-        //    }
-    }
 }
-
-
-
+func secectionImagesDresser(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 13
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 7
+    view.layer.borderColor = UIColor.blueColor().CGColor
+} 
+func secectionImageLabelDresser(view: UIView){
+    //    view.layer.cornerRadius = view.frame.size.width / 10
+    //    view.contentMode = UIViewContentMode.ScaleAspectFit
+    //
+    //    view.clipsToBounds = true
+    view.layer.borderWidth = 3.0
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}
+func wearButtonAnimation(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 5.0
+    view.layer.borderColor = UIColor.yellowColor().CGColor
+    
+    
+    //        self.searchButton.animation.makeScale(0.0).animate(0.0)
+    view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
+    
+    //    title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
+    //    if self.title == MY_CLOSET{
+    //        self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+    //    }else if self.title == MY_WANTS_CLOSET{
+    //        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+    //    }
+}
+func secectionNumberLabelDresser(view: UIView){
+        view.layer.cornerRadius = view.frame.size.width / 10
+        view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+        view.clipsToBounds = true
+    view.layer.borderWidth = 0.5
+    view.layer.borderColor = UIColor.darkGrayColor().CGColor
+}
+func barButtonAnimation()(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3.0
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}

@@ -87,8 +87,9 @@ extension FavoritedWornTableViewController{
         return cell
     }
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        indexToSend = indexPath.row
+        //TODO: -Enter something
+//        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        indexToSend = indexPath.row
         playSoundEffects(itemSelectSFX)
         performSegueWithIdentifier(SEGUE_FAVORITED_TO_SELECTION, sender: self)
     }

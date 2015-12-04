@@ -23,6 +23,7 @@ class ViewController:  UIViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         initializeSounds()
+        self.setButtonsView()
         
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.translucent = false

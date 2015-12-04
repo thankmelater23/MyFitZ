@@ -14,6 +14,21 @@ class SelectionViewController: UIViewController{
     //MARK: -Outlets
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var topImage: UIButton!
+    @IBOutlet weak var bottomImage: UIButton!
+    @IBOutlet weak var footwareImage: UIButton!
+    @IBOutlet weak var accessoriesImage: UIButton!
+    @IBOutlet weak var underClothesImage: UIButton!
+    @IBOutlet weak var headWareImage: UIButton!
+    
+    @IBOutlet weak var topsLabel: UILabel!
+    @IBOutlet weak var footwareLabel: UILabel!
+    @IBOutlet weak var underClothesLabel: UILabel!
+    @IBOutlet weak var headwareLabel: UILabel!
+    @IBOutlet weak var accessoriesLabel: UILabel!
+    @IBOutlet weak var bottomsLabel: UILabel!
+    
+    
     @IBOutlet weak var topCounter: UILabel!
     @IBOutlet weak var bottomCounter: UILabel!
     @IBOutlet weak var footwareCounter: UILabel!
@@ -125,6 +140,10 @@ extension SelectionViewController{
         self.animateSearchButton()
         self.animateStarButton()
         self.animateHamperButton()
+        self.animateSearchButton()
+        self.animatePictureLabels()
+        self.animatePictureImages()
+        animateNumberLabels()
     }
     func animateSearchButton(){
         self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 10
@@ -148,9 +167,32 @@ extension SelectionViewController{
     func animateHamperButton(){
                 buttonAnimation(recentlyWonrItem)
     }
-    
     func animateStarButton(){
         buttonAnimation(favortiedItems)
+    }
+    func animatePictureImages(){
+        secectionImagesDresser(self.topImage)
+        secectionImagesDresser(self.bottomImage)
+        secectionImagesDresser(self.footwareImage)
+        secectionImagesDresser(self.accessoriesImage)
+        secectionImagesDresser(self.headWareImage)
+        secectionImagesDresser(self.underClothesImage)
+    }
+    func animatePictureLabels(){
+        secectionImageLabelDresser(self.topsLabel)
+        secectionImageLabelDresser(self.bottomsLabel)
+        secectionImageLabelDresser(self.footwareLabel)
+        secectionImageLabelDresser(self.accessoriesLabel)
+        secectionImageLabelDresser(self.headwareLabel)
+        secectionImageLabelDresser(self.underClothesLabel)
+    }
+    func animateNumberLabels(){
+        secectionImageLabelDresser(self.topCounter)
+        secectionImageLabelDresser(self.bottomCounter)
+        secectionImageLabelDresser(self.footwareCounter)
+        secectionImageLabelDresser(self.accessoriesCounter)
+        secectionImageLabelDresser(self.headwareCounter)
+        secectionImageLabelDresser(self.underClothesCounter)
     }
     
 }
