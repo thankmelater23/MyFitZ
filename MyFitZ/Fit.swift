@@ -6,18 +6,23 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 
+
+
 import Foundation
 
+
+
 //MARK: -Fit Class
+/// Holds multiple Item objects that makes an outfit
 class Fit{
-//MARK: -Variables
-  var items = [Item]()
-  var timesWorn: Int!
-  var favorited: Bool!
-  var lastTimeWOrn: Bool!
-  var fitTotalPrice: Double!
-  var mostExpensiveItem: Item!
-  var mostDiverseItem: Item!
-    
+    //MARK: -Variables
+    var items = [Item]()
+    var timesWorn: Int!
+    var favorited: Bool!
+    var lastTimeWOrn: Bool!
+    var fitTotalPrice: Double!
+    var mostExpensiveItem: Item!
+    var mostDiverseItem: Item!
+    var outFitIDNumber: Int!
     ///MARK: -Methods
 }

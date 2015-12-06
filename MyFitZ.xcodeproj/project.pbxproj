@@ -50,6 +50,8 @@
 		C66300981C1425440057061C /* Constants_Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300971C1425440057061C /* Constants_Wardrobe.swift */; };
 		C66300BA1C14254D0057061C /* Constants_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300B91C14254D0057061C /* Constants_Item.swift */; };
 		C66300DB1C1425660057061C /* Constants_Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300DA1C1425660057061C /* Constants_Fit.swift */; };
+		C66300FC1C14279D0057061C /* Constants_Global_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300FB1C14279D0057061C /* Constants_Global_Function.swift */; };
+		C663011D1C1427AA0057061C /* Constants_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663011C1C1427AA0057061C /* Constants_Extensions.swift */; };
 		C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D73731BFD898D0084842B /* EditItemViewController.swift */; };
 		C68F51061C0EE34C00424646 /* Appsee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68F51051C0EE34C00424646 /* Appsee.framework */; };
 		C68F55171C0F0F2400424646 /* RecentlyWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */; };
@@ -147,6 +149,8 @@
 		C66300971C1425440057061C /* Constants_Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Wardrobe.swift; sourceTree = "<group>"; };
 		C66300B91C14254D0057061C /* Constants_Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Item.swift; sourceTree = "<group>"; };
 		C66300DA1C1425660057061C /* Constants_Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Fit.swift; sourceTree = "<group>"; };
+		C66300FB1C14279D0057061C /* Constants_Global_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Global_Function.swift; sourceTree = "<group>"; };
+		C663011C1C1427AA0057061C /* Constants_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Extensions.swift; sourceTree = "<group>"; };
 		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; };
 		C68F51051C0EE34C00424646 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
 		C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentlyWornTableViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +402,8 @@
 				C61790AE1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift */,
 				C61790F01C1421FD003A9561 /* Constants_SearchViewController.swift */,
 				C61790CF1C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift */,
+				C66300FB1C14279D0057061C /* Constants_Global_Function.swift */,
+				C663011C1C1427AA0057061C /* Constants_Extensions.swift */,
 			);
 			name = "Global Vars";
 			sourceTree = "<group>";
@@ -684,6 +690,7 @@
 				C64503CB1BE1A1160065EC2F /* ModelTableViewController.swift in Sources */,
 				C64503BA1BE1A0460065EC2F /* Fit.swift in Sources */,
 				C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */,
+				C663011D1C1427AA0057061C /* Constants_Extensions.swift in Sources */,
 				C6178FE91C142118003A9561 /* Constants_SelectionViewController.swift in Sources */,
 				C6178FC71C14210A003A9561 /* Constants_ViewController.swift in Sources */,
 				C64503C81BE1A1160065EC2F /* ViewController.swift in Sources */,
@@ -700,6 +707,7 @@
 				C66300981C1425440057061C /* Constants_Wardrobe.swift in Sources */,
 				C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */,
 				C617906D1C142151003A9561 /* Constants_EditViewController.swift in Sources */,
+				C66300FC1C14279D0057061C /* Constants_Global_Function.swift in Sources */,
 				C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */,
 				C61790F11C1421FD003A9561 /* Constants_SearchViewController.swift in Sources */,
 				C61790AF1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift in Sources */,

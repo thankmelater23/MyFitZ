@@ -17,6 +17,8 @@ class MakeTableViewController: UITableViewController{
     //MARK: - Variables
     ///items in a dictionary of arrays holds the categories of the items
     var itemsInArrayInDictionary: [String: [Item]]! = [String: [Item]]()
+    var array = [[Item]]()
+    var keyOfSelectedArray = [String]()
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
@@ -26,6 +28,14 @@ class MakeTableViewController: UITableViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        
+        self.keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)
+        
+        self.array = Array(self.itemsInArrayInDictionary.values)
+        if array.count > 1{
+            array = array.sort({$0.first!.subCategory < $1.first!.subCategory})
+        }
+        
         
         self.setUpTypes()
         
@@ -106,22 +116,19 @@ extension MakeTableViewController:UIAlertViewDelegate{
         {
             cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }else{
-            //cell.imageView?.image = UIImage(named: "cellBlackPatternImage.png")
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
         
-        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
-        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-        if arrayItemCell.count > 1{
-            arrayItemCell = arrayItemCell.sort({$0.category > $1.category})
-        }
+        let arrayItemCell: [Item] = array[indexPath.row]
+        let key = self.keyOfSelectedArray[indexPath.row]
+        
         
         if let availableSubCategoryItem = arrayItemCell.first{
             cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
         }else{
             let image = UIImage(named: BLANK_IMAGE_STRING)
-            cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
+            cell.setCell(image!, makeLabelText: key, numberOfItemsText: arrayItemCell.count)
         }
         
         return cell

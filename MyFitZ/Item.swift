@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //MARK: -Item Class
-///Holds all the information to an item
+/// Represents an item of clothing with multiple vars to represent the details of the item
 class Item: NSObject, NSCoding{
     //MARK: -Variables
     //MARK: -Item Required
@@ -208,6 +208,9 @@ class Item: NSObject, NSCoding{
 
 //MARK: -General Methods
 extension Item{
+    /**
+     Increments timesWorn value by one
+     */
     func incrementTimesWorn(){
         self.timesWorn = self.timesWorn + 1
     }

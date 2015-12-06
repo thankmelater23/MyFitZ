@@ -15,11 +15,10 @@ import CRToast
 
 
 //MARK: -Wardrobe Class
-///Holds entire system items Dictionary-Dictionary-Araay of Items --Path To Root = String-String-Int
+///Holds all Item's and Fit's and two closet types.  The system revolves around this class
 class Wardrobe:NSObject, NSCoding{
     //MARK: -Variables
-    var myCloset = CLOSET_TYPE()
-    var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
+    //MARK: -Arrays
     var brandCollection: [String] = [String]()
     //    var brandCategoryCollection: [String: [String]] = [String: [String]]()
     var sizes:[String] = [String]()
@@ -28,6 +27,9 @@ class Wardrobe:NSObject, NSCoding{
     var recentWornItems: [Item] = [Item]()
     var favoritedItems: [Item] = [Item]()
     
+    //MARK: -Closets
+    var myCloset = CLOSET_TYPE()
+    var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
     var closetSelectionString: String! = MY_CLOSET
     var selectedCloset: CLOSET_TYPE{
         get{
@@ -56,7 +58,7 @@ class Wardrobe:NSObject, NSCoding{
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
-    //MARK: -Arrays
+    //MARK: -Arrays not added yet
     //  var allItems = [Item]()
     //  var savedFits      = [Fit]()
     //  var closetTotalPrice:Double! = 0
@@ -118,15 +120,33 @@ class Wardrobe:NSObject, NSCoding{
 
 //MARK: -File System-Wardrobe Extension
 extension Wardrobe{
+    /**
+     Gets the path to app directory
+     
+     - returns: URL to path of directory
+     */
     func documentsDirectory() -> NSURL {
         let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         return documentsFolderPath
     }
+    /**
+     Gets URL path from directory
+     
+     - parameter filename: String URL path
+     
+     - returns: NSURL of path to save to
+     */
     func fileInDocumentsDirectory(filename: String) -> NSURL {
-        return documentsDirectory().URLByAppendingPathComponent(filename)//stringByAppendingString("/\(filename)")
+        return documentsDirectory().URLByAppendingPathComponent(filename)
     }
+    /**
+     Saves wardrobe file and shows saving prompt
+     
+     - parameter filePath:       URL path to save to
+     - parameter wardrobeToSave: Wardrobe object to save to URL path
+     */
     func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
-        
+        //TODO: -Redo this to get success or not from saving
         var success = false
         
         
@@ -154,6 +174,13 @@ extension Wardrobe{
             })
         })
     }
+    /**
+     Loads Wardrobe of object through NSKeyArchiver
+     
+     - parameter filePath: URL path to saved wardrobe
+     
+     - returns: return wardrobe
+     */
     func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
         
         if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
@@ -165,33 +192,50 @@ extension Wardrobe{
             return newWardrobe
         }
     }
+    /**
+     Gets wardrobe object from loadArchiveObject method
+     
+     - returns: Wardrobe from file directory
+     */
     func loadAndCreateCloset() -> Wardrobe{
         let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         return loadArchivedObject(filePath)!
     }
+    /**
+     Save item at the location of FuncCategory/FuncSubCategory
+     
+     - parameter funcCategory:    Cateogry of file
+     - parameter funcSubCategory: Sub-Cateogry of file
+     - parameter item:            Item to save
+     */
     func save(funcCategory:String, funcSubCategory:String, item: Item)throws{
-        
+
         if funcSubCategory.isEmpty == true{throw ItemError.IncorrectSubCategory}
         
+        //Checks if new SubCategory is new
         let keysOfCategory = Array(selectedCloset[funcCategory]!.keys)
         let isKeyNew = keysOfCategory.contains(funcSubCategory)
         
         item.category = funcCategory
         item.subCategory = funcSubCategory
         
+        //Creates a subcategory if none exist by that name
         if !isKeyNew{
             self.selectedCloset[funcCategory]!.updateValue([Item](), forKey: funcSubCategory)
             print("Subcategory created: \(funcSubCategory)")
         }
         
-        if (item.image == nil){//Add image if one is missing
+        //Sets image to blank if none exist
+        if (item.image == nil){
             item.image = UIImage(named: BLANK_IMAGE_STRING)
         }
         
-        if item.model != ""{//Appends item to subCategory else throws
+        //Checks to see if model value is empty
+        if item.model.isEmpty != true{//Appends item to subCategory else throws
             self.selectedCloset[funcCategory]![funcSubCategory]!.append(item)
             
-            updateBrandCollectiion(item)
+            //Update brandCollection
+            updateBrandCollectiion(item.brand)
             
             print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
         }else{throw ItemError.missingModelString}
@@ -277,12 +321,6 @@ extension Wardrobe{
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         
-        let cal = NSCalendar.currentCalendar()
-        let unit:NSCalendarUnit = .Day
-        
-        let today = NSDate()
-        
-        
         let unSortedArray = self.selectedCloset[funcCategory]![funcSubCategory]!
         let sorted = unSortedArray.sort({
             $0.lastTimeWorn.returnDaysInDate() < $1.lastTimeWorn.returnDaysInDate()
@@ -290,11 +328,13 @@ extension Wardrobe{
         
         var sum = 1
         
+        //Sets new index for item within array
         for value in sorted{
             value.index = sum++
             value.path[PATHTYPE_INDEX_STRING] = String(value.index)
         }
         
+        //Make replace old array with new sorted array
         self.selectedCloset[funcCategory]![funcSubCategory]! = sorted
     }
     func setProgress(){
@@ -306,7 +346,7 @@ extension Wardrobe{
         //
         
     }
-        //TODO: - Create sorting for
+    //TODO: - Create sorting for
     func updateCategoryOrder(category: String){
         let sortedCategory = self.returnArrayOfValuesOfCategory(category)//.sort({$0.array[0].category < $1.array[0].category})
         selectedCloset[category] = sortedCategory
