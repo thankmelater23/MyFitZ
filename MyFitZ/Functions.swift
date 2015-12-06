@@ -14,6 +14,9 @@ import UIKit
 //MARK: -Global Methods
 
 //MARK: -General
+/**
+Creates original User ID that takes value from cloud source assign to new user, increment value and save back to cloud with new value for next user
+*/
 func createUserId(){
     //TODO: -Add create user id
     //standard defaults
@@ -25,18 +28,36 @@ func createUserId(){
 
 
 //MARK: -Generators
+/**
+Creates a String thats formated to go inside the views Title
+
+- parameter closet: Current closet String
+- parameter view:   Current view String
+
+- returns: Both paramaters added together and formated
+*/
 func grabTitle(closet:String, view: String)->String{
     var string: String = String()
-    string = closet + "/" + view
+    string = closet + "-" + view
     return string
 }
 
 
 
 //MARK: -Sound Methods
+/**
+Plays sound effect from SystemSoundID number from param
+
+- parameter soundID: SystemSoundID that represents a sound effect
+*/
 func playSoundEffects(soundID: SystemSoundID) {
     AudioServicesPlaySystemSound(soundID)
 }
+/**
+ Initializes all SFX for game
+ 
+ - returns: No return
+ */
 func initializeSounds() {
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
@@ -59,6 +80,11 @@ func initializeSounds() {
 
 
 //MARK: -Animations
+/**
+Animates app general buttons
+
+- parameter view: Button to animate
+*/
 func buttonAnimation(view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleAspectFit
@@ -66,35 +92,35 @@ func buttonAnimation(view: UIView){
     view.clipsToBounds = true
     view.layer.borderWidth = 2.0
     view.layer.borderColor = UIColor.greenColor().CGColor
-    
-    
-    //        self.searchButton.animation.makeScale(0.0).animate(0.0)
-    view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
-    
-//    title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
-//    if self.title == MY_CLOSET{
-//        self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-//    }else if self.title == MY_WANTS_CLOSET{
-//        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-//    }
-    
+//    view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
 }
+/**
+ Sets selection Images to be customized
+ 
+ - parameter view: UIImage to customize
+ */
 func secectionImagesDresser(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 13
+    view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleAspectFit
     
     view.clipsToBounds = true
-    view.layer.borderWidth = 7
+    view.layer.borderWidth = 5
     view.layer.borderColor = UIColor.blueColor().CGColor
-} 
+}
+/**
+ Sets selection Labels to be customized
+ 
+ - parameter view: UILabel to customize
+ */
 func secectionImageLabelDresser(view: UIView){
-    //    view.layer.cornerRadius = view.frame.size.width / 10
-    //    view.contentMode = UIViewContentMode.ScaleAspectFit
-    //
-    //    view.clipsToBounds = true
     view.layer.borderWidth = 3.0
     view.layer.borderColor = UIColor.blackColor().CGColor
 }
+/**
+ Sets Wear button to be customized
+ 
+ - parameter view: UIButton to customize
+ */
 func wearButtonAnimation(view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleAspectFit
@@ -102,18 +128,12 @@ func wearButtonAnimation(view: UIView){
     view.clipsToBounds = true
     view.layer.borderWidth = 5.0
     view.layer.borderColor = UIColor.yellowColor().CGColor
-    
-    
-    //        self.searchButton.animation.makeScale(0.0).animate(0.0)
-    view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
-    
-    //    title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
-    //    if self.title == MY_CLOSET{
-    //        self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-    //    }else if self.title == MY_WANTS_CLOSET{
-    //        self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-    //    }
 }
+/**
+ Sets Label of number to be customized
+ 
+ - parameter view: UILabel to customize
+ */
 func secectionNumberLabelDresser(view: UIView){
         view.layer.cornerRadius = view.frame.size.width / 10
         view.contentMode = UIViewContentMode.ScaleAspectFit
@@ -122,6 +142,11 @@ func secectionNumberLabelDresser(view: UIView){
     view.layer.borderWidth = 0.5
     view.layer.borderColor = UIColor.darkGrayColor().CGColor
 }
+/**
+ Sets bar button to be customized
+ 
+ - parameter view: UIBarButton to customize
+ */
 func barButtonAnimation()(view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleAspectFit

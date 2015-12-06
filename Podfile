@@ -18,6 +18,7 @@ target 'MyFitZ' do
     pod 'iRate'
     pod 'SlackTextViewController'
     pod 'FontAwesomeKit'
+
     #pod 'KLCPopup'
     #pod 'PermissionScope'
     #pod 'PKRevealController'

@@ -357,7 +357,7 @@ extension EditItemViewController{
         
         self.basicSection = RETableViewSection(headerTitle: "Basic Section")
         self.miscSection = RETableViewSection(headerTitle: "Misc Section")
-
+        
         
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
         //        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
@@ -371,7 +371,7 @@ extension EditItemViewController{
         self.manager!.addSection(basicSection)
         self.manager!.addSection(miscSection)
         
-
+        
         self.basicSection?.addItem(favorited)
         self.basicSection?.addItem(model)
         self.basicSection?.addItem(brand)
