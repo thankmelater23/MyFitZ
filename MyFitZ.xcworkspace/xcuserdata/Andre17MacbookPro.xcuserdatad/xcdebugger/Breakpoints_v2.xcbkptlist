@@ -378,7 +378,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "276"
             endingLineNumber = "276"
-            landmarkName = "setUI()"
+            landmarkName = "initializeRETableView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

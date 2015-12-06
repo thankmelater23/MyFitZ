@@ -139,14 +139,6 @@ let ITEM_REQUIREDDICTIONARY_STRING = "requiredDictionary"
 let ITEM_OPTIONALDICTIONARY_STRING = "optionalDictionary"
 
 
-///MARK: - Profile
-///MARK: - Closet
-///MARK: - Fit
-///MARK: - ViewController
-///MARK: - SelectionViewController
-///MARK: - MakeTableViewController
-///MARK: - ModelTableViewController
-///MARK: - DetailedViewController
 //MARK: -TableView
 let DETAIL_TABLEVIEW_BASIC_SECTION_COUNT = 13
 let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 14

@@ -291,14 +291,7 @@ extension EditItemViewController{
         if (self.viewItem.datePurchased != nil){
             tempdatePurchased = dateFormatter.dateFromString(self.viewItem.datePurchased)
         }else{self.dateReleased?.value = nil}
-        
-        
-        
-        
-//        let tempLastTimeWorn = dateFormatter.dateFromString(viewItem.lastTimeWorn) as NSDate?
-//        let tempDatePurchased = dateFormatter.dateFromString(viewItem.datePurchased) as NSDate?
-//        let tempDateReleased = dateFormatter.dateFromString(viewItem.dateReleased) as NSDate?
-        
+
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         
         self.model = RETextItem(title: "Model", value: self.viewItem.model, placeholder: "Enter Item Name")

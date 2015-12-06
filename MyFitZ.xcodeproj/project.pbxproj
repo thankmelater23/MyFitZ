@@ -47,6 +47,9 @@
 		C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */; };
 		C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */; };
 		C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64503DA1BE1A17F0065EC2F /* Main.storyboard */; };
+		C66300981C1425440057061C /* Constants_Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300971C1425440057061C /* Constants_Wardrobe.swift */; };
+		C66300BA1C14254D0057061C /* Constants_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300B91C14254D0057061C /* Constants_Item.swift */; };
+		C66300DB1C1425660057061C /* Constants_Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300DA1C1425660057061C /* Constants_Fit.swift */; };
 		C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D73731BFD898D0084842B /* EditItemViewController.swift */; };
 		C68F51061C0EE34C00424646 /* Appsee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68F51051C0EE34C00424646 /* Appsee.framework */; };
 		C68F55171C0F0F2400424646 /* RecentlyWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */; };
@@ -141,6 +144,9 @@
 		C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C66300971C1425440057061C /* Constants_Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Wardrobe.swift; sourceTree = "<group>"; };
+		C66300B91C14254D0057061C /* Constants_Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Item.swift; sourceTree = "<group>"; };
+		C66300DA1C1425660057061C /* Constants_Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Fit.swift; sourceTree = "<group>"; };
 		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; };
 		C68F51051C0EE34C00424646 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
 		C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentlyWornTableViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +385,9 @@
 			isa = PBXGroup;
 			children = (
 				C64503B11BE1A0460065EC2F /* Constants.swift */,
+				C66300971C1425440057061C /* Constants_Wardrobe.swift */,
+				C66300B91C14254D0057061C /* Constants_Item.swift */,
+				C66300DA1C1425660057061C /* Constants_Fit.swift */,
 				C6178FC61C14210A003A9561 /* Constants_ViewController.swift */,
 				C6178FE81C142118003A9561 /* Constants_SelectionViewController.swift */,
 				C61790091C142123003A9561 /* Constants_MakeTableViewController.swift */,
@@ -685,14 +694,17 @@
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,
 				C60C6AD11C02C92300C8935A /* Functions.swift in Sources */,
 				C61790D01C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift in Sources */,
+				C66300DB1C1425660057061C /* Constants_Fit.swift in Sources */,
 				C64503D51BE1A1210065EC2F /* MakeCustomCell.swift in Sources */,
 				C64503C71BE1A1160065EC2F /* NotesViewController.swift in Sources */,
+				C66300981C1425440057061C /* Constants_Wardrobe.swift in Sources */,
 				C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */,
 				C617906D1C142151003A9561 /* Constants_EditViewController.swift in Sources */,
 				C66D73741BFD898D0084842B /* EditItemViewController.swift in Sources */,
 				C61790F11C1421FD003A9561 /* Constants_SearchViewController.swift in Sources */,
 				C61790AF1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift in Sources */,
 				C64503D71BE1A1210065EC2F /* CreationUITableViewCell.swift in Sources */,
+				C66300BA1C14254D0057061C /* Constants_Item.swift in Sources */,
 				C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */,
 				C617902B1C142133003A9561 /* Constants_ModelTableViewController.swift in Sources */,
 				C64503CF1BE1A1160065EC2F /* CreationViewController.swift in Sources */,
