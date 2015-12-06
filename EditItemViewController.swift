@@ -396,10 +396,10 @@ extension EditItemViewController{
 //MARK: -Animations-EditItemViewController Extension
 extension EditItemViewController{
     func setButtonsView(){
-//        buttonAnimation(categoryInputTextField)
-//        buttonAnimation(subCategoryInputTextField)
-//        buttonAnimation(pictureForSelectedItemImage)
-//        buttonAnimation(pictureButton)
+        //        buttonAnimation(categoryInputTextField)
+        //        buttonAnimation(subCategoryInputTextField)
+        //        buttonAnimation(pictureForSelectedItemImage)
+        //        buttonAnimation(pictureButton)
         buttonAnimation(updateButton)
         buttonAnimation(deleteButton)
         

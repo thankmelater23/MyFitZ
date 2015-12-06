@@ -29,14 +29,6 @@ class MakeTableViewController: UITableViewController{
         super.viewDidLoad()
         itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         
-        self.keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)
-        
-        self.array = Array(self.itemsInArrayInDictionary.values)
-        if array.count > 1{
-            array = array.sort({$0.first!.subCategory < $1.first!.subCategory})
-        }
-        
-        
         self.setUpTypes()
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -119,16 +111,18 @@ extension MakeTableViewController:UIAlertViewDelegate{
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
         
+        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-        let arrayItemCell: [Item] = array[indexPath.row]
-        let key = self.keyOfSelectedArray[indexPath.row]
-        
+        if arrayItemCell.count > 1{
+            arrayItemCell = arrayItemCell.sort({$0.category > $1.category})
+        }
         
         if let availableSubCategoryItem = arrayItemCell.first{
             cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
         }else{
             let image = UIImage(named: BLANK_IMAGE_STRING)
-            cell.setCell(image!, makeLabelText: key, numberOfItemsText: arrayItemCell.count)
+            cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
         }
         
         return cell

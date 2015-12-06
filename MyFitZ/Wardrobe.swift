@@ -209,7 +209,7 @@ extension Wardrobe{
      - parameter item:            Item to save
      */
     func save(funcCategory:String, funcSubCategory:String, item: Item)throws{
-
+        
         if funcSubCategory.isEmpty == true{throw ItemError.IncorrectSubCategory}
         
         //Checks if new SubCategory is new
@@ -462,11 +462,17 @@ extension Wardrobe{
 //MARK: -Array Modifiers-Wardrobe Extension
 extension Wardrobe{
     //MARK: -Brand
-    func updateBrandCollectiion(item: Item){
-        let brand = item.brand
-        if !brandCollection.contains(brand)  && brand != ""{
+    func updateBrandCollectiion(brand: String){
+        //Checks if Brand exist if not its added to the list
+        if !brandCollection.contains(brand)  && brand.isEmpty != true{
             brandCollection.append(brand)
-            brandCollection = brandCollection.sort{$0 <  $1}
+            
+            //TODO: -Fix this sort
+            
+            
+            brandCollection = brandCollection.sort({
+                $0 < $1
+            })
         }
     }
     func removeBrandIfNoBrandItemsExist(brand: String){
