@@ -28,8 +28,11 @@ class Wardrobe:NSObject, NSCoding{
     var favoritedItems: [Item] = [Item]()
     
     //MARK: -Closets
+    /// Users Personal Closet
     var myCloset = CLOSET_TYPE()
+    /// Users Wishlist Inventory
     var myWantsCloset: CLOSET_TYPE = CLOSET_TYPE()
+    /// Represents what closet the user is in
     var closetSelectionString: String! = MY_CLOSET
     var selectedCloset: CLOSET_TYPE{
         get{
@@ -102,15 +105,21 @@ class Wardrobe:NSObject, NSCoding{
         coder.encodeObject(self.favoritedItems, forKey: "7")
         coder.encodeObject(self.sizes, forKey: "8")
     }//Encodes data in class
+    /**
+    Initializes the Wardrobe class with a basic setup, and no items
     
+    - returns: No return
+    */
     override init(){
         super.init()
-        //Puts Categories from array inside both Closet_Types
+        
+        
         for key in CATEGORY_PICKER_OPTIONS{
             let categoryString = "DEFAULT"
             myCloset.updateValue([categoryString: [Item]()], forKey: key)
             myWantsCloset.updateValue([categoryString: [Item]()], forKey: key)
         }
+        
         closetSelectionString = MY_CLOSET
         
     }
@@ -245,9 +254,16 @@ extension Wardrobe{
         //Saves Wardrobe
         self.quickSave()
     }
+    /**
+     Plays SFX, gets file path to save to, than save Wardrobe object to archive
+     */
     func quickSave(){
         playSoundEffects(saveSFX)
+        
+        //        self.wardrobeItemsReset()
+        
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
+        
         saveObjectToArchived(pathOfFile.path!, wardrobeToSave: self)
     }
     
@@ -257,6 +273,11 @@ extension Wardrobe{
 
 //MARK: -Counter Methods-Wardrobe Extension
 extension Wardrobe{
+    /**
+     Returns an ID number that has not been given yet and than increments for the next item to get an ID number for an item in the closet
+     
+     - returns: New ID number
+     */
     func countClosetUp()->Int{
         defer{
             closetItemCountID! += 1
@@ -266,16 +287,26 @@ extension Wardrobe{
         }
         return closetItemCountID!
     }
+    /**
+     Returns an ID number that has not been given yet and than increments for the next item to get an ID number for an item in the wish list
+     
+     - returns: New ID number
+     */
     func countWishlistDown()->Int{
         defer{
             wishListItemCountID! -= 1
         }
         
-        if wishListItemCountID == nil{
+        if wishListItemCountID == nil || wishListItemCountID == 0{
             wishListItemCountID = 100000
         }
         return wishListItemCountID!
     }
+    /**
+     Get the number of items in MyCloset
+     
+     - returns: number of items in MyCloset
+     */
     func getsCountOfMyCloset()-> Int{
         var sum = 0
         for (_, value) in myCloset{
@@ -287,6 +318,11 @@ extension Wardrobe{
         }
         return sum
     }
+    /**
+     Get the number of items in Wishlist
+     
+     - returns: number of items in Wishlist
+     */
     func getsCountOfMyWishList()-> Int{
         var sum = 0
         for (_, value) in myWantsCloset{
@@ -298,9 +334,23 @@ extension Wardrobe{
         }
         return sum
     }
+    /**
+     Get count of subCategories in key of Category
+     
+     - parameter funcCategory: Category Key
+     
+     - returns: Number of sumCategories
+     */
     func getCountOfCategories(funcCategory: String)->Int{
         return selectedCloset[funcCategory]!.count
     }
+    /**
+     Gets count of all items in a subcategory of categories
+     
+     - parameter funcCategory: Category Key
+     
+     - returns: <#return value description#>
+     */
     func getCountOfAllItemsInCategory(funcCategory: String)->Int{
         var sum = 0
         for (_, value) in selectedCloset[funcCategory]!{
@@ -308,8 +358,39 @@ extension Wardrobe{
         }
         return sum
     }
+    /**
+     Gets count of number of items in Subcategory
+     
+     - parameter funcCategory:    Category Key
+     - parameter funcSubCategory: SubCategory Key
+     
+     - returns: Number of items in array of subcategory
+     */
     func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
         return selectedCloset[funcCategory]![funcSubCategory]!.count
+    }
+    /**
+     Resets whole wardrobe object and gives fresh id numbers to all items in closet and wishlist, than saves
+     */
+    func wardrobeItemsReset(){
+        self.removeNonFavoritedItems()
+        //Gives all Closet items a new ID number
+        for (_, value) in myCloset{
+            for (_, value) in value{
+                for value in value{
+                    value.id = self.countClosetUp()
+                }
+            }
+        }
+        
+        //Gives all Wishlist items a new ID number
+        for (_, value) in myWantsCloset{
+            for (_, value) in value{
+                for value in value{
+                    value.id = self.countWishlistDown()
+                }
+            }
+        }
     }
 }
 
@@ -358,30 +439,67 @@ extension Wardrobe{
 //MARK: -Wardrobe Modification-Wardrobe Extension
 extension Wardrobe{
     //MARK: -Return functions
+    /**
+    Gets value of subcategories of a category
+    
+    - parameter funcCategory: Category key
+    
+    - returns: A dictionary of array of array of Items:[String: [Item]]
+    */
     func returnDictionaryOfCategory(funcCategory: String)-> [String: [Item]]{
-        let dictionaryOfArray = selectedCloset[funcCategory]!
+        let dictionaryOfArray:[String: [Item]] = selectedCloset[funcCategory]!
         
         return dictionaryOfArray
     }
+    /**
+     Gets array of keys for category subcategories
+     
+     - parameter funcCategory: Category key
+     
+     - returns: returns an array of keys*[String]
+     */
     func returnArrayOfKeysOfCategory(funcCategory: String)->[String]{
-        let keys = Array(selectedCloset[funcCategory]!.keys)
+        let keys:[String] = Array(selectedCloset[funcCategory]!.keys)
         
-        return keys //?? [String]()
+        return keys
     }
+    /**
+     Gets array of values for category subcategories
+     
+     - parameter funcCategory: Category key
+     
+     - returns: A dictionary of arrays of Items: [String: [Item]
+     */
     func returnArrayOfValuesOfCategory(funcCategory: String)->[String: [Item]]{
-        let values = selectedCloset[funcCategory]!
+        let values:[String: [Item]] = selectedCloset[funcCategory]!
         
-        return values //?? [String]()
+        return values
     }
+    /**
+     Gets array of Items from keys of Category/SubCategory
+     
+     - parameter funcCategory:    Category key
+     - parameter funcSubCategory: SubCategory key
+     
+     - returns: return an array of Items: [Item]
+     */
     func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
-        let array = selectedCloset[funcCategory]![funcSubCategory]!
+        let array:[Item] = selectedCloset[funcCategory]![funcSubCategory]!
         
         return array
     }
     
     //MARK: -Delete Functions
+    /**
+    Deletes item from Category/SubCategory/(Matching Item), plays SFX, then saves Wardrobe
+    
+    - parameter funcCategory:    Category Key
+    - parameter funcSubCategory: Sub-Category Key
+    - parameter item:            Item to be matched than deleted
+    */
     func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
         playSoundEffects(deleteSFX)
+        
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         var num = 0
         for index in array{
@@ -399,13 +517,26 @@ extension Wardrobe{
         
         self.quickSave()
     }
+    /**
+     Deletes array:[Item] at Category/Sub-Category, plays SFX, than save
+     
+     - parameter funcCategory:    Category Key
+     - parameter funcSubCategory: Sub-Category Key
+     */
     func deleteAt(funcCategory: String, funcSubCategory: String){//Deletes subCateogry row
         playSoundEffects(deleteSFX)
         selectedCloset[funcCategory]!.removeValueForKey(funcSubCategory)
         quickSave()
     }
+    /**
+     Deletes subcategory of category, plays SFX, than save
+     
+     - parameter funcCategory: Category Key
+     - parameter row:          Sub-Category Key
+     */
     func deleteAt(funcCategory: String, row: Int){//Deletes category row
         playSoundEffects(deleteSFX)
+        
         var array = Array(selectedCloset[funcCategory]!.keys)
         
         let key = array[row]
@@ -415,31 +546,52 @@ extension Wardrobe{
     }
     
     //MARK: -Appending
+    /**
+    Add Item to SubCategory
+    
+    - parameter funcCategory:    Category key
+    - parameter funcSubCategory: Sub-Category key
+    - parameter newItem:         Item to Add
+    */
     func appendItemAt(funcCategory: String, funcSubCategory: String, newItem: Item){
         selectedCloset[funcCategory]![funcSubCategory]!.append(newItem)
+        
         quickSave()
-    }
-    func appendAt(funcCategory: String, funcSubCategory: String, newArrayForSubCategory: [Item]){
-        
-        
-    }
-    func appendAt(funcCategory: String, row: Int, newSubCategory: [String: [Item]]){
-        
     }
     
     //MARK: -Swap Item
+    /**
+    Swaps Item if needed, but also updates current item
+    
+    - parameter funcCategory:        Category key
+    - parameter funcSubCategory:     SubCategory key
+    - parameter prevFuncCategory:    Previous Category key
+    - parameter prevFuncSubCategory: Previous SubCategory key
+    - parameter item:                New Item to insert
+    */
     func swapItem(funcCategory:     String, funcSubCategory:     String,
         prevFuncCategory: String, prevFuncSubCategory: String,
-        item: Item){//Deletes object from one place and adds it to another place
+        item: Item){
+            let tempItem = item
+            
             deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
             
-            selectedCloset[funcCategory]![funcSubCategory]?.append(item)
+            selectedCloset[funcCategory]![funcSubCategory]?.append(tempItem)
             
             
     }
     
     //MARK: -Check for availibility
-    func doesItemExistAt(funcCategory: String, funcSubCategory: String, item: Item)-> Bool{//Deletes item
+    /**
+    Checks if item exist in this SubCategory of Category
+    
+    - parameter funcCategory:    Category key
+    - parameter funcSubCategory: SubCategory key
+    - parameter item:            Item to check
+    
+    - returns: returns true if item exist in subCategory false if it doesn't
+    */
+    func doesItemExistAt(funcCategory: String, funcSubCategory: String, item: Item)-> Bool{
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         
         for index in array{
@@ -449,9 +601,24 @@ extension Wardrobe{
         }
         return false
     }
-    func isSubCatCategoryEmptyAt(funcCategory: String, funcSubCategory: String)-> Bool{//Deletes subCateogry row
+    /**
+     Checks if a array of [Item] is empty
+     
+     - parameter funcCategory:    Category key
+     - parameter funcSubCategory: SubCategory key
+     
+     - returns: True if array at Category/SubCategory is empty
+     */
+    func isSubCatCategoryEmptyAt(funcCategory: String, funcSubCategory: String)-> Bool{
         return (selectedCloset[funcCategory]![funcSubCategory]?.isEmpty)!
     }
+    /**
+     Checks if a Dictionary:[String: [Item]] of a category is empty
+     
+     - parameter funcCategory:    Category key
+     
+     - returns: returns true if object at Category is empty
+     */
     func isCategoryEmptyAt(funcCategory: String)-> Bool{//Deletes category row
         return (selectedCloset[funcCategory]!.isEmpty)
     }
@@ -462,6 +629,11 @@ extension Wardrobe{
 //MARK: -Array Modifiers-Wardrobe Extension
 extension Wardrobe{
     //MARK: -Brand
+    /**
+    Adds brand to BrandCollection if one of the same doesn't already exist
+    
+    - parameter brand: Brand String to append
+    */
     func updateBrandCollectiion(brand: String){
         //Checks if Brand exist if not its added to the list
         if !brandCollection.contains(brand)  && brand.isEmpty != true{
@@ -475,6 +647,11 @@ extension Wardrobe{
             })
         }
     }
+    /**
+     Removes string from brand if it exists
+     
+     - parameter brand: Brand string to check
+     */
     func removeBrandIfNoBrandItemsExist(brand: String){
         //TODO: -Add this method to the places it needs to go to remove brand from the list when it is no longer needed
         var sum = 0
@@ -491,14 +668,19 @@ extension Wardrobe{
         
     }
     //MARK: -Size
-    func updateSizesCollectiion(item: Item){
-        let size = item.size
-        if !sizes.contains(size)  && size != ""{
-            sizes.append(size)
-            sizes = sizes.sort{$0 <  $1}
-        }
-    }
+    //    func updateSizesCollectiion(item: Item){
+    //        let size = item.size
+    //        if !sizes.contains(size)  && size.isEmpty != true{
+    //            sizes.append(size)
+    //            sizes = sizes.sort{$0 <  $1}
+    //        }
+    //    }
     //MARK: -Favorites
+    /**
+    If item is favorited it is sent to favorited if not it is removed if it's in favoriteCollection
+    
+    - parameter item: Item to check for favorited
+    */
     func checkItemFavorited(item: Item){
         if item.favorited == true{
             updateFavoritedWornCollectiion(item)
@@ -506,6 +688,11 @@ extension Wardrobe{
             removeFromFavoriteList(item)
         }
     }
+    /**
+     Puts item in Favorit collection
+     
+     - parameter item: <#item description#>
+     */
     func updateFavoritedWornCollectiion(item: Item){
         var count = 0
         
@@ -521,6 +708,11 @@ extension Wardrobe{
         
         favoritedItems.insert(item, atIndex: 0)
     }
+    /**
+     Removes item from FavoritedItems if one exist with the same ID number
+     
+     - parameter item: Item to compare id with
+     */
     func removeFromFavoriteList(item: Item){
         var count = 0
         
@@ -536,8 +728,14 @@ extension Wardrobe{
         favoritedItems.insert(item, atIndex: 0)
     }
     //MARK: -RecentWorn
+    /**
+    Puts item in wornCollection if it doesn't exist in array already and if it does its removed from that position and append to the top
+    
+    - parameter item: Item to insert
+    */
     func updateRecentWornCollectiion(item: Item){
         var count = 0
+        
         for itemWithId in recentWornItems{
             if itemWithId.id == item.id{
                 recentWornItems.removeAtIndex(count)
@@ -548,7 +746,7 @@ extension Wardrobe{
             }
             count++
         }
-        if recentWornItems.count == RECENTLY_WORN_CONTAINER_MAX{
+        if recentWornItems.count > RECENTLY_WORN_CONTAINER_MAX{
             recentWornItems.popLast()
         }
         recentWornItems.insert(item, atIndex: 0)
