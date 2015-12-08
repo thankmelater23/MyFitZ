@@ -136,10 +136,11 @@ extension EditItemViewController{
     @IBAction func updateItem() {
         do{
             playSoundEffects(updateSFX)
-            gamesWardrobe.checkItemFavorited(viewItem)
+            
             saveItemVars()
-            //gamesWardrobe.swapItem(viewItem.category, funcSubCategory: viewItem.subCategory, prevFuncCategory: previousItem.category, prevFuncSubCategory: previousItem.subCategory, item: viewItem)
-            gamesWardrobe.deleteItem(previousItem.category, funcSubCategory: previousItem.subCategory, item: previousItem)
+            
+            gamesWardrobe.swapItem(viewItem.category, funcSubCategory: viewItem.subCategory, prevFuncCategory: previousItem.category, prevFuncSubCategory: previousItem.subCategory, item: viewItem)
+            
             try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
             
             super.viewDidLoad()
@@ -159,11 +160,27 @@ extension EditItemViewController{
         
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
+        
+        performSegueWithIdentifier(SEGUE_EDIT_TO_SELECTION, sender: self)
     }
     @IBAction func setItemImage(sender: UIButton) {
         self.setImagePicker()
     }
     
+    @IBAction func deleteItem() {
+        let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+        let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+        let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+            
+            gamesWardrobe.deleteItem(self.viewItem.category, funcSubCategory: self.viewItem.subCategory, item: self.viewItem)
+            
+            self.performSegueWithIdentifier(SEGUE_EDIT_TO_SELECTION, sender: nil)
+        }
+        
+        alert.addAction(action)
+        alert.addAction(act)
+        self.presentViewController(alert, animated: true, completion:nil)
+    }
     //MARK: -Action sum functions
     func saveItemVars(){
         let dateFormatter = NSDateFormatter()

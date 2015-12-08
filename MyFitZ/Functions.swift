@@ -155,3 +155,116 @@ func barButtonAnimation()(view: UIView){
     view.layer.borderWidth = 3.0
     view.layer.borderColor = UIColor.blackColor().CGColor
 }
+
+
+//MARK: -UIGestureActions
+func handleTap(sender: UITapGestureRecognizer) {
+    switch(sender.state){
+    case .Began:
+        buttonTouchBeganAnimation(sender.view!)
+        
+    case .Cancelled:
+        buttonTouchCancelledAnimation(sender.view!)
+    case .Ended:
+        buttonTouchEndedAnimation(sender.view!)
+    case .Failed:
+        buttonTouchCancelledAnimation(sender.view!)
+    case .Possible: break
+    case .Changed: break
+    }
+}
+
+func buttonTouchBeganAnimation(button:UIView){
+    button.animation.transformScale(3.0).animate(1.0)
+}
+func buttonTouchCancelledAnimation(button:UIView){
+    button.animation.transformScale(1.0).animate(1.0)
+}
+func buttonTouchEndedAnimation(button:UIView){
+    button.animation.transformScale(0.2).animate(1.0)
+}
+
+
+//MARK: -WARDROBE
+func returnItem(path: [String: String])->Item{
+    //TODO:Set this method up to take data and get a item from wardrobe
+    let validation = validatePath(path)//Validates that all values are available
+    
+    if validation == true{
+        //Setting all variable to values of path
+        let closet:String! = path[PATHTYPE_CLOSET_STRING]
+        let category:String! = path[PATHTYPE_CATEGORY_STRING]
+        let subCategory:String! = path[PATHTYPE_SUBCATEGORY_STRING]
+        let id:Int! = Int(path[PATHTYPE_ID_STRING]!)
+        let index:Int! = Int(path[PATHTYPE_INDEX_STRING]!)
+        
+        //Setting wardrobes correct closet
+        /// TODO: -Set this back or you might end up in wrong closet
+        let previousWardrobe = gamesWardrobe.closetSelectionString
+        //Gets value from path of item
+        gamesWardrobe.closetSelectionString = closet
+        let array = gamesWardrobe.returnArrayOfItems(category, funcSubCategory: subCategory)
+        let item = array[index]
+        
+        //Sets back wardrobe to correct closet
+        gamesWardrobe.closetSelectionString = previousWardrobe
+        
+        //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
+        if item.id == id{
+            print("Item id matched on return to item")
+            return item
+        }else{
+            print("Item id did not match on return to item, search initiated")
+            for searchItem in array{
+                if searchItem.id == id{
+                    print("Search success item found with in the array")
+                    return searchItem
+                }else{
+                    assertionFailure("Search Failed item nout found with in the array or at id number BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+                    return Item()
+                }
+            }
+        }
+    }else{
+        assertionFailure("Validation failed value is missing from path BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+        return Item()
+    }
+    //Looks for item at category/subcategory/index
+    //Match id number with items id number
+    //If numnber doesnt match search category/subcategory items
+    //Check if id matches with any of the items in array
+    //If doesn't exist return an error type
+    return Item()
+}
+
+func updateItemIds(pathTuple: (closet: String, id: Int, category: String, subCategory: String, index: Int), secondPathTuple: (closet: String, id: Int, category: String, subCategory: String, index: Int)){
+    //TODO:When path changes update places where id might be different
+    //Checks places for items tuple id
+    //Check favoritesItems
+    //Check RecentlyWornItems
+    //when found update with new tuple id number
+    
+}
+/**
+ -Takes a dictionary and look for specific values
+ -If any are nil method returns bool all paths have to be clear
+ - parameter path: Dictinary for path
+ 
+ - returns: bool of true if all path values are not nil
+ */
+func validatePath(path: [String: String])->Bool{
+    print("-VALIDATIING PATH ARRAY")
+    let closet:String? = path[PATHTYPE_CLOSET_STRING]
+    let category:String? = path[PATHTYPE_CATEGORY_STRING]
+    let subCategory:String? = path[PATHTYPE_SUBCATEGORY_STRING]
+    let id:Int? = Int(path[PATHTYPE_ID_STRING]!)
+    let index:Int? = Int(path[PATHTYPE_INDEX_STRING]!)
+    
+    if closet != nil && category != nil && subCategory != nil && id != nil && index != nil{
+        print("-VALIDATIING PASSED ALL VALUES NON NIL")
+        return true
+    }else{
+        print("-VALIDATIING FAILED ONE OR ALL ARE NIL")
+        return false
+    }
+}

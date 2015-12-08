@@ -85,7 +85,7 @@ extension DetailedViewController{
             
             gamesWardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
             
-            self.tableView.reloadData()
+            self.performSegueWithIdentifier(SEGUE_DETAIL_TO_SELECTION, sender: nil)
         }
         
         alert.addAction(action)
@@ -140,7 +140,7 @@ extension DetailedViewController{
         defaults.addAndSend("WEAR_PRESSED_COUNT")
     }
     func hideWearButton(){
-        wearButton.alpha = 0.3
+        wearButton.alpha = 0.5
         wearButton.backgroundColor = UIColor.grayColor()
         wearButton.userInteractionEnabled = false
     }

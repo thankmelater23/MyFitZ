@@ -36,7 +36,6 @@ class CreationViewController: UIViewController{
     @IBAction func createItem(sender: UIButton) {
         
         do{
-            gamesWardrobe.checkItemFavorited(viewItem)
             try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
         }
             

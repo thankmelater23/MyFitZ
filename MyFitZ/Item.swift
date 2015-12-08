@@ -46,6 +46,12 @@ class Item: NSObject, NSCoding{
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
+//    deinit{
+//        //        gamesWardrobe.removeFromFavoriteList(self)
+        //        gamesWardrobe.checkItemFavorited(self)
+    //              remove all recentWornList/Favorites
+//        //    }
+    /// Returns values of all the item vars
     override var description: String {
         let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
         return string
@@ -214,6 +220,13 @@ extension Item{
     func incrementTimesWorn(){
         self.timesWorn = self.timesWorn + 1
     }
+    func populatePath(){
+//        path[PATHTYPE_CLOSET_STRING] = self.category
+        path[PATHTYPE_ID_STRING] = String(self.id)
+        path[PATHTYPE_CATEGORY_STRING] = self.category
+        path[PATHTYPE_SUBCATEGORY_STRING] = self.subCategory
+        path[PATHTYPE_INDEX_STRING] = String(self.index)
+    }
     
 //    override func dealloc(){
     //TODO: -When its destroyed check remove it if its favorited or in the recents
@@ -222,3 +235,13 @@ extension Item{
 //        gamesWardrobe.checkItemFavorited(self)
 //    }
 }
+
+
+
+////TODO: Create equatable functions
+////MARK: -Equatable-Wardrobe Extension
+//extension Item: Equatable{
+//     func ==(lhs: Item, rhs: Item) -> Bool{
+//        return lhs.category == rhs.category
+//    }
+//}

@@ -1015,28 +1015,28 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rel-3R-xIw" userLabel="Star">
-                                            <rect key="frame" x="502" y="2" width="63" height="71"/>
+                                            <rect key="frame" x="536" y="2" width="29" height="29"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Rel-3R-xIw" secondAttribute="height" multiplier="1:1" constant="-8" id="csV-Gj-blP"/>
+                                                <constraint firstAttribute="width" secondItem="Rel-3R-xIw" secondAttribute="height" multiplier="1:1" id="csV-Gj-blP"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <animations/>
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="bottom" secondItem="226-Fu-IJJ" secondAttribute="bottom" constant="-44" id="1pd-NV-Vsr"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="bottom" secondItem="226-Fu-IJJ" secondAttribute="bottom" constant="-86" id="1pd-NV-Vsr"/>
                                         <constraint firstItem="7r6-ur-tny" firstAttribute="top" secondItem="vII-SZ-QfF" secondAttribute="topMargin" constant="1" id="2iA-qX-qXX"/>
                                         <constraint firstItem="PVQ-xa-hdg" firstAttribute="top" secondItem="Il3-OU-fF3" secondAttribute="bottom" constant="22" id="6Xg-QC-I6b"/>
                                         <constraint firstItem="Il3-OU-fF3" firstAttribute="top" secondItem="7r6-ur-tny" secondAttribute="top" id="Arj-ng-HfB"/>
-                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="leading" secondItem="Il3-OU-fF3" secondAttribute="trailing" constant="78" id="G2k-D0-3fk"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="leading" secondItem="Il3-OU-fF3" secondAttribute="trailing" constant="112" id="G2k-D0-3fk"/>
                                         <constraint firstItem="7r6-ur-tny" firstAttribute="leading" secondItem="vII-SZ-QfF" secondAttribute="leadingMargin" id="HvG-hy-Kil"/>
                                         <constraint firstItem="226-Fu-IJJ" firstAttribute="trailing" secondItem="PVQ-xa-hdg" secondAttribute="trailing" constant="143" id="ITQ-7p-O1a"/>
                                         <constraint firstItem="226-Fu-IJJ" firstAttribute="top" secondItem="PVQ-xa-hdg" secondAttribute="bottom" constant="22" id="Kc6-nM-F0c"/>
-                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="trailing" secondItem="vII-SZ-QfF" secondAttribute="trailingMargin" constant="8" id="Sn5-he-cgP"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="trailing" secondItem="vII-SZ-QfF" secondAttribute="trailingMargin" constant="6" id="Sn5-he-cgP"/>
                                         <constraint firstItem="PVQ-xa-hdg" firstAttribute="leading" secondItem="Il3-OU-fF3" secondAttribute="leading" id="XkI-AG-CiH"/>
                                         <constraint firstItem="PVQ-xa-hdg" firstAttribute="centerY" secondItem="vII-SZ-QfF" secondAttribute="centerY" id="bQl-qZ-2NP"/>
-                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="centerY" secondItem="PVQ-xa-hdg" secondAttribute="centerY" constant="-26" id="dpc-fU-CZo"/>
+                                        <constraint firstItem="Rel-3R-xIw" firstAttribute="centerY" secondItem="PVQ-xa-hdg" secondAttribute="centerY" constant="-47" id="dpc-fU-CZo"/>
                                         <constraint firstItem="7r6-ur-tny" firstAttribute="bottom" secondItem="226-Fu-IJJ" secondAttribute="bottom" id="gun-uk-Mbd"/>
                                         <constraint firstItem="Il3-OU-fF3" firstAttribute="trailing" secondItem="PVQ-xa-hdg" secondAttribute="trailing" id="ktz-3m-j6L"/>
                                         <constraint firstItem="Il3-OU-fF3" firstAttribute="leading" secondItem="7r6-ur-tny" secondAttribute="trailing" constant="8" symbolic="YES" id="zGb-GS-D7L"/>
@@ -1272,6 +1272,7 @@
                         <outlet property="wearButton" destination="YpC-wK-ew6" id="gnn-HN-IcP"/>
                         <segue destination="lWa-Hy-zpG" kind="show" identifier="detailToEdit" id="jj8-fp-D0n"/>
                         <segue destination="Jsp-ux-41A" kind="show" identifier="detailedToModel" id="yz2-3b-uLd"/>
+                        <segue destination="bSz-CY-cts" kind="show" identifier="detailToSelection" id="0gf-Yu-K3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x0-am-QpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1837,6 +1838,10 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J15-hq-04Z" userLabel="Segue-Button">
+                                        <rect key="frame" x="175" y="86" width="250" height="249"/>
+                                        <animations/>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.131242" green="0.130576" blue="0.87377700000000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -2213,6 +2218,25 @@
                                     <action selector="setItemImage:" destination="lWa-Hy-zpG" eventType="touchUpInside" id="3L5-rA-bfT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-rq-CvW">
+                                <rect key="frame" x="399" y="154" width="193" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="PBU-gD-GOb">
+                                        <variation key="widthClass=compact" constant="85"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
+                                <color key="tintColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteItem" destination="lWa-Hy-zpG" eventType="touchUpInside" id="Wyf-xJ-XX6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHZ-hr-CI0">
                                 <rect key="frame" x="198" y="154" width="193" height="50"/>
                                 <animations/>
@@ -2229,22 +2253,6 @@
                                 <connections>
                                     <action selector="updateItem" destination="lWa-Hy-zpG" eventType="touchUpInside" id="cef-KM-Cxs"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-rq-CvW">
-                                <rect key="frame" x="399" y="154" width="193" height="50"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="198" id="PBU-gD-GOb">
-                                        <variation key="widthClass=compact" constant="85"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
-                                <color key="tintColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                         </subviews>
                         <animations/>
@@ -2308,6 +2316,7 @@
                         <outlet property="subCategoryInputTextField" destination="ZiF-Ir-RrC" id="XVZ-Zc-Tpa"/>
                         <outlet property="tableView" destination="3Bw-8l-SRR" id="mCh-8d-QBa"/>
                         <outlet property="updateButton" destination="nHZ-hr-CI0" id="2tk-Ld-dxB"/>
+                        <segue destination="bSz-CY-cts" kind="show" identifier="editToSelection" id="dea-7m-VQw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8B-Ue-EYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2889,12 +2898,12 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T80-b3-elW"/>
-        <segue reference="x7v-X5-poc"/>
+        <segue reference="1tB-kg-ppv"/>
         <segue reference="Kyy-tg-Ke7"/>
-        <segue reference="Hhi-FQ-vv8"/>
-        <segue reference="1Fb-bj-RMJ"/>
-        <segue reference="uN0-C1-lf5"/>
-        <segue reference="lWZ-GO-61G"/>
+        <segue reference="opv-1h-Bzj"/>
+        <segue reference="w0k-NR-dKO"/>
+        <segue reference="4ac-El-5F8"/>
+        <segue reference="CTt-wg-tez"/>
+        <segue reference="yz2-3b-uLd"/>
     </inferredMetricsTieBreakers>
 </document>

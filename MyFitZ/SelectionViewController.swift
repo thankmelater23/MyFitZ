@@ -12,8 +12,18 @@ import Crashlytics
 //MARK: -SelectionViewController Class
 class SelectionViewController: UIViewController{
     //MARK: -Outlets
+    //MARK: -Feature Buttons
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var recentlyWonrItem: UIButton!
+    @IBOutlet weak var favortiedItems: UIButton!
+//        {
+//        didSet{
+//            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
+//            favortiedItems.addGestureRecognizer(recognizer)
+//        }
+//    }
     
+    //MARK: -Selection Image Buttons
     @IBOutlet weak var topImage: UIButton!
     @IBOutlet weak var bottomImage: UIButton!
     @IBOutlet weak var footwareImage: UIButton!
@@ -21,6 +31,7 @@ class SelectionViewController: UIViewController{
     @IBOutlet weak var underClothesImage: UIButton!
     @IBOutlet weak var headWareImage: UIButton!
     
+    //MARK: -Selection labels
     @IBOutlet weak var topsLabel: UILabel!
     @IBOutlet weak var footwareLabel: UILabel!
     @IBOutlet weak var underClothesLabel: UILabel!
@@ -28,15 +39,13 @@ class SelectionViewController: UIViewController{
     @IBOutlet weak var accessoriesLabel: UILabel!
     @IBOutlet weak var bottomsLabel: UILabel!
     
-    
+    //MARK: -Selection Counter
     @IBOutlet weak var topCounter: UILabel!
     @IBOutlet weak var bottomCounter: UILabel!
     @IBOutlet weak var footwareCounter: UILabel!
     @IBOutlet weak var underClothesCounter: UILabel!
     @IBOutlet weak var headwareCounter: UILabel!
     @IBOutlet weak var accessoriesCounter: UILabel!
-    @IBOutlet weak var recentlyWonrItem: UIButton!
-    @IBOutlet weak var favortiedItems: UIButton!
     
     
     //MARK: -Variables

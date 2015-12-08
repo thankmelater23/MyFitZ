@@ -135,7 +135,6 @@ extension CreateItemViewController{
 extension CreateItemViewController{
     @IBAction func createItem(sender: UIButton) {
         
-        gamesWardrobe.checkItemFavorited(viewItem)
         do{
             saveItemVars()
             try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)

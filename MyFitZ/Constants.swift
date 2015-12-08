@@ -31,6 +31,19 @@ enum ItemError:ErrorType{
 }
 
 
+//MARK: -Modes of Enums
+enum WearMode:Int{
+    case worn
+    case notWorn
+}
+
+enum GotMode:Int{
+    case gotIt
+    case stillDontHaveIt
+    case takingIt
+}
+
+
 //MARK: -App Arrays & Dictionary Constants
 let CATEGORY_PICKER_OPTIONS = [TOPS, BOTTOMS, HEADWARE, FOOTWARE, ACCESSORIES, UNDERCLOTHING]
 let TOPS = "Tops"
@@ -52,6 +65,8 @@ let MATERIAL_TYPE = ["Cotton", "Leather"]
 
 
 //MARK: -App Path types
+let PATHTYPE_CLOSET_STRING      = "Closet"
+let PATHTYPE_ID_STRING          = "ID"
 let PATHTYPE_CATEGORY_STRING    = "Category"
 let PATHTYPE_SUBCATEGORY_STRING = "SubCategory"
 let PATHTYPE_INDEX_STRING       = "Index"
@@ -86,11 +101,12 @@ let SEGUE_CREATION_TO_MODEL     = "creationToModel"
 let SEGUE_CREATION_TO_DETAIL    = "creationToDetail"
 let SEGUE_CREATION_TO_SELECTION = "creationToSelection"
 let SEGUE_DETAIL_TO_EDIT        = "detailToEdit"
-let SEGUE_SELECTION_TO_RECENT = "selectionToRecent"
-let SEGUE_RECENT_TO_SELECTION = "recentToSelection"
+let SEGUE_SELECTION_TO_RECENT   = "selectionToRecent"
+let SEGUE_RECENT_TO_SELECTION    = "recentToSelection"
 let SEGUE_SELECTION_TO_FAVORITED = "selectionToFavorited"
 let SEGUE_FAVORITED_TO_SELECTION = "favoritedToSelection"
-
+let SEGUE_EDIT_TO_SELECTION      = "editToSelection"
+let SEGUE_DETAIL_TO_SELECTION      = "detailToSelection"
 
 //MARK: -Cell identifiers
 let MAKE_CELL                   = "makeCell"
@@ -141,7 +157,7 @@ let ITEM_OPTIONALDICTIONARY_STRING = "optionalDictionary"
 
 //MARK: -TableView
 let DETAIL_TABLEVIEW_BASIC_SECTION_COUNT = 13
-let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 14
+let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 13
 
 
 ///MARK: - CreationViewController

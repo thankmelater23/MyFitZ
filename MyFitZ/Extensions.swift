@@ -92,6 +92,8 @@ extension NSUserDefaults{
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setInteger(num, forKey: path)
+        
+        defaults.synchronize()
     }
     /**
      Gets value at path in NSUserDefaults and increment and put back at path
