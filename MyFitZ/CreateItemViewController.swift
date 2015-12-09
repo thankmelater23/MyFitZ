@@ -44,7 +44,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     //    var brand:REPickerItem?
     var brand:RETextItem?
     var favorited:REBoolItem?
-    var price:RENumberItem?
+    var payedPrice:RENumberItem?
     var timesWorn:RENumberItem?
     var lastTimeWorn:REDateTimeItem?
     var kind:RETextItem?
@@ -56,7 +56,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var secondaryColor:RETextItem?
     //    var thirdColor:REPickerItem?
     var thirdColor:RETextItem?
-    var itemDescription: RELongTextItem?
+    var itemNotes: RELongTextItem?
     var dateReleased:REDateTimeItem?
     var retailPrice:RENumberItem?
     //    var condition:REPickerItem?
@@ -65,7 +65,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var primaryMaterial:RETextItem?
     //    var secondaryMaterial:REPickerItem?
     var secondaryMaterial:RETextItem?
-    var storeLocationURL:RETextItem?
+    var sellerURL:RETextItem?
     var storeLocation:RETextItem?
     var sellerName:RETextItem?
     //    var arrayOfImages:R?
@@ -115,7 +115,7 @@ extension CreateItemViewController{
             makeTableViewController.path = self.path
         }
         if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+            let array = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
@@ -137,7 +137,7 @@ extension CreateItemViewController{
         
         do{
             saveItemVars()
-            try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+            try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
             
             super.viewDidLoad()
         }
@@ -205,7 +205,7 @@ extension CreateItemViewController{
         if(brand!.value != ""){viewItem.brand = brand!.value}else{viewItem.brand = "N/A"}
         
         viewItem.favorited = favorited!.value  ?? false
-        viewItem.price = Double((price!.value)!)  ?? 0.0
+        viewItem.payedPrice = Double((payedPrice!.value)!)  ?? 0.0
         
         viewItem.timesWorn = Int((timesWorn!.value)!)  ?? 0
         
@@ -224,7 +224,7 @@ extension CreateItemViewController{
         
         if(thirdColor!.value != ""){viewItem.thirdColor = thirdColor!.value}else{viewItem.thirdColor = "N/A"}
         
-        if(itemDescription!.value != ""){viewItem.itemDescription = itemDescription!.value}else{viewItem.itemDescription = "N/A"}
+        if(itemNotes!.value != ""){viewItem.itemNotes = itemNotes!.value}else{viewItem.itemNotes = "N/A"}
         
         if(tempDateReleased != ""  && tempDateReleased != nil){viewItem.dateReleased = tempDateReleased}else{viewItem.dateReleased = "N/A"}
         
@@ -236,7 +236,7 @@ extension CreateItemViewController{
         
         if(secondaryColor!.value != ""){viewItem.secondaryColor = secondaryColor!.value}else{viewItem.secondaryColor = "N/A"}
         
-        if(storeLocationURL!.value != ""){viewItem.storeLocationURL = storeLocationURL!.value}else{viewItem.storeLocationURL = "N/A"}
+        if(sellerURL!.value != ""){viewItem.sellerURL = sellerURL!.value}else{viewItem.sellerURL = "N/A"}
         
         if(storeLocation!.value != ""){viewItem.storeLocation = storeLocation!.value}else{viewItem.storeLocation = "N/A"}
         
@@ -257,20 +257,20 @@ extension CreateItemViewController{
         self.model?.value = "N/A"
         self.brand?.value = "N/A"
         self.favorited?.value = false
-        self.price?.value = "0.0"
+        self.payedPrice?.value = "0.0"
         self.timesWorn?.value = "0.0"
         self.lastTimeWorn?.value = nil
         self.datePurchased?.value = nil
         self.color?.value = "N/A"
         self.secondaryColor?.value = "N/A"
         self.thirdColor?.value = "N/A"
-        self.itemDescription?.value = "N/A"
+        self.itemNotes?.value = "N/A"
         self.dateReleased?.value = nil
         self.retailPrice?.value = "0.0"
         self.condition?.value = "N/A"
         self.primaryMaterial?.value = "N/A"
         self.secondaryMaterial?.value = "N/A"
-        self.storeLocationURL?.value = "N/A"
+        self.sellerURL?.value = "N/A"
         self.isThisNew?.value = false
         
         self.tableView.reloadData()
@@ -278,10 +278,10 @@ extension CreateItemViewController{
         playSoundEffects(clearSFX)
     }
     func addIdToItem(){
-        if gamesWardrobe.closetSelectionString == MY_CLOSET{
-            viewItem.id = gamesWardrobe.countClosetUp()
-        }else if gamesWardrobe.closetSelectionString == MY_WANTS_CLOSET{
-            viewItem.id = gamesWardrobe.countWishlistDown()
+        if Users_Wardrobe.closetSelectionString == MY_CLOSET{
+            viewItem.id = Users_Wardrobe.countClosetUp()
+        }else if Users_Wardrobe.closetSelectionString == MY_WANTS_CLOSET{
+            viewItem.id = Users_Wardrobe.countWishlistDown()
         }
     }
 }
@@ -310,7 +310,7 @@ extension CreateItemViewController{
         
     }
     func setTitle(){
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Item Create")
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Item Create")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.translucent = false
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -345,7 +345,7 @@ extension CreateItemViewController{
         //        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
         self.brand = RETextItem(title: "Brand:", value: String(), placeholder: "Enter Item brand")
         self.favorited = REBoolItem(title: "Favorite:", value: false)
-        self.price = RENumberItem(title: "Originl Price:", value: String(), placeholder: "Enter Value for The Item")
+        self.payedPrice = RENumberItem(title: "Originl Price:", value: String(), placeholder: "Enter Value for The Item")
         self.timesWorn = RENumberItem(title: "Times Worn/Used:", value: String(), placeholder: "Enter Value for times worn")
         self.lastTimeWorn = REDateTimeItem(title: "Last Time Worn:", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
         self.kind = RETextItem(title: "Kind:", value: String(), placeholder: "Enter Item kind")
@@ -357,7 +357,7 @@ extension CreateItemViewController{
         self.secondaryColor = RETextItem(title: "SecondaryColor:", value: String(), placeholder: "Enter Item SecondaryColor")
         //        self.thirdColor = REPickerItem(title: "Third Color", value: COLOR_TYPE, placeholder: nil, options: [])
         self.thirdColor = RETextItem(title: "Third Color:", value: String(), placeholder: "Enter Item Third Color")
-        self.itemDescription = RELongTextItem(title: "Item Notes:", value: String(), placeholder: nil)
+        self.itemNotes = RELongTextItem(title: "Item Notes:", value: String(), placeholder: nil)
         self.isThisNew = REBoolItem(title: "New Item:", value: false)
         self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
         self.retailPrice = RENumberItem(title: "Paid Price:", value: String(), placeholder: "Enter Paid Price For The Item")
@@ -367,7 +367,7 @@ extension CreateItemViewController{
         self.primaryMaterial = RETextItem(title: "Primary Material:", value: String(), placeholder: "Enter Item Primary Material")
         //        self.secondaryMaterial = REPickerItem(title: "Secondary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
         self.secondaryMaterial = RETextItem(title: "Secondary Material:", value: String(), placeholder: "Enter Secondary Material Name")
-        self.storeLocationURL = RETextItem(title: "Store Location Or URL:", value: String(), placeholder: "Enter Location")
+        self.sellerURL = RETextItem(title: "Store Location Or URL:", value: String(), placeholder: "Enter Location")
         self.storeLocation = RETextItem(title: "Store Location", value: self.viewItem.storeLocation, placeholder: "Enter Item storeLocation")
         
         self.sellerName = RETextItem(title: "Seller Name", value: self.viewItem.sellerName, placeholder: "Enter Item Seller Name")
@@ -388,7 +388,7 @@ extension CreateItemViewController{
         self.basicSection?.addItem(favorited)
         self.basicSection?.addItem(model)
         self.basicSection?.addItem(brand)
-        self.basicSection?.addItem(price)
+        self.basicSection?.addItem(payedPrice)
         self.basicSection?.addItem(timesWorn)
         self.basicSection?.addItem(lastTimeWorn)
         self.basicSection?.addItem(kind)
@@ -404,10 +404,10 @@ extension CreateItemViewController{
         self.miscSection?.addItem(condition)
         self.miscSection?.addItem(primaryMaterial)
         self.miscSection?.addItem(secondaryMaterial)
-        self.miscSection?.addItem(storeLocationURL)
+        self.miscSection?.addItem(sellerURL)
         self.miscSection?.addItem(storeLocation)
         self.miscSection?.addItem(sellerName)
-        self.miscSection?.addItem(itemDescription)
+        self.miscSection?.addItem(itemNotes)
     }
 }
 
@@ -440,7 +440,7 @@ extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource
             
             return pickerRowsPlusAddFieldOption
             //        }else if pickerView == cellBrandPickerView{
-            //            let brandArrayPlus1 = gamesWardrobe.brandCollection.count + 1
+            //            let brandArrayPlus1 = Users_Wardrobe.brandCollection.count + 1
             //
             //
             //            return brandArrayPlus1
@@ -460,10 +460,10 @@ extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource
                 return subCategoryPickerOptions[row]
             }
             //        }else if pickerView == cellBrandPickerView{//if pickerView == cellPickerView{
-            //            if row == (gamesWardrobe.brandCollection.count){
+            //            if row == (Users_Wardrobe.brandCollection.count){
             //                return "Add New Sub-Category"
             //            }else{
-            //                return gamesWardrobe.brandCollection[row]
+            //                return Users_Wardrobe.brandCollection[row]
         }
         assertionFailure("This shouldn't be happening")
         return String()
@@ -480,7 +480,7 @@ extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource
             subCategoryPickerOptions.removeAll(keepCapacity: false)
             
             
-            let loadedArchived = gamesWardrobe.selectedCloset
+            let loadedArchived = Users_Wardrobe.selectedCloset
             let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
             
             for key in keysOfCategory{

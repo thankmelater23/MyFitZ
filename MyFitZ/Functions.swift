@@ -77,8 +77,6 @@ func initializeSounds() {
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
 }
 
-
-
 //MARK: -Animations
 /**
 Animates app general buttons
@@ -197,17 +195,17 @@ func returnItem(path: [String: String])->Item{
         let subCategory:String! = path[PATHTYPE_SUBCATEGORY_STRING]
         let id:Int! = Int(path[PATHTYPE_ID_STRING]!)
         let index:Int! = Int(path[PATHTYPE_INDEX_STRING]!)
-        
+
         //Setting wardrobes correct closet
         /// TODO: -Set this back or you might end up in wrong closet
-        let previousWardrobe = gamesWardrobe.closetSelectionString
+        let previousWardrobe = Users_Wardrobe.closetSelectionString
         //Gets value from path of item
-        gamesWardrobe.closetSelectionString = closet
-        let array = gamesWardrobe.returnArrayOfItems(category, funcSubCategory: subCategory)
+        Users_Wardrobe.closetSelectionString = closet
+        let array = Users_Wardrobe.returnArrayOfItems(category, funcSubCategory: subCategory)
         let item = array[index]
         
         //Sets back wardrobe to correct closet
-        gamesWardrobe.closetSelectionString = previousWardrobe
+        Users_Wardrobe.closetSelectionString = previousWardrobe
         
         //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
         if item.id == id{

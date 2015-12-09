@@ -16,7 +16,7 @@ class Item: NSObject, NSCoding{
     //MARK: -Item Required
     var brand: String!, model: String!
     var category: String!, subCategory : String!, index : Int!
-    var price: Double!
+    var payedPrice: Double!
     var image: UIImage!
     var favorited: Bool! = false
     var isThisNew: Bool! = true
@@ -32,12 +32,12 @@ class Item: NSObject, NSCoding{
     var secondaryColor: String!
     var thirdColor: String!
     var dateReleased: String!
-    var itemDescription: String!
+    var itemNotes: String!
     var condition: String!
     var primaryMaterial: String!
     var secondaryMaterial: String!
     var retailPrice: Double!
-    var storeLocationURL: String!
+    var sellerURL: String!
     var storeLocation: String!
     var sellerName: String!
     //    var arrayOfImages: [UIImages]
@@ -53,7 +53,7 @@ class Item: NSObject, NSCoding{
 //        //    }
     /// Returns values of all the item vars
     override var description: String {
-        let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \nprice:\(self.price) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
+        let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \npayedPrice:\(self.payedPrice) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
         return string
     }
     
@@ -69,7 +69,7 @@ class Item: NSObject, NSCoding{
         self.category     = decoder.decodeObjectForKey(ITEM_CATEGORY_STRING) as! String!
         self.subCategory  = decoder.decodeObjectForKey(ITEM_SUBCATEGORY_STRING) as! String!
         self.index        = decoder.decodeIntegerForKey((ITEM_INDEX_STRING)) as Int!
-        self.price        = decoder.decodeDoubleForKey(ITEM_PRICE_STRING) as Double!
+        self.payedPrice        = decoder.decodeDoubleForKey(ITEM_PRICE_STRING) as Double!
         self.image        = decoder.decodeObjectForKey(ITEM_IMAGE_STRING) as! UIImage!
         self.favorited    = decoder.decodeBoolForKey(ITEM_FAVORITED_STRING) as Bool!
         self.isThisNew    = decoder.decodeBoolForKey(ITEM_ISTHISNEW_STRING) as Bool!
@@ -86,12 +86,12 @@ class Item: NSObject, NSCoding{
         self.secondaryColor = decoder.decodeObjectForKey(ITEM_SECONDARYCOLOR_STRING) as! String!
         self.thirdColor = decoder.decodeObjectForKey(ITEM_THIRDCOLOR_STRING) as! String!
         self.dateReleased = decoder.decodeObjectForKey(ITEM_DATERELEASED_STRING) as! String!
-        self.itemDescription = decoder.decodeObjectForKey(ITEM_ITEMDESCRIPTION_STRING) as! String!
+        self.itemNotes = decoder.decodeObjectForKey(ITEM_ITEMNOTES_STRING) as! String!
         self.condition = decoder.decodeObjectForKey(ITEM_CONDITION_STRING) as! String!
         self.primaryMaterial = decoder.decodeObjectForKey(ITEM_PRIMARYMATERIAL_STRING) as! String!
         self.secondaryMaterial = decoder.decodeObjectForKey(ITEM_SECONDAY_MATERIAL_STRING) as! String!
         self.retailPrice = decoder.decodeObjectForKey(ITEM_RETAILPRICE_STRING) as! Double!
-        self.storeLocationURL = decoder.decodeObjectForKey(ITEM_STORELURL_STRING) as! String!
+        self.sellerURL = decoder.decodeObjectForKey(ITEM_STORELURL_STRING) as! String!
         self.storeLocation = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
         self.sellerName = decoder.decodeObjectForKey(ITEM_SELLERNAME_STRING) as! String!
         
@@ -106,7 +106,7 @@ class Item: NSObject, NSCoding{
         coder.encodeObject(self.category, forKey: ITEM_CATEGORY_STRING)
         coder.encodeObject(self.subCategory, forKey: ITEM_SUBCATEGORY_STRING)
         coder.encodeInteger(self.index!, forKey: ITEM_INDEX_STRING)
-        coder.encodeDouble(self.price!, forKey: ITEM_PRICE_STRING)
+        coder.encodeDouble(self.payedPrice!, forKey: ITEM_PRICE_STRING)
         coder.encodeObject(self.image, forKey: ITEM_IMAGE_STRING)
         coder.encodeBool(self.favorited, forKey: ITEM_FAVORITED_STRING)
         coder.encodeBool(self.isThisNew!, forKey: ITEM_ISTHISNEW_STRING)
@@ -121,17 +121,19 @@ class Item: NSObject, NSCoding{
         coder.encodeObject(self.secondaryColor, forKey: ITEM_SECONDARYCOLOR_STRING)
         coder.encodeObject(self.thirdColor, forKey: ITEM_THIRDCOLOR_STRING)
         coder.encodeObject(self.dateReleased, forKey: ITEM_DATERELEASED_STRING)
-        coder.encodeObject(self.itemDescription, forKey: ITEM_ITEMDESCRIPTION_STRING)
+        coder.encodeObject(self.itemNotes, forKey: ITEM_ITEMNOTES_STRING)
         coder.encodeObject(self.condition, forKey: ITEM_CONDITION_STRING)
         coder.encodeObject(self.primaryMaterial, forKey: ITEM_PRIMARYMATERIAL_STRING)
         coder.encodeObject(self.secondaryMaterial, forKey: ITEM_SECONDAY_MATERIAL_STRING)
         coder.encodeObject(self.retailPrice, forKey: ITEM_RETAILPRICE_STRING)
-        coder.encodeObject(self.storeLocationURL, forKey: ITEM_STORELURL_STRING)
+        coder.encodeObject(self.sellerURL, forKey: ITEM_STORELURL_STRING)
         coder.encodeObject(self.storeLocation, forKey: ITEM_STORELOCATION_STRING)
         coder.encodeObject(self.sellerName, forKey: ITEM_SELLERNAME_STRING)
         
         
         coder.encodeObject(self.path, forKey: ITEM_LOCATIONPATH_STRING)
+        
+        print(self.path)
     }//Encodes data in class
     ///Creates blank Item
     override init(){
@@ -145,7 +147,7 @@ class Item: NSObject, NSCoding{
         
         self.subCategory  = "N/A"
         
-        self.price        = NSNumber().doubleValue
+        self.payedPrice        = NSNumber().doubleValue
         
         self.image        = UIImage(named: BLANK_IMAGE_STRING)
         
@@ -171,18 +173,18 @@ class Item: NSObject, NSCoding{
         self.secondaryColor = "N/A"
         self.thirdColor = "N/A"
         self.dateReleased = "N/A"
-        self.itemDescription = "N/A"
+        self.itemNotes = "N/A"
         self.condition = "N/A"
         self.primaryMaterial = "N/A"
         self.secondaryColor = "N/A"
         self.retailPrice = Double()
-        self.storeLocationURL = "N/A"
+        self.sellerURL = "N/A"
         self.storeLocation = "N/A"
         self.sellerName = "N/A"
         self.path = [String: String]()
     }
     ///Creates custom item
-    init(make: String?, model: String?, category: String?, subCategory: String?, price: Double?,
+    init(make: String?, model: String?, category: String?, subCategory: String?, payedPrice: Double?,
         Image: UIImage?, favorited: Bool, isThisNew: Bool?, timesWorn: Int?, lastTImeWorn: String?,
         kind: String?, size: String, index: Int?, datePurchased: String?, color: String?){
             
@@ -191,7 +193,7 @@ class Item: NSObject, NSCoding{
             self.model        = model
             self.category     = category
             self.subCategory  = subCategory
-            self.price        = price
+            self.payedPrice        = payedPrice
             self.image        = Image
             self.favorited    = favorited
             self.isThisNew    = isThisNew
@@ -204,10 +206,9 @@ class Item: NSObject, NSCoding{
             //Optionals
             self.datePurchased = datePurchased
             self.color         = color
-            
-            
     }
 }
+
 
 
 
@@ -220,15 +221,36 @@ extension Item{
     func incrementTimesWorn(){
         self.timesWorn = self.timesWorn + 1
     }
-    func populatePath(){
-//        path[PATHTYPE_CLOSET_STRING] = self.category
+    /**
+     Makes sure that the path is populated properly when item is created and edited
+     
+     - parameter closet: The String of the closet the item is located in
+     */
+    func populatePath(closet:String){
+        path[PATHTYPE_CLOSET_STRING] = closet
         path[PATHTYPE_ID_STRING] = String(self.id)
         path[PATHTYPE_CATEGORY_STRING] = self.category
         path[PATHTYPE_SUBCATEGORY_STRING] = self.subCategory
         path[PATHTYPE_INDEX_STRING] = String(self.index)
     }
-    
-//    override func dealloc(){
+    /**
+     Removes this item reference from a dictionary list when the item is deleted or modified
+     
+     - parameter path: The reference to the item
+     
+     - returns: The dictionary
+     */
+    func removePathFromArrayAndGivesBackNewArray(var path: [[String: String]]) -> [[String: String]]{
+        
+        for (index, arrayDic) in path.enumerate(){
+            if arrayDic[PATHTYPE_ID_STRING] == String(self.id){
+                path.removeAtIndex(index)
+            }
+        }
+        
+        return path
+    }
+    //    override func dealloc(){
     //TODO: -When its destroyed check remove it if its favorited or in the recents
 //        super.dealloc()
 //        gamesWardrobe.removeFromFavoriteList(self)

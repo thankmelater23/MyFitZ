@@ -83,7 +83,7 @@ extension DetailedViewController{
         let act = UIAlertAction(title: "cancel", style: .Default){_ in}
         let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
             
-            gamesWardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
+            Users_Wardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
             
             self.performSegueWithIdentifier(SEGUE_DETAIL_TO_SELECTION, sender: nil)
         }
@@ -93,7 +93,7 @@ extension DetailedViewController{
         self.presentViewController(alert, animated: true, completion:nil)
     }
     @IBAction func wear() {
-        let closet = gamesWardrobe.closetSelectionString
+        let closet = Users_Wardrobe.closetSelectionString
         
         if true{
             self.wearActivate()
@@ -111,14 +111,6 @@ extension DetailedViewController{
         let newDate = dateFormatter.stringFromDate((NSDate()))
         
         
-        //        var message:TSMessage = TSMessage()
-        //            TSMessage.showNotificationWithTitle("Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate, type: TSMessageNotificationType.Message)
-        
-        //        self.itemOfObject.lastTimeWorn = newDate
-        //        gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
-        //        gamesWardrobe.quickSave()
-        
-        
         let dicOfOptions = [
             kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
             kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
@@ -131,9 +123,10 @@ extension DetailedViewController{
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
             self.itemOfObject.lastTimeWorn = newDate
             self.itemOfObject.incrementTimesWorn()
-            gamesWardrobe.updateRecentWornCollectiion(self.itemOfObject)
-            gamesWardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
-            gamesWardrobe.quickSave()
+            Users_Wardrobe.updateRecentWornCollectiion(self.itemOfObject)
+            self.wearButtonAvailable()
+            Users_Wardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
+            Users_Wardrobe.quickSave()
         })
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -144,6 +137,12 @@ extension DetailedViewController{
         wearButton.backgroundColor = UIColor.grayColor()
         wearButton.userInteractionEnabled = false
     }
+    func showWearButton(){
+        wearButton.alpha = 1.0
+        wearButton.backgroundColor = UIColor.clearColor()
+        wearButton.userInteractionEnabled = true
+    }
+
 }
 
 
@@ -228,7 +227,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case 4 :
             keyAndValue = ITEM_PRICE_STRING
-            if let value = itemOfObject.price{
+            if let value = itemOfObject.payedPrice{
                 cell.configure(name: keyAndValue, infoString: String(value))
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -256,8 +255,9 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         case 7 :
             keyAndValue = ITEM_TIMESWORN_STRING
             if let value = itemOfObject.timesWorn{
-                cell.configure(name: keyAndValue, infoString: String(value))
+                cell.configure(name: keyAndValue, infoString: String(value) as! String!)
             }else{
+                
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
             cell.configure(name: keyAndValue, infoString: "N/A")
@@ -367,8 +367,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 4 :
-            keyAndValue = ITEM_ITEMDESCRIPTION_STRING
-            if let value = self.itemOfObject.itemDescription{
+            keyAndValue = ITEM_ITEMNOTES_STRING
+            if let value = self.itemOfObject.itemNotes{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -400,7 +400,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             
         case 8 :
             keyAndValue = ITEM_PRIMARYMATERIAL_STRING
-            if let value = self.itemOfObject.color{
+            if let value = self.itemOfObject.primaryMaterial{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -414,7 +414,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case 10:
             keyAndValue = ITEM_STORELURL_STRING
-            if let value = self.itemOfObject.storeLocationURL{
+            if let value = self.itemOfObject.sellerURL{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -429,13 +429,6 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         case 12 :
             keyAndValue = ITEM_SELLERNAME_STRING
             if let value = self.itemOfObject.sellerName{
-                cell.configure(name: keyAndValue, infoString: value)
-            }else{
-                cell.configure(name: keyAndValue, infoString: "N/A")
-            }
-        case 13 :
-            keyAndValue = ITEM_ITEMDESCRIPTION_STRING
-            if let value = self.itemOfObject.itemDescription{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -456,7 +449,7 @@ extension DetailedViewController{
     func setUp(){
         self.setButtonsView()
         self.buttonIsWearOrGot()
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Detail")
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
@@ -509,10 +502,12 @@ extension DetailedViewController{
         
         if daysLastWorn < 1{
             hideWearButton()
+        }else{
+            showWearButton()
         }
     }
     func buttonIsWearOrGot(){
-        let closet = gamesWardrobe.closetSelectionString
+        let closet = Users_Wardrobe.closetSelectionString
         
         if closet == MY_CLOSET{
             wearButton.titleLabel?.text = "WEAR"

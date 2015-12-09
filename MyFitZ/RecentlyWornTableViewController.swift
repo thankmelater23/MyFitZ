@@ -128,9 +128,9 @@ extension RecentlyWornTableViewController{
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
                     self.arrayOfItems.removeAtIndex(indexPath.row)
-                    gamesWardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+                    Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
                     
-                    gamesWardrobe.quickSave()
+                    Users_Wardrobe.quickSave()
                     
                     self.tableView.reloadData()
                 }
@@ -146,9 +146,9 @@ extension RecentlyWornTableViewController{
 //MARK: -Initializer  Created Methods
 extension RecentlyWornTableViewController{
     func SetUpTypes() {
-        self.arrayOfItems = gamesWardrobe.recentWornItems
+        self.arrayOfItems = Users_Wardrobe.recentWornItems
         
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "RECENYLY_WORN")
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "RECENYLY_WORN")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{

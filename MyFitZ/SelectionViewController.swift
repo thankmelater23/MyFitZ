@@ -97,7 +97,7 @@ class SelectionViewController: UIViewController{
         
         //TODO: -Add a GCD to load it in background
         for category in CATEGORY_PICKER_OPTIONS{
-            catCountDic[category] = gamesWardrobe.getCountOfAllItemsInCategory(category)
+            catCountDic[category] = Users_Wardrobe.getCountOfAllItemsInCategory(category)
         }
         
         topCounter.text = String(catCountDic[TOPS]!)
@@ -166,7 +166,7 @@ extension SelectionViewController{
         //        self.searchButton.animation.makeScale(0.0).animate(0.0)
         //        self.searchButton.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScaleUIView(1.0).animate(0.3)
         
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Selection")
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Selection")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{

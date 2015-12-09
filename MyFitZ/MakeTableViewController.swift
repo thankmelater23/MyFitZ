@@ -27,7 +27,7 @@ class MakeTableViewController: UITableViewController{
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         
         self.setUpTypes()
         
@@ -77,8 +77,8 @@ extension MakeTableViewController{
 //MARK: - Initializer Created Methods
 extension MakeTableViewController{
     func setUpTypes(){
-        self.itemsInArrayInDictionary = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
+        self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
@@ -136,8 +136,8 @@ extension MakeTableViewController:UIAlertViewDelegate{
                 let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
                 self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
                 
-                gamesWardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
-                gamesWardrobe.quickSave()
+                Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+                Users_Wardrobe.quickSave()
                 
                 self.tableView.reloadData()
             }

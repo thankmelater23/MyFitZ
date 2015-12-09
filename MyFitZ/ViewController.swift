@@ -28,7 +28,7 @@ class ViewController:  UIViewController{
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.translucent = false
         
-        self.title = gamesWardrobe.closetSelectionString
+        self.title = Users_Wardrobe.closetSelectionString
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
@@ -60,8 +60,8 @@ class ViewController:  UIViewController{
 //MARK: -Actions-ViewController Extension
 extension ViewController{
     @IBAction func selectedCloset() {
-        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
-        gamesWardrobe.closetSelectionString = MY_CLOSET
+        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        Users_Wardrobe.closetSelectionString = MY_CLOSET
         playSoundEffects(closetSFX)
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -73,8 +73,8 @@ extension ViewController{
         performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedWants() {
-        gamesWardrobe = gamesWardrobe.loadAndCreateCloset()
-        gamesWardrobe.closetSelectionString = MY_WANTS_CLOSET
+        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        Users_Wardrobe.closetSelectionString = MY_WANTS_CLOSET
         playSoundEffects(wishlistSFX)
         
         let defaults = NSUserDefaults.standardUserDefaults()

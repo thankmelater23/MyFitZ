@@ -15,4 +15,5 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "DKChainableAnimationKit.h"
 #import "UIScrollView+EmptyDataSet.h"
+//import SnapshotHelper
 #endif /* MyFitZ_Bridging_Header_h */

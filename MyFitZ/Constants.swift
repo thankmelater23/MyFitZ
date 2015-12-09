@@ -18,7 +18,7 @@ import AVFoundation
 ///Represents the type of Dictionary in Dictionary of Array of Items
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 /// The app entire system
-var gamesWardrobe:Wardrobe = Wardrobe()
+var Users_Wardrobe:Wardrobe = Wardrobe()
 
 
 //MARK: -App Enums
@@ -46,6 +46,10 @@ enum GotMode:Int{
 
 //MARK: -App Arrays & Dictionary Constants
 let CATEGORY_PICKER_OPTIONS = [TOPS, BOTTOMS, HEADWARE, FOOTWARE, ACCESSORIES, UNDERCLOTHING]
+//TODO: -Turn this into a struct
+struct CateogryType{
+    
+}
 let TOPS = "Tops"
 let BOTTOMS = "Bottoms"
 let HEADWARE = "Headware"
@@ -65,6 +69,10 @@ let MATERIAL_TYPE = ["Cotton", "Leather"]
 
 
 //MARK: -App Path types
+//TODO: -Turn this into a struct
+struct PathType{
+    
+}
 let PATHTYPE_CLOSET_STRING      = "Closet"
 let PATHTYPE_ID_STRING          = "ID"
 let PATHTYPE_CATEGORY_STRING    = "Category"
@@ -80,8 +88,11 @@ let MY_WANTS_CLOSET = "Wish List"
 //MARK: -App Integers
 let RECENTLY_WORN_CONTAINER_MAX = 50
 
-
 //MARK: -Segue identifiers
+//TODO: -Turn this into a struct
+struct Segues{
+    
+}
 let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
 let SEGUE_MAIN_TO_FITMAKER      = "mainToFitMaker"
 let SEGUE_SELECTION_TO_MAKE     = "selectionToMake"
@@ -109,6 +120,10 @@ let SEGUE_EDIT_TO_SELECTION      = "editToSelection"
 let SEGUE_DETAIL_TO_SELECTION      = "detailToSelection"
 
 //MARK: -Cell identifiers
+//TODO: -Turn this into a struct
+struct CellIdentifiers{
+    
+}
 let MAKE_CELL                   = "makeCell"
 let MODEL_CELL                  = "modelCell"
 let CREATION_CELL               = "creationCell"
@@ -116,8 +131,13 @@ let DOUBLE_LABEL_CELL           = "doubleLabel"
 let TEXT_INPUT_CELL             = "textInputCell"
 
 
+
 ///MARK: - Item Settings
 //MARK: -Required
+//TODO: -Turn this into a struct
+struct ItemBasicVarKind{
+    
+}
 let ITEM_BRAND_STRING        = "Brand"
 let ITEM_MODEL_STRING        = "Model"
 let ITEM_CATEGORY_STRING     = "Category"
@@ -134,12 +154,15 @@ let ITEM_KIND_STRING        = "Kind"
 let ITEM_SIZE_STRING        = "Size"
 let ITEM_ID_STRING        = "ID"
 //MARK: -Optional
+struct ItemMiscVarKind{
+    
+}
 let ITEM_DATEPURCHASERD_STRING = "Date Purchased"
 let ITEM_COLOR_STRING          = "Primary Color"
 let ITEM_SECONDARYCOLOR_STRING = "Secondary Color"
 let ITEM_THIRDCOLOR_STRING = "Third Color"
 let ITEM_DATERELEASED_STRING = "Date Released"
-let ITEM_ITEMDESCRIPTION_STRING = "Item Note"
+let ITEM_ITEMNOTES_STRING = "Item Note"
 let ITEM_CONDITION_STRING = "Condition"
 let ITEM_PRIMARYMATERIAL_STRING = "Primary Material"
 let ITEM_SECONDAY_MATERIAL_STRING = "Secondary Material"
@@ -163,10 +186,15 @@ let DETAIL_TABLEVIEW_MISC_SECTION_COUNT = 13
 ///MARK: - CreationViewController
 
 
+
 ///MARK: - Audio
 //MARK: -Variable
 var audioPlayer: AVAudioPlayer! = AVAudioPlayer()
 //MARK: -SystemSoundID
+//TODO: -Turn this into a struct
+struct SystemSoundIDS{
+    
+}
 var clearSFX : SystemSoundID = 0
 var saveSFX : SystemSoundID = 1
 var deleteSFX : SystemSoundID = 2
@@ -186,15 +214,29 @@ var notificationSFX : SystemSoundID = 15
 
 
 //MARK: -Document Settings
-let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"
+let MYFITZ_ARCHIVE_FILE_STRING  = "myFitz.plist"//7-2015
 
 
 //MARK: -Image Settings
+//TODO: -Turn this into a struct
+struct ImageStrings{
+    
+}
 let BLANK_IMAGE_STRING          = "blank image"
 let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
 let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 
 //MARK: -Color Settings
+//TODO: -Turn this into a struct
+struct UIObjectColors{
+    
+}
+
+struct CompanyColors{
+    let primary = UIColor.greenColor()
+    let secondary = UIColor.purpleColor()
+    let third = UIColor.blueColor()
+}
 let MY_CLOSET_BAR_COLOR = UIColor.blackColor()
 let MY_WANTS_CLOSET_BAR_COLOR = UIColor.darkGrayColor()
 

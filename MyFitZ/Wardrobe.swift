@@ -193,8 +193,7 @@ extension Wardrobe{
                     print("File Saved Successfully")
                 })
             })
-        })
-    }
+    })
     /**
      Loads Wardrobe of object through NSKeyArchiver
      
@@ -263,7 +262,13 @@ extension Wardrobe{
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
         
+        //Puts item in favoirtes if elgible
         self.checkItemFavorited(item)
+        //Removes from favorites
+        self.removeNonFavoritedItems()
+        
+        
+        item.populatePath(Users_Wardrobe.closetSelectionString)
         
         //Saves Wardrobe
         self.quickSave()
@@ -275,8 +280,9 @@ extension Wardrobe{
     func quickSave(){
         playSoundEffects(saveSFX)
         
-//        self.wardrobeItemsReset()
-        self.removeNonFavoritedItems()
+//        Users_Wardrobe = wardrobeItemsReset(Users_Wardrobe)
+        
+        
         
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         
@@ -385,68 +391,8 @@ extension Wardrobe{
     func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
         return selectedCloset[funcCategory]![funcSubCategory]!.count
     }
-    /**
-     Resets whole wardrobe object and gives fresh id numbers to all items in closet and wishlist, than saves
-     */
-    func wardrobeItemsReset(){
-        self.removeNonFavoritedItems()
-        //Gives all Closet items a new ID number
-        
-        var sum = 0
-        var prevClosetSelection = self.closetSelectionString
-        self.closetSelectionString = MY_CLOSET
-        
-        for (catKey, superValue) in self.selectedCloset{
-            for (subCatKey, values) in superValue{
-                for (arrayIndex, value) in values.enumerate(){
-                    
-                    value.path[PATHTYPE_CLOSET_STRING] = MY_CLOSET
-                    value.path[PATHTYPE_CATEGORY_STRING] = value.category
-                    value.path[PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
-                    value.path[PATHTYPE_ID_STRING] = String(value.id)
-                    value.path[PATHTYPE_INDEX_STRING] = String(arrayIndex)
-                    sum++
-                    
-                    self.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
-                    
-                    if value.id == values.last!.id{
-                        sum = 0
-                    }
-                }
-            }
-        }
-        
-        sum = 0
-        
-        self.closetSelectionString = MY_WANTS_CLOSET
-        //Gives all Wishlist items a new ID number
-        for (catKey, superValue) in self.selectedCloset{
-            for (subCatKey, values) in superValue{
-                for (arrayIndex, value) in values.enumerate(){
-                    
-                    value.path[PATHTYPE_CLOSET_STRING] = MY_WANTS_CLOSET
-                    value.path[PATHTYPE_CATEGORY_STRING] = value.category
-                    value.path[PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
-                    value.path[PATHTYPE_ID_STRING] = String(value.id)
-                    value.path[PATHTYPE_INDEX_STRING] = String(arrayIndex)
-                    sum++
-                    
-                    self.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
-                    
-                    if value.id == values.last!.id{
-                        sum = 0
-                    }
-                }
-            }
-        }
-        
-        //Sets back current closet we're in
-        self.closetSelectionString = prevClosetSelection
-        self.quickSave()
     }
-    
 }
-
     //MARK: -General-Wardrobe Extension
     extension Wardrobe{
         func sort(funcCategory:String, funcSubCategory:String){
@@ -462,8 +408,9 @@ extension Wardrobe{
             
             //Sets new index for item within array
             for value in sorted{
-                value.index = sum++
+                value.index = sum
                 value.path[PATHTYPE_INDEX_STRING] = String(value.index)
+                sum++
             }
             
             //Make replace old array with new sorted array
@@ -781,7 +728,7 @@ extension Wardrobe{
         /**
          Puts item in Favorit collection
          
-         - parameter item: <#item description#>
+         - parameter item: Item to check for elgibility of being added to favorites
          */
         private func updateFavoritedWornCollectiion(item: Item){
             self.removeNonFavoritedItems()

@@ -118,9 +118,9 @@ extension ModelTableViewController{
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
                     self.arrayOfItems.removeAtIndex(indexPath.row)
-                    gamesWardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+                    Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
                     
-                    gamesWardrobe.quickSave()
+                    Users_Wardrobe.quickSave()
                     
                     self.tableView.reloadData()
                 }
@@ -146,9 +146,9 @@ extension ModelTableViewController{
 //MARK: - Initializer-ModelTableViewController Extension
 extension ModelTableViewController{
     func SetUpTypes() {
-        self.arrayOfItems = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
+        self.arrayOfItems = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
         
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{

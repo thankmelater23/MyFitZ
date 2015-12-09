@@ -36,7 +36,7 @@ class CreationViewController: UIViewController{
     @IBAction func createItem(sender: UIButton) {
         
         do{
-            try gamesWardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+            try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
         }
             
             
@@ -86,7 +86,7 @@ class CreationViewController: UIViewController{
             
         }
         if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = gamesWardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+            let array = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
@@ -128,11 +128,6 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
         //self.tableView.reloadData()
         if indexPath.section == 0{
             return  self.createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
-            //        }else if indexPath.section == 1 && indexPath.row == 0{
-            //            //FIXME: - This date picker needs to return the correct cell
-            //            let cell = createCellFromRequiredDictionary(row: indexPath.row) as CreationUITableViewCell
-            //            let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "datePicker")
-            //            cell.textInputMode = cellDatePicker
         }else if indexPath.section == 1{
             return self.createCellFromOptionalDictionary(row: indexPath.row) as CreationUITableViewCell
         }else{
@@ -190,7 +185,7 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
             cell.textInputCellTextField.inputView = cellYesNoPicker
         case 3 :
             keyAndValue = ITEM_PRICE_STRING
-            cell.configure(text: viewItem.price?.description, labelString: keyAndValue, tag: row)
+            cell.configure(text: viewItem.payedPrice?.description, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.keyboardType = UIKeyboardType.NumberPad
         case 4 :
             keyAndValue = ITEM_ISTHISNEW_STRING
@@ -293,7 +288,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             
             return pickerRowsPlusAddFieldOption
         }else if pickerView == cellBrandPickerView{
-            let brandArrayPlus1 = gamesWardrobe.brandCollection.count + 1
+            let brandArrayPlus1 = Users_Wardrobe.brandCollection.count + 1
             
             
             return brandArrayPlus1
@@ -318,10 +313,10 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 return subCategoryPickerOptions[row]
             }
         }else if pickerView == cellBrandPickerView{//if pickerView == cellPickerView{
-            if row == (gamesWardrobe.brandCollection.count){
+            if row == (Users_Wardrobe.brandCollection.count){
                 return "Add New Sub-Category"
             }else{
-                return gamesWardrobe.brandCollection[row]
+                return Users_Wardrobe.brandCollection[row]
             }
         }else if pickerView == cellYesNoPicker{
             return YES_NO[row]
@@ -342,7 +337,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             subCategoryPickerOptions.removeAll(keepCapacity: false)
             
             //FIXME: - Fix the loading of files
-            let loadedArchived = gamesWardrobe.selectedCloset
+            let loadedArchived = Users_Wardrobe.selectedCloset
             let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
             
             for key in keysOfCategory{
@@ -374,13 +369,13 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 //                        let myIndex = tableView.indexPathForSelectedRow?.row
 //                        let cell = tableView(self.tableView, cellForRowAtIndexPath: myIndex)
             //self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
-            if row == gamesWardrobe.brandCollection.count{
+            if row == Users_Wardrobe.brandCollection.count{
 //                                cell.textInputCellTextField.inputView = nil
 //                                cell.textInputCellTextField.reloadInputViews()
 //                                cell.textInputCellTextField.delegate = self
 //                                cell.textInputCellTextField.text = String()
             }else{
-                brandSelected = gamesWardrobe.brandCollection[row]
+                brandSelected = Users_Wardrobe.brandCollection[row]
             }
         }else if pickerView == cellYesNoPicker{
             //                cell.textInputCellTextField.text = YES_NO[row]!
@@ -432,7 +427,7 @@ extension CreationViewController: UITextFieldDelegate{
         case 2:
             viewItem.favorited = bool ?? false
         case 3:
-            viewItem.price = Double(value) ?? 0.0
+            viewItem.payedPrice = Double(value) ?? 0.0
         case 4:
             viewItem.isThisNew = bool ?? false
         case 5:

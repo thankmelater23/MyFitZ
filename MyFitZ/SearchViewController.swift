@@ -44,7 +44,7 @@ import Crashlytics
     
     //MARK: -View Methods
     override func viewDidLoad() {
-        self.title = grabTitle(gamesWardrobe.closetSelectionString, view: "Search")
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Search")
         
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -138,7 +138,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             subCategoryPickerView.delegate = self
             subCategoryPickerOptions.removeAll(keepCapacity: false)
             
-            let loadedArchived = gamesWardrobe.selectedCloset
+            let loadedArchived = Users_Wardrobe.selectedCloset
             let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
             
             
@@ -207,7 +207,7 @@ extension SearchViewController{
         item = retrieveItem()
     }
     func retrieveItem()->Item{
-        let array = gamesWardrobe.selectedCloset[categorySelected]![subCategorySelected]!
+        let array = Users_Wardrobe.selectedCloset[categorySelected]![subCategorySelected]!
         
         defer{
             setButtonsEnabled()
@@ -228,7 +228,7 @@ extension SearchViewController{
         }
     }
     func iterateNextInCurrentItems(){
-        let array = gamesWardrobe.selectedCloset[categorySelected]![subCategorySelected]!
+        let array = Users_Wardrobe.selectedCloset[categorySelected]![subCategorySelected]!
         let num = array.count
         
         if indexOfController < num{
