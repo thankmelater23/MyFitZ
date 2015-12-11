@@ -117,10 +117,10 @@ extension ModelTableViewController{
                 let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-                    self.arrayOfItems.removeAtIndex(indexPath.row)
-                    Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+                let itemToDelete = self.arrayOfItems[indexPath.row]
                     
-                    Users_Wardrobe.quickSave()
+                    Users_Wardrobe.deleteItem(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: self.path[PATHTYPE_SUBCATEGORY_STRING]!, item: itemToDelete)
+                    
                     
                     self.tableView.reloadData()
                 }

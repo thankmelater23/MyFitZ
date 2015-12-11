@@ -126,7 +126,7 @@ extension FavoritedWornTableViewController{
 //MARK: - Initializers Created Methods
 extension FavoritedWornTableViewController{
     func SetUpTypes() {
-        self.arrayOfItems = Users_Wardrobe.favoritedItems
+        self.arrayOfItems = Users_Wardrobe.populateFavoriteItems()
         
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Favorited Items")
         if self.title == MY_CLOSET{

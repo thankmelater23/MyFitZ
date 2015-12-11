@@ -146,7 +146,7 @@ extension RecentlyWornTableViewController{
 //MARK: -Initializer  Created Methods
 extension RecentlyWornTableViewController{
     func SetUpTypes() {
-        self.arrayOfItems = Users_Wardrobe.recentWornItems
+        self.arrayOfItems = Users_Wardrobe.populateRecentlyWornItems()
         
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "RECENYLY_WORN")
         if self.title == MY_CLOSET{

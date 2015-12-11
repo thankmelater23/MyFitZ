@@ -46,11 +46,6 @@ class Item: NSObject, NSCoding{
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
-//    deinit{
-//        //        gamesWardrobe.removeFromFavoriteList(self)
-        //        gamesWardrobe.checkItemFavorited(self)
-    //              remove all recentWornList/Favorites
-//        //    }
     /// Returns values of all the item vars
     override var description: String {
         let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \npayedPrice:\(self.payedPrice) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
@@ -227,11 +222,11 @@ extension Item{
      - parameter closet: The String of the closet the item is located in
      */
     func populatePath(closet:String){
-        path[PATHTYPE_CLOSET_STRING] = closet
-        path[PATHTYPE_ID_STRING] = String(self.id)
-        path[PATHTYPE_CATEGORY_STRING] = self.category
-        path[PATHTYPE_SUBCATEGORY_STRING] = self.subCategory
-        path[PATHTYPE_INDEX_STRING] = String(self.index)
+        self.path[PATHTYPE_CLOSET_STRING] = closet
+        self.path[PATHTYPE_ID_STRING] = String(self.id)
+        self.path[PATHTYPE_CATEGORY_STRING] = self.category
+        self.path[PATHTYPE_SUBCATEGORY_STRING] = self.subCategory
+        self.path[PATHTYPE_INDEX_STRING] = String(self.index)
     }
     /**
      Removes this item reference from a dictionary list when the item is deleted or modified
@@ -250,12 +245,6 @@ extension Item{
         
         return path
     }
-    //    override func dealloc(){
-    //TODO: -When its destroyed check remove it if its favorited or in the recents
-//        super.dealloc()
-//        gamesWardrobe.removeFromFavoriteList(self)
-//        gamesWardrobe.checkItemFavorited(self)
-//    }
 }
 
 

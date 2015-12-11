@@ -106,6 +106,7 @@ extension DetailedViewController{
     //MARK: -Action sum Methods
     func wearActivate(){
         playSoundEffects(wearSFX)
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         let newDate = dateFormatter.stringFromDate((NSDate()))
@@ -122,9 +123,15 @@ extension DetailedViewController{
         
         CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
             self.itemOfObject.lastTimeWorn = newDate
+            
             self.itemOfObject.incrementTimesWorn()
-            Users_Wardrobe.updateRecentWornCollectiion(self.itemOfObject)
+            
+            self.itemOfObject.populatePath(Users_Wardrobe.closetSelectionString)
+            
+            Users_Wardrobe.updateRecentWornCollectiion(self.itemOfObject.path)
+            
             self.wearButtonAvailable()
+            
             Users_Wardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
             Users_Wardrobe.quickSave()
         })

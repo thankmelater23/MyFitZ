@@ -63,7 +63,7 @@ let SHOE_SIZES:[String] = ["Kids:1", "Kids:2"]//ect
 
 //MARK: -Picker Options
 let YES_NO = ["Yes", "No"]
-let ITEM_CONDITION = ["Unwearable", "Old/Damaged", "Worn Down", "Good", "Clean", "Prestine"]
+let ITEM_CONDITION = ["Too Big", "Too Small", "Unwearable", "Old/Damaged", "Worn Down", "Good", "Clean", "Prestine"]
 let COLOR_TYPE = ["Red", "Blue", "Green", "Black", "White", "Yellow", "Orange", "Grey", "Pink", "Purple", "Brown"]
 let MATERIAL_TYPE = ["Cotton", "Leather"]
 
