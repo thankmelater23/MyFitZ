@@ -52,7 +52,9 @@ class Item: NSObject, NSCoding{
         return string
     }
     
-    
+    deinit{
+        print("\n\nItem: \(self.model)//\(self.brand)\nDenit")
+    }
     
     //MARK: -Methods
     //MARK: -Initializers

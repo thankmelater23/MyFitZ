@@ -83,6 +83,11 @@ class Wardrobe:NSObject, NSCoding{
             }
         }
     }
+    
+    deinit{
+        print("Wardrobe Denit initiated")
+    }
+    
     //MARK: -Closets
     /// Users Personal Closet
     var myCloset = CLOSET_TYPE()
@@ -325,9 +330,7 @@ extension Wardrobe{
         
         //Puts item in favoirtes if elgible
         self.checkItemFavorited(item)
-        //Removes from favorites
-        self.removeNonFavoritedItems()
-        
+        self.checkItemWorn(item)
         
         
         
@@ -594,8 +597,6 @@ extension Wardrobe{
     func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
         playSoundEffects(deleteSFX)
         
-        self.checkItemFavorited(item)
-        
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         var num = 0
         for index in array{
@@ -689,6 +690,7 @@ extension Wardrobe{
         prevFuncCategory: String, prevFuncSubCategory: String,
         item: Item){
             let tempItem = item
+            
             
             deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
             self.sort(prevFuncCategory, funcSubCategory: prevFuncSubCategory)
@@ -809,6 +811,31 @@ extension Wardrobe{
         }
     }
     /**
+     If item is favorited it is sent to favoritedArrau if not it is removed if it's in favoriteCollection
+     
+     - parameter item: Item to check for favorited
+     */
+    func checkItemWorn(item: Item){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        
+        let isStringConvertableToDate = dateFormatter.dateFromString(item.lastTimeWorn) as NSDate?
+        
+        if isStringConvertableToDate != nil{
+            if selectedClosetRecentWornItems.count < RECENTLY_WORN_CONTAINER_MAX{
+                selectedClosetRecentWornItems.insert(item.path, atIndex: 0)
+                selectedClosetRecentWornItems = selectedClosetRecentWornItems.sort({(returnItem($0).lastTimeWorn).returnDaysInDate() < (returnItem($1).lastTimeWorn).returnDaysInDate()})
+            }else{
+                for (index, value) in selectedClosetRecentWornItems.enumerate(){
+                    if (item.lastTimeWorn).returnDaysInDate() <= (returnItem(value).lastTimeWorn).returnDaysInDate(){
+                        selectedClosetRecentWornItems.insert(item.path, atIndex: index)
+                        return
+                    }
+                }
+            }
+        }
+    }
+    /**
      Puts item in Favorit collection
      
      - parameter item: Item to check for elgibility of being added to favorites
@@ -839,16 +866,7 @@ extension Wardrobe{
      - parameter item: Item to compare id with
      */
     private func removeFromFavoriteList(path: [String: String]){
-        var count = 0
-        
-        for arrayPath in selectedClosetFavoritedItems{
-            if arrayPath[PATHTYPE_ID_STRING]! == path[PATHTYPE_ID_STRING]!{
-                selectedClosetFavoritedItems.removeAtIndex(count)
-                return
-            }
-            
-            count++
-        }
+        selectedClosetFavoritedItems = selectedClosetFavoritedItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
     }
     /**
      Removes any Item from the FavoritedList that's not Favorited
@@ -926,7 +944,7 @@ extension Wardrobe{
             }
         }
         
-        //        self.selectedClosetRecentWornItems = self.selectedClosetRecentWornItems.filter(validatePath($0))
+        self.selectedClosetRecentWornItems = self.selectedClosetRecentWornItems.filter({validatePath($0)})
     }
     
     /**
@@ -935,29 +953,10 @@ extension Wardrobe{
      - parameter item: Item to compare id with
      */
     private func removeFromRecentWornCollectiion(path: [String: String]){
-        var count = 0
-        var found = false
         
-        for arrayPath in selectedClosetRecentWornItems{
-            if arrayPath[PATHTYPE_ID_STRING]! == path[PATHTYPE_ID_STRING]!{
-                selectedClosetRecentWornItems.removeAtIndex(count)
-                found = true
-                return
-            }
-            
-            count++
-        }
-        if found == false{
-            print("ERROR the item you tried to delete was not found at the  path with the correct id number.  Something is corrupted in the system BIG BUG SHOULD BE FOUND SINCE IT EXIST")
-        }
-        
+        selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
     }
-    
-    
-    //    private func populate
 }
-
-
 
 
 

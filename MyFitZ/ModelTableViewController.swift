@@ -121,6 +121,7 @@ extension ModelTableViewController{
                     
                     Users_Wardrobe.deleteItem(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: self.path[PATHTYPE_SUBCATEGORY_STRING]!, item: itemToDelete)
                     
+                    self.arrayOfItems.removeAtIndex(indexPath.row)
                     
                     self.tableView.reloadData()
                 }

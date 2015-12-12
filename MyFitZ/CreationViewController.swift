@@ -336,7 +336,6 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             self.tableView.hidden = true
             subCategoryPickerOptions.removeAll(keepCapacity: false)
             
-            //FIXME: - Fix the loading of files
             let loadedArchived = Users_Wardrobe.selectedCloset
             let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
             
@@ -366,9 +365,6 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             }
         }else if pickerView == cellBrandPickerView{
             
-//                        let myIndex = tableView.indexPathForSelectedRow?.row
-//                        let cell = tableView(self.tableView, cellForRowAtIndexPath: myIndex)
-            //self.tableView(self.tableView, cellForRowAtIndexPath: myIndex!) as! CreationUITableViewCell
             if row == Users_Wardrobe.brandCollection.count{
 //                                cell.textInputCellTextField.inputView = nil
 //                                cell.textInputCellTextField.reloadInputViews()
