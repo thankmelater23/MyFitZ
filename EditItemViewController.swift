@@ -139,8 +139,6 @@ extension EditItemViewController{
             
             saveItemVars()
             
-            Users_Wardrobe.swapItem(viewItem.category, funcSubCategory: viewItem.subCategory, prevFuncCategory: previousItem.category, prevFuncSubCategory: previousItem.subCategory, item: viewItem)
-            
             try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
             
             super.viewDidLoad()
@@ -151,7 +149,7 @@ extension EditItemViewController{
             let alert = UIAlertController(title: "SubCategory Missing", message: "Enter in correct subcateogry", preferredStyle: UIAlertControllerStyle.Alert)
         }catch ItemError.missingModelString{
             let alert = UIAlertController(title: "Model String Missing", message: "Enter in correct Model String", preferredStyle: UIAlertControllerStyle.Alert)
-            //             alert.show()
+//                         alert.show()
         }catch ItemError.addImage{
             let alert = UIAlertController(title: "Image not selected", message: "Selctect image", preferredStyle: UIAlertControllerStyle.Alert)
         }catch{
@@ -183,14 +181,16 @@ extension EditItemViewController{
     }
     //MARK: -Action sum functions
     func saveItemVars(){
+        //Initialized Date Formatter
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         
+        //Initialized Date Strings
         var tempDateReleased:String?
         var templastTimeWorn:String?
         var tempdatePurchased:String?
         
-        
+        //Setting temp vars to dates of Strings?
         if (dateReleased?.value != nil){
             tempDateReleased = dateFormatter.stringFromDate(self.dateReleased!.value)
         }else{tempDateReleased = nil}
@@ -203,6 +203,7 @@ extension EditItemViewController{
             tempdatePurchased = dateFormatter.stringFromDate(self.datePurchased!.value)
         }else{tempdatePurchased = nil}
         
+        //Set item variables to there values or default values eg:"N/A"
         if(model!.value != ""){viewItem.model = model!.value}else{viewItem.model = "N/A"}
         
         if(brand!.value != ""){viewItem.brand = brand!.value}else{viewItem.brand = "N/A"}
@@ -246,7 +247,7 @@ extension EditItemViewController{
         if(sellerName!.value != ""){viewItem.sellerName = sellerName!.value}else{viewItem.sellerName = "N/A"}
         
         
-        
+        //Sets up Tableview UI
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
         //        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
         self.manager!.tableView?.tintColor = UIColor.greenColor()

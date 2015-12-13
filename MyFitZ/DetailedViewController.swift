@@ -132,7 +132,6 @@ extension DetailedViewController{
             
             self.wearButtonAvailable()
             
-            Users_Wardrobe.sort(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory)
             Users_Wardrobe.quickSave()
         })
         

@@ -214,14 +214,14 @@ func returnItem(path: [String: String])->Item{
         }else{
             print("Item id did not match on return to item, search initiated")
             for searchItem in array{
+                //TODO: -Something isn't right for this to always be happening
                 if searchItem.id == id{
                     print("Search success item found with in the array")
                     return searchItem
-                }else{
-                    assertionFailure("Search Failed item nout found with in the array or at id number BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
-                    return Item()
                 }
             }
+                assertionFailure("Search Failed item nout found with in the array or at id number BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+                return Item()
         }
     }else{
         assertionFailure("Validation failed value is missing from path BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
