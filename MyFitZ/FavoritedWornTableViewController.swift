@@ -15,6 +15,7 @@ import Crashlytics
 class FavoritedWornTableViewController: UITableViewController {
     //MARK: - Variables
     var arrayOfItems: [Item]! = [Item]()
+    var pathToSend:[String: String] = [:]
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     var indexToSend:Int?
@@ -41,6 +42,11 @@ class FavoritedWornTableViewController: UITableViewController {
         {
             
             
+        }else if segue.identifier == SEGUE_FAVORITED_TO_DETAIL{
+            let detailedViewController = segue.destinationViewController as! DetailedViewController
+            let tempItem = returnItem(pathToSend)
+            detailedViewController.itemOfObject = tempItem
+            detailedViewController.path = pathToSend
         }
     }
     override func didReceiveMemoryWarning() {
@@ -87,11 +93,9 @@ extension FavoritedWornTableViewController{
         return cell
     }
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //TODO: -Enter something
-//        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        indexToSend = indexPath.row
         playSoundEffects(itemSelectSFX)
-        performSegueWithIdentifier(SEGUE_FAVORITED_TO_SELECTION, sender: self)
+        self.pathToSend = self.arrayOfItems[indexPath.row].path
+        performSegueWithIdentifier(SEGUE_FAVORITED_TO_DETAIL, sender: self)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         

@@ -16,6 +16,7 @@ class RecentlyWornTableViewController: UITableViewController {
     //MARK: -Variables
     ///items in an Array holds the sub-categories of the items
     var arrayOfItems: [Item]! = [Item]()
+    var pathToSend:[String: String] = [:]
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     var indexToSend:Int?
@@ -39,31 +40,14 @@ class RecentlyWornTableViewController: UITableViewController {
         }
         
         
-        if segue.identifier == "recentToSelection"
+        if segue.identifier == SEGUE_RECENT_TO_SELECTION
         {
-            //                let index = indexToSend
-            //                path[PATHTYPE_INDEX_STRING] = String(index!)
-            //
-            //                let detailController = segue.destinationViewController as! DetailedViewController
-            //
-            //                if let index = index{
-            //
-            //                    detailController.itemOfObject = self.arrayOfItems[index] as Item!
-            //
-            //                    detailController.path = self.path
-            //                }else{
-            //                    assertionFailure("This shouldn't happen")
-            //                }
             
-        }else if segue.identifier == SEGUE_MODEL_TO_MAKE{
-            let makeTableViewController = segue.destinationViewController as! MakeTableViewController
-            
-            makeTableViewController.path = self.path
-        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
-            
-        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
-            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
-            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MODEL
+        }else if segue.identifier == SEGUE_RECENT_TO_DETAIL{
+            let detailedViewController = segue.destinationViewController as! DetailedViewController
+            let tempItem = returnItem(pathToSend)
+            detailedViewController.itemOfObject = tempItem
+            detailedViewController.path = pathToSend
         }
     }
     override func didReceiveMemoryWarning() {
@@ -108,9 +92,9 @@ extension RecentlyWornTableViewController{
     }
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        indexToSend = indexPath.row
         playSoundEffects(itemSelectSFX)
-        performSegueWithIdentifier("recentToSelection", sender: self)
+        self.pathToSend = self.arrayOfItems[indexPath.row].path
+        performSegueWithIdentifier(SEGUE_RECENT_TO_DETAIL, sender: self)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         

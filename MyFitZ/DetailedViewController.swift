@@ -59,6 +59,9 @@ class DetailedViewController: UIViewController{
         }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
             createItemViewController.lastVCSegue = SEGUE_DETAIL_TO_CREATION
+        }else if segue.identifier == SEGUE_DETAILED_TO_IMAGE{
+            let imageViewController: ImageViewController! = segue.destinationViewController as! ImageViewController
+            imageViewController.image.image = itemOfObject.image
         }
     }
 }
@@ -100,7 +103,8 @@ extension DetailedViewController{
         }else{
             self.sendItemToMyCloset()
         }
-        self.tableView.reloadData()
+        
+        self.performSegueWithIdentifier(SEGUE_DETAILED_TO_FAVORITED, sender: self)
     }
     
     //MARK: -Action sum Methods
@@ -148,7 +152,9 @@ extension DetailedViewController{
         wearButton.backgroundColor = UIColor.clearColor()
         wearButton.userInteractionEnabled = true
     }
-
+    @IBAction func showImage() {
+        self.performSegueWithIdentifier(SEGUE_DETAILED_TO_IMAGE, sender: self)
+    }
 }
 
 

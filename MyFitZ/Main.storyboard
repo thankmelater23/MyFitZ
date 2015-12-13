@@ -1082,20 +1082,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="66O-yH-fX7">
-                                <rect key="frame" x="20" y="164" width="100" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.21292748710000001" blue="0.12859311400000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="5HZ-Q2-UBg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
-                                <state key="normal" title="DELETE">
-                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteItem" destination="Kxz-BR-vYs" eventType="touchUpInside" id="aHu-Dc-J1d"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank image" translatesAutoresizingMaskIntoConstraints="NO" id="3Mt-BQ-aAa" userLabel="Item Image View">
                                 <rect key="frame" x="344" y="28" width="236" height="236"/>
                                 <color key="tintColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1111,6 +1097,27 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPX-dF-h8b" userLabel="View Image Button">
+                                <rect key="frame" x="344" y="28" width="236" height="236"/>
+                                <connections>
+                                    <action selector="showImage" destination="Kxz-BR-vYs" eventType="touchUpInside" id="kwr-Se-Mqq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-xe-us7">
+                                <rect key="frame" x="20" y="28" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ksy-bZ-EEf"/>
+                                    <constraint firstAttribute="height" constant="100" id="mZg-Hv-GuF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="33"/>
+                                <state key="normal" title="EDIT">
+                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonPressed" destination="Kxz-BR-vYs" eventType="touchUpInside" id="Y34-zS-jvi"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Syd-Uz-GLB">
                                 <rect key="frame" x="0.0" y="272" width="600" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1159,6 +1166,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="66O-yH-fX7">
+                                <rect key="frame" x="20" y="164" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.21292748710000001" blue="0.12859311400000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="5HZ-Q2-UBg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
+                                <state key="normal" title="DELETE">
+                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteItem" destination="Kxz-BR-vYs" eventType="touchUpInside" id="aHu-Dc-J1d"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpC-wK-ew6">
                                 <rect key="frame" x="517" y="28" width="63" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1174,26 +1195,12 @@
                                     <action selector="wear" destination="Kxz-BR-vYs" eventType="touchUpInside" id="pqR-Wa-BhL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-xe-us7">
-                                <rect key="frame" x="20" y="28" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ksy-bZ-EEf"/>
-                                    <constraint firstAttribute="height" constant="100" id="mZg-Hv-GuF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="33"/>
-                                <state key="normal" title="EDIT">
-                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="editButtonPressed" destination="Kxz-BR-vYs" eventType="touchUpInside" id="Y34-zS-jvi"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2901960784" green="0.69803921570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Syd-Uz-GLB" firstAttribute="top" secondItem="66O-yH-fX7" secondAttribute="bottom" constant="8" symbolic="YES" id="3l0-CT-kAI"/>
+                            <constraint firstItem="Syd-Uz-GLB" firstAttribute="top" secondItem="VPX-dF-h8b" secondAttribute="bottom" constant="8" symbolic="YES" id="5cD-2V-WxE"/>
                             <constraint firstItem="3Mt-BQ-aAa" firstAttribute="bottom" secondItem="66O-yH-fX7" secondAttribute="bottom" id="8ib-7c-o0r"/>
                             <constraint firstItem="Syd-Uz-GLB" firstAttribute="leading" secondItem="qLF-2Q-EyU" secondAttribute="leading" id="Dzb-6M-hg1"/>
                             <constraint firstItem="66O-yH-fX7" firstAttribute="top" secondItem="9cX-xe-us7" secondAttribute="bottom" constant="36" id="E1B-bS-OAa"/>
@@ -1208,9 +1215,12 @@
                             <constraint firstItem="9cX-xe-us7" firstAttribute="top" secondItem="Byk-UC-kI8" secondAttribute="bottom" constant="8" symbolic="YES" id="k8C-h6-dYi"/>
                             <constraint firstItem="Syd-Uz-GLB" firstAttribute="bottom" secondItem="AIw-ID-eTw" secondAttribute="top" id="lqV-yH-nbb"/>
                             <constraint firstItem="9cX-xe-us7" firstAttribute="width" secondItem="66O-yH-fX7" secondAttribute="height" multiplier="1:1" id="pho-pA-HTG"/>
+                            <constraint firstItem="VPX-dF-h8b" firstAttribute="trailing" secondItem="YpC-wK-ew6" secondAttribute="trailing" id="rGR-kT-UH7"/>
                             <constraint firstItem="YpC-wK-ew6" firstAttribute="top" secondItem="3Mt-BQ-aAa" secondAttribute="top" id="tiC-GC-ksG"/>
                             <constraint firstAttribute="trailing" secondItem="Syd-Uz-GLB" secondAttribute="trailing" id="uLU-gb-SPZ"/>
                             <constraint firstItem="9cX-xe-us7" firstAttribute="trailing" secondItem="66O-yH-fX7" secondAttribute="trailing" id="ufJ-Dv-JgL"/>
+                            <constraint firstItem="VPX-dF-h8b" firstAttribute="leading" secondItem="3Mt-BQ-aAa" secondAttribute="leading" id="vU1-nK-Uus"/>
+                            <constraint firstItem="VPX-dF-h8b" firstAttribute="top" secondItem="3Mt-BQ-aAa" secondAttribute="top" id="z2F-od-q9x"/>
                             <constraint firstItem="9cX-xe-us7" firstAttribute="height" secondItem="66O-yH-fX7" secondAttribute="height" id="z9a-Xm-Q1D"/>
                         </constraints>
                         <variation key="default">
@@ -1248,11 +1258,54 @@
                         <segue destination="lWa-Hy-zpG" kind="show" identifier="detailToEdit" id="jj8-fp-D0n"/>
                         <segue destination="Jsp-ux-41A" kind="show" identifier="detailedToModel" id="yz2-3b-uLd"/>
                         <segue destination="bSz-CY-cts" kind="show" identifier="detailToSelection" id="0gf-Yu-K3g"/>
+                        <segue destination="AoR-uv-dF3" kind="show" identifier="detailToFavorite" id="pjG-Y7-Jtp"/>
+                        <segue destination="Zqg-kR-waf" kind="show" identifier="detailToImage" id="6Kl-96-iSC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x0-am-QpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2605" y="-362"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="czp-op-7tR">
+            <objects>
+                <viewController id="Zqg-kR-waf" customClass="ImageViewController" customModule="MyFitZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qw1-kK-0z0"/>
+                        <viewControllerLayoutGuide type="bottom" id="dnN-Wg-RiW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mna-v7-2wa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyFitZLogoText" translatesAutoresizingMaskIntoConstraints="NO" id="frR-Fu-Rxe">
+                                <rect key="frame" x="66" y="20" width="469" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="pCp-gF-c8l"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8pj-mX-7D1">
+                                <rect key="frame" x="20" y="156" width="560" height="436"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2901960784" green="0.69803921570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="frR-Fu-Rxe" firstAttribute="centerX" secondItem="8pj-mX-7D1" secondAttribute="centerX" id="8LZ-NV-U5l"/>
+                            <constraint firstItem="dnN-Wg-RiW" firstAttribute="top" secondItem="8pj-mX-7D1" secondAttribute="bottom" constant="8" symbolic="YES" id="DWV-c5-gqJ"/>
+                            <constraint firstItem="frR-Fu-Rxe" firstAttribute="leading" secondItem="Mna-v7-2wa" secondAttribute="leadingMargin" constant="46" id="Heg-Sn-bfA"/>
+                            <constraint firstItem="8pj-mX-7D1" firstAttribute="leading" secondItem="Mna-v7-2wa" secondAttribute="leadingMargin" id="IXX-6P-bjh"/>
+                            <constraint firstItem="8pj-mX-7D1" firstAttribute="top" secondItem="frR-Fu-Rxe" secondAttribute="bottom" constant="8" symbolic="YES" id="Suj-Ac-pux"/>
+                            <constraint firstItem="frR-Fu-Rxe" firstAttribute="top" secondItem="Qw1-kK-0z0" secondAttribute="bottom" id="jnV-JB-0Ff"/>
+                            <constraint firstItem="8pj-mX-7D1" firstAttribute="trailing" secondItem="Mna-v7-2wa" secondAttribute="trailingMargin" id="lhu-aE-yML"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="8pj-mX-7D1" id="7Rl-cZ-mN7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pqb-21-VV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3234" y="-362"/>
         </scene>
         <!--Create Item View Controller-->
         <scene sceneID="MrX-xi-rA8">
@@ -2355,6 +2408,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="bSz-CY-cts" kind="show" identifier="recentToSelection" id="YnA-Uu-MBM"/>
+                        <segue destination="Kxz-BR-vYs" kind="show" identifier="recentToDetail" id="gba-Hd-Ozq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsJ-bU-0cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2458,6 +2512,9 @@
                     <toolbarItems>
                         <barButtonItem title="Sub-Category" id="mMZ-LM-n6h"/>
                     </toolbarItems>
+                    <connections>
+                        <segue destination="Kxz-BR-vYs" kind="show" identifier="favoritedToDetail" id="ryo-zk-CDy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DpO-WS-zHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2786,12 +2843,13 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kyy-tg-Ke7"/>
-        <segue reference="1tB-kg-ppv"/>
-        <segue reference="w0k-NR-dKO"/>
+        <segue reference="x7v-X5-poc"/>
         <segue reference="opv-1h-Bzj"/>
-        <segue reference="CTt-wg-tez"/>
+        <segue reference="YnA-Uu-MBM"/>
+        <segue reference="1tB-kg-ppv"/>
         <segue reference="yz2-3b-uLd"/>
-        <segue reference="qIS-IS-b7b"/>
+        <segue reference="ryo-zk-CDy"/>
+        <segue reference="pjG-Y7-Jtp"/>
+        <segue reference="Hhi-FQ-vv8"/>
     </inferredMetricsTieBreakers>
 </document>
