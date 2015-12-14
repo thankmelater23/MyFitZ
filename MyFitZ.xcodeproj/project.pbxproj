@@ -77,6 +77,7 @@
 		C6B492971C04457200A1D237 /* update0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492871C04457200A1D237 /* update0.wav */; };
 		C6B492981C04457200A1D237 /* wear1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear1.wav */; };
 		C6B492991C04457200A1D237 /* wishlist0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492891C04457200A1D237 /* wishlist0.wav */; };
+		C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */; };
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
 		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
 		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
@@ -118,7 +119,7 @@
 		C617904B1C142146003A9561 /* Constants_DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_DetailedViewController.swift; sourceTree = "<group>"; };
 		C617906C1C142151003A9561 /* Constants_EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_EditViewController.swift; sourceTree = "<group>"; };
 		C617908D1C14215D003A9561 /* Constants_CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_CreateItemViewController.swift; sourceTree = "<group>"; };
-		C61790AE1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_RecentlyWornTableViewController.swift; sourceTree = "<group>"; };
+		C61790AE1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Constants_RecentlyWornTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C61790CF1C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_FavoritedWornTableViewController.swift; sourceTree = "<group>"; };
 		C61790F01C1421FD003A9561 /* Constants_SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_SearchViewController.swift; sourceTree = "<group>"; };
 		C626B92E1BE0A48C00BB5E86 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +181,7 @@
 		C6B492871C04457200A1D237 /* update0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = update0.wav; sourceTree = "<group>"; };
 		C6B492881C04457200A1D237 /* wear1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear1.wav; sourceTree = "<group>"; };
 		C6B492891C04457200A1D237 /* wishlist0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wishlist0.wav; sourceTree = "<group>"; };
+		C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrashTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
 		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				C64503C31BE1A1160065EC2F /* CreateItemViewController.swift */,
 				C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */,
 				C68F59E41C0F5B1F00424646 /* FavoritedWornTableViewController.swift */,
+				C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */,
 				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
 				C66CF53A1C1D04670017C12E /* ImageViewController.swift */,
 				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
@@ -708,6 +711,7 @@
 				C68F59E51C0F5B1F00424646 /* FavoritedWornTableViewController.swift in Sources */,
 				C64503C91BE1A1160065EC2F /* SelectionViewController.swift in Sources */,
 				C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */,
+				C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */,
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,
 				C60C6AD11C02C92300C8935A /* Functions.swift in Sources */,
 				C61790D01C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift in Sources */,

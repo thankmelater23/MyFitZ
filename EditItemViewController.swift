@@ -118,9 +118,6 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
             modelController.path = self.path
-            
-            
-            
         }
         if segue.identifier == SEGUE_CREATION_TO_DETAIL{
             
@@ -135,11 +132,21 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
 extension EditItemViewController{
     @IBAction func updateItem() {
         do{
+            self.saveItemVars()
+            
+            //!!: -Temp swap function
             playSoundEffects(updateSFX)
             
-            saveItemVars()
+            Users_Wardrobe.deleteItem(self.previousItem.category, funcSubCategory: self.previousItem.subCategory, item: self.previousItem)
+            
             
             try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+    
+            Users_Wardrobe.removeLastTrashedItem()
+            
+            
+            //TODO: -Convert this to work
+//            try Users_Wardrobe.swapItem(self.viewItem.subCategory, funcSubCategory: self.viewItem.subCategory, prevFuncCategory: self.previousItem.category, prevFuncSubCategory: self.previousItem.subCategory, item: self.viewItem)
             
             super.viewDidLoad()
         }
@@ -246,6 +253,7 @@ extension EditItemViewController{
         
         if(sellerName!.value != ""){viewItem.sellerName = sellerName!.value}else{viewItem.sellerName = "N/A"}
         
+        self.viewItem.populatePath(Users_Wardrobe.closetSelectionString)
         
         //Sets up Tableview UI
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
@@ -267,7 +275,7 @@ extension EditItemViewController{
         self.setPickerInfo()
         self.initializeRETableView()
         self.setUpTableView()
-        previousItem = self.viewItem
+        self.previousItem = self.viewItem
     }//Sets up data
     func createBasicCells(){
         

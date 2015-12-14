@@ -310,7 +310,8 @@ extension CreateItemViewController{
         
     }
     func setTitle(){
-        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Item Create")
+        //TODO: -Fix magic values put in constant
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Create Item")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.translucent = false
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR

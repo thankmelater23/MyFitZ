@@ -15,6 +15,7 @@ class SelectionViewController: UIViewController{
     //MARK: -Feature Buttons
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var recentlyWonrItem: UIButton!
+    @IBOutlet weak var trashButton: UIButton!
     @IBOutlet weak var favortiedItems: UIButton!
 //        {
 //        didSet{
@@ -133,6 +134,9 @@ extension SelectionViewController{
         performSegueWithIdentifier(SEGUE_SELECTION_TO_RECENT, sender: self)
     }
     
+    @IBAction func trashButtonPressed() {
+        performSegueWithIdentifier(SEGUE_SELECTION_TO_TRASH, sender: self)
+    }
 }
 
 

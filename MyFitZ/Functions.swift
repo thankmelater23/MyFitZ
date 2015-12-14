@@ -196,16 +196,9 @@ func returnItem(path: [String: String])->Item{
         let id:Int! = Int(path[PATHTYPE_ID_STRING]!)
         let index:Int! = Int(path[PATHTYPE_INDEX_STRING]!)
         
-        //Setting wardrobes correct closet
-        let previousWardrobe = Users_Wardrobe.closetSelectionString
-        
         //Gets value from path of item
-
         let array = Users_Wardrobe.returnArrayOfItems(category, funcSubCategory: subCategory)
         let item = array[index]
-        
-        //Sets back wardrobe to correct closet
-        //        Users_Wardrobe.closetSelectionString = previousWardrobe
         
         //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
         if item.id == id{
@@ -220,15 +213,13 @@ func returnItem(path: [String: String])->Item{
                     return searchItem
                 }
             }
-                assertionFailure("Search Failed item nout found with in the array or at id number BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+                assertionFailure("Search Failed item not found with in the array or at id number BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
                 return Item()
         }
     }else{
         assertionFailure("Validation failed value is missing from path BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
         return Item()
     }
-    
-    return Item()
 }
 
 
@@ -264,9 +255,10 @@ func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
     
     var sum = 0
     
-    var newWardrobe = varWardrobe
+    let newWardrobe = varWardrobe
     
-    var prevClosetSelection = varWardrobe.closetSelectionString
+    let prevClosetSelection = varWardrobe.closetSelectionString
+    
     varWardrobe.closetSelectionString = MY_CLOSET
     
     for (catKey, superValue) in varWardrobe.selectedCloset{

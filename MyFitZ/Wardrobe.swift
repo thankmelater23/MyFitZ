@@ -29,6 +29,9 @@ class Wardrobe:NSObject, NSCoding{
     var recentWornItems: [Item] = [Item]()
     var favoritedItems: [Item] = [Item]()
     
+    var myClosetTrash: [Item] = [Item]()
+    var myWishListTrash: [Item] = [Item]()
+    
     private var myClosetRecentWornItems: [[String: String]] = [[String: String]]()
     private var myClosetFavoritedItems: [[String: String]] = [[String: String]]()
     
@@ -80,6 +83,30 @@ class Wardrobe:NSObject, NSCoding{
             }else{
                 assertionFailure("Incorect closet selection string: \(closetSelectionString)")
                 myClosetFavoritedItems = newValue
+            }
+        }
+    }
+    var selectedClosetTrashItems: [Item]{
+        get{
+            
+            if closetSelectionString == MY_CLOSET{
+                return myClosetTrash
+            }else if closetSelectionString == MY_WANTS_CLOSET{
+                return myWishListTrash
+            }else{
+                assertionFailure("Incorect closet selection string: \(closetSelectionString)")
+                return myClosetTrash
+            }
+        }
+        
+        set{
+            if closetSelectionString == MY_CLOSET{
+                myClosetTrash = newValue
+            }else if closetSelectionString == MY_WANTS_CLOSET{
+                myWishListTrash = newValue
+            }else{
+                assertionFailure("Incorect closet selection string: \(closetSelectionString)")
+                myClosetTrash = newValue
             }
         }
     }
@@ -159,6 +186,8 @@ class Wardrobe:NSObject, NSCoding{
         self.myWishListRecentWornItems = decoder.decodeObjectForKey("12") as! [[String: String]]! ?? [[String: String]]()
         self.myClosetFavoritedItems = decoder.decodeObjectForKey("13") as! [[String: String]]! ?? [[String: String]]()
         self.myWishListFavoritedItems = decoder.decodeObjectForKey("14") as! [[String: String]]! ?? [[String: String]]()
+        self.myClosetTrash = decoder.decodeObjectForKey("15") as! [Item]! ?? [Item]()
+        self.myWishListTrash = decoder.decodeObjectForKey("16") as! [Item]! ?? [Item]()
         //self.selectedCloset = CLOSET_TYPE()
         
         print(myCloset, myWantsCloset, closetSelectionString, path, brandCollection)
@@ -179,6 +208,8 @@ class Wardrobe:NSObject, NSCoding{
         coder.encodeObject(self.myWishListRecentWornItems, forKey: "12")
         coder.encodeObject(self.myClosetFavoritedItems, forKey: "13")
         coder.encodeObject(self.myWishListFavoritedItems, forKey: "14")
+        coder.encodeObject(self.myClosetTrash, forKey: "15")
+        coder.encodeObject(self.myWishListTrash, forKey: "16")
     }//Encodes data in class
     /**
     Initializes the Wardrobe class with a basic setup, and no items
@@ -612,11 +643,9 @@ extension Wardrobe{
             }else{
                 num++
             }
-            
         }
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
-        self.removeItemFromAllContainters(item.path)
         self.quickSave()
     }
     /**
@@ -663,6 +692,8 @@ extension Wardrobe{
     func removeItemFromAllContainters(path: [String: String]){
         self.removeFromFavoriteList(path)
         self.removeFromRecentWornCollectiion(path)
+        let item = returnItem(path)
+        self.updateTrashCollectiion(item)
     }
     
     //MARK: -Appending
@@ -940,7 +971,16 @@ extension Wardrobe{
             }
         }
     }
-    
+    func updateTrashCollectiion(item: Item){
+            if selectedClosetTrashItems.count > RECENTLY_WORN_CONTAINER_MAX{
+                selectedClosetTrashItems.popLast()
+            }
+            
+            self.selectedClosetTrashItems.append(item)
+    }
+    func removeLastTrashedItem(){
+        selectedClosetTrashItems.popLast()
+    }
     /**
      Removes item from recentWornItems if one exist with the same ID number
      

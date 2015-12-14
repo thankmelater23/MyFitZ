@@ -104,7 +104,7 @@ extension DetailedViewController{
             self.sendItemToMyCloset()
         }
         
-        self.performSegueWithIdentifier(SEGUE_DETAILED_TO_FAVORITED, sender: self)
+        self.performSegueWithIdentifier(SEGUE_DETAIL_TO_RECENT, sender: self)
     }
     
     //MARK: -Action sum Methods
@@ -267,12 +267,10 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         case 7 :
             keyAndValue = ITEM_TIMESWORN_STRING
             if let value = itemOfObject.timesWorn{
-                cell.configure(name: keyAndValue, infoString: String(value) as! String!)
+                cell.configure(name: keyAndValue, infoString: String(value) as String!)
             }else{
-                
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
-            cell.configure(name: keyAndValue, infoString: "N/A")
         case 8 :
             keyAndValue = ITEM_LASTTIMEWORN_STRING
             

@@ -51,7 +51,7 @@ class MakeTableViewController: UITableViewController{
         }
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
-            let index = self.tableView.indexPathForSelectedRow
+//            let index = self.tableView.indexPathForSelectedRow
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.path = self.path
