@@ -946,16 +946,18 @@ extension Wardrobe{
     - parameter item: Item to insert
     */
     func updateRecentWornCollectiion(path: [String: String]){
-        defer{
-            if selectedClosetRecentWornItems.count > RECENTLY_WORN_CONTAINER_MAX{
-                selectedClosetRecentWornItems.popLast()
-            }
-            self.selectedClosetRecentWornItems = self.selectedClosetRecentWornItems.filter({validatePath($0)})
-            
-            self.selectedClosetRecentWornItems.insert(path, atIndex: 0)
-        }
+        //This array is made so an index can be removed from from recentWorn loop without issues
+        var arrayToDelete:[[String: String]] = selectedClosetRecentWornItems
         
-        let arrayToDelete:[String: String] = [String: String]()
+        defer{
+            if arrayToDelete.count > RECENTLY_WORN_CONTAINER_MAX{
+                arrayToDelete.popLast()
+            }
+            arrayToDelete = arrayToDelete.filter({validatePath($0)})
+            
+            arrayToDelete.insert(path, atIndex: 0)
+            selectedClosetRecentWornItems = arrayToDelete
+        }
         
         for (count, arrayPath) in selectedClosetRecentWornItems.enumerate(){
             let pathCheck = validatePath(arrayPath)
@@ -965,7 +967,7 @@ extension Wardrobe{
                 let pathID = path[PATHTYPE_ID_STRING]!
                 
                 if arrayPathID == pathID{
-                    selectedClosetRecentWornItems.removeAtIndex(count)
+                    arrayToDelete.removeAtIndex(count)
                     return
                 }
             }
@@ -976,7 +978,7 @@ extension Wardrobe{
                 selectedClosetTrashItems.popLast()
             }
             
-            self.selectedClosetTrashItems.append(item)
+            self.selectedClosetTrashItems.insert(item, atIndex: 0)
     }
     func removeLastTrashedItem(){
         selectedClosetTrashItems.popLast()

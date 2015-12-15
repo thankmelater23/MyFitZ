@@ -99,7 +99,7 @@ extension FavoritedWornTableViewController{
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return "FAVORITES"
+        return String("FAVORITES" + ": " + "\(self.arrayOfItems.count)")
     }
     ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

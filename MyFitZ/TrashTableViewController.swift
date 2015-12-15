@@ -95,7 +95,7 @@ extension TrashTableViewController{
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return path[PATHTYPE_SUBCATEGORY_STRING]
+        return String("Deleted Items" + ": " + "\(self.arrayOfItems.count)")
     }
     ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

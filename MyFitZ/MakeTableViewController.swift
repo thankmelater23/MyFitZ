@@ -151,7 +151,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
     }//Editing to delete row
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
-        return path[PATHTYPE_CATEGORY_STRING]
+        return String(path[PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){

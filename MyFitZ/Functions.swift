@@ -38,7 +38,7 @@ Creates a String thats formated to go inside the views Title
 */
 func grabTitle(closet:String, view: String)->String{
     var string: String = String()
-    string = closet + "-" + view
+    string = view + "-" + closet
     return string
 }
 
