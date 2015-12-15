@@ -23,6 +23,7 @@ import Crashlytics
     @IBOutlet weak var categoryInputTextField: UITextField!
     @IBOutlet weak var subCategoryInputTextField: UITextField!
     @IBOutlet weak var indexNumberLabel: UILabel!
+    @IBOutlet weak var imageButton: UIButton!
     
     //MARK: -Variable
     var categoryPickerView = UIPickerView()
@@ -45,6 +46,8 @@ import Crashlytics
     //MARK: -View Methods
     override func viewDidLoad() {
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Search")
+        
+        self.animateAllButtons()
         
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -71,6 +74,20 @@ import Crashlytics
         
         self.logPageView()
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        defer{
+            print("Segue transfer: \(segue.identifier)")
+        }
+        
+        if segue.identifier == SEGUE_SEARCH_TO_DETAIL
+        {
+            let detailedViewController = segue.destinationViewController as! DetailedViewController
+            
+            detailedViewController.itemOfObject = self.item
+            
+            detailedViewController.path = self.item.path
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,6 +103,12 @@ extension SearchViewController{
     }
     @IBAction func nextItem() {
         iterateNextInCurrentItems()
+    }
+    @IBAction func viewItemInDetail() {
+        //If no item is in the search it wont segue
+        if validatePath(self.item.path){
+            performSegueWithIdentifier(SEGUE_SEARCH_TO_DETAIL, sender: self)
+        }
     }
 }
 
@@ -258,6 +281,28 @@ extension SearchViewController{
         //            prevItemOutlet.userInteractionEnabled = true
         //            prevItemOutlet.alpha = 1
         //        }
+    }
+}
+
+
+
+//MARK: - UI-ImageViewController Extension
+extension SearchViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
     }
 }
 

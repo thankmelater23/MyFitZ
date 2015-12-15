@@ -117,7 +117,7 @@ extension ModelTableViewController{
                 let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-                let itemToDelete = self.arrayOfItems[indexPath.row]
+                    let itemToDelete = self.arrayOfItems[indexPath.row]
                     
                     Users_Wardrobe.deleteItem(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: self.path[PATHTYPE_SUBCATEGORY_STRING]!, item: itemToDelete)
                     
@@ -147,6 +147,7 @@ extension ModelTableViewController{
 //MARK: - Initializer-ModelTableViewController Extension
 extension ModelTableViewController{
     func SetUpTypes() {
+        self.animateAllButtons()
         self.arrayOfItems = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
         
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
@@ -157,6 +158,28 @@ extension ModelTableViewController{
         }
         self.navigationController?.navigationBar.translucent = false
         
+    }
+}
+
+
+
+//MARK: - UI-ModelTableViewController Extension
+extension ModelTableViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
     }
 }
 

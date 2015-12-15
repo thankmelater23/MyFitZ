@@ -13,10 +13,17 @@ import Crashlytics
 class SelectionViewController: UIViewController{
     //MARK: -Outlets
     //MARK: -Feature Buttons
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var recentlyWonrItem: UIButton!
     @IBOutlet weak var trashButton: UIButton!
     @IBOutlet weak var favortiedItems: UIButton!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var topBannerView: UIView!
+    @IBOutlet weak var buttonHolderView: UIView!
+    @IBOutlet weak var bottomCategoriesView: UIView!
+    @IBOutlet weak var topCategoriesView: UIView!
+    @IBOutlet weak var optionsHolderView: UIView!
 //        {
 //        didSet{
 //            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
@@ -156,8 +163,23 @@ extension SelectionViewController{
         self.animateSearchButton()
         self.animatePictureLabels()
         self.animatePictureImages()
-        animateNumberLabels()
+        self.animateNumberLabels()
+        self.animateTrashButton()
+        self.animateLogo()
+//        self.animateViews()
+        
     }
+    func animateLogo(){
+        logoCustomization(self.logoImage)
+    }
+    func animateViews(){
+        viewGeneralCustomization(self.topBannerView)
+        viewGeneralCustomization(self.topBannerView)
+        viewGeneralCustomization(self.buttonHolderView)
+        viewGeneralCustomization(self.bottomCategoriesView)
+        viewGeneralCustomization(self.topCategoriesView)
+        viewGeneralCustomization(self.optionsHolderView)
+        }
     func animateSearchButton(){
         self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 10
         self.searchButton.contentMode = UIViewContentMode.ScaleAspectFit
@@ -177,6 +199,10 @@ extension SelectionViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
     }
+    func animateTrashButton(){
+        buttonAnimation(self.trashButton)
+    }
+
     func animateHamperButton(){
                 buttonAnimation(recentlyWonrItem)
     }

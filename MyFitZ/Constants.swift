@@ -120,12 +120,14 @@ let SEGUE_DETAIL_TO_MODEL       = "detailedToModel"
 let SEGUE_DETAIL_TO_CREATION    = "detailedToCreation"
 let SEGUE_DETAIL_TO_SELECTION   = "detailToSelection"
 let SEGUE_DETAILED_TO_FAVORITED = "detailToFavorite"
-let SEGUE_DETAIL_TO_RECENT = "detailToRecent"
+let SEGUE_DETAIL_TO_RECENT      = "detailToRecent"
 let SEGUE_DETAILED_TO_IMAGE     = "detailToImage"
 let SEGUE_EDIT_TO_SELECTION     = "editToSelection"
 let SEGUE_TRASH_TO_SELECTION    = "trashToSelection"
 let SEGUE_TRASH_TO_DETAIL       = "trashToDetail"
 let SEGUE_SELECTION_TO_TRASH    = "selectionToTrash"
+let SEGUE_SEARCH_TO_DETAIL       = "searchToDetail"
+let SEGUE_IMAGE_TO_DETAIL       = "imageToDetail"
 
 //MARK: -Cell identifiers
 //TODO: -Turn this into a struct
@@ -233,6 +235,8 @@ struct ImageStrings{
 let BLANK_IMAGE_STRING          = "blank image"
 let CELL_BACKGROUND_IMAGE_MODEL = "cellBlueBG"
 let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
+let LOGO_BORDER_IMAGE = "solidGradienBlueBorder"
+
 
 //MARK: -Color Settings
 //TODO: -Turn this into a struct

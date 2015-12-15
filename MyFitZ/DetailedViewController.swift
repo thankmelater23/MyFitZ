@@ -61,7 +61,14 @@ class DetailedViewController: UIViewController{
             createItemViewController.lastVCSegue = SEGUE_DETAIL_TO_CREATION
         }else if segue.identifier == SEGUE_DETAILED_TO_IMAGE{
             let imageViewController: ImageViewController! = segue.destinationViewController as! ImageViewController
-            imageViewController.image.image = itemOfObject.image
+            
+            imageViewController.path = self.path
+            
+            if itemOfObject.image != nil{
+                imageViewController.imageHolder = itemOfObject.image
+            }else{
+                imageViewController.imageHolder = UIImage(named: BLANK_IMAGE_STRING)!
+            }
         }
     }
 }
@@ -144,12 +151,12 @@ extension DetailedViewController{
     }
     func hideWearButton(){
         wearButton.alpha = 0.5
-        wearButton.backgroundColor = UIColor.grayColor()
+//        wearButton.backgroundColor = UIColor.grayColor()
         wearButton.userInteractionEnabled = false
     }
     func showWearButton(){
         wearButton.alpha = 1.0
-        wearButton.backgroundColor = UIColor.clearColor()
+//        wearButton.backgroundColor = UIColor.clearColor()
         wearButton.userInteractionEnabled = true
     }
     @IBAction func showImage() {
@@ -458,6 +465,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 extension DetailedViewController{
     func setUp(){
         self.setButtonsView()
+        self.animateAllButtons()
         self.buttonIsWearOrGot()
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
         if self.title == MY_CLOSET{
@@ -524,6 +532,32 @@ extension DetailedViewController{
         }else if closet == MY_WANTS_CLOSET{
             wearButton.titleLabel?.text = "GOT"
         }
+    }
+}
+
+
+
+//MARK: - UI-DetailedViewController Extension
+extension DetailedViewController{
+    func animateAllButtons(){
+        self.animateImage()
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
+    }
+    func animateImage(){
+        imageCustomization(self.itemImage)
     }
 }
 

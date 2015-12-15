@@ -132,6 +132,7 @@ extension RecentlyWornTableViewController{
     func SetUpTypes() {
         self.arrayOfItems = Users_Wardrobe.populateRecentlyWornItems()
         
+        self.animateAllButtons()
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "RECENYLY_WORN")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -140,6 +141,28 @@ extension RecentlyWornTableViewController{
         }
         self.navigationController?.navigationBar.translucent = false
         
+    }
+}
+
+
+
+//MARK: - UI-ModelTableViewController Extension
+extension RecentlyWornTableViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
     }
 }
 

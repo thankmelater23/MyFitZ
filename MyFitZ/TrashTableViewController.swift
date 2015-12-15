@@ -129,6 +129,8 @@ extension TrashTableViewController{
     func SetUpTypes() {
         self.arrayOfItems = Users_Wardrobe.selectedClosetTrashItems
         
+        self.animateAllButtons()
+        
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Trash")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -139,6 +141,29 @@ extension TrashTableViewController{
         
     }
 }
+
+
+
+//MARK: - UI-TrashTableViewController Extension
+extension TrashTableViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
+    }
+}
+
 
 
 

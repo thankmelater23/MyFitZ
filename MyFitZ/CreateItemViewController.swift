@@ -295,6 +295,7 @@ extension CreateItemViewController{
         playSoundEffects(addSFX)
         self.setUI()
         self.setPickerInfo()
+        self.animateAllButtons()
         
         dispatch_sync(GlobalUtilityQueue, {
             self.initializeRETableView()
@@ -586,6 +587,29 @@ extension CreateItemViewController: UITextFieldDelegate{
         return true
     }
 }
+
+
+
+//MARK: - UI-CreateItemViewController Extension
+extension CreateItemViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
+    }
+}
+
 
 
 

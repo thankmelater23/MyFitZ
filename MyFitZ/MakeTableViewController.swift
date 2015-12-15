@@ -77,6 +77,7 @@ extension MakeTableViewController{
 //MARK: - Initializer Created Methods
 extension MakeTableViewController{
     func setUpTypes(){
+        self.animateAllButtons()
         self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
         if self.title == MY_CLOSET{
@@ -167,6 +168,28 @@ extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
     }//Xcode bug hack that lets cell autosize properly
+}
+
+
+
+//MARK: - UI-ModelTableViewController Extension
+extension MakeTableViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
+    }
 }
 
 

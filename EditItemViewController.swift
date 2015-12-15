@@ -141,12 +141,12 @@ extension EditItemViewController{
             
             
             try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
-    
+            
             Users_Wardrobe.removeLastTrashedItem()
             
             
             //TODO: -Convert this to work
-//            try Users_Wardrobe.swapItem(self.viewItem.subCategory, funcSubCategory: self.viewItem.subCategory, prevFuncCategory: self.previousItem.category, prevFuncSubCategory: self.previousItem.subCategory, item: self.viewItem)
+            //            try Users_Wardrobe.swapItem(self.viewItem.subCategory, funcSubCategory: self.viewItem.subCategory, prevFuncCategory: self.previousItem.category, prevFuncSubCategory: self.previousItem.subCategory, item: self.viewItem)
             
             super.viewDidLoad()
         }
@@ -156,7 +156,7 @@ extension EditItemViewController{
             let alert = UIAlertController(title: "SubCategory Missing", message: "Enter in correct subcateogry", preferredStyle: UIAlertControllerStyle.Alert)
         }catch ItemError.missingModelString{
             let alert = UIAlertController(title: "Model String Missing", message: "Enter in correct Model String", preferredStyle: UIAlertControllerStyle.Alert)
-//                         alert.show()
+            //                         alert.show()
         }catch ItemError.addImage{
             let alert = UIAlertController(title: "Image not selected", message: "Selctect image", preferredStyle: UIAlertControllerStyle.Alert)
         }catch{
@@ -276,6 +276,7 @@ extension EditItemViewController{
         self.initializeRETableView()
         self.setUpTableView()
         self.previousItem = self.viewItem
+        self.animateAllButtons()
     }//Sets up data
     func createBasicCells(){
         
@@ -314,7 +315,7 @@ extension EditItemViewController{
         if (self.viewItem.datePurchased != nil){
             tempdatePurchased = dateFormatter.dateFromString(self.viewItem.datePurchased)
         }else{self.dateReleased?.value = nil}
-
+        
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         
         self.model = RETextItem(title: "Model", value: self.viewItem.model, placeholder: "Enter Item Name")
@@ -604,6 +605,28 @@ extension EditItemViewController: UITextFieldDelegate{
             //            self.tableView.hidden =
         }
         return true
+    }
+}
+
+
+
+//MARK: - UI-ModelTableViewController Extension
+extension EditItemViewController{
+    func animateAllButtons(){
+        //    self.animateSearchButton()
+        //    self.animateStarButton()
+        //    self.animateHamperButton()
+        //    self.animateSearchButton()
+        //    self.animatePictureLabels()
+        //    self.animatePictureImages()
+        //    self.animateNumberLabels()
+        //    self.animateTrashButton()
+        //    self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
     }
 }
 

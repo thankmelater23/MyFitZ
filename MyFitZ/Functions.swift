@@ -102,8 +102,47 @@ func secectionImagesDresser(view: UIView){
     view.contentMode = UIViewContentMode.ScaleAspectFit
     
     view.clipsToBounds = true
+    view.layer.borderWidth = 3
+    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "blueStarBoarderPattern")!).CGColor
+}
+/**
+ Sets Views to be customized
+ 
+ - parameter view: Views to customize
+ */
+func viewGeneralCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    view.clipsToBounds = true
     view.layer.borderWidth = 5
-    view.layer.borderColor = UIColor.blueColor().CGColor
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}
+/**
+ Sets Logo to be customized
+ 
+ - parameter view: Logo to customize
+ */
+func logoCustomization(view: UIView){
+//    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+//    view.clipsToBounds = true
+    view.layer.borderWidth = 5
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}
+/**
+ Sets images to be customized
+ 
+ - parameter view: Logo to customize
+ */
+func imageCustomization(view: UIView){
+//    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 5
+    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: uiObjectColors.IMAGE_BORDER)!).CGColor
 }
 /**
  Sets selection Labels to be customized
@@ -124,8 +163,8 @@ func wearButtonAnimation(view: UIView){
     view.contentMode = UIViewContentMode.ScaleAspectFit
     
     view.clipsToBounds = true
-    view.layer.borderWidth = 5.0
-    view.layer.borderColor = UIColor.yellowColor().CGColor
+    view.layer.borderWidth = 3.0
+    view.layer.borderColor = UIColor.purpleColor().CGColor
 }
 /**
  Sets Label of number to be customized
@@ -238,10 +277,11 @@ func validatePath(path: [String: String])->Bool{
     let id:String? = path[PATHTYPE_ID_STRING]
     let index:String? = path[PATHTYPE_INDEX_STRING]
     
-    let idConverted = Int(id!)
-    let indexConverted = Int(index!)
+    guard let _ = Int((id)!),  _ = Int((index)!) else{
+        return false
+    }
     
-    if closet != nil && category != nil && subCategory != nil && idConverted != nil && indexConverted != nil{
+    if closet != nil && category != nil && subCategory != nil{
         print("-VALIDATIING PASSED ALL VALUES NON NIL")
         return true
     }else{
