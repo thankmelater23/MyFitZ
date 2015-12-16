@@ -312,6 +312,7 @@ extension SearchViewController{
 //MARK: -Anylitics-SearchViewController Extension
 extension SearchViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
@@ -321,5 +322,6 @@ extension SearchViewController{
             contentId: "MF8",
             customAttributes: ["SEARCH_PAGE_COUNT": pageCount!
             ])
+    })
     }
 }

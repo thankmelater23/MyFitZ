@@ -171,6 +171,7 @@ extension RecentlyWornTableViewController{
 //MARK: -Anylitics-RecentlyWornTableViewController Extension
 extension RecentlyWornTableViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("RECENTLY_PAGE_COUNT")
@@ -180,6 +181,7 @@ extension RecentlyWornTableViewController{
             contentId: "MF10",
             customAttributes: ["RECENTLY_PAGE_COUNT": pageCount!
             ])
+        })
     }
 }
 

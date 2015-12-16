@@ -172,6 +172,7 @@ extension FavoritedWornTableViewController{
 //MARK: -Anylitics-FavoritedWornTableViewController Extension
 extension FavoritedWornTableViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("FAVORITED_PAGE_COUNT")
@@ -181,6 +182,7 @@ extension FavoritedWornTableViewController{
             contentId: "MF9",
             customAttributes: ["FAVORITED_PAGE_COUNT": pageCount!
             ])
+        })
     }
 }
 

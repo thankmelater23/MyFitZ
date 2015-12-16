@@ -217,15 +217,15 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch row {
         case 0 :
-            keyAndValue = ITEM_BRAND_STRING
-            if let value = self.itemOfObject.brand{
+            keyAndValue = ITEM_MODEL_STRING
+            if let value = self.itemOfObject.model{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 1 :
-            keyAndValue = ITEM_MODEL_STRING
-            if let value = self.itemOfObject.model{
+            keyAndValue = ITEM_BRAND_STRING
+            if let value = self.itemOfObject.brand{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -465,24 +465,25 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 extension DetailedViewController{
     func setUp(){
         self.setButtonsView()
+        
         self.animateAllButtons()
+        
         self.buttonIsWearOrGot()
-        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
-        if self.title == MY_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-        }else if self.title == MY_WANTS_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-        }
-        self.navigationController?.navigationBar.translucent = false
+        
+        self.setTitle()
+        
         
         itemImage.image = itemOfObject.image
+        
         self.customizeTableView()
-        self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)
-        self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
-        self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
-            //Play Sound
-            self.wearButtonAvailable()
-        })
+        self.wearButtonAvailable()
+        
+        
+        //self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)
+        //self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
+        //self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
+            //self.wearButtonAvailable()
+        //})
         
         
     }//Sets up view
@@ -494,6 +495,15 @@ extension DetailedViewController{
         self.tableView?.tintColor = UIColor.greenColor()
         self.tableView?.separatorColor = UIColor.blackColor()
         self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor()
+    }
+    func setTitle(){
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        self.navigationController?.navigationBar.translucent = false
     }
 }
 
@@ -566,6 +576,7 @@ extension DetailedViewController{
 //MARK: -Anylitics-MakeTableViewController Extension
 extension DetailedViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
@@ -579,6 +590,7 @@ extension DetailedViewController{
                 "WEAR_PRESSED_COUNT": wearPressedCount!,
                 "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
             ])
+        })
     }
 }
 

@@ -59,14 +59,15 @@ func playSoundEffects(soundID: SystemSoundID) {
  - returns: No return
  */
 func initializeSounds() {
+    
+    dispatch_async(GlobalBackgroundQueue, {
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("delete0", withExtension: "wav")!, &deleteSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("edit0", withExtension: "wav")!, &editSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("add0", withExtension: "wav")!, &addSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("back0", withExtension: "wav")!, &backSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("mycloset0", withExtension: "wav")!, &closetSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("wishlist0", withExtension: "wav")!, &wishlistSFX)
+
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("wear0", withExtension: "wav")!, &wearSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification1", withExtension: "wav")!, &categorySFX)
     //    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("path", withExtension: "wav")!, &subCategorySFX)
@@ -75,7 +76,10 @@ func initializeSounds() {
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("animationPop0", withExtension: "wav")!, &animationSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("alert0", withExtension: "wav")!, &incorrectSFX)
     AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
+    })
 }
+
+
 
 //MARK: -Animations
 /**
@@ -85,112 +89,12 @@ Animates app general buttons
 */
 func buttonAnimation(view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
+    view.contentMode = UIViewContentMode.ScaleToFill
     
     view.clipsToBounds = true
     view.layer.borderWidth = 2.0
     view.layer.borderColor = UIColor.greenColor().CGColor
     //    view.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScale(1.0).animate(0.3)
-}
-/**
- Sets selection Images to be customized
- 
- - parameter view: UIImage to customize
- */
-func secectionImagesDresser(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    view.clipsToBounds = true
-    view.layer.borderWidth = 3
-    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "blueStarBoarderPattern")!).CGColor
-}
-/**
- Sets Views to be customized
- 
- - parameter view: Views to customize
- */
-func viewGeneralCustomization(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    view.clipsToBounds = true
-    view.layer.borderWidth = 5
-    view.layer.borderColor = UIColor.blackColor().CGColor
-}
-/**
- Sets Logo to be customized
- 
- - parameter view: Logo to customize
- */
-func logoCustomization(view: UIView){
-//    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-//    view.clipsToBounds = true
-    view.layer.borderWidth = 5
-    view.layer.borderColor = UIColor.blackColor().CGColor
-}
-/**
- Sets images to be customized
- 
- - parameter view: Logo to customize
- */
-func imageCustomization(view: UIView){
-//    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    view.clipsToBounds = true
-    view.layer.borderWidth = 5
-    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: uiObjectColors.IMAGE_BORDER)!).CGColor
-}
-/**
- Sets selection Labels to be customized
- 
- - parameter view: UILabel to customize
- */
-func secectionImageLabelDresser(view: UIView){
-    view.layer.borderWidth = 3.0
-    view.layer.borderColor = UIColor.blackColor().CGColor
-}
-/**
- Sets Wear button to be customized
- 
- - parameter view: UIButton to customize
- */
-func wearButtonAnimation(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    view.clipsToBounds = true
-    view.layer.borderWidth = 3.0
-    view.layer.borderColor = UIColor.purpleColor().CGColor
-}
-/**
- Sets Label of number to be customized
- 
- - parameter view: UILabel to customize
- */
-func secectionNumberLabelDresser(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    view.clipsToBounds = true
-    view.layer.borderWidth = 0.5
-    view.layer.borderColor = UIColor.darkGrayColor().CGColor
-}
-/**
- Sets bar button to be customized
- 
- - parameter view: UIBarButton to customize
- */
-func barButtonAnimation()(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
-    view.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    view.clipsToBounds = true
-    view.layer.borderWidth = 3.0
-    view.layer.borderColor = UIColor.blackColor().CGColor
 }
 
 
@@ -210,7 +114,6 @@ func handleTap(sender: UITapGestureRecognizer) {
     case .Changed: break
     }
 }
-
 func buttonTouchBeganAnimation(button:UIView){
     button.animation.transformScale(3.0).animate(1.0)
 }
@@ -252,7 +155,7 @@ func returnItem(path: [String: String])->Item{
                     return searchItem
                 }
             }
-                assertionFailure("Search Failed item not found with in the array or at id number BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+                assertionFailure("Search Failed item not found with in the array or at id number BIG FUCKING ERROR*TIP:ID")
                 return Item()
         }
     }else{
@@ -260,8 +163,6 @@ func returnItem(path: [String: String])->Item{
         return Item()
     }
 }
-
-
 /**
  -Takes a dictionary and look for specific values
  -If any are nil method returns bool all paths have to be clear
@@ -343,3 +244,110 @@ func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
     
     return newWardrobe
 }
+
+
+
+
+//MARK: -View Customization methods
+/**
+Sets selection Images to be customized
+
+- parameter view: UIImage to customize
+*/
+func secectionImagesDresser(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3
+    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "blueCracks")!).CGColor
+}
+/**
+ Sets Views to be customized
+ 
+ - parameter view: Views to customize
+ */
+func viewGeneralCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 5
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}
+/**
+ Sets Logo to be customized
+ 
+ - parameter view: Logo to customize
+ */
+func logoCustomization(view: UIView){
+    //    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    //    view.clipsToBounds = true
+    view.layer.borderWidth = 5
+    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "coloredPatterns")!).CGColor
+}
+/**
+ Sets images to be customized
+ 
+ - parameter view: Logo to customize
+ */
+func imageCustomization(view: UIView){
+    //    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 5
+    view.layer.borderColor = UIObjectColors.imageBorder //UIColor.init(patternImage: UIImage(named: UIObjectColors.imageBorder)!).CGColor
+}
+/**
+ Sets selection Labels to be customized
+ 
+ - parameter view: UILabel to customize
+ */
+func secectionImageLabelDresser(view: UIView){
+    view.layer.borderWidth = 3.0
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}
+/**
+ Sets Wear button to be customized
+ 
+ - parameter view: UIButton to customize
+ */
+func wearButtonAnimation(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3.0
+    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "zipperBorder1")!).CGColor
+}
+/**
+ Sets Label of number to be customized
+ 
+ - parameter view: UILabel to customize
+ */
+func secectionNumberLabelDresser(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 0.5
+    view.layer.borderColor = UIColor.darkGrayColor().CGColor
+}
+/**
+ Sets bar button to be customized
+ 
+ - parameter view: UIBarButton to customize
+ */
+func barButtonAnimation()(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3.0
+    view.layer.borderColor = UIColor.blackColor().CGColor
+}
+
+

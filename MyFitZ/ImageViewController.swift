@@ -11,6 +11,7 @@ import UIKit
 class ImageViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var logoImage: UIImageView!
     
     var imageHolder:UIImage = UIImage()
     var path:[String: String] = [:]
@@ -50,11 +51,14 @@ extension ImageViewController{
         //    self.animatePictureImages()
         //    self.animateNumberLabels()
         //    self.animateTrashButton()
-        //    self.animateLogo()
+            self.animateLogo()
         //        self.animateViews()
         
     }
     func animateLogo(){
-        //    logoCustomization(self.logoImage)
+            logoCustomization(self.logoImage)
+    }
+    func animateImage(){
+        imageCustomization(self.image)
     }
 }

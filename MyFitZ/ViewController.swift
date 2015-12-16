@@ -16,7 +16,8 @@ class ViewController:  UIViewController{
     //MARK: -Outlets
     @IBOutlet weak var closetButton: UIButton!
     @IBOutlet weak var wishListButton: UIButton!
-    
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var optionsButton: UIButton!
     
     
     //MARK: -Methods
@@ -24,7 +25,19 @@ class ViewController:  UIViewController{
         super.viewDidLoad()
         initializeSounds()
         self.setButtonsView()
+        self.setTitle()
+        self.animateAllButtons()
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.addAndSend("MAIN_PAGE_COUNT")
+        
+        self.logPageView()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    func setTitle(){
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.translucent = false
         
@@ -34,24 +47,6 @@ class ViewController:  UIViewController{
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //        let button = UIButton(type: UIButtonType.RoundedRect)
-        //        button.frame = CGRectMake(100, 100, 200, 200)
-        //        button.setTitle("Crash", forState: UIControlState.Normal)
-        //        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        //        view.addSubview(button)
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        defaults.addAndSend("MAIN_PAGE_COUNT")
-        
-        self.logPageView()
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -98,10 +93,34 @@ extension ViewController{
 }
 
 
+
+//MARK: -Animations-ViewController Extension
+extension ViewController{
+    func animateAllButtons(){
+//        self.animateSearchButton()
+//        self.animateStarButton()
+//        self.animateHamperButton()
+//        self.animateSearchButton()
+//        self.animatePictureLabels()
+//        self.animatePictureImages()
+//        self.animateNumberLabels()
+//        self.animateTrashButton()
+        self.animateLogo()
+        //        self.animateViews()
+        
+    }
+    func animateLogo(){
+        logoCustomization(self.logoImage)
+    }
+    func animateFeatureButtons(){
+        buttonAnimation(self.optionsButton)
+    }
+}
     
 //MARK: -Anylitics-ViewController Extension
 extension ViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("MAIN_PAGE_COUNT")
@@ -120,4 +139,5 @@ extension ViewController{
                 "WISHLIST_SELECTION_COUNT": wishListSelectionCount!
             ])
     }
+        )}
 }

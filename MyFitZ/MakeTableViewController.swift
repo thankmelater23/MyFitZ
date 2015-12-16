@@ -78,7 +78,16 @@ extension MakeTableViewController{
 extension MakeTableViewController{
     func setUpTypes(){
         self.animateAllButtons()
+        
         self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        
+        self.setTitle()
+        
+    }//Sets up
+    func selection(){
+        TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!
+    }
+    func setTitle(){
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -86,10 +95,6 @@ extension MakeTableViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
         self.navigationController?.navigationBar.translucent = false
-        
-    }//Sets up
-    func selection(){
-        TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!
     }
 }
 
@@ -197,6 +202,7 @@ extension MakeTableViewController{
 //MARK: -Anylitics-MakeTableViewController Extension
 extension MakeTableViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
@@ -206,6 +212,7 @@ extension MakeTableViewController{
             contentId: "MF3",
             customAttributes: ["MAKE_PAGE_COUNT": pageCount!
             ])
+        })
     }
 }
  

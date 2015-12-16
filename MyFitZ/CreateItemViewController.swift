@@ -616,6 +616,7 @@ extension CreateItemViewController{
 //MARK: -Anylitics-CreateItemViewController Extension
 extension CreateItemViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
@@ -628,6 +629,7 @@ extension CreateItemViewController{
             customAttributes: ["CREATE_PAGE_COUNT": pageCount!,
                 "SAVE_BUTTON_BUTTON_PRESSED": saveButtonPressed!
             ])
+        })
     }
 }
 

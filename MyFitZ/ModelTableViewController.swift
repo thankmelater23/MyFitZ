@@ -148,15 +148,11 @@ extension ModelTableViewController{
 extension ModelTableViewController{
     func SetUpTypes() {
         self.animateAllButtons()
+        
         self.arrayOfItems = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
         
-        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
-        if self.title == MY_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-        }else if self.title == MY_WANTS_CLOSET{
-            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
-        }
-        self.navigationController?.navigationBar.translucent = false
+        self.setTitle()
+        
         
     }
 }
@@ -181,6 +177,15 @@ extension ModelTableViewController{
     func animateLogo(){
         //    logoCustomization(self.logoImage)
     }
+    func setTitle(){
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        }
+        self.navigationController?.navigationBar.translucent = false
+    }
 }
 
 
@@ -188,6 +193,7 @@ extension ModelTableViewController{
 //MARK: -Anylitics-MakeTableViewController Extension
 extension ModelTableViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("MODEL_PAGE_COUNT")
@@ -197,5 +203,6 @@ extension ModelTableViewController{
             contentId: "MF4",
             customAttributes: ["MODEL_PAGE_COUNT": pageCount!
             ])
+        })
     }
 }

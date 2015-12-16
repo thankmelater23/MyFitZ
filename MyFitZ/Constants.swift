@@ -240,9 +240,10 @@ let LOGO_BORDER_IMAGE = "solidGradienBlueBorder"
 
 //MARK: -Color Settings
 //TODO: -Turn this into a struct
-struct UIObjectColors{
-    
+struct UI_OBJECT_COLORS{
+    let imageBorder = UIColor.init(patternImage: UIImage(named: "cellRedRedBG")!).CGColor
 }
+let UIObjectColors: UI_OBJECT_COLORS = UI_OBJECT_COLORS()
 
 struct CompanyColors{
     let primary = UIColor.greenColor()

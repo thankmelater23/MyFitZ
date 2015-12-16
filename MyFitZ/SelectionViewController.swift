@@ -24,6 +24,8 @@ class SelectionViewController: UIViewController{
     @IBOutlet weak var bottomCategoriesView: UIView!
     @IBOutlet weak var topCategoriesView: UIView!
     @IBOutlet weak var optionsHolderView: UIView!
+    @IBOutlet weak var percentageButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
 //        {
 //        didSet{
 //            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
@@ -103,18 +105,20 @@ class SelectionViewController: UIViewController{
     func assignCategoriesItemCount(){
         var catCountDic: [String: Int] = [String: Int]()
         
-        //TODO: -Add a GCD to load it in background
+        dispatch_async(GlobalBackgroundQueue, {
         for category in CATEGORY_PICKER_OPTIONS{
             catCountDic[category] = Users_Wardrobe.getCountOfAllItemsInCategory(category)
         }
         
-        topCounter.text = String(catCountDic[TOPS]!)
-        bottomCounter.text = String(catCountDic[BOTTOMS]!)
-        footwareCounter.text = String(catCountDic[FOOTWARE]!)
-        underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
-        accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
-        headwareCounter.text = String(catCountDic[HEADWARE]!)
-        
+        dispatch_async(GlobalMainQueue, {
+        self.topCounter.text = String(catCountDic[TOPS]!)
+        self.bottomCounter.text = String(catCountDic[BOTTOMS]!)
+        self.footwareCounter.text = String(catCountDic[FOOTWARE]!)
+        self.underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
+        self.accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
+        self.headwareCounter.text = String(catCountDic[HEADWARE]!)
+            })
+        })
         
         
     }
@@ -128,7 +132,6 @@ extension SelectionViewController{
     @IBAction func categoryIsButtonName(sender: UIButton) {
         path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
         playSoundEffects(categorySFX)
-        //        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_MAKE, sender: self)
     }
     @IBAction func backButton(sender: AnyObject) {
         playSoundEffects(backSFX)
@@ -140,7 +143,6 @@ extension SelectionViewController{
     @IBAction func hamperButton() {
         performSegueWithIdentifier(SEGUE_SELECTION_TO_RECENT, sender: self)
     }
-    
     @IBAction func trashButtonPressed() {
         performSegueWithIdentifier(SEGUE_SELECTION_TO_TRASH, sender: self)
     }
@@ -158,14 +160,11 @@ extension SelectionViewController{
 extension SelectionViewController{
     func animateAllButtons(){
         self.animateSearchButton()
-        self.animateStarButton()
-        self.animateHamperButton()
-        self.animateSearchButton()
         self.animatePictureLabels()
         self.animatePictureImages()
         self.animateNumberLabels()
-        self.animateTrashButton()
         self.animateLogo()
+        self.animateOptionButtons()
 //        self.animateViews()
         
     }
@@ -199,15 +198,12 @@ extension SelectionViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
     }
-    func animateTrashButton(){
+    func animateOptionButtons(){
         buttonAnimation(self.trashButton)
-    }
-
-    func animateHamperButton(){
-                buttonAnimation(recentlyWonrItem)
-    }
-    func animateStarButton(){
-        buttonAnimation(favortiedItems)
+        buttonAnimation(self.recentlyWonrItem)
+        buttonAnimation(self.favortiedItems)
+        buttonAnimation(self.percentageButton)
+        buttonAnimation(self.shareButton)
     }
     func animatePictureImages(){
         secectionImagesDresser(self.topImage)
@@ -233,13 +229,13 @@ extension SelectionViewController{
         secectionImageLabelDresser(self.headwareCounter)
         secectionImageLabelDresser(self.underClothesCounter)
     }
-    
 }
 
 
 //MARK: -Anylitics-SelectionViewController Extension
 extension SelectionViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
@@ -249,5 +245,6 @@ extension SelectionViewController{
             contentId: "MF2",
             customAttributes: ["SELECTION_PAGE_COUNT": pageCount!
             ])
+    })
     }
 }

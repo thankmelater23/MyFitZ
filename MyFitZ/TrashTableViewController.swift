@@ -166,10 +166,10 @@ extension TrashTableViewController{
 
 
 
-
 //MARK: -Anylitics-TrashTableViewController Extension
 extension TrashTableViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("TRASH_PAGE_COUNT")
@@ -179,6 +179,7 @@ extension TrashTableViewController{
             contentId: "MF11",
             customAttributes: ["TRASH_PAGE_COUNT": pageCount!
             ])
+    })
     }
 }
 

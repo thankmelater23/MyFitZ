@@ -25,6 +25,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet weak var pictureButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var image: UIImageView!
     
     //MARK: Variables
     var categoryPickerView = UIPickerView()
@@ -628,6 +629,9 @@ extension EditItemViewController{
     func animateLogo(){
         //    logoCustomization(self.logoImage)
     }
+    func animateImage(){
+        imageCustomization(self.image)
+    }
 }
 
 
@@ -635,6 +639,7 @@ extension EditItemViewController{
 //MARK: -Anylitics-EditItemViewController Extension
 extension EditItemViewController{
     func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("EDIT_PAGE_COUNT")
@@ -647,6 +652,7 @@ extension EditItemViewController{
                 
                 //                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
             ])
+        })
     }
 }
 
