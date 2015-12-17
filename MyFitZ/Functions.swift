@@ -286,7 +286,7 @@ func logoCustomization(view: UIView){
     
     //    view.clipsToBounds = true
     view.layer.borderWidth = 5
-    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "coloredPatterns")!).CGColor
+    view.layer.borderColor =  UIObjectColors.imageBorder
 }
 /**
  Sets images to be customized
@@ -299,7 +299,7 @@ func imageCustomization(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 5
-    view.layer.borderColor = UIObjectColors.imageBorder //UIColor.init(patternImage: UIImage(named: UIObjectColors.imageBorder)!).CGColor
+    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "coloredPatterns")!).CGColor
 }
 /**
  Sets selection Labels to be customized

@@ -593,20 +593,16 @@ extension CreateItemViewController: UITextFieldDelegate{
 //MARK: - UI-CreateItemViewController Extension
 extension CreateItemViewController{
     func animateAllButtons(){
-        //    self.animateSearchButton()
-        //    self.animateStarButton()
-        //    self.animateHamperButton()
-        //    self.animateSearchButton()
-        //    self.animatePictureLabels()
-        //    self.animatePictureImages()
-        //    self.animateNumberLabels()
-        //    self.animateTrashButton()
+        self.animateImage()
         //    self.animateLogo()
-        //        self.animateViews()
+        //    self.animateViews()
         
     }
     func animateLogo(){
         //    logoCustomization(self.logoImage)
+    }
+    func animateImage(){
+        imageCustomization(self.pictureForSelectedItemImage)
     }
 }
 

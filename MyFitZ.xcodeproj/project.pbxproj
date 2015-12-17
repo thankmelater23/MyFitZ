@@ -77,6 +77,9 @@
 		C6B492971C04457200A1D237 /* update0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492871C04457200A1D237 /* update0.wav */; };
 		C6B492981C04457200A1D237 /* wear1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear1.wav */; };
 		C6B492991C04457200A1D237 /* wishlist0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492891C04457200A1D237 /* wishlist0.wav */; };
+		C6C638FF1C214A68002F115E /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C638FE1C214A68002F115E /* TrashTableViewCell.swift */; };
+		C6C639011C214A7F002F115E /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */; };
+		C6C639031C214A8C002F115E /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639021C214A8C002F115E /* RecentTableViewCell.swift */; };
 		C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */; };
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
 		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
@@ -181,6 +184,9 @@
 		C6B492871C04457200A1D237 /* update0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = update0.wav; sourceTree = "<group>"; };
 		C6B492881C04457200A1D237 /* wear1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear1.wav; sourceTree = "<group>"; };
 		C6B492891C04457200A1D237 /* wishlist0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wishlist0.wav; sourceTree = "<group>"; };
+		C6C638FE1C214A68002F115E /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
+		C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		C6C639021C214A8C002F115E /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrashTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
@@ -347,6 +353,9 @@
 				C64503D11BE1A1210065EC2F /* MakeCustomCell.swift */,
 				C64503D21BE1A1210065EC2F /* ModelCustomCell.swift */,
 				C64503D31BE1A1210065EC2F /* CreationUITableViewCell.swift */,
+				C6C638FE1C214A68002F115E /* TrashTableViewCell.swift */,
+				C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */,
+				C6C639021C214A8C002F115E /* RecentTableViewCell.swift */,
 				C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */,
 			);
 			name = Cells;
@@ -703,6 +712,7 @@
 				C64503BA1BE1A0460065EC2F /* Fit.swift in Sources */,
 				C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */,
 				C663011D1C1427AA0057061C /* Constants_Extensions.swift in Sources */,
+				C6C639011C214A7F002F115E /* FavoritesTableViewCell.swift in Sources */,
 				C66CF53B1C1D04670017C12E /* ImageViewController.swift in Sources */,
 				C6178FE91C142118003A9561 /* Constants_SelectionViewController.swift in Sources */,
 				C6178FC71C14210A003A9561 /* Constants_ViewController.swift in Sources */,
@@ -713,12 +723,14 @@
 				C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */,
 				C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */,
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,
+				C6C638FF1C214A68002F115E /* TrashTableViewCell.swift in Sources */,
 				C60C6AD11C02C92300C8935A /* Functions.swift in Sources */,
 				C61790D01C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift in Sources */,
 				C66300DB1C1425660057061C /* Constants_Fit.swift in Sources */,
 				C64503D51BE1A1210065EC2F /* MakeCustomCell.swift in Sources */,
 				C64503C71BE1A1160065EC2F /* NotesViewController.swift in Sources */,
 				C66300981C1425440057061C /* Constants_Wardrobe.swift in Sources */,
+				C6C639031C214A8C002F115E /* RecentTableViewCell.swift in Sources */,
 				C64503B81BE1A0460065EC2F /* Extensions.swift in Sources */,
 				C617906D1C142151003A9561 /* Constants_EditViewController.swift in Sources */,
 				C66300FC1C14279D0057061C /* Constants_Global_Function.swift in Sources */,

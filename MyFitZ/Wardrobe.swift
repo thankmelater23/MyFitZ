@@ -328,7 +328,6 @@ extension Wardrobe{
      - parameter item:            Item to save
      */
     func save(funcCategory:String, funcSubCategory:String, item: Item)throws{
-        
         if funcSubCategory.isEmpty == true{throw ItemError.IncorrectSubCategory}
         
         //Checks if new SubCategory is new
@@ -361,19 +360,72 @@ extension Wardrobe{
             print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
         }else{throw ItemError.missingModelString}
         
-        item.populatePath(self.closetSelectionString)
-        
         //Puts item in favoirtes if elgible
-        self.ItemFavorited(item)
-        self.checkItemWorn(item)
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
         
-        
+        item.populatePath(self.closetSelectionString)
+//        
+//        self.clearAllContainers()
+//        self.findAndPopulateContainers()
+        self.ItemFavorited(item)
+        self.checkItemWorn(item)
         
         //Saves Wardrobe
         self.quickSave()
         
+//        if funcSubCategory.isEmpty == true{throw ItemError.IncorrectSubCategory}
+//        
+//        item.category = funcCategory
+//        item.subCategory = funcSubCategory
+//        
+//        //Sets image to blank if none exist
+//        if (item.image == nil){
+//            item.image = UIImage(named: BLANK_IMAGE_STRING)
+//        }
+//        
+//        //Checks to see if model value is empty
+//        if item.model.isEmpty != true{//Appends item to subCategory else throws
+//            self.selectedCloset[funcCategory]![funcSubCategory]!.append(item)
+//            print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
+//        }else{throw ItemError.missingModelString}
+//        
+//        
+//        self.saveItem(item)
+        
+    }
+    
+    func saveItem(myItem: Item){
+        self.newSubCategoryCheck(myItem)
+        
+        //Update brandCollection
+        self.updateBrandCollectiion(myItem.brand)
+        
+        
+        //Puts item in favoirtes if elgible
+        self.selectedCloset[myItem.category]![myItem.subCategory]!.append(myItem)
+        
+        self.sort(myItem.category, funcSubCategory: myItem.subCategory)
+        
+        myItem.populatePath(self.closetSelectionString)
+        
+        self.ItemFavorited(myItem)
+        self.checkItemWorn(myItem)
+
+        //Saves Wardrobe
+        self.quickSave()
+    }
+    
+    func newSubCategoryCheck(item: Item){
+        //Checks if new SubCategory is new
+        let keysOfCategory = Array(self.selectedCloset[item.category]!.keys)
+        let isKeyNew = keysOfCategory.contains(item.subCategory)
+        
+        //Creates a subcategory if none exist by that name
+        if !isKeyNew{
+            self.selectedCloset[item.category]!.updateValue([Item](), forKey: item.subCategory)
+            print("Subcategory created: \(item.subCategory)")
+        }
     }
     /**
      Plays SFX, gets file path to save to, than save Wardrobe object to archive
@@ -638,7 +690,7 @@ extension Wardrobe{
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         var num = 0
         for index in array{
-            if index.isEqual(item){
+            if index.id == item.id{
                 self.removeItemFromAllContainters(item.path)
                 self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num)
                 break
@@ -649,6 +701,31 @@ extension Wardrobe{
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
         self.quickSave()
+    }
+    /**
+     Deletes item from Category/SubCategory/(Matching Item), plays SFX, checks if item is a favorite adds to favoritedArray if it is remove it if it was and now it isn't; then saves Wardrobe
+     
+     - parameter funcCategory:    Category Key
+     - parameter funcSubCategory: Sub-Category Key
+     - parameter item:            Item to be matched than deleted
+     */
+    func deleteItemWithNoSave(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
+        playSoundEffects(deleteSFX)
+        
+        let array = self.selectedCloset[funcCategory]![funcSubCategory]!
+        var num = 0
+        for index in array{
+            if index.id == item.id{
+                self.removeItemFromAllContainters(item.path)
+                self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num)
+                break
+            }else{
+                num++
+            }
+        }
+        
+        self.sort(funcCategory, funcSubCategory: funcSubCategory)
+
     }
     /**
      Deletes array:[Item] at Category/Sub-Category, plays SFX, than save
@@ -794,7 +871,7 @@ extension Wardrobe{
             //TODO: -Fix this sort
             
             
-            brandCollection = brandCollection.sort({$0 <= $1})
+            self.brandCollection = self.brandCollection.sort({$0 < $1})
         }
     }
     /**
@@ -834,8 +911,16 @@ extension Wardrobe{
     func  ItemFavorited(item: Item){
         if item.favorited == true{
             updateFavoritedWornCollectiion(item.path)
-        }else{
-            removeFromFavoriteList(item.path)
+        }
+    }
+    func removeItemFromFavorites(path: [String: String]){
+        let checkedID = path[PATHTYPE_ID_STRING]!
+        
+        for (index, item) in self.selectedClosetFavoritedItems.enumerate(){
+            if checkedID == String(item[PATHTYPE_ID_STRING]){
+                self.selectedClosetFavoritedItems.removeAtIndex(index)
+                return
+            }
         }
     }
     /**
@@ -887,7 +972,7 @@ extension Wardrobe{
         }
         
         selectedClosetFavoritedItems.insert(path, atIndex: 0)
-    }
+        }
     /**
      Removes item from FavoritedItems if one exist with the same ID number
      
@@ -1000,9 +1085,23 @@ extension Wardrobe{
         self.myWishListFavoritedItems.removeAll()
         self.myClosetFavoritedItems.removeAll()
         self.myClosetRecentWornItems.removeAll()
+//        self.selectedClosetTrashItems.removeAll()
     }
+    
+    func findAndPopulateContainers(){
+        
+        for (_, category) in self.selectedCloset{
+            for (_, subCategory) in category{
+                for item in subCategory{
+                    if item.favorited == true{
+                        self.selectedClosetFavoritedItems.append(item.path)
+                    }
+                    
+                    if item.lastTimeWorn.returnDaysInDate() != 1000{
+                        self.selectedClosetRecentWornItems.append(item.path)
 }
-
-
-
-
+}
+}
+}
+}
+}

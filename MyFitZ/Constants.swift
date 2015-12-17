@@ -134,12 +134,16 @@ let SEGUE_IMAGE_TO_DETAIL       = "imageToDetail"
 struct CellIdentifiers{
     
 }
+let CellIdentifier = CELL_IDENTIFIERS()
+
 let MAKE_CELL                   = "makeCell"
 let MODEL_CELL                  = "modelCell"
 let CREATION_CELL               = "creationCell"
 let DOUBLE_LABEL_CELL           = "doubleLabel"
 let TEXT_INPUT_CELL             = "textInputCell"
-
+let FAVORITED_CELL              = "favoritedCell"
+let RECENTLY_CELL               = "recentlyWornCell"
+let TRASH_CELL                  = "trashCell"
 
 
 ///MARK: - Item Settings
@@ -245,11 +249,13 @@ struct UI_OBJECT_COLORS{
 }
 let UIObjectColors: UI_OBJECT_COLORS = UI_OBJECT_COLORS()
 
-struct CompanyColors{
+struct COMPANY_COLORS{
     let primary = UIColor.greenColor()
     let secondary = UIColor.purpleColor()
     let third = UIColor.blueColor()
 }
+let CompanyColors = COMPANY_COLORS()
+
 let MY_CLOSET_BAR_COLOR = UIColor.blackColor()
 let MY_WANTS_CLOSET_BAR_COLOR = UIColor.darkGrayColor()
 

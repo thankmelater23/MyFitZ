@@ -64,6 +64,10 @@ class DetailedViewController: UIViewController{
             
             imageViewController.path = self.path
             
+            imageViewController.itemName = self.itemOfObject.model
+            imageViewController.itemBrand = self.itemOfObject.brand
+            
+            
             if itemOfObject.image != nil{
                 imageViewController.imageHolder = itemOfObject.image
             }else{

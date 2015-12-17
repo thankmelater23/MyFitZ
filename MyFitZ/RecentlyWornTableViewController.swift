@@ -74,19 +74,19 @@ extension RecentlyWornTableViewController{
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier(MODEL_CELL) as! ModelCustomCell
+        let cell: RecentTableViewCell = tableView.dequeueReusableCellWithIdentifier(RECENTLY_CELL) as! RecentTableViewCell
         
         if indexPath.row % 2 == 0//If even number make this color
         {
-            cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
+            cell.backgroundColor     = UIColor.brownColor()
         }else{
-            cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
+            cell.backgroundColor     = UIColor.brownColor()
         }
         
         let item: Item            = arrayOfItems[indexPath.row] as Item!
         
-        //TODO: -Change brand to subacategory instead
-        cell.setCell(item.image!, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: item.lastTimeWorn!, favorited: item.favorited)
+        
+        cell.setCell(item.image!, nameLabelText: item.model!, brandLabelText: item.brand!, row: indexPath.row, lastTimeWorn: item.lastTimeWorn!)
         
         return cell
     }

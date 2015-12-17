@@ -138,12 +138,11 @@ extension EditItemViewController{
             //!!: -Temp swap function
             playSoundEffects(updateSFX)
             
-            Users_Wardrobe.deleteItem(self.previousItem.category, funcSubCategory: self.previousItem.subCategory, item: self.previousItem)
-            
-            
-            try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+            Users_Wardrobe.deleteItemWithNoSave(self.previousItem.category, funcSubCategory: self.previousItem.subCategory, item: self.previousItem)
             
             Users_Wardrobe.removeLastTrashedItem()
+            try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
+            
             
             
             //TODO: -Convert this to work
@@ -624,6 +623,7 @@ extension EditItemViewController{
         //    self.animateTrashButton()
         //    self.animateLogo()
         //        self.animateViews()
+        self.animateImage()
         
     }
     func animateLogo(){

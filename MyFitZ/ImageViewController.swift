@@ -13,17 +13,25 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var logoImage: UIImageView!
     
+    
+    @IBOutlet weak var nameAndBrandBar: UILabel!
     var imageHolder:UIImage = UIImage()
+    var itemName: String = String()
+    var itemBrand: String = String()
+    
     var path:[String: String] = [:]
+    
+    
     
     override func viewDidLoad(){
         super.viewDidLoad()
         
         self.image.image = self.imageHolder
         
+        self.nameAndBrandBar.text = grabTitle(self.itemName, view: self.itemBrand)
+        
         self.animateAllButtons()
     }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
             print("Segue transfer: \(segue.identifier)")
@@ -52,11 +60,12 @@ extension ImageViewController{
         //    self.animateNumberLabels()
         //    self.animateTrashButton()
             self.animateLogo()
+        self.animateImage()
         //        self.animateViews()
         
     }
     func animateLogo(){
-            logoCustomization(self.logoImage)
+
     }
     func animateImage(){
         imageCustomization(self.image)

@@ -40,11 +40,11 @@ class TrashTableViewController: UITableViewController {
         if segue.identifier == SEGUE_TRASH_TO_SELECTION
         {
             
-//        }else if segue.identifier == SEGUE_TRASH_TO_DETAIL{
-//            let detailedViewController = segue.destinationViewController as! DetailedViewController
-//            let tempItem = returnItem(pathToSend)
-//            detailedViewController.itemOfObject = tempItem
-//            detailedViewController.path = pathToSend
+            //        }else if segue.identifier == SEGUE_TRASH_TO_DETAIL{
+            //            let detailedViewController = segue.destinationViewController as! DetailedViewController
+            //            let tempItem = returnItem(pathToSend)
+            //            detailedViewController.itemOfObject = tempItem
+            //            detailedViewController.path = pathToSend
         }
     }
     override func didReceiveMemoryWarning() {
@@ -71,27 +71,27 @@ extension TrashTableViewController{
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier(MODEL_CELL) as! ModelCustomCell
+        let cell: TrashTableViewCell = tableView.dequeueReusableCellWithIdentifier(TRASH_CELL) as! TrashTableViewCell
         
         if indexPath.row % 2 == 0//If even number make this color
         {
-            cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
+            cell.backgroundColor     = UIColor.blackColor()
         }else{
-            cell.backgroundColor     = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MODEL)!)
+            cell.backgroundColor     = UIColor.blackColor()
         }
         
         let item: Item            = arrayOfItems[indexPath.row] as Item!
         
-        //TODO: -Change brand to subacategory instead
-        cell.setCell(item.image!, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: item.lastTimeWorn!, favorited: item.favorited)
+        //TODO: -Fix this cell to take date deleted add date deleted to item system
+        cell.setCell(item.image!, nameLabelText: item.model!, brandLabelText: item.brand!, row: indexPath.row, dateDeleted: "xx-xx-xxxx")
+
         
         return cell
     }
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         playSoundEffects(itemSelectSFX)
-        self.pathToSend = self.arrayOfItems[indexPath.row].path
-        performSegueWithIdentifier(SEGUE_TRASH_TO_SELECTION, sender: self)
+        self.promptForRestoringItem(indexPath.row)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -105,23 +105,56 @@ extension TrashTableViewController{
         forRowAtIndexPath indexPath: NSIndexPath) {
             if editingStyle == UITableViewCellEditingStyle.Delete
             {
-                let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete this item from the trash permanetly?", preferredStyle: .Alert)
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-                    self.arrayOfItems.removeAtIndex(indexPath.row)
-                    Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+                    
+                    Users_Wardrobe.selectedClosetTrashItems.removeAtIndex(indexPath.row)
                     
                     Users_Wardrobe.quickSave()
                     
                     self.tableView.reloadData()
                 }
+                
                 alert.addAction(action)
                 alert.addAction(act)
                 self.presentViewController(alert, animated: true, completion: {})
             }
     }
+    func promptForRestoringItem(index: Int){
+        
+        let alert = UIAlertController(title: "Restore Item", message:"Are You Sure You Want To Restore This Item?", preferredStyle: .Alert)
+        let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+        let action = UIAlertAction(title: "Restore", style: .Destructive) { _ in
+            self.restoreItem(index)
+            
+            Users_Wardrobe.selectedClosetTrashItems.removeAtIndex(index)
+            
+            self.tableView.reloadData()
+        }
+        alert.addAction(action)
+        alert.addAction(act)
+        
+        self.presentViewController(alert, animated: true, completion: {})
+    }
+    func restoreItem(index: Int){
+        let item = Users_Wardrobe.selectedClosetTrashItems[index]
+        
+        do{
+            try Users_Wardrobe.save(item.category, funcSubCategory: item.subCategory, item: item)
+        }catch ItemError.IncorrectSubCategory{
+            
+        }catch ItemError.missingModelString{
+            
+        }catch ItemError.addImage{
+            
+        }catch{
+            
+        }
+        //TODO: -Segue after selected
+//        self.performSegueWithIdentifier("TrashToDetail", sender: self)
+    }
 }
-
 
 
 //MARK: -Initializer  Created Methods
@@ -170,16 +203,16 @@ extension TrashTableViewController{
 extension TrashTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("TRASH_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Trash Content View",
-            contentType: "Trash View",
-            contentId: "MF11",
-            customAttributes: ["TRASH_PAGE_COUNT": pageCount!
-            ])
-    })
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("TRASH_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Trash Content View",
+                contentType: "Trash View",
+                contentId: "MF11",
+                customAttributes: ["TRASH_PAGE_COUNT": pageCount!
+                ])
+        })
     }
 }
 
