@@ -107,7 +107,6 @@ extension DetailedViewController{
         self.presentViewController(alert, animated: true, completion:nil)
     }
     @IBAction func wear() {
-        let closet = Users_Wardrobe.closetSelectionString
         
         if true{
             self.wearActivate()
@@ -217,7 +216,6 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         dateFormatter.dateStyle = .ShortStyle
         
         let cal = NSCalendar.currentCalendar()
-        let unit:NSCalendarUnit = .Day
         
         switch row {
         case 0 :
@@ -304,7 +302,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                     case 1000..<1000:
                         let components = cal.components(unitYear, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.year)) + " Years ago")
-                    default: break
+                    default:
                     assertionFailure("This shouldint happen")
                     }
                 }

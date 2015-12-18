@@ -433,6 +433,8 @@ extension Wardrobe{
     func quickSave(){
         playSoundEffects(saveSFX)
         
+//        self.clearAllContainersAndPopulate()
+        
         
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         
@@ -1026,6 +1028,25 @@ extension Wardrobe{
         }
         return returningDictionaryPath
     }
+    
+    func returnPathsFromArrayOfItems(items: [Item])-> [[String: String]]{
+        var returningDictionaryPath = [[String: String]]()
+        
+        for item in items{
+            let path = item.path
+            
+            returningDictionaryPath.append(path)
+        }
+        
+        return returningDictionaryPath
+    }
+    
+    func setNewFavorites(items: [Item]){
+        self.selectedClosetFavoritedItems = self.returnPathsFromArrayOfItems(items)
+    }
+    func setNewRecents(items: [Item]){
+        self.selectedClosetRecentWornItems = self.returnPathsFromArrayOfItems(items)
+    }
     //MARK: -RecentWorn
     /**
     Puts item in wornCollection if it doesn't exist in array already and if it does its removed from that position and append to the top
@@ -1080,14 +1101,17 @@ extension Wardrobe{
         selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
     }
     
-    func clearAllContainers(){
+    func clearAllContainersAndPopulate(){
         self.myWishListRecentWornItems.removeAll()
         self.myWishListFavoritedItems.removeAll()
         self.myClosetFavoritedItems.removeAll()
         self.myClosetRecentWornItems.removeAll()
-//        self.selectedClosetTrashItems.removeAll()
+        self.findAndPopulateContainers()
     }
     
+    func cleanOutTrash(){
+        self.selectedClosetTrashItems.removeAll()
+    }
     func findAndPopulateContainers(){
         
         for (_, category) in self.selectedCloset{

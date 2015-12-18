@@ -100,7 +100,12 @@ class SelectionViewController: UIViewController{
         }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
             createItemViewController.lastVCSegue = SEGUE_CREATION_TO_SELECTION
+        }else if segue.identifier == SEGUE_SELECTION_TO_PERCENTAGE{
+//            let percentagesTableViewController: PercentagesTableViewController! = segue.destinationViewController as! PercentagesTableViewController
+//            let popOver = percentagesTableViewController.popoverPresentationController
+//            popOver?.permittedArrowDirections = UIPopoverArrowDirection.Any
         }
+
     }
     func assignCategoriesItemCount(){
         var catCountDic: [String: Int] = [String: Int]()
@@ -145,6 +150,10 @@ extension SelectionViewController{
     }
     @IBAction func trashButtonPressed() {
         performSegueWithIdentifier(SEGUE_SELECTION_TO_TRASH, sender: self)
+    }
+    
+    @IBAction func percentageButtonPressed() {
+//        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
     }
 }
 

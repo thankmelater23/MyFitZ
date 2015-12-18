@@ -112,7 +112,8 @@ extension RecentlyWornTableViewController{
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
                     self.arrayOfItems.removeAtIndex(indexPath.row)
-                    Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
+
+                    Users_Wardrobe.setNewRecents(self.arrayOfItems)
                     
                     Users_Wardrobe.quickSave()
                     

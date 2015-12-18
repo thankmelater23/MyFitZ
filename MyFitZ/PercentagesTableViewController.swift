@@ -1,24 +1,22 @@
 //
-//  MakeTableViewController.swift
-//  myFitz
+//  PercentagesTableViewController.swift
+//  MyFitZ
 //
-//  Created by Andre Villanueva on 1/21/15.
-//  Copyright (c) 2015 BangBangStudios. All rights reserved.
+//  Created by Andre Villanueva on 12/17/15.
+//  Copyright © 2015 Bang Bang Studios. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Crashlytics
 
-//MARK: -MakeTableViewController Class
-class MakeTableViewController: UITableViewController{
-    //MARK: -Outlets
-    @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
-    
+class PercentagesTableViewController: UITableViewController {
     //MARK: - Variables
     ///items in a dictionary of arrays holds the categories of the items
     var itemsInArrayInDictionary: [String: [Item]]! = [String: [Item]]()
     var array = [[Item]]()
     var keyOfSelectedArray = [String]()
+    var indexReference: [String: Int] = [:]
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
@@ -33,7 +31,7 @@ class MakeTableViewController: UITableViewController{
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        defaults.addAndSend("MAKE_PAGE_COUNT")
+        defaults.addAndSend("PERCENT_PAGE_COUNT")
         
         self.logPageView()
         
@@ -45,37 +43,21 @@ class MakeTableViewController: UITableViewController{
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        defer{
-            print("Segue transfer: \(segue.identifier)")
-        }
-        if segue.identifier == SEGUE_MAKE_TO_MODEL
-        {
-//            let index = self.tableView.indexPathForSelectedRow
-            
-            let modelController = segue.destinationViewController as! ModelTableViewController
-            modelController.path = self.path
-        }else if segue.identifier == SEGUE_MAKE_TO_CREATION{
-            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
-            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MAKE
-        }
-    }
 }
 
 
-
-//MARK: - Action-MakeTableViewController Extension
-extension MakeTableViewController{
-    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
-        playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_MAKE_TO_SELECTION, sender: self)
-    }
+//MARK: -Action Methods
+extension PercentagesTableViewController{
+//    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+//        playSoundEffects(backSFX)
+//        performSegueWithIdentifier(SEGUE_TRASH_TO_SELECTION, sender: self)
+//    }
 }
 
 
 
 //MARK: - Initializer Created Methods
-extension MakeTableViewController{
+extension PercentagesTableViewController{
     func setUpTypes(){
         self.animateAllButtons()
         
@@ -85,7 +67,7 @@ extension MakeTableViewController{
         
     }//Sets up
     func selection(){
-        TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!
+//        TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!
     }
     func setTitle(){
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
@@ -101,7 +83,7 @@ extension MakeTableViewController{
 
 
 //MARK: -TableView Methods-MakeTableViewController Extension
-extension MakeTableViewController:UIAlertViewDelegate{
+extension PercentagesTableViewController:UIAlertViewDelegate{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         let count = itemsInArrayInDictionary.count
         return count
@@ -136,24 +118,6 @@ extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-            let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
-            let act = UIAlertAction(title: "cancel", style: .Default){_ in}
-            let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-                let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
-                
-                Users_Wardrobe.deleteAt(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
-//                
-//                self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
-//                
-//                Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
-//                Users_Wardrobe.quickSave()
-                
-                self.tableView.reloadData()
-            }
-            
-            alert.addAction(action)
-            alert.addAction(act)
-            self.presentViewController(alert, animated: true, completion: {})
         }
         
         
@@ -164,15 +128,8 @@ extension MakeTableViewController:UIAlertViewDelegate{
     }//Category name is shown in the title header
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
-        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-        path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
-        
-        playSoundEffects(itemSelectSFX)
-        
-        performSegueWithIdentifier(SEGUE_MAKE_TO_MODEL, sender: self)
-    }//Shows when a cell at row was selected
+           }//Shows when a cell at row was selected
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
     }//Xcode bug hack that lets cell autosize properly
@@ -180,8 +137,8 @@ extension MakeTableViewController:UIAlertViewDelegate{
 
 
 
-//MARK: - UI-ModelTableViewController Extension
-extension MakeTableViewController{
+//MARK: - UI-TrashTableViewController Extension
+extension PercentagesTableViewController{
     func animateAllButtons(){
         //    self.animateSearchButton()
         //    self.animateStarButton()
@@ -202,20 +159,21 @@ extension MakeTableViewController{
 
 
 
-//MARK: -Anylitics-MakeTableViewController Extension
-extension MakeTableViewController{
+//MARK: -Anylitics-TrashTableViewController Extension
+extension PercentagesTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Category Content View",
-            contentType: "Category View",
-            contentId: "MF3",
-            customAttributes: ["MAKE_PAGE_COUNT": pageCount!
-            ])
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("PERCENT_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Percent Content View",
+                contentType: "Percent View",
+                contentId: "MF12",
+                customAttributes: ["PERCENT_PAGE_COUNT": pageCount!
+                ])
         })
     }
 }
- 
+
+

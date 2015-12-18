@@ -108,18 +108,20 @@ extension FavoritedWornTableViewController{
         forRowAtIndexPath indexPath: NSIndexPath) {
             if editingStyle == UITableViewCellEditingStyle.Delete
             {
-                let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
-                let act = UIAlertAction(title: "cancel", style: .Default){_ in}
-                let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-                    self.arrayOfItems.removeAtIndex(indexPath.row)
-                    Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!]![self.path[PATHTYPE_SUBCATEGORY_STRING]!]! = self.arrayOfItems
-                    Users_Wardrobe.quickSave()
-                    
-                    self.tableView.reloadData()
-                }
-                alert.addAction(action)
-                alert.addAction(act)
-                self.presentViewController(alert, animated: true, completion: {})
+//                let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+//                let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+//                let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+//                    self.arrayOfItems.removeAtIndex(indexPath.row)
+//                    
+//                    Users_Wardrobe.setNewFavorites(self.arrayOfItems)
+//                    
+//                    Users_Wardrobe.quickSave()
+//                    
+//                    self.tableView.reloadData()
+//                }
+//                alert.addAction(action)
+//                alert.addAction(act)
+//                self.presentViewController(alert, animated: true, completion: {})
             }
     }
 }

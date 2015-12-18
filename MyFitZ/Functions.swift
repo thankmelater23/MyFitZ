@@ -132,7 +132,7 @@ func returnItem(path: [String: String])->Item{
     
     if validation == true{
         //Setting all variable to values of path
-        let closet:String! = path[PATHTYPE_CLOSET_STRING]
+        let _:String! = path[PATHTYPE_CLOSET_STRING]
         let category:String! = path[PATHTYPE_CATEGORY_STRING]
         let subCategory:String! = path[PATHTYPE_SUBCATEGORY_STRING]
         let id:Int! = Int(path[PATHTYPE_ID_STRING]!)
@@ -155,6 +155,8 @@ func returnItem(path: [String: String])->Item{
                     return searchItem
                 }
             }
+            Users_Wardrobe.clearAllContainersAndPopulate()
+            
                 assertionFailure("Search Failed item not found with in the array or at id number BIG FUCKING ERROR*TIP:ID")
                 return Item()
         }
@@ -172,9 +174,9 @@ func returnItem(path: [String: String])->Item{
  */
 func validatePath(path: [String: String])->Bool{
     print("-VALIDATIING PATH ARRAY")
-    let closet:String? = path[PATHTYPE_CLOSET_STRING] as! String?
-    let category:String? = path[PATHTYPE_CATEGORY_STRING] as! String?
-    let subCategory:String? = path[PATHTYPE_SUBCATEGORY_STRING] as! String?
+    let closet:String? = path[PATHTYPE_CLOSET_STRING]
+    let category:String? = path[PATHTYPE_CATEGORY_STRING]
+    let subCategory:String? = path[PATHTYPE_SUBCATEGORY_STRING]
     let id:String? = path[PATHTYPE_ID_STRING]
     let index:String? = path[PATHTYPE_INDEX_STRING]
     

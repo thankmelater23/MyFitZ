@@ -47,7 +47,6 @@ class RecentTableViewCell: UITableViewCell{
 //MARK: -Initializers
 extension RecentTableViewCell{
     func setCell(Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String){
-        let dateFormatter = NSDateFormatter()
         let date = NSDate()
         
         

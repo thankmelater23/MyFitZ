@@ -49,6 +49,7 @@
 		C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */; };
 		C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */; };
 		C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64503DA1BE1A17F0065EC2F /* Main.storyboard */; };
+		C6574AA51C23852200100743 /* PercentagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6574AA41C23852200100743 /* PercentagesTableViewController.swift */; };
 		C66300981C1425440057061C /* Constants_Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300971C1425440057061C /* Constants_Wardrobe.swift */; };
 		C66300BA1C14254D0057061C /* Constants_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300B91C14254D0057061C /* Constants_Item.swift */; };
 		C66300DB1C1425660057061C /* Constants_Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66300DA1C1425660057061C /* Constants_Fit.swift */; };
@@ -155,6 +156,7 @@
 		C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C6574AA41C23852200100743 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
 		C66300971C1425440057061C /* Constants_Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Wardrobe.swift; sourceTree = "<group>"; };
 		C66300B91C14254D0057061C /* Constants_Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Item.swift; sourceTree = "<group>"; };
 		C66300DA1C1425660057061C /* Constants_Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Fit.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
 				C66CF53A1C1D04670017C12E /* ImageViewController.swift */,
 				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
+				C6574AA41C23852200100743 /* PercentagesTableViewController.swift */,
 				C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */,
 				C64503C51BE1A1160065EC2F /* CreationViewController.swift */,
 				C64503C61BE1A1160065EC2F /* PodTesterTableViewController.swift */,
@@ -713,6 +716,7 @@
 				C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */,
 				C663011D1C1427AA0057061C /* Constants_Extensions.swift in Sources */,
 				C6C639011C214A7F002F115E /* FavoritesTableViewCell.swift in Sources */,
+				C6574AA51C23852200100743 /* PercentagesTableViewController.swift in Sources */,
 				C66CF53B1C1D04670017C12E /* ImageViewController.swift in Sources */,
 				C6178FE91C142118003A9561 /* Constants_SelectionViewController.swift in Sources */,
 				C6178FC71C14210A003A9561 /* Constants_ViewController.swift in Sources */,
