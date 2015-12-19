@@ -40,8 +40,6 @@ class CreationViewController: UIViewController{
         }
             
             
-            
-            
         catch ItemError.IncorrectSubCategory{
 //            let alert = UIAlertView(title: "SubCategory Missing", message: "Enter in correct subcateogry", delegate: self, cancelButtonTitle: "OK")
 //            alert.show()

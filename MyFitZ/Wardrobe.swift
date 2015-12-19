@@ -264,7 +264,7 @@ extension Wardrobe{
         //TODO: -Redo this to get success or not from saving
         var success = false
         //!!: -Clear containers for testing(debugging code)
-//        self.clearAllContainers()
+        //        self.clearAllContainers()
         
         
         dispatch_async(GlobalMainQueue, {
@@ -284,10 +284,10 @@ extension Wardrobe{
                     success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
                     
                     dispatch_async(GlobalMainQueue, {
-                    SVProgressHUD.showSuccessWithStatus("Saved")
-                    SVProgressHUD.dismiss()
-                    
-                    print("File  Saved Successfully")
+                        SVProgressHUD.showSuccessWithStatus("Saved")
+                        SVProgressHUD.dismiss()
+                        
+                        print("File  Saved Successfully")
                     })
                 })
             })
@@ -411,7 +411,7 @@ extension Wardrobe{
         
         self.ItemFavorited(myItem)
         self.checkItemWorn(myItem)
-
+        
         //Saves Wardrobe
         self.quickSave()
     }
@@ -432,8 +432,6 @@ extension Wardrobe{
      */
     func quickSave(){
         playSoundEffects(saveSFX)
-        
-//        self.clearAllContainersAndPopulate()
         
         
         let pathOfFile = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
@@ -557,7 +555,7 @@ extension Wardrobe{
         
         var sum = 0
         
-        //Sets new index for item within array
+        //Sets new index for item within array and populate paths
         for value in sorted{
             value.index = sum
             value.populatePath(self.closetSelectionString)
@@ -595,31 +593,35 @@ extension Wardrobe{
      - returns: sorted array of subCategories
      */
     func sort(category: String)->[[Item]]{
-        let tempArray = self.selectedCloset[category]!
-        
-        let keyOfSelectedArray = Array(tempArray.keys)
-        
-        var array = [[Item]]()
-        
-        if keyOfSelectedArray.count > 1{
-            array = Array(tempArray.values)
-            
-            array.first?.first?.category
-            
-            array = array.sort({
-                $0.first!.subCategory < $1.first!.subCategory})
-        }
-        
-        var index = 0
-        
-        for value in array{
-            if value.first!.subCategory == keyOfSelectedArray[index]{
-                selectedCloset[category]![keyOfSelectedArray[index]] = value
-            }
-            index++
-        }
-        
-        return array
+        //        //Gets subcategory
+        //        let tempArray = self.selectedCloset[category]!
+        //
+        //        //Gets key from subcategory value
+        //        let keyOfSelectedArray = Array(tempArray.keys)
+        //
+        //        var array = [[Item]]()
+        //
+        //        if keyOfSelectedArray.count > 1{
+        //            array = Array(tempArray.values)
+        //
+        //            array.first?.first?.category
+        //
+        //            array = array.sort({
+        //                $0.first!.subCategory < $1.first!.subCategory})
+        //        }
+        //
+        //        var index = 0
+        //
+        //        for value in array{
+        //            if value.first!.subCategory == keyOfSelectedArray[index]{
+        //                selectedCloset[category]![keyOfSelectedArray[index]] = value
+        //            }
+        //            index++
+        //        }
+        //
+        //        return array
+        //    }
+        return [[Item]]()
     }
 }
 
@@ -696,9 +698,8 @@ extension Wardrobe{
                 self.removeItemFromAllContainters(item.path)
                 self.selectedCloset[funcCategory]![funcSubCategory]!.removeAtIndex(num)
                 break
-            }else{
-                num++
             }
+            num++
         }
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
@@ -715,7 +716,9 @@ extension Wardrobe{
         playSoundEffects(deleteSFX)
         
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
+        
         var num = 0
+        
         for index in array{
             if index.id == item.id{
                 self.removeItemFromAllContainters(item.path)
@@ -744,8 +747,6 @@ extension Wardrobe{
         
         selectedCloset[funcCategory]!.removeValueForKey(funcSubCategory)
         
-        self.sort(funcCategory, funcSubCategory: funcSubCategory)
-        
         quickSave()
     }
     /**
@@ -767,6 +768,7 @@ extension Wardrobe{
         
         selectedCloset[funcCategory]?.removeValueForKey(key)
         
+        self.sort(funcCategory, funcSubCategory: key)
         
         quickSave()
     }
@@ -774,7 +776,7 @@ extension Wardrobe{
         self.removeFromFavoriteList(path)
         self.removeFromRecentWornCollectiion(path)
         let item = returnItem(path)
-        self.updateTrashCollectiion(item)
+        self.updateTrashCollectiion(item!)
     }
     
     //MARK: -Appending
@@ -804,12 +806,16 @@ extension Wardrobe{
     */
     func swapItem(funcCategory:     String, funcSubCategory:     String,
         prevFuncCategory: String, prevFuncSubCategory: String,
-        item: Item){
-            //Checks if item needs to be removed
+        item: Item)throws{
+            let tempItem = item
+            self.deleteItem(prevFuncCategory, funcSubCategory: funcSubCategory, item: item)
             
-            deleteItem(prevFuncCategory, funcSubCategory: prevFuncSubCategory, item: item)
+            do{
+                try Users_Wardrobe.save(funcCategory, funcSubCategory: funcSubCategory, item: tempItem)
+            }
             
-            
+            //The delete function puts the deleted item into the trash this removes it as its only being swapped
+            self.removeLastTrashedItem()
     }
     
     //MARK: -Check for availibility
@@ -911,6 +917,9 @@ extension Wardrobe{
     - parameter item: Item to check for favorited
     */
     func  ItemFavorited(item: Item){
+        
+        self.removeFromFavoriteList(item.path)
+        
         if item.favorited == true{
             updateFavoritedWornCollectiion(item.path)
         }
@@ -931,18 +940,26 @@ extension Wardrobe{
      - parameter item: Item to check for favorited
      */
     func checkItemWorn(item: Item){
+        selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({
+            let lastTime = returnItem($0)!.lastTimeWorn
+            return (lastTime != "N.A" || lastTime != "")
+        })
+        
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         
         let isStringConvertableToDate = dateFormatter.dateFromString(item.lastTimeWorn) as NSDate?
         
         if isStringConvertableToDate != nil{
+            
             if selectedClosetRecentWornItems.count < RECENTLY_WORN_CONTAINER_MAX{
                 selectedClosetRecentWornItems.insert(item.path, atIndex: 0)
-                selectedClosetRecentWornItems = selectedClosetRecentWornItems.sort({(returnItem($0).lastTimeWorn).returnDaysInDate() < (returnItem($1).lastTimeWorn).returnDaysInDate()})
+                selectedClosetRecentWornItems = selectedClosetRecentWornItems.sort({(returnItem($0)!.lastTimeWorn).returnDaysInDate() < (returnItem($1)!.lastTimeWorn).returnDaysInDate()})
+                
             }else{
                 for (index, value) in selectedClosetRecentWornItems.enumerate(){
-                    if (item.lastTimeWorn).returnDaysInDate() <= (returnItem(value).lastTimeWorn).returnDaysInDate(){
+                    if (item.lastTimeWorn).returnDaysInDate() <= (returnItem(value)!.lastTimeWorn).returnDaysInDate(){
                         selectedClosetRecentWornItems.insert(item.path, atIndex: index)
                         return
                     }
@@ -974,7 +991,7 @@ extension Wardrobe{
         }
         
         selectedClosetFavoritedItems.insert(path, atIndex: 0)
-        }
+    }
     /**
      Removes item from FavoritedItems if one exist with the same ID number
      
@@ -989,13 +1006,11 @@ extension Wardrobe{
      - parameter path: Reference needed to get item from values inside this dictionary
      */
     private func removeNonFavoritedItems(){
-        //
-        
         var count = 0
         
         for arrayPath in selectedClosetFavoritedItems{
             let item = returnItem(arrayPath)
-            if item.favorited != true{
+            if item!.favorited != true{
                 selectedClosetFavoritedItems.removeAtIndex(count)
             }
             count++
@@ -1010,7 +1025,12 @@ extension Wardrobe{
         for path in selectedClosetFavoritedItems{
             let item = returnItem(path)
             
-            returningDictionaryPath.append(item)
+            if item == nil{
+                self.clearAllContainersAndPopulate()
+                return self.populateFavoriteItems()
+            }
+            
+            returningDictionaryPath.append(item!)
         }
         
         return returningDictionaryPath
@@ -1024,7 +1044,12 @@ extension Wardrobe{
         for path in selectedClosetRecentWornItems{
             let item = returnItem(path)
             
-            returningDictionaryPath.append(item)
+            if item == nil{
+                self.clearAllContainersAndPopulate()
+                return self.populateFavoriteItems()
+            }
+            
+            returningDictionaryPath.append(item!)
         }
         return returningDictionaryPath
     }
@@ -1064,6 +1089,9 @@ extension Wardrobe{
             arrayToDelete = arrayToDelete.filter({validatePath($0)})
             
             arrayToDelete.insert(path, atIndex: 0)
+            
+            
+            
             selectedClosetRecentWornItems = arrayToDelete
         }
         
@@ -1082,14 +1110,25 @@ extension Wardrobe{
         }
     }
     func updateTrashCollectiion(item: Item){
-            if selectedClosetTrashItems.count > RECENTLY_WORN_CONTAINER_MAX{
-                selectedClosetTrashItems.popLast()
-            }
-            
-            self.selectedClosetTrashItems.insert(item, atIndex: 0)
+        //If trash is above the max count delete the tail
+        if selectedClosetTrashItems.count > RECENTLY_WORN_CONTAINER_MAX{
+            selectedClosetTrashItems.popLast()
+        }
+        
+        self.selectedClosetTrashItems.insert(item, atIndex: 0)
+    }
+    func sortRecentContainer(){
+        var arrayToDelete = [:]
+        
+        
     }
     func removeLastTrashedItem(){
-        selectedClosetTrashItems.popLast()
+        if !selectedClosetTrashItems.isEmpty{
+            selectedClosetTrashItems.removeAtIndex(0)
+            print("Last inserted trash item deleted")
+        }else{
+            print("trash empty no items was removed")
+        }
     }
     /**
      Removes item from recentWornItems if one exist with the same ID number
@@ -1107,6 +1146,7 @@ extension Wardrobe{
         self.myClosetFavoritedItems.removeAll()
         self.myClosetRecentWornItems.removeAll()
         self.findAndPopulateContainers()
+        //            self.quickSave()
     }
     
     func cleanOutTrash(){
@@ -1123,9 +1163,9 @@ extension Wardrobe{
                     
                     if item.lastTimeWorn.returnDaysInDate() != 1000{
                         self.selectedClosetRecentWornItems.append(item.path)
-}
-}
-}
-}
-}
+                    }
+                }
+            }
+        }
+    }
 }

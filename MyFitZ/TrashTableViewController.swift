@@ -113,6 +113,8 @@ extension TrashTableViewController{
                     
                     Users_Wardrobe.quickSave()
                     
+                    self.arrayOfItems.removeAtIndex(indexPath.row)
+                    
                     self.tableView.reloadData()
                 }
                 

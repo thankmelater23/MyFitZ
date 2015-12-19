@@ -87,11 +87,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "472035385.16637"
+            timestampString = "472096031.697482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "createCellFromRequiredDictionary(row:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -199,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "834"
-            endingLineNumber = "834"
+            startingLineNumber = "837"
+            endingLineNumber = "837"
             landmarkName = "doesItemExistAt(_:funcSubCategory:item:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -263,11 +263,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1027"
-            endingLineNumber = "1027"
+            startingLineNumber = "1044"
+            endingLineNumber = "1044"
             landmarkName = "populateRecentlyWornItems()"
             landmarkType = "5">
          </BreakpointContent>
@@ -279,11 +279,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EditItemViewController.swift"
-            timestampString = "472035385.16637"
+            timestampString = "472196019.162786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "setTitle()"
             landmarkType = "5">
          </BreakpointContent>
@@ -373,7 +373,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
+            landmarkName = "countClosetUp()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Wardrobe.swift"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "454"
@@ -389,27 +405,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "457"
-            endingLineNumber = "457"
-            landmarkName = "countClosetUp()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
             landmarkName = "countWishlistDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -421,11 +421,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "474"
-            endingLineNumber = "474"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
             landmarkName = "countWishlistDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -437,11 +437,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "countWishlistDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -485,11 +485,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "871"
-            endingLineNumber = "871"
+            startingLineNumber = "874"
+            endingLineNumber = "874"
             landmarkName = "Wardrobe"
             landmarkType = "3">
          </BreakpointContent>
@@ -501,11 +501,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "869"
-            endingLineNumber = "869"
+            startingLineNumber = "872"
+            endingLineNumber = "872"
             landmarkName = "Wardrobe"
             landmarkType = "3">
          </BreakpointContent>
@@ -581,11 +581,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "472035385.16637"
+            timestampString = "472096031.697482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "createCellFromRequiredDictionary(row:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -629,59 +629,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Functions.swift"
-            timestampString = "472093696.14211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "wardrobeItemsReset(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Functions.swift"
-            timestampString = "472093696.14211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "wardrobeItemsReset(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Functions.swift"
-            timestampString = "472093696.14211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "wardrobeItemsReset(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Functions.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472170841.311197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
+            landmarkName = "wardrobeItemsReset(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Functions.swift"
+            timestampString = "472170841.311197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "wardrobeItemsReset(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Functions.swift"
+            timestampString = "472170841.311197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "wardrobeItemsReset(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Functions.swift"
+            timestampString = "472170841.311197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "wardrobeItemsReset(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -741,11 +741,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "965"
-            endingLineNumber = "965"
+            startingLineNumber = "979"
+            endingLineNumber = "979"
             landmarkName = "updateFavoritedWornCollectiion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -801,31 +801,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472095439.487312"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1065"
-            endingLineNumber = "1065"
-            landmarkName = "updateRecentWornCollectiion(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "809"
-            endingLineNumber = "809"
+            startingLineNumber = "812"
+            endingLineNumber = "812"
             landmarkName = "swapItem(_:funcSubCategory:prevFuncCategory:prevFuncSubCategory:item:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -837,11 +821,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EditItemViewController.swift"
-            timestampString = "472035385.16637"
+            timestampString = "472098445.361084"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "deleteItem()"
             landmarkType = "5">
          </BreakpointContent>
@@ -853,61 +837,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Functions.swift"
-            timestampString = "471923355.892147"
+            timestampString = "472167273.755249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "returnItem(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/Functions.swift"
-            timestampString = "472093696.14211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "returnItem(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyFitZ.returnItem (Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; MyFitZ.Item"
-                  moduleName = "MyFitZ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andre17MacbookPro/Box%20Sync/MyFitZ/MyFitZ/Functions.swift"
-                  timestampString = "472095440.643774"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "3520">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyFitZ.(returnItem (Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; MyFitZ.Item).(implicit closure #1)"
-                  moduleName = "MyFitZ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andre17MacbookPro/Box%20Sync/MyFitZ/MyFitZ/Functions.swift"
-                  timestampString = "472095440.643993"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "0">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1015,11 +951,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472095439.487312"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1088"
-            endingLineNumber = "1088"
+            startingLineNumber = "1113"
+            endingLineNumber = "1113"
             landmarkName = "updateTrashCollectiion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1031,11 +967,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "777"
-            endingLineNumber = "777"
+            startingLineNumber = "780"
+            endingLineNumber = "780"
             landmarkName = "removeItemFromAllContainters(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1047,11 +983,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Functions.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472170841.311197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "validatePath(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1063,11 +999,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472093696.14211"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "696"
-            endingLineNumber = "696"
+            startingLineNumber = "697"
+            endingLineNumber = "697"
             landmarkName = "deleteItem(_:funcSubCategory:item:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1079,11 +1015,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472095439.487312"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1071"
-            endingLineNumber = "1071"
+            startingLineNumber = "1096"
+            endingLineNumber = "1096"
             landmarkName = "updateRecentWornCollectiion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1095,11 +1031,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472095439.487312"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1070"
-            endingLineNumber = "1070"
+            startingLineNumber = "1093"
+            endingLineNumber = "1093"
             landmarkName = "updateRecentWornCollectiion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1111,11 +1047,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/Wardrobe.swift"
-            timestampString = "472034430.607252"
+            timestampString = "472175660.206915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "saveItem(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1133,6 +1069,134 @@
             startingLineNumber = "331"
             endingLineNumber = "331"
             landmarkName = "save(_:funcSubCategory:item:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EditItemViewController.swift"
+            timestampString = "472096530.062298"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "updateItem()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Wardrobe.swift"
+            timestampString = "472175660.206915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "715"
+            endingLineNumber = "715"
+            landmarkName = "deleteItemWithNoSave(_:funcSubCategory:item:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Wardrobe.swift"
+            timestampString = "472175660.206915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "594"
+            endingLineNumber = "594"
+            landmarkName = "sort(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Wardrobe.swift"
+            timestampString = "472175660.206915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1088"
+            endingLineNumber = "1088"
+            landmarkName = "updateRecentWornCollectiion(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Functions.swift"
+            timestampString = "472170841.311197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "validateItem(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Functions.swift"
+            timestampString = "472170841.311197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "validateItem(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Wardrobe.swift"
+            timestampString = "472175660.206915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "925"
+            endingLineNumber = "925"
+            landmarkName = "ItemFavorited(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/Wardrobe.swift"
+            timestampString = "472198425.220409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "623"
+            endingLineNumber = "623"
+            landmarkName = "sort(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

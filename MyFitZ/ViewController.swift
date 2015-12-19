@@ -97,15 +97,16 @@ extension ViewController{
 //MARK: -Animations-ViewController Extension
 extension ViewController{
     func animateAllButtons(){
-//        self.animateSearchButton()
-//        self.animateStarButton()
-//        self.animateHamperButton()
-//        self.animateSearchButton()
-//        self.animatePictureLabels()
-//        self.animatePictureImages()
-//        self.animateNumberLabels()
-//        self.animateTrashButton()
+        //        self.animateSearchButton()
+        //        self.animateStarButton()
+        //        self.animateHamperButton()
+        //        self.animateSearchButton()
+        //        self.animatePictureLabels()
+        //        self.animatePictureImages()
+        //        self.animateNumberLabels()
+        //        self.animateTrashButton()
         self.animateLogo()
+        self.animateOptionButtons()
         //        self.animateViews()
         
     }
@@ -113,31 +114,33 @@ extension ViewController{
         logoCustomization(self.logoImage)
     }
     func animateFeatureButtons(){
-        buttonAnimation(self.optionsButton)
+    }
+    func animateOptionButtons(){
+        optionViewCustomized(self.optionsButton)
     }
 }
-    
+
 //MARK: -Anylitics-ViewController Extension
 extension ViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("MAIN_PAGE_COUNT")
-        
-        let closetSelectionCount:Int? = defaults.returnIntValue("CLOSET_SELECTION_COUNT")
-        
-        let wishListSelectionCount:Int? = defaults.returnIntValue("WISHLIST_SELECTION_COUNT")
-        
-        
-        
-        Answers.logContentViewWithName("Main View Content View",
-            contentType: "Main Menu",
-            contentId: "MF1",
-            customAttributes: ["MAIN_PAGE_COUNT": pageCount!,
-                "CLOSET_SELECTION_COUNT": closetSelectionCount!,
-                "WISHLIST_SELECTION_COUNT": wishListSelectionCount!
-            ])
-    }
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("MAIN_PAGE_COUNT")
+            
+            let closetSelectionCount:Int? = defaults.returnIntValue("CLOSET_SELECTION_COUNT")
+            
+            let wishListSelectionCount:Int? = defaults.returnIntValue("WISHLIST_SELECTION_COUNT")
+            
+            
+            
+            Answers.logContentViewWithName("Main View Content View",
+                contentType: "Main Menu",
+                contentId: "MF1",
+                customAttributes: ["MAIN_PAGE_COUNT": pageCount!,
+                    "CLOSET_SELECTION_COUNT": closetSelectionCount!,
+                    "WISHLIST_SELECTION_COUNT": wishListSelectionCount!
+                ])
+            }
         )}
 }

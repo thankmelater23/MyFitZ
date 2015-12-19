@@ -297,7 +297,7 @@ extension CreateItemViewController{
         self.setPickerInfo()
         self.animateAllButtons()
         
-        dispatch_sync(GlobalUtilityQueue, {
+        dispatch_async(GlobalUtilityQueue, {
             self.initializeRETableView()
             self.setUpTableView()
         })

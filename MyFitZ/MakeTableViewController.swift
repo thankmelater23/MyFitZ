@@ -143,8 +143,8 @@ extension MakeTableViewController:UIAlertViewDelegate{
                 
                 Users_Wardrobe.deleteAt(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
 //                
-//                self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
-//                
+                self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
+//
 //                Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
 //                Users_Wardrobe.quickSave()
                 

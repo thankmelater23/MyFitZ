@@ -26,12 +26,12 @@ class SelectionViewController: UIViewController{
     @IBOutlet weak var optionsHolderView: UIView!
     @IBOutlet weak var percentageButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-//        {
-//        didSet{
-//            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
-//            favortiedItems.addGestureRecognizer(recognizer)
-//        }
-//    }
+    //        {
+    //        didSet{
+    //            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
+    //            favortiedItems.addGestureRecognizer(recognizer)
+    //        }
+    //    }
     
     //MARK: -Selection Image Buttons
     @IBOutlet weak var topImage: UIButton!
@@ -101,27 +101,27 @@ class SelectionViewController: UIViewController{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
             createItemViewController.lastVCSegue = SEGUE_CREATION_TO_SELECTION
         }else if segue.identifier == SEGUE_SELECTION_TO_PERCENTAGE{
-//            let percentagesTableViewController: PercentagesTableViewController! = segue.destinationViewController as! PercentagesTableViewController
-//            let popOver = percentagesTableViewController.popoverPresentationController
-//            popOver?.permittedArrowDirections = UIPopoverArrowDirection.Any
+            //            let percentagesTableViewController: PercentagesTableViewController! = segue.destinationViewController as! PercentagesTableViewController
+            //            let popOver = percentagesTableViewController.popoverPresentationController
+            //            popOver?.permittedArrowDirections = UIPopoverArrowDirection.Any
         }
-
+        
     }
     func assignCategoriesItemCount(){
         var catCountDic: [String: Int] = [String: Int]()
         
         dispatch_async(GlobalBackgroundQueue, {
-        for category in CATEGORY_PICKER_OPTIONS{
-            catCountDic[category] = Users_Wardrobe.getCountOfAllItemsInCategory(category)
-        }
-        
-        dispatch_async(GlobalMainQueue, {
-        self.topCounter.text = String(catCountDic[TOPS]!)
-        self.bottomCounter.text = String(catCountDic[BOTTOMS]!)
-        self.footwareCounter.text = String(catCountDic[FOOTWARE]!)
-        self.underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
-        self.accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
-        self.headwareCounter.text = String(catCountDic[HEADWARE]!)
+            for category in CATEGORY_PICKER_OPTIONS{
+                catCountDic[category] = Users_Wardrobe.getCountOfAllItemsInCategory(category)
+            }
+            
+            dispatch_async(GlobalMainQueue, {
+                self.topCounter.text = String(catCountDic[TOPS]!)
+                self.bottomCounter.text = String(catCountDic[BOTTOMS]!)
+                self.footwareCounter.text = String(catCountDic[FOOTWARE]!)
+                self.underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
+                self.accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
+                self.headwareCounter.text = String(catCountDic[HEADWARE]!)
             })
         })
         
@@ -153,7 +153,7 @@ extension SelectionViewController{
     }
     
     @IBAction func percentageButtonPressed() {
-//        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
+        //        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
     }
 }
 
@@ -174,7 +174,8 @@ extension SelectionViewController{
         self.animateNumberLabels()
         self.animateLogo()
         self.animateOptionButtons()
-//        self.animateViews()
+        self.animateFeaturesButtons()
+        self.animateViews()
         
     }
     func animateLogo(){
@@ -182,12 +183,11 @@ extension SelectionViewController{
     }
     func animateViews(){
         viewGeneralCustomization(self.topBannerView)
-        viewGeneralCustomization(self.topBannerView)
-        viewGeneralCustomization(self.buttonHolderView)
+        //        viewGeneralCustomization(self.buttonHolderView)
         viewGeneralCustomization(self.bottomCategoriesView)
         viewGeneralCustomization(self.topCategoriesView)
         viewGeneralCustomization(self.optionsHolderView)
-        }
+    }
     func animateSearchButton(){
         self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 10
         self.searchButton.contentMode = UIViewContentMode.ScaleAspectFit
@@ -208,11 +208,13 @@ extension SelectionViewController{
         }
     }
     func animateOptionButtons(){
+        optionViewCustomized(self.percentageButton)
+        optionViewCustomized(self.shareButton)
+    }
+    func animateFeaturesButtons(){
         buttonAnimation(self.trashButton)
         buttonAnimation(self.recentlyWonrItem)
         buttonAnimation(self.favortiedItems)
-        buttonAnimation(self.percentageButton)
-        buttonAnimation(self.shareButton)
     }
     func animatePictureImages(){
         secectionImagesDresser(self.topImage)
@@ -238,6 +240,7 @@ extension SelectionViewController{
         secectionImageLabelDresser(self.headwareCounter)
         secectionImageLabelDresser(self.underClothesCounter)
     }
+    
 }
 
 
@@ -245,15 +248,15 @@ extension SelectionViewController{
 extension SelectionViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Main View Content View",
-            contentType: "Category Selection Menu",
-            contentId: "MF2",
-            customAttributes: ["SELECTION_PAGE_COUNT": pageCount!
-            ])
-    })
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Main View Content View",
+                contentType: "Category Selection Menu",
+                contentId: "MF2",
+                customAttributes: ["SELECTION_PAGE_COUNT": pageCount!
+                ])
+        })
     }
 }

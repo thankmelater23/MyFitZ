@@ -61,21 +61,21 @@ func playSoundEffects(soundID: SystemSoundID) {
 func initializeSounds() {
     
     dispatch_async(GlobalBackgroundQueue, {
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("delete0", withExtension: "wav")!, &deleteSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("edit0", withExtension: "wav")!, &editSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("add0", withExtension: "wav")!, &addSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("back0", withExtension: "wav")!, &backSFX)
-
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("wear0", withExtension: "wav")!, &wearSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification1", withExtension: "wav")!, &categorySFX)
-    //    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("path", withExtension: "wav")!, &subCategorySFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("cellselect0", withExtension: "wav")!, &itemSelectSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("update0", withExtension: "wav")!, &updateSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("animationPop0", withExtension: "wav")!, &animationSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("alert0", withExtension: "wav")!, &incorrectSFX)
-    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("delete0", withExtension: "wav")!, &deleteSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("edit0", withExtension: "wav")!, &editSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("add0", withExtension: "wav")!, &addSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("back0", withExtension: "wav")!, &backSFX)
+        
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("wear0", withExtension: "wav")!, &wearSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification1", withExtension: "wav")!, &categorySFX)
+        //    AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("path", withExtension: "wav")!, &subCategorySFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("cellselect0", withExtension: "wav")!, &itemSelectSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("update0", withExtension: "wav")!, &updateSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("animationPop0", withExtension: "wav")!, &animationSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("alert0", withExtension: "wav")!, &incorrectSFX)
+        AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
     })
 }
 
@@ -126,11 +126,16 @@ func buttonTouchEndedAnimation(button:UIView){
 
 
 //MARK: -WARDROBE Reference System
-func returnItem(path: [String: String])->Item{
-    //TODO:Set this method up to take data and get a item from wardrobe
-    let validation = validatePath(path)//Validates that all values are available
+/**
+Returns an item from the path give or nil if none exist at that place
+
+- parameter path: Dictionary of keys and values
+
+- returns: Item from path
+*/
+func returnItem(path: [String: String])->Item?{
     
-    if validation == true{
+    if validatePathAndItem(path){
         //Setting all variable to values of path
         let _:String! = path[PATHTYPE_CLOSET_STRING]
         let category:String! = path[PATHTYPE_CATEGORY_STRING]
@@ -147,7 +152,12 @@ func returnItem(path: [String: String])->Item{
             print("Item id matched on return to item")
             return item
         }else{
+            defer{
+                Users_Wardrobe.clearAllContainersAndPopulate()
+            }
+            
             print("Item id did not match on return to item, search initiated")
+            
             for searchItem in array{
                 //TODO: -Something isn't right for this to always be happening
                 if searchItem.id == id{
@@ -155,13 +165,20 @@ func returnItem(path: [String: String])->Item{
                     return searchItem
                 }
             }
-            Users_Wardrobe.clearAllContainersAndPopulate()
+                dispatch_sync(GlobalUtilityQueue, {
+                Users_Wardrobe.clearAllContainersAndPopulate()
+                assertionFailure("Search Failed item not found with in the array or at id number BIG ERROR*TIP:ID")
+                    })
             
-                assertionFailure("Search Failed item not found with in the array or at id number BIG FUCKING ERROR*TIP:ID")
-                return Item()
+            return Item()
         }
     }else{
-        assertionFailure("Validation failed value is missing from path BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+        //        dispatch_async(GlobalMainQueue, {
+        dispatch_sync(GlobalUtilityQueue, {
+            Users_Wardrobe.clearAllContainersAndPopulate()
+            assertionFailure("Validation failed value is missing from path BIG FUCKING ERROR*TIP:ID IS NOT UPDATING WHEN ITS PATH IS CHANGED")
+        })
+        //            })
         return Item()
     }
 }
@@ -192,7 +209,38 @@ func validatePath(path: [String: String])->Bool{
         return false
     }
 }
-
+/**
+Verifies if an item exists at the given path
+ 
+ - parameter path: Dictionary of values needed
+ 
+ - returns: <#return value description#>
+ */
+func validateItem(path: [String: String])-> Bool{
+    let index = Int(path[PATHTYPE_INDEX_STRING]!) ?? 999999
+    let array: [Item]? = Users_Wardrobe.returnArrayOfItems(path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: path[PATHTYPE_SUBCATEGORY_STRING]!) as [Item]?
+    
+    if index < array?.count{
+        
+        if let _ = array?[index]{
+            return true
+        }else{
+            return false
+        }
+    }else{
+        return false
+    }
+}
+/**
+ Takes the path and needs validPath & validateItem to both be true to return true or the method returns false
+ 
+ - parameter path: Dictionary path to verify
+ 
+ - returns: Bool
+ */
+func validatePathAndItem(path: [String: String])->Bool{
+    return (validatePath(path) && validateItem(path))
+}
 func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
     //Gives all Closet items a new ID number
     
@@ -270,12 +318,12 @@ func secectionImagesDresser(view: UIView){
  - parameter view: Views to customize
  */
 func viewGeneralCustomization(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
+    //    view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleToFill
     
     view.clipsToBounds = true
-    view.layer.borderWidth = 5
-    view.layer.borderColor = UIColor.blackColor().CGColor
+    view.layer.borderWidth = 2
+    view.layer.borderColor = UIColor.orangeColor().CGColor
 }
 /**
  Sets Logo to be customized
@@ -337,6 +385,19 @@ func secectionNumberLabelDresser(view: UIView){
     view.clipsToBounds = true
     view.layer.borderWidth = 0.5
     view.layer.borderColor = UIColor.darkGrayColor().CGColor
+}
+/**
+ Sets option buttons to be customized
+ 
+ - parameter view: UIButton to customize
+ */
+func optionViewCustomized(view: UIView){
+    view.layer.cornerRadius = 0.5 *  view.frame.size.width
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3
+    view.layer.borderColor = UIColor.purpleColor().CGColor
 }
 /**
  Sets bar button to be customized
