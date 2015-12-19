@@ -364,10 +364,9 @@ extension Wardrobe{
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
         
-        item.populatePath(self.closetSelectionString)
-//        
-//        self.clearAllContainers()
-//        self.findAndPopulateContainers()
+        //!!: -This is here because when edit button is pressed and item is saved is causing some issues so have to reorganize the containers
+        //self.clearAllContainersAndPopulate()
+        
         self.ItemFavorited(item)
         self.checkItemWorn(item)
         
@@ -471,12 +470,13 @@ extension Wardrobe{
         }
         return wishListItemCountID!
     }
+    
     /**
      Get the number of items in MyCloset
      
      - returns: number of items in MyCloset
      */
-    func getsCountOfMyCloset()-> Int{
+    private func getsCountOfMyCloset()-> Int{
         var sum = 0
         for (_, value) in myCloset{
             for (_, value) in value{
@@ -492,7 +492,7 @@ extension Wardrobe{
      
      - returns: number of items in Wishlist
      */
-    func getsCountOfMyWishList()-> Int{
+    private func getsCountOfMyWishList()-> Int{
         var sum = 0
         for (_, value) in myWantsCloset{
             for (_, value) in value{
@@ -503,6 +503,17 @@ extension Wardrobe{
         }
         return sum
     }
+    
+    ///Returns count of allt current closet items
+    func getCountOfCloset()->Int{
+        if self.closetSelectionString == MY_CLOSET{
+            return self.getsCountOfMyCloset()
+        }else if self.closetSelectionString == MY_WANTS_CLOSET{
+            return self.getsCountOfMyWishList()
+        }else{
+            return 0
+        }
+    }
     /**
      Get count of subCategories in key of Category
      
@@ -510,22 +521,8 @@ extension Wardrobe{
      
      - returns: Number of sumCategories
      */
-    func getCountOfCategories(funcCategory: String)->Int{
-        return selectedCloset[funcCategory]!.count
-    }
-    /**
-     Gets count of all items in a subcategory of categories
-     
-     - parameter funcCategory: Category Key
-     
-     - returns: <#return value description#>
-     */
     func getCountOfAllItemsInCategory(funcCategory: String)->Int{
-        var sum = 0
-        for (_, value) in selectedCloset[funcCategory]!{
-            sum += value.count
-        }
-        return sum
+        return selectedCloset[funcCategory]!.count
     }
     /**
      Gets count of number of items in Subcategory
@@ -730,7 +727,7 @@ extension Wardrobe{
         }
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
-
+        
     }
     /**
      Deletes array:[Item] at Category/Sub-Category, plays SFX, than save

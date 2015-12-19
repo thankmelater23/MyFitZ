@@ -153,7 +153,7 @@ extension SelectionViewController{
     }
     
     @IBAction func percentageButtonPressed() {
-        //        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
+                self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
     }
 }
 

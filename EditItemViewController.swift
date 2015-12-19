@@ -141,6 +141,7 @@ extension EditItemViewController{
             Users_Wardrobe.deleteItemWithNoSave(self.previousItem.category, funcSubCategory: self.previousItem.subCategory, item: self.previousItem)
             
             Users_Wardrobe.removeLastTrashedItem()
+            
             try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
             
             
@@ -160,7 +161,7 @@ extension EditItemViewController{
             let alert = UIAlertController(title: "Model String Missing", message: "Enter in correct Model String", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion:nil)
-
+            
         }catch ItemError.addImage{
             let alert = UIAlertController(title: "Image not selected", message: "Selctect image", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -197,6 +198,13 @@ extension EditItemViewController{
         //Initialized Date Formatter
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
+        
+        //Setup Picker textfields
+        self.categorySelected = viewItem.category
+        self.subCategorySelected = viewItem.subCategory
+        
+        self.categoryInputTextField.text = categorySelected
+        self.subCategoryInputTextField.text = subCategorySelected
         
         //Initialized Date Strings
         var tempDateReleased:String?
@@ -646,18 +654,18 @@ extension EditItemViewController{
 extension EditItemViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("EDIT_PAGE_COUNT")
-        //        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
-        
-        Answers.logContentViewWithName("Edit Content View",
-            contentType: "Edit View",
-            contentId: "MF6",
-            customAttributes: ["EDIT_PAGE_COUNT": pageCount!
-                
-                //                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
-            ])
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("EDIT_PAGE_COUNT")
+            //        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
+            
+            Answers.logContentViewWithName("Edit Content View",
+                contentType: "Edit View",
+                contentId: "MF6",
+                customAttributes: ["EDIT_PAGE_COUNT": pageCount!
+                    
+                    //                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
+                ])
         })
     }
 }

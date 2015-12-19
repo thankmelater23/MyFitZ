@@ -129,6 +129,8 @@ let SEGUE_SELECTION_TO_TRASH    = "selectionToTrash"
 let SEGUE_SEARCH_TO_DETAIL       = "searchToDetail"
 let SEGUE_IMAGE_TO_DETAIL       = "imageToDetail"
 let SEGUE_SELECTION_TO_PERCENTAGE = "selectionToPercentage"
+let SEGUE_PERCENTAGE_TO_SELECTION = "percentToSelection"
+let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
 
 //MARK: -Cell identifiers
 //TODO: -Turn this into a struct
