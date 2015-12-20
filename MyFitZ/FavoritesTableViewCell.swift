@@ -24,6 +24,7 @@ class FavoritesTableViewCell: UITableViewCell{
     //MARK: -View Methods
     override func  awakeFromNib(){
         super.awakeFromNib()
+        self.animateView()
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
@@ -52,5 +53,14 @@ extension FavoritesTableViewCell{
         self.lastTimeWorn.text = "Date Worn: " + lastTimeWorn
         self.row.text = String(row + 1) + ":"
         self.setButtonImage(favorited)
+    }
+}
+
+
+
+//MARK: -Animations-FavoritesTableViewCell Extension
+extension FavoritesTableViewCell{
+    func animateView(){
+        optionViewCustomized(self.favoritedButton)
     }
 }

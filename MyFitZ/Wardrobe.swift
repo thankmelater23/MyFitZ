@@ -522,7 +522,11 @@ extension Wardrobe{
      - returns: Number of sumCategories
      */
     func getCountOfAllItemsInCategory(funcCategory: String)->Int{
-        return selectedCloset[funcCategory]!.count
+        var sum = 0
+        for (_, value) in selectedCloset[funcCategory]!{
+            sum += value.count
+        }
+        return sum
     }
     /**
      Gets count of number of items in Subcategory

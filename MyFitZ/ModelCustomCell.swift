@@ -23,6 +23,7 @@ class ModelCustomCell: UITableViewCell{
     //MARK: -View Methods
     override func  awakeFromNib(){
         super.awakeFromNib()
+        self.animateView()
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
@@ -49,6 +50,15 @@ extension ModelCustomCell{
         }else{
             star.image = UIImage(named: "star_off")
         }
+    }
+}
+
+
+
+//MARK: -Animations-ViewController Extension
+extension ModelCustomCell{
+    func animateView(){
+        optionViewCustomized(self.star)
     }
 }
  

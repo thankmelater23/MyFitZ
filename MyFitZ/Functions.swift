@@ -323,7 +323,7 @@ func viewGeneralCustomization(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 2
-    view.layer.borderColor = UIColor.orangeColor().CGColor
+    view.layer.borderColor = UIColor.blackColor().CGColor
 }
 /**
  Sets Logo to be customized
@@ -331,12 +331,12 @@ func viewGeneralCustomization(view: UIView){
  - parameter view: Logo to customize
  */
 func logoCustomization(view: UIView){
-    //    view.layer.cornerRadius = view.frame.size.width / 10
+    view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleToFill
     
-    //    view.clipsToBounds = true
-    view.layer.borderWidth = 5
-    view.layer.borderColor =  UIObjectColors.imageBorder
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3
+    view.layer.borderColor = UIColor.blueColor().CGColor//init(patternImage: UIImage(named: "blueCracks")!).CGColor
 }
 /**
  Sets images to be customized

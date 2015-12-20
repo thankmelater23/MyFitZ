@@ -22,6 +22,7 @@ class MakeCustomCell: UITableViewCell{
     //MARK: -View Methods
     override func  awakeFromNib(){
         super.awakeFromNib()
+        self.animateView()
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
@@ -37,5 +38,14 @@ extension MakeCustomCell{
         self.makeImage.image = Image
         self.makeLabel.text = makeLabelText
         self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
+    }
+}
+
+
+
+//MARK: -Animations-ViewController Extension
+extension MakeCustomCell{
+    func animateView(){
+        optionViewCustomized(self.makeImage)
     }
 }

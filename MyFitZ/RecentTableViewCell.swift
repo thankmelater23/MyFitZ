@@ -24,6 +24,7 @@ class RecentTableViewCell: UITableViewCell{
     //MARK: -View Methods
     override func  awakeFromNib(){
         super.awakeFromNib()
+        self.animateView()
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
@@ -61,5 +62,13 @@ extension RecentTableViewCell{
         }else{
             self.setWearButtonImage(false)
         }
+    }
+}
+
+
+//MARK: -Animations-RecentTableViewCell Extension
+extension RecentTableViewCell{
+    func animateView(){
+        optionViewCustomized(self.wear)
     }
 }
