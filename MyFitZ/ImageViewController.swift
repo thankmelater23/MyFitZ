@@ -12,7 +12,7 @@ class ImageViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var logoImage: UIImageView!
-    
+    @IBOutlet weak var itemLabel: UILabel!
     
     @IBOutlet weak var nameAndBrandBar: UILabel!
     var imageHolder:UIImage = UIImage()
@@ -25,7 +25,7 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
+        self.view.backgroundColor = Cotton
         self.image.image = self.imageHolder
         
         self.nameAndBrandBar.text = grabTitle(self.itemName, view: self.itemBrand)
@@ -51,14 +51,8 @@ class ImageViewController: UIViewController {
 //MARK: - UI-ImageViewController Extension
 extension ImageViewController{
     func animateAllButtons(){
-        //    self.animateSearchButton()
+            self.animateLabel()
         //    self.animateStarButton()
-        //    self.animateHamperButton()
-        //    self.animateSearchButton()
-        //    self.animatePictureLabels()
-        //    self.animatePictureImages()
-        //    self.animateNumberLabels()
-        //    self.animateTrashButton()
             self.animateLogo()
         self.animateImage()
         //        self.animateViews()
@@ -67,7 +61,10 @@ extension ImageViewController{
     func animateLogo(){
 
     }
+    func animateLabel(){
+        secectionImageLabelDresser(self.itemLabel)
+    }
     func animateImage(){
-        imageCustomization(self.image)
+         imageCustomization(self.image)
     }
 }

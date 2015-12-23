@@ -38,6 +38,20 @@ class FavoritesTableViewCell: UITableViewCell{
         }
     }
     
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Gold.CGColor
+    }
+    
+    func customizeView(){
+        self.backgroundColor = PopulatedStarsTexture
+        self.borderCustomization()
+    }
+    
     @IBAction func favoritedSwitch() {
     }
 }
@@ -53,6 +67,8 @@ extension FavoritesTableViewCell{
         self.lastTimeWorn.text = "Date Worn: " + lastTimeWorn
         self.row.text = String(row + 1) + ":"
         self.setButtonImage(favorited)
+        
+        self.customizeView()
     }
 }
 
@@ -61,6 +77,7 @@ extension FavoritesTableViewCell{
 //MARK: -Animations-FavoritesTableViewCell Extension
 extension FavoritesTableViewCell{
     func animateView(){
-        optionViewCustomized(self.favoritedButton)
+        
+       CellButtons(self.favoritedButton)
     }
 }

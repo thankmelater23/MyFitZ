@@ -60,7 +60,7 @@ func playSoundEffects(soundID: SystemSoundID) {
  */
 func initializeSounds() {
     
-    dispatch_async(GlobalBackgroundQueue, {
+    dispatch_async(GlobalUserInteractiveQueue, {
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("delete0", withExtension: "wav")!, &deleteSFX)
@@ -165,10 +165,10 @@ func returnItem(path: [String: String])->Item?{
                     return searchItem
                 }
             }
-                dispatch_sync(GlobalUtilityQueue, {
+            dispatch_sync(GlobalUtilityQueue, {
                 Users_Wardrobe.clearAllContainersAndPopulate()
                 assertionFailure("Search Failed item not found with in the array or at id number BIG ERROR*TIP:ID")
-                    })
+            })
             
             return Item()
         }
@@ -210,7 +210,7 @@ func validatePath(path: [String: String])->Bool{
     }
 }
 /**
-Verifies if an item exists at the given path
+ Verifies if an item exists at the given path
  
  - parameter path: Dictionary of values needed
  
@@ -310,7 +310,7 @@ func secectionImagesDresser(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 3
-    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "blueCracks")!).CGColor
+    view.layer.borderColor = GreenWool.CGColor
 }
 /**
  Sets Views to be customized
@@ -323,7 +323,32 @@ func viewGeneralCustomization(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 2
-    view.layer.borderColor = UIColor.blackColor().CGColor
+    view.layer.borderColor = Stitching.CGColor
+}
+/**
+ Sets Views to be customized
+ 
+ - parameter view: Views to customize
+ */
+func subViewGeneralCustomization(view: UIView){
+    //    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 2
+    view.layer.borderColor = Stitching.CGColor
+    view.backgroundColor = Jean
+}
+
+func bannerViewCustomization(view: UIView){
+    //    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 2
+    view.layer.borderColor = Stitching.CGColor
+    view.backgroundColor = PopulatedStarsTexture
+    
 }
 /**
  Sets Logo to be customized
@@ -335,8 +360,8 @@ func logoCustomization(view: UIView){
     view.contentMode = UIViewContentMode.ScaleToFill
     
     view.clipsToBounds = true
-    view.layer.borderWidth = 3
-    view.layer.borderColor = UIColor.blueColor().CGColor//init(patternImage: UIImage(named: "blueCracks")!).CGColor
+    view.layer.borderWidth = 7
+    view.layer.borderColor = RawGoldTexture.CGColor
 }
 /**
  Sets images to be customized
@@ -358,7 +383,8 @@ func imageCustomization(view: UIView){
  */
 func secectionImageLabelDresser(view: UIView){
     view.layer.borderWidth = 3.0
-    view.layer.borderColor = UIColor.blackColor().CGColor
+    view.layer.borderColor = Gold.CGColor
+    view.backgroundColor = LeatherTexture
 }
 /**
  Sets Wear button to be customized
@@ -370,8 +396,10 @@ func wearButtonAnimation(view: UIView){
     view.contentMode = UIViewContentMode.ScaleToFill
     
     view.clipsToBounds = true
-    view.layer.borderWidth = 3.0
-    view.layer.borderColor = UIColor.init(patternImage: UIImage(named: "zipperBorder1")!).CGColor
+    view.layer.borderWidth = 2.0
+    view.layer.borderColor = RawGoldTexture.CGColor
+    view.backgroundColor = BlackSued
+    
 }
 /**
  Sets Label of number to be customized
@@ -379,12 +407,13 @@ func wearButtonAnimation(view: UIView){
  - parameter view: UILabel to customize
  */
 func secectionNumberLabelDresser(view: UIView){
-    view.layer.cornerRadius = view.frame.size.width / 10
+    //    view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleToFill
     
     view.clipsToBounds = true
     view.layer.borderWidth = 0.5
-    view.layer.borderColor = UIColor.darkGrayColor().CGColor
+    view.backgroundColor = HardSandTexture
+    view.layer.borderColor = LeatherTexture.CGColor
 }
 /**
  Sets option buttons to be customized
@@ -397,7 +426,8 @@ func optionViewCustomized(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 3
-    view.layer.borderColor = UIColor.purpleColor().CGColor
+    view.layer.borderColor = DarkBlueJean.CGColor
+    view.backgroundColor = LeatherTexture
 }
 /**
  Sets bar button to be customized
@@ -411,6 +441,76 @@ func barButtonAnimation()(view: UIView){
     view.clipsToBounds = true
     view.layer.borderWidth = 3.0
     view.layer.borderColor = UIColor.blackColor().CGColor
+}
+func featureButtons(view: UIView){
+    view.layer.cornerRadius = 0.5 *  view.frame.size.width
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 4
+    view.layer.borderColor = DiamondTexture.CGColor
+    view.backgroundColor = GreenWool
+}
+func CellImagesButtons(view: UIView){
+    view.layer.cornerRadius = 0.5 *  view.frame.size.width
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 3
+    view.layer.borderColor = RawGoldTexture.CGColor
+    view.backgroundColor = RedClothTexture
+}
+func CellButtons(view: UIView){
+    view.layer.cornerRadius = 0.5 *  view.frame.size.width
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 1.5
+    view.layer.borderColor = RawGoldTexture.CGColor
+    view.backgroundColor = PopulatedStarsTexture
+}
+func leatherView(view: UIView){
+    //    view.layer.cornerRadius = 0.5 *  view.frame.size.width
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 4
+    view.layer.borderColor = BrownLeatherStitching.CGColor
+    view.backgroundColor = BlackSued
+}
+func searchViewFloor(view: UIView){
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 4
+    view.layer.borderColor = BrownLeatherStitching.CGColor
+    view.backgroundColor = DarkBlueJean
+}
+func navigationButtons(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 2
+    view.layer.borderColor = LeatherTexture.CGColor
+    view.backgroundColor = StarCloudsTexture
+}
+func optionButtonCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 10
+    view.layer.borderColor = DarkBlueJean.CGColor
+}
+func cloesetButtonCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = DarkBlueJean.CGColor
+    view.backgroundColor = BlurredGlass
 }
 
 

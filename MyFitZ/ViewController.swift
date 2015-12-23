@@ -27,11 +27,31 @@ class ViewController:  UIViewController{
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
-        
+        self.view.backgroundColor = Cotton
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("MAIN_PAGE_COUNT")
         
         self.logPageView()
+    }
+    override func viewDidAppear(animated: Bool) {
+        // 1
+        var nav = self.navigationController?.navigationBar
+        // 2
+        nav?.barStyle = UIBarStyle.Black
+        nav?.tintColor = RawGoldTexture
+        
+        
+        // 3
+        //        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        //        imageView.contentMode = .ScaleAspectFit
+        // 4
+        //        let image = UIImage(named: "Apple_Swift_Logo")
+        //        imageView.image = image
+        // 5
+        //        navigationItem.titleView = imageView
+        
+        //        navigationItem.rightBarButtonItem?.customView?.backgroundColor = LeatherTexture
+        //        navigationItem.leftBarButtonItem?.customView?.backgroundColor = LeatherTexture
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,23 +117,18 @@ extension ViewController{
 //MARK: -Animations-ViewController Extension
 extension ViewController{
     func animateAllButtons(){
-        //        self.animateSearchButton()
-        //        self.animateStarButton()
-        //        self.animateHamperButton()
-        //        self.animateSearchButton()
-        //        self.animatePictureLabels()
-        //        self.animatePictureImages()
-        //        self.animateNumberLabels()
-        //        self.animateTrashButton()
+        self.animateFeatureButtons()
         self.animateLogo()
         self.animateOptionButtons()
-        //        self.animateViews()
+        
         
     }
     func animateLogo(){
         logoCustomization(self.logoImage)
     }
     func animateFeatureButtons(){
+        cloesetButtonCustomization(self.closetButton)
+        cloesetButtonCustomization(self.wishListButton)
     }
     func animateOptionButtons(){
         optionViewCustomized(self.optionsButton)

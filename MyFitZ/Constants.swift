@@ -147,6 +147,7 @@ let TEXT_INPUT_CELL             = "textInputCell"
 let FAVORITED_CELL              = "favoritedCell"
 let RECENTLY_CELL               = "recentlyWornCell"
 let TRASH_CELL                  = "trashCell"
+let STATS_CELL                  = "statsCell"
 
 
 ///MARK: - Item Settings
@@ -245,6 +246,8 @@ let CELL_BACKGROUND_IMAGE_MAKE = "cellRedBG"
 let LOGO_BORDER_IMAGE = "solidGradienBlueBorder"
 
 
+
+
 //MARK: -Color Settings
 //TODO: -Turn this into a struct
 struct UI_OBJECT_COLORS{
@@ -282,7 +285,12 @@ var GlobalUtilityQueue: dispatch_queue_t {
 var GlobalBackgroundQueue: dispatch_queue_t {
     return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
 }//QOS_CLASS_BACKGROUND: The background class represents tasks that the user is not directly aware of. Use it for prefetching, maintenance, and other tasks that don’t require user interaction and aren’t time-sensitive.
-
+var GlobalMyFitZSerial: dispatch_queue_t {
+    return dispatch_queue_create("com.MyFitZ.Serial.Global", DISPATCH_QUEUE_SERIAL)
+}//Custom Created Serial Queue
+var GlobalMyFitZConcurrent: dispatch_queue_t {
+    return dispatch_queue_create("com.MyFitZ.Concurrent.Global", DISPATCH_QUEUE_CONCURRENT)
+}//Custom Created Concurrent Queue
 
 
 //MARK: -Anylitics Constants

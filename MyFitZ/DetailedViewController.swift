@@ -1,3 +1,4 @@
+
 //  DetailedViewController.swift
 //  myFitz
 //
@@ -32,6 +33,7 @@ class DetailedViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        self.view.backgroundColor = Cotton
         print(self.itemOfObject)
         
         // Do view setup here.
@@ -154,12 +156,12 @@ extension DetailedViewController{
     }
     func hideWearButton(){
         wearButton.alpha = 0.5
-//        wearButton.backgroundColor = UIColor.grayColor()
+        //        wearButton.backgroundColor = UIColor.grayColor()
         wearButton.userInteractionEnabled = false
     }
     func showWearButton(){
         wearButton.alpha = 1.0
-//        wearButton.backgroundColor = UIColor.clearColor()
+        //        wearButton.backgroundColor = UIColor.clearColor()
         wearButton.userInteractionEnabled = true
     }
     @IBAction func showImage() {
@@ -201,11 +203,16 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0){
-            return "Basic"
+            return "Basic: " + String(self.itemOfObject.model) + "-" + String(self.itemOfObject.brand)
         }else{
-            return "Misc"
+            return "Misc: " + String(self.itemOfObject.model) + "-" + String(self.itemOfObject.brand)
         }
     }//Puts a text label in the header of the specified section
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = RawGoldTexture
+    }
     func createCellFromRequiredDictionary(row row: Int) -> DoubleLabelTableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
@@ -303,7 +310,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                         let components = cal.components(unitYear, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.year)) + " Years ago")
                     default:
-                    assertionFailure("This shouldint happen")
+                        assertionFailure("This shouldint happen")
                     }
                 }
             }else{
@@ -484,7 +491,7 @@ extension DetailedViewController{
         //self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)
         //self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
         //self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
-            //self.wearButtonAvailable()
+        //self.wearButtonAvailable()
         //})
         
         
@@ -492,11 +499,10 @@ extension DetailedViewController{
     func customizeTableView(){
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.backgroundColor = SiliverSilkSheet
+        self.tableView?.tintColor = LeatherTexture
         self.tableView.reloadData()
-        self.tableView.backgroundColor = UIColor.greenColor()
-        self.tableView?.tintColor = UIColor.greenColor()
-        self.tableView?.separatorColor = UIColor.blackColor()
-        self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor()
+        
     }
     func setTitle(){
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
@@ -553,23 +559,17 @@ extension DetailedViewController{
 extension DetailedViewController{
     func animateAllButtons(){
         self.animateImage()
-        //    self.animateSearchButton()
-        //    self.animateStarButton()
-        //    self.animateHamperButton()
-        //    self.animateSearchButton()
-        //    self.animatePictureLabels()
-        //    self.animatePictureImages()
-        //    self.animateNumberLabels()
-        //    self.animateTrashButton()
-        //    self.animateLogo()
-        //        self.animateViews()
-        
+        self.animateButtons()
     }
     func animateLogo(){
         //    logoCustomization(self.logoImage)
     }
     func animateImage(){
         imageCustomization(self.itemImage)
+    }
+    func animateButtons(){
+        featureButtons(self.editButton)
+        featureButtons(self.deleteButton)
     }
 }
 
@@ -579,19 +579,19 @@ extension DetailedViewController{
 extension DetailedViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
-        let wearPressedCount:Int? = defaults.returnIntValue("WEAR_PRESSED_COUNT")
-        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
-        
-        Answers.logContentViewWithName("Detail Content View",
-            contentType: "Detail View",
-            contentId: "MF5",
-            customAttributes: ["DETAIL_PAGE_COUNT": pageCount!,
-                "WEAR_PRESSED_COUNT": wearPressedCount!,
-                "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
-            ])
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
+            let wearPressedCount:Int? = defaults.returnIntValue("WEAR_PRESSED_COUNT")
+            let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")
+            
+            Answers.logContentViewWithName("Detail Content View",
+                contentType: "Detail View",
+                contentId: "MF5",
+                customAttributes: ["DETAIL_PAGE_COUNT": pageCount!,
+                    "WEAR_PRESSED_COUNT": wearPressedCount!,
+                    "EDIT_BUTTON_BUTTON_PRESSED": editButtonPressed!
+                ])
         })
     }
 }

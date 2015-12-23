@@ -26,7 +26,7 @@ class ModelTableViewController: UITableViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         self.SetUpTypes()
-        
+        self.view.backgroundColor = SiliverSilkSheet
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("MODEL_PAGE_COUNT")
@@ -105,6 +105,11 @@ extension ModelTableViewController{
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return String(path[PATHTYPE_SUBCATEGORY_STRING]! + ": " + "\(self.arrayOfItems.count)")
+    }
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Gold
     }
     ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

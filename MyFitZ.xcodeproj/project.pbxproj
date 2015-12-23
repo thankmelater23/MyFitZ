@@ -23,6 +23,7 @@
 		C61790AF1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61790AE1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift */; };
 		C61790D01C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61790CF1C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift */; };
 		C61790F11C1421FD003A9561 /* Constants_SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61790F01C1421FD003A9561 /* Constants_SearchViewController.swift */; };
+		C61940271C27CB650029F903 /* Constants_Colors_And_Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61940261C27CB650029F903 /* Constants_Colors_And_Textures.swift */; };
 		C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */; };
 		C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */; };
 		C626B9521BE0A48C00BB5E86 /* MyFitZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9511BE0A48C00BB5E86 /* MyFitZUITests.swift */; };
@@ -62,6 +63,7 @@
 		C68F59E51C0F5B1F00424646 /* FavoritedWornTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F59E41C0F5B1F00424646 /* FavoritedWornTableViewController.swift */; };
 		C69D74451C0AF5D100C74D19 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74431C0AF5D100C74D19 /* Fabric.framework */; };
 		C69D74461C0AF5D100C74D19 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74441C0AF5D100C74D19 /* Crashlytics.framework */; };
+		C6A4F17E1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */; };
 		C6B4928A1C04457200A1D237 /* add0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927A1C04457200A1D237 /* add0.wav */; };
 		C6B4928B1C04457200A1D237 /* alert0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927B1C04457200A1D237 /* alert0.wav */; };
 		C6B4928C1C04457200A1D237 /* animationPop0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927C1C04457200A1D237 /* animationPop0.wav */; };
@@ -83,6 +85,7 @@
 		C6C639031C214A8C002F115E /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639021C214A8C002F115E /* RecentTableViewCell.swift */; };
 		C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */; };
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
+		C6E1D2C11C2ACD5200FA13C5 /* StatsTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */; };
 		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
 		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
 		C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */; };
@@ -126,6 +129,7 @@
 		C61790AE1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Constants_RecentlyWornTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C61790CF1C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_FavoritedWornTableViewController.swift; sourceTree = "<group>"; };
 		C61790F01C1421FD003A9561 /* Constants_SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_SearchViewController.swift; sourceTree = "<group>"; };
+		C61940261C27CB650029F903 /* Constants_Colors_And_Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Colors_And_Textures.swift; sourceTree = "<group>"; };
 		C626B92E1BE0A48C00BB5E86 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C626B93D1BE0A48C00BB5E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,13 +160,13 @@
 		C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		C64503D91BE1A17F0065EC2F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		C64503DA1BE1A17F0065EC2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		C6574AA41C23852200100743 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
+		C6574AA41C23852200100743 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PercentagesTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C66300971C1425440057061C /* Constants_Wardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Wardrobe.swift; sourceTree = "<group>"; };
 		C66300B91C14254D0057061C /* Constants_Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Item.swift; sourceTree = "<group>"; };
 		C66300DA1C1425660057061C /* Constants_Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Fit.swift; sourceTree = "<group>"; };
 		C66300FB1C14279D0057061C /* Constants_Global_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Global_Function.swift; sourceTree = "<group>"; };
 		C663011C1C1427AA0057061C /* Constants_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Extensions.swift; sourceTree = "<group>"; };
-		C66CF53A1C1D04670017C12E /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		C66CF53A1C1D04670017C12E /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ImageViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C66D73731BFD898D0084842B /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = EditItemViewController.swift; path = ../EditItemViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C68F51051C0EE34C00424646 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
 		C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RecentlyWornTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -170,6 +174,7 @@
 		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		C69D74431C0AF5D100C74D19 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C69D74441C0AF5D100C74D19 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		C6B4927A1C04457200A1D237 /* add0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add0.wav; sourceTree = "<group>"; };
 		C6B4927B1C04457200A1D237 /* alert0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alert0.wav; sourceTree = "<group>"; };
 		C6B4927C1C04457200A1D237 /* animationPop0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = animationPop0.wav; sourceTree = "<group>"; };
@@ -191,6 +196,7 @@
 		C6C639021C214A8C002F115E /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrashTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsTableVIewCell.swift; path = Assets.xcassets/StatsTableVIewCell.swift; sourceTree = "<group>"; };
 		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
 		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
 		C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 		C626B9301BE0A48C00BB5E86 /* MyFitZ */ = {
 			isa = PBXGroup;
 			children = (
+				C6A4F17C1C2A567C0050C4A3 /* Extensions */,
 				C6CF09161C0DEA7D00767B72 /* Global Vars */,
 				C633470A1C0ECF61008C9E37 /* Methods */,
 				C633470B1C0ECFC3008C9E37 /* Models */,
@@ -341,10 +348,10 @@
 				C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */,
 				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
 				C66CF53A1C1D04670017C12E /* ImageViewController.swift */,
-				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
 				C6574AA41C23852200100743 /* PercentagesTableViewController.swift */,
-				C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */,
+				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
 				C64503C51BE1A1160065EC2F /* CreationViewController.swift */,
+				C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */,
 				C64503C61BE1A1160065EC2F /* PodTesterTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -360,6 +367,7 @@
 				C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */,
 				C6C639021C214A8C002F115E /* RecentTableViewCell.swift */,
 				C64503D41BE1A1210065EC2F /* DoubleLabelTableViewCell.swift */,
+				C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -409,10 +417,19 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		C6A4F17C1C2A567C0050C4A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		C6CF09161C0DEA7D00767B72 /* Global Vars */ = {
 			isa = PBXGroup;
 			children = (
 				C64503B11BE1A0460065EC2F /* Constants.swift */,
+				C61940261C27CB650029F903 /* Constants_Colors_And_Textures.swift */,
 				C66300971C1425440057061C /* Constants_Wardrobe.swift */,
 				C66300B91C14254D0057061C /* Constants_Item.swift */,
 				C66300DA1C1425660057061C /* Constants_Fit.swift */,
@@ -454,6 +471,7 @@
 				C626B92C1BE0A48C00BB5E86 /* Resources */,
 				650D0BE65C436A3358673359 /* Embed Pods Frameworks */,
 				4BCB1484DA8ED3DB975E6C2C /* Copy Pods Resources */,
+				C6A4F27A1C2A64140050C4A3 /* Injection */,
 				C606C00A1C0B16200012AD13 /* Set build number */,
 				C606C0221C0B16830012AD13 /* Lines Of Code */,
 				C606C0241C0B16E00012AD13 /* Code Complexity */,
@@ -698,6 +716,20 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
 		};
+		C6A4F27A1C2A64140050C4A3 /* Injection */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Injection;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"$CODESIGNING_FOLDER_PATH\" >/tmp/\"$USER.ident\" && echo \"$CODE_SIGN_IDENTITY\" >>/tmp/\"$USER.ident\" && exit;\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -728,6 +760,7 @@
 				C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */,
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,
 				C6C638FF1C214A68002F115E /* TrashTableViewCell.swift in Sources */,
+				C6A4F17E1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift in Sources */,
 				C60C6AD11C02C92300C8935A /* Functions.swift in Sources */,
 				C61790D01C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift in Sources */,
 				C66300DB1C1425660057061C /* Constants_Fit.swift in Sources */,
@@ -747,11 +780,13 @@
 				C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */,
 				C617902B1C142133003A9561 /* Constants_ModelTableViewController.swift in Sources */,
 				C64503CF1BE1A1160065EC2F /* CreationViewController.swift in Sources */,
+				C6E1D2C11C2ACD5200FA13C5 /* StatsTableVIewCell.swift in Sources */,
 				C64503CD1BE1A1160065EC2F /* CreateItemViewController.swift in Sources */,
 				C617904C1C142146003A9561 /* Constants_DetailedViewController.swift in Sources */,
 				C64503CA1BE1A1160065EC2F /* MakeTableViewController.swift in Sources */,
 				C64503BC1BE1A0460065EC2F /* Wardrobe.swift in Sources */,
 				C617900A1C142123003A9561 /* Constants_MakeTableViewController.swift in Sources */,
+				C61940271C27CB650029F903 /* Constants_Colors_And_Textures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

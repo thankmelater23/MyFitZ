@@ -140,6 +140,11 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
             return "Optional"
         }
     }//Puts a text label in the header of the specified section
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Gold
+    }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         currentIndex = indexPath.row
         if indexPath.section == 1 && indexPath.row == 0{//Date picker

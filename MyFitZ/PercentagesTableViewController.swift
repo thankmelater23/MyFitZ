@@ -25,7 +25,7 @@ class PercentagesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.setUpTypes()
-        
+        self.view.backgroundColor = Cotton
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("PERCENT_PAGE_COUNT")
@@ -151,7 +151,7 @@ extension PercentagesTableViewController:UIAlertViewDelegate{
         return (self.itemsInArrayInDictionary[key]?.count)!
     }//Returns Int for number of sections in tableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: DoubleLabelTableViewCell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
+        let cell: StatsTableVIewCell = tableView.dequeueReusableCellWithIdentifier(STATS_CELL) as! StatsTableVIewCell
         
         
         if indexPath.row % 2 == 0//If even number make this color
@@ -188,6 +188,11 @@ extension PercentagesTableViewController:UIAlertViewDelegate{
         //String(path[PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Gold
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         

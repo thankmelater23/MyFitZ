@@ -88,6 +88,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        self.view.backgroundColor = Cotton
         self.setButtonsView()
         let defaults = NSUserDefaults.standardUserDefaults()
         

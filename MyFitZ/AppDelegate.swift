@@ -9,7 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
-import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
+//import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
 
 
 
@@ -27,9 +27,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: -Crashylitics
         Fabric.with([Crashlytics.self])
         //MARK: -Appsee-Crashylitics
-        Fabric.with([Crashlytics.self, Appsee.self])
-        Appsee.setUserID("User1234")
-
+//        Fabric.with([Crashlytics.self, Appsee.self])p
+//
+//        Appsee.setUserID("Thankmelater23")
+        
+        
+        
+        var font: UIFont = UIFont(name: "ChalkDuster", size: 15)!
+        let foreGroundcolor = RawGoldTexture
+        let backGroundcolor = LeatherTexture
+        let strokeColor = RedBunchedUpSilkSheet
+        let titeColor = Stitching
+        let underLineColor = Stitching
+        let textEffect = NSTextEffectLetterpressStyle
+        let titeFont = UIFont(name: "Chalkboard SE", size: 20)!
+        let underLineStyle = NSUnderlineStyle.StyleThick.rawValue
+        var textShadow = NSShadow()
+        textShadow.shadowColor = RedBunchedUpSilkSheet
+        textShadow.shadowOffset = CGSize(width: 0, height: 2)
+        textShadow.shadowBlurRadius = 3.0
+        
+        var allCommonAttributes = [:]
+        var customLeftAttributes = [:]
+        var customRightAttributes = [:]
+        
+        
+        
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSFontAttributeName: titeFont,
+            NSBackgroundColorAttributeName: titeColor,
+            NSForegroundColorAttributeName: backGroundcolor,
+            NSUnderlineStyleAttributeName: underLineStyle,
+            NSStrokeColorAttributeName: strokeColor,
+            NSShadowAttributeName: textShadow,
+            NSTextEffectAttributeName: textEffect,
+            NSUnderlineColorAttributeName: underLineColor]
+        
+        UINavigationBar.appearance().topItem?.rightBarButtonItem?.tintColor = RawGoldTexture
+        
+        UINavigationBar.appearance().topItem?.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: font,
+            NSBackgroundColorAttributeName: foreGroundcolor,
+            NSForegroundColorAttributeName: backGroundcolor,
+            NSUnderlineStyleAttributeName: underLineStyle,
+            NSStrokeColorAttributeName: strokeColor,
+            NSShadowAttributeName: textShadow,
+            NSTextEffectAttributeName: textEffect,
+            NSUnderlineColorAttributeName: underLineColor], forState: .Normal)
+        UINavigationBar.appearance().topItem?.leftBarButtonItem?.tintColor = RawGoldTexture
+        
+        UINavigationBar.appearance().topItem?.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: font,
+            NSBackgroundColorAttributeName: foreGroundcolor,
+            NSForegroundColorAttributeName: backGroundcolor,
+            NSUnderlineStyleAttributeName: underLineStyle,
+            NSStrokeColorAttributeName: strokeColor,
+            NSShadowAttributeName: textShadow,
+            NSTextEffectAttributeName: textEffect,
+            NSUnderlineColorAttributeName: underLineColor], forState: .Normal)
+        
         return true
     }
     func applicationWillResignActive(application: UIApplication) {

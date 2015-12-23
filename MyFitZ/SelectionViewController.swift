@@ -70,8 +70,9 @@ class SelectionViewController: UIViewController{
         self.navigationController?.navigationBarHidden = false
         
         self.animateAllButtons()
+        self.view.backgroundColor = Cotton
+        self.setBarButtonsView()
         
-        self.navigationController?.navigationBar.translucent = false
         //        self.navigationController?.navigationBar.titleTextAttributes = [
         //            NSBackgroundColorAttributeName: UIColor.purpleColor(),
         //            NSFontAttributeName: "Chalkduster",
@@ -110,7 +111,7 @@ class SelectionViewController: UIViewController{
     func assignCategoriesItemCount(){
         var catCountDic: [String: Int] = [String: Int]()
         
-        dispatch_async(GlobalBackgroundQueue, {
+        dispatch_async(GlobalUserInteractiveQueue, {
             for category in CATEGORY_PICKER_OPTIONS{
                 catCountDic[category] = Users_Wardrobe.getCountOfAllItemsInCategory(category)
             }
@@ -153,7 +154,11 @@ extension SelectionViewController{
     }
     
     @IBAction func percentageButtonPressed() {
-                self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
+        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
+    }
+    @IBAction func titleBarPressed(){
+        self.viewHint()
+        
     }
 }
 
@@ -161,6 +166,43 @@ extension SelectionViewController{
 
 //MARK: -General-SelectionViewController Extension
 extension SelectionViewController{
+    func viewHint(){
+    }
+    func setBarButtonsView(){
+        self.navigationController?.navigationBar.translucent = false
+        
+        if Users_Wardrobe.closetSelectionString == MY_CLOSET{
+            self.navigationController?.navigationBar.barTintColor = RedClothTexture
+        }else{
+            self.navigationController?.navigationBar.barTintColor = Polyester
+        }
+        
+        
+//        self.navigationItem.rightBarButtonItem?.customView?.layer.borderWidth = 2
+//        self.navigationItem.rightBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
+//        
+//        self.navigationItem.leftBarButtonItem?.customView?.layer.borderWidth = 2
+//        self.navigationItem.leftBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
+//        
+//        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
+        
+        
+        
+//                let banner = UIImage(named: "leatherDoubleDoubleStitchingTexture")
+//                let imageView = UIImageView(image:banner)
+//        
+//                let bannerWidth = navigationController?.navigationBar.frame.size.width
+//                let bannerHeight = navigationController?.navigationBar.frame.size.height
+//                let bannerx = bannerWidth! / 2 - banner!.size.width / 2
+//                let bannery = bannerHeight! / 2 - banner!.size.height / 2
+//        
+//                imageView.frame = CGRect(x: bannerx, y: bannery, width: bannerWidth!, height: bannerHeight!)
+//                imageView.contentMode = UIViewContentMode.ScaleAspectFit
+//        
+//                self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.image = imageView.image
+//        
+//                self.navigationItem.titleView = imageView
+    }
 }
 
 
@@ -176,30 +218,26 @@ extension SelectionViewController{
         self.animateOptionButtons()
         self.animateFeaturesButtons()
         self.animateViews()
+        self.topBannerCustomization()
+        self.animateSubViews()
         
     }
     func animateLogo(){
         logoCustomization(self.logoImage)
     }
     func animateViews(){
-        viewGeneralCustomization(self.topBannerView)
-        //        viewGeneralCustomization(self.buttonHolderView)
-        viewGeneralCustomization(self.bottomCategoriesView)
-        viewGeneralCustomization(self.topCategoriesView)
-        viewGeneralCustomization(self.optionsHolderView)
+        
+        //viewGeneralCustomization(self.optionsHolderView)
+    }
+    func topBannerCustomization(){
+        bannerViewCustomization(self.topBannerView)
+    }
+    func animateSubViews(){
+        subViewGeneralCustomization(self.bottomCategoriesView)
+        subViewGeneralCustomization(self.topCategoriesView)
+        subViewGeneralCustomization(self.optionsHolderView)
     }
     func animateSearchButton(){
-        self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 10
-        self.searchButton.contentMode = UIViewContentMode.ScaleAspectFit
-        
-        self.searchButton.clipsToBounds = true
-        self.searchButton.layer.borderWidth = 2.0
-        self.searchButton.layer.borderColor = UIColor.greenColor().CGColor
-        
-        
-        //        self.searchButton.animation.makeScale(0.0).animate(0.0)
-        //        self.searchButton.animation.delay(1.0).animate(0.0).easeOutBounce.transformScale(2.5).animate(2.0).easeInElastic.transformScaleUIView(1.0).animate(0.3)
-        
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Selection")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -212,9 +250,10 @@ extension SelectionViewController{
         optionViewCustomized(self.shareButton)
     }
     func animateFeaturesButtons(){
-        buttonAnimation(self.trashButton)
-        buttonAnimation(self.recentlyWonrItem)
-        buttonAnimation(self.favortiedItems)
+        featureButtons(self.searchButton)
+        featureButtons(self.trashButton)
+        featureButtons(self.recentlyWonrItem)
+        featureButtons(self.favortiedItems)
     }
     func animatePictureImages(){
         secectionImagesDresser(self.topImage)

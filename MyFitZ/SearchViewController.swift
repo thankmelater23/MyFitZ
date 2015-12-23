@@ -24,6 +24,10 @@ import Crashlytics
     @IBOutlet weak var subCategoryInputTextField: UITextField!
     @IBOutlet weak var indexNumberLabel: UILabel!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var categoryLabelOfText: UILabel!
+    @IBOutlet weak var subCategoryLabelOfText: UILabel!
     
     //MARK: -Variable
     var categoryPickerView = UIPickerView()
@@ -46,7 +50,7 @@ import Crashlytics
     //MARK: -View Methods
     override func viewDidLoad() {
         self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Search")
-        
+        self.view.backgroundColor = Cotton
         self.animateAllButtons()
         
         if self.title == MY_CLOSET{
@@ -289,21 +293,41 @@ extension SearchViewController{
 //MARK: - UI-ImageViewController Extension
 extension SearchViewController{
     func animateAllButtons(){
-        //    self.animateSearchButton()
-        //    self.animateStarButton()
-        //    self.animateHamperButton()
-        //    self.animateSearchButton()
-        //    self.animatePictureLabels()
-        //    self.animatePictureImages()
-        //    self.animateNumberLabels()
-        //    self.animateTrashButton()
-        //    self.animateLogo()
-        //        self.animateViews()
+        self.animateNavButtons()
+        self.animateViews()
+        self.animateImage()
+        self.animateLabels()
         
+    }
+    func animateImage(){
+        imageCustomization(self.image)
     }
     func animateLogo(){
         //    logoCustomization(self.logoImage)
     }
+    func animateViews(){
+        leatherView(self.topView)
+        searchViewFloor(self.bottomView)
+    }
+    func animateNavButtons(){
+        navigationButtons(self.categoryPrev)
+        navigationButtons(self.subCategoryPrev)
+        navigationButtons(self.categoryNext)
+        navigationButtons(self.subCategoryNext)
+        navigationButtons(self.nextItemOutlet)
+        navigationButtons(self.prevItemOutlet)
+        
+    }
+    func animateLabels(){
+        secectionNumberLabelDresser(self.modelLabel)
+        secectionNumberLabelDresser(self.indexNumberLabel)
+        secectionNumberLabelDresser(self.brandLabel)
+        
+        secectionImageLabelDresser(self.categoryLabelOfText)
+        secectionImageLabelDresser(self.subCategoryLabelOfText)
+        
+    }
+    
 }
 
 
@@ -313,15 +337,15 @@ extension SearchViewController{
 extension SearchViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Search Content View",
-            contentType: "Search View",
-            contentId: "MF8",
-            customAttributes: ["SEARCH_PAGE_COUNT": pageCount!
-            ])
-    })
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Search Content View",
+                contentType: "Search View",
+                contentId: "MF8",
+                customAttributes: ["SEARCH_PAGE_COUNT": pageCount!
+                ])
+        })
     }
 }

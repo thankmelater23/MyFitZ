@@ -24,9 +24,8 @@ class TrashTableViewController: UITableViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         self.SetUpTypes()
-        
+        self.view.backgroundColor = RedBunchedUpSilkSheet
         let defaults = NSUserDefaults.standardUserDefaults()
-        
         defaults.addAndSend("TRASH_PAGE_COUNT")
         
         self.logPageView()
@@ -97,6 +96,12 @@ extension TrashTableViewController{
         
         return String("Deleted Items" + ": " + "\(self.arrayOfItems.count)")
     }
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Gold
+    }
+    
     ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
@@ -156,6 +161,16 @@ extension TrashTableViewController{
         //TODO: -Segue after selected
 //        self.performSegueWithIdentifier("TrashToDetail", sender: self)
     }
+    func customizeTableView(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.backgroundColor = RedBunchedUpSilkSheet
+        self.tableView?.tintColor = LeatherTexture
+        self.tableView.reloadData()
+        //        self.tableView?.separatorColor = UIColor.blackColor()
+        //        self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor()
+        
+    }
 }
 
 
@@ -174,7 +189,9 @@ extension TrashTableViewController{
         }
         self.navigationController?.navigationBar.translucent = false
         
+        self.customizeTableView()
     }
+    
 }
 
 

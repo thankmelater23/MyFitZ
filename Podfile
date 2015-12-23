@@ -7,18 +7,19 @@
 target 'MyFitZ' do
     use_frameworks!
     
-    pod 'CRToast'
-    pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview
-    pod 'DKChainableAnimationKit'
+    pod 'CRToast'#(0.0.9)
+    pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
+    pod 'DKChainableAnimationKit'#(1.6.0)
     pod 'MRProgress' #Multiple tipes of loading bars and circles
-    pod 'SVProgressHUD'
-    pod 'TSMessages'
-    pod 'DZNEmptyDataSet'
-    pod 'ChameleonFramework'
-    pod 'iRate'
-    pod 'SlackTextViewController'
-    pod 'FontAwesomeKit'
-
+    pod 'SVProgressHUD'#(1.1.3)
+    pod 'TSMessages'#(0.9.12)
+    pod 'DZNEmptyDataSet'#(1.7.2)
+    pod 'ChameleonFramework'#(2.0.6)
+    pod 'iRate'#(1.11.4)
+    pod 'SlackTextViewController'#
+    pod 'FontAwesomeKit'#(2.2.0)
+    pod 'AsyncSwift'#GCD wrapper
+    
     #pod 'KLCPopup'
     #pod 'PermissionScope'
     #pod 'PKRevealController'

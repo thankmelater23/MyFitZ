@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-MyFitZ/Async.framework"
   install_framework "Pods-MyFitZ/CRToast.framework"
   install_framework "Pods-MyFitZ/ChameleonFramework.framework"
   install_framework "Pods-MyFitZ/DKChainableAnimationKit.framework"
@@ -100,6 +101,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MyFitZ/iRate.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-MyFitZ/Async.framework"
   install_framework "Pods-MyFitZ/CRToast.framework"
   install_framework "Pods-MyFitZ/ChameleonFramework.framework"
   install_framework "Pods-MyFitZ/DKChainableAnimationKit.framework"

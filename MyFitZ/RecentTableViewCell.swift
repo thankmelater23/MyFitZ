@@ -29,6 +29,14 @@ class RecentTableViewCell: UITableViewCell{
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+    }
     func setWearButtonImage(worn: Bool){
         if worn == true{
             self.wear.alpha = 0.5
@@ -40,6 +48,11 @@ class RecentTableViewCell: UITableViewCell{
     }
     @IBAction func wearButtonPressed() {
         
+    }
+    
+    func customizeView(){
+        self.backgroundColor = WrinkledCloth
+        self.borderCustomization()
     }
 }
 
@@ -62,6 +75,8 @@ extension RecentTableViewCell{
         }else{
             self.setWearButtonImage(false)
         }
+        
+        self.customizeView()
     }
 }
 

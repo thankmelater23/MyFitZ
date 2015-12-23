@@ -27,6 +27,7 @@ class RecentlyWornTableViewController: UITableViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         self.SetUpTypes()
+        self.view.backgroundColor = RedBunchedUpSilkSheet
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
@@ -100,6 +101,11 @@ extension RecentlyWornTableViewController{
         
         return String("Recently Worn Items" + ": " + "\(self.arrayOfItems.count)")
     }
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Gold
+    }
     ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200
@@ -124,6 +130,16 @@ extension RecentlyWornTableViewController{
                 self.presentViewController(alert, animated: true, completion: {})
             }
     }
+    func customizeTableView(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.backgroundColor = RedBunchedUpSilkSheet
+        self.tableView?.tintColor = LeatherTexture
+        self.tableView.reloadData()
+        //        self.tableView?.separatorColor = UIColor.blackColor()
+        //        self.tableView.sectionIndexBackgroundColor = UIColor.purpleColor()
+        
+    }
 }
 
 
@@ -142,6 +158,7 @@ extension RecentlyWornTableViewController{
         }
         self.navigationController?.navigationBar.translucent = false
         
+        self.customizeTableView()
     }
 }
 

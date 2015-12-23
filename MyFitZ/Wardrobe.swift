@@ -280,14 +280,26 @@ extension Wardrobe{
             
             
             CRToastManager .showNotificationWithOptions(dicOfOptions, completionBlock: {
-                dispatch_async(GlobalUtilityQueue, {
+                dispatch_async(GlobalUserInitiatedQueue, {
                     success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
                     
                     dispatch_async(GlobalMainQueue, {
+                        dispatch_after(10, GlobalUserInteractiveQueue, {
+                            if success == true{
                         SVProgressHUD.showSuccessWithStatus("Saved")
+                                let numOfItemsToSave = Double(self.getCountOfCloset())
+                                let timeTillExecuted = (numOfItemsToSave * 0.10)
+                                let now = dispatch_time(DISPATCH_TIME_NOW, Int64(timeTillExecuted * Double(NSEC_PER_SEC)))
+                                dispatch_after(now, GlobalUserInteractiveQueue, {
                         SVProgressHUD.dismiss()
-                        
-                        print("File  Saved Successfully")
+                                    print("File  Saved Successfully \n saved items: " + String(numOfItemsToSave) + "\nTime till save is checked: " + String(timeTillExecuted))
+
+                                })
+                            }else{
+
+                                print("File Saved Unuccessful")
+                            }
+                            })
                     })
                 })
             })

@@ -30,6 +30,19 @@ class DoubleLabelTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+    }
+    
+    func customizeView(){
+        self.backgroundColor = GreenWool
+        self.borderCustomization()
+    }
 }
 
 
@@ -39,6 +52,7 @@ extension DoubleLabelTableViewCell{
     func configure(name name:  String,  infoString: String){
         nameLabel.text = name + ":"
         infoLabel.text = infoString
+        self.customizeView()
         
     }
 }

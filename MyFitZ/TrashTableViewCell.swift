@@ -31,6 +31,16 @@ class TrashTableViewCell: UITableViewCell{
         super.setSelected(selected ,  animated: animated)
     }
     
+    func borderCustomization(){
+        CellImagesButtons(self.cellImage)
+        
+    }
+    
+    func customizeView(){
+        self.backgroundColor = DirtyCloth
+        self.borderCustomization()
+    }
+    
 }
 
 
@@ -43,5 +53,7 @@ extension TrashTableViewCell{
         self.brand.text = brandLabelText
         self.dateDeleted.text = dateDeleted//"Date Deleted: " + "xx-xx-xxxx"
         self.row.text = String(row + 1) + ":"
+        
+        self.customizeView()
     }
 }

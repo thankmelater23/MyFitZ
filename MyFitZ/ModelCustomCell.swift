@@ -28,6 +28,18 @@ class ModelCustomCell: UITableViewCell{
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+    }
+    func customizeView(){
+        self.backgroundColor = Jean2
+        self.borderCustomization()
+    }
     
 }
 
@@ -42,6 +54,8 @@ extension ModelCustomCell{
         self.timesWornLabel.text = "Last Time Worn: \(lastTimeWornText)"
         
         self.setFavoritedStar(favorited)
+        
+        self.customizeView()
         
     }
     func setFavoritedStar(fav: Bool){
@@ -58,7 +72,7 @@ extension ModelCustomCell{
 //MARK: -Animations-ViewController Extension
 extension ModelCustomCell{
     func animateView(){
-        optionViewCustomized(self.star)
+        CellButtons(self.star)
     }
 }
  

@@ -89,6 +89,7 @@ extension CreateItemViewController{
         super.viewDidLoad()
         self.setUp()
         self.setButtonsView()
+        self.view.backgroundColor = Cotton
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("CREATE_PAGE_COUNT")
@@ -297,7 +298,7 @@ extension CreateItemViewController{
         self.setPickerInfo()
         self.animateAllButtons()
         
-        dispatch_async(GlobalUtilityQueue, {
+        dispatch_async(GlobalUserInteractiveQueue, {
             self.initializeRETableView()
             self.setUpTableView()
         })
@@ -321,7 +322,7 @@ extension CreateItemViewController{
         }
     }
     func setPickerInfo(){
-        dispatch_async(GlobalBackgroundQueue, {
+        dispatch_async(GlobalUserInteractiveQueue, {
             self.categoryPickerView.delegate = self
             self.categoryInputTextField.inputView = self.categoryPickerView
             

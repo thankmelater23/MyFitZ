@@ -23,9 +23,23 @@ class MakeCustomCell: UITableViewCell{
     override func  awakeFromNib(){
         super.awakeFromNib()
         self.animateView()
+        self.customizeView()
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
+    }
+    func customizeView(){
+        self.backgroundColor = DarkBlueJean
+        self.borderCustomization()
+    }
+    
+    func borderCustomization(){
+//        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
     }
     
 }
@@ -38,6 +52,8 @@ extension MakeCustomCell{
         self.makeImage.image = Image
         self.makeLabel.text = makeLabelText
         self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
+        
+        self.customizeView()
     }
 }
 
@@ -46,6 +62,6 @@ extension MakeCustomCell{
 //MARK: -Animations-ViewController Extension
 extension MakeCustomCell{
     func animateView(){
-        optionViewCustomized(self.makeImage)
+        CellImagesButtons(self.makeImage)
     }
 }
