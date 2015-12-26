@@ -34,7 +34,7 @@ class DetailedViewController: UIViewController{
         super.viewDidLoad()
         self.setUp()
         self.view.backgroundColor = Cotton
-        print(self.itemOfObject)
+        log.verbose(self.itemOfObject)
         
         // Do view setup here.
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -45,7 +45,7 @@ class DetailedViewController: UIViewController{
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_DETAIL_TO_MODEL
@@ -68,7 +68,7 @@ class DetailedViewController: UIViewController{
             
             imageViewController.itemName = self.itemOfObject.model
             imageViewController.itemBrand = self.itemOfObject.brand
-            
+            imageViewController.item = itemOfObject
             
             if itemOfObject.image != nil{
                 imageViewController.imageHolder = itemOfObject.image
@@ -187,7 +187,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         }
             
         else{
-            print("Something did not go right")
+            log.warning("Incorect section")
             return 0
         }
     }// Return the number of rows in the section.
@@ -473,7 +473,6 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 //MARK: - Initializer Created Methods
 extension DetailedViewController{
     func setUp(){
-        self.setButtonsView()
         
         self.animateAllButtons()
         
@@ -528,11 +527,6 @@ extension DetailedViewController{
 
 //MARK: - Animations-DetailedViewController Exension
 extension DetailedViewController{
-    func setButtonsView(){
-        wearButtonAnimation(self.wearButton)
-        buttonAnimation(self.deleteButton)
-        buttonAnimation(self.editButton)
-    }
     func wearButtonAvailable(){
         let daysLastWorn:Int = itemOfObject.lastTimeWorn.returnDaysInDate()
         
@@ -568,8 +562,9 @@ extension DetailedViewController{
         imageCustomization(self.itemImage)
     }
     func animateButtons(){
-        featureButtons(self.editButton)
-        featureButtons(self.deleteButton)
+        clearButtonCustomization(self.editButton)
+        deleteButtonCustomization(self.deleteButton)
+        wearButtonAnimation(self.wearButton)
     }
 }
 

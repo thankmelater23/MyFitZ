@@ -80,12 +80,14 @@
 		C6B492971C04457200A1D237 /* update0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492871C04457200A1D237 /* update0.wav */; };
 		C6B492981C04457200A1D237 /* wear1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492881C04457200A1D237 /* wear1.wav */; };
 		C6B492991C04457200A1D237 /* wishlist0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B492891C04457200A1D237 /* wishlist0.wav */; };
+		C6B6BF721C2D2F99001B206A /* jeremy.gif in Resources */ = {isa = PBXBuildFile; fileRef = C6B6BF711C2D2F99001B206A /* jeremy.gif */; };
 		C6C638FF1C214A68002F115E /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C638FE1C214A68002F115E /* TrashTableViewCell.swift */; };
 		C6C639011C214A7F002F115E /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */; };
 		C6C639031C214A8C002F115E /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639021C214A8C002F115E /* RecentTableViewCell.swift */; };
 		C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */; };
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
 		C6E1D2C11C2ACD5200FA13C5 /* StatsTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */; };
+		C6E1E1941C2D0EA900FA13C5 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */; };
 		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
 		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
 		C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */; };
@@ -115,8 +117,8 @@
 		BE2800862F97D1D228F2A779 /* Pods_MyFitZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6055DD31C15480300C6B505 /* Equatables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatables.swift; sourceTree = "<group>"; };
 		C60563E31C15B2FE00C6B505 /* GlobalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMethods.swift; sourceTree = "<group>"; };
-		C606C00B1C0B16700012AD13 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CodeComplexity.sh; sourceTree = "<group>"; };
-		C606C00C1C0B16700012AD13 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
+		C606C00B1C0B16700012AD13 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; lineEnding = 0; path = CodeComplexity.sh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.sh; };
+		C606C00C1C0B16700012AD13 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; lineEnding = 0; path = LinesOfCode.sh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.sh; };
 		C606C00D1C0B16700012AD13 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		C60C6AD01C02C92300C8935A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Functions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6178FC61C14210A003A9561 /* Constants_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_ViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 		C61790AE1C1421C1003A9561 /* Constants_RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Constants_RecentlyWornTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C61790CF1C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_FavoritedWornTableViewController.swift; sourceTree = "<group>"; };
 		C61790F01C1421FD003A9561 /* Constants_SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_SearchViewController.swift; sourceTree = "<group>"; };
-		C61940261C27CB650029F903 /* Constants_Colors_And_Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_Colors_And_Textures.swift; sourceTree = "<group>"; };
+		C61940261C27CB650029F903 /* Constants_Colors_And_Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Constants_Colors_And_Textures.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C626B92E1BE0A48C00BB5E86 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C626B93D1BE0A48C00BB5E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 		C64503C31BE1A1160065EC2F /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreateItemViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C64503C41BE1A1160065EC2F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SearchViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C64503C51BE1A1160065EC2F /* CreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreationViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C64503C61BE1A1160065EC2F /* PodTesterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodTesterTableViewController.swift; sourceTree = "<group>"; };
+		C64503C61BE1A1160065EC2F /* PodTesterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PodTesterTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C64503D11BE1A1210065EC2F /* MakeCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCustomCell.swift; sourceTree = "<group>"; };
 		C64503D21BE1A1210065EC2F /* ModelCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCustomCell.swift; sourceTree = "<group>"; };
 		C64503D31BE1A1210065EC2F /* CreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationUITableViewCell.swift; sourceTree = "<group>"; };
@@ -171,7 +173,7 @@
 		C68F51051C0EE34C00424646 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
 		C68F55161C0F0F2400424646 /* RecentlyWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RecentlyWornTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C68F59E41C0F5B1F00424646 /* FavoritedWornTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FavoritedWornTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
+		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C69D74431C0AF5D100C74D19 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C69D74441C0AF5D100C74D19 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
@@ -191,12 +193,14 @@
 		C6B492871C04457200A1D237 /* update0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = update0.wav; sourceTree = "<group>"; };
 		C6B492881C04457200A1D237 /* wear1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear1.wav; sourceTree = "<group>"; };
 		C6B492891C04457200A1D237 /* wishlist0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wishlist0.wav; sourceTree = "<group>"; };
+		C6B6BF711C2D2F99001B206A /* jeremy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = jeremy.gif; sourceTree = "<group>"; };
 		C6C638FE1C214A68002F115E /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
 		C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		C6C639021C214A8C002F115E /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrashTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsTableVIewCell.swift; path = Assets.xcassets/StatsTableVIewCell.swift; sourceTree = "<group>"; };
+		C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
 		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
 		C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 		C626B9301BE0A48C00BB5E86 /* MyFitZ */ = {
 			isa = PBXGroup;
 			children = (
+				C6B6BF5C1C2D2EDB001B206A /* Media */,
+				C6E1E1921C2D0E4900FA13C5 /* Outside API's */,
 				C6A4F17C1C2A567C0050C4A3 /* Extensions */,
 				C6CF09161C0DEA7D00767B72 /* Global Vars */,
 				C633470A1C0ECF61008C9E37 /* Methods */,
@@ -288,7 +294,6 @@
 				C633470D1C0ECFE8008C9E37 /* Cells */,
 				C633470E1C0ECFF5008C9E37 /* StoryBoards */,
 				C63347101C0ED0EC008C9E37 /* Support */,
-				C633470F1C0ED005008C9E37 /* Audio */,
 			);
 			path = MyFitZ;
 			sourceTree = "<group>";
@@ -412,7 +417,6 @@
 			children = (
 				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
 				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
-				C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -423,6 +427,24 @@
 				C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C6B6BF5C1C2D2EDB001B206A /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				C6B6BF701C2D2F8F001B206A /* Gifs */,
+				C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */,
+				C633470F1C0ED005008C9E37 /* Audio */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		C6B6BF701C2D2F8F001B206A /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				C6B6BF711C2D2F99001B206A /* jeremy.gif */,
+			);
+			name = Gifs;
 			sourceTree = "<group>";
 		};
 		C6CF09161C0DEA7D00767B72 /* Global Vars */ = {
@@ -447,6 +469,14 @@
 				C663011C1C1427AA0057061C /* Constants_Extensions.swift */,
 			);
 			name = "Global Vars";
+			sourceTree = "<group>";
+		};
+		C6E1E1921C2D0E4900FA13C5 /* Outside API's */ = {
+			isa = PBXGroup;
+			children = (
+				C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */,
+			);
+			name = "Outside API's";
 			sourceTree = "<group>";
 		};
 		ECE78C122D8E6CF0118BEAB7 /* Pods */ = {
@@ -592,6 +622,7 @@
 				C6B4928E1C04457200A1D237 /* cellselect1.wav in Resources */,
 				C6B4928A1C04457200A1D237 /* add0.wav in Resources */,
 				C6B492931C04457200A1D237 /* notification1.wav in Resources */,
+				C6B6BF721C2D2F99001B206A /* jeremy.gif in Resources */,
 				C64503DB1BE1A17F0065EC2F /* LaunchScreen.xib in Resources */,
 				C6B4928D1C04457200A1D237 /* back0.wav in Resources */,
 				C606C0101C0B16700012AD13 /* set_build_number.sh in Resources */,
@@ -737,6 +768,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E1E1941C2D0EA900FA13C5 /* UIImage+Gif.swift in Sources */,
 				C68F55171C0F0F2400424646 /* RecentlyWornTableViewController.swift in Sources */,
 				C617908E1C14215D003A9561 /* Constants_CreateItemViewController.swift in Sources */,
 				C64503CE1BE1A1160065EC2F /* SearchViewController.swift in Sources */,

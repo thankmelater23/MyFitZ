@@ -11,7 +11,7 @@ import UIKit
 import MRProgress
 import SVProgressHUD
 import CRToast
-
+import Async
 
 
 //MARK: -Wardrobe Class
@@ -112,7 +112,7 @@ class Wardrobe:NSObject, NSCoding{
     }
     
     deinit{
-        print("Wardrobe Denit initiated")
+        log.info("Wardrobe Deninitialized")
     }
     
     //MARK: -Closets
@@ -284,22 +284,15 @@ extension Wardrobe{
                     success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
                     
                     dispatch_async(GlobalMainQueue, {
-                        dispatch_after(10, GlobalUserInteractiveQueue, {
-                            if success == true{
                         SVProgressHUD.showSuccessWithStatus("Saved")
-                                let numOfItemsToSave = Double(self.getCountOfCloset())
-                                let timeTillExecuted = (numOfItemsToSave * 0.10)
-                                let now = dispatch_time(DISPATCH_TIME_NOW, Int64(timeTillExecuted * Double(NSEC_PER_SEC)))
-                                dispatch_after(now, GlobalUserInteractiveQueue, {
-                        SVProgressHUD.dismiss()
-                                    print("File  Saved Successfully \n saved items: " + String(numOfItemsToSave) + "\nTime till save is checked: " + String(timeTillExecuted))
-
-                                })
-                            }else{
-
-                                print("File Saved Unuccessful")
-                            }
-                            })
+                        let numOfItemsToSave = Double(self.getCountOfCloset())
+                        let timeTillExecuted = (numOfItemsToSave * 0.10)
+                        let now = dispatch_time(DISPATCH_TIME_NOW, Int64(timeTillExecuted * Double(NSEC_PER_SEC)))
+                        dispatch_after(now, GlobalUserInteractiveQueue, {
+                            SVProgressHUD.dismiss()
+                            log.info("File  Saved Successfully \n saved items: " + String(numOfItemsToSave) + "\nTime till save is checked: " + String(timeTillExecuted))
+                        
+                        })
                     })
                 })
             })
@@ -313,13 +306,12 @@ extension Wardrobe{
      - returns: return wardrobe
      */
     func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
-        
         if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
             
             return wardrobe
         }else{
             let newWardrobe = Wardrobe()
-            saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
+            self.saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
             return newWardrobe
         }
     }
@@ -354,7 +346,7 @@ extension Wardrobe{
         //Creates a subcategory if none exist by that name
         if !isKeyNew{
             self.selectedCloset[funcCategory]!.updateValue([Item](), forKey: funcSubCategory)
-            print("Subcategory created: \(funcSubCategory)")
+            log.info("\(funcSubCategory) is not in subcategories array, \(funcSubCategory) is now added to the subcategory array")
         }
         
         //Sets image to blank if none exist
@@ -369,7 +361,7 @@ extension Wardrobe{
             //Update brandCollection
             updateBrandCollectiion(item.brand)
             
-            print("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
+            log.info("Item Saved: \(item) \nTo: \(funcCategory)/\(funcSubCategory)")
         }else{throw ItemError.missingModelString}
         
         //Puts item in favoirtes if elgible
@@ -435,7 +427,7 @@ extension Wardrobe{
         //Creates a subcategory if none exist by that name
         if !isKeyNew{
             self.selectedCloset[item.category]!.updateValue([Item](), forKey: item.subCategory)
-            print("Subcategory created: \(item.subCategory)")
+            log.info("\(item.subCategory) is not in subcategories array, \(item.subCategory) is now added to the subcategory array")
         }
     }
     /**
@@ -1138,9 +1130,9 @@ extension Wardrobe{
     func removeLastTrashedItem(){
         if !selectedClosetTrashItems.isEmpty{
             selectedClosetTrashItems.removeAtIndex(0)
-            print("Last inserted trash item deleted")
+            log.info("Last inserted trash item deleted")
         }else{
-            print("trash empty no items was removed")
+            log.info("trash empty no items was removed")
         }
     }
     /**

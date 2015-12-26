@@ -43,7 +43,7 @@ class PercentagesTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_PERCENTAGE_TO_SELECTION{

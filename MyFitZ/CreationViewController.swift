@@ -15,6 +15,10 @@ class CreationViewController: UIViewController{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryInputTextField: UITextField!
     @IBOutlet var subCategoryInputTextField: UITextField!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var subCategoryLabel: UILabel!
+    @IBOutlet var pictureForSelectedItemImage: UIImageView!
+    
     var datePickerHidden: Bool = false
     var categoryPickerView = UIPickerView()
     var subCategoryPickerView = UIPickerView()
@@ -27,7 +31,6 @@ class CreationViewController: UIViewController{
     var cellDatePicker = UIDatePicker()
     var cellYesNoPicker = UIPickerView()
     var tutorialImage = UIImage()
-    @IBOutlet var pictureForSelectedItemImage: UIImageView!
     //CreationViewController Item to be created and modified to be saved
     var viewItem: Item! = Item()
     var currentIndex = 0
@@ -74,7 +77,7 @@ class CreationViewController: UIViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_CREATION_TO_SELECTION{
@@ -298,7 +301,7 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }else if pickerView == cellYesNoPicker{
             return YES_NO.count
         }else if pickerView == cellDatePicker{
-            print("Date picker selected and not implemented")
+            log.warning("Not yet implemented")
             return 1
         }else{
             assertionFailure()
@@ -409,6 +412,27 @@ extension CreationViewController:UIImagePickerControllerDelegate, UINavigationCo
 }
 
 
+
+//MARK: - UI-CreationViewController Extension
+extension CreationViewController{
+    func animateAllButtons(){
+        self.animateButtons()
+        self.animateImage()
+        
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
+    }
+    func animateImage(){
+        imageCustomization(self.pictureForSelectedItemImage)
+    }
+    func animateButtons(){
+        nameLabelCustomizer(self.categoryLabel)
+        nameLabelCustomizer(self.subCategoryLabel)
+    }
+}
+
+
 //Text Field methods
 extension CreationViewController: UITextFieldDelegate{
     func setValueForTaggedCell(tag tag: Int, value: String){
@@ -484,7 +508,7 @@ extension CreationViewController: UITextFieldDelegate{
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(textField: UITextField) -> Bool{
-        print("textFieldShouldClear:" + textField.text! + " cleared")
+        log.warning("Not yet implemented")
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(textField: UITextField) -> Bool {

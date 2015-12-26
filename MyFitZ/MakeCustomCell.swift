@@ -62,6 +62,6 @@ extension MakeCustomCell{
 //MARK: -Animations-ViewController Extension
 extension MakeCustomCell{
     func animateView(){
-        CellImagesButtons(self.makeImage)
+        categoryCellImageCustomization(self.imageView!)
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Async
 
 //MARK: -Item Class
 /// Represents an item of clothing with multiple vars to represent the details of the item
@@ -53,7 +54,7 @@ class Item: NSObject, NSCoding{
     }
     
     deinit{
-        print("\n\nItem: \(self.model)//\(self.brand)\nDenit")
+        log.info("\n\nItem: \(self.model)//\(self.brand) Deninitialized")
     }
     
     //MARK: -Methods
@@ -130,7 +131,7 @@ class Item: NSObject, NSCoding{
         
         coder.encodeObject(self.path, forKey: ITEM_LOCATIONPATH_STRING)
         
-        print(self.path)
+        log.verbose(self.path)
     }//Encodes data in class
     ///Creates blank Item
     override init(){

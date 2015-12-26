@@ -96,7 +96,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MyFitZ/RETableViewManager.framework"
   install_framework "Pods-MyFitZ/REValidation.framework"
   install_framework "Pods-MyFitZ/SVProgressHUD.framework"
+  install_framework "Pods-MyFitZ/Siren.framework"
   install_framework "Pods-MyFitZ/SlackTextViewController.framework"
+  install_framework "Pods-MyFitZ/SwiftyBeaver.framework"
   install_framework "Pods-MyFitZ/TSMessages.framework"
   install_framework "Pods-MyFitZ/iRate.framework"
 fi
@@ -113,7 +115,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MyFitZ/RETableViewManager.framework"
   install_framework "Pods-MyFitZ/REValidation.framework"
   install_framework "Pods-MyFitZ/SVProgressHUD.framework"
+  install_framework "Pods-MyFitZ/Siren.framework"
   install_framework "Pods-MyFitZ/SlackTextViewController.framework"
+  install_framework "Pods-MyFitZ/SwiftyBeaver.framework"
   install_framework "Pods-MyFitZ/TSMessages.framework"
   install_framework "Pods-MyFitZ/iRate.framework"
 fi

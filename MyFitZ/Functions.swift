@@ -149,19 +149,20 @@ func returnItem(path: [String: String])->Item?{
         
         //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
         if item.id == id{
-            print("Item id matched on return to item")
+            log.info("Item id matched on return to item")
             return item
         }else{
             defer{
                 Users_Wardrobe.clearAllContainersAndPopulate()
             }
             
-            print("Item id did not match on return to item, search initiated")
+            log.warning("Item id did not match on return to item, search initiated")
             
             for searchItem in array{
                 //TODO: -Something isn't right for this to always be happening
                 if searchItem.id == id{
-                    print("Search success item found with in the array")
+                    log.info("Search success item found with in the array")
+                    log.warning("This should not happen")
                     return searchItem
                 }
             }
@@ -190,7 +191,7 @@ func returnItem(path: [String: String])->Item?{
  - returns: bool of true if all path values are not nil
  */
 func validatePath(path: [String: String])->Bool{
-    print("-VALIDATIING PATH ARRAY")
+    log.info("-VALIDATIING PATH ARRAY")
     let closet:String? = path[PATHTYPE_CLOSET_STRING]
     let category:String? = path[PATHTYPE_CATEGORY_STRING]
     let subCategory:String? = path[PATHTYPE_SUBCATEGORY_STRING]
@@ -202,10 +203,10 @@ func validatePath(path: [String: String])->Bool{
     }
     
     if closet != nil && category != nil && subCategory != nil{
-        print("-VALIDATIING PASSED ALL VALUES NON NIL")
+        log.info("-VALIDATIING PASSED ALL VALUES NON NIL")
         return true
     }else{
-        print("-VALIDATIING FAILED ONE OR ALL ARE NIL")
+        log.info("-VALIDATIING FAILED ONE OR ALL ARE NIL")
         return false
     }
 }
@@ -310,7 +311,7 @@ func secectionImagesDresser(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 3
-    view.layer.borderColor = GreenWool.CGColor
+    view.layer.borderColor = RawGoldTexture.CGColor
 }
 /**
  Sets Views to be customized
@@ -381,7 +382,7 @@ func imageCustomization(view: UIView){
  
  - parameter view: UILabel to customize
  */
-func secectionImageLabelDresser(view: UIView){
+func nameLabelCustomizer(view: UIView){
     view.layer.borderWidth = 3.0
     view.layer.borderColor = Gold.CGColor
     view.backgroundColor = LeatherTexture
@@ -398,7 +399,7 @@ func wearButtonAnimation(view: UIView){
     view.clipsToBounds = true
     view.layer.borderWidth = 2.0
     view.layer.borderColor = RawGoldTexture.CGColor
-    view.backgroundColor = BlackSued
+    view.backgroundColor = StarCloudsTexture
     
 }
 /**
@@ -448,7 +449,7 @@ func featureButtons(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 4
-    view.layer.borderColor = DiamondTexture.CGColor
+    view.layer.borderColor = LeatherTexture.CGColor
     view.backgroundColor = GreenWool
 }
 func CellImagesButtons(view: UIView){
@@ -476,7 +477,7 @@ func leatherView(view: UIView){
     view.clipsToBounds = true
     view.layer.borderWidth = 4
     view.layer.borderColor = BrownLeatherStitching.CGColor
-    view.backgroundColor = BlackSued
+    view.backgroundColor = DarkBlueJean
 }
 func searchViewFloor(view: UIView){
     view.contentMode = UIViewContentMode.ScaleToFill
@@ -501,7 +502,7 @@ func optionButtonCustomization(view: UIView){
     
     view.clipsToBounds = true
     view.layer.borderWidth = 10
-    view.layer.borderColor = DarkBlueJean.CGColor
+    view.layer.borderColor = RedBunchedUpSilkSheet.CGColor
 }
 func cloesetButtonCustomization(view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
@@ -512,5 +513,58 @@ func cloesetButtonCustomization(view: UIView){
     view.layer.borderColor = DarkBlueJean.CGColor
     view.backgroundColor = BlurredGlass
 }
-
+func featureCellImageCustomization(view: UIView){
+    view.layer.cornerRadius = 0.5 *  view.frame.size.width
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = PopulatedStarsTexture.CGColor
+    view.backgroundColor = Gold
+}
+func categoryCellImageCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = DarkBlueJean.CGColor
+    view.backgroundColor = LeatherTexture
+}
+func clearButtonCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = LeatherTexture.CGColor
+    view.backgroundColor = YellowWool
+}
+func addButtonCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = LeatherTexture.CGColor
+    view.backgroundColor = BlueWool
+}
+func deleteButtonCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = LeatherTexture.CGColor
+    view.backgroundColor = RedWool
+}
+func updateButtonCustomization(view: UIView){
+    view.layer.cornerRadius = view.frame.size.width / 10
+    view.contentMode = UIViewContentMode.ScaleToFill
+    
+    view.clipsToBounds = true
+    view.layer.borderWidth = 6
+    view.layer.borderColor = LeatherTexture.CGColor
+    view.backgroundColor = BlueWool
+}
 

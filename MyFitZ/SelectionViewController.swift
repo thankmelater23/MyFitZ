@@ -92,7 +92,7 @@ class SelectionViewController: UIViewController{
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_SELECTION_TO_MAKE{
@@ -264,20 +264,20 @@ extension SelectionViewController{
         secectionImagesDresser(self.underClothesImage)
     }
     func animatePictureLabels(){
-        secectionImageLabelDresser(self.topsLabel)
-        secectionImageLabelDresser(self.bottomsLabel)
-        secectionImageLabelDresser(self.footwareLabel)
-        secectionImageLabelDresser(self.accessoriesLabel)
-        secectionImageLabelDresser(self.headwareLabel)
-        secectionImageLabelDresser(self.underClothesLabel)
+        nameLabelCustomizer(self.topsLabel)
+        nameLabelCustomizer(self.bottomsLabel)
+        nameLabelCustomizer(self.footwareLabel)
+        nameLabelCustomizer(self.accessoriesLabel)
+        nameLabelCustomizer(self.headwareLabel)
+        nameLabelCustomizer(self.underClothesLabel)
     }
     func animateNumberLabels(){
-        secectionImageLabelDresser(self.topCounter)
-        secectionImageLabelDresser(self.bottomCounter)
-        secectionImageLabelDresser(self.footwareCounter)
-        secectionImageLabelDresser(self.accessoriesCounter)
-        secectionImageLabelDresser(self.headwareCounter)
-        secectionImageLabelDresser(self.underClothesCounter)
+        nameLabelCustomizer(self.topCounter)
+        nameLabelCustomizer(self.bottomCounter)
+        nameLabelCustomizer(self.footwareCounter)
+        nameLabelCustomizer(self.accessoriesCounter)
+        nameLabelCustomizer(self.headwareCounter)
+        nameLabelCustomizer(self.underClothesCounter)
     }
     
 }

@@ -25,6 +25,8 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet var pictureForSelectedItemImage: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var subCategoryLabel: UILabel!
     
     //MARK: -Variables
     var categoryPickerView = UIPickerView()
@@ -88,7 +90,7 @@ extension CreateItemViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
-        self.setButtonsView()
+
         self.view.backgroundColor = Cotton
         let defaults = NSUserDefaults.standardUserDefaults()
         
@@ -104,7 +106,7 @@ extension CreateItemViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_CREATION_TO_SELECTION{
@@ -418,13 +420,7 @@ extension CreateItemViewController{
 
 //MARK: -Animation-Extension CreateItemViewController
 extension CreateItemViewController{
-    func setButtonsView(){
-        buttonAnimation(self.saveButton)
-//        buttonAnimation(self.categoryInputTextField)
-//        buttonAnimation(self.subCategoryInputTextField)
-//        buttonAnimation(self.pictureForSelectedItemImage)
-        buttonAnimation(self.clearButton)
-    }
+
 }
 
 
@@ -565,7 +561,7 @@ extension CreateItemViewController: UITextFieldDelegate{
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(textField: UITextField) -> Bool{
-        print("textFieldShouldClear:" + textField.text! + " cleared")
+        log.info("textField: " + textField.text! + " cleared")
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -595,6 +591,8 @@ extension CreateItemViewController: UITextFieldDelegate{
 extension CreateItemViewController{
     func animateAllButtons(){
         self.animateImage()
+        self.animateButtons()
+        
         //    self.animateLogo()
         //    self.animateViews()
         
@@ -604,6 +602,12 @@ extension CreateItemViewController{
     }
     func animateImage(){
         imageCustomization(self.pictureForSelectedItemImage)
+    }
+    func animateButtons(){
+        clearButtonCustomization(self.clearButton)
+        addButtonCustomization(self.saveButton)
+        nameLabelCustomizer(self.categoryLabel)
+        nameLabelCustomizer(self.subCategoryLabel)
     }
 }
 

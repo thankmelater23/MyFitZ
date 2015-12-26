@@ -73,6 +73,7 @@ extension ModelCustomCell{
 extension ModelCustomCell{
     func animateView(){
         CellButtons(self.star)
+        categoryCellImageCustomization(self.imageView!)
     }
 }
  

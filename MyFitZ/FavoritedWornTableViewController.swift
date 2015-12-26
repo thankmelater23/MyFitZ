@@ -35,7 +35,7 @@ class FavoritedWornTableViewController: UITableViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.log.warning("Not yet implemented")("Segue transfer: \(segue.identifier)")
         }
         
         

@@ -35,7 +35,7 @@ class ViewController:  UIViewController{
     }
     override func viewDidAppear(animated: Bool) {
         // 1
-        var nav = self.navigationController?.navigationBar
+        let nav = self.navigationController?.navigationBar
         // 2
         nav?.barStyle = UIBarStyle.Black
         nav?.tintColor = RawGoldTexture

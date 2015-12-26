@@ -53,6 +53,9 @@ class RecentTableViewCell: UITableViewCell{
     func customizeView(){
         self.backgroundColor = WrinkledCloth
         self.borderCustomization()
+        
+        featureCellImageCustomization(self.imageView!)
+        CellButtons(self.wear)
     }
 }
 

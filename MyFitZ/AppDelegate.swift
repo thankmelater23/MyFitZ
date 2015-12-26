@@ -4,14 +4,19 @@
 //
 //  Created by Andre Villanueva on 10/27/15.
 //  Copyright © 2015 Bang Bang Studios. All rights reserved.
-//
+// let log = SwiftyBeaver.self
 
 import UIKit
 import Fabric
 import Crashlytics
-//import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
+import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
+import Siren
+import SwiftyBeaver
 
 
+let log = SwiftyBeaver.self
+
+let jeremyGif = UIImage.gifWithName("jeremy.gif")
 
 //MARK: -AppDelegate
 @UIApplicationMain
@@ -23,11 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.SwiftBeaverSetUp()
+        self.removeConstraintFromLogger()
+        
         // Override point for customization after application launch.
         //MARK: -Crashylitics
         Fabric.with([Crashlytics.self])
         //MARK: -Appsee-Crashylitics
-//        Fabric.with([Crashlytics.self, Appsee.self])p
+        Fabric.with([Crashlytics.self, Appsee.self])
 //
 //        Appsee.setUserID("Thankmelater23")
         
@@ -102,6 +110,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func sirenInitilization(){
+        /* Siren code should go below window?.makeKeyAndVisible() */
+        
+        // Siren is a singleton
+        let siren = Siren.sharedInstance
+        
+        // Required: Your app's iTunes App Store ID
+        siren.appID = "123456789"
+        
+        // Optional: Defaults to .Option
+//        siren.alertType = <#SirenAlertType_Enum_Value#>
+        
+        /*
+        Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+        checks.
+        */
+        siren.checkVersion(.Immediately)
+        
+        siren.alertType = .Skip
+    }
+    
+    func SwiftBeaverSetUp(){
+        let console = ConsoleDestination()
+        log.addDestination(console)
+        // Now let’s log!
+        log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
+        log.debug("Debug Test")  // prio 2, DEBUG in blue
+        log.info("Info Test")   // prio 3, INFO in green
+        log.warning("Warning Test")  // prio 4, WARNING in yellow
+        log.error("Error Test")  // prio 5, ERROR in red
+    }
+    
+    func removeConstraintFromLogger(){
+        NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
 }
 

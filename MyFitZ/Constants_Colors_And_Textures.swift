@@ -46,11 +46,14 @@ let WhiteKnittedTextureVerticle = UIColor.init(patternImage: UIImage(named: "whi
 let BlurredGlass = UIColor.init(patternImage: UIImage(named: "greenButton")!)
 let DiamondTexture = UIColor.init(patternImage: UIImage(named: "diamondTexture")!)
 let GreenWool = UIColor.init(patternImage: UIImage(named: "greenWool")!)
+let RedWool = UIColor.init(patternImage: UIImage(named: "redWool")!)
+let BlueWool = UIColor.init(patternImage: UIImage(named: "blueWool")!)
+let YellowWool = UIColor.init(patternImage: UIImage(named: "yellowWool")!)
 let HardSandTexture = UIColor.init(patternImage: UIImage(named: "hardSandTexture")!)
 let StarCloudsTexture = UIColor.init(patternImage: UIImage(named: "starCloudsTexture")!)
 let PopulatedStarsTexture = UIColor.init(patternImage: UIImage(named: "populatedStarsTexture")!)
 //    init(){
-//        print("Texures Initialized" + String(self))
+//        log.info("Texures Initialized" + String(self))
 //    }
 //}
 //let Textures: BBS_TEXTURES = BBS_TEXTURES()

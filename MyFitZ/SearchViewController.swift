@@ -80,7 +80,7 @@ import Crashlytics
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_SEARCH_TO_DETAIL
@@ -323,8 +323,8 @@ extension SearchViewController{
         secectionNumberLabelDresser(self.indexNumberLabel)
         secectionNumberLabelDresser(self.brandLabel)
         
-        secectionImageLabelDresser(self.categoryLabelOfText)
-        secectionImageLabelDresser(self.subCategoryLabelOfText)
+        nameLabelCustomizer(self.categoryLabelOfText)
+        nameLabelCustomizer(self.subCategoryLabelOfText)
         
     }
     

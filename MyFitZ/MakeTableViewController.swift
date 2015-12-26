@@ -47,7 +47,7 @@ class MakeTableViewController: UITableViewController{
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
@@ -162,9 +162,14 @@ extension MakeTableViewController:UIAlertViewDelegate{
         return String(path[PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = LeatherTexture
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Gold
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+//        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
         let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
         path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
@@ -196,6 +201,7 @@ extension MakeTableViewController{
         
     }
     func animateLogo(){
+        
         //    logoCustomization(self.logoImage)
     }
 }

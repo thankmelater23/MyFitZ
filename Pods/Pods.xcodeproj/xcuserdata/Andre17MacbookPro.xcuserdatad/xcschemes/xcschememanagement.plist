@@ -74,7 +74,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Siren.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SlackTextViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -97,6 +107,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>084177B9B46E59390599938ABB0586B0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
@@ -107,12 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43B91AAEBF1F9BB1FEA91420606E5978</key>
+		<key>28909DE5A573B459D9F4EB57F6200F05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48B754F06E220217BA9D9DA4824EAAC3</key>
+		<key>3444B3B8CF116377C2008A9F2B384459</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42183661E5555F06CFAEB574B54500C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A7A676067A4A45178BB0B04EA1E7A6D</key>
+		<key>513EF58D881313E3D413184346D4F27C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8415D6C3FB49497D90A405D96BAE9653</key>
+		<key>62EAF32D1EB424DC8404F1674558C715</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>874A4F7BEAE63C432E3CD56A1A3B03B9</key>
+		<key>78779AA34DA20DB322F6885AB8CB8A97</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +162,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97140057D00C4E16B34B3D2DCBD67913</key>
+		<key>94BD584E915E42428F3E2C23B5AB9F42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,12 +187,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2B9FAA8CF0D0AD8409AF09489ABC6B4</key>
+		<key>EC10C9CEE5F6E863B25794D6AD0DA796</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F13EF0096E37646A0335576C24D82873</key>
+		<key>F42A840AC1982CF9BB0452556DBD8476</key>
 		<dict>
 			<key>primary</key>
 			<true/>

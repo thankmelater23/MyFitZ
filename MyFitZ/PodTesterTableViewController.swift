@@ -46,7 +46,7 @@ class PodTesterTableViewController: UITableViewController, RETableViewManagerDel
         
 //        CRToastManager .showNotificationWithOptions(dicOfOptions, completionBlock: {
 //            MRProgressOverlayView.dismissOverlayForView(self.view, animated: true)
-//            print("This is a test log")})
+//            log.info("This is a test log")})
 //        
 //        MRProgressOverlayView.showOverlayAddedTo(self.view, animated: true)
 //        

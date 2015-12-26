@@ -36,11 +36,11 @@ class DoubleLabelTableViewCell: UITableViewCell {
         
         self.clipsToBounds = true
         self.layer.borderWidth = 2
-        self.layer.borderColor = Stitching.CGColor
+        self.layer.borderColor = BrownLeatherStitching.CGColor
     }
     
     func customizeView(){
-        self.backgroundColor = GreenWool
+        self.backgroundColor = StarCloudsTexture
         self.borderCustomization()
     }
 }

@@ -56,8 +56,10 @@ PODS:
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
+  - Siren (0.6.3)
   - SlackTextViewController (1.8)
   - SVProgressHUD (1.1.3)
+  - SwiftyBeaver (0.3.0)
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
 
@@ -71,8 +73,10 @@ DEPENDENCIES:
   - iRate
   - MRProgress
   - RETableViewManager
+  - Siren
   - SlackTextViewController
   - SVProgressHUD
+  - SwiftyBeaver
   - TSMessages
 
 SPEC CHECKSUMS:
@@ -88,8 +92,10 @@ SPEC CHECKSUMS:
   REFormattedNumberField: be3d55dd709f65541fb26b7e1709da07903147f8
   RETableViewManager: 9667ecb29c005c32df40a1dd1828224840a351a2
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
+  Siren: fefd8833ba21f696118611dac0fedfd2375955c2
   SlackTextViewController: 0300adee2931fdbe72488990336f0937dbed048e
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftyBeaver: df7961d4ecb75521ed6a9af40dd3076af1635fdd
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
 
 COCOAPODS: 0.39.0

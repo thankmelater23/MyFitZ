@@ -26,6 +26,8 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var subCategoryLabel: UILabel!
     
     //MARK: Variables
     var categoryPickerView = UIPickerView()
@@ -105,7 +107,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_CREATION_TO_SELECTION{
@@ -599,7 +601,7 @@ extension EditItemViewController: UITextFieldDelegate{
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(textField: UITextField) -> Bool{
-        print("textFieldShouldClear:" + textField.text! + " cleared")
+        log.warning("Not yet implemented")
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -628,16 +630,7 @@ extension EditItemViewController: UITextFieldDelegate{
 //MARK: - UI-ModelTableViewController Extension
 extension EditItemViewController{
     func animateAllButtons(){
-        //    self.animateSearchButton()
-        //    self.animateStarButton()
-        //    self.animateHamperButton()
-        //    self.animateSearchButton()
-        //    self.animatePictureLabels()
-        //    self.animatePictureImages()
-        //    self.animateNumberLabels()
-        //    self.animateTrashButton()
-        //    self.animateLogo()
-        //        self.animateViews()
+        self.animateButtons()
         self.animateImage()
         
     }
@@ -646,6 +639,12 @@ extension EditItemViewController{
     }
     func animateImage(){
         imageCustomization(self.image)
+    }
+    func animateButtons(){
+        deleteButtonCustomization(self.deleteButton)
+        addButtonCustomization(self.updateButton)
+        nameLabelCustomizer(self.categoryLabel)
+                nameLabelCustomizer(self.subCategoryLabel)
     }
 }
 

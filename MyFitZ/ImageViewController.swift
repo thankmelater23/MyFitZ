@@ -18,7 +18,7 @@ class ImageViewController: UIViewController {
     var imageHolder:UIImage = UIImage()
     var itemName: String = String()
     var itemBrand: String = String()
-    
+    var item = Item()
     var path:[String: String] = [:]
     
     
@@ -34,7 +34,7 @@ class ImageViewController: UIViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            print("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == SEGUE_IMAGE_TO_DETAIL{
@@ -51,20 +51,20 @@ class ImageViewController: UIViewController {
 //MARK: - UI-ImageViewController Extension
 extension ImageViewController{
     func animateAllButtons(){
-            self.animateLabel()
+        self.animateLabel()
         //    self.animateStarButton()
-            self.animateLogo()
+        self.animateLogo()
         self.animateImage()
         //        self.animateViews()
         
     }
     func animateLogo(){
-
+        
     }
     func animateLabel(){
-        secectionImageLabelDresser(self.itemLabel)
+        nameLabelCustomizer(self.itemLabel)
     }
     func animateImage(){
-         imageCustomization(self.image)
+        imageCustomization(self.image)
     }
 }

@@ -50,6 +50,9 @@ class FavoritesTableViewCell: UITableViewCell{
     func customizeView(){
         self.backgroundColor = PopulatedStarsTexture
         self.borderCustomization()
+        
+        featureCellImageCustomization(self.imageView!)
+        CellButtons(self.favoritedButton)
     }
     
     @IBAction func favoritedSwitch() {
