@@ -72,6 +72,7 @@ import Crashlytics
         // Do any additional setup after loading the view.
         
         super.viewDidLoad()
+        log.info("ViewLoaded")
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("SEARCH_PAGE_COUNT")
@@ -94,6 +95,7 @@ import Crashlytics
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
     }
 }

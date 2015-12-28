@@ -40,7 +40,7 @@ class DoubleLabelTableViewCell: UITableViewCell {
     }
     
     func customizeView(){
-        self.backgroundColor = StarCloudsTexture
+        self.backgroundColor = SpecialLeatherTexture
         self.borderCustomization()
     }
 }

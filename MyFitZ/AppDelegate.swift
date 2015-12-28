@@ -28,9 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        log.info("applicationDidFinishLaunchingWithOptions Called")
         self.SwiftBeaverSetUp()
         self.removeConstraintFromLogger()
-        
+        initializeSounds()
         // Override point for customization after application launch.
         //MARK: -Crashylitics
         Fabric.with([Crashlytics.self])

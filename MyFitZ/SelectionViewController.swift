@@ -67,6 +67,7 @@ class SelectionViewController: UIViewController{
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.navigationController?.navigationBarHidden = false
         
         self.animateAllButtons()

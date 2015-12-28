@@ -23,7 +23,7 @@ class PercentagesTableViewController: UITableViewController {
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        
+        log.info("ViewLoaded")
         self.setUpTypes()
         self.view.backgroundColor = Cotton
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -39,6 +39,7 @@ class PercentagesTableViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){

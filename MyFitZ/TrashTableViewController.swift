@@ -23,6 +23,7 @@ class TrashTableViewController: UITableViewController {
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.SetUpTypes()
         self.view.backgroundColor = RedBunchedUpSilkSheet
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -48,6 +49,7 @@ class TrashTableViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
     }
 }
 

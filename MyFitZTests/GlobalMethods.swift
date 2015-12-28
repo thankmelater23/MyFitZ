@@ -31,11 +31,4 @@ class GlobalMethods: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
-    func testThisWillWorkRight(){
-        let stringVar = grabTitle("here", view: "now")
-        
-        assert(stringVar != "here-now", "This should work")
-    }
-
 }

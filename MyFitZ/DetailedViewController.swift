@@ -32,6 +32,7 @@ class DetailedViewController: UIViewController{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.setUp()
         self.view.backgroundColor = Cotton
         log.verbose(self.itemOfObject)

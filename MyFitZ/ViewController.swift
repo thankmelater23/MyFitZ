@@ -23,7 +23,7 @@ class ViewController:  UIViewController{
     //MARK: -Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        initializeSounds()
+        log.info("ViewLoaded")
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -55,6 +55,7 @@ class ViewController:  UIViewController{
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
     }
     func setTitle(){
@@ -98,9 +99,14 @@ extension ViewController{
         self.logPageView()
         performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
+    @IBAction func selectedOptions() {
+        log.info("Options Selected")
+        self.performSegueWithIdentifier(SEGUE_MAIN_TO_OPTIONS, sender: self)
+    }
     @IBAction func crashButtonTapped(sender: AnyObject) {
         Crashlytics.sharedInstance().crash()
     }
+    
 }
 
 

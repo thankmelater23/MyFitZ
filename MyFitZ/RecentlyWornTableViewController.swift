@@ -26,6 +26,7 @@ class RecentlyWornTableViewController: UITableViewController {
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.SetUpTypes()
         self.view.backgroundColor = RedBunchedUpSilkSheet
         
@@ -53,6 +54,7 @@ class RecentlyWornTableViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
     }
 }
 
@@ -77,12 +79,6 @@ extension RecentlyWornTableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: RecentTableViewCell = tableView.dequeueReusableCellWithIdentifier(RECENTLY_CELL) as! RecentTableViewCell
         
-        if indexPath.row % 2 == 0//If even number make this color
-        {
-            cell.backgroundColor     = UIColor.brownColor()
-        }else{
-            cell.backgroundColor     = UIColor.brownColor()
-        }
         
         let item: Item            = arrayOfItems[indexPath.row] as Item!
         

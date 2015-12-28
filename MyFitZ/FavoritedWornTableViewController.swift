@@ -24,6 +24,7 @@ class FavoritedWornTableViewController: UITableViewController {
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.SetUpTypes()
         self.view.backgroundColor =  RedBunchedUpSilkSheet
         
@@ -35,7 +36,8 @@ class FavoritedWornTableViewController: UITableViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
-            log.log.warning("Not yet implemented")("Segue transfer: \(segue.identifier)")
+            log.warning("Not yet implemented")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         
@@ -52,6 +54,7 @@ class FavoritedWornTableViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
     }
 }
 
@@ -192,15 +195,15 @@ extension FavoritedWornTableViewController{
 extension FavoritedWornTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let pageCount:Int? = defaults.returnIntValue("FAVORITED_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Favorited Content View",
-            contentType: "Favorited View",
-            contentId: "MF9",
-            customAttributes: ["FAVORITED_PAGE_COUNT": pageCount!
-            ])
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            let pageCount:Int? = defaults.returnIntValue("FAVORITED_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Favorited Content View",
+                contentType: "Favorited View",
+                contentId: "MF9",
+                customAttributes: ["FAVORITED_PAGE_COUNT": pageCount!
+                ])
         })
     }
 }

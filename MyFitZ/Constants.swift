@@ -43,6 +43,13 @@ enum GotMode:Int{
     case takingIt
 }
 
+enum CreateItemStages: Int{
+    case stageNoImage
+    case stageNoCategory
+    case stageNoSubCategory
+    case stageNoModel
+}
+
 
 //MARK: -App Arrays & Dictionary Constants
 let CATEGORY_PICKER_OPTIONS = [TOPS, BOTTOMS, HEADWARE, FOOTWARE, ACCESSORIES, UNDERCLOTHING]
@@ -93,21 +100,21 @@ let RECENTLY_WORN_CONTAINER_MAX = 50
 struct Segues{
     
 }
-let SEGUE_MAIN_TO_SELECTION     = "mainToSelection"
-let SEGUE_MAIN_TO_FITMAKER      = "mainToFitMaker"
-let SEGUE_SELECTION_TO_MAKE     = "selectionToMake"
-let SEGUE_SELECTION_TO_MAIN     = "selectionToMain"
-let SEGUE_SELECTION_TO_RECENT   = "selectionToRecent"
-let SEGUE_SELECTION_TO_CREATION = "selectionToCreation"
+let SEGUE_MAIN_TO_SELECTION      = "mainToSelection"
+let SEGUE_MAIN_TO_FITMAKER       = "mainToFitMaker"
+let SEGUE_SELECTION_TO_MAKE      = "selectionToMake"
+let SEGUE_SELECTION_TO_MAIN      = "selectionToMain"
+let SEGUE_SELECTION_TO_RECENT    = "selectionToRecent"
+let SEGUE_SELECTION_TO_CREATION  = "selectionToCreation"
 let SEGUE_SELECTION_TO_FAVORITED = "selectionToFavorited"
-let SEGUE_MAKE_TO_MODEL         = "makeToModel"
-let SEGUE_MAKE_TO_SELECTION     = "makeToSelection"
-let SEGUE_MAKE_TO_CREATION      = "makeToCreation"
-let SEGUE_MODEL_TO_DETAIL       = "modelToDetailed"
-let SEGUE_MODEL_TO_MAKE         = "modelToMake"
-let SEGUE_MODEL_TO_CREATION     = "modelToCreation"
-let SEGUE_RECENT_TO_SELECTION   = "recentToSelection"
-let SEGUE_RECENT_TO_DETAIL      = "recentToDetail"
+let SEGUE_MAKE_TO_MODEL          = "makeToModel"
+let SEGUE_MAKE_TO_SELECTION      = "makeToSelection"
+let SEGUE_MAKE_TO_CREATION       = "makeToCreation"
+let SEGUE_MODEL_TO_DETAIL        = "modelToDetailed"
+let SEGUE_MODEL_TO_MAKE          = "modelToMake"
+let SEGUE_MODEL_TO_CREATION      = "modelToCreation"
+let SEGUE_RECENT_TO_SELECTION    = "recentToSelection"
+let SEGUE_RECENT_TO_DETAIL       = "recentToDetail"
 let SEGUE_FAVORITED_TO_SELECTION = "favoritedToSelection"
 let SEGUE_FAVORITED_TO_DETAIL   = "favoritedToDetail"
 let SEGUE_CREATION_TO_MAIN      = "creationToMain"
@@ -126,16 +133,25 @@ let SEGUE_EDIT_TO_SELECTION     = "editToSelection"
 let SEGUE_TRASH_TO_SELECTION    = "trashToSelection"
 let SEGUE_TRASH_TO_DETAIL       = "trashToDetail"
 let SEGUE_SELECTION_TO_TRASH    = "selectionToTrash"
-let SEGUE_SEARCH_TO_DETAIL       = "searchToDetail"
-let SEGUE_IMAGE_TO_DETAIL       = "imageToDetail"
+let SEGUE_SEARCH_TO_DETAIL        = "searchToDetail"
+let SEGUE_IMAGE_TO_DETAIL         = "imageToDetail"
 let SEGUE_SELECTION_TO_PERCENTAGE = "selectionToPercentage"
 let SEGUE_PERCENTAGE_TO_SELECTION = "percentToSelection"
 let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
+let SEGUE_OPTIONS_TO_HELP         = "optionsToHelp"
+let SEGUE_HELP_TO_INSTRUCTIONS    = "helpToInstructions"
 
 //MARK: -Cell identifiers
 //TODO: -Turn this into a struct
-struct CellIdentifiers{
-    
+struct CELL_IDENTIFIERS{
+    let MAKE_CELL                   = "makeCell"
+    let MODEL_CELL                  = "modelCell"
+    let CREATION_CELL               = "creationCell"
+    let DOUBLE_LABEL_CELL           = "doubleLabel"
+    let TEXT_INPUT_CELL             = "textInputCell"
+    let FAVORITED_CELL              = "favoritedCell"
+    let RECENTLY_CELL               = "recentlyWornCell"
+    let TRASH_CELL                  = "trashCell"
 }
 let CellIdentifier = CELL_IDENTIFIERS()
 

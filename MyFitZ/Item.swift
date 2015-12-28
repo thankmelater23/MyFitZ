@@ -97,7 +97,6 @@ class Item: NSObject, NSCoding{
         self.path = decoder.decodeObjectForKey(ITEM_LOCATIONPATH_STRING) as! [String: String]!
     }//Decode data in class
     func encodeWithCoder(coder: NSCoder){
-        
         //Required
         coder.encodeObject(self.brand, forKey: ITEM_BRAND_STRING)
         coder.encodeObject(self.model, forKey: ITEM_MODEL_STRING)
@@ -136,6 +135,7 @@ class Item: NSObject, NSCoding{
     ///Creates blank Item
     override init(){
         super.init()
+        log.info("Item Object Init")
         
         self.brand        = "N/A"
         
@@ -217,6 +217,7 @@ extension Item{
      Increments timesWorn value by one
      */
     func incrementTimesWorn(){
+        log.info("Item times Worn incremented from: \(self.timesWorn) to: \(self.timesWorn + 1)")
         self.timesWorn = self.timesWorn + 1
     }
     /**
@@ -225,6 +226,7 @@ extension Item{
      - parameter closet: The String of the closet the item is located in
      */
     func populatePath(closet:String){
+        log.verbose("\(self.model) path is being populated")
         self.path[PATHTYPE_CLOSET_STRING] = closet
         self.path[PATHTYPE_ID_STRING] = String(self.id)
         self.path[PATHTYPE_CATEGORY_STRING] = self.category
@@ -239,14 +241,76 @@ extension Item{
      - returns: The dictionary
      */
     func removePathFromArrayAndGivesBackNewArray(var path: [[String: String]]) -> [[String: String]]{
-        
+        log.info("removing path from array")
         for (index, arrayDic) in path.enumerate(){
             if arrayDic[PATHTYPE_ID_STRING] == String(self.id){
                 path.removeAtIndex(index)
+                log.info("path found and deleted")
             }
         }
         
         return path
+    }
+    
+    func itemStory()->String{
+        "The size .size/ .model/ .brand/ .kind/ thats .primaryColor/, .secondaryColor/, and .thirdColor/ located in .cataegory/ section under .subcategory is (.favorited/), that you purchased for .payedPrice, but is valued at .originalPrice.  .model was last worn: .lastTimeWorn/ and aquired on .datePurchased which is (.datePurchased - .releaseDate) days from the date it was released .dateReleased.  .model is in .condition/ condition and materials consist of .primaryMaterial/, .secondaryMaterial/.  .model/ was purchased from .sellerName/, but you can also find it at this address: .storeLocation/, or at this url: .storeUrl.     Item Notes: .notes/. "
+        
+        
+        let brand = self.brand ?? "N/A"
+        let model = self.model ?? "N/A"
+        let category = self.category ?? "N/A"
+        let subCategory = self.subCategory ?? "N/A"
+        let index = self.index ?? 0
+        let payedPrice = self.payedPrice ?? 0
+
+        let favorited = self.favorited ?? false
+        let isThisNew = self.isThisNew ?? false
+        let timesWorn = self.timesWorn ?? 0
+        let lastTimeWorn = self.lastTimeWorn ?? "N/A"
+        let kind = self.kind ?? "N/A"
+        let size = self.size ?? "N/A"
+        let id = self.id ?? 0
+        //MARK: - Item Required defined values
+        let datePurchased = self.datePurchased ?? "N/A"
+        let color = self.color ?? "N/A"
+        let secondaryColor = self.secondaryColor ?? "N/A"
+        let thirdColor = self.thirdColor ?? "N/A"
+        let dateReleased = self.dateReleased ?? "N/A"
+        let itemNotes = self.itemNotes ?? "N/A"
+        let condition = self.condition ?? "N/A"
+        let primaryMaterial = self.primaryMaterial ?? "N/A"
+        let secondaryMaterial = self.secondaryMaterial ?? "N/A"
+        let retailPrice = self.retailPrice ?? 0
+        let sellerURL = self.sellerURL ?? "N/A"
+        let storeLocation = self.storeLocation ?? "N/A"
+        let sellerName = self.sellerName ?? "N/A"
+        
+        var story = String()
+        
+
+        story += "The size " + size + " " + model + " " + brand + " " + kind + " thats "
+        story += color + ", " + secondaryColor + ", and " + thirdColor
+        story += "has been worn: " + String(timesWorn) + " and is located in " + category
+        story += "/" + subCategory + " is "
+        
+        if favorited{
+            story += "is favorited "
+        }else{
+            story += "is not favorited "
+        }
+
+        story += "that was purchased for " + String(payedPrice)
+        story += "but is valued at " + String(retailPrice) + ". "
+        story += model + " was last worn: " + lastTimeWorn
+        story += " and aquired on " + datePurchased + " the " + model + " was also released on " + dateReleased
+        story += ".\nIs in " + condition + " condition." +  "Materials consist of" + primaryMaterial + ", " + (secondaryMaterial ?? "N/A")
+        story += " and was purchased from " + sellerName + ", but can also be found at " + storeLocation
+        story += " or at the url of " + sellerURL + "\n\n" + model + " Notes:\n\n" + itemNotes
+        
+
+        log.info("\(self.model) Item story created")
+        
+        return story
     }
 }
 

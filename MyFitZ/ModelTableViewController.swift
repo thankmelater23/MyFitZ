@@ -25,6 +25,7 @@ class ModelTableViewController: UITableViewController {
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.SetUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -68,6 +69,7 @@ class ModelTableViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
     }
 }
 

@@ -40,10 +40,12 @@ class Wardrobe:NSObject, NSCoding{
     
     var selectedClosetRecentWornItems: [[String: String]]{
         get{
-            
+            log.info("Getting Recents")
             if closetSelectionString == MY_CLOSET{
+
                 return myClosetRecentWornItems
             }else if closetSelectionString == MY_WANTS_CLOSET{
+
                 return myWishListRecentWornItems
             }else{
                 assertionFailure("Incorect closet selection string: \(closetSelectionString)")
@@ -52,6 +54,7 @@ class Wardrobe:NSObject, NSCoding{
         }
         
         set{
+            log.info("Setting to Closet" + self.closetSelectionString)
             if closetSelectionString == MY_CLOSET{
                 myClosetRecentWornItems = newValue
             }else if closetSelectionString == MY_WANTS_CLOSET{
@@ -64,7 +67,7 @@ class Wardrobe:NSObject, NSCoding{
     }
     var selectedClosetFavoritedItems: [[String: String]]{
         get{
-            
+            log.info("Getting Favorites")
             if closetSelectionString == MY_CLOSET{
                 return myClosetFavoritedItems
             }else if closetSelectionString == MY_WANTS_CLOSET{
@@ -76,6 +79,7 @@ class Wardrobe:NSObject, NSCoding{
         }
         
         set{
+            log.info("Setting Favorites")
             if closetSelectionString == MY_CLOSET{
                 myClosetFavoritedItems = newValue
             }else if closetSelectionString == MY_WANTS_CLOSET{
@@ -88,7 +92,7 @@ class Wardrobe:NSObject, NSCoding{
     }
     var selectedClosetTrashItems: [Item]{
         get{
-            
+            log.info("Getting Trash")
             if closetSelectionString == MY_CLOSET{
                 return myClosetTrash
             }else if closetSelectionString == MY_WANTS_CLOSET{
@@ -100,6 +104,7 @@ class Wardrobe:NSObject, NSCoding{
         }
         
         set{
+            log.info("Setting Trash")
             if closetSelectionString == MY_CLOSET{
                 myClosetTrash = newValue
             }else if closetSelectionString == MY_WANTS_CLOSET{
@@ -171,6 +176,7 @@ class Wardrobe:NSObject, NSCoding{
     
     required init?(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
         super.init()
+        log.info("Decoding Wardrobe Object")
         self.myCloset = decoder.decodeObjectForKey("1") as! CLOSET_TYPE!
         self.myWantsCloset = decoder.decodeObjectForKey("2") as! CLOSET_TYPE!
         self.closetSelectionString = decoder.decodeObjectForKey("3") as! String! ?? String()
@@ -194,6 +200,7 @@ class Wardrobe:NSObject, NSCoding{
         
     }//Decode data in class
     func encodeWithCoder(coder: NSCoder){
+        log.info("Encoding Wardrobe Object")
         coder.encodeObject(self.myCloset, forKey: "1")
         coder.encodeObject(self.myWantsCloset, forKey: "2")
         coder.encodeObject(self.closetSelectionString, forKey: "3")
@@ -218,7 +225,7 @@ class Wardrobe:NSObject, NSCoding{
     */
     override init(){
         super.init()
-        
+        log.info("Wardrobe Object Initializing")
         
         for key in CATEGORY_PICKER_OPTIONS{
             let categoryString = "DEFAULT"
@@ -241,7 +248,9 @@ extension Wardrobe{
      - returns: URL to path of directory
      */
     func documentsDirectory() -> NSURL {
+        log.info("Getting NSURL from file manager")
         let documentsFolderPath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        log.info("Returning \(documentsFolderPath) url")
         return documentsFolderPath
     }
     /**
@@ -261,6 +270,7 @@ extension Wardrobe{
      - parameter wardrobeToSave: Wardrobe object to save to URL path
      */
     func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
+        log.info("Wardrobe save started")
         //TODO: -Redo this to get success or not from saving
         var success = false
         //!!: -Clear containers for testing(debugging code)
@@ -306,10 +316,12 @@ extension Wardrobe{
      - returns: return wardrobe
      */
     func loadArchivedObject(filePath: NSURL) -> Wardrobe? {
+        log.info("Loaing Wardrobe Object")
         if let wardrobe = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath.path!) as! Wardrobe!{
-            
+            log.info("Returning previous created wardrobe from file")
             return wardrobe
         }else{
+            log.info("New Wardrobe Created")
             let newWardrobe = Wardrobe()
             self.saveObjectToArchived(filePath.path!, wardrobeToSave: newWardrobe)
             return newWardrobe
@@ -321,6 +333,7 @@ extension Wardrobe{
      - returns: Wardrobe from file directory
      */
     func loadAndCreateCloset() -> Wardrobe{
+        log.info("Loading Object from file")
         let filePath = fileInDocumentsDirectory(MYFITZ_ARCHIVE_FILE_STRING)
         return loadArchivedObject(filePath)!
     }
@@ -332,6 +345,7 @@ extension Wardrobe{
      - parameter item:            Item to save
      */
     func save(funcCategory:String, funcSubCategory:String, item: Item)throws{
+        log.info("Saving Wardrobe Object")
         if funcSubCategory.isEmpty == true{throw ItemError.IncorrectSubCategory}
         
         //Checks if new SubCategory is new
@@ -399,6 +413,7 @@ extension Wardrobe{
     }
     
     func saveItem(myItem: Item){
+        log.info("Saving Item Object: \(myItem.model)" )
         self.newSubCategoryCheck(myItem)
         
         //Update brandCollection
@@ -420,6 +435,7 @@ extension Wardrobe{
     }
     
     func newSubCategoryCheck(item: Item){
+        log.info("Checking if \(item.subCategory) exist in previously created subcategories")
         //Checks if new SubCategory is new
         let keysOfCategory = Array(self.selectedCloset[item.category]!.keys)
         let isKeyNew = keysOfCategory.contains(item.subCategory)
@@ -434,6 +450,7 @@ extension Wardrobe{
      Plays SFX, gets file path to save to, than save Wardrobe object to archive
      */
     func quickSave(){
+        log.info("Quick saved called")
         playSoundEffects(saveSFX)
         
         
@@ -457,6 +474,8 @@ extension Wardrobe{
         if closetItemCountID == nil{
             closetItemCountID = 0
         }
+        
+        log.info("Closet count ID current value: \(closetItemCountID)")
         return closetItemCountID!
     }
     /**
@@ -472,6 +491,7 @@ extension Wardrobe{
         if wishListItemCountID == nil || wishListItemCountID == 0{
             wishListItemCountID = 100000
         }
+        log.info("Wish list count ID current value: \(wishListItemCountID)")
         return wishListItemCountID!
     }
     
@@ -481,6 +501,7 @@ extension Wardrobe{
      - returns: number of items in MyCloset
      */
     private func getsCountOfMyCloset()-> Int{
+        log.info("Getting count of closet")
         var sum = 0
         for (_, value) in myCloset{
             for (_, value) in value{
@@ -489,6 +510,7 @@ extension Wardrobe{
                 }
             }
         }
+        log.info("Closet Count: \(sum)")
         return sum
     }
     /**
@@ -497,6 +519,7 @@ extension Wardrobe{
      - returns: number of items in Wishlist
      */
     private func getsCountOfMyWishList()-> Int{
+        log.info("Getting count of Wish List")
         var sum = 0
         for (_, value) in myWantsCloset{
             for (_, value) in value{
@@ -505,6 +528,7 @@ extension Wardrobe{
                 }
             }
         }
+        log.info("Wish List Count: \(sum)")
         return sum
     }
     
@@ -526,10 +550,12 @@ extension Wardrobe{
      - returns: Number of sumCategories
      */
     func getCountOfAllItemsInCategory(funcCategory: String)->Int{
+        log.info("Getting Count of all items in \(funcCategory)")
         var sum = 0
         for (_, value) in selectedCloset[funcCategory]!{
             sum += value.count
         }
+        log.info("\(funcCategory) Count: \(sum)")
         return sum
     }
     /**
@@ -541,7 +567,10 @@ extension Wardrobe{
      - returns: Number of items in array of subcategory
      */
     func getCountOfSubCategories(funcCategory: String, funcSubCategory: String)->Int{
-        return selectedCloset[funcCategory]![funcSubCategory]!.count
+        log.info("Getting Count of all items in \(funcSubCategory)")
+        let count = selectedCloset[funcCategory]![funcSubCategory]!.count
+        log.info("\(funcSubCategory) count: \(count)")
+        return count
     }
 }
 
@@ -550,6 +579,7 @@ extension Wardrobe{
 //MARK: -General-Wardrobe Extension
 extension Wardrobe{
     private func sort(funcCategory:String, funcSubCategory:String){
+        log.info("Sorting \(funcCategory)/\(funcSubCategory)")
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         
@@ -570,6 +600,7 @@ extension Wardrobe{
         
         //Make replace old array with new sorted array
         self.selectedCloset[funcCategory]![funcSubCategory]! = sorted
+        log.info("Sorting \(funcCategory)/\(funcSubCategory) sorted")
     }
     /**
      Gets value from Category, sort value, return value to be used in tableView sorted
@@ -694,6 +725,7 @@ extension Wardrobe{
     - parameter item:            Item to be matched than deleted
     */
     func deleteItem(funcCategory: String, funcSubCategory: String, item: Item){//Deletes item
+        log.info("deleting item \(item.model)")
         playSoundEffects(deleteSFX)
         
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
@@ -778,6 +810,7 @@ extension Wardrobe{
         quickSave()
     }
     func removeItemFromAllContainters(path: [String: String]){
+        log.info("Removing item from all containers")
         self.removeFromFavoriteList(path)
         self.removeFromRecentWornCollectiion(path)
         let item = returnItem(path)
@@ -793,6 +826,7 @@ extension Wardrobe{
     - parameter newItem:         Item to Add
     */
     func appendItemAt(funcCategory: String, funcSubCategory: String, newItem: Item){
+        log.info("Appening item: \(newItem.model) to: \(funcCategory)/\(funcSubCategory)")
         selectedCloset[funcCategory]![funcSubCategory]!.append(newItem)
         
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
@@ -812,6 +846,7 @@ extension Wardrobe{
     func swapItem(funcCategory:     String, funcSubCategory:     String,
         prevFuncCategory: String, prevFuncSubCategory: String,
         item: Item)throws{
+            log.info("Swapping item: \(item.model) from \(prevFuncCategory)/\(prevFuncSubCategory) to \(funcCategory)/\(funcSubCategory)")
             let tempItem = item
             self.deleteItem(prevFuncCategory, funcSubCategory: funcSubCategory, item: item)
             
@@ -834,10 +869,12 @@ extension Wardrobe{
     - returns: returns true if item exist in subCategory false if it doesn't
     */
     func doesItemExistAt(funcCategory: String, funcSubCategory: String, item: Item)-> Bool{
+        log.verbose("Checking if item \(item.model) exist")
         let array = self.selectedCloset[funcCategory]![funcSubCategory]!
         
         for index in array{
             if index.isEqual(item){
+                log.verbose("item: \(item.model) does exist")
                 return true
             }
         }
@@ -877,10 +914,11 @@ extension Wardrobe{
     - parameter brand: Brand String to append
     */
     func updateBrandCollectiion(brand: String){
+        log.verbose("Brand list is being updated")
         //Checks if Brand exist if not its added to the list
         if !brandCollection.contains(brand)  && brand.isEmpty != true{
             brandCollection.append(brand)
-            
+            log.verbose("\(brand) does not exist inside of saved brands list is now being added")
             //TODO: -Fix this sort
             
             
@@ -893,6 +931,7 @@ extension Wardrobe{
      - parameter brand: Brand string to check
      */
     func removeBrandIfNoBrandItemsExist(brand: String){
+        log.verbose("If \(brand) doesnt exist than remove")
         //TODO: -Add this method to the places it needs to go to remove brand from the list when it is no longer needed
         var sum = 0
         
@@ -922,7 +961,7 @@ extension Wardrobe{
     - parameter item: Item to check for favorited
     */
     func  ItemFavorited(item: Item){
-        
+        log.verbose("\(item.model) favorited")
         self.removeFromFavoriteList(item.path)
         
         if item.favorited == true{
@@ -930,10 +969,12 @@ extension Wardrobe{
         }
     }
     func removeItemFromFavorites(path: [String: String]){
+        log.verbose("Removing item path from favorites")
         let checkedID = path[PATHTYPE_ID_STRING]!
         
         for (index, item) in self.selectedClosetFavoritedItems.enumerate(){
             if checkedID == String(item[PATHTYPE_ID_STRING]){
+                log.verbose("found and removed item path from favorites")
                 self.selectedClosetFavoritedItems.removeAtIndex(index)
                 return
             }
@@ -945,6 +986,7 @@ extension Wardrobe{
      - parameter item: Item to check for favorited
      */
     func checkItemWorn(item: Item){
+        log.verbose("\(item.model) check if worn")
         selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({
             let lastTime = returnItem($0)!.lastTimeWorn
             return (lastTime != "N.A" || lastTime != "")
@@ -978,6 +1020,7 @@ extension Wardrobe{
      - parameter item: Item to check for elgibility of being added to favorites
      */
     private func updateFavoritedWornCollectiion(path: [String: String]){
+        log.verbose("Removing item path from favorites")
         //            self.removeNonFavoritedItems()
         var count = 0
         
@@ -1003,6 +1046,7 @@ extension Wardrobe{
      - parameter item: Item to compare id with
      */
     private func removeFromFavoriteList(path: [String: String]){
+        log.verbose("Removing item path from favorites")
         selectedClosetFavoritedItems = selectedClosetFavoritedItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
     }
     /**
@@ -1011,11 +1055,13 @@ extension Wardrobe{
      - parameter path: Reference needed to get item from values inside this dictionary
      */
     private func removeNonFavoritedItems(){
+        log.verbose("Removing non favorites items in favorites if they exisit")
         var count = 0
         
         for arrayPath in selectedClosetFavoritedItems{
             let item = returnItem(arrayPath)
             if item!.favorited != true{
+                log.verbose("Item is removed from favorites")
                 selectedClosetFavoritedItems.removeAtIndex(count)
             }
             count++
@@ -1025,6 +1071,7 @@ extension Wardrobe{
      Populates FavoritedItems with the paths stored in favoriteItemsPaths to pull the item directly from the source insead of keeping copies
      */
     func populateFavoriteItems()->[Item]{
+        log.verbose("Returning favorites Items array from Path array")
         var returningDictionaryPath = [Item]()
         
         for path in selectedClosetFavoritedItems{
@@ -1040,10 +1087,13 @@ extension Wardrobe{
         
         return returningDictionaryPath
     }
+    
     /**
      Populates FavoritedItems with the paths stored in favoriteItemsPaths to pull the item directly from the source insead of keeping copies
      */
     func populateRecentlyWornItems()->[Item]{
+        
+        log.verbose("Returning Recenetly worn Item arrays from path array")
         var returningDictionaryPath = [Item]()
         
         for path in selectedClosetRecentWornItems{
@@ -1051,7 +1101,8 @@ extension Wardrobe{
             
             if item == nil{
                 self.clearAllContainersAndPopulate()
-                return self.populateFavoriteItems()
+                return self.populateRecentlyWornItems()
+            
             }
             
             returningDictionaryPath.append(item!)
@@ -1060,6 +1111,7 @@ extension Wardrobe{
     }
     
     func returnPathsFromArrayOfItems(items: [Item])-> [[String: String]]{
+        log.verbose("Returning paths from given array")
         var returningDictionaryPath = [[String: String]]()
         
         for item in items{
@@ -1072,9 +1124,11 @@ extension Wardrobe{
     }
     
     func setNewFavorites(items: [Item]){
+        log.verbose("Sets new Favorites")
         self.selectedClosetFavoritedItems = self.returnPathsFromArrayOfItems(items)
     }
     func setNewRecents(items: [Item]){
+        log.verbose("Sets new Recently Worn")
         self.selectedClosetRecentWornItems = self.returnPathsFromArrayOfItems(items)
     }
     //MARK: -RecentWorn
@@ -1084,6 +1138,7 @@ extension Wardrobe{
     - parameter item: Item to insert
     */
     func updateRecentWornCollectiion(path: [String: String]){
+        log.info("updateRecentWornCollection Called")
         //This array is made so an index can be removed from from recentWorn loop without issues
         var arrayToDelete:[[String: String]] = selectedClosetRecentWornItems
         
@@ -1115,6 +1170,7 @@ extension Wardrobe{
         }
     }
     func updateTrashCollectiion(item: Item){
+        log.verbose("Update trash collection")
         //If trash is above the max count delete the tail
         if selectedClosetTrashItems.count > RECENTLY_WORN_CONTAINER_MAX{
             selectedClosetTrashItems.popLast()
@@ -1128,6 +1184,7 @@ extension Wardrobe{
         
     }
     func removeLastTrashedItem(){
+        log.verbose("Remove last add trash item")
         if !selectedClosetTrashItems.isEmpty{
             selectedClosetTrashItems.removeAtIndex(0)
             log.info("Last inserted trash item deleted")
@@ -1141,11 +1198,12 @@ extension Wardrobe{
      - parameter item: Item to compare id with
      */
     private func removeFromRecentWornCollectiion(path: [String: String]){
-        
+        log.verbose("Remove from recent worn collection")
         selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
     }
     
     func clearAllContainersAndPopulate(){
+        log.verbose("Clearing all containers than repopulate")
         self.myWishListRecentWornItems.removeAll()
         self.myWishListFavoritedItems.removeAll()
         self.myClosetFavoritedItems.removeAll()
@@ -1158,7 +1216,7 @@ extension Wardrobe{
         self.selectedClosetTrashItems.removeAll()
     }
     func findAndPopulateContainers(){
-        
+        log.verbose("Find and populate containers")
         for (_, category) in self.selectedCloset{
             for (_, subCategory) in category{
                 for item in subCategory{

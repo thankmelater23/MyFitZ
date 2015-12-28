@@ -44,14 +44,14 @@ class CreationViewController: UIViewController{
             
             
         catch ItemError.IncorrectSubCategory{
-//            let alert = UIAlertView(title: "SubCategory Missing", message: "Enter in correct subcateogry", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
+            //            let alert = UIAlertView(title: "SubCategory Missing", message: "Enter in correct subcateogry", delegate: self, cancelButtonTitle: "OK")
+            //            alert.show()
         }catch ItemError.missingModelString{
-//            let alert = UIAlertView(title: "Model String Missing", message: "Enter in correct Model String", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
+            //            let alert = UIAlertView(title: "Model String Missing", message: "Enter in correct Model String", delegate: self, cancelButtonTitle: "OK")
+            //            alert.show()
         }catch ItemError.addImage{
-//            let alert = UIAlertView(title: "Image not selected", message: "Selctect image", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
+            //            let alert = UIAlertView(title: "Image not selected", message: "Selctect image", delegate: self, cancelButtonTitle: "OK")
+            //            alert.show()
         }catch{
             assertionFailure("Unknow error type thrown")
         }
@@ -62,6 +62,7 @@ class CreationViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.setUp()
         
         // Do any additional setup after loading the view.
@@ -71,6 +72,7 @@ class CreationViewController: UIViewController{
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
@@ -372,10 +374,10 @@ extension CreationViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }else if pickerView == cellBrandPickerView{
             
             if row == Users_Wardrobe.brandCollection.count{
-//                                cell.textInputCellTextField.inputView = nil
-//                                cell.textInputCellTextField.reloadInputViews()
-//                                cell.textInputCellTextField.delegate = self
-//                                cell.textInputCellTextField.text = String()
+                //                                cell.textInputCellTextField.inputView = nil
+                //                                cell.textInputCellTextField.reloadInputViews()
+                //                                cell.textInputCellTextField.delegate = self
+                //                                cell.textInputCellTextField.text = String()
             }else{
                 brandSelected = Users_Wardrobe.brandCollection[row]
             }
@@ -466,17 +468,17 @@ extension CreationViewController: UITextFieldDelegate{
         }
     }
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
-//        let pointInTable:CGPoint = textField.superview!.convertPoint(textField.frame.origin, toView: tableView)
-//        var contentOffset:CGPoint = tableView.contentOffset
-//        contentOffset.y  = pointInTable.y
-//        if let accessoryView = textField.inputAccessoryView {
-//            contentOffset.y -= accessoryView.frame.size.height
-//        }
-//        tableView.contentOffset = contentOffset
-//        return true
-//        
-                textField.isFirstResponder()
-                return true
+        //        let pointInTable:CGPoint = textField.superview!.convertPoint(textField.frame.origin, toView: tableView)
+        //        var contentOffset:CGPoint = tableView.contentOffset
+        //        contentOffset.y  = pointInTable.y
+        //        if let accessoryView = textField.inputAccessoryView {
+        //            contentOffset.y -= accessoryView.frame.size.height
+        //        }
+        //        tableView.contentOffset = contentOffset
+        //        return true
+        //
+        textField.isFirstResponder()
+        return true
         
     }// return NO to disallow editing.
     func textFieldDidBeginEditing(textField: UITextField){

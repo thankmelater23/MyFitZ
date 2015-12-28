@@ -88,6 +88,12 @@
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
 		C6E1D2C11C2ACD5200FA13C5 /* StatsTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */; };
 		C6E1E1941C2D0EA900FA13C5 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */; };
+		C6EA83151C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA83141C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift */; };
+		C6EA84601C30D7B3009C63CE /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA845F1C30D7B3009C63CE /* OptionsViewController.swift */; };
+		C6EA887A1C30FEC4009C63CE /* Options-ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA88791C30FEC4009C63CE /* Options-ContactViewController.swift */; };
+		C6EA88A21C30FEE5009C63CE /* Options-SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA88A11C30FEE5009C63CE /* Options-SettingsViewController.swift */; };
+		C6EA88C91C30FEFC009C63CE /* Options-AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA88C81C30FEFC009C63CE /* Options-AboutViewController.swift */; };
+		C6EA89CE1C310470009C63CE /* Options_HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA89CD1C310470009C63CE /* Options_HelpViewController.swift */; };
 		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
 		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
 		C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */; };
@@ -176,6 +182,7 @@
 		C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = SnapshotHelper.swift; path = ../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C69D74431C0AF5D100C74D19 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C69D74441C0AF5D100C74D19 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C6A415E51C2EB2C4006EA3FF /* MyFitZ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyFitZ-Bridging-Header.h"; sourceTree = "<group>"; };
 		C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		C6B4927A1C04457200A1D237 /* add0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add0.wav; sourceTree = "<group>"; };
 		C6B4927B1C04457200A1D237 /* alert0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alert0.wav; sourceTree = "<group>"; };
@@ -201,6 +208,12 @@
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsTableVIewCell.swift; path = Assets.xcassets/StatsTableVIewCell.swift; sourceTree = "<group>"; };
 		C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		C6EA83141C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-Help-Instructions-PlayerViewController.swift"; sourceTree = "<group>"; };
+		C6EA845F1C30D7B3009C63CE /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		C6EA88791C30FEC4009C63CE /* Options-ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-ContactViewController.swift"; sourceTree = "<group>"; };
+		C6EA88A11C30FEE5009C63CE /* Options-SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-SettingsViewController.swift"; sourceTree = "<group>"; };
+		C6EA88C81C30FEFC009C63CE /* Options-AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-AboutViewController.swift"; sourceTree = "<group>"; };
+		C6EA89CD1C310470009C63CE /* Options_HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options_HelpViewController.swift; sourceTree = "<group>"; };
 		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
 		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
 		C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
@@ -354,6 +367,12 @@
 				C64503C41BE1A1160065EC2F /* SearchViewController.swift */,
 				C66CF53A1C1D04670017C12E /* ImageViewController.swift */,
 				C6574AA41C23852200100743 /* PercentagesTableViewController.swift */,
+				C6EA83141C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift */,
+				C6EA89CD1C310470009C63CE /* Options_HelpViewController.swift */,
+				C6EA88791C30FEC4009C63CE /* Options-ContactViewController.swift */,
+				C6EA88A11C30FEE5009C63CE /* Options-SettingsViewController.swift */,
+				C6EA88C81C30FEFC009C63CE /* Options-AboutViewController.swift */,
+				C6EA845F1C30D7B3009C63CE /* OptionsViewController.swift */,
 				C64503BD1BE1A1160065EC2F /* NotesViewController.swift */,
 				C64503C51BE1A1160065EC2F /* CreationViewController.swift */,
 				C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */,
@@ -417,6 +436,7 @@
 			children = (
 				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
 				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
+				C6A415E51C2EB2C4006EA3FF /* MyFitZ-Bridging-Header.h */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -558,6 +578,7 @@
 		C626B9261BE0A48C00BB5E86 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Bang Bang Studios";
 				TargetAttributes = {
@@ -775,6 +796,7 @@
 				C64503D61BE1A1210065EC2F /* ModelCustomCell.swift in Sources */,
 				C64503CC1BE1A1160065EC2F /* DetailedViewController.swift in Sources */,
 				C64503B91BE1A0460065EC2F /* Item.swift in Sources */,
+				C6EA88A21C30FEE5009C63CE /* Options-SettingsViewController.swift in Sources */,
 				C64503CB1BE1A1160065EC2F /* ModelTableViewController.swift in Sources */,
 				C64503BA1BE1A0460065EC2F /* Fit.swift in Sources */,
 				C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */,
@@ -786,8 +808,11 @@
 				C6178FC71C14210A003A9561 /* Constants_ViewController.swift in Sources */,
 				C64503C81BE1A1160065EC2F /* ViewController.swift in Sources */,
 				C64503B71BE1A0460065EC2F /* Constants.swift in Sources */,
+				C6EA887A1C30FEC4009C63CE /* Options-ContactViewController.swift in Sources */,
 				C68F59E51C0F5B1F00424646 /* FavoritedWornTableViewController.swift in Sources */,
+				C6EA88C91C30FEFC009C63CE /* Options-AboutViewController.swift in Sources */,
 				C64503C91BE1A1160065EC2F /* SelectionViewController.swift in Sources */,
+				C6EA83151C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift in Sources */,
 				C64503D81BE1A1210065EC2F /* DoubleLabelTableViewCell.swift in Sources */,
 				C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */,
 				C64503D01BE1A1160065EC2F /* PodTesterTableViewController.swift in Sources */,
@@ -811,6 +836,7 @@
 				C66300BA1C14254D0057061C /* Constants_Item.swift in Sources */,
 				C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */,
 				C617902B1C142133003A9561 /* Constants_ModelTableViewController.swift in Sources */,
+				C6EA89CE1C310470009C63CE /* Options_HelpViewController.swift in Sources */,
 				C64503CF1BE1A1160065EC2F /* CreationViewController.swift in Sources */,
 				C6E1D2C11C2ACD5200FA13C5 /* StatsTableVIewCell.swift in Sources */,
 				C64503CD1BE1A1160065EC2F /* CreateItemViewController.swift in Sources */,
@@ -818,6 +844,7 @@
 				C64503CA1BE1A1160065EC2F /* MakeTableViewController.swift in Sources */,
 				C64503BC1BE1A0460065EC2F /* Wardrobe.swift in Sources */,
 				C617900A1C142123003A9561 /* Constants_MakeTableViewController.swift in Sources */,
+				C6EA84601C30D7B3009C63CE /* OptionsViewController.swift in Sources */,
 				C61940271C27CB650029F903 /* Constants_Colors_And_Textures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -887,6 +914,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -945,6 +973,7 @@
 			baseConfigurationReference = 3AE8CA4F108BC06CB6B0BAD8 /* Pods-MyFitZ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Andre Villanuevia (7UBLY3G5AZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andre Villanuevia (7UBLY3G5AZ)";
@@ -953,6 +982,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				INFOPLIST_FILE = MyFitZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -960,6 +990,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1d5dd652-1d78-4d7a-9d1d-7991a8a45f00";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyFitZ/MyFitZ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -968,6 +1000,7 @@
 			baseConfigurationReference = E8B0101EB440F6385F917B92 /* Pods-MyFitZ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Development: Andre Villanuevia (7UBLY3G5AZ)";
@@ -983,6 +1016,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "05b939b9-ff39-4d91-ae02-5dd0c4d882b5";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyFitZ/MyFitZ-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -990,6 +1024,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = MyFitZTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZTests;
@@ -1013,6 +1048,7 @@
 		C626B95D1BE0A48C00BB5E86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = MyFitZUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZUITests;

@@ -27,6 +27,7 @@ class MakeTableViewController: UITableViewController{
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
+        log.info("ViewLoaded")
         itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         
         self.setUpTypes()
@@ -44,6 +45,7 @@ class MakeTableViewController: UITableViewController{
     }
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{

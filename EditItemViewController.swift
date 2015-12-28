@@ -89,6 +89,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.setUp()
         self.view.backgroundColor = Cotton
         self.setButtonsView()
@@ -101,6 +102,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
@@ -153,6 +155,7 @@ extension EditItemViewController{
             //            try Users_Wardrobe.swapItem(self.viewItem.subCategory, funcSubCategory: self.viewItem.subCategory, prevFuncCategory: self.previousItem.category, prevFuncSubCategory: self.previousItem.subCategory, item: self.viewItem)
             
             super.viewDidLoad()
+            log.info("ViewLoaded")
         }
             
             

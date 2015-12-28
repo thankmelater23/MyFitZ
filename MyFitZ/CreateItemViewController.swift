@@ -89,6 +89,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 extension CreateItemViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
+        log.info("ViewLoaded")
         self.setUp()
 
         self.view.backgroundColor = Cotton
@@ -100,6 +101,7 @@ extension CreateItemViewController{
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
@@ -142,7 +144,7 @@ extension CreateItemViewController{
             saveItemVars()
             try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
             
-            super.viewDidLoad()
+//            super.viewDidLoad()
         }
             
             
