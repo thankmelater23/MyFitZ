@@ -272,6 +272,9 @@
                                             <constraint firstAttribute="width" secondItem="SYU-tB-X5V" secondAttribute="height" multiplier="1:1" id="aHT-ay-dhw"/>
                                         </constraints>
                                         <state key="normal" image="share"/>
+                                        <connections>
+                                            <action selector="share" destination="bSz-CY-cts" eventType="touchUpInside" id="pkj-Gk-biY"/>
+                                        </connections>
                                     </button>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3c-H3-Uru" userLabel="Percentage">
                                         <rect key="frame" x="8" y="17" width="32" height="32"/>
@@ -947,7 +950,7 @@
                         <outlet property="percentageButton" destination="D3c-H3-Uru" id="Mbu-2Q-pZI"/>
                         <outlet property="recentlyWonrItem" destination="zcp-30-d4W" id="agO-5X-6r5"/>
                         <outlet property="searchButton" destination="l5i-s6-7fD" id="HKf-m9-POh"/>
-                        <outlet property="shareButton" destination="SYU-tB-X5V" id="p3W-rv-jWs"/>
+                        <outlet property="shareButton" destination="SYU-tB-X5V" id="hgs-Aq-8A5"/>
                         <outlet property="topBannerView" destination="LWs-Bi-6Nq" id="KrE-qD-HES"/>
                         <outlet property="topCategoriesView" destination="QsQ-Zr-qIe" id="YXm-Qb-zio"/>
                         <outlet property="topCounter" destination="e5P-ZE-HGB" id="OKQ-JI-lMC"/>
@@ -3399,14 +3402,14 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qRc-Qg-wq0"/>
         <segue reference="Kyy-tg-Ke7"/>
         <segue reference="1tB-kg-ppv"/>
         <segue reference="5Ao-2w-c2Y"/>
         <segue reference="iXZ-k7-K8Z"/>
         <segue reference="opv-1h-Bzj"/>
+        <segue reference="qRc-Qg-wq0"/>
+        <segue reference="w0k-NR-dKO"/>
         <segue reference="ryo-zk-CDy"/>
         <segue reference="9Z4-uK-DHR"/>
-        <segue reference="zFX-M7-PPf"/>
     </inferredMetricsTieBreakers>
 </document>

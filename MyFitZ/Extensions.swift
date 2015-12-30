@@ -25,7 +25,7 @@ extension String{
         dateFormatter.dateStyle = .ShortStyle
         
         guard let date = dateFormatter.dateFromString(self) else{
-            return 10000
+            return -1
         }
         
         return date.returnDaysInDate()
@@ -89,11 +89,10 @@ extension NSUserDefaults{
      - parameter num:  Value to store in NSDefaults
      */
     func sendToDefaults(path: String, num: Int){
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setInteger(num, forKey: path)
         
-        defaults.synchronize()
     }
     /**
      Gets value at path in NSUserDefaults and increment and put back at path
@@ -101,7 +100,7 @@ extension NSUserDefaults{
      - parameter path: String key to NSUserDefault
      */
     func addAndSend(path: String){
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         var total:Int? = defaults.valueForKey(path) as! Int?
         if total == nil{
@@ -119,7 +118,7 @@ extension NSUserDefaults{
      - returns: Int from key of path in NSUserDefaults
      */
     func returnIntValue(path:String)->Int!{
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         var number = defaults.valueForKey(path) as! Int?
         number = unNilInt(number)

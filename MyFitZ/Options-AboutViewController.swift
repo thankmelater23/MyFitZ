@@ -18,7 +18,7 @@ class Options_AboutViewController: UIViewController {
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("ABOUT_PAGE_COUNT")
         
     }
@@ -68,7 +68,7 @@ extension Options_AboutViewController{
 extension Options_AboutViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("ABOUT_PAGE_COUNT")
             

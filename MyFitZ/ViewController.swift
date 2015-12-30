@@ -28,7 +28,7 @@ class ViewController:  UIViewController{
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("MAIN_PAGE_COUNT")
         
         self.logPageView()
@@ -80,7 +80,7 @@ extension ViewController{
         Users_Wardrobe.closetSelectionString = MY_CLOSET
         playSoundEffects(closetSFX)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("CLOSET_SELECTION_COUNT")
         
@@ -93,7 +93,7 @@ extension ViewController{
         Users_Wardrobe.closetSelectionString = MY_WANTS_CLOSET
         playSoundEffects(wishlistSFX)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("WISHLIST_SELECTION_COUNT")
         
         self.logPageView()
@@ -145,7 +145,7 @@ extension ViewController{
 extension ViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("MAIN_PAGE_COUNT")
             

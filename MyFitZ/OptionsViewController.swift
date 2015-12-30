@@ -18,7 +18,7 @@ class OptionsViewController: UIViewController {
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("OPTIONS_PAGE_COUNT")
         
     }
@@ -72,7 +72,7 @@ extension OptionsViewController{
 extension OptionsViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("OPTIONS_PAGE_COUNT")
             

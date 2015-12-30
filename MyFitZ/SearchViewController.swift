@@ -73,7 +73,7 @@ import Crashlytics
         
         super.viewDidLoad()
         log.info("ViewLoaded")
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("SEARCH_PAGE_COUNT")
         
@@ -339,7 +339,7 @@ extension SearchViewController{
 extension SearchViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("SEARCH_PAGE_COUNT")
             

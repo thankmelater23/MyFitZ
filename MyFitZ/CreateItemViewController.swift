@@ -93,7 +93,7 @@ extension CreateItemViewController{
         self.setUp()
 
         self.view.backgroundColor = Cotton
-        let defaults = NSUserDefaults.standardUserDefaults()
+//        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("CREATE_PAGE_COUNT")
         
@@ -173,7 +173,7 @@ extension CreateItemViewController{
         subCategoryPickerView.reloadInputViews()
         //        unwindForSegue(self.storyboard, towardsViewController: SelectionViewController)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("SAVE_BUTTON_BUTTON_PRESSED")
         
         performSegueWithIdentifier(SEGUE_CREATION_TO_SELECTION, sender: self)
@@ -620,7 +620,7 @@ extension CreateItemViewController{
 extension CreateItemViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
         let saveButtonPressed:Int? = defaults.returnIntValue("SAVE_BUTTON_BUTTON_PRESSED")

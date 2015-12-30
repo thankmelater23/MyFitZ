@@ -383,7 +383,7 @@ extension Wardrobe{
         self.sort(funcCategory, funcSubCategory: funcSubCategory)
         
         //!!: -This is here because when edit button is pressed and item is saved is causing some issues so have to reorganize the containers
-        //self.clearAllContainersAndPopulate()
+//        self.clearAllContainersAndPopulate()
         
         self.ItemFavorited(item)
         self.checkItemWorn(item)
@@ -1215,7 +1215,7 @@ extension Wardrobe{
     func cleanOutTrash(){
         self.selectedClosetTrashItems.removeAll()
     }
-    func findAndPopulateContainers(){
+    private func findAndPopulateContainers(){
         log.verbose("Find and populate containers")
         for (_, category) in self.selectedCloset{
             for (_, subCategory) in category{
@@ -1224,7 +1224,7 @@ extension Wardrobe{
                         self.selectedClosetFavoritedItems.append(item.path)
                     }
                     
-                    if item.lastTimeWorn.returnDaysInDate() != 1000{
+                    if item.lastTimeWorn.returnDaysInDate() >= 0{
                         self.selectedClosetRecentWornItems.append(item.path)
                     }
                 }

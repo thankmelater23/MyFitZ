@@ -28,7 +28,7 @@ class FavoritedWornTableViewController: UITableViewController {
         self.SetUpTypes()
         self.view.backgroundColor =  RedBunchedUpSilkSheet
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("FAVORITED_PAGE_COUNT")
         
@@ -117,20 +117,20 @@ extension FavoritedWornTableViewController{
         forRowAtIndexPath indexPath: NSIndexPath) {
             if editingStyle == UITableViewCellEditingStyle.Delete
             {
-//                let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
-//                let act = UIAlertAction(title: "cancel", style: .Default){_ in}
-//                let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
-//                    self.arrayOfItems.removeAtIndex(indexPath.row)
-//                    
-//                    Users_Wardrobe.setNewFavorites(self.arrayOfItems)
-//                    
-//                    Users_Wardrobe.quickSave()
-//                    
-//                    self.tableView.reloadData()
-//                }
-//                alert.addAction(action)
-//                alert.addAction(act)
-//                self.presentViewController(alert, animated: true, completion: {})
+                //                let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+                //                let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+                //                let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+                //                    self.arrayOfItems.removeAtIndex(indexPath.row)
+                //
+                //                    Users_Wardrobe.setNewFavorites(self.arrayOfItems)
+                //
+                //                    Users_Wardrobe.quickSave()
+                //
+                //                    self.tableView.reloadData()
+                //                }
+                //                alert.addAction(action)
+                //                alert.addAction(act)
+                //                self.presentViewController(alert, animated: true, completion: {})
             }
     }
     func customizeTableView(){
@@ -195,7 +195,7 @@ extension FavoritedWornTableViewController{
 extension FavoritedWornTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("FAVORITED_PAGE_COUNT")
             

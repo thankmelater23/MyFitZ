@@ -28,7 +28,7 @@ class ModelTableViewController: UITableViewController {
         log.info("ViewLoaded")
         self.SetUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("MODEL_PAGE_COUNT")
         
@@ -201,7 +201,7 @@ extension ModelTableViewController{
 extension ModelTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("MODEL_PAGE_COUNT")
         

@@ -43,8 +43,6 @@ class NotesViewController: UIViewController {
         let myDefault = NSUserDefaults.standardUserDefaults()
         
         myDefault.setValue(string, forKey: string!)
-        
-        myDefault.synchronize()
     }
     
     func setOutlets(){

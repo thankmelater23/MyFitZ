@@ -19,6 +19,8 @@ import AVFoundation
 typealias CLOSET_TYPE = [String: [String: [Item]]]
 /// The app entire system
 var Users_Wardrobe:Wardrobe = Wardrobe()
+///Defaults
+let defaults = NSUserDefaults.standardUserDefaults()
 
 
 //MARK: -App Enums

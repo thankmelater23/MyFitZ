@@ -72,7 +72,7 @@ class CreationViewController: UIViewController{
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        log.warning("Recieved Memory Warning")
+         log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }

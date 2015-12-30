@@ -32,7 +32,7 @@ class MakeTableViewController: UITableViewController{
         
         self.setUpTypes()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("MAKE_PAGE_COUNT")
         
@@ -214,7 +214,7 @@ extension MakeTableViewController{
 extension MakeTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
         

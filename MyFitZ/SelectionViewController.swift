@@ -84,7 +84,7 @@ class SelectionViewController: UIViewController{
         
         self.assignCategoriesItemCount()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("SELECTION_PAGE_COUNT")
         
@@ -160,6 +160,21 @@ extension SelectionViewController{
     @IBAction func titleBarPressed(){
         self.viewHint()
         
+    }
+    @IBAction func share(){
+        let textToShare = "Swift is awesome!  Check out this website about it!"
+        
+        if let myWebsite = NSURL(string: "http://www.codingexplorer.com/")
+        {
+            let objectsToShare = [myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //New Excluded Activities Code
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList]
+            //
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
     }
 }
 
@@ -288,7 +303,7 @@ extension SelectionViewController{
 extension SelectionViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("SELECTION_PAGE_COUNT")
             

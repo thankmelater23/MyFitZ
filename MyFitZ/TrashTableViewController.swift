@@ -26,7 +26,7 @@ class TrashTableViewController: UITableViewController {
         log.info("ViewLoaded")
         self.SetUpTypes()
         self.view.backgroundColor = RedBunchedUpSilkSheet
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("TRASH_PAGE_COUNT")
         
         self.logPageView()
@@ -224,7 +224,7 @@ extension TrashTableViewController{
 extension TrashTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            //let defaults = NSUserDefaults.standardUserDefaults()
             
             let pageCount:Int? = defaults.returnIntValue("TRASH_PAGE_COUNT")
             

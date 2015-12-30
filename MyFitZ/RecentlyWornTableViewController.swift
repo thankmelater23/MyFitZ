@@ -30,7 +30,7 @@ class RecentlyWornTableViewController: UITableViewController {
         self.SetUpTypes()
         self.view.backgroundColor = RedBunchedUpSilkSheet
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("RECENTLY_PAGE_COUNT")
         
@@ -186,7 +186,7 @@ extension RecentlyWornTableViewController{
 extension RecentlyWornTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        //let defaults = NSUserDefaults.standardUserDefaults()
         
         let pageCount:Int? = defaults.returnIntValue("RECENTLY_PAGE_COUNT")
         
