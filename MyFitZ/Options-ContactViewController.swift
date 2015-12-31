@@ -19,7 +19,7 @@ class Options_ContactViewController: UIViewController {
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         defaults.addAndSend("CONTACT_PAGE_COUNT")
         
     }
@@ -69,7 +69,7 @@ extension Options_ContactViewController{
 extension Options_ContactViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
             
             let pageCount:Int? = defaults.returnIntValue("CONTACT_PAGE_COUNT")
             

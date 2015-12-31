@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         log.info(__FUNCTION__)
+        self.loadResources()
         self.SwiftBeaverSetUp()
         self.removeConstraintFromLogger()
         initializeSounds()
@@ -151,6 +152,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func removeConstraintFromLogger(){
         log.info(__FUNCTION__)
         NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+    }
+    func loadResources(){
+        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
     }
 }
 

@@ -23,7 +23,6 @@ class ModelCustomCell: UITableViewCell{
     //MARK: -View Methods
     override func  awakeFromNib(){
         super.awakeFromNib()
-        self.animateView()
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
@@ -54,7 +53,7 @@ extension ModelCustomCell{
         self.timesWornLabel.text = "Last Time Worn: \(lastTimeWornText)"
         
         self.setFavoritedStar(favorited)
-        
+        self.animateView()
         self.customizeView()
         
     }

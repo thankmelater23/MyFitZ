@@ -22,8 +22,7 @@ class MakeCustomCell: UITableViewCell{
     //MARK: -View Methods
     override func  awakeFromNib(){
         super.awakeFromNib()
-        self.animateView()
-        self.customizeView()
+        
     }
     override func setSelected(selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
@@ -54,6 +53,7 @@ extension MakeCustomCell{
         self.makeLabel.text = makeLabelText
         self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
         
+        self.animateView()
         self.customizeView()
     }
 }

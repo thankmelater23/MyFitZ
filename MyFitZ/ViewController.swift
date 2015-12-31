@@ -22,13 +22,14 @@ class ViewController:  UIViewController{
     
     //MARK: -Methods
     override func viewDidLoad(){
+        log.info(__FUNCTION__)
         super.viewDidLoad()
         log.info(__FUNCTION__)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         defaults.addAndSend("MAIN_PAGE_COUNT")
         
         self.logPageView()
@@ -54,11 +55,13 @@ class ViewController:  UIViewController{
         //        navigationItem.leftBarButtonItem?.customView?.backgroundColor = LeatherTexture
     }
     override func didReceiveMemoryWarning() {
+        log.info(__FUNCTION__)
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
     }
     func setTitle(){
+        log.info(__FUNCTION__)
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.translucent = false
         
@@ -76,11 +79,12 @@ class ViewController:  UIViewController{
 //MARK: -Actions-ViewController Extension
 extension ViewController{
     @IBAction func selectedCloset() {
-        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        log.info(__FUNCTION__)
+//        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
         Users_Wardrobe.closetSelectionString = MY_CLOSET
         playSoundEffects(closetSFX)
         
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         
         defaults.addAndSend("CLOSET_SELECTION_COUNT")
         
@@ -89,18 +93,19 @@ extension ViewController{
         performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedWants() {
-        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        log.info(__FUNCTION__)
+//        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
         Users_Wardrobe.closetSelectionString = MY_WANTS_CLOSET
         playSoundEffects(wishlistSFX)
         
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         defaults.addAndSend("WISHLIST_SELECTION_COUNT")
         
         self.logPageView()
         performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedOptions() {
-        log.info("Options Selected")
+        log.info(__FUNCTION__)
         self.performSegueWithIdentifier(SEGUE_MAIN_TO_OPTIONS, sender: self)
     }
     @IBAction func crashButtonTapped(sender: AnyObject) {
@@ -145,7 +150,7 @@ extension ViewController{
 extension ViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
             
             let pageCount:Int? = defaults.returnIntValue("MAIN_PAGE_COUNT")
             

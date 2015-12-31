@@ -93,7 +93,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         self.setUp()
         self.view.backgroundColor = Cotton
         self.setButtonsView()
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         
         defaults.addAndSend("EDIT_PAGE_COUNT")
         
@@ -657,7 +657,7 @@ extension EditItemViewController{
 extension EditItemViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
             
             let pageCount:Int? = defaults.returnIntValue("EDIT_PAGE_COUNT")
             //        let editButtonPressed:Int? = defaults.returnIntValue("EDIT_BUTTON_BUTTON_PRESSED")

@@ -28,7 +28,7 @@ class FavoritedWornTableViewController: UITableViewController {
         self.SetUpTypes()
         self.view.backgroundColor =  RedBunchedUpSilkSheet
         
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         
         defaults.addAndSend("FAVORITED_PAGE_COUNT")
         
@@ -195,7 +195,7 @@ extension FavoritedWornTableViewController{
 extension FavoritedWornTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
             
             let pageCount:Int? = defaults.returnIntValue("FAVORITED_PAGE_COUNT")
             

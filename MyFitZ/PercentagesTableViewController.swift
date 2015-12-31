@@ -26,7 +26,7 @@ class PercentagesTableViewController: UITableViewController {
         log.info(__FUNCTION__)
         self.setUpTypes()
         self.view.backgroundColor = Cotton
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         
         defaults.addAndSend("PERCENT_PAGE_COUNT")
         
@@ -231,7 +231,7 @@ extension PercentagesTableViewController{
 extension PercentagesTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
             
             let pageCount:Int? = defaults.returnIntValue("PERCENT_PAGE_COUNT")
             

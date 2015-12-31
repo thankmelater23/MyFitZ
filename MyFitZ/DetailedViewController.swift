@@ -38,12 +38,12 @@ class DetailedViewController: UIViewController{
         log.verbose(self.itemOfObject)
         
         // Do view setup here.
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         
         defaults.addAndSend("DETAIL_PAGE_COUNT")
         
         self.logPageView()
-//        Users_Wardrobe.clearAllContainersAndPopulate()
+        //Users_Wardrobe.clearAllContainersAndPopulate()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
@@ -87,7 +87,7 @@ class DetailedViewController: UIViewController{
 extension DetailedViewController{
     @IBAction func editButtonPressed(){
         playSoundEffects(editSFX)
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         defaults.addAndSend("EDIT_BUTTON_BUTTON_PRESSED")
         
         performSegueWithIdentifier(SEGUE_DETAIL_TO_EDIT, sender: self)
@@ -153,7 +153,7 @@ extension DetailedViewController{
             Users_Wardrobe.quickSave()
         })
         
-        //let defaults = NSUserDefaults.standardUserDefaults()
+        
         defaults.addAndSend("WEAR_PRESSED_COUNT")
     }
     func hideWearButton(){
@@ -576,7 +576,7 @@ extension DetailedViewController{
 extension DetailedViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
             
             let pageCount:Int? = defaults.returnIntValue("DETAIL_PAGE_COUNT")
             let wearPressedCount:Int? = defaults.returnIntValue("WEAR_PRESSED_COUNT")

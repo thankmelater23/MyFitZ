@@ -60,7 +60,7 @@ func playSoundEffects(soundID: SystemSoundID) {
  */
 func initializeSounds() {
     
-    dispatch_async(GlobalUtilityQueue, {
+    dispatch_async(GlobalUserInteractiveQueue, {
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("delete0", withExtension: "wav")!, &deleteSFX)
