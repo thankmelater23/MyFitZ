@@ -262,29 +262,27 @@ extension Item{
     
     func itemStory()->String{
         log.info(__FUNCTION__)
-        "The size .size/ .model/ .brand/ .kind/ thats .primaryColor/, .secondaryColor/, and .thirdColor/ located in .cataegory/ section under .subcategory is (.favorited/), that you purchased for .payedPrice, but is valued at .originalPrice.  .model was last worn: .lastTimeWorn/ and aquired on .datePurchased which is (.datePurchased - .releaseDate) days from the date it was released .dateReleased.  .model is in .condition/ condition and materials consist of .primaryMaterial/, .secondaryMaterial/.  .model/ was purchased from .sellerName/, but you can also find it at this address: .storeLocation/, or at this url: .storeUrl.     Item Notes: .notes/. "
-        
         
         let brand = self.brand ?? "N/A"
         let model = self.model ?? "N/A"
         let category = self.category ?? "N/A"
         let subCategory = self.subCategory ?? "N/A"
-        let index = self.index ?? 0
+        let _ = self.index ?? 0
         let payedPrice = self.payedPrice ?? 0
-
+        
         let favorited = self.favorited ?? false
         let isThisNew = self.isThisNew ?? false
         let timesWorn = self.timesWorn ?? 0
         let lastTimeWorn = self.lastTimeWorn ?? "N/A"
         let kind = self.kind ?? "N/A"
         let size = self.size ?? "N/A"
-        let id = self.id ?? 0
+        let _ = self.id ?? 0
         //MARK: - Item Required defined values
-        let datePurchased = self.datePurchased ?? "N/A"
+        let _ = self.datePurchased ?? "N/A"
         let color = self.color ?? "N/A"
         let secondaryColor = self.secondaryColor ?? "N/A"
         let thirdColor = self.thirdColor ?? "N/A"
-        let dateReleased = self.dateReleased ?? "N/A"
+        let _ = self.dateReleased ?? "N/A"
         let itemNotes = self.itemNotes ?? "N/A"
         let condition = self.condition ?? "N/A"
         let primaryMaterial = self.primaryMaterial ?? "N/A"
@@ -294,29 +292,97 @@ extension Item{
         let storeLocation = self.storeLocation ?? "N/A"
         let sellerName = self.sellerName ?? "N/A"
         
+        let nilLike = "N/A"
         var story = String()
         
-
-        story += "The size " + size + " " + model + " " + brand + " " + kind + " thats "
-        story += color + ", " + secondaryColor + ", and " + thirdColor
-        story += "has been worn: " + String(timesWorn) + " and is located in " + category
-        story += "/" + subCategory + " is "
+        //1
+        if brand != nilLike{
+            story += String(brand + "-" + model + " in \nCategory: " + category + "\nSubCategory: " + subCategory + "\n\n")
+        }else{story += String(model + " in \nCategory: " + category + "\nSubCategory: " + subCategory + "\n\n")}
         
-        if favorited{
-            story += "is favorited "
-        }else{
-            story += "is not favorited "
+        //2
+        story += String(model + " " + (favorited == true ? "is" : "is not") + " favorited, and ")
+        
+        if timesWorn > 0{
+            story += String("item has been worn " + String(timesWorn) + " times, and ")
+            
+        }else{story += String("has not been worn, and ")}
+        
+        if lastTimeWorn != nilLike{
+            story += String("last time worn " + String(lastTimeWorn.returnDaysInDate()) + " days ago, ")
         }
-
-        story += "that was purchased for " + String(payedPrice)
-        story += "but is valued at " + String(retailPrice) + ". "
-        story += model + " was last worn: " + lastTimeWorn
-        story += " and aquired on " + datePurchased + " the " + model + " was also released on " + dateReleased
-        story += ".\nIs in " + condition + " condition." +  "Materials consist of" + primaryMaterial + ", " + (secondaryMaterial ?? "N/A")
-        story += " and was purchased from " + sellerName + ", but can also be found at " + storeLocation
-        story += " or at the url of " + sellerURL + "\n\n" + model + " Notes:\n\n" + itemNotes
         
-
+        if isThisNew == true{
+            story += String(", and is a new item, ")
+            
+        }else{ story += String(" and is not a new item, ")}
+        
+        if condition == nilLike{
+            story += String("and condition is unknown.")
+        }else{story += String("and has a condition of: " + condition + ".\n\n")}
+        
+        //3
+        if kind != nilLike{
+            story += String(model + " " + kind + " is")
+        }else{story += String(model + " is")}
+        
+        if size != nilLike{
+            story += String(" size of: " + size)
+        }
+        
+        if color != nilLike{
+            story += String(", and " + color)
+        }
+        
+        if secondaryColor != nilLike{
+            story += String(", and " + secondaryColor)
+        }
+        
+        if thirdColor != nilLike{
+            story += String(", and " + thirdColor)
+        }
+        
+        
+        if primaryMaterial != nilLike{
+            story += String(model + "Consists of " + primaryMaterial + " material")
+            
+            if secondaryMaterial != nilLike{
+                story += String(" and" + secondaryMaterial + " material")
+            }
+        }
+        
+        story += ".\n\n"
+        //4
+        
+        story += String(model + " details: ")
+        
+        
+        
+        if retailPrice != UNSET_DOUBLE_VALUE{
+            story += String("Valued at " + String(retailPrice) + ", ")
+        }
+        
+        if payedPrice != UNSET_DOUBLE_VALUE{
+            story += String("I payed " + String(payedPrice) + ", ")
+        }
+        
+        if sellerName != nilLike{
+            story += String("purchased from: " + sellerName + ", ")
+        }
+        
+        if sellerURL != nilLike{
+            story += String("can aslo be found at the site of : " + sellerURL + ", ")
+        }
+        
+        if storeLocation != nilLike{
+            story += String("can aslo be found at the site of " + storeLocation + " ")
+        }
+        
+        story += String(" these are some details of " + model)
+        
+        //5
+        story += String("\n\n" + model + " notes: \n\n" + itemNotes)
+        
         log.info("\(self.model) Item story created")
         
         return story
@@ -352,7 +418,7 @@ extension Item{
         if self.isThisNew == nil{
             self.isThisNew = false
         }
-        if self.timesWorn == nil || self.payedPrice == 0{
+        if self.timesWorn == nil || self.timesWorn == 0{
             self.timesWorn = UNSET_INT_VALUE
         }
         if self.lastTimeWorn == nil{
@@ -399,7 +465,7 @@ extension Item{
         if self.secondaryMaterial == nil{
             self.secondaryMaterial = "N/A"
         }
-        if self.retailPrice == nil{
+        if self.retailPrice == nil || self.retailPrice == 0{
             self.retailPrice = UNSET_DOUBLE_VALUE
         }
         if self.sellerURL == nil{

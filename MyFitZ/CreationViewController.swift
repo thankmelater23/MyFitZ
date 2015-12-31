@@ -12,9 +12,9 @@ import MobileCoreServices
 
 //MARK: - CreationViewController class
 class CreationViewController: UIViewController{
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var categoryInputTextField: UITextField!
-    @IBOutlet var subCategoryInputTextField: UITextField!
+    @IBOutlet weak  var tableView: UITableView!
+    @IBOutlet weak  var categoryInputTextField: UITextField!
+    @IBOutlet weak  var subCategoryInputTextField: UITextField!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var subCategoryLabel: UILabel!
     @IBOutlet var pictureForSelectedItemImage: UIImageView!

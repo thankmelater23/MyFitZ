@@ -43,6 +43,7 @@ class DetailedViewController: UIViewController{
         defaults.addAndSend("DETAIL_PAGE_COUNT")
         
         self.logPageView()
+//        Users_Wardrobe.clearAllContainersAndPopulate()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
