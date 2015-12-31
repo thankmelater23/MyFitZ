@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        log.info("applicationDidFinishLaunchingWithOptions Called")
+        log.info(__FUNCTION__)
         self.SwiftBeaverSetUp()
         self.removeConstraintFromLogger()
         initializeSounds()
@@ -115,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func sirenInitilization(){
+        log.info(__FUNCTION__)
         /* Siren code should go below window?.makeKeyAndVisible() */
         
         // Siren is a singleton
@@ -136,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func SwiftBeaverSetUp(){
+        log.info(__FUNCTION__)
         let console = ConsoleDestination()
         log.addDestination(console)
         // Now let’s log!
@@ -147,6 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func removeConstraintFromLogger(){
+        log.info(__FUNCTION__)
         NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
 }

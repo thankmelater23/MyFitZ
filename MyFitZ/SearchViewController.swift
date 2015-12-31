@@ -72,7 +72,7 @@ import Crashlytics
         // Do any additional setup after loading the view.
         
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         //let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.addAndSend("SEARCH_PAGE_COUNT")

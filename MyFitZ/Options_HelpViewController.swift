@@ -12,7 +12,7 @@ import Crashlytics
 class Options_HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()

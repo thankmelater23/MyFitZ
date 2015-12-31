@@ -18,10 +18,10 @@ import Crashlytics
 //MARK: -EditItemViewController Class
 class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     //MARK: -Outlets
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var categoryInputTextField: UITextField!
-    @IBOutlet var subCategoryInputTextField: UITextField!
-    @IBOutlet var pictureForSelectedItemImage: UIImageView!
+    @IBOutlet weak  var tableView: UITableView!
+    @IBOutlet weak  var categoryInputTextField: UITextField!
+    @IBOutlet weak  var subCategoryInputTextField: UITextField!
+    @IBOutlet weak  var pictureForSelectedItemImage: UIImageView!
     @IBOutlet weak var pictureButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var updateButton: UIButton!
@@ -89,7 +89,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.setUp()
         self.view.backgroundColor = Cotton
         self.setButtonsView()
@@ -155,7 +155,7 @@ extension EditItemViewController{
             //            try Users_Wardrobe.swapItem(self.viewItem.subCategory, funcSubCategory: self.viewItem.subCategory, prevFuncCategory: self.previousItem.category, prevFuncSubCategory: self.previousItem.subCategory, item: self.viewItem)
             
             super.viewDidLoad()
-            log.info("ViewLoaded")
+            log.info(__FUNCTION__)
         }
             
             

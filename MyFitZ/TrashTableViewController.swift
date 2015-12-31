@@ -23,7 +23,7 @@ class TrashTableViewController: UITableViewController {
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.SetUpTypes()
         self.view.backgroundColor = RedBunchedUpSilkSheet
         //let defaults = NSUserDefaults.standardUserDefaults()

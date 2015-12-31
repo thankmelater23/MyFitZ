@@ -27,7 +27,7 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.view.backgroundColor = Cotton
         self.image.image = self.imageHolder
         self.setItemStory()

@@ -18,11 +18,11 @@ import Crashlytics
 //MARK: -CreateItemViewController Class
 class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     //MARK: -Outlets
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var categoryInputTextField: UITextField!
-    @IBOutlet var subCategoryInputTextField: UITextField!
+    @IBOutlet  weak var tableView: UITableView!
+    @IBOutlet  weak var categoryInputTextField: UITextField!
+    @IBOutlet  weak var subCategoryInputTextField: UITextField!
     @IBOutlet weak var pictureButton: UIButton!
-    @IBOutlet var pictureForSelectedItemImage: UIImageView!
+    @IBOutlet  weak var pictureForSelectedItemImage: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -89,7 +89,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 extension CreateItemViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.setUp()
 
         self.view.backgroundColor = Cotton

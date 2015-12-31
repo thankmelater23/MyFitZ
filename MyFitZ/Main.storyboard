@@ -308,7 +308,7 @@
                                     <userLayoutGuide location="300" affinity="minX"/>
                                 </userGuides>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eel-oF-pdH" userLabel="Options Holder VIew">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="300" translatesAutoresizingMaskIntoConstraints="NO" id="Eel-oF-pdH" userLabel="Options Holder VIew">
                                         <rect key="frame" x="0.0" y="196" width="600" height="90"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4H-O0-k10">
@@ -378,7 +378,7 @@
                                                     <constraint firstItem="CGa-A8-zjW" firstAttribute="leading" secondItem="U4H-O0-k10" secondAttribute="leadingMargin" constant="-8" id="w72-Jr-qmD"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEF-xD-O8i">
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="300" translatesAutoresizingMaskIntoConstraints="NO" id="eEF-xD-O8i">
                                                 <rect key="frame" x="8" y="8" width="290" height="74"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-OQ-099">
@@ -468,7 +468,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-jo-71p" userLabel="Bottom Categories View">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="300" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-jo-71p" userLabel="Bottom Categories View">
                                         <rect key="frame" x="0.0" y="334" width="600" height="138"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4p-Cd-soK" userLabel="Underclothes Button">
@@ -640,7 +640,7 @@
                                             <constraint firstItem="fOC-gD-qYx" firstAttribute="baseline" secondItem="efs-AC-p2L" secondAttribute="baseline" id="yKX-Ay-J8F"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsQ-Zr-qIe" userLabel="Top Categories View">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="300" translatesAutoresizingMaskIntoConstraints="NO" id="QsQ-Zr-qIe" userLabel="Top Categories View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="138"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-aU-g3Y" userLabel="Shirt Button">
@@ -964,7 +964,12 @@
                         <segue destination="9RS-f6-Qzg" kind="show" identifier="selectionToRecent" id="qRc-Qg-wq0"/>
                         <segue destination="AoR-uv-dF3" kind="show" identifier="selectionToFavorited" id="iXZ-k7-K8Z"/>
                         <segue destination="oIx-aY-D3y" kind="show" identifier="selectionToTrash" id="wsb-A7-EhR"/>
-                        <segue destination="F49-14-KZc" kind="show" identifier="selectionToPercentage" id="Srk-Ho-nUH"/>
+                        <segue destination="F49-14-KZc" kind="popoverPresentation" identifier="selectionToPercentage" popoverAnchorView="D3c-H3-Uru" id="Srk-Ho-nUH">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                            <popoverPassthroughViews>
+                                <view reference="tPT-e5-mD2"/>
+                            </popoverPassthroughViews>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6O-Mn-VMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3402,14 +3407,14 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kyy-tg-Ke7"/>
         <segue reference="1tB-kg-ppv"/>
-        <segue reference="5Ao-2w-c2Y"/>
+        <segue reference="xfF-zR-f1f"/>
+        <segue reference="w0k-NR-dKO"/>
         <segue reference="iXZ-k7-K8Z"/>
         <segue reference="opv-1h-Bzj"/>
         <segue reference="qRc-Qg-wq0"/>
-        <segue reference="w0k-NR-dKO"/>
         <segue reference="ryo-zk-CDy"/>
         <segue reference="9Z4-uK-DHR"/>
+        <segue reference="5Ao-2w-c2Y"/>
     </inferredMetricsTieBreakers>
 </document>

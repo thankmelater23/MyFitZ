@@ -309,7 +309,14 @@ var GlobalMyFitZSerial: dispatch_queue_t {
 var GlobalMyFitZConcurrent: dispatch_queue_t {
     return dispatch_queue_create("com.MyFitZ.Concurrent.Global", DISPATCH_QUEUE_CONCURRENT)
 }//Custom Created Concurrent Queue
-
+var GlobalWardrobeSerial: dispatch_queue_t {
+    return dispatch_queue_create("com.Wardrobe.Serial.Global", DISPATCH_QUEUE_SERIAL)
+}//Custom Created Serial Queue
+var GlobalWardrobeConcurrent: dispatch_queue_t {
+    return dispatch_queue_create("com.Wardrobe.Concurrent.Global", DISPATCH_QUEUE_CONCURRENT)
+}//Custom Created Concurrent Queue
+let qos = Int(QOS_CLASS_USER_INTERACTIVE.rawValue)
+var GlobalWardrobeUserInteractiveQueue = dispatch_get_global_queue(qos, 0)
 
 //MARK: -Anylitics Constants
 //TODO: -Add anylitic constants from detail VC

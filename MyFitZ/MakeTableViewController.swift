@@ -19,6 +19,7 @@ class MakeTableViewController: UITableViewController{
     var itemsInArrayInDictionary: [String: [Item]]! = [String: [Item]]()
     var array = [[Item]]()
     var keyOfSelectedArray = [String]()
+    var indexReference: [String: Int] = [:]
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     
@@ -27,7 +28,7 @@ class MakeTableViewController: UITableViewController{
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
         
         self.setUpTypes()

@@ -17,7 +17,7 @@ class DetailedViewController: UIViewController{
     //MARK: -Outlets
     @IBOutlet var tableView: UITableView!
     ///Views main image of the Item being presented
-    @IBOutlet var itemImage: UIImageView!
+    @IBOutlet  weak var itemImage: UIImageView!
     @IBOutlet weak var wearButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
@@ -32,7 +32,7 @@ class DetailedViewController: UIViewController{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.setUp()
         self.view.backgroundColor = Cotton
         log.verbose(self.itemOfObject)
@@ -84,7 +84,7 @@ class DetailedViewController: UIViewController{
 
 //MARK: -Actions-DetailedViewController Extension
 extension DetailedViewController{
-    @IBAction func editButtonPressed() {
+    @IBAction func editButtonPressed(){
         playSoundEffects(editSFX)
         //let defaults = NSUserDefaults.standardUserDefaults()
         defaults.addAndSend("EDIT_BUTTON_BUTTON_PRESSED")
@@ -138,7 +138,7 @@ extension DetailedViewController{
             kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
             kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
         
-        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {
+        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {[unowned self] in
             self.itemOfObject.lastTimeWorn = newDate
             
             self.itemOfObject.incrementTimesWorn()
@@ -165,7 +165,7 @@ extension DetailedViewController{
         //        wearButton.backgroundColor = UIColor.clearColor()
         wearButton.userInteractionEnabled = true
     }
-    @IBAction func showImage() {
+    @IBAction func showImage(){
         self.performSegueWithIdentifier(SEGUE_DETAILED_TO_IMAGE, sender: self)
     }
 }

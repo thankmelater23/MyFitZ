@@ -60,9 +60,10 @@ class CreationViewController: UIViewController{
         subCategoryPickerView.reloadInputViews()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.setUp()
         
         // Do any additional setup after loading the view.
@@ -262,6 +263,8 @@ extension CreationViewController{
         subCategoryInputTextField.inputView = subCategoryPickerView
         subCategoryInputTextField.enabled = false
         
+        self.setNeededTextFieldsToUnset()
+        
         //        cellDatePicker.
         cellBrandPickerView.delegate = self
         cellYesNoPicker.delegate = self
@@ -278,6 +281,13 @@ extension CreationViewController{
         
         viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
     }//Sets up data
+    func setNeededTextFieldsToUnset(){
+        self.categoryInputTextField.layer.borderWidth = 2
+        self.categoryInputTextField.layer.borderColor = UIColor.redColor().CGColor
+        
+        self.subCategoryInputTextField.layer.borderWidth = 2
+        self.subCategoryInputTextField.layer.borderColor = UIColor.redColor().CGColor
+    }
 }
 
 

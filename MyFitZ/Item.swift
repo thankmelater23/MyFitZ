@@ -49,11 +49,13 @@ class Item: NSObject, NSCoding{
     
     /// Returns values of all the item vars
     override var description: String {
+        log.info(__FUNCTION__)
         let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \npayedPrice:\(self.payedPrice) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
         return string
     }
     
     deinit{
+        log.info(__FUNCTION__)
         log.info("\n\nItem: \(self.model)//\(self.brand) Deninitialized")
     }
     
@@ -134,6 +136,8 @@ class Item: NSObject, NSCoding{
     }//Encodes data in class
     ///Creates blank Item
     override init(){
+        log.info(__FUNCTION__)
+        
         super.init()
         log.info("Item Object Init")
         
@@ -145,15 +149,15 @@ class Item: NSObject, NSCoding{
         
         self.subCategory  = "N/A"
         
-        self.payedPrice        = NSNumber().doubleValue
+        self.payedPrice        = UNSET_DOUBLE_VALUE
         
         self.image        = UIImage(named: BLANK_IMAGE_STRING)
         
         self.favorited    = false
         
-        self.isThisNew    = Bool()
+        self.isThisNew    = false
         
-        self.timesWorn    = NSNumber().integerValue
+        self.timesWorn    = UNSET_INT_VALUE
         
         self.lastTimeWorn = "N/A"
         
@@ -161,9 +165,9 @@ class Item: NSObject, NSCoding{
         
         self.size = "N/A"
         
-        self.index        = NSNumber().integerValue
+        self.index        = UNSET_INT_VALUE
         
-        self.id        = NSNumber().integerValue
+        self.id        = UNSET_INT_VALUE
         
         //Optionals
         self.datePurchased = "N/A"
@@ -175,7 +179,7 @@ class Item: NSObject, NSCoding{
         self.condition = "N/A"
         self.primaryMaterial = "N/A"
         self.secondaryColor = "N/A"
-        self.retailPrice = Double()
+        self.retailPrice = UNSET_DOUBLE_VALUE
         self.sellerURL = "N/A"
         self.storeLocation = "N/A"
         self.sellerName = "N/A"
@@ -185,6 +189,7 @@ class Item: NSObject, NSCoding{
     init(make: String?, model: String?, category: String?, subCategory: String?, payedPrice: Double?,
         Image: UIImage?, favorited: Bool, isThisNew: Bool?, timesWorn: Int?, lastTImeWorn: String?,
         kind: String?, size: String, index: Int?, datePurchased: String?, color: String?){
+            log.info(__FUNCTION__)
             
             super.init()
             self.brand        = make
@@ -217,6 +222,7 @@ extension Item{
      Increments timesWorn value by one
      */
     func incrementTimesWorn(){
+        log.info(__FUNCTION__)
         log.info("Item times Worn incremented from: \(self.timesWorn) to: \(self.timesWorn + 1)")
         self.timesWorn = self.timesWorn + 1
     }
@@ -226,6 +232,7 @@ extension Item{
      - parameter closet: The String of the closet the item is located in
      */
     func populatePath(closet:String){
+        log.info(__FUNCTION__)
         log.verbose("\(self.model) path is being populated")
         self.path[PATHTYPE_CLOSET_STRING] = closet
         self.path[PATHTYPE_ID_STRING] = String(self.id)
@@ -241,6 +248,7 @@ extension Item{
      - returns: The dictionary
      */
     func removePathFromArrayAndGivesBackNewArray(var path: [[String: String]]) -> [[String: String]]{
+        log.info(__FUNCTION__)
         log.info("removing path from array")
         for (index, arrayDic) in path.enumerate(){
             if arrayDic[PATHTYPE_ID_STRING] == String(self.id){
@@ -253,6 +261,7 @@ extension Item{
     }
     
     func itemStory()->String{
+        log.info(__FUNCTION__)
         "The size .size/ .model/ .brand/ .kind/ thats .primaryColor/, .secondaryColor/, and .thirdColor/ located in .cataegory/ section under .subcategory is (.favorited/), that you purchased for .payedPrice, but is valued at .originalPrice.  .model was last worn: .lastTimeWorn/ and aquired on .datePurchased which is (.datePurchased - .releaseDate) days from the date it was released .dateReleased.  .model is in .condition/ condition and materials consist of .primaryMaterial/, .secondaryMaterial/.  .model/ was purchased from .sellerName/, but you can also find it at this address: .storeLocation/, or at this url: .storeUrl.     Item Notes: .notes/. "
         
         
@@ -311,6 +320,100 @@ extension Item{
         log.info("\(self.model) Item story created")
         
         return story
+    }
+    ///Sets values of items to proper values
+    func setItemValuesToProperValues(){
+        log.info(__FUNCTION__)
+        
+        if self.brand == nil{
+            self.brand = "N/A"
+        }
+        if self.model == nil{
+            self.model = "N/A"
+        }
+        if self.category == nil{
+            self.category = "N/A"
+        }
+        if self.subCategory == nil{
+            self.subCategory = "N/A"
+        }
+        if self.index == nil{
+            self.index = UNSET_INT_VALUE
+        }
+        if self.payedPrice == nil || self.payedPrice == 0{
+            self.payedPrice = UNSET_DOUBLE_VALUE
+        }
+        if self.image == nil{
+            self.image = UIImage(named: BLANK_IMAGE_STRING)
+        }
+        if self.favorited == nil{
+            self.favorited = false
+        }
+        if self.isThisNew == nil{
+            self.isThisNew = false
+        }
+        if self.timesWorn == nil || self.payedPrice == 0{
+            self.timesWorn = UNSET_INT_VALUE
+        }
+        if self.lastTimeWorn == nil{
+            self.lastTimeWorn = "N/A"
+        }
+        if self.kind == nil{
+            self.kind = "N/A"
+        }
+        if self.size == nil{
+            self.size = "N/A"
+        }
+        
+        if self.id == nil{
+            self.id = UNSET_INT_VALUE
+        }
+        
+        
+        
+        
+        if self.datePurchased == nil{
+            self.datePurchased = "N/A"
+        }
+        if self.color == nil{
+            self.color = "N/A"
+        }
+        if self.secondaryColor == nil{
+            self.secondaryColor = "N/A"
+        }
+        if self.thirdColor == nil{
+            self.thirdColor = "N/A"
+        }
+        if self.dateReleased == nil{
+            self.dateReleased = "N/A"
+        }
+        if self.itemNotes == nil{
+            self.itemNotes = "N/A"
+        }
+        if self.condition == nil{
+            self.condition = "N/A"
+        }
+        if self.primaryMaterial == nil{
+            self.primaryMaterial = "N/A"
+        }
+        if self.secondaryMaterial == nil{
+            self.secondaryMaterial = "N/A"
+        }
+        if self.retailPrice == nil{
+            self.retailPrice = UNSET_DOUBLE_VALUE
+        }
+        if self.sellerURL == nil{
+            self.sellerURL = "N/A"
+        }
+        if self.storeLocation == nil{
+            self.storeLocation = "N/A"
+        }
+        if self.sellerName == nil{
+            self.sellerName = "N/A"
+        }
+        if self.path == nil{
+            self.path = [String: String]()
+        }
     }
 }
 

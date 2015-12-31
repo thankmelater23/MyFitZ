@@ -7,3 +7,6 @@
 //
 
 import Foundation
+
+let UNSET_INT_VALUE = -1
+let UNSET_DOUBLE_VALUE = -1.0

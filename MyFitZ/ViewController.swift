@@ -23,7 +23,7 @@ class ViewController:  UIViewController{
     //MARK: -Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()

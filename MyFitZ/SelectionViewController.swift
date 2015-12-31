@@ -67,7 +67,7 @@ class SelectionViewController: UIViewController{
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info("ViewLoaded")
+        log.info(__FUNCTION__)
         self.navigationController?.navigationBarHidden = false
         
         self.animateAllButtons()
@@ -112,12 +112,12 @@ class SelectionViewController: UIViewController{
     func assignCategoriesItemCount(){
         var catCountDic: [String: Int] = [String: Int]()
         
-        dispatch_async(GlobalUserInteractiveQueue, {
+        dispatch_async(GlobalWardrobeSerial, {
             for category in CATEGORY_PICKER_OPTIONS{
                 catCountDic[category] = Users_Wardrobe.getCountOfAllItemsInCategory(category)
             }
             
-            dispatch_async(GlobalMainQueue, {
+            dispatch_async(GlobalMainQueue, {[unowned self] in
                 self.topCounter.text = String(catCountDic[TOPS]!)
                 self.bottomCounter.text = String(catCountDic[BOTTOMS]!)
                 self.footwareCounter.text = String(catCountDic[FOOTWARE]!)
@@ -126,8 +126,6 @@ class SelectionViewController: UIViewController{
                 self.headwareCounter.text = String(catCountDic[HEADWARE]!)
             })
         })
-        
-        
     }
 }
 
