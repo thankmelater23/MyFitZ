@@ -149,7 +149,7 @@ func returnItem(path: [String: String])->Item?{
         
         //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
         if item.id == id{
-            log.info("Item id matched on return to item")
+            //            log.info("Item id matched on return to item")
             return item
         }else{
             defer{
@@ -162,7 +162,7 @@ func returnItem(path: [String: String])->Item?{
                 //TODO: -Something isn't right for this to always be happening
                 if searchItem.id == id{
                     log.info("Search success item found with in the array")
-                    log.warning("This should not happen")
+                    log.warning("This is not the resault needed")
                     return searchItem
                 }
             }
@@ -191,7 +191,7 @@ func returnItem(path: [String: String])->Item?{
  - returns: bool of true if all path values are not nil
  */
 func validatePath(path: [String: String])->Bool{
-    log.info("-VALIDATIING PATH ARRAY")
+    //    log.verbose("-VALIDATIING PATH ARRAY")
     let closet:String? = path[PATHTYPE_CLOSET_STRING]
     let category:String? = path[PATHTYPE_CATEGORY_STRING]
     let subCategory:String? = path[PATHTYPE_SUBCATEGORY_STRING]
@@ -203,10 +203,10 @@ func validatePath(path: [String: String])->Bool{
     }
     
     if closet != nil && category != nil && subCategory != nil{
-        log.info("-VALIDATIING PASSED ALL VALUES NON NIL")
+        //        log.verbose("-VALIDATIING PASSED ALL VALUES NON NIL")
         return true
     }else{
-        log.info("-VALIDATIING FAILED ONE OR ALL ARE NIL")
+        log.warning("-VALIDATIING FAILED ONE OR ALL ARE NIL")
         return false
     }
 }

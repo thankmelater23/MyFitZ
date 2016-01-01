@@ -12,11 +12,13 @@ import Crashlytics
 import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
 import Siren
 import SwiftyBeaver
+import Parse
+import Bolts
+
 
 
 let log = SwiftyBeaver.self
 
-let jeremyGif = UIImage.gifWithName("jeremy.gif")
 
 //MARK: -AppDelegate
 @UIApplicationMain
@@ -32,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.loadResources()
         self.SwiftBeaverSetUp()
         self.removeConstraintFromLogger()
+        self.parseSetUp(launchOptions)
         initializeSounds()
+        
         // Override point for customization after application launch.
         //MARK: -Crashylitics
         Fabric.with([Crashlytics.self])
@@ -43,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        var font: UIFont = UIFont(name: "ChalkDuster", size: 15)!
+        let font: UIFont = UIFont(name: "ChalkDuster", size: 15)!
         let foreGroundcolor = RawGoldTexture
         let backGroundcolor = LeatherTexture
         let strokeColor = RedBunchedUpSilkSheet
@@ -52,14 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let textEffect = NSTextEffectLetterpressStyle
         let titeFont = UIFont(name: "Chalkboard SE", size: 20)!
         let underLineStyle = NSUnderlineStyle.StyleThick.rawValue
-        var textShadow = NSShadow()
+        let textShadow = NSShadow()
         textShadow.shadowColor = RedBunchedUpSilkSheet
         textShadow.shadowOffset = CGSize(width: 0, height: 2)
         textShadow.shadowBlurRadius = 3.0
-        
-        var allCommonAttributes = [:]
-        var customLeftAttributes = [:]
-        var customRightAttributes = [:]
         
         
         
@@ -128,6 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Optional: Defaults to .Option
 //        siren.alertType = <#SirenAlertType_Enum_Value#>
         
+        
         /*
         Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
         checks.
@@ -155,6 +156,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func loadResources(){
         Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+    }
+    func parseSetUp(launchOptions: [NSObject: AnyObject]?){
+        // [Optional] Power your app with Local Datastore. For more info, go to
+        // https://parse.com/docs/ios/guide#local-datastore
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("hVnVJ06MB3aY5repQZyeqQxEGH9YyDPMknMso2I5",
+            clientKey: "c1JavCFdSYyDQMEDwOYUnCeovHGzwkovqLg68KRX")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     }
 }
 

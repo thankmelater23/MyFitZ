@@ -744,7 +744,6 @@ extension Wardrobe{
      - returns: return an array of Items: [Item]
      */
     func returnArrayOfItems(funcCategory: String, funcSubCategory: String)->[Item]{
-        log.info(__FUNCTION__)
         let array:[Item] = selectedCloset[funcCategory]![funcSubCategory]!
         
         return array
@@ -1123,6 +1122,13 @@ extension Wardrobe{
         log.verbose("Removing item path from favorites")
         selectedClosetFavoritedItems = selectedClosetFavoritedItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
     }
+    func setFavoriteContainerToMax(max: Int){
+        while selectedClosetFavoritedItems.count > max{
+            selectedClosetFavoritedItems.popLast()
+        }
+        
+    }
+    
     
     //MARK: -Recents
     ///Sorts and filter Recently Worn Container
@@ -1134,6 +1140,14 @@ extension Wardrobe{
         selectedClosetRecentWornItems = selectedClosetRecentWornItems.sort(){
             returnItem($0)?.lastTimeWorn.returnDaysInDate() < returnItem($1)?.lastTimeWorn.returnDaysInDate()
             }.filter(){ returnItem($0)?.lastTimeWorn.returnDaysInDate() >= 0 }
+        
+        self.setRecentContainerToMax(RECENTLY_WORN_CONTAINER_MAX)
+    }
+    func setRecentContainerToMax(max: Int){
+        while selectedClosetRecentWornItems.count > max{
+            selectedClosetRecentWornItems.popLast()
+        }
+        
     }
     ///Takes a container of Items and converts them to a path and sets them as new Recents container
     func setNewRecents(items: [Item]){
@@ -1246,17 +1260,25 @@ extension Wardrobe{
     ///Removes all items from features containers and than repopulates them.  Is used if the system becomes corrupterd
     func clearAllContainersAndPopulate(){
         log.info(__FUNCTION__)
-        log.verbose("Clearing all containers")
+        log.info("Clearing all containers")
         self.myWishListRecentWornItems.removeAll()
         self.myWishListFavoritedItems.removeAll()
         self.myClosetFavoritedItems.removeAll()
         self.myClosetRecentWornItems.removeAll()
+        
+        log.info("All Containers Cleared/Empty")
+        
         self.findAndPopulateContainersAndCleanItems()
+        
+        log.info("Removing extra items in container")
+        self.sortRecentContainer()
+        
     }
     ///Populates all feature containers with validated items for that container
     private func findAndPopulateContainersAndCleanItems(){
         log.info(__FUNCTION__)
-        log.verbose("Find and populate containers")
+        log.info("Initiating iteration through all items in \(self.closetSelectionString)")
+        log.info("Find and populate containers")
         for (_, category) in self.selectedCloset{
             for (_, subCategory) in category{
                 for item in subCategory{
@@ -1264,7 +1286,7 @@ extension Wardrobe{
                         self.selectedClosetFavoritedItems.append(item.path)
                     }
                     
-                    if item.lastTimeWorn.returnDaysInDate() >= 0{
+                    if item.lastTimeWorn.returnDaysInDate() != UNSET_INT_VALUE{
                         self.selectedClosetRecentWornItems.append(item.path)
                     }
                     
@@ -1272,6 +1294,8 @@ extension Wardrobe{
                 }
             }
         }
+        
+        log.info("All items was checked and modified if neccessary")
     }
     /**
      Converts item objects into path objects

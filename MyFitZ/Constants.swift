@@ -96,6 +96,7 @@ let MY_WANTS_CLOSET = "Wish List"
 
 //MARK: -App Integers
 let RECENTLY_WORN_CONTAINER_MAX = 50
+let FAVORITE_CONTAINER_MAX = 50
 
 //MARK: -Segue identifiers
 //TODO: -Turn this into a struct
@@ -142,6 +143,7 @@ let SEGUE_PERCENTAGE_TO_SELECTION = "percentToSelection"
 let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
 let SEGUE_OPTIONS_TO_HELP         = "optionsToHelp"
 let SEGUE_HELP_TO_INSTRUCTIONS    = "helpToInstructions"
+let SEGUE_MAIN_TO_OPTION_INSTRUCTIONS   = "mainToOptionInstructions"
 
 //MARK: -Cell identifiers
 //TODO: -Turn this into a struct

@@ -114,7 +114,7 @@ extension RecentlyWornTableViewController{
                 let act = UIAlertAction(title: "cancel", style: .Default){_ in}
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
                     self.arrayOfItems.removeAtIndex(indexPath.row)
-
+                    
                     Users_Wardrobe.setNewRecents(self.arrayOfItems)
                     
                     Users_Wardrobe.quickSave()
@@ -143,6 +143,7 @@ extension RecentlyWornTableViewController{
 //MARK: -Initializer  Created Methods
 extension RecentlyWornTableViewController{
     func SetUpTypes() {
+        Users_Wardrobe.setRecentContainerToMax(RECENTLY_WORN_CONTAINER_MAX)
         self.arrayOfItems = Users_Wardrobe.populateRecentlyWornItems()
         
         self.animateAllButtons()
@@ -186,15 +187,15 @@ extension RecentlyWornTableViewController{
 extension RecentlyWornTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        
-        
-        let pageCount:Int? = defaults.returnIntValue("RECENTLY_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Recently Content View",
-            contentType: "Recently View",
-            contentId: "MF10",
-            customAttributes: ["RECENTLY_PAGE_COUNT": pageCount!
-            ])
+            
+            
+            let pageCount:Int? = defaults.returnIntValue("RECENTLY_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Recently Content View",
+                contentType: "Recently View",
+                contentId: "MF10",
+                customAttributes: ["RECENTLY_PAGE_COUNT": pageCount!
+                ])
         })
     }
 }

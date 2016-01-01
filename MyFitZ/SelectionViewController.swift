@@ -124,7 +124,7 @@ class SelectionViewController: UIViewController{
                 self.underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
                 self.accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
                 self.headwareCounter.text = String(catCountDic[HEADWARE]!)
-            })
+                })
         })
     }
 }
@@ -160,7 +160,7 @@ extension SelectionViewController{
         
     }
     @IBAction func share(){
-        let textToShare = "Swift is awesome!  Check out this website about it!"
+        //let textToShare = "Swift is awesome!  Check out this website about it!"
         
         if let myWebsite = NSURL(string: "http://www.codingexplorer.com/")
         {
@@ -192,30 +192,30 @@ extension SelectionViewController{
         }
         
         
-//        self.navigationItem.rightBarButtonItem?.customView?.layer.borderWidth = 2
-//        self.navigationItem.rightBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
-//        
-//        self.navigationItem.leftBarButtonItem?.customView?.layer.borderWidth = 2
-//        self.navigationItem.leftBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
-//        
-//        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
+        //        self.navigationItem.rightBarButtonItem?.customView?.layer.borderWidth = 2
+        //        self.navigationItem.rightBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
+        //
+        //        self.navigationItem.leftBarButtonItem?.customView?.layer.borderWidth = 2
+        //        self.navigationItem.leftBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
+        //
+        //        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.customView?.layer.borderColor = Gold.CGColor
         
         
         
-//                let banner = UIImage(named: "leatherDoubleDoubleStitchingTexture")
-//                let imageView = UIImageView(image:banner)
-//        
-//                let bannerWidth = navigationController?.navigationBar.frame.size.width
-//                let bannerHeight = navigationController?.navigationBar.frame.size.height
-//                let bannerx = bannerWidth! / 2 - banner!.size.width / 2
-//                let bannery = bannerHeight! / 2 - banner!.size.height / 2
-//        
-//                imageView.frame = CGRect(x: bannerx, y: bannery, width: bannerWidth!, height: bannerHeight!)
-//                imageView.contentMode = UIViewContentMode.ScaleAspectFit
-//        
-//                self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.image = imageView.image
-//        
-//                self.navigationItem.titleView = imageView
+        //                let banner = UIImage(named: "leatherDoubleDoubleStitchingTexture")
+        //                let imageView = UIImageView(image:banner)
+        //
+        //                let bannerWidth = navigationController?.navigationBar.frame.size.width
+        //                let bannerHeight = navigationController?.navigationBar.frame.size.height
+        //                let bannerx = bannerWidth! / 2 - banner!.size.width / 2
+        //                let bannery = bannerHeight! / 2 - banner!.size.height / 2
+        //
+        //                imageView.frame = CGRect(x: bannerx, y: bannery, width: bannerWidth!, height: bannerHeight!)
+        //                imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        //
+        //                self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.image = imageView.image
+        //
+        //                self.navigationItem.titleView = imageView
     }
 }
 

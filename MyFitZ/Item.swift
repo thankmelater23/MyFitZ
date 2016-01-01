@@ -389,50 +389,65 @@ extension Item{
     }
     ///Sets values of items to proper values
     func setItemValuesToProperValues(){
-        log.info(__FUNCTION__)
+        //        log.info(__FUNCTION__)
+        var modified = false
         
         if self.brand == nil{
             self.brand = "N/A"
+            modified = true
         }
         if self.model == nil{
             self.model = "N/A"
+            modified = true
         }
         if self.category == nil{
             self.category = "N/A"
+            modified = true
         }
         if self.subCategory == nil{
             self.subCategory = "N/A"
+            modified = true
         }
         if self.index == nil{
             self.index = UNSET_INT_VALUE
+            modified = true
         }
         if self.payedPrice == nil || self.payedPrice == 0{
             self.payedPrice = UNSET_DOUBLE_VALUE
+            modified = true
         }
         if self.image == nil{
             self.image = UIImage(named: BLANK_IMAGE_STRING)
+            modified = true
         }
         if self.favorited == nil{
             self.favorited = false
+            modified = true
         }
         if self.isThisNew == nil{
             self.isThisNew = false
+            modified = true
         }
         if self.timesWorn == nil || self.timesWorn == 0{
             self.timesWorn = UNSET_INT_VALUE
+            modified = true
         }
         if self.lastTimeWorn == nil{
             self.lastTimeWorn = "N/A"
+            modified = true
         }
         if self.kind == nil{
             self.kind = "N/A"
+            modified = true
         }
         if self.size == nil{
             self.size = "N/A"
+            modified = true
         }
         
         if self.id == nil{
             self.id = UNSET_INT_VALUE
+            modified = true
         }
         
         
@@ -440,45 +455,63 @@ extension Item{
         
         if self.datePurchased == nil{
             self.datePurchased = "N/A"
+            modified = true
         }
         if self.color == nil{
             self.color = "N/A"
+            modified = true
         }
         if self.secondaryColor == nil{
             self.secondaryColor = "N/A"
+            modified = true
         }
         if self.thirdColor == nil{
             self.thirdColor = "N/A"
+            modified = true
         }
         if self.dateReleased == nil{
             self.dateReleased = "N/A"
+            modified = true
         }
         if self.itemNotes == nil{
             self.itemNotes = "N/A"
+            modified = true
         }
         if self.condition == nil{
             self.condition = "N/A"
+            modified = true
         }
         if self.primaryMaterial == nil{
             self.primaryMaterial = "N/A"
+            modified = true
         }
         if self.secondaryMaterial == nil{
             self.secondaryMaterial = "N/A"
+            modified = true
         }
         if self.retailPrice == nil || self.retailPrice == 0{
             self.retailPrice = UNSET_DOUBLE_VALUE
+            modified = true
         }
         if self.sellerURL == nil{
             self.sellerURL = "N/A"
+            modified = true
         }
         if self.storeLocation == nil{
             self.storeLocation = "N/A"
+            modified = true
         }
         if self.sellerName == nil{
             self.sellerName = "N/A"
+            modified = true
         }
         if self.path == nil{
             self.path = [String: String]()
+            modified = true
+        }
+        
+        if modified{
+            log.info(model + " was modified")
         }
     }
 }

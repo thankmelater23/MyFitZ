@@ -43,7 +43,7 @@ class DetailedViewController: UIViewController{
         defaults.addAndSend("DETAIL_PAGE_COUNT")
         
         self.logPageView()
-        //Users_Wardrobe.clearAllContainersAndPopulate()
+        //        Users_Wardrobe.clearAllContainersAndPopulate()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         defer{
@@ -151,7 +151,7 @@ extension DetailedViewController{
             self.wearButtonAvailable()
             
             Users_Wardrobe.quickSave()
-        })
+            })
         
         
         defaults.addAndSend("WEAR_PRESSED_COUNT")
@@ -257,7 +257,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case 4 :
             keyAndValue = ITEM_PRICE_STRING
-            if let value = itemOfObject.payedPrice{
+            if let value = itemOfObject.payedPrice where value != UNSET_DOUBLE_VALUE{
                 cell.configure(name: keyAndValue, infoString: String(value))
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -284,7 +284,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case 7 :
             keyAndValue = ITEM_TIMESWORN_STRING
-            if let value = itemOfObject.timesWorn{
+            if let value = itemOfObject.timesWorn where value != UNSET_INT_VALUE{
                 cell.configure(name: keyAndValue, infoString: String(value) as String!)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
@@ -303,12 +303,14 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 let components = cal.components(unitDay, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                 if let value = self.itemOfObject.lastTimeWorn{
                     switch(components.day){
+                    case -1:
+                        cell.configure(name: keyAndValue, infoString:value + "Not Worn")
                     case 0...500:
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.day)) + " Days ago")
                     case 500...1000:
                         let components = cal.components(unitMonth, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.month)) + " Mnths ago")
-                    case 1000..<1000:
+                    case 1000...Int.max:
                         let components = cal.components(unitYear, fromDate: lastDate!, toDate: today, options: .WrapComponents)
                         cell.configure(name: keyAndValue, infoString:value + "-" + String((components.year)) + " Years ago")
                     default:
@@ -339,6 +341,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 let value = "\(number)"
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
+                log.warning("This should have a value")
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 12 :
@@ -348,6 +351,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 let value = "\(number)"
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
+                //TODO: - Put id maker here
+                log.warning("This should have a value")
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
             
@@ -412,7 +417,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             
         case 6 :
             keyAndValue = ITEM_RETAILPRICE_STRING
-            if let value = self.itemOfObject.retailPrice{
+            if let value = self.itemOfObject.retailPrice where value != UNSET_DOUBLE_VALUE{
                 cell.configure(name: keyAndValue, infoString: value.description)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")

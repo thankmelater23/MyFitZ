@@ -12,7 +12,7 @@ import Crashlytics
 //MARK: -MakeTableViewController Class
 class MakeTableViewController: UITableViewController{
     //MARK: -Outlets
-    @IBOutlet var TypeBarButtonLabel: UIBarButtonItem!
+    @IBOutlet  weak var TypeBarButtonLabel: UIBarButtonItem!
     
     //MARK: - Variables
     ///items in a dictionary of arrays holds the categories of the items
@@ -30,9 +30,9 @@ class MakeTableViewController: UITableViewController{
         super.viewDidLoad()
         log.info(__FUNCTION__)
         itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        self.view.backgroundColor = SiliverSilkSheet
         
         self.setUpTypes()
-        
         
         
         defaults.addAndSend("MAKE_PAGE_COUNT")
@@ -54,7 +54,7 @@ class MakeTableViewController: UITableViewController{
         }
         if segue.identifier == SEGUE_MAKE_TO_MODEL
         {
-//            let index = self.tableView.indexPathForSelectedRow
+            //            let index = self.tableView.indexPathForSelectedRow
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.path = self.path
@@ -145,11 +145,11 @@ extension MakeTableViewController:UIAlertViewDelegate{
                 let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
                 
                 Users_Wardrobe.deleteAt(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
-//                
+                //
                 self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
-//
-//                Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
-//                Users_Wardrobe.quickSave()
+                //
+                //                Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+                //                Users_Wardrobe.quickSave()
                 
                 self.tableView.reloadData()
             }
@@ -172,7 +172,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        //        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
         let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
         path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
@@ -215,15 +215,15 @@ extension MakeTableViewController{
 extension MakeTableViewController{
     func logPageView(){
         dispatch_async(GlobalBackgroundQueue, {
-        
-        
-        let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
-        
-        Answers.logContentViewWithName("Category Content View",
-            contentType: "Category View",
-            contentId: "MF3",
-            customAttributes: ["MAKE_PAGE_COUNT": pageCount!
-            ])
+            
+            
+            let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Category Content View",
+                contentType: "Category View",
+                contentId: "MF3",
+                customAttributes: ["MAKE_PAGE_COUNT": pageCount!
+                ])
         })
     }
 }

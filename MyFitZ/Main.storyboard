@@ -208,6 +208,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI9-JZ-jx2">
                                 <rect key="frame" x="546" y="24" width="22" height="22"/>
+                                <connections>
+                                    <segue destination="d4f-Bi-hxq" kind="show" identifier="mainToOptionInstructions" id="8Eb-A3-Uqx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2901960784" green="0.69803921570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2519,13 +2522,6 @@
                                                 <constraint firstAttribute="width" secondItem="4OB-R1-yHx" secondAttribute="height" multiplier="1:1" id="r8V-hQ-dXg"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-3Y-9Yd" userLabel="Brand Label">
-                                            <rect key="frame" x="157" y="9" width="300" height="30"/>
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                            <color key="textColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Time: Worn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ufb-TE-tgD" userLabel="Times Worn Label">
                                             <rect key="frame" x="157" y="86" width="402" height="30"/>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -2554,8 +2550,15 @@
                                                 <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                             </state>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="8Qo-Mf-QQl" userLabel="Model Label">
-                                            <rect key="frame" x="157" y="44" width="300" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="8Qo-Mf-QQl" userLabel="Model Label">
+                                            <rect key="frame" x="157" y="42" width="300" height="32"/>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                            <color key="textColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-3Y-9Yd" userLabel="Brand Label">
+                                            <rect key="frame" x="157" y="9" width="300" height="32"/>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                             <color key="textColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -3032,13 +3035,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MyFitZLogoText" translatesAutoresizingMaskIntoConstraints="NO" id="Dq9-Lz-Nuv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyFitZLogoText" translatesAutoresizingMaskIntoConstraints="NO" id="Dq9-Lz-Nuv">
                                 <rect key="frame" x="122" y="28" width="356" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="356" id="MIj-WA-RtK"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ibx-6d-Bc3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibx-6d-Bc3">
                                 <rect key="frame" x="180" y="161" width="240" height="172"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: X.X.X " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Oms-Gw-6xw">
@@ -3168,7 +3171,7 @@
                                     <constraint firstItem="Oms-Gw-6xw" firstAttribute="centerX" secondItem="ibx-6d-Bc3" secondAttribute="centerX" id="zdz-Am-eBZ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7F-U4-nsE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7F-U4-nsE">
                                 <rect key="frame" x="250" y="128" width="100" height="25"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3183,9 +3186,9 @@
                         <color key="backgroundColor" red="0.23921568630000001" green="0.62745098040000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Dq9-Lz-Nuv" firstAttribute="centerX" secondItem="G7F-U4-nsE" secondAttribute="centerX" id="CDW-g2-Mxm"/>
-                            <constraint firstItem="Aqs-Ju-9IY" firstAttribute="top" secondItem="ibx-6d-Bc3" secondAttribute="bottom" constant="203" id="KRL-Az-J8l"/>
+                            <constraint firstItem="Aqs-Ju-9IY" firstAttribute="top" secondItem="ibx-6d-Bc3" secondAttribute="bottom" constant="267" id="KRL-Az-J8l"/>
                             <constraint firstItem="Y6b-3v-Z86" firstAttribute="top" secondItem="G7F-U4-nsE" secondAttribute="bottom" constant="16" id="W14-fa-gJd"/>
-                            <constraint firstItem="Dq9-Lz-Nuv" firstAttribute="top" secondItem="bQc-A8-xLE" secondAttribute="bottom" constant="28" id="fha-a5-JGF"/>
+                            <constraint firstItem="Dq9-Lz-Nuv" firstAttribute="top" secondItem="bQc-A8-xLE" secondAttribute="bottom" constant="8" id="fha-a5-JGF"/>
                             <constraint firstItem="G7F-U4-nsE" firstAttribute="top" secondItem="Dq9-Lz-Nuv" secondAttribute="bottom" constant="8" id="lSJ-Kb-fjr"/>
                             <constraint firstItem="G7F-U4-nsE" firstAttribute="centerX" secondItem="ibx-6d-Bc3" secondAttribute="centerX" id="lzY-oR-hnl"/>
                             <constraint firstItem="Dq9-Lz-Nuv" firstAttribute="centerX" secondItem="n5T-Ml-3Tv" secondAttribute="centerX" id="uRH-7S-E0x"/>
@@ -3252,10 +3255,10 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="star_on" translatesAutoresizingMaskIntoConstraints="NO" id="Mkn-oz-oTU">
-                                            <rect key="frame" x="531" y="9" width="28" height="28"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_on" translatesAutoresizingMaskIntoConstraints="NO" id="Mkn-oz-oTU">
+                                            <rect key="frame" x="528" y="8" width="31" height="31"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="28" id="ZJb-Lb-8n9"/>
+                                                <constraint firstAttribute="width" constant="31" id="ZJb-Lb-8n9"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -3276,7 +3279,7 @@
                                         <constraint firstItem="4X6-by-vhj" firstAttribute="bottom" secondItem="Mkn-oz-oTU" secondAttribute="bottom" id="ZcX-JM-mdk"/>
                                         <constraint firstItem="yLX-Rn-5cd" firstAttribute="trailing" secondItem="4X6-by-vhj" secondAttribute="trailing" id="aZ8-I0-UiX"/>
                                         <constraint firstItem="yLX-Rn-5cd" firstAttribute="top" secondItem="g18-t6-ED8" secondAttribute="top" constant="41" id="cH5-0R-fbb"/>
-                                        <constraint firstItem="Mkn-oz-oTU" firstAttribute="top" secondItem="4X6-by-vhj" secondAttribute="top" constant="2" id="hyk-a5-tlS"/>
+                                        <constraint firstItem="Mkn-oz-oTU" firstAttribute="top" secondItem="4X6-by-vhj" secondAttribute="top" constant="-1" id="hyk-a5-tlS"/>
                                         <constraint firstItem="dS7-4z-DL0" firstAttribute="top" secondItem="g18-t6-ED8" secondAttribute="topMargin" id="kRf-VE-v9n"/>
                                         <constraint firstItem="Mkn-oz-oTU" firstAttribute="trailing" secondItem="kyK-OC-nwf" secondAttribute="trailing" id="pXu-Aw-sIG"/>
                                         <constraint firstItem="dS7-4z-DL0" firstAttribute="leading" secondItem="jzq-Y2-kI0" secondAttribute="trailing" constant="8" symbolic="YES" id="rDQ-fe-03k"/>
@@ -3328,16 +3331,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-f3-0Ps">
-                                            <rect key="frame" x="442" y="14" width="150" height="35"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-f3-0Ps">
+                                            <rect key="frame" x="442" y="15" width="150" height="33"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="WNN-fD-U8d"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="25"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Key" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-Rg-EGT">
-                                            <rect key="frame" x="8" y="14" width="426" height="35"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-Rg-EGT">
+                                            <rect key="frame" x="8" y="14" width="426" height="33"/>
                                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -3407,14 +3410,15 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1tB-kg-ppv"/>
+        <segue reference="iXZ-k7-K8Z"/>
         <segue reference="xfF-zR-f1f"/>
         <segue reference="w0k-NR-dKO"/>
-        <segue reference="iXZ-k7-K8Z"/>
-        <segue reference="opv-1h-Bzj"/>
         <segue reference="qRc-Qg-wq0"/>
-        <segue reference="ryo-zk-CDy"/>
+        <segue reference="opv-1h-Bzj"/>
+        <segue reference="1tB-kg-ppv"/>
         <segue reference="9Z4-uK-DHR"/>
+        <segue reference="8Eb-A3-Uqx"/>
         <segue reference="5Ao-2w-c2Y"/>
+        <segue reference="YLo-VX-vVO"/>
     </inferredMetricsTieBreakers>
 </document>

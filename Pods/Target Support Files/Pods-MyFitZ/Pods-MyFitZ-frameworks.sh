@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MyFitZ/Async.framework"
+  install_framework "Pods-MyFitZ/Bolts.framework"
   install_framework "Pods-MyFitZ/CRToast.framework"
   install_framework "Pods-MyFitZ/ChameleonFramework.framework"
   install_framework "Pods-MyFitZ/DKChainableAnimationKit.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MyFitZ/FontAwesomeKit.framework"
   install_framework "Pods-MyFitZ/HexColors.framework"
   install_framework "Pods-MyFitZ/MRProgress.framework"
+  install_framework "Pods-MyFitZ/Parse.framework"
   install_framework "Pods-MyFitZ/REFormattedNumberField.framework"
   install_framework "Pods-MyFitZ/RETableViewManager.framework"
   install_framework "Pods-MyFitZ/REValidation.framework"
@@ -104,6 +106,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MyFitZ/Async.framework"
+  install_framework "Pods-MyFitZ/Bolts.framework"
   install_framework "Pods-MyFitZ/CRToast.framework"
   install_framework "Pods-MyFitZ/ChameleonFramework.framework"
   install_framework "Pods-MyFitZ/DKChainableAnimationKit.framework"
@@ -111,6 +114,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MyFitZ/FontAwesomeKit.framework"
   install_framework "Pods-MyFitZ/HexColors.framework"
   install_framework "Pods-MyFitZ/MRProgress.framework"
+  install_framework "Pods-MyFitZ/Parse.framework"
   install_framework "Pods-MyFitZ/REFormattedNumberField.framework"
   install_framework "Pods-MyFitZ/RETableViewManager.framework"
   install_framework "Pods-MyFitZ/REValidation.framework"

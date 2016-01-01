@@ -1,5 +1,6 @@
 PODS:
   - AsyncSwift (1.6.4)
+  - Bolts/Tasks (1.5.1)
   - ChameleonFramework (2.0.6):
     - ChameleonFramework/Default (= 2.0.6)
   - ChameleonFramework/Default (2.0.6)
@@ -23,34 +24,36 @@ PODS:
     - FontAwesomeKit/Core
   - HexColors (2.2.1)
   - iRate (1.11.4)
-  - MRProgress (0.8.2):
-    - MRProgress/ActivityIndicator (= 0.8.2)
-    - MRProgress/Blur (= 0.8.2)
-    - MRProgress/Circular (= 0.8.2)
-    - MRProgress/Icons (= 0.8.2)
-    - MRProgress/NavigationBarProgress (= 0.8.2)
-    - MRProgress/Overlay (= 0.8.2)
-  - MRProgress/ActivityIndicator (0.8.2):
+  - MRProgress (0.8.3):
+    - MRProgress/ActivityIndicator (= 0.8.3)
+    - MRProgress/Blur (= 0.8.3)
+    - MRProgress/Circular (= 0.8.3)
+    - MRProgress/Icons (= 0.8.3)
+    - MRProgress/NavigationBarProgress (= 0.8.3)
+    - MRProgress/Overlay (= 0.8.3)
+  - MRProgress/ActivityIndicator (0.8.3):
     - MRProgress/Stopable
-  - MRProgress/Blur (0.8.2):
+  - MRProgress/Blur (0.8.3):
     - MRProgress/Helper
-  - MRProgress/Circular (0.8.2):
+  - MRProgress/Circular (0.8.3):
     - MRProgress/Helper
     - MRProgress/ProgressBaseClass
     - MRProgress/Stopable
-  - MRProgress/Helper (0.8.2)
-  - MRProgress/Icons (0.8.2)
-  - MRProgress/NavigationBarProgress (0.8.2):
+  - MRProgress/Helper (0.8.3)
+  - MRProgress/Icons (0.8.3)
+  - MRProgress/NavigationBarProgress (0.8.3):
     - MRProgress/ProgressBaseClass
-  - MRProgress/Overlay (0.8.2):
+  - MRProgress/Overlay (0.8.3):
     - MRProgress/ActivityIndicator
     - MRProgress/Blur
     - MRProgress/Circular
     - MRProgress/Helper
     - MRProgress/Icons
-  - MRProgress/ProgressBaseClass (0.8.2)
-  - MRProgress/Stopable (0.8.2):
+  - MRProgress/ProgressBaseClass (0.8.3)
+  - MRProgress/Stopable (0.8.3):
     - MRProgress/Helper
+  - Parse (1.11.0):
+    - Bolts/Tasks (~> 1.5)
   - REFormattedNumberField (1.1.5)
   - RETableViewManager (1.6):
     - REFormattedNumberField (~> 1.1.5)
@@ -72,6 +75,7 @@ DEPENDENCIES:
   - FontAwesomeKit
   - iRate
   - MRProgress
+  - Parse
   - RETableViewManager
   - Siren
   - SlackTextViewController
@@ -81,6 +85,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AsyncSwift: 3c90beed237324f1b57e1f1c414dc5501985d208
+  Bolts: a12663244b1d3351c738882e71902fc74db54f64
   ChameleonFramework: a6b466873ff9a4ce3a5196c20bccf1a97ad9f446
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   DKChainableAnimationKit: fe28909402825a42cc632b211eadcc39ad2bee38
@@ -88,7 +93,8 @@ SPEC CHECKSUMS:
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
-  MRProgress: f4cfe862082418e8f542f077772283f425d6c699
+  MRProgress: 16de7cc9f347e8846797a770db102a323fe7ef09
+  Parse: 886af46a0a677402f6374bb97ac212e795f70afe
   REFormattedNumberField: be3d55dd709f65541fb26b7e1709da07903147f8
   RETableViewManager: 9667ecb29c005c32df40a1dd1828224840a351a2
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f

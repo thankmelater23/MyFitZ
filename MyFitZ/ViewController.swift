@@ -8,7 +8,7 @@
 
 import UIKit
 import Crashlytics
-
+import Parse
 
 
 //MARK: -ViewController Class
@@ -29,6 +29,7 @@ class ViewController:  UIViewController{
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
+        self.parseSetUp()
         
         defaults.addAndSend("MAIN_PAGE_COUNT")
         
@@ -80,7 +81,7 @@ class ViewController:  UIViewController{
 extension ViewController{
     @IBAction func selectedCloset() {
         log.info(__FUNCTION__)
-//        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        //        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
         Users_Wardrobe.closetSelectionString = MY_CLOSET
         playSoundEffects(closetSFX)
         
@@ -94,7 +95,7 @@ extension ViewController{
     }
     @IBAction func selectedWants() {
         log.info(__FUNCTION__)
-//        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        //        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
         Users_Wardrobe.closetSelectionString = MY_WANTS_CLOSET
         playSoundEffects(wishlistSFX)
         
@@ -169,4 +170,11 @@ extension ViewController{
                 ])
             }
         )}
+    func parseSetUp(){
+        let parseUser = PFObject(className: "User")
+        parseUser["Opened App"] = true
+        parseUser.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            log.info("Object has been saved.")
+        }
+    }
 }
