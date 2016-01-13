@@ -14,36 +14,40 @@ import Siren
 import SwiftyBeaver
 import Parse
 import Bolts
-
-
+//import AppInfo
 
 let log = SwiftyBeaver.self
-
 
 //MARK: -AppDelegate
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-//MARK: -Variables
+    //MARK: -Variables
     var window: UIWindow?
-
-
     
-//MARK: -Methods
+    //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         log.info(__FUNCTION__)
+        //        self.printAppInfo()
         self.loadResources()
         self.SwiftBeaverSetUp()
         self.removeConstraintFromLogger()
         self.parseSetUp(launchOptions)
+        self.sirenInitilization()
+        self.createAndRegisterNotificationSettings()
+        self.setNotifications()
+        self.parseSetUp()
         initializeSounds()
+        
         
         // Override point for customization after application launch.
         //MARK: -Crashylitics
         Fabric.with([Crashlytics.self])
         //MARK: -Appsee-Crashylitics
         Fabric.with([Crashlytics.self, Appsee.self])
-//
-//        Appsee.setUserID("Thankmelater23")
+        
+        //
+        Appsee.setUserID("Thankmelater23")
+        Appsee.start("c8b52b639c1648dc953b5f55d4d3511f")
         
         
         
@@ -65,13 +69,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().titleTextAttributes =
             [NSFontAttributeName: titeFont,
-            NSBackgroundColorAttributeName: titeColor,
-            NSForegroundColorAttributeName: backGroundcolor,
-            NSUnderlineStyleAttributeName: underLineStyle,
-            NSStrokeColorAttributeName: strokeColor,
-            NSShadowAttributeName: textShadow,
-            NSTextEffectAttributeName: textEffect,
-            NSUnderlineColorAttributeName: underLineColor]
+                NSBackgroundColorAttributeName: titeColor,
+                NSForegroundColorAttributeName: backGroundcolor,
+                NSUnderlineStyleAttributeName: underLineStyle,
+                NSStrokeColorAttributeName: strokeColor,
+                NSShadowAttributeName: textShadow,
+                NSTextEffectAttributeName: textEffect,
+                NSUnderlineColorAttributeName: underLineColor]
         
         UINavigationBar.appearance().topItem?.rightBarButtonItem?.tintColor = RawGoldTexture
         
@@ -113,8 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
     func sirenInitilization(){
         log.info(__FUNCTION__)
         /* Siren code should go below window?.makeKeyAndVisible() */
@@ -123,21 +125,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let siren = Siren.sharedInstance
         
         // Required: Your app's iTunes App Store ID
-        siren.appID = "123456789"
+        siren.appID = APP_ID
         
         // Optional: Defaults to .Option
-//        siren.alertType = <#SirenAlertType_Enum_Value#>
         
         
         /*
         Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
         checks.
         */
-        siren.checkVersion(.Immediately)
+        siren.checkVersion(.Daily)
         
-        siren.alertType = .Skip
+        siren.alertType = SirenAlertType.Option
     }
-    
     func SwiftBeaverSetUp(){
         log.info(__FUNCTION__)
         let console = ConsoleDestination()
@@ -149,7 +149,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         log.warning("Warning Test")  // prio 4, WARNING in yellow
         log.error("Error Test")  // prio 5, ERROR in red
     }
-    
     func removeConstraintFromLogger(){
         log.info(__FUNCTION__)
         NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
@@ -169,5 +168,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     }
+    func createAndRegisterNotificationSettings(){
+        log.info("Notifications are being set")
+        //Noitfications
+        let notifytypes:UIUserNotificationType = [.Alert, .Badge, .Sound]
+        
+        let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notifytypes, categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
+    }
+    func setNotifications(){
+        log.info("Notifications are being set")
+        let today = NSDate()
+        
+        let dateComp = NSDateComponents()
+        dateComp.day = 7
+        
+        let cal = NSCalendar.currentCalendar()
+        let fireDate:NSDate = cal.dateByAddingComponents(dateComp, toDate: today, options: NSCalendarOptions())!
+        
+        
+        
+        
+        let notification: UILocalNotification = UILocalNotification()
+        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
+        notification.alertTitle = "REMINDER"
+        notification.alertLaunchImage = "icon1"
+        
+        notification.fireDate = fireDate
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        log.info("Notifications are set")
+    }
+    func parseSetUp(){
+        let parseUser = PFObject(className: "User")
+        parseUser["Opened App"] = true
+        parseUser.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            log.info("Object has been saved.")
+        }
+        
+        
+    }
+    
 }
-

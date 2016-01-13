@@ -16,6 +16,6 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
         self.playGif()
     }
     func playGif(){
-        gifImage.image = UIImage.gifWithName("jeremy")
+        gifImage.image = UIImage.gifWithName("ViewItemInstructions")
     }
 }

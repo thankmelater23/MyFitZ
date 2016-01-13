@@ -59,7 +59,7 @@ func playSoundEffects(soundID: SystemSoundID) {
  - returns: No return
  */
 func initializeSounds() {
-    
+    log.info("Sound effects are being loaded")
     dispatch_async(GlobalUserInteractiveQueue, {
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("clear0", withExtension: "wav")!, &clearSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("save0", withExtension: "wav")!, &saveSFX)
@@ -76,6 +76,7 @@ func initializeSounds() {
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("animationPop0", withExtension: "wav")!, &animationSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("alert0", withExtension: "wav")!, &incorrectSFX)
         AudioServicesCreateSystemSoundID(NSBundle.mainBundle().URLForResource("notification0", withExtension: "wav")!, &notificationSFX)
+        log.info("All sounds initialized")
     })
 }
 

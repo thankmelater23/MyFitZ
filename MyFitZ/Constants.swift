@@ -21,6 +21,8 @@ typealias CLOSET_TYPE = [String: [String: [Item]]]
 var Users_Wardrobe:Wardrobe = Wardrobe()
 ///Defaults
 let defaults = NSUserDefaults.standardUserDefaults()
+let APP_ID = "993217543"
+
 
 
 //MARK: -App Enums

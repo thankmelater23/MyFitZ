@@ -10,7 +10,7 @@ import DKChainableAnimationKit
 import Crashlytics
 
 //MARK: -SelectionViewController Class
-class SelectionViewController: UIViewController{
+class SelectionViewController: UIViewController, UIPopoverPresentationControllerDelegate{
     //MARK: -Outlets
     //MARK: -Feature Buttons
     @IBOutlet weak var logoImage: UIImageView!
@@ -103,9 +103,20 @@ class SelectionViewController: UIViewController{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
             createItemViewController.lastVCSegue = SEGUE_CREATION_TO_SELECTION
         }else if segue.identifier == SEGUE_SELECTION_TO_PERCENTAGE{
-            //            let percentagesTableViewController: PercentagesTableViewController! = segue.destinationViewController as! PercentagesTableViewController
-            //            let popOver = percentagesTableViewController.popoverPresentationController
-            //            popOver?.permittedArrowDirections = UIPopoverArrowDirection.Any
+            let percentagesTableViewController: PercentagesTableViewController! = segue.destinationViewController as! PercentagesTableViewController
+            
+            let popOver = percentagesTableViewController.popoverPresentationController
+            
+            
+            if popOver != nil{
+                popOver?.delegate = self
+                popOver?.sourceView = self.view
+                popOver?.sourceRect = buttonHolderView.frame
+                //                popOver?.preferredContentSize = CGSize(width: 500, height: 500)
+            }
+            
+            
+            
         }
         
     }

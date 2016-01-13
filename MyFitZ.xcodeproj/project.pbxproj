@@ -85,9 +85,11 @@
 		C6C639011C214A7F002F115E /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */; };
 		C6C639031C214A8C002F115E /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C639021C214A8C002F115E /* RecentTableViewCell.swift */; };
 		C6C6C6CF1C1D3621002045DE /* TrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */; };
+		C6D7CA791C37BBE3004AD790 /* ViewItemInstructions.gif in Resources */ = {isa = PBXBuildFile; fileRef = C6D7CA781C37BBE3004AD790 /* ViewItemInstructions.gif */; };
 		C6D7FB3F1C0C4CAE0004698A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */; };
 		C6E1D2C11C2ACD5200FA13C5 /* StatsTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */; };
 		C6E1E1941C2D0EA900FA13C5 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */; };
+		C6E593CC1C3E95B0006AEC64 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C6E593CB1C3E95B0006AEC64 /* Settings.bundle */; };
 		C6EA83151C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA83141C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift */; };
 		C6EA84601C30D7B3009C63CE /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA845F1C30D7B3009C63CE /* OptionsViewController.swift */; };
 		C6EA887A1C30FEC4009C63CE /* Options-ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA88791C30FEC4009C63CE /* Options-ContactViewController.swift */; };
@@ -205,9 +207,11 @@
 		C6C639001C214A7F002F115E /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		C6C639021C214A8C002F115E /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		C6C6C6CE1C1D3621002045DE /* TrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrashTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C6D7CA781C37BBE3004AD790 /* ViewItemInstructions.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ViewItemInstructions.gif; sourceTree = "<group>"; };
 		C6D7FB3E1C0C4CAE0004698A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6E1D2C01C2ACD5200FA13C5 /* StatsTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsTableVIewCell.swift; path = Assets.xcassets/StatsTableVIewCell.swift; sourceTree = "<group>"; };
 		C6E1E1931C2D0EA900FA13C5 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		C6E593CB1C3E95B0006AEC64 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C6EA83141C30D596009C63CE /* Options-Help-Instructions-PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-Help-Instructions-PlayerViewController.swift"; sourceTree = "<group>"; };
 		C6EA845F1C30D7B3009C63CE /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		C6EA88791C30FEC4009C63CE /* Options-ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-ContactViewController.swift"; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				C626B9311BE0A48C00BB5E86 /* AppDelegate.swift */,
+				C6E593CB1C3E95B0006AEC64 /* Settings.bundle */,
 				C626B93D1BE0A48C00BB5E86 /* Info.plist */,
 				C6A415E51C2EB2C4006EA3FF /* MyFitZ-Bridging-Header.h */,
 			);
@@ -462,6 +467,7 @@
 		C6B6BF701C2D2F8F001B206A /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				C6D7CA781C37BBE3004AD790 /* ViewItemInstructions.gif */,
 				C6B6BF711C2D2F99001B206A /* jeremy.gif */,
 			);
 			name = Gifs;
@@ -632,6 +638,7 @@
 				C64503DC1BE1A17F0065EC2F /* Main.storyboard in Resources */,
 				C6B492961C04457200A1D237 /* cellselect0.wav in Resources */,
 				C606C00E1C0B16700012AD13 /* CodeComplexity.sh in Resources */,
+				C6D7CA791C37BBE3004AD790 /* ViewItemInstructions.gif in Resources */,
 				C6B492951C04457200A1D237 /* save0.wav in Resources */,
 				C6B492971C04457200A1D237 /* update0.wav in Resources */,
 				C6B492991C04457200A1D237 /* wishlist0.wav in Resources */,
@@ -640,6 +647,7 @@
 				C606C00F1C0B16700012AD13 /* LinesOfCode.sh in Resources */,
 				C6B4928F1C04457200A1D237 /* clear0.wav in Resources */,
 				C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */,
+				C6E593CC1C3E95B0006AEC64 /* Settings.bundle in Resources */,
 				C6B4928E1C04457200A1D237 /* cellselect1.wav in Resources */,
 				C6B4928A1C04457200A1D237 /* add0.wav in Resources */,
 				C6B492931C04457200A1D237 /* notification1.wav in Resources */,

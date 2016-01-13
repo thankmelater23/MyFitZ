@@ -19,7 +19,6 @@ class ViewController:  UIViewController{
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var optionsButton: UIButton!
     
-    
     //MARK: -Methods
     override func viewDidLoad(){
         log.info(__FUNCTION__)
@@ -29,7 +28,7 @@ class ViewController:  UIViewController{
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
-        self.parseSetUp()
+        self.appSettings()
         
         defaults.addAndSend("MAIN_PAGE_COUNT")
         
@@ -170,11 +169,19 @@ extension ViewController{
                 ])
             }
         )}
-    func parseSetUp(){
-        let parseUser = PFObject(className: "User")
-        parseUser["Opened App"] = true
-        parseUser.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            log.info("Object has been saved.")
-        }
+    func appSettings(){
+//        let userLovesUs = NSUserDefaults.standardUserDefaults().valueForKey("DoYouLoveUs") as! Bool?
+//        var theLove = String()
+//        
+//        if userLovesUs != nil && userLovesUs != false{
+//            theLove = "You love us and we love you"
+//        }else{
+//            theLove = "You dont love us, but we love you"
+//        }
+//        let alert = UIAlertController(title: "Do You Love Us?", message: theLove, preferredStyle: UIAlertControllerStyle.Alert)
+//        
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//        self.presentViewController(alert, animated: true, completion:nil)
+        
     }
 }

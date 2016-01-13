@@ -60,7 +60,6 @@
                                 <state key="normal" title="Instructions"/>
                                 <connections>
                                     <action selector="clickedHelp" destination="LjY-ae-1ph" eventType="touchUpInside" id="acN-BS-rY8"/>
-                                    <segue destination="d4f-Bi-hxq" kind="show" identifier="optionsToHelp" id="TMZ-Ck-dCl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMx-ZB-jVI">
@@ -70,6 +69,7 @@
                                 <state key="normal" title="Help"/>
                                 <connections>
                                     <action selector="clickedHelp" destination="LjY-ae-1ph" eventType="touchUpInside" id="l8J-bR-9jj"/>
+                                    <segue destination="d4f-Bi-hxq" kind="show" identifier="optionsToHelp" id="FhP-wE-kl5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3001,7 +3001,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YPx-0s-DhO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YPx-0s-DhO">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YPx-0s-DhO" secondAttribute="height" multiplier="1:1" id="yow-3m-g9J"/>
@@ -3410,14 +3410,14 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iXZ-k7-K8Z"/>
-        <segue reference="xfF-zR-f1f"/>
-        <segue reference="w0k-NR-dKO"/>
         <segue reference="qRc-Qg-wq0"/>
+        <segue reference="xfF-zR-f1f"/>
         <segue reference="opv-1h-Bzj"/>
+        <segue reference="w0k-NR-dKO"/>
         <segue reference="1tB-kg-ppv"/>
+        <segue reference="iXZ-k7-K8Z"/>
         <segue reference="9Z4-uK-DHR"/>
-        <segue reference="8Eb-A3-Uqx"/>
+        <segue reference="FhP-wE-kl5"/>
         <segue reference="5Ao-2w-c2Y"/>
         <segue reference="YLo-VX-vVO"/>
     </inferredMetricsTieBreakers>

@@ -22,6 +22,8 @@ target 'MyFitZ' do
     pod 'SlackTextViewController'#
     pod 'Siren'#This will be done when the app has an app id number
     pod 'Parse'
+
+
     
     #pod 'Onboard'#Easy setup love it can't wait
     #pod 'ImagePicker' simple hook up
@@ -40,6 +42,6 @@ target 'MyFitZTests' do
 end
 
 target 'MyFitZUITests' do
-    
+    UIAnimation
 end
 
