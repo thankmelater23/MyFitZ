@@ -37,11 +37,3 @@ target 'MyFitZ' do
     #pod 'Charts'
 end
 
-target 'MyFitZTests' do
-    
-end
-
-target 'MyFitZUITests' do
-    UIAnimation
-end
-

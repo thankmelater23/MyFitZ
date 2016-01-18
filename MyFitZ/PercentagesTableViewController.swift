@@ -47,8 +47,12 @@ class PercentagesTableViewController: UITableViewController {
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_PERCENTAGE_TO_SELECTION{
+        if segue.identifier == Segue.SEGUE_PERCENTAGE_TO_SELECTION{
         }
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -57,7 +61,7 @@ class PercentagesTableViewController: UITableViewController {
 extension PercentagesTableViewController{
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_PERCENTAGE_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_PERCENTAGE_TO_SELECTION, sender: self)
     }
 }
 
@@ -74,10 +78,10 @@ extension PercentagesTableViewController{
         
     }//Sets up
     func selection(){
-//        TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!n
+//        TypeBarButtonLabel.title = path[PathType.PATHTYPE_CATEGORY_STRING]!n
     }
     func setTitle(){
-        self.title = grabTitle("STATS", view: PATHTYPE_CATEGORY_STRING)
+        self.title = grabTitle("STATS", view: PathType.PATHTYPE_CATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
@@ -87,28 +91,21 @@ extension PercentagesTableViewController{
     }
     func setUpData(){
         //Category item count
-        let numberOfItemsInTop = Users_Wardrobe.getCountOfAllItemsInCategory(TOPS)
-        let numberOfItemsInBottoms = Users_Wardrobe.getCountOfAllItemsInCategory(BOTTOMS)
-        let numberOfItemsInFootware = Users_Wardrobe.getCountOfAllItemsInCategory(FOOTWARE)
-        let numberOfItemsInUnderclothing = Users_Wardrobe.getCountOfAllItemsInCategory(UNDERCLOTHING)
-        let numberOfItemsInAccessories = Users_Wardrobe.getCountOfAllItemsInCategory(ACCESSORIES)
-        let numberOfItemsInHeadware = Users_Wardrobe.getCountOfAllItemsInCategory(HEADWARE)
+        let numberOfItemsInTop = Users_Wardrobe.getCountOfAllItemsInCategory(CateogryType.TOPS)
+        let numberOfItemsInBottoms = Users_Wardrobe.getCountOfAllItemsInCategory(CateogryType.BOTTOMS)
+        let numberOfItemsInFootware = Users_Wardrobe.getCountOfAllItemsInCategory(CateogryType.FOOTWARE)
+        let numberOfItemsInUnderclothing = Users_Wardrobe.getCountOfAllItemsInCategory(CateogryType.UNDERCLOTHING)
+        let numberOfItemsInAccessories = Users_Wardrobe.getCountOfAllItemsInCategory(CateogryType.ACCESSORIES)
+        let numberOfItemsInHeadware = Users_Wardrobe.getCountOfAllItemsInCategory(CateogryType.HEADWARE)
         
         //Count of Subcategories
-        let numberOfSubcategoriesInTop = Users_Wardrobe.selectedCloset[TOPS]!.count ?? 0
-        let numberOfSubcategoriesInBottom = Users_Wardrobe.selectedCloset[BOTTOMS]!.count ?? 0
-        let numberOfSubcategoriesInFootware = Users_Wardrobe.selectedCloset[FOOTWARE]!.count ?? 0
-        let numberOfSubcategoriesInUnderClothing = Users_Wardrobe.selectedCloset[UNDERCLOTHING]!.count ?? 0
-        let numberOfSubcategoriesInAccessories = Users_Wardrobe.selectedCloset[ACCESSORIES]!.count ?? 0
-        let numberOfSubcategoriesInHeadware = Users_Wardrobe.selectedCloset[HEADWARE]!.count ?? 0
+        let numberOfSubcategoriesInTop = Users_Wardrobe.selectedCloset[CateogryType.TOPS]!.count ?? 0
+        let numberOfSubcategoriesInBottom = Users_Wardrobe.selectedCloset[CateogryType.BOTTOMS]!.count ?? 0
+        let numberOfSubcategoriesInFootware = Users_Wardrobe.selectedCloset[CateogryType.FOOTWARE]!.count ?? 0
+        let numberOfSubcategoriesInUnderClothing = Users_Wardrobe.selectedCloset[CateogryType.UNDERCLOTHING]!.count ?? 0
+        let numberOfSubcategoriesInAccessories = Users_Wardrobe.selectedCloset[CateogryType.ACCESSORIES]!.count ?? 0
+        let numberOfSubcategoriesInHeadware = Users_Wardrobe.selectedCloset[CateogryType.HEADWARE]!.count ?? 0
         let allSubCategories = numberOfSubcategoriesInTop + numberOfSubcategoriesInBottom + numberOfSubcategoriesInFootware + numberOfSubcategoriesInUnderClothing + numberOfSubcategoriesInAccessories + numberOfSubcategoriesInHeadware
-        
-        itemsInArrayInDictionary["Closet"] = [
-            ["Amount of Items in \(Users_Wardrobe.closetSelectionString)": String(Users_Wardrobe.getCountOfCloset())],
-            ["Total Amount Of Sub-Categories": String(allSubCategories)]
-        ]
-        
-        
         
         itemsInArrayInDictionary["Categories"] = [
             //items category count
@@ -117,7 +114,8 @@ extension PercentagesTableViewController{
             ["Amount of Items in FOOTWARE Category": String(numberOfItemsInFootware)],
             ["Amount of Items in UNDERCLOTHING Category": String(numberOfItemsInUnderclothing)],
             ["Amount of Items in ACCESSORIES Category": String(numberOfItemsInAccessories)],
-            ["Amount of Items in HEADWARE Category": String(numberOfItemsInHeadware)]]
+            ["Amount of Items in HEADWARE Category": String(numberOfItemsInHeadware)]
+        ]
         
         itemsInArrayInDictionary["Categories"] = [
             //Sub categories count
@@ -127,12 +125,17 @@ extension PercentagesTableViewController{
             ["Amount of Sub Categories in UNDERCLOTHING Category": String(numberOfSubcategoriesInUnderClothing)],
             ["Amount of Sub Categories in ACCESSORIES Category": String(numberOfSubcategoriesInAccessories)],
             ["Amount of Sub Categories in HEADWARE Category": String(numberOfSubcategoriesInHeadware)]
-            ]
+        ]
         
             itemsInArrayInDictionary["Feature Stats"] = [
                 ["Amount of favorited Items": String(Users_Wardrobe.selectedClosetFavoritedItems.count)],
                 ["Amount of recently worn Items": String(Users_Wardrobe.selectedClosetRecentWornItems.count)],
                 ["Amount of trashed Items": String(Users_Wardrobe.selectedClosetTrashItems.count)]
+        ]
+        
+        itemsInArrayInDictionary["Closet"] = [
+            ["Amount of Items in \(Users_Wardrobe.closetSelectionString)": String(Users_Wardrobe.getCountOfCloset())],
+            ["Total Amount Of Sub-Categories": String(allSubCategories)]
         ]
         
         self.keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)
@@ -152,7 +155,7 @@ extension PercentagesTableViewController:UIAlertViewDelegate{
         return (self.itemsInArrayInDictionary[key]?.count)!
     }//Returns Int for number of sections in tableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: StatsTableVIewCell = tableView.dequeueReusableCellWithIdentifier(STATS_CELL) as! StatsTableVIewCell
+        let cell: StatsTableVIewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.STATS_CELL) as! StatsTableVIewCell
         
         
         if indexPath.row % 2 == 0//If even number make this color
@@ -186,7 +189,7 @@ extension PercentagesTableViewController:UIAlertViewDelegate{
     }//Editing to delete row
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         return  self.keyOfSelectedArray[section]
-        //String(path[PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
+        //String(path[PathType.PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

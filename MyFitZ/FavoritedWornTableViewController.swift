@@ -41,11 +41,11 @@ class FavoritedWornTableViewController: UITableViewController {
         }
         
         
-        if segue.identifier == SEGUE_FAVORITED_TO_SELECTION
+        if segue.identifier == Segue.SEGUE_FAVORITED_TO_SELECTION
         {
             
             
-        }else if segue.identifier == SEGUE_FAVORITED_TO_DETAIL{
+        }else if segue.identifier == Segue.SEGUE_FAVORITED_TO_DETAIL{
             let detailedViewController = segue.destinationViewController as! DetailedViewController
             let tempItem = returnItem(pathToSend)
             detailedViewController.itemOfObject = tempItem
@@ -55,6 +55,10 @@ class FavoritedWornTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -67,7 +71,7 @@ extension FavoritedWornTableViewController{
     }
     @IBAction func pressedBack(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_FAVORITED_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_FAVORITED_TO_SELECTION, sender: self)
     }
 }
 
@@ -80,7 +84,7 @@ extension FavoritedWornTableViewController{
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: FavoritesTableViewCell = tableView.dequeueReusableCellWithIdentifier(FAVORITED_CELL) as! FavoritesTableViewCell
+        let cell: FavoritesTableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.FAVORITED_CELL) as! FavoritesTableViewCell
         
         if indexPath.row % 2 == 0//If even number make this color
         {
@@ -98,7 +102,7 @@ extension FavoritedWornTableViewController{
     override func  tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         playSoundEffects(itemSelectSFX)
         self.pathToSend = self.arrayOfItems[indexPath.row].path
-        performSegueWithIdentifier(SEGUE_FAVORITED_TO_DETAIL, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_FAVORITED_TO_DETAIL, sender: self)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         

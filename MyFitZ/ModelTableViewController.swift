@@ -40,10 +40,10 @@ class ModelTableViewController: UITableViewController {
         }
         
         
-        if segue.identifier == SEGUE_MODEL_TO_DETAIL
+        if segue.identifier == Segue.SEGUE_MODEL_TO_DETAIL
         {
             let index = indexToSend
-            path[PATHTYPE_INDEX_STRING] = String(index!)
+            path[PathType.PATHTYPE_INDEX_STRING] = String(index!)
             
             let detailController = segue.destinationViewController as! DetailedViewController
             
@@ -56,20 +56,24 @@ class ModelTableViewController: UITableViewController {
                 assertionFailure("This shouldn't happen")
             }
             
-        }else if segue.identifier == SEGUE_MODEL_TO_MAKE{
+        }else if segue.identifier == Segue.SEGUE_MODEL_TO_MAKE{
             let makeTableViewController = segue.destinationViewController as! MakeTableViewController
             
             makeTableViewController.path = self.path
-        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
+        }else if segue.identifier == Segue.SEGUE_MODEL_TO_CREATION{
             
-        }else if segue.identifier == SEGUE_MODEL_TO_CREATION{
+        }else if segue.identifier == Segue.SEGUE_MODEL_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
-            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MODEL
+            createItemViewController.lastVCSegue = Segue.SEGUE_CREATION_TO_MODEL
         }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -82,7 +86,7 @@ extension ModelTableViewController{
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier(MODEL_CELL) as! ModelCustomCell
+        let cell: ModelCustomCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MODEL_CELL) as! ModelCustomCell
         
         if indexPath.row % 2 == 0//If even number make this color
         {
@@ -102,11 +106,11 @@ extension ModelTableViewController{
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         indexToSend = indexPath.row
         playSoundEffects(itemSelectSFX)
-        performSegueWithIdentifier(SEGUE_MODEL_TO_DETAIL, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_MODEL_TO_DETAIL, sender: self)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return String(path[PATHTYPE_SUBCATEGORY_STRING]! + ": " + "\(self.arrayOfItems.count)")
+        return String(path[PathType.PATHTYPE_SUBCATEGORY_STRING]! + ": " + "\(self.arrayOfItems.count)")
     }
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = LeatherTexture
@@ -126,7 +130,7 @@ extension ModelTableViewController{
                 let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
                     let itemToDelete = self.arrayOfItems[indexPath.row]
                     
-                    Users_Wardrobe.deleteItem(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: self.path[PATHTYPE_SUBCATEGORY_STRING]!, item: itemToDelete)
+                    Users_Wardrobe.deleteItem(self.path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: self.path[PathType.PATHTYPE_SUBCATEGORY_STRING]!, item: itemToDelete)
                     
                     self.arrayOfItems.removeAtIndex(indexPath.row)
                     
@@ -145,7 +149,7 @@ extension ModelTableViewController{
 extension ModelTableViewController{
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_MODEL_TO_MAKE, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_MODEL_TO_MAKE, sender: self)
     }
 }
 
@@ -156,7 +160,7 @@ extension ModelTableViewController{
     func SetUpTypes() {
         self.animateAllButtons()
         
-        self.arrayOfItems = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]!
+        self.arrayOfItems = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]![path[PathType.PATHTYPE_SUBCATEGORY_STRING]!]!
         
         self.setTitle()
         
@@ -185,7 +189,7 @@ extension ModelTableViewController{
         //    logoCustomization(self.logoImage)
     }
     func setTitle(){
-        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_SUBCATEGORY_STRING)
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PathType.PATHTYPE_SUBCATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{

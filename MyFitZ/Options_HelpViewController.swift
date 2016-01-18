@@ -31,7 +31,11 @@ class Options_HelpViewController: UIViewController {
     @IBAction func playInstruction() {
 //        playSoundEffects(closetSFX)
         
-        performSegueWithIdentifier(SEGUE_HELP_TO_INSTRUCTIONS, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_HELP_TO_INSTRUCTIONS, sender: self)
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 

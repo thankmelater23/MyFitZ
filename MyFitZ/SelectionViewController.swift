@@ -96,13 +96,13 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_SELECTION_TO_MAKE{
+        if segue.identifier == Segue.SEGUE_SELECTION_TO_MAKE{
             let makeController: MakeTableViewController! = segue.destinationViewController as! MakeTableViewController
             makeController.path = self.path
-        }else if segue.identifier == SEGUE_SELECTION_TO_CREATION{
+        }else if segue.identifier == Segue.SEGUE_SELECTION_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
-            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_SELECTION
-        }else if segue.identifier == SEGUE_SELECTION_TO_PERCENTAGE{
+            createItemViewController.lastVCSegue = Segue.SEGUE_CREATION_TO_SELECTION
+        }else if segue.identifier == Segue.SEGUE_SELECTION_TO_PERCENTAGE{
             let percentagesTableViewController: PercentagesTableViewController! = segue.destinationViewController as! PercentagesTableViewController
             
             let popOver = percentagesTableViewController.popoverPresentationController
@@ -129,14 +129,18 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
             }
             
             dispatch_async(GlobalMainQueue, {[unowned self] in
-                self.topCounter.text = String(catCountDic[TOPS]!)
-                self.bottomCounter.text = String(catCountDic[BOTTOMS]!)
-                self.footwareCounter.text = String(catCountDic[FOOTWARE]!)
-                self.underClothesCounter.text = String(catCountDic[UNDERCLOTHING]!)
-                self.accessoriesCounter.text = String(catCountDic[ACCESSORIES]!)
-                self.headwareCounter.text = String(catCountDic[HEADWARE]!)
+                self.topCounter.text = String(catCountDic[CateogryType.TOPS]!)
+                self.bottomCounter.text = String(catCountDic[CateogryType.BOTTOMS]!)
+                self.footwareCounter.text = String(catCountDic[CateogryType.FOOTWARE]!)
+                self.underClothesCounter.text = String(catCountDic[CateogryType.UNDERCLOTHING]!)
+                self.accessoriesCounter.text = String(catCountDic[CateogryType.ACCESSORIES]!)
+                self.headwareCounter.text = String(catCountDic[CateogryType.HEADWARE]!)
                 })
         })
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -146,25 +150,25 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 extension SelectionViewController{
     ///An action that takes the buttonn(sender).text and stores it into categoryString
     @IBAction func categoryIsButtonName(sender: UIButton) {
-        path[PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
+        path[PathType.PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
         playSoundEffects(categorySFX)
     }
     @IBAction func backButton(sender: AnyObject) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_MAIN, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_SELECTION_TO_MAIN, sender: self)
     }
     @IBAction func favoriteButton() {
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_FAVORITED, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_SELECTION_TO_FAVORITED, sender: self)
     }
     @IBAction func hamperButton() {
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_RECENT, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_SELECTION_TO_RECENT, sender: self)
     }
     @IBAction func trashButtonPressed() {
-        performSegueWithIdentifier(SEGUE_SELECTION_TO_TRASH, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_SELECTION_TO_TRASH, sender: self)
     }
     
     @IBAction func percentageButtonPressed() {
-        self.performSegueWithIdentifier(SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
+        self.performSegueWithIdentifier(Segue.SEGUE_SELECTION_TO_PERCENTAGE, sender: self)
     }
     @IBAction func titleBarPressed(){
         self.viewHint()

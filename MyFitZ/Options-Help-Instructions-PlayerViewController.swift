@@ -18,4 +18,8 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
     func playGif(){
         gifImage.image = UIImage.gifWithName("ViewItemInstructions")
     }
+    deinit{
+        log.info(__FUNCTION__)
+        
+    }
 }

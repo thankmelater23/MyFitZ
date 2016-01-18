@@ -138,11 +138,11 @@ func returnItem(path: [String: String])->Item?{
     
     if validatePathAndItem(path){
         //Setting all variable to values of path
-        let _:String! = path[PATHTYPE_CLOSET_STRING]
-        let category:String! = path[PATHTYPE_CATEGORY_STRING]
-        let subCategory:String! = path[PATHTYPE_SUBCATEGORY_STRING]
-        let id:Int! = Int(path[PATHTYPE_ID_STRING]!)
-        let index:Int! = Int(path[PATHTYPE_INDEX_STRING]!)
+        let _:String! = path[PathType.PATHTYPE_CLOSET_STRING]
+        let category:String! = path[PathType.PATHTYPE_CATEGORY_STRING]
+        let subCategory:String! = path[PathType.PATHTYPE_SUBCATEGORY_STRING]
+        let id:Int! = Int(path[PathType.PATHTYPE_ID_STRING]!)
+        let index:Int! = Int(path[PathType.PATHTYPE_INDEX_STRING]!)
         
         //Gets value from path of item
         let array = Users_Wardrobe.returnArrayOfItems(category, funcSubCategory: subCategory)
@@ -193,11 +193,11 @@ func returnItem(path: [String: String])->Item?{
  */
 func validatePath(path: [String: String])->Bool{
     //    log.verbose("-VALIDATIING PATH ARRAY")
-    let closet:String? = path[PATHTYPE_CLOSET_STRING]
-    let category:String? = path[PATHTYPE_CATEGORY_STRING]
-    let subCategory:String? = path[PATHTYPE_SUBCATEGORY_STRING]
-    let id:String? = path[PATHTYPE_ID_STRING]
-    let index:String? = path[PATHTYPE_INDEX_STRING]
+    let closet:String? = path[PathType.PATHTYPE_CLOSET_STRING]
+    let category:String? = path[PathType.PATHTYPE_CATEGORY_STRING]
+    let subCategory:String? = path[PathType.PATHTYPE_SUBCATEGORY_STRING]
+    let id:String? = path[PathType.PATHTYPE_ID_STRING]
+    let index:String? = path[PathType.PATHTYPE_INDEX_STRING]
     
     guard let _ = Int((id)!),  _ = Int((index)!) else{
         return false
@@ -219,11 +219,10 @@ func validatePath(path: [String: String])->Bool{
  - returns: <#return value description#>
  */
 func validateItem(path: [String: String])-> Bool{
-    let index = Int(path[PATHTYPE_INDEX_STRING]!) ?? 999999
-    let array: [Item]? = Users_Wardrobe.returnArrayOfItems(path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: path[PATHTYPE_SUBCATEGORY_STRING]!) as [Item]?
+    let index = Int(path[PathType.PATHTYPE_INDEX_STRING]!) ?? 999999
+    let array: [Item]? = Users_Wardrobe.returnArrayOfItems(path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: path[PathType.PATHTYPE_SUBCATEGORY_STRING]!) as [Item]?
     
     if index < array?.count{
-        
         if let _ = array?[index]{
             return true
         }else{
@@ -258,11 +257,11 @@ func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
         for (subCatKey, values) in superValue{
             sum = 0
             for (arrayIndex, value) in values.enumerate(){
-                value.path[PATHTYPE_CLOSET_STRING] = MY_CLOSET
-                value.path[PATHTYPE_CATEGORY_STRING] = value.category
-                value.path[PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
-                value.path[PATHTYPE_ID_STRING] = String(value.id)
-                value.path[PATHTYPE_INDEX_STRING] = String(arrayIndex)
+                value.path[PathType.PATHTYPE_CLOSET_STRING] = MY_CLOSET
+                value.path[PathType.PATHTYPE_CATEGORY_STRING] = value.category
+                value.path[PathType.PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
+                value.path[PathType.PATHTYPE_ID_STRING] = String(value.id)
+                value.path[PathType.PATHTYPE_INDEX_STRING] = String(arrayIndex)
                 sum++
                 
                 newWardrobe.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
@@ -279,11 +278,11 @@ func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
             sum = 0
             for (arrayIndex, value) in values.enumerate(){
                 
-                value.path[PATHTYPE_CLOSET_STRING] = MY_WANTS_CLOSET
-                value.path[PATHTYPE_CATEGORY_STRING] = value.category
-                value.path[PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
-                value.path[PATHTYPE_ID_STRING] = String(value.id)
-                value.path[PATHTYPE_INDEX_STRING] = String(arrayIndex)
+                value.path[PathType.PATHTYPE_CLOSET_STRING] = MY_WANTS_CLOSET
+                value.path[PathType.PATHTYPE_CATEGORY_STRING] = value.category
+                value.path[PathType.PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
+                value.path[PathType.PATHTYPE_ID_STRING] = String(value.id)
+                value.path[PathType.PATHTYPE_INDEX_STRING] = String(arrayIndex)
                 sum++
                 
                 newWardrobe.selectedCloset[catKey]![subCatKey]![arrayIndex] = value

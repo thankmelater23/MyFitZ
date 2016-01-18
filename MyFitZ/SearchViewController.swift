@@ -84,7 +84,7 @@ import Crashlytics
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_SEARCH_TO_DETAIL
+        if segue.identifier == Segue.SEGUE_SEARCH_TO_DETAIL
         {
             let detailedViewController = segue.destinationViewController as! DetailedViewController
             
@@ -97,6 +97,13 @@ import Crashlytics
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
+    }
+    func setUpDate(){
+        
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -113,7 +120,7 @@ extension SearchViewController{
     @IBAction func viewItemInDetail() {
         //If no item is in the search it wont segue
         if validatePath(self.item.path){
-            performSegueWithIdentifier(SEGUE_SEARCH_TO_DETAIL, sender: self)
+            performSegueWithIdentifier(Segue.SEGUE_SEARCH_TO_DETAIL, sender: self)
         }
     }
 }

@@ -28,6 +28,10 @@ class Options_AboutViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationBar.translucent = false
     }
+    deinit{
+        log.info(__FUNCTION__)
+        
+    }
 }
 
 

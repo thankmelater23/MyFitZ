@@ -96,6 +96,10 @@
 		C6EA88A21C30FEE5009C63CE /* Options-SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA88A11C30FEE5009C63CE /* Options-SettingsViewController.swift */; };
 		C6EA88C91C30FEFC009C63CE /* Options-AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA88C81C30FEFC009C63CE /* Options-AboutViewController.swift */; };
 		C6EA89CE1C310470009C63CE /* Options_HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA89CD1C310470009C63CE /* Options_HelpViewController.swift */; };
+		C6F7B6CB1C4D84F400D5A044 /* SizesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F7B6CA1C4D84F400D5A044 /* SizesDatabase.swift */; };
+		C6F7B71F1C4D853600D5A044 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F7B71E1C4D853600D5A044 /* Enums.swift */; };
+		C6F7B7881C4D870100D5A044 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F7B7871C4D870100D5A044 /* Structs.swift */; };
+		C6F7B87C1C4D8ACF00D5A044 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F7B87B1C4D8ACF00D5A044 /* Typealias.swift */; };
 		C6FF9A2C1C0DA3E800C2A31B /* wear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */; };
 		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
 		C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */; };
@@ -218,6 +222,10 @@
 		C6EA88A11C30FEE5009C63CE /* Options-SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-SettingsViewController.swift"; sourceTree = "<group>"; };
 		C6EA88C81C30FEFC009C63CE /* Options-AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Options-AboutViewController.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6EA89CD1C310470009C63CE /* Options_HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options_HelpViewController.swift; sourceTree = "<group>"; };
+		C6F7B6CA1C4D84F400D5A044 /* SizesDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizesDatabase.swift; sourceTree = "<group>"; };
+		C6F7B71E1C4D853600D5A044 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		C6F7B7871C4D870100D5A044 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		C6F7B87B1C4D8ACF00D5A044 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		C6FF9A2B1C0DA3E800C2A31B /* wear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wear0.wav; sourceTree = "<group>"; };
 		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
 		C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
@@ -477,6 +485,9 @@
 			isa = PBXGroup;
 			children = (
 				C64503B11BE1A0460065EC2F /* Constants.swift */,
+				C6F7B87B1C4D8ACF00D5A044 /* Typealias.swift */,
+				C6F7B71E1C4D853600D5A044 /* Enums.swift */,
+				C6F7B7871C4D870100D5A044 /* Structs.swift */,
 				C61940261C27CB650029F903 /* Constants_Colors_And_Textures.swift */,
 				C66300971C1425440057061C /* Constants_Wardrobe.swift */,
 				C66300B91C14254D0057061C /* Constants_Item.swift */,
@@ -493,6 +504,7 @@
 				C61790CF1C1421E9003A9561 /* Constants_FavoritedWornTableViewController.swift */,
 				C66300FB1C14279D0057061C /* Constants_Global_Function.swift */,
 				C663011C1C1427AA0057061C /* Constants_Extensions.swift */,
+				C6F7B6CA1C4D84F400D5A044 /* SizesDatabase.swift */,
 			);
 			name = "Global Vars";
 			sourceTree = "<group>";
@@ -804,10 +816,13 @@
 				C64503D61BE1A1210065EC2F /* ModelCustomCell.swift in Sources */,
 				C64503CC1BE1A1160065EC2F /* DetailedViewController.swift in Sources */,
 				C64503B91BE1A0460065EC2F /* Item.swift in Sources */,
+				C6F7B6CB1C4D84F400D5A044 /* SizesDatabase.swift in Sources */,
 				C6EA88A21C30FEE5009C63CE /* Options-SettingsViewController.swift in Sources */,
+				C6F7B87C1C4D8ACF00D5A044 /* Typealias.swift in Sources */,
 				C64503CB1BE1A1160065EC2F /* ModelTableViewController.swift in Sources */,
 				C64503BA1BE1A0460065EC2F /* Fit.swift in Sources */,
 				C626B9321BE0A48C00BB5E86 /* AppDelegate.swift in Sources */,
+				C6F7B7881C4D870100D5A044 /* Structs.swift in Sources */,
 				C663011D1C1427AA0057061C /* Constants_Extensions.swift in Sources */,
 				C6C639011C214A7F002F115E /* FavoritesTableViewCell.swift in Sources */,
 				C6574AA51C23852200100743 /* PercentagesTableViewController.swift in Sources */,
@@ -816,6 +831,7 @@
 				C6178FC71C14210A003A9561 /* Constants_ViewController.swift in Sources */,
 				C64503C81BE1A1160065EC2F /* ViewController.swift in Sources */,
 				C64503B71BE1A0460065EC2F /* Constants.swift in Sources */,
+				C6F7B71F1C4D853600D5A044 /* Enums.swift in Sources */,
 				C6EA887A1C30FEC4009C63CE /* Options-ContactViewController.swift in Sources */,
 				C68F59E51C0F5B1F00424646 /* FavoritedWornTableViewController.swift in Sources */,
 				C6EA88C91C30FEFC009C63CE /* Options-AboutViewController.swift in Sources */,
@@ -983,8 +999,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andre Villanuevia (7UBLY3G5AZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andre Villanuevia (7UBLY3G5AZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -997,7 +1013,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1d5dd652-1d78-4d7a-9d1d-7991a8a45f00";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyFitZ/MyFitZ-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1011,7 +1027,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Development: Andre Villanuevia (7UBLY3G5AZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1023,7 +1039,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05b939b9-ff39-4d91-ae02-5dd0c4d882b5";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyFitZ/MyFitZ-Bridging-Header.h";
 			};
 			name = Release;

@@ -37,10 +37,10 @@ class TrashTableViewController: UITableViewController {
         }
         
         
-        if segue.identifier == SEGUE_TRASH_TO_SELECTION
+        if segue.identifier == Segue.SEGUE_TRASH_TO_SELECTION
         {
             
-            //        }else if segue.identifier == SEGUE_TRASH_TO_DETAIL{
+            //        }else if segue.identifier == Segue.SEGUE_TRASH_TO_DETAIL{
             //            let detailedViewController = segue.destinationViewController as! DetailedViewController
             //            let tempItem = returnItem(pathToSend)
             //            detailedViewController.itemOfObject = tempItem
@@ -51,6 +51,10 @@ class TrashTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
     }
+    deinit{
+        log.info(__FUNCTION__)
+        
+    }
 }
 
 
@@ -59,7 +63,7 @@ class TrashTableViewController: UITableViewController {
 extension TrashTableViewController{
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_TRASH_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_TRASH_TO_SELECTION, sender: self)
     }
 }
 
@@ -72,7 +76,7 @@ extension TrashTableViewController{
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: TrashTableViewCell = tableView.dequeueReusableCellWithIdentifier(TRASH_CELL) as! TrashTableViewCell
+        let cell: TrashTableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.TRASH_CELL) as! TrashTableViewCell
         
         if indexPath.row % 2 == 0//If even number make this color
         {

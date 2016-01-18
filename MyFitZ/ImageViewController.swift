@@ -40,7 +40,7 @@ class ImageViewController: UIViewController {
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_IMAGE_TO_DETAIL{
+        if segue.identifier == Segue.SEGUE_IMAGE_TO_DETAIL{
             let detailedViewController = segue.destinationViewController as! DetailedViewController
             
             detailedViewController.path = self.path
@@ -50,6 +50,10 @@ class ImageViewController: UIViewController {
     
     func setItemStory(){
         itemStoryTextField.text = item.itemStory()
+        
+    }
+    deinit{
+        log.info(__FUNCTION__)
         
     }
 }

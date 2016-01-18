@@ -50,20 +50,20 @@ class DetailedViewController: UIViewController{
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_DETAIL_TO_MODEL
+        if segue.identifier == Segue.SEGUE_DETAIL_TO_MODEL
         {
             let modelTableViewController = segue.destinationViewController as! ModelTableViewController
             
             modelTableViewController.path = self.path
-        }else if segue.identifier == SEGUE_DETAIL_TO_EDIT{
+        }else if segue.identifier == Segue.SEGUE_DETAIL_TO_EDIT{
             let editItemViewController = segue.destinationViewController as! EditItemViewController
             editItemViewController.path = self.path
             editItemViewController.viewItem = self.itemOfObject
             editItemViewController.previousItem = self.itemOfObject
-        }else if segue.identifier == SEGUE_DETAIL_TO_CREATION{
+        }else if segue.identifier == Segue.SEGUE_DETAIL_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
-            createItemViewController.lastVCSegue = SEGUE_DETAIL_TO_CREATION
-        }else if segue.identifier == SEGUE_DETAILED_TO_IMAGE{
+            createItemViewController.lastVCSegue = Segue.SEGUE_DETAIL_TO_CREATION
+        }else if segue.identifier == Segue.SEGUE_DETAILED_TO_IMAGE{
             let imageViewController: ImageViewController! = segue.destinationViewController as! ImageViewController
             
             imageViewController.path = self.path
@@ -79,6 +79,10 @@ class DetailedViewController: UIViewController{
             }
         }
     }
+    deinit{
+        log.info(__FUNCTION__)
+        
+    }
 }
 
 
@@ -90,11 +94,11 @@ extension DetailedViewController{
         
         defaults.addAndSend("EDIT_BUTTON_BUTTON_PRESSED")
         
-        performSegueWithIdentifier(SEGUE_DETAIL_TO_EDIT, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_DETAIL_TO_EDIT, sender: self)
     }
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_DETAIL_TO_MODEL, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_DETAIL_TO_MODEL, sender: self)
     }
     @IBAction func deleteItem() {
         let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
@@ -103,7 +107,7 @@ extension DetailedViewController{
             
             Users_Wardrobe.deleteItem(self.itemOfObject.category, funcSubCategory: self.itemOfObject.subCategory, item: self.itemOfObject)
             
-            self.performSegueWithIdentifier(SEGUE_DETAIL_TO_SELECTION, sender: nil)
+            self.performSegueWithIdentifier(Segue.SEGUE_DETAIL_TO_SELECTION, sender: nil)
         }
         
         alert.addAction(action)
@@ -118,7 +122,7 @@ extension DetailedViewController{
             self.sendItemToMyCloset()
         }
         
-        self.performSegueWithIdentifier(SEGUE_DETAIL_TO_RECENT, sender: self)
+        self.performSegueWithIdentifier(Segue.SEGUE_DETAIL_TO_RECENT, sender: self)
     }
     
     //MARK: -Action sum Methods
@@ -167,7 +171,7 @@ extension DetailedViewController{
         wearButton.userInteractionEnabled = true
     }
     @IBAction func showImage(){
-        self.performSegueWithIdentifier(SEGUE_DETAILED_TO_IMAGE, sender: self)
+        self.performSegueWithIdentifier(Segue.SEGUE_DETAILED_TO_IMAGE, sender: self)
     }
 }
 
@@ -217,7 +221,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func createCellFromRequiredDictionary(row row: Int) -> DoubleLabelTableViewCell{
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
         
         var keyAndValue: String!
         
@@ -228,42 +232,42 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         
         switch row {
         case 0 :
-            keyAndValue = ITEM_MODEL_STRING
+            keyAndValue = ItemAttributeName.ITEM_MODEL_STRING
             if let value = self.itemOfObject.model{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 1 :
-            keyAndValue = ITEM_BRAND_STRING
+            keyAndValue = ItemAttributeName.ITEM_BRAND_STRING
             if let value = self.itemOfObject.brand{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 2 :
-            keyAndValue = ITEM_CATEGORY_STRING
+            keyAndValue = ItemAttributeName.ITEM_CATEGORY_STRING
             if let value = self.itemOfObject.category{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 3 :
-            keyAndValue = ITEM_SUBCATEGORY_STRING
+            keyAndValue = ItemAttributeName.ITEM_SUBCATEGORY_STRING
             if let value = self.itemOfObject.subCategory{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 4 :
-            keyAndValue = ITEM_PRICE_STRING
+            keyAndValue = ItemAttributeName.ITEM_PRICE_STRING
             if let value = itemOfObject.payedPrice where value != UNSET_DOUBLE_VALUE{
                 cell.configure(name: keyAndValue, infoString: String(value))
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 5 :
-            keyAndValue = ITEM_FAVORITED_STRING
+            keyAndValue = ItemAttributeName.ITEM_FAVORITED_STRING
             let bool = self.itemOfObject.favorited
             var value = "No"
             if bool == true{
@@ -273,7 +277,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: value)
             }
         case 6 :
-            keyAndValue = ITEM_ISTHISNEW_STRING
+            keyAndValue = ItemAttributeName.ITEM_ISTHISNEW_STRING
             let bool = self.itemOfObject.isThisNew
             var value = "No"
             if bool == true{
@@ -283,14 +287,14 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: value)
             }
         case 7 :
-            keyAndValue = ITEM_TIMESWORN_STRING
+            keyAndValue = ItemAttributeName.ITEM_TIMESWORN_STRING
             if let value = itemOfObject.timesWorn where value != UNSET_INT_VALUE{
                 cell.configure(name: keyAndValue, infoString: String(value) as String!)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 8 :
-            keyAndValue = ITEM_LASTTIMEWORN_STRING
+            keyAndValue = ItemAttributeName.ITEM_LASTTIMEWORN_STRING
             
             let lastDate = dateFormatter.dateFromString(self.itemOfObject.lastTimeWorn)
             if(lastDate != nil){
@@ -321,21 +325,21 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 9 :
-            keyAndValue = ITEM_KIND_STRING
+            keyAndValue = ItemAttributeName.ITEM_KIND_STRING
             if let value = self.itemOfObject.kind{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 10 :
-            keyAndValue = ITEM_SIZE_STRING
+            keyAndValue = ItemAttributeName.ITEM_SIZE_STRING
             if let value = self.itemOfObject.size{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 11 :
-            keyAndValue = ITEM_INDEX_STRING
+            keyAndValue = ItemAttributeName.ITEM_INDEX_STRING
             let number = self.itemOfObject.index
             if number != nil{
                 let value = "\(number)"
@@ -345,7 +349,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 12 :
-            keyAndValue = ITEM_ID_STRING
+            keyAndValue = ItemAttributeName.ITEM_ID_STRING
             let number = self.itemOfObject.id
             if number != nil{
                 let value = "\(number)"
@@ -364,27 +368,27 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     ///Returns cell of Optional dictionary
     func createCellFromOptionalDictionary(row row: Int) -> DoubleLabelTableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier(DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
         
         var keyAndValue: String!
         
         switch row {
         case 0 :
-            keyAndValue = ITEM_DATEPURCHASERD_STRING
+            keyAndValue = ItemAttributeName.ITEM_DATEPURCHASERD_STRING
             if let value = self.itemOfObject.datePurchased{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 1 :
-            keyAndValue = ITEM_COLOR_STRING
+            keyAndValue = ItemAttributeName.ITEM_COLOR_STRING
             if let value = self.itemOfObject.color{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 2 :
-            keyAndValue = ITEM_SECONDARYCOLOR_STRING
+            keyAndValue = ItemAttributeName.ITEM_SECONDARYCOLOR_STRING
             if let value = self.itemOfObject.secondaryColor{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
@@ -392,7 +396,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 3 :
-            keyAndValue = ITEM_THIRDCOLOR_STRING
+            keyAndValue = ItemAttributeName.ITEM_THIRDCOLOR_STRING
             if let value = self.itemOfObject.thirdColor{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
@@ -400,7 +404,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 4 :
-            keyAndValue = ITEM_ITEMNOTES_STRING
+            keyAndValue = ItemAttributeName.ITEM_ITEMNOTES_STRING
             if let value = self.itemOfObject.itemNotes{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
@@ -408,7 +412,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 5 :
-            keyAndValue = ITEM_DATERELEASED_STRING
+            keyAndValue = ItemAttributeName.ITEM_DATERELEASED_STRING
             if let value = self.itemOfObject.dateReleased{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
@@ -416,7 +420,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 6 :
-            keyAndValue = ITEM_RETAILPRICE_STRING
+            keyAndValue = ItemAttributeName.ITEM_RETAILPRICE_STRING
             if let value = self.itemOfObject.retailPrice where value != UNSET_DOUBLE_VALUE{
                 cell.configure(name: keyAndValue, infoString: value.description)
             }else{
@@ -424,7 +428,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 7 :
-            keyAndValue = ITEM_CONDITION_STRING
+            keyAndValue = ItemAttributeName.ITEM_CONDITION_STRING
             if let value = self.itemOfObject.condition{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
@@ -432,35 +436,35 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         case 8 :
-            keyAndValue = ITEM_PRIMARYMATERIAL_STRING
+            keyAndValue = ItemAttributeName.ITEM_PRIMARYMATERIAL_STRING
             if let value = self.itemOfObject.primaryMaterial{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 9:
-            keyAndValue = ITEM_SECONDAY_MATERIAL_STRING
+            keyAndValue = ItemAttributeName.ITEM_SECONDAY_MATERIAL_STRING
             if let value = self.itemOfObject.secondaryMaterial{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 10:
-            keyAndValue = ITEM_STORELURL_STRING
+            keyAndValue = ItemAttributeName.ITEM_STORELURL_STRING
             if let value = self.itemOfObject.sellerURL{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 11 :
-            keyAndValue = ITEM_STORELOCATION_STRING
+            keyAndValue = ItemAttributeName.ITEM_STORELOCATION_STRING
             if let value = self.itemOfObject.storeLocation{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
         case 12 :
-            keyAndValue = ITEM_SELLERNAME_STRING
+            keyAndValue = ItemAttributeName.ITEM_SELLERNAME_STRING
             if let value = self.itemOfObject.sellerName{
                 cell.configure(name: keyAndValue, infoString: value)
             }else{

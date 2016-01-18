@@ -29,7 +29,7 @@ class MakeTableViewController: UITableViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         log.info(__FUNCTION__)
-        itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
         self.view.backgroundColor = SiliverSilkSheet
         
         self.setUpTypes()
@@ -52,16 +52,20 @@ class MakeTableViewController: UITableViewController{
         defer{
             log.verbose("Segue transfer: \(segue.identifier)")
         }
-        if segue.identifier == SEGUE_MAKE_TO_MODEL
+        if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL
         {
             //            let index = self.tableView.indexPathForSelectedRow
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.path = self.path
-        }else if segue.identifier == SEGUE_MAKE_TO_CREATION{
+        }else if segue.identifier == Segue.SEGUE_MAKE_TO_CREATION{
             let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
-            createItemViewController.lastVCSegue = SEGUE_CREATION_TO_MAKE
+            createItemViewController.lastVCSegue = Segue.SEGUE_CREATION_TO_MAKE
         }
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -71,7 +75,7 @@ class MakeTableViewController: UITableViewController{
 extension MakeTableViewController{
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         playSoundEffects(backSFX)
-        performSegueWithIdentifier(SEGUE_MAKE_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_MAKE_TO_SELECTION, sender: self)
     }
 }
 
@@ -82,16 +86,16 @@ extension MakeTableViewController{
     func setUpTypes(){
         self.animateAllButtons()
         
-        self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]
+        self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
         
         self.setTitle()
         
     }//Sets up
     func selection(){
-        TypeBarButtonLabel.title = path[PATHTYPE_CATEGORY_STRING]!
+        TypeBarButtonLabel.title = path[PathType.PATHTYPE_CATEGORY_STRING]!
     }
     func setTitle(){
-        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PATHTYPE_CATEGORY_STRING)
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PathType.PATHTYPE_CATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
@@ -110,7 +114,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         return count
     }//Returns Int for number of sections in tableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: MakeCustomCell = tableView.dequeueReusableCellWithIdentifier(MAKE_CELL) as! MakeCustomCell
+        let cell: MakeCustomCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MAKE_CELL) as! MakeCustomCell
         
         
         if indexPath.row % 2 == 0//If even number make this color
@@ -144,11 +148,11 @@ extension MakeTableViewController:UIAlertViewDelegate{
             let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
                 let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
                 
-                Users_Wardrobe.deleteAt(self.path[PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
+                Users_Wardrobe.deleteAt(self.path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
                 //
                 self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
                 //
-                //                Users_Wardrobe.selectedCloset[self.path[PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+                //                Users_Wardrobe.selectedCloset[self.path[PathType.PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
                 //                Users_Wardrobe.quickSave()
                 
                 self.tableView.reloadData()
@@ -162,7 +166,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
     }//Editing to delete row
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
-        return String(path[PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
+        return String(path[PathType.PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -175,11 +179,11 @@ extension MakeTableViewController:UIAlertViewDelegate{
         //        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
         let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-        path[PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
+        path[PathType.PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
         
         playSoundEffects(itemSelectSFX)
         
-        performSegueWithIdentifier(SEGUE_MAKE_TO_MODEL, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_MAKE_TO_MODEL, sender: self)
     }//Shows when a cell at row was selected
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 200

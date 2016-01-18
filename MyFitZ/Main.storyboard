@@ -60,16 +60,7 @@
                                 <state key="normal" title="Instructions"/>
                                 <connections>
                                     <action selector="clickedHelp" destination="LjY-ae-1ph" eventType="touchUpInside" id="acN-BS-rY8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMx-ZB-jVI">
-                                <rect key="frame" x="175" y="338" width="250" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Help"/>
-                                <connections>
-                                    <action selector="clickedHelp" destination="LjY-ae-1ph" eventType="touchUpInside" id="l8J-bR-9jj"/>
-                                    <segue destination="d4f-Bi-hxq" kind="show" identifier="optionsToHelp" id="FhP-wE-kl5"/>
+                                    <segue destination="d4f-Bi-hxq" kind="show" identifier="optionsToHelp" id="9ve-qc-RIZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,13 +68,9 @@
                         <constraints>
                             <constraint firstItem="bB6-r4-S9u" firstAttribute="trailing" secondItem="Klh-Ew-Tbh" secondAttribute="trailing" id="D5R-bU-8Te"/>
                             <constraint firstItem="Klh-Ew-Tbh" firstAttribute="centerX" secondItem="tj5-lF-bxm" secondAttribute="centerX" id="VH8-xS-dd2"/>
-                            <constraint firstItem="Klh-Ew-Tbh" firstAttribute="trailing" secondItem="oMx-ZB-jVI" secondAttribute="trailing" id="XwN-9s-K4j"/>
                             <constraint firstItem="bB6-r4-S9u" firstAttribute="trailing" secondItem="JcZ-dO-HNz" secondAttribute="trailing" id="YHw-EY-h4x"/>
-                            <constraint firstItem="Klh-Ew-Tbh" firstAttribute="leading" secondItem="oMx-ZB-jVI" secondAttribute="leading" id="Z4F-Rf-cuK"/>
                             <constraint firstItem="Klh-Ew-Tbh" firstAttribute="leading" secondItem="bB6-r4-S9u" secondAttribute="leading" id="c8y-m0-JLD"/>
-                            <constraint firstItem="oMx-ZB-jVI" firstAttribute="top" secondItem="Klh-Ew-Tbh" secondAttribute="bottom" constant="8" symbolic="YES" id="ebR-dm-6jK"/>
                             <constraint firstItem="4ux-AL-Znf" firstAttribute="centerX" secondItem="JcZ-dO-HNz" secondAttribute="centerX" id="gPx-C4-vBc"/>
-                            <constraint firstItem="1gc-jT-l6Y" firstAttribute="top" secondItem="oMx-ZB-jVI" secondAttribute="bottom" constant="212" id="jAa-TA-BH8"/>
                             <constraint firstItem="1gc-jT-l6Y" firstAttribute="top" secondItem="Klh-Ew-Tbh" secondAttribute="bottom" constant="270" id="mbe-Vg-X0s"/>
                             <constraint firstItem="4ux-AL-Znf" firstAttribute="top" secondItem="ZSQ-FJ-YC4" secondAttribute="bottom" constant="44" id="tNr-6C-9fS"/>
                             <constraint firstItem="JcZ-dO-HNz" firstAttribute="top" secondItem="4ux-AL-Znf" secondAttribute="bottom" constant="8" symbolic="YES" id="tms-uJ-cMR"/>
@@ -141,30 +128,6 @@
                                             <action selector="selectedWants" destination="BYZ-38-t0r" eventType="touchUpInside" id="KtI-7M-KUJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="SZY-Mh-avb">
-                                        <rect key="frame" x="17" y="8" width="136" height="135"/>
-                                        <color key="backgroundColor" red="0.22352941179999999" green="0.52549019610000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Dkm-fH-K7N"/>
-                                            <constraint firstAttribute="width" secondItem="SZY-Mh-avb" secondAttribute="height" multiplier="1:1" constant="1" id="VK9-PE-R5E"/>
-                                            <constraint firstAttribute="width" constant="100" id="wUP-w0-8Jr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="42"/>
-                                        <color key="tintColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" backgroundImage="closet1">
-                                            <color key="titleColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Dkm-fH-K7N"/>
-                                                <exclude reference="wUP-w0-8Jr"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="selectedCloset" destination="BYZ-38-t0r" eventType="touchUpInside" id="oHU-q7-UHD"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ab-xI-e5q">
                                         <rect key="frame" x="42" y="182" width="86" height="86"/>
                                         <color key="backgroundColor" red="1" green="0.071919506859999996" blue="0.1212227595" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,17 +148,38 @@
                                             <action selector="selectedOptions" destination="BYZ-38-t0r" eventType="touchUpInside" id="SWw-YS-hbS"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L2J-LO-3Mg">
+                                        <rect key="frame" x="17" y="0.0" width="136" height="135"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.52549019610000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="L2J-LO-3Mg" secondAttribute="height" multiplier="1:1" constant="1" id="E9T-7N-haV"/>
+                                            <constraint firstAttribute="height" constant="100" id="aIt-u1-R4Z"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" backgroundImage="closet1">
+                                            <color key="titleColor" red="0.23921568630000001" green="1" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="aIt-u1-R4Z"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="selectedCloset" destination="BYZ-38-t0r" eventType="touchUpInside" id="egq-9D-Rgw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="SZY-Mh-avb" firstAttribute="top" secondItem="FJh-xI-fJb" secondAttribute="topMargin" id="1uR-9R-IGv"/>
-                                    <constraint firstItem="SZY-Mh-avb" firstAttribute="trailing" secondItem="2No-5D-ZdP" secondAttribute="trailing" id="3ML-0x-A4F"/>
-                                    <constraint firstItem="SZY-Mh-avb" firstAttribute="centerX" secondItem="FJh-xI-fJb" secondAttribute="centerX" id="EKS-gE-oP3"/>
-                                    <constraint firstItem="6ab-xI-e5q" firstAttribute="top" secondItem="SZY-Mh-avb" secondAttribute="bottom" constant="39" id="QA0-TC-g3j"/>
+                                    <constraint firstItem="2No-5D-ZdP" firstAttribute="centerX" secondItem="6ab-xI-e5q" secondAttribute="centerX" id="2qY-DO-Ol1"/>
+                                    <constraint firstItem="2No-5D-ZdP" firstAttribute="trailing" secondItem="L2J-LO-3Mg" secondAttribute="trailing" id="3v8-uE-42o"/>
+                                    <constraint firstItem="2No-5D-ZdP" firstAttribute="top" secondItem="6ab-xI-e5q" secondAttribute="bottom" constant="39" id="4sh-pA-vHB"/>
+                                    <constraint firstItem="2No-5D-ZdP" firstAttribute="centerX" secondItem="FJh-xI-fJb" secondAttribute="centerX" id="DLc-Bu-10i"/>
+                                    <constraint firstItem="2No-5D-ZdP" firstAttribute="leading" secondItem="L2J-LO-3Mg" secondAttribute="leading" id="MeT-rg-oL2"/>
                                     <constraint firstItem="6ab-xI-e5q" firstAttribute="centerY" secondItem="FJh-xI-fJb" secondAttribute="centerY" id="RIe-RS-FNP"/>
-                                    <constraint firstItem="6ab-xI-e5q" firstAttribute="centerX" secondItem="SZY-Mh-avb" secondAttribute="centerX" id="gTw-sf-DQg"/>
-                                    <constraint firstItem="SZY-Mh-avb" firstAttribute="leading" secondItem="2No-5D-ZdP" secondAttribute="leading" id="hMd-AO-ENe"/>
-                                    <constraint firstItem="SZY-Mh-avb" firstAttribute="leading" secondItem="FJh-xI-fJb" secondAttribute="leading" constant="17" id="pdL-ZK-uku"/>
+                                    <constraint firstItem="L2J-LO-3Mg" firstAttribute="leading" secondItem="FJh-xI-fJb" secondAttribute="leading" constant="17" id="S5r-p8-bgj"/>
+                                    <constraint firstItem="L2J-LO-3Mg" firstAttribute="top" secondItem="FJh-xI-fJb" secondAttribute="top" id="ZIT-9s-IbF"/>
                                     <constraint firstItem="2No-5D-ZdP" firstAttribute="bottom" secondItem="FJh-xI-fJb" secondAttribute="bottomMargin" id="wDZ-iH-ba0"/>
                                     <constraint firstItem="6ab-xI-e5q" firstAttribute="leading" secondItem="FJh-xI-fJb" secondAttribute="leading" constant="42" id="xyr-xj-NlJ"/>
                                 </constraints>
@@ -236,7 +220,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="0FY-1J-wWj"/>
                     <connections>
-                        <outlet property="closetButton" destination="SZY-Mh-avb" id="7Xr-BS-3Bf"/>
+                        <outlet property="closetButton" destination="L2J-LO-3Mg" id="ILG-Ie-94Q"/>
                         <outlet property="logoImage" destination="BXL-DM-IOM" id="ZNk-LT-T8f"/>
                         <outlet property="optionsButton" destination="6ab-xI-e5q" id="z7O-D3-lgz"/>
                         <outlet property="wishListButton" destination="2No-5D-ZdP" id="JD5-m0-xun"/>
@@ -424,7 +408,7 @@
                                                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="7BP-il-blL" kind="push" identifier="selectionToSearch" id="XTX-6Q-pz0"/>
+                                                                    <segue destination="7BP-il-blL" kind="show" identifier="selectionToSearch" id="XTX-6Q-pz0"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -3410,15 +3394,15 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="YnA-Uu-MBM"/>
         <segue reference="qRc-Qg-wq0"/>
-        <segue reference="xfF-zR-f1f"/>
-        <segue reference="opv-1h-Bzj"/>
+        <segue reference="gba-Hd-Ozq"/>
         <segue reference="w0k-NR-dKO"/>
-        <segue reference="1tB-kg-ppv"/>
+        <segue reference="fYS-9w-YvJ"/>
         <segue reference="iXZ-k7-K8Z"/>
+        <segue reference="1tB-kg-ppv"/>
         <segue reference="9Z4-uK-DHR"/>
-        <segue reference="FhP-wE-kl5"/>
-        <segue reference="5Ao-2w-c2Y"/>
-        <segue reference="YLo-VX-vVO"/>
+        <segue reference="9ve-qc-RIZ"/>
+        <segue reference="wQZ-tQ-PE9"/>
     </inferredMetricsTieBreakers>
 </document>

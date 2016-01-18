@@ -42,10 +42,10 @@ class RecentlyWornTableViewController: UITableViewController {
         }
         
         
-        if segue.identifier == SEGUE_RECENT_TO_SELECTION
+        if segue.identifier == Segue.SEGUE_RECENT_TO_SELECTION
         {
             
-        }else if segue.identifier == SEGUE_RECENT_TO_DETAIL{
+        }else if segue.identifier == Segue.SEGUE_RECENT_TO_DETAIL{
             let detailedViewController = segue.destinationViewController as! DetailedViewController
             let tempItem = returnItem(pathToSend)
             detailedViewController.itemOfObject = tempItem
@@ -55,6 +55,10 @@ class RecentlyWornTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 
@@ -77,7 +81,7 @@ extension RecentlyWornTableViewController{
         
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: RecentTableViewCell = tableView.dequeueReusableCellWithIdentifier(RECENTLY_CELL) as! RecentTableViewCell
+        let cell: RecentTableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.RECENTLY_CELL) as! RecentTableViewCell
         
         
         let item: Item            = arrayOfItems[indexPath.row] as Item!
@@ -91,7 +95,7 @@ extension RecentlyWornTableViewController{
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         playSoundEffects(itemSelectSFX)
         self.pathToSend = self.arrayOfItems[indexPath.row].path
-        performSegueWithIdentifier(SEGUE_RECENT_TO_DETAIL, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_RECENT_TO_DETAIL, sender: self)
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         

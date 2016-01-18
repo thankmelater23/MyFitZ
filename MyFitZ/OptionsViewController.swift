@@ -25,12 +25,16 @@ class OptionsViewController: UIViewController {
     
     @IBAction func clickedHelp() {
         log.info("Help Selected")
-        self.performSegueWithIdentifier(SEGUE_OPTIONS_TO_HELP, sender: self)
+        self.performSegueWithIdentifier(Segue.SEGUE_OPTIONS_TO_HELP, sender: self)
     }
     
     func setTitle(){
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationBar.translucent = false
+    }
+    deinit{
+        log.info(__FUNCTION__)
+        
     }
 }
 

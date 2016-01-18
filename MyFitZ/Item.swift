@@ -64,73 +64,73 @@ class Item: NSObject, NSCoding{
     required init?(coder decoder: NSCoder){// probably have to insert "convenience" between required possibly
         super.init()
         //Required
-        self.brand        = decoder.decodeObjectForKey(ITEM_BRAND_STRING) as! String!
-        self.model        = decoder.decodeObjectForKey(ITEM_MODEL_STRING) as! String!
-        self.category     = decoder.decodeObjectForKey(ITEM_CATEGORY_STRING) as! String!
-        self.subCategory  = decoder.decodeObjectForKey(ITEM_SUBCATEGORY_STRING) as! String!
-        self.index        = decoder.decodeIntegerForKey((ITEM_INDEX_STRING)) as Int!
-        self.payedPrice        = decoder.decodeDoubleForKey(ITEM_PRICE_STRING) as Double!
-        self.image        = decoder.decodeObjectForKey(ITEM_IMAGE_STRING) as! UIImage!
-        self.favorited    = decoder.decodeBoolForKey(ITEM_FAVORITED_STRING) as Bool!
-        self.isThisNew    = decoder.decodeBoolForKey(ITEM_ISTHISNEW_STRING) as Bool!
-        self.timesWorn    = decoder.decodeIntegerForKey(ITEM_TIMESWORN_STRING) as Int!
-        self.lastTimeWorn = decoder.decodeObjectForKey(ITEM_LASTTIMEWORN_STRING) as! String!
-        self.kind = decoder.decodeObjectForKey(ITEM_KIND_STRING) as! String!
-        self.size = decoder.decodeObjectForKey(ITEM_SIZE_STRING) as! String!
-        self.id    = decoder.decodeIntegerForKey(ITEM_ID_STRING) as Int!
+        self.brand        = decoder.decodeObjectForKey(ItemAttributeName.ITEM_BRAND_STRING) as! String!
+        self.model        = decoder.decodeObjectForKey(ItemAttributeName.ITEM_MODEL_STRING) as! String!
+        self.category     = decoder.decodeObjectForKey(ItemAttributeName.ITEM_CATEGORY_STRING) as! String!
+        self.subCategory  = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SUBCATEGORY_STRING) as! String!
+        self.index        = decoder.decodeIntegerForKey((ItemAttributeName.ITEM_INDEX_STRING)) as Int!
+        self.payedPrice        = decoder.decodeDoubleForKey(ItemAttributeName.ITEM_PRICE_STRING) as Double!
+        self.image        = decoder.decodeObjectForKey(ItemAttributeName.ITEM_IMAGE_STRING) as! UIImage!
+        self.favorited    = decoder.decodeBoolForKey(ItemAttributeName.ITEM_FAVORITED_STRING) as Bool!
+        self.isThisNew    = decoder.decodeBoolForKey(ItemAttributeName.ITEM_ISTHISNEW_STRING) as Bool!
+        self.timesWorn    = decoder.decodeIntegerForKey(ItemAttributeName.ITEM_TIMESWORN_STRING) as Int!
+        self.lastTimeWorn = decoder.decodeObjectForKey(ItemAttributeName.ITEM_LASTTIMEWORN_STRING) as! String!
+        self.kind = decoder.decodeObjectForKey(ItemAttributeName.ITEM_KIND_STRING) as! String!
+        self.size = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SIZE_STRING) as! String!
+        self.id    = decoder.decodeIntegerForKey(ItemAttributeName.ITEM_ID_STRING) as Int!
         
         
         //Optional
-        self.datePurchased = decoder.decodeObjectForKey(ITEM_DATEPURCHASERD_STRING) as! String!
-        self.color         = decoder.decodeObjectForKey(ITEM_COLOR_STRING) as! String!
-        self.secondaryColor = decoder.decodeObjectForKey(ITEM_SECONDARYCOLOR_STRING) as! String!
-        self.thirdColor = decoder.decodeObjectForKey(ITEM_THIRDCOLOR_STRING) as! String!
-        self.dateReleased = decoder.decodeObjectForKey(ITEM_DATERELEASED_STRING) as! String!
-        self.itemNotes = decoder.decodeObjectForKey(ITEM_ITEMNOTES_STRING) as! String!
-        self.condition = decoder.decodeObjectForKey(ITEM_CONDITION_STRING) as! String!
-        self.primaryMaterial = decoder.decodeObjectForKey(ITEM_PRIMARYMATERIAL_STRING) as! String!
-        self.secondaryMaterial = decoder.decodeObjectForKey(ITEM_SECONDAY_MATERIAL_STRING) as! String!
-        self.retailPrice = decoder.decodeObjectForKey(ITEM_RETAILPRICE_STRING) as! Double!
-        self.sellerURL = decoder.decodeObjectForKey(ITEM_STORELURL_STRING) as! String!
-        self.storeLocation = decoder.decodeObjectForKey(ITEM_STORELOCATION_STRING) as! String!
-        self.sellerName = decoder.decodeObjectForKey(ITEM_SELLERNAME_STRING) as! String!
+        self.datePurchased = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATEPURCHASERD_STRING) as! String!
+        self.color         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_COLOR_STRING) as! String!
+        self.secondaryColor = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SECONDARYCOLOR_STRING) as! String!
+        self.thirdColor = decoder.decodeObjectForKey(ItemAttributeName.ITEM_THIRDCOLOR_STRING) as! String!
+        self.dateReleased = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATERELEASED_STRING) as! String!
+        self.itemNotes = decoder.decodeObjectForKey(ItemAttributeName.ITEM_ITEMNOTES_STRING) as! String!
+        self.condition = decoder.decodeObjectForKey(ItemAttributeName.ITEM_CONDITION_STRING) as! String!
+        self.primaryMaterial = decoder.decodeObjectForKey(ItemAttributeName.ITEM_PRIMARYMATERIAL_STRING) as! String!
+        self.secondaryMaterial = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SECONDAY_MATERIAL_STRING) as! String!
+        self.retailPrice = decoder.decodeObjectForKey(ItemAttributeName.ITEM_RETAILPRICE_STRING) as! Double!
+        self.sellerURL = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELURL_STRING) as! String!
+        self.storeLocation = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELOCATION_STRING) as! String!
+        self.sellerName = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SELLERNAME_STRING) as! String!
         
         //Others
-        self.path = decoder.decodeObjectForKey(ITEM_LOCATIONPATH_STRING) as! [String: String]!
+        self.path = decoder.decodeObjectForKey(ItemAttributeName.ITEM_LOCATIONPATH_STRING) as! [String: String]!
     }//Decode data in class
     func encodeWithCoder(coder: NSCoder){
         //Required
-        coder.encodeObject(self.brand, forKey: ITEM_BRAND_STRING)
-        coder.encodeObject(self.model, forKey: ITEM_MODEL_STRING)
-        coder.encodeObject(self.category, forKey: ITEM_CATEGORY_STRING)
-        coder.encodeObject(self.subCategory, forKey: ITEM_SUBCATEGORY_STRING)
-        coder.encodeInteger(self.index!, forKey: ITEM_INDEX_STRING)
-        coder.encodeDouble(self.payedPrice!, forKey: ITEM_PRICE_STRING)
-        coder.encodeObject(self.image, forKey: ITEM_IMAGE_STRING)
-        coder.encodeBool(self.favorited, forKey: ITEM_FAVORITED_STRING)
-        coder.encodeBool(self.isThisNew!, forKey: ITEM_ISTHISNEW_STRING)
-        coder.encodeInteger(self.timesWorn!, forKey: ITEM_TIMESWORN_STRING)
-        coder.encodeObject(self.lastTimeWorn, forKey: ITEM_LASTTIMEWORN_STRING)
-        coder.encodeObject(self.kind, forKey: ITEM_KIND_STRING)
-        coder.encodeObject(self.size, forKey: ITEM_SIZE_STRING)
-        coder.encodeInteger(self.id, forKey: ITEM_ID_STRING)
+        coder.encodeObject(self.brand, forKey: ItemAttributeName.ITEM_BRAND_STRING)
+        coder.encodeObject(self.model, forKey: ItemAttributeName.ITEM_MODEL_STRING)
+        coder.encodeObject(self.category, forKey: ItemAttributeName.ITEM_CATEGORY_STRING)
+        coder.encodeObject(self.subCategory, forKey: ItemAttributeName.ITEM_SUBCATEGORY_STRING)
+        coder.encodeInteger(self.index!, forKey: ItemAttributeName.ITEM_INDEX_STRING)
+        coder.encodeDouble(self.payedPrice!, forKey: ItemAttributeName.ITEM_PRICE_STRING)
+        coder.encodeObject(self.image, forKey: ItemAttributeName.ITEM_IMAGE_STRING)
+        coder.encodeBool(self.favorited, forKey: ItemAttributeName.ITEM_FAVORITED_STRING)
+        coder.encodeBool(self.isThisNew!, forKey: ItemAttributeName.ITEM_ISTHISNEW_STRING)
+        coder.encodeInteger(self.timesWorn!, forKey: ItemAttributeName.ITEM_TIMESWORN_STRING)
+        coder.encodeObject(self.lastTimeWorn, forKey: ItemAttributeName.ITEM_LASTTIMEWORN_STRING)
+        coder.encodeObject(self.kind, forKey: ItemAttributeName.ITEM_KIND_STRING)
+        coder.encodeObject(self.size, forKey: ItemAttributeName.ITEM_SIZE_STRING)
+        coder.encodeInteger(self.id, forKey: ItemAttributeName.ITEM_ID_STRING)
         //Optional
-        coder.encodeObject(self.datePurchased, forKey: ITEM_DATEPURCHASERD_STRING)
-        coder.encodeObject(self.color, forKey: ITEM_COLOR_STRING)
-        coder.encodeObject(self.secondaryColor, forKey: ITEM_SECONDARYCOLOR_STRING)
-        coder.encodeObject(self.thirdColor, forKey: ITEM_THIRDCOLOR_STRING)
-        coder.encodeObject(self.dateReleased, forKey: ITEM_DATERELEASED_STRING)
-        coder.encodeObject(self.itemNotes, forKey: ITEM_ITEMNOTES_STRING)
-        coder.encodeObject(self.condition, forKey: ITEM_CONDITION_STRING)
-        coder.encodeObject(self.primaryMaterial, forKey: ITEM_PRIMARYMATERIAL_STRING)
-        coder.encodeObject(self.secondaryMaterial, forKey: ITEM_SECONDAY_MATERIAL_STRING)
-        coder.encodeObject(self.retailPrice, forKey: ITEM_RETAILPRICE_STRING)
-        coder.encodeObject(self.sellerURL, forKey: ITEM_STORELURL_STRING)
-        coder.encodeObject(self.storeLocation, forKey: ITEM_STORELOCATION_STRING)
-        coder.encodeObject(self.sellerName, forKey: ITEM_SELLERNAME_STRING)
+        coder.encodeObject(self.datePurchased, forKey: ItemAttributeName.ITEM_DATEPURCHASERD_STRING)
+        coder.encodeObject(self.color, forKey: ItemAttributeName.ITEM_COLOR_STRING)
+        coder.encodeObject(self.secondaryColor, forKey: ItemAttributeName.ITEM_SECONDARYCOLOR_STRING)
+        coder.encodeObject(self.thirdColor, forKey: ItemAttributeName.ITEM_THIRDCOLOR_STRING)
+        coder.encodeObject(self.dateReleased, forKey: ItemAttributeName.ITEM_DATERELEASED_STRING)
+        coder.encodeObject(self.itemNotes, forKey: ItemAttributeName.ITEM_ITEMNOTES_STRING)
+        coder.encodeObject(self.condition, forKey: ItemAttributeName.ITEM_CONDITION_STRING)
+        coder.encodeObject(self.primaryMaterial, forKey: ItemAttributeName.ITEM_PRIMARYMATERIAL_STRING)
+        coder.encodeObject(self.secondaryMaterial, forKey: ItemAttributeName.ITEM_SECONDAY_MATERIAL_STRING)
+        coder.encodeObject(self.retailPrice, forKey: ItemAttributeName.ITEM_RETAILPRICE_STRING)
+        coder.encodeObject(self.sellerURL, forKey: ItemAttributeName.ITEM_STORELURL_STRING)
+        coder.encodeObject(self.storeLocation, forKey: ItemAttributeName.ITEM_STORELOCATION_STRING)
+        coder.encodeObject(self.sellerName, forKey: ItemAttributeName.ITEM_SELLERNAME_STRING)
         
         
-        coder.encodeObject(self.path, forKey: ITEM_LOCATIONPATH_STRING)
+        coder.encodeObject(self.path, forKey: ItemAttributeName.ITEM_LOCATIONPATH_STRING)
         
         log.verbose(self.path)
     }//Encodes data in class
@@ -234,11 +234,11 @@ extension Item{
     func populatePath(closet:String){
         log.info(__FUNCTION__)
         log.verbose("\(self.model) path is being populated")
-        self.path[PATHTYPE_CLOSET_STRING] = closet
-        self.path[PATHTYPE_ID_STRING] = String(self.id)
-        self.path[PATHTYPE_CATEGORY_STRING] = self.category
-        self.path[PATHTYPE_SUBCATEGORY_STRING] = self.subCategory
-        self.path[PATHTYPE_INDEX_STRING] = String(self.index)
+        self.path[PathType.PATHTYPE_CLOSET_STRING] = closet
+        self.path[PathType.PATHTYPE_ID_STRING] = String(self.id)
+        self.path[PathType.PATHTYPE_CATEGORY_STRING] = self.category
+        self.path[PathType.PATHTYPE_SUBCATEGORY_STRING] = self.subCategory
+        self.path[PathType.PATHTYPE_INDEX_STRING] = String(self.index)
     }
     /**
      Removes this item reference from a dictionary list when the item is deleted or modified
@@ -251,7 +251,7 @@ extension Item{
         log.info(__FUNCTION__)
         log.info("removing path from array")
         for (index, arrayDic) in path.enumerate(){
-            if arrayDic[PATHTYPE_ID_STRING] == String(self.id){
+            if arrayDic[PathType.PATHTYPE_ID_STRING] == String(self.id){
                 path.removeAtIndex(index)
                 log.info("path found and deleted")
             }

@@ -72,6 +72,10 @@ class ViewController:  UIViewController{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
     }
+    deinit{
+        log.info(__FUNCTION__)
+        
+    }
 }
 
 
@@ -90,7 +94,7 @@ extension ViewController{
         
         self.logPageView()
         
-        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedWants() {
         log.info(__FUNCTION__)
@@ -102,11 +106,11 @@ extension ViewController{
         defaults.addAndSend("WISHLIST_SELECTION_COUNT")
         
         self.logPageView()
-        performSegueWithIdentifier(SEGUE_MAIN_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedOptions() {
         log.info(__FUNCTION__)
-        self.performSegueWithIdentifier(SEGUE_MAIN_TO_OPTIONS, sender: self)
+        self.performSegueWithIdentifier(Segue.SEGUE_MAIN_TO_OPTIONS, sender: self)
     }
     @IBAction func crashButtonTapped(sender: AnyObject) {
         Crashlytics.sharedInstance().crash()
