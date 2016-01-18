@@ -84,14 +84,14 @@ class CreationViewController: UIViewController{
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_SELECTION{
             
         }
-        if segue.identifier == SEGUE_CREATION_TO_MAKE{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_MAKE{
             
         }
-        if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+        if segue.identifier == Segue.SEGUE_CREATION_TO_MODEL{
+            let array = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]![path[PathType.PATHTYPE_SUBCATEGORY_STRING]!]
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
@@ -100,7 +100,7 @@ class CreationViewController: UIViewController{
             
             
         }
-        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_DETAIL{
             
         }
         
@@ -174,39 +174,39 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     }
     ///Returns cell of required dictionary
     func createCellFromRequiredDictionary(row row: Int) -> CreationUITableViewCell{
-        let cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
+        let cell : CreationUITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(CellIdentifier.CREATION_CELL) as! CreationUITableViewCell
         
         var keyAndValue: String!
         
         switch row {
         case 0 :
-            keyAndValue = ITEM_BRAND_STRING
+            keyAndValue = ItemAttributeName.ITEM_BRAND_STRING
             
             
             cell.configure(text: brandSelected, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.inputView = cellBrandPickerView
         case 1 :
-            keyAndValue = ITEM_MODEL_STRING
+            keyAndValue = ItemAttributeName.ITEM_MODEL_STRING
             cell.configure(text: viewItem.model, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.keyboardType = UIKeyboardType.NamePhonePad
         case 2 :
-            keyAndValue = ITEM_FAVORITED_STRING
+            keyAndValue = ItemAttributeName.ITEM_FAVORITED_STRING
             cell.configure(text: viewItem.favorited?.description, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.inputView = cellYesNoPicker
         case 3 :
-            keyAndValue = ITEM_PRICE_STRING
+            keyAndValue = ItemAttributeName.ITEM_PRICE_STRING
             cell.configure(text: viewItem.payedPrice?.description, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.keyboardType = UIKeyboardType.NumberPad
         case 4 :
-            keyAndValue = ITEM_ISTHISNEW_STRING
+            keyAndValue = ItemAttributeName.ITEM_ISTHISNEW_STRING
             cell.configure(text: viewItem.isThisNew?.description, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.inputView = cellYesNoPicker
         case 5 :
-            keyAndValue = ITEM_TIMESWORN_STRING
+            keyAndValue = ItemAttributeName.ITEM_TIMESWORN_STRING
             cell.configure(text: viewItem.timesWorn?.description, labelString: keyAndValue, tag: row)
             cell.textInputCellTextField.keyboardType = UIKeyboardType.NumberPad
         case 6 :
-            keyAndValue = ITEM_LASTTIMEWORN_STRING
+            keyAndValue = ItemAttributeName.ITEM_LASTTIMEWORN_STRING
             cell.configure(text: viewItem.favorited!.description, labelString: keyAndValue, tag: row)
             
         default:
@@ -224,17 +224,17 @@ extension  CreationViewController: UITableViewDelegate, UITableViewDataSource{
     }
     //Returns cell of Optional dictionary
     func createCellFromOptionalDictionary(row row: Int) -> CreationUITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier(CREATION_CELL) as! CreationUITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.CREATION_CELL) as! CreationUITableViewCell
         
         var keyAndValue: String!
         
         switch row {
             
         case 0:
-            keyAndValue = ITEM_DATEPURCHASERD_STRING
+            keyAndValue = ItemAttributeName.ITEM_DATEPURCHASERD_STRING
             cell.configure(text: viewItem.datePurchased, labelString: keyAndValue, tag: row+100)
         case 1:
-            keyAndValue = ITEM_COLOR_STRING
+            keyAndValue = ItemAttributeName.ITEM_COLOR_STRING
             cell.configure(text: viewItem.color, labelString: keyAndValue, tag: row+100)
         default:
             assertionFailure("Out of scope on the switch statement. row = \(row)")

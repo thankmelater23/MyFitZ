@@ -81,6 +81,11 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var currentIndex = 0
     ///Dictionary path to item
     var path: [String: String] = [String: String]()
+    
+    deinit{
+        log.info(__FUNCTION__)
+        
+    }
 }
 
 
@@ -88,16 +93,25 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - View Functions -Extension CreateItemViewController
 extension CreateItemViewController{
     override func viewDidLoad() {
-        super.viewDidLoad()
         log.info(__FUNCTION__)
+        super.viewDidLoad()
         self.setUp()
-
-        self.view.backgroundColor = Cotton
-//        
-        
         defaults.addAndSend("CREATE_PAGE_COUNT")
         
         self.logPageView()
+    }
+    override func viewDidAppear(animated: Bool) {
+        log.info(__FUNCTION__)
+        super.viewDidAppear(animated)
+        self.view.backgroundColor = Cotton
+        
+        self.categoryInputTextField.layer.borderWidth = 2
+        self.categoryInputTextField.layer.borderColor = UIColor.redColor().CGColor
+        
+    }
+    override func viewDidDisappear(animated: Bool) {
+        log.info(__FUNCTION__)
+        super.viewDidDisappear(animated)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -111,27 +125,28 @@ extension CreateItemViewController{
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_SELECTION{
             let selectionViewController = segue.destinationViewController as! SelectionViewController
             selectionViewController.path = self.path
         }
-        if segue.identifier == SEGUE_CREATION_TO_MAKE{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_MAKE{
             let makeTableViewController = segue.destinationViewController as! MakeTableViewController
             makeTableViewController.path = self.path
         }
-        if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+        if segue.identifier == Segue.SEGUE_CREATION_TO_MODEL{
+            let array = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]![path[PathType.PATHTYPE_SUBCATEGORY_STRING]!]
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
             modelController.path = self.path
         }
-        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_DETAIL{
             let detailedViewController = segue.destinationViewController as! DetailedViewController
             detailedViewController.path = self.path
         }
         
     }
+    
 }
 
 
@@ -176,7 +191,7 @@ extension CreateItemViewController{
         
         defaults.addAndSend("SAVE_BUTTON_BUTTON_PRESSED")
         
-        performSegueWithIdentifier(SEGUE_CREATION_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_CREATION_TO_SELECTION, sender: self)
     }
     @IBAction func setItemImage(sender: UIButton) {
         self.setImagePicker()
@@ -184,6 +199,7 @@ extension CreateItemViewController{
     @IBAction func ClearInputs(sender: UIButton) {
         self.clear()
     }
+    
     
     
     //MARK: -Action Sub Functions
@@ -368,7 +384,7 @@ extension CreateItemViewController{
         self.isThisNew = REBoolItem(title: "New Item:", value: false)
         self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.Date)
         self.retailPrice = RENumberItem(title: "Paid Price:", value: String(), placeholder: "Enter Paid Price For The Item")
-        //        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
+        //        self.condition = REPickerItem(title: "Item Condition", value: ItemAttributeName.ITEM_CONDITION, placeholder: "Item Condition", options:[])
         self.condition = RETextItem(title: "Condition:", value: String(), placeholder: "Enter Item condition")
         //        self.primaryMaterial = REPickerItem(title: "Primary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])
         self.primaryMaterial = RETextItem(title: "Primary Material:", value: String(), placeholder: "Enter Item Primary Material")
@@ -422,7 +438,6 @@ extension CreateItemViewController{
 
 //MARK: -Animation-Extension CreateItemViewController
 extension CreateItemViewController{
-
 }
 
 
@@ -567,7 +582,6 @@ extension CreateItemViewController: UITextFieldDelegate{
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         // Next as return button, for other fields
         if textField == categoryInputTextField{
             categorySelected = categoryInputTextField.text
@@ -615,6 +629,15 @@ extension CreateItemViewController{
 
 
 
+//MARK: - Observers/Notifications-CreateItemViewController Extension
+extension CreateItemViewController{
+    func setUpObservers(){
+        
+    }
+    func removeObservers(){
+        
+    }
+}
 
 //MARK: -Anylitics-CreateItemViewController Extension
 extension CreateItemViewController{

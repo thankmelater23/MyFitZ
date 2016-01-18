@@ -622,7 +622,7 @@ extension Wardrobe{
         for value in sorted{
             value.index = sum
             value.populatePath(self.closetSelectionString)
-            value.path[PATHTYPE_INDEX_STRING] = String(value.index)
+            value.path[PathType.PATHTYPE_INDEX_STRING] = String(value.index)
             sum++
         }
         
@@ -1072,10 +1072,10 @@ extension Wardrobe{
         
         var count = 0
         
-        let id = path[PATHTYPE_ID_STRING]!
+        let id = path[PathType.PATHTYPE_ID_STRING]!
         
         for arrayPath in selectedClosetFavoritedItems{
-            if id == arrayPath[PATHTYPE_ID_STRING]!{
+            if id == arrayPath[PathType.PATHTYPE_ID_STRING]!{
                 
                 selectedClosetFavoritedItems.removeAtIndex(count)
                 
@@ -1091,10 +1091,10 @@ extension Wardrobe{
     func removeItemFromFavorites(path: [String: String]){
         log.info(__FUNCTION__)
         log.verbose("Removing item path from favorites")
-        let checkedID = path[PATHTYPE_ID_STRING]!
+        let checkedID = path[PathType.PATHTYPE_ID_STRING]!
         
         for (index, item) in self.selectedClosetFavoritedItems.enumerate(){
-            if checkedID == String(item[PATHTYPE_ID_STRING]){
+            if checkedID == String(item[PathType.PATHTYPE_ID_STRING]){
                 log.verbose("found and removed item path from favorites")
                 self.selectedClosetFavoritedItems.removeAtIndex(index)
                 return
@@ -1120,7 +1120,7 @@ extension Wardrobe{
     private func removeFromFavoriteList(path: [String: String]){
         log.info(__FUNCTION__)
         log.verbose("Removing item path from favorites")
-        selectedClosetFavoritedItems = selectedClosetFavoritedItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
+        selectedClosetFavoritedItems = selectedClosetFavoritedItems.filter({$0[PathType.PATHTYPE_ID_STRING]! != path[PathType.PATHTYPE_ID_STRING]!})
     }
     func setFavoriteContainerToMax(max: Int){
         while selectedClosetFavoritedItems.count > max{
@@ -1209,8 +1209,8 @@ extension Wardrobe{
             let pathCheck = validatePath(arrayPath)
             
             if pathCheck == true{
-                let arrayPathID = arrayPath[PATHTYPE_ID_STRING]!
-                let pathID = path[PATHTYPE_ID_STRING]!
+                let arrayPathID = arrayPath[PathType.PATHTYPE_ID_STRING]!
+                let pathID = path[PathType.PATHTYPE_ID_STRING]!
                 
                 if arrayPathID == pathID{
                     log.info("item found in container and is being deleted to add new object")
@@ -1224,7 +1224,7 @@ extension Wardrobe{
     private func removeFromRecentWornCollectiion(path: [String: String]){
         log.info(__FUNCTION__)
         log.verbose("Remove from recent worn collection")
-        selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({$0[PATHTYPE_ID_STRING]! != path[PATHTYPE_ID_STRING]!})
+        selectedClosetRecentWornItems = selectedClosetRecentWornItems.filter({$0[PathType.PATHTYPE_ID_STRING]! != path[PathType.PATHTYPE_ID_STRING]!})
     }
     
     //MARK: -Trash

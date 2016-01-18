@@ -45,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: -Appsee-Crashylitics
         Fabric.with([Crashlytics.self, Appsee.self])
         
-        //
-        Appsee.setUserID("Thankmelater23")
+        Appsee.setUserID("Andre Testers Test:1-17-15")
         Appsee.start("c8b52b639c1648dc953b5f55d4d3511f")
         
         
@@ -188,8 +187,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fireDate:NSDate = cal.dateByAddingComponents(dateComp, toDate: today, options: NSCalendarOptions())!
         
         
-        
-        
         let notification: UILocalNotification = UILocalNotification()
         notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
         notification.alertTitle = "REMINDER"
@@ -209,5 +206,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
-    
 }

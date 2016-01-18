@@ -112,22 +112,26 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
             log.verbose("Segue transfer: \(segue.identifier)")
         }
         
-        if segue.identifier == SEGUE_CREATION_TO_SELECTION{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_SELECTION{
             
         }
-        if segue.identifier == SEGUE_CREATION_TO_MAKE{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_MAKE{
             
         }
-        if segue.identifier == SEGUE_CREATION_TO_MODEL{
-            let array = Users_Wardrobe.selectedCloset[path[PATHTYPE_CATEGORY_STRING]!]![path[PATHTYPE_SUBCATEGORY_STRING]!]
+        if segue.identifier == Segue.SEGUE_CREATION_TO_MODEL{
+            let array = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]![path[PathType.PATHTYPE_SUBCATEGORY_STRING]!]
             
             let modelController = segue.destinationViewController as! ModelTableViewController
             modelController.arrayOfItems = array
             modelController.path = self.path
         }
-        if segue.identifier == SEGUE_CREATION_TO_DETAIL{
+        if segue.identifier == Segue.SEGUE_CREATION_TO_DETAIL{
             
         }
+        
+    }
+    deinit{
+        log.info(__FUNCTION__)
         
     }
 }
@@ -179,7 +183,7 @@ extension EditItemViewController{
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
         
-        performSegueWithIdentifier(SEGUE_EDIT_TO_SELECTION, sender: self)
+        performSegueWithIdentifier(Segue.SEGUE_EDIT_TO_SELECTION, sender: self)
     }
     @IBAction func setItemImage(sender: UIButton) {
         self.setImagePicker()
@@ -192,7 +196,7 @@ extension EditItemViewController{
             
             Users_Wardrobe.deleteItem(self.viewItem.category, funcSubCategory: self.viewItem.subCategory, item: self.viewItem)
             
-            self.performSegueWithIdentifier(SEGUE_EDIT_TO_SELECTION, sender: nil)
+            self.performSegueWithIdentifier(Segue.SEGUE_EDIT_TO_SELECTION, sender: nil)
         }
         
         alert.addAction(action)
@@ -375,7 +379,7 @@ extension EditItemViewController{
         
         self.retailPrice = RENumberItem(title: "Paid Price", value: self.viewItem.retailPrice.description, placeholder: "Enter Value for The Item")
         
-        //        self.condition = REPickerItem(title: "Item Condition", value: ITEM_CONDITION, placeholder: "Item Condition", options:[])
+        //        self.condition = REPickerItem(title: "Item Condition", value: ItemAttributeName.ITEM_CONDITION, placeholder: "Item Condition", options:[])
         self.condition = RETextItem(title: "Condition", value: self.viewItem.condition, placeholder: "Enter Item condition")
         
         //        self.primaryMaterial = REPickerItem(title: "Primary Material", value: MATERIAL_TYPE, placeholder: "Material Type", options: [])

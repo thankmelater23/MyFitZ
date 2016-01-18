@@ -1,0 +1,10 @@
+UIImage+Gif.swift
+	public class func gifWithData(data: NSData) -> UIImage?
+	public class func gifWithName(name: String) -> UIImage?
+DetailedViewController.swift
+	class DetailedViewController : UIViewController
+EditItemViewController.swift
+	class EditItemViewController : UIViewController, RETableViewManagerDelegate
+	class EditItemViewController : UIViewController, RETableViewManagerDelegate
+CreateItemViewController.swift
+	class CreateItemViewController : UIViewController, RETableViewManagerDelegate
