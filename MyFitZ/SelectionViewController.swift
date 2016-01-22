@@ -120,6 +120,21 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
         }
         
     }
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        //Return Fullscreen for model and none for popover
+        return UIModalPresentationStyle.FormSheet
+        
+    }
+    
+    func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+        let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
+        let btnDone = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "dismiss")
+        navigationController.topViewController?.navigationItem.rightBarButtonItem = btnDone
+        return navigationController
+    }
+    func dismiss(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     func assignCategoriesItemCount(){
         var catCountDic: [String: Int] = [String: Int]()
         

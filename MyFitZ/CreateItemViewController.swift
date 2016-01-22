@@ -13,7 +13,7 @@ import DKChainableAnimationKit
 import RETableViewManager
 import Crashlytics
 
-
+let ItemCreationProgress = "ItemCreationProgress"
 
 //MARK: -CreateItemViewController Class
 class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
@@ -106,12 +106,19 @@ extension CreateItemViewController{
         self.view.backgroundColor = Cotton
         
         self.categoryInputTextField.layer.borderWidth = 2
-        self.categoryInputTextField.layer.borderColor = UIColor.redColor().CGColor
+        self.categoryInputTextField.layer.borderColor = HighlightColor.priorityHigh.CGColor
+        
+        self.subCategoryInputTextField.layer.borderWidth = 2
+        self.subCategoryInputTextField.layer.borderColor = HighlightColor.priorityHigh.CGColor
+        
+        self.setUpObservers()
         
     }
     override func viewDidDisappear(animated: Bool) {
         log.info(__FUNCTION__)
         super.viewDidDisappear(animated)
+        self.removeObservers()
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -158,8 +165,6 @@ extension CreateItemViewController{
         do{
             saveItemVars()
             try Users_Wardrobe.save(categorySelected, funcSubCategory: subCategorySelected, item: viewItem)
-            
-//            super.viewDidLoad()
         }
             
             
@@ -186,7 +191,6 @@ extension CreateItemViewController{
         
         subCategoryPickerView.reloadAllComponents()
         subCategoryPickerView.reloadInputViews()
-        //        unwindForSegue(self.storyboard, towardsViewController: SelectionViewController)
         
         
         defaults.addAndSend("SAVE_BUTTON_BUTTON_PRESSED")
@@ -266,7 +270,7 @@ extension CreateItemViewController{
         viewItem.isThisNew = isThisNew!.value  ?? false
         
         self.addIdToItem()
-    
+        
     }
     func clear(){
         self.categoryInputTextField.text = ""
@@ -318,10 +322,10 @@ extension CreateItemViewController{
         self.setPickerInfo()
         self.animateAllButtons()
         
-        dispatch_async(GlobalUserInteractiveQueue, {
+        dispatch_async(GlobalUserInteractiveQueue, {[unowned self] in
             self.initializeRETableView()
             self.setUpTableView()
-        })
+            })
         
         viewItem.image = UIImage(named: BLANK_IMAGE_STRING)
     }//Sets up data
@@ -436,226 +440,264 @@ extension CreateItemViewController{
 
 
 
-//MARK: -Animation-Extension CreateItemViewController
+//MARK: -Observer-Extension CreateItemViewController
 extension CreateItemViewController{
-}
-
-
-
-//MARK: - PickerView Methods -Extension CreateItemViewController
-extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == categoryPickerView{
-            return categoryPickerOptions.count
-        }else if pickerView == subCategoryPickerView{
-            let pickerRowsPlusAddFieldOption = subCategoryPickerOptions.count + 1
-            
-            
-            return pickerRowsPlusAddFieldOption
-            //        }else if pickerView == cellBrandPickerView{
-            //            let brandArrayPlus1 = Users_Wardrobe.brandCollection.count + 1
-            //
-            //
-            //            return brandArrayPlus1
-            //
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == ItemCreationProgress{
+            self.itemCreationProgress()
+            print("Observer Called")
+        }else{
+            print("Called notification for an observer thats not set up")
         }
-        assertionFailure("This shouldn't be happening")
-        return 1
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == categoryPickerView{
-            return categoryPickerOptions[row]
-        }else if pickerView == subCategoryPickerView{
-            if row == (subCategoryPickerOptions.count){
+    func itemCreationProgress(){
+        if categoryInputTextField == nil || categoryInputTextField.text == ""{
+            self.categoryInputTextField.layer.borderWidth = 2
+            self.categoryInputTextField.layer.borderColor = HighlightColor.priorityHigh.CGColor
+            
+            self.subCategoryInputTextField.layer.borderWidth = 2
+            self.subCategoryInputTextField.layer.borderColor = HighlightColor.priorityHigh.CGColor
+        }else{
+            self.categoryInputTextField.layer.borderWidth = 2
+            self.categoryInputTextField.layer.borderColor = HighlightColor.cleared.CGColor
+            
+        }
+        
+        if subCategoryInputTextField == nil || subCategoryInputTextField.text == ""{
+            self.subCategoryInputTextField.layer.borderWidth = 2
+            self.subCategoryInputTextField.layer.borderColor = HighlightColor.priorityHigh.CGColor
+        }else{
+            self.subCategoryInputTextField.layer.borderWidth = 2
+            self.subCategoryInputTextField.layer.borderColor = HighlightColor.cleared.CGColor
+            
+        }
+        
+}
+}
+    
+    //MARK: -Animation-Extension CreateItemViewController
+    extension CreateItemViewController{
+    }
+    
+    
+    
+    //MARK: - PickerView Methods -Extension CreateItemViewController
+    extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+        func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            if pickerView == categoryPickerView{
+                return categoryPickerOptions.count
+            }else if pickerView == subCategoryPickerView{
+                let pickerRowsPlusAddFieldOption = subCategoryPickerOptions.count + 1
                 
-                return "Add New Sub-Category"
-            }else{
-                return subCategoryPickerOptions[row]
+                
+                return pickerRowsPlusAddFieldOption
+                //        }else if pickerView == cellBrandPickerView{
+                //            let brandArrayPlus1 = Users_Wardrobe.brandCollection.count + 1
+                //
+                //
+                //            return brandArrayPlus1
+                //
             }
-            //        }else if pickerView == cellBrandPickerView{//if pickerView == cellPickerView{
-            //            if row == (Users_Wardrobe.brandCollection.count){
-            //                return "Add New Sub-Category"
-            //            }else{
-            //                return Users_Wardrobe.brandCollection[row]
+            assertionFailure("This shouldn't be happening")
+            return 1
         }
-        assertionFailure("This shouldn't be happening")
-        return String()
-    }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == categoryPickerView{
-            subCategoryInputTextField.inputView = subCategoryPickerView
-            subCategoryPickerView.delegate = self
-            self.pictureForSelectedItemImage.alpha = 0.5
-            categorySelected = categoryPickerOptions[row]
-            categoryInputTextField.text = categorySelected
-            subCategoryInputTextField.enabled = true
-            //            self.tableView.hidden = true
-            subCategoryPickerOptions.removeAll(keepCapacity: false)
-            
-            
-            let loadedArchived = Users_Wardrobe.selectedCloset
-            let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
-            
-            for key in keysOfCategory{
-                subCategoryPickerOptions.append(key)
+        func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            if pickerView == categoryPickerView{
+                return categoryPickerOptions[row]
+            }else if pickerView == subCategoryPickerView{
+                if row == (subCategoryPickerOptions.count){
+                    
+                    return "Add New Sub-Category"
+                }else{
+                    return subCategoryPickerOptions[row]
+                }
+                //        }else if pickerView == cellBrandPickerView{//if pickerView == cellPickerView{
+                //            if row == (Users_Wardrobe.brandCollection.count){
+                //                return "Add New Sub-Category"
+                //            }else{
+                //                return Users_Wardrobe.brandCollection[row]
             }
-            
-            subCategoryInputTextField.text = String()
-            
-        }else if pickerView == subCategoryPickerView{
-            defer{
-                //                self.tableView.dataSource = self
-                //                self.tableView.delegate = self
-                //                self.tableView.reloadData()
-                //                self.tableView.hidden = false
-            }
-            if row == (subCategoryPickerOptions.count){
-                subCategoryInputTextField.inputView = nil
-                subCategoryInputTextField.reloadInputViews()
-                subCategoryInputTextField.delegate = self
+            assertionFailure("This shouldn't be happening")
+            return String()
+        }
+        func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            if pickerView == categoryPickerView{
+                subCategoryInputTextField.inputView = subCategoryPickerView
+                subCategoryPickerView.delegate = self
+                self.pictureForSelectedItemImage.alpha = 0.5
+                categorySelected = categoryPickerOptions[row]
+                categoryInputTextField.text = categorySelected
+                subCategoryInputTextField.enabled = true
+                //            self.tableView.hidden = true
+                subCategoryPickerOptions.removeAll(keepCapacity: false)
+                
+                
+                let loadedArchived = Users_Wardrobe.selectedCloset
+                let keysOfCategory = (loadedArchived[categorySelected]! as Dictionary).keys
+                
+                for key in keysOfCategory{
+                    subCategoryPickerOptions.append(key)
+                }
+                
                 subCategoryInputTextField.text = String()
-                self.pictureForSelectedItemImage.alpha = 1.0
-            }else{
-                subCategorySelected = subCategoryPickerOptions[row]
-                subCategoryInputTextField.text = subCategorySelected
-                self.pictureForSelectedItemImage.alpha = 1.0
+                
+            }else if pickerView == subCategoryPickerView{
+                defer{
+                    //                self.tableView.dataSource = self
+                    //                self.tableView.delegate = self
+                    //                self.tableView.reloadData()
+                    //                self.tableView.hidden = false
+                }
+                if row == (subCategoryPickerOptions.count){
+                    subCategoryInputTextField.inputView = nil
+                    subCategoryInputTextField.reloadInputViews()
+                    subCategoryInputTextField.delegate = self
+                    subCategoryInputTextField.text = String()
+                    self.pictureForSelectedItemImage.alpha = 1.0
+                }else{
+                    subCategorySelected = subCategoryPickerOptions[row]
+                    subCategoryInputTextField.text = subCategorySelected
+                    self.pictureForSelectedItemImage.alpha = 1.0
+                }
+                
+            }
+        }
+    }
+    
+    
+    
+    //MARK: - ImagePickerView Methods -Extension CreateItemViewController
+    extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        func setImagePicker(){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            //var video = info[UIImagePickerControllerMediaURL] as? NSURL
+            let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+            pictureForSelectedItemImage.image = picture
+            viewItem.image = picture
+            
+            //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    
+    
+    //MARK: -Field methods -Extension CreateItemViewController
+    extension CreateItemViewController: UITextFieldDelegate{
+        func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
+            
+            textField.isFirstResponder()
+            return true
+            
+        }// return NO to disallow editing.
+        func textFieldDidBeginEditing(textField: UITextField){
+            textField.becomeFirstResponder()
+        } // became first responder
+        func textFieldShouldEndEditing(textField: UITextField) -> Bool{
+            textField.resignFirstResponder()
+            return true
+        } // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+        func textFieldDidEndEditing(textField: UITextField){
+            if textField == subCategoryInputTextField{
+                subCategorySelected = subCategoryInputTextField.text
             }
             
-        }
-    }
-}
-
-
-
-//MARK: - ImagePickerView Methods -Extension CreateItemViewController
-extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func setImagePicker(){
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        imagePicker.mediaTypes = [kUTTypeImage as String]
-        imagePicker.allowsEditing = false
-        
-        self.presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        //var video = info[UIImagePickerControllerMediaURL] as? NSURL
-        let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
-        pictureForSelectedItemImage.image = picture
-        viewItem.image = picture
-        
-        //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-}
-
-
-
-//MARK: -Field methods -Extension CreateItemViewController
-extension CreateItemViewController: UITextFieldDelegate{
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
-        
-        textField.isFirstResponder()
-        return true
-        
-    }// return NO to disallow editing.
-    func textFieldDidBeginEditing(textField: UITextField){
-        textField.becomeFirstResponder()
-    } // became first responder
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
-        return true
-    } // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-    func textFieldDidEndEditing(textField: UITextField){
-        if textField == subCategoryInputTextField{
-            subCategorySelected = subCategoryInputTextField.text
-        }
-        
-        textField.resignFirstResponder()
-        
-    } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-    func textFieldShouldClear(textField: UITextField) -> Bool{
-        log.info("textField: " + textField.text! + " cleared")
-        return true
-    } // called when clear button pressed. return NO to ignore (no notifications)
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Next as return button, for other fields
-        if textField == categoryInputTextField{
-            categorySelected = categoryInputTextField.text
-            subCategoryInputTextField.delegate = self
-            subCategoryInputTextField.becomeFirstResponder()
-        }else if textField == subCategoryInputTextField{
-            subCategorySelected = subCategoryInputTextField.text
-            subCategoryPickerOptions.append(subCategorySelected)
-            subCategoryPickerView.removeFromSuperview()
+            textField.resignFirstResponder()
             
-            //            self.tableView.dataSource = self
-            //            self.tableView.delegate = self
-            //            self.tableView.reloadData()
-            //            self.tableView.hidden =
+        } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+        func textFieldShouldClear(textField: UITextField) -> Bool{
+            log.info("textField: " + textField.text! + " cleared")
+            return true
+        } // called when clear button pressed. return NO to ignore (no notifications)
+        func textFieldShouldReturn(textField: UITextField) -> Bool {
+            // Next as return button, for other fields
+            if textField == categoryInputTextField{
+                categorySelected = categoryInputTextField.text
+                subCategoryInputTextField.delegate = self
+                subCategoryInputTextField.becomeFirstResponder()
+            }else if textField == subCategoryInputTextField{
+                subCategorySelected = subCategoryInputTextField.text
+                subCategoryPickerOptions.append(subCategorySelected)
+                subCategoryPickerView.removeFromSuperview()
+                
+                //            self.tableView.dataSource = self
+                //            self.tableView.delegate = self
+                //            self.tableView.reloadData()
+                //            self.tableView.hidden =
+            }
+            return true
         }
-        return true
     }
-}
+    
+    
+    
+    //MARK: - UI-CreateItemViewController Extension
+    extension CreateItemViewController{
+        func animateAllButtons(){
+            self.animateImage()
+            self.animateButtons()
+            
+            //    self.animateLogo()
+            //    self.animateViews()
+            
+        }
+        func animateLogo(){
+            //    logoCustomization(self.logoImage)
+        }
+        func animateImage(){
+            imageCustomization(self.pictureForSelectedItemImage)
+        }
+        func animateButtons(){
+            clearButtonCustomization(self.clearButton)
+            addButtonCustomization(self.saveButton)
+            nameLabelCustomizer(self.categoryLabel)
+            nameLabelCustomizer(self.subCategoryLabel)
+        }
+    }
+    
+    
+    
+    //MARK: - Observers/Notifications-CreateItemViewController Extension
+    extension CreateItemViewController{
+        func setUpObservers(){
+            self.categoryInputTextField.addObserver(self, forKeyPath: ItemCreationProgress, options: NSKeyValueObservingOptions.New, context: nil)
+            self.subCategoryInputTextField.addObserver(self, forKeyPath: ItemCreationProgress, options: NSKeyValueObservingOptions.New, context: nil)
 
-
-
-//MARK: - UI-CreateItemViewController Extension
-extension CreateItemViewController{
-    func animateAllButtons(){
-        self.animateImage()
-        self.animateButtons()
-        
-        //    self.animateLogo()
-        //    self.animateViews()
-        
+        }
+        func removeObservers(){
+            self.categoryInputTextField.removeObserver(self, forKeyPath: ItemCreationProgress)
+            self.subCategoryInputTextField.removeObserver(self, forKeyPath: ItemCreationProgress)
+        }
     }
-    func animateLogo(){
-        //    logoCustomization(self.logoImage)
-    }
-    func animateImage(){
-        imageCustomization(self.pictureForSelectedItemImage)
-    }
-    func animateButtons(){
-        clearButtonCustomization(self.clearButton)
-        addButtonCustomization(self.saveButton)
-        nameLabelCustomizer(self.categoryLabel)
-        nameLabelCustomizer(self.subCategoryLabel)
-    }
-}
-
-
-
-//MARK: - Observers/Notifications-CreateItemViewController Extension
-extension CreateItemViewController{
-    func setUpObservers(){
-        
-    }
-    func removeObservers(){
-        
-    }
-}
-
-//MARK: -Anylitics-CreateItemViewController Extension
-extension CreateItemViewController{
-    func logPageView(){
-        dispatch_async(GlobalBackgroundQueue, {
-        
-        
-        let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
-        let saveButtonPressed:Int? = defaults.returnIntValue("SAVE_BUTTON_BUTTON_PRESSED")
-        
-        
-        Answers.logContentViewWithName("Create Content View",
-            contentType: "Create Item View",
-            contentId: "MF7",
-            customAttributes: ["CREATE_PAGE_COUNT": pageCount!,
-                "SAVE_BUTTON_BUTTON_PRESSED": saveButtonPressed!
-            ])
-        })
-    }
+    
+    //MARK: -Anylitics-CreateItemViewController Extension
+    extension CreateItemViewController{
+        func logPageView(){
+            dispatch_async(GlobalBackgroundQueue, {
+                
+                
+                let pageCount:Int? = defaults.returnIntValue("CREATE_PAGE_COUNT")
+                let saveButtonPressed:Int? = defaults.returnIntValue("SAVE_BUTTON_BUTTON_PRESSED")
+                
+                
+                Answers.logContentViewWithName("Create Content View",
+                    contentType: "Create Item View",
+                    contentId: "MF7",
+                    customAttributes: ["CREATE_PAGE_COUNT": pageCount!,
+                        "SAVE_BUTTON_BUTTON_PRESSED": saveButtonPressed!
+                    ])
+            })
+        }
 }
 

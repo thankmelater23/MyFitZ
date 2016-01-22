@@ -13,11 +13,26 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         self.playGif()
     }
+    
     func playGif(){
-        gifImage.image = UIImage.gifWithName("ViewItemInstructions")
+        let gif = UIImage.gifWithName("Instruction_CreateItem")
+        gifImage.image = gif
+        gifImage.contentMode = UIViewContentMode.Center
+        gifImage.contentMode = UIViewContentMode.ScaleAspectFill
     }
+    
+    func playItemView(){
+        let gif = UIImage.gifWithName("Instruction_CreateItem")
+        gifImage.image = gif
+        gifImage.contentMode = UIViewContentMode.Center
+        gifImage.contentMode = UIViewContentMode.ScaleAspectFill
+    }
+    
     deinit{
         log.info(__FUNCTION__)
         

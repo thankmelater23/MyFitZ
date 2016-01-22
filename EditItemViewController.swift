@@ -342,7 +342,7 @@ extension EditItemViewController{
         
         //        var radio = RERadioItem(title: "Test Radio", value: "Radio", selectionHandler: nil)
         
-        self.model = RETextItem(title: "Model", value: self.viewItem.model, placeholder: "Enter Item Name")
+        self.model = RETextItem(title: "Name", value: self.viewItem.model, placeholder: "Enter Item Name")
         
         //        self.brand = REPickerItem(title: "Brand", value: ["--:--"], placeholder: "--:--", options: ["1"])
         self.brand = RETextItem(title: "Brand", value: self.viewItem.brand, placeholder: "Enter Item brand")

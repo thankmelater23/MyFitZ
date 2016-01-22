@@ -76,9 +76,6 @@ extension Options_AboutViewController{
             
             let pageCount:Int? = defaults.returnIntValue("ABOUT_PAGE_COUNT")
             
-            
-            
-            
             Answers.logContentViewWithName("About View Content View",
                 contentType: "About Menu",
                 contentId: "MF16",

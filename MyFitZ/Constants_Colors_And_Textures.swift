@@ -8,13 +8,14 @@
 
 import UIKit
 
-struct BBS_HIGHLIGHT_COLORS{
+struct HighlightColors{
     let priorityLow = UIColor.yellowColor()
     let priorityMid = UIColor.orangeColor()
     let priorityHigh = UIColor.redColor()
     let cleared = UIColor.greenColor()
+    let completed = UIColor.blueColor()
 }
-let HighlightColors: BBS_HIGHLIGHT_COLORS = BBS_HIGHLIGHT_COLORS()
+let HighlightColor: HighlightColors = HighlightColors()
 
 //struct BBS_TEXTURES{
 let Jean = UIColor.init(patternImage: UIImage(named: "blueJeanTexture")!)
@@ -58,19 +59,18 @@ let PopulatedStarsTexture = UIColor.init(patternImage: UIImage(named: "populated
 //}
 //let Textures: BBS_TEXTURES = BBS_TEXTURES()
 
-//struct UI_COLOR_SETS{
-//    let ViewBackGround = Textures.Cotton
-//    let SubViewBackGround = Textures.BraidedRope
-//    let FeatureButton = Textures.Jean
-//    let OptionButton = Textures.Polyester
-//    let Image = Textures.WhiteFur
-//    let CellBorder = Textures.Stitching
-//    let viewsBorder = Textures.Stitching
-//
-//}
-//let UIColorSets: UI_COLOR_SETS = UI_COLOR_SETS()
+class ThemeColors{
+    let ViewBackGround = Cotton
+    let SubViewBackGround = BraidedRope
+    let FeatureButton = Jean
+    let OptionButton = Polyester
+    let Image = WhiteFur
+    let CellBorder = Stitching
+    let viewsBorder = Stitching
+}
+let ThemeColor: ThemeColors = ThemeColors()
 
-struct IMAGES {
+class AppImages{
     let tuxedo = UIImage(named: "tuxedo")
 }
-let Images: IMAGES = IMAGES()
+let AppImage: AppImages = AppImages()

@@ -173,7 +173,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notifytypes:UIUserNotificationType = [.Alert, .Badge, .Sound]
         
         let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notifytypes, categories: nil)
-        
+
         UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
     }
     func setNotifications(){

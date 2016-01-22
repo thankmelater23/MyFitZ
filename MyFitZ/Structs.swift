@@ -65,6 +65,7 @@ struct Segues{
     let SEGUE_OPTIONS_TO_HELP         = "optionsToHelp"
     let SEGUE_HELP_TO_INSTRUCTIONS    = "helpToInstructions"
     let SEGUE_MAIN_TO_OPTION_INSTRUCTIONS   = "mainToOptionInstructions"
+    let SEGUE_OPTIONS_TO_WEBSITE         = "optionToWebsite"
 }
 let Segue = Segues()
 

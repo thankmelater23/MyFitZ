@@ -10,7 +10,6 @@ import Foundation
 import AVFoundation
 import UIKit
 
-
 //MARK: -Global Methods
 
 //MARK: -General
@@ -566,5 +565,12 @@ func updateButtonCustomization(view: UIView){
     view.layer.borderWidth = 6
     view.layer.borderColor = LeatherTexture.CGColor
     view.backgroundColor = BlueWool
+}
+
+
+func vibrate(){
+    //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))//Plays vibrations or sound if vibration not supported
+    AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))//Plays vibrations only
+    
 }
 

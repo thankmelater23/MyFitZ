@@ -278,7 +278,6 @@ extension Wardrobe{
     func saveObjectToArchived(filePath: String, wardrobeToSave: Wardrobe!){
         log.info(__FUNCTION__)
         log.info("Wardrobe save started")
-        //TODO: -Redo this to get success or not from saving
         var success = false
         //!!: -Clear containers for testing(debugging code)
         //        self.clearAllContainers()
@@ -301,18 +300,18 @@ extension Wardrobe{
                     success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
                     log.info("Finished Saving")
                     log.info("Success = \(success)")
+                    let numOfItemsToSave = 3.0
+                    let timeTillExecuted = (numOfItemsToSave * 0.10)
+                    let now = dispatch_time(DISPATCH_TIME_NOW, Int64(timeTillExecuted * Double(NSEC_PER_SEC)))
+                    vibrate()
                     
                     dispatch_async(GlobalMainQueue, {
                         SVProgressHUD.showSuccessWithStatus("Saved")
-                        let numOfItemsToSave = 3.0
-                        let timeTillExecuted = (numOfItemsToSave * 0.10)
-                        let now = dispatch_time(DISPATCH_TIME_NOW, Int64(timeTillExecuted * Double(NSEC_PER_SEC)))
                         
                         //Run block after x amount of time
                         dispatch_after(now, GlobalMainQueue , {
                             log.info("Progress Label Removed")
                             log.info("File  Saved Successfully \n saved items: " + String(numOfItemsToSave) + "\nTime till save is checked: " + String(timeTillExecuted))
-                            
                             
                             //Dismis Progress hud in main que
                             dispatch_async(GlobalMainQueue, {SVProgressHUD.dismiss()})
