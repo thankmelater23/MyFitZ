@@ -22,6 +22,8 @@ target 'MyFitZ' do
     pod 'SlackTextViewController'#
     pod 'Siren'#This will be done when the app has an app id number
     pod 'Parse'
+    pod 'HeapInspector'
+    
 
 
     

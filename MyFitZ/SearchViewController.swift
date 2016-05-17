@@ -36,6 +36,9 @@ import Crashlytics
     var subCategoryPickerOptions = [String]()
     var categorySelected: String! = String()
     var subCategorySelected: String! = String()
+    var allCategoryItems = [Item]()
+    var cateogryies = [[Item]]()
+    var subCateogries = [[Item]]()
     var item:Item = Item()
     var arrayCount = 0
     var indexOfController: Int = 0{
@@ -272,13 +275,13 @@ extension SearchViewController{
             item = retrieveItem()
         }
         
-        //        if indexOfController >= (num - 1){
-        //            nextItemOutlet.userInteractionEnabled = false
-        //            nextItemOutlet.alpha = 0.5
-        //        }else{
-        //            nextItemOutlet.userInteractionEnabled = true
-        //            nextItemOutlet.alpha = 1
-        //        }
+                if indexOfController >= num{
+                    nextItemOutlet.userInteractionEnabled = false
+                    nextItemOutlet.alpha = 0.5
+                }else{
+                    nextItemOutlet.userInteractionEnabled = true
+                    nextItemOutlet.alpha = 1
+                }
     }
     func iteratePrevInCurrentItems(){
         if indexOfController > 0{
@@ -287,13 +290,13 @@ extension SearchViewController{
             
         }
         
-        //        if indexOfController == 0{
-        //            prevItemOutlet.userInteractionEnabled = false
-        //            prevItemOutlet.alpha = 0.5
-        //        }else{
-        //            prevItemOutlet.userInteractionEnabled = true
-        //            prevItemOutlet.alpha = 1
-        //        }
+                if indexOfController == 0{
+                    prevItemOutlet.userInteractionEnabled = false
+                    prevItemOutlet.alpha = 0.5
+                }else{
+                    prevItemOutlet.userInteractionEnabled = true
+                    prevItemOutlet.alpha = 1
+                }
     }
 }
 

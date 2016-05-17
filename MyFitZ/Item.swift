@@ -41,6 +41,7 @@ class Item: NSObject, NSCoding{
     var sellerURL: String!
     var storeLocation: String!
     var sellerName: String!
+    var dateDeleted: String!
     //    var arrayOfImages: [UIImages]
     //  var numberOfDifferentFitsWornWith
     
@@ -94,6 +95,7 @@ class Item: NSObject, NSCoding{
         self.sellerURL = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELURL_STRING) as! String!
         self.storeLocation = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELOCATION_STRING) as! String!
         self.sellerName = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SELLERNAME_STRING) as! String!
+        self.dateDeleted = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATEDELETED_STRING) as! String!
         
         //Others
         self.path = decoder.decodeObjectForKey(ItemAttributeName.ITEM_LOCATIONPATH_STRING) as! [String: String]!
@@ -128,7 +130,8 @@ class Item: NSObject, NSCoding{
         coder.encodeObject(self.sellerURL, forKey: ItemAttributeName.ITEM_STORELURL_STRING)
         coder.encodeObject(self.storeLocation, forKey: ItemAttributeName.ITEM_STORELOCATION_STRING)
         coder.encodeObject(self.sellerName, forKey: ItemAttributeName.ITEM_SELLERNAME_STRING)
-        
+        coder.encodeObject(self.dateDeleted, forKey: ItemAttributeName.ITEM_DATEDELETED_STRING)
+
         
         coder.encodeObject(self.path, forKey: ItemAttributeName.ITEM_LOCATIONPATH_STRING)
         
@@ -188,7 +191,7 @@ class Item: NSObject, NSCoding{
     ///Creates custom item
     init(make: String?, model: String?, category: String?, subCategory: String?, payedPrice: Double?,
         Image: UIImage?, favorited: Bool, isThisNew: Bool?, timesWorn: Int?, lastTImeWorn: String?,
-        kind: String?, size: String, index: Int?, datePurchased: String?, color: String?){
+        kind: String?, size: String, index: Int?, datePurchased: String?, color: String?, dateDeleted: String?){
             log.info(__FUNCTION__)
             
             super.init()
@@ -209,6 +212,7 @@ class Item: NSObject, NSCoding{
             //Optionals
             self.datePurchased = datePurchased
             self.color         = color
+            self.dateDeleted = dateDeleted
     }
 }
 
@@ -507,6 +511,11 @@ extension Item{
         }
         if self.path == nil{
             self.path = [String: String]()
+            modified = true
+        }
+        
+        if self.dateDeleted == nil{
+            self.dateDeleted = "N/A"
             modified = true
         }
         

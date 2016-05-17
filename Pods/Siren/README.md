@@ -17,26 +17,44 @@ If a new version is available, an alert can be presented to the user informing t
 
 ## Features
 - [x] CocoaPods Support
-- [x] Support for `UIAlertController` (iOS 8+) and `UIAlertView` (iOS 7)
 - [x] Localized for 20+ languages (See **Localization** Section)
 - [x] Three types of alerts (see **Screenshots & Alert Types**)
 - [x] Optional delegate methods (see **Optional Delegate** section)
 
+## Screenshots
+
+- The **left picture** forces the user to update the app.
+- The **center picture** gives the user the option to update the app.
+- The **right picture** gives the user the option to skip the current update.
+- These options are controlled by the `SirenAlertType` enum.
+
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picForcedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picOptionalUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picSkippedUpdate.png?raw=true" height=480">
+
+
 ## Installation Instructions
 
-### CocoaPods Installation
+### CocoaPods
 ```ruby
 pod 'Siren'
 ```
 
-- Add `import Siren` to any `.Swift` file that references Siren via a CocoaPods installation.
-- Only for apps with a minimum deployment target of iOS 8.0 or later
+Add `import Siren` to any `.Swift` file that references Siren via a CocoaPods installation.
 
-    > CocoaPods does not support pods written in Swift on iOS 7. For more information, please see [this issue](https://github.com/CocoaPods/swift/issues/22).
+### Carthage
+``` swift
+github "ArtSabintsev/Siren"
+```
 
-If your app needs to support iOS 7, use **Manual Installation**.
+### Swift Package manager
+```swift
+.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 0)
+```
 
-### Manual Installation
+Add `import Siren` to any `.Swift` file that references Siren via a Carthage installation.
+
+### Manual
 
 1. [Download Siren](//github.com/ArtSabintsev/Siren/archive/master.zip).
 2. Copy the `Siren` folder into your project.
@@ -64,6 +82,8 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 	    checks.
 	*/
     siren.checkVersion(.Immediately)
+
+    return true
 }
 
 func applicationDidBecomeActive(application: UIApplication)
@@ -90,32 +110,6 @@ func applicationWillEnterForeground(application: UIApplication)
 ```
 
 And you're all set!
-
-## Screenshots & Alert Types
-
-Siren can force an update, let the user optionally update, and allow the user to skip an update.
-
-To control this behavior, assign a `SirenAlertType` to `alertType` (or one of the specific alert type properties).
-
-> #### `siren.alertType = .Force`
->
-> Forces the user to update.
->
-> ![Forced Update](https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picForcedUpdate.png?raw=true "Forced Update")
-> ----
-> #### `siren.alertType = .Option`
-> The default behavior.
->
-> ![Optional Update](https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picOptionalUpdate.png?raw=true "Optional Update")
-> ----
-> #### `siren.alertType = .Skip`
-> Allows the user to opt out of future reminders for this version.
->
-> ![Skip Update](https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picSkippedUpdate.png?raw=true "Optional Update")
-> ----
-> #### `siren.alertType = .None`
->
-> This option doesn't show an alert view. It's useful for skipping Revision, Patch, Minor, or Major updates, or for presenting your own UI.
 
 ### Prompting for Updates without Alerts
 
@@ -153,7 +147,7 @@ If you would like to set a different type of alert for revision, patch, minor, a
 ```
 
 ## Optional Delegate and Delegate Methods
-Five delegate methods allow you to handle or track the user's behavior:
+Six delegate methods allow you to handle or track the user's behavior:
 
 ```	swift
 @objc protocol SirenDelegate {
@@ -161,6 +155,7 @@ Five delegate methods allow you to handle or track the user's behavior:
     optional func sirenUserDidLaunchAppStore() // User did click on button that launched App Store.app
     optional func sirenUserDidSkipVersion() // User did click on button that skips version update
     optional func sirenUserDidCancel()  // User did click on button that cancels update dialog
+		optional func sirenDidFailVersionCheck(error: NSError) // Siren failed to perform version check (may return system-level error)
     optional func sirenDidDetectNewVersionWithoutAlert(message: String) // Siren performed version check and did not display alert
 }
 ```

@@ -88,7 +88,7 @@ extension TrashTableViewController{
         let item: Item            = arrayOfItems[indexPath.row] as Item!
         
         //TODO: -Fix this cell to take date deleted add date deleted to item system
-        cell.setCell(item.image!, nameLabelText: item.model!, brandLabelText: item.brand!, row: indexPath.row, dateDeleted: "xx-xx-xxxx")
+        cell.setCell(item.image!, nameLabelText: item.model!, brandLabelText: item.brand!, row: indexPath.row, dateDeleted: item.dateDeleted ?? String(NSDate))
 
         
         return cell

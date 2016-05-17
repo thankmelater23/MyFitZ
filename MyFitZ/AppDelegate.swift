@@ -4,7 +4,6 @@
 //
 //  Created by Andre Villanueva on 10/27/15.
 //  Copyright © 2015 Bang Bang Studios. All rights reserved.
-// let log = SwiftyBeaver.self
 
 import UIKit
 import Fabric
@@ -14,6 +13,8 @@ import Siren
 import SwiftyBeaver
 import Parse
 import Bolts
+import HeapInspector
+
 //import AppInfo
 
 let log = SwiftyBeaver.self
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         log.info(__FUNCTION__)
+//        HeapInspector.start()
         //        self.printAppInfo()
         self.loadResources()
         self.SwiftBeaverSetUp()

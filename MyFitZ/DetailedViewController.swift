@@ -474,6 +474,9 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         default:
             assertionFailure("Row does not exist to create cell of optional type. ROW: \(row)")
         }
+//        
+//        cell.layer.shadowColor = UIColor.blackColor().CGColor
+//        cell.layer.shadowRadius = 10
         
         return cell as DoubleLabelTableViewCell
     }

@@ -214,7 +214,7 @@ extension CreateItemViewController{
         var tempDateReleased:String?
         var templastTimeWorn:String?
         var tempdatePurchased:String?
-        
+        var tempdateDeleted:String?
         
         if (dateReleased?.value != nil){
             tempDateReleased = dateFormatter.stringFromDate(self.dateReleased!.value)
@@ -268,6 +268,8 @@ extension CreateItemViewController{
         if(sellerName!.value != ""){viewItem.sellerName = sellerName!.value}else{viewItem.sellerName = "N/A"}
         
         viewItem.isThisNew = isThisNew!.value  ?? false
+        
+        if(tempdateDeleted != ""  && tempdateDeleted != nil){viewItem.dateDeleted = tempdateDeleted}else{viewItem.dateDeleted = "N/A"}
         
         self.addIdToItem()
         

@@ -55,7 +55,7 @@
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectNull];
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.inputAccessoryView = self.actionBar;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;

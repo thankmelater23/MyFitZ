@@ -1,8 +1,8 @@
 //
 //  Appsee.h
-//  Appsee v2.1.5 OpenGL
+//  Appsee v2.2
 //
-//  Copyright (c) 2014 Shift 6 Ltd. All rights reserved.
+//  Copyright (c) 2016 Shift 6 Ltd. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -146,25 +146,6 @@ This method should be usually called right after the start: method.
 */
 +(void)set3rdPartyID:(NSString *)externalID forSystem:(NSString *)systemName persistent:(BOOL)isPersistent;
 
-/******
- OpenGL
- ******/
-
-/** Mark the starting of the render loop. This method is optional and should be called only if calling appendGLFrame: alone results in empty videos.
- This should be called right after binding a render buffer, and before drawing object onto it. After drawing the objects, call presentRenderBuffer:.
- */
-+(void)startRenderLoop;
-
-/*! The following methods append the OpenGL render buffer to the video. Should be called right before calling 'presentRenderbuffer:'.
- * If you have more than one render buffer, bind it first using glBindRenderbuffer.
- * @param glView The UIView on which the OpenGL scene is presented.
- * @param includeUIKitElements This parameter states whether UIKit elements should be included in the output.
- */
-+(void)appendGLFrame:(UIView *)glView;
-+(void)appendGLFrame:(UIView *)glView includeUIKitElements:(BOOL)includeUIKit;
-
-+(void)appendGLFrameUnity:(UIView *)glView;
-+(void)appendGLFrameUnity:(UIView *)glView includeUIKitElements:(BOOL)includeUIKit;
 
 
 

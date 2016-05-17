@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HeapInspector.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HexColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,7 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>08E4C2E5C24FE49D435CE551C8C58D49</key>
+		<key>102D502F7724DA95B0CBB52B1EADD31D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,17 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C32B017E8A5540148C24CDE94567A3F</key>
+		<key>1EC8283AB32A348337D9D296507E07E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>327559C1D91E2AD8E6A900BA2FB11869</key>
+		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>497A86068DF0004D14EECBC94A55C41E</key>
+		<key>3DAC3FDCB54FDBEC19D545911305B67D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FC639A14726AEBEFE874EBDF728DD75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,22 +162,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>511B536F0DE06D9C3BD65397A91990C0</key>
+		<key>668E61A91878D40E2DE2FC8C737561E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>708E01B006A9F88B3C13711562282B5E</key>
+		<key>7901B4D7D479C02F12AD2D22696F195C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B83E88863095BE4347818B348647316</key>
+		<key>8912A7E89F9E748D5910DA4CC1121C25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>871B3D04B835266F54C4DFDC3E6B1C2D</key>
+		<key>89EDD0C545E6FECD4995E36C2D82E838</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,7 +202,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2B086198FCF730A3CEECF4307945103</key>
+		<key>B272B33F162D6E5C3510BA50ECF2684B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,17 +212,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4BC4016BCCDFA7DA79146AC02BF4904</key>
+		<key>E661EB8177697472E857B850C654B4F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C738AD3EE7D0A0C8049D77A53936A367</key>
+		<key>E8CE4A1B023D0FB4E88EC773B17F4CF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6CC3C26C0FFA94E098DEDC007EDB921</key>
+		<key>F1146191882646D3C11463FDE4DA6E26</key>
 		<dict>
 			<key>primary</key>
 			<true/>

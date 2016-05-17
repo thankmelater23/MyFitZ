@@ -119,6 +119,7 @@ struct ItemAttributeNames{
     let ITEM_STORELOCATION_STRING = "Store Location"
     let ITEM_SELLERNAME_STRING        = "Seller Name"
     let ITEM_LOCATIONPATH_STRING   = "Location Path"
+    let ITEM_DATEDELETED_STRING = "Date Deleted"
 }
 let ItemAttributeName = ItemAttributeNames()
 

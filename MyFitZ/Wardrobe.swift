@@ -927,6 +927,31 @@ extension Wardrobe{
 
 
 
+//MARK: -Search-Wardrobe Extension
+extension Wardrobe{
+    func returnAllItems(){
+        //Create array
+        //Append items to array
+        //Return array
+        
+    }
+    func returnAllItemsFromCategory(category: String)->[Item]{
+        //Create array
+        //Append items to array
+        //Return array
+        return []
+    }
+    func returnAllItemsFromSubCategory(subCategory: String)->[Item]{
+        //Create array
+        //Append items to array
+        //Return array
+        return []
+    }
+}
+
+
+
+
 //MARK: -Array Modifiers-Wardrobe Extension
 extension Wardrobe{
     //MARK: -Brand
@@ -1236,6 +1261,10 @@ extension Wardrobe{
             selectedClosetTrashItems.popLast()
         }
         
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        
+        item.dateDeleted = String(NSDate)
         self.selectedClosetTrashItems.insert(item, atIndex: 0)
     }
     ///Removes the last trash item added

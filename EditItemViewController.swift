@@ -220,6 +220,7 @@ extension EditItemViewController{
         var tempDateReleased:String?
         var templastTimeWorn:String?
         var tempdatePurchased:String?
+        var tempdateDeleted:String?
         
         //Setting temp vars to dates of Strings?
         if (dateReleased?.value != nil){
@@ -278,6 +279,8 @@ extension EditItemViewController{
         if(sellerName!.value != ""){viewItem.sellerName = sellerName!.value}else{viewItem.sellerName = "N/A"}
         
         self.viewItem.populatePath(Users_Wardrobe.closetSelectionString)
+        
+        if(tempdateDeleted != ""  && tempdateDeleted != nil){viewItem.dateDeleted = tempdateDeleted}else{viewItem.dateDeleted = "N/A"}
         
         //Sets up Tableview UI
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), forCellType: RETableViewCellType.Single)
