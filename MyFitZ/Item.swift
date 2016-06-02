@@ -50,13 +50,13 @@ class Item: NSObject, NSCoding{
     
     /// Returns values of all the item vars
     override var description: String {
-        log.info(__FUNCTION__)
+        log.info(#function)
         let string = "\nbrand:\(self.brand) \nmodel:\(self.model) \ncategory:\(self.category) \nsubCategory:\(self.subCategory) \nindex:\(self.index) \npayedPrice:\(self.payedPrice) \nimage:\(self.image) \nfavorited:\(self.favorited) \nisThisNew:\(self.isThisNew) \ntimesWorn:\(self.timesWorn) \nlastTimeWorn:\(self.lastTimeWorn) \nkind:\(self.kind) \nsize:\(self.size)\nID:\(self.id)\ndatePurchased:\(self.datePurchased) \ncolor:\(self.color)\nStore Location:\(self.storeLocation) \nSeller Name:\(self.sellerName)"
         return string
     }
     
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         log.info("\n\nItem: \(self.model)//\(self.brand) Deninitialized")
     }
     
@@ -70,32 +70,32 @@ class Item: NSObject, NSCoding{
         self.category     = decoder.decodeObjectForKey(ItemAttributeName.ITEM_CATEGORY_STRING) as! String!
         self.subCategory  = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SUBCATEGORY_STRING) as! String!
         self.index        = decoder.decodeIntegerForKey((ItemAttributeName.ITEM_INDEX_STRING)) as Int!
-        self.payedPrice        = decoder.decodeDoubleForKey(ItemAttributeName.ITEM_PRICE_STRING) as Double!
+        self.payedPrice   = decoder.decodeDoubleForKey(ItemAttributeName.ITEM_PRICE_STRING) as Double!
         self.image        = decoder.decodeObjectForKey(ItemAttributeName.ITEM_IMAGE_STRING) as! UIImage!
         self.favorited    = decoder.decodeBoolForKey(ItemAttributeName.ITEM_FAVORITED_STRING) as Bool!
         self.isThisNew    = decoder.decodeBoolForKey(ItemAttributeName.ITEM_ISTHISNEW_STRING) as Bool!
         self.timesWorn    = decoder.decodeIntegerForKey(ItemAttributeName.ITEM_TIMESWORN_STRING) as Int!
         self.lastTimeWorn = decoder.decodeObjectForKey(ItemAttributeName.ITEM_LASTTIMEWORN_STRING) as! String!
-        self.kind = decoder.decodeObjectForKey(ItemAttributeName.ITEM_KIND_STRING) as! String!
-        self.size = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SIZE_STRING) as! String!
-        self.id    = decoder.decodeIntegerForKey(ItemAttributeName.ITEM_ID_STRING) as Int!
+        self.kind         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_KIND_STRING) as! String!
+        self.size         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SIZE_STRING) as! String!
+        self.id           = decoder.decodeIntegerForKey(ItemAttributeName.ITEM_ID_STRING) as Int!
         
         
         //Optional
-        self.datePurchased = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATEPURCHASERD_STRING) as! String!
-        self.color         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_COLOR_STRING) as! String!
-        self.secondaryColor = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SECONDARYCOLOR_STRING) as! String!
-        self.thirdColor = decoder.decodeObjectForKey(ItemAttributeName.ITEM_THIRDCOLOR_STRING) as! String!
-        self.dateReleased = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATERELEASED_STRING) as! String!
-        self.itemNotes = decoder.decodeObjectForKey(ItemAttributeName.ITEM_ITEMNOTES_STRING) as! String!
-        self.condition = decoder.decodeObjectForKey(ItemAttributeName.ITEM_CONDITION_STRING) as! String!
-        self.primaryMaterial = decoder.decodeObjectForKey(ItemAttributeName.ITEM_PRIMARYMATERIAL_STRING) as! String!
+        self.datePurchased     = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATEPURCHASERD_STRING) as! String!
+        self.color             = decoder.decodeObjectForKey(ItemAttributeName.ITEM_COLOR_STRING) as! String!
+        self.secondaryColor    = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SECONDARYCOLOR_STRING) as! String!
+        self.thirdColor        = decoder.decodeObjectForKey(ItemAttributeName.ITEM_THIRDCOLOR_STRING) as! String!
+        self.dateReleased      = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATERELEASED_STRING) as! String!
+        self.itemNotes         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_ITEMNOTES_STRING) as! String!
+        self.condition         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_CONDITION_STRING) as! String!
+        self.primaryMaterial   = decoder.decodeObjectForKey(ItemAttributeName.ITEM_PRIMARYMATERIAL_STRING) as! String!
         self.secondaryMaterial = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SECONDAY_MATERIAL_STRING) as! String!
-        self.retailPrice = decoder.decodeObjectForKey(ItemAttributeName.ITEM_RETAILPRICE_STRING) as! Double!
-        self.sellerURL = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELURL_STRING) as! String!
-        self.storeLocation = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELOCATION_STRING) as! String!
-        self.sellerName = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SELLERNAME_STRING) as! String!
-        self.dateDeleted = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATEDELETED_STRING) as! String!
+        self.retailPrice       = decoder.decodeObjectForKey(ItemAttributeName.ITEM_RETAILPRICE_STRING) as! Double!
+        self.sellerURL         = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELURL_STRING) as! String!
+        self.storeLocation     = decoder.decodeObjectForKey(ItemAttributeName.ITEM_STORELOCATION_STRING) as! String!
+        self.sellerName        = decoder.decodeObjectForKey(ItemAttributeName.ITEM_SELLERNAME_STRING) as! String!
+        self.dateDeleted       = decoder.decodeObjectForKey(ItemAttributeName.ITEM_DATEDELETED_STRING) as! String!
         
         //Others
         self.path = decoder.decodeObjectForKey(ItemAttributeName.ITEM_LOCATIONPATH_STRING) as! [String: String]!
@@ -139,7 +139,7 @@ class Item: NSObject, NSCoding{
     }//Encodes data in class
     ///Creates blank Item
     override init(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         
         super.init()
         log.info("Item Object Init")
@@ -192,7 +192,7 @@ class Item: NSObject, NSCoding{
     init(make: String?, model: String?, category: String?, subCategory: String?, payedPrice: Double?,
         Image: UIImage?, favorited: Bool, isThisNew: Bool?, timesWorn: Int?, lastTImeWorn: String?,
         kind: String?, size: String, index: Int?, datePurchased: String?, color: String?, dateDeleted: String?){
-            log.info(__FUNCTION__)
+            log.info(#function)
             
             super.init()
             self.brand        = make
@@ -214,6 +214,21 @@ class Item: NSObject, NSCoding{
             self.color         = color
             self.dateDeleted = dateDeleted
     }
+    
+    func changeToDictionaryPayLoad()-> [String: AnyObject?]{
+        var payLoad = [String: AnyObject?]()
+        payLoad["image"] = UIImagePNGRepresentation((self.image))
+        payLoad["category"] = self.category
+        payLoad["model"] = self.model
+        payLoad["brand"] = self.brand
+        payLoad["lastTimeWorn"] = self.lastTimeWorn
+        payLoad["dateDeleted"] = self.dateDeleted
+        payLoad["payedPrice"] = self.payedPrice
+        payLoad["timesWorn"] = self.timesWorn
+        payLoad["favorited"] = self.favorited
+        
+        return payLoad
+    }
 }
 
 
@@ -226,7 +241,7 @@ extension Item{
      Increments timesWorn value by one
      */
     func incrementTimesWorn(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         log.info("Item times Worn incremented from: \(self.timesWorn) to: \(self.timesWorn + 1)")
         self.timesWorn = self.timesWorn + 1
     }
@@ -236,7 +251,7 @@ extension Item{
      - parameter closet: The String of the closet the item is located in
      */
     func populatePath(closet:String){
-        log.info(__FUNCTION__)
+        log.info(#function)
         log.verbose("\(self.model) path is being populated")
         self.path[PathType.PATHTYPE_CLOSET_STRING] = closet
         self.path[PathType.PATHTYPE_ID_STRING] = String(self.id)
@@ -252,7 +267,7 @@ extension Item{
      - returns: The dictionary
      */
     func removePathFromArrayAndGivesBackNewArray(var path: [[String: String]]) -> [[String: String]]{
-        log.info(__FUNCTION__)
+        log.info(#function)
         log.info("removing path from array")
         for (index, arrayDic) in path.enumerate(){
             if arrayDic[PathType.PATHTYPE_ID_STRING] == String(self.id){
@@ -265,7 +280,7 @@ extension Item{
     }
     
     func itemStory()->String{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
         let brand = self.brand ?? "N/A"
         let model = self.model ?? "N/A"
@@ -393,7 +408,7 @@ extension Item{
     }
     ///Sets values of items to proper values
     func setItemValuesToProperValues(){
-        //        log.info(__FUNCTION__)
+        //        log.info(#function)
         var modified = false
         
         if self.brand == nil{

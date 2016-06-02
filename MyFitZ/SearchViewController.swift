@@ -75,7 +75,7 @@ import Crashlytics
         // Do any additional setup after loading the view.
         
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         
         
         defaults.addAndSend("SEARCH_PAGE_COUNT")
@@ -105,7 +105,7 @@ import Crashlytics
         
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }
@@ -271,7 +271,7 @@ extension SearchViewController{
         let num = array.count
         
         if indexOfController < num{
-            indexOfController++
+            indexOfController += 1
             item = retrieveItem()
         }
         
@@ -285,7 +285,7 @@ extension SearchViewController{
     }
     func iteratePrevInCurrentItems(){
         if indexOfController > 0{
-            indexOfController--
+            indexOfController -= 1
             item = retrieveItem()
             
         }

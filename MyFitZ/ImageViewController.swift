@@ -27,7 +27,7 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.view.backgroundColor = Cotton
         self.image.image = self.imageHolder
         self.setItemStory()
@@ -53,7 +53,7 @@ class ImageViewController: UIViewController {
         
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

@@ -67,7 +67,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     //View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.navigationController?.navigationBarHidden = false
         
         self.animateAllButtons()
@@ -128,7 +128,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     
     func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
         let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
-        let btnDone = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "dismiss")
+        let btnDone = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(SelectionViewController.dismiss))
         navigationController.topViewController?.navigationItem.rightBarButtonItem = btnDone
         return navigationController
     }
@@ -154,7 +154,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
         })
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

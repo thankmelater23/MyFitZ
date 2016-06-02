@@ -89,7 +89,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setUp()
         self.view.backgroundColor = Cotton
         self.setButtonsView()
@@ -131,7 +131,7 @@ class EditItemViewController: UIViewController, RETableViewManagerDelegate{
         
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }
@@ -159,7 +159,7 @@ extension EditItemViewController{
             //            try Users_Wardrobe.swapItem(self.viewItem.subCategory, funcSubCategory: self.viewItem.subCategory, prevFuncCategory: self.previousItem.category, prevFuncSubCategory: self.previousItem.subCategory, item: self.viewItem)
             
             super.viewDidLoad()
-            log.info(__FUNCTION__)
+            log.info(#function)
         }
             
             

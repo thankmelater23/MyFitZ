@@ -18,7 +18,7 @@ class CreationViewController: UIViewController{
     @IBOutlet weak  var subCategoryInputTextField: UITextField!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var subCategoryLabel: UILabel!
-    @IBOutlet var pictureForSelectedItemImage: UIImageView!
+    @IBOutlet weak var pictureForSelectedItemImage: UIImageView!
     
     var datePickerHidden: Bool = false
     var categoryPickerView = UIPickerView()
@@ -64,7 +64,7 @@ class CreationViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setUp()
         
         // Do any additional setup after loading the view.

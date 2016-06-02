@@ -23,7 +23,7 @@ class PercentagesTableViewController: UITableViewController {
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setUpTypes()
         self.view.backgroundColor = Cotton
         
@@ -51,7 +51,7 @@ class PercentagesTableViewController: UITableViewController {
         }
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

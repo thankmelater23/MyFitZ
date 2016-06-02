@@ -28,7 +28,7 @@ class MakeTableViewController: UITableViewController{
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
         self.view.backgroundColor = SiliverSilkSheet
         
@@ -64,7 +64,7 @@ class MakeTableViewController: UITableViewController{
         }
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }
@@ -114,7 +114,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         return count
     }//Returns Int for number of sections in tableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: MakeCustomCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MAKE_CELL) as! MakeCustomCell
+        let cell: MakeCustomCell = (tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MAKE_CELL) as? MakeCustomCell)!
         
         
         if indexPath.row % 2 == 0//If even number make this color

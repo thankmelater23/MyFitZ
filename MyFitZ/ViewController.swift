@@ -9,7 +9,7 @@
 import UIKit
 import Crashlytics
 import Parse
-
+import CoreData
 
 //MARK: -ViewController Class
 class ViewController:  UIViewController{
@@ -21,9 +21,9 @@ class ViewController:  UIViewController{
     
     //MARK: -Methods
     override func viewDidLoad(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -55,13 +55,13 @@ class ViewController:  UIViewController{
         //        navigationItem.leftBarButtonItem?.customView?.backgroundColor = LeatherTexture
     }
     override func didReceiveMemoryWarning() {
-        log.info(__FUNCTION__)
+        log.info(#function)
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
     }
     func setTitle(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.navigationBar.translucent = false
         
@@ -73,8 +73,7 @@ class ViewController:  UIViewController{
         }
     }
     deinit{
-        log.info(__FUNCTION__)
-        
+        log.info(#function)
     }
 }
 
@@ -83,7 +82,7 @@ class ViewController:  UIViewController{
 //MARK: -Actions-ViewController Extension
 extension ViewController{
     @IBAction func selectedCloset() {
-        log.info(__FUNCTION__)
+        log.info(#function)
         //        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
         Users_Wardrobe.closetSelectionString = MY_CLOSET
         playSoundEffects(closetSFX)
@@ -97,7 +96,7 @@ extension ViewController{
         performSegueWithIdentifier(Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedWants() {
-        log.info(__FUNCTION__)
+        log.info(#function)
         //        Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
         Users_Wardrobe.closetSelectionString = MY_WANTS_CLOSET
         playSoundEffects(wishlistSFX)
@@ -109,7 +108,7 @@ extension ViewController{
         performSegueWithIdentifier(Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedOptions() {
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.performSegueWithIdentifier(Segue.SEGUE_MAIN_TO_OPTIONS, sender: self)
     }
     @IBAction func crashButtonTapped(sender: AnyObject) {

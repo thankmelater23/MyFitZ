@@ -261,7 +261,7 @@ func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
                 value.path[PathType.PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
                 value.path[PathType.PATHTYPE_ID_STRING] = String(value.id)
                 value.path[PathType.PATHTYPE_INDEX_STRING] = String(arrayIndex)
-                sum++
+                sum += 1
                 
                 newWardrobe.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
             }
@@ -282,7 +282,7 @@ func wardrobeItemsReset(varWardrobe: Wardrobe)->Wardrobe{
                 value.path[PathType.PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
                 value.path[PathType.PATHTYPE_ID_STRING] = String(value.id)
                 value.path[PathType.PATHTYPE_INDEX_STRING] = String(arrayIndex)
-                sum++
+                sum += 1
                 
                 newWardrobe.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
             }
@@ -434,7 +434,7 @@ func optionViewCustomized(view: UIView){
  
  - parameter view: UIBarButton to customize
  */
-func barButtonAnimation()(view: UIView){
+func barButtonAnimation(view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.ScaleToFill
     

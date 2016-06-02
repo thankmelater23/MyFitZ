@@ -14,6 +14,7 @@ import SwiftyBeaver
 import Parse
 import Bolts
 import HeapInspector
+import WatchConnectivity
 
 //import AppInfo
 
@@ -25,10 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: -Variables
     var window: UIWindow?
     
+    weak var session: WCSession?{
+        didSet{
+            if let session = session{
+                session.delegate = self
+                session.activateSession()
+            }
+        }
+    }
+    
     //MARK: -Methods
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        log.info(__FUNCTION__)
-//        HeapInspector.start()
+        log.info(#function)
+        //        HeapInspector.start()
         //        self.printAppInfo()
         self.loadResources()
         self.SwiftBeaverSetUp()
@@ -38,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.createAndRegisterNotificationSettings()
         self.setNotifications()
         self.parseSetUp()
+        self.setUpApperrance()
         initializeSounds()
+        
         
         
         // Override point for customization after application launch.
@@ -70,13 +82,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().titleTextAttributes =
             [NSFontAttributeName: titeFont,
-                NSBackgroundColorAttributeName: titeColor,
-                NSForegroundColorAttributeName: backGroundcolor,
-                NSUnderlineStyleAttributeName: underLineStyle,
-                NSStrokeColorAttributeName: strokeColor,
-                NSShadowAttributeName: textShadow,
-                NSTextEffectAttributeName: textEffect,
-                NSUnderlineColorAttributeName: underLineColor]
+             NSBackgroundColorAttributeName: titeColor,
+             NSForegroundColorAttributeName: backGroundcolor,
+             NSUnderlineStyleAttributeName: underLineStyle,
+             NSStrokeColorAttributeName: strokeColor,
+             NSShadowAttributeName: textShadow,
+             NSTextEffectAttributeName: textEffect,
+             NSUnderlineColorAttributeName: underLineColor]
         
         UINavigationBar.appearance().topItem?.rightBarButtonItem?.tintColor = RawGoldTexture
         
@@ -119,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     func sirenInitilization(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         /* Siren code should go below window?.makeKeyAndVisible() */
         
         // Siren is a singleton
@@ -132,15 +144,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         /*
-        Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-        checks.
-        */
+         Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+         checks.
+         */
         siren.checkVersion(.Daily)
         
         siren.alertType = SirenAlertType.Option
     }
     func SwiftBeaverSetUp(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         let console = ConsoleDestination()
         log.addDestination(console)
         // Now let’s log!
@@ -151,11 +163,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         log.error("Error Test")  // prio 5, ERROR in red
     }
     func removeConstraintFromLogger(){
-        log.info(__FUNCTION__)
+        log.info(#function)
         NSUserDefaults.standardUserDefaults().setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
     func loadResources(){
         Users_Wardrobe = Users_Wardrobe.loadAndCreateCloset()
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+        }
     }
     func parseSetUp(launchOptions: [NSObject: AnyObject]?){
         // [Optional] Power your app with Local Datastore. For more info, go to
@@ -164,7 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Initialize Parse.
         Parse.setApplicationId("hVnVJ06MB3aY5repQZyeqQxEGH9YyDPMknMso2I5",
-            clientKey: "c1JavCFdSYyDQMEDwOYUnCeovHGzwkovqLg68KRX")
+                               clientKey: "c1JavCFdSYyDQMEDwOYUnCeovHGzwkovqLg68KRX")
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
@@ -175,7 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notifytypes:UIUserNotificationType = [.Alert, .Badge, .Sound]
         
         let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notifytypes, categories: nil)
-
+        
         UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
     }
     func setNotifications(){
@@ -207,5 +222,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+    }
+    func setUpApperrance(){
+        let navStyle = UINavigationBar.appearance()
+        navStyle.barTintColor = UIColor.whiteColor()
+        navStyle.tintColor = UIColor.blackColor()
+        navStyle.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
+    }
+}
+
+//MARK: -WCSessionDelegate
+extension AppDelegate: WCSessionDelegate{
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        func covertItemToDictionary(item: Item)-> [String: AnyObject]{
+            var itemDic = [String: AnyObject]()
+            //            itemDic["image"] =  UIImagePNGRepresentation(item.image)
+            itemDic["category"] = item.category
+            itemDic["brand"] = item.brand
+            itemDic["dateDeleted"] = item.dateDeleted
+            itemDic["timesWorn"] = item.timesWorn
+            itemDic["payedPrice"] = item.payedPrice
+            itemDic["favorited"] = item.favorited
+            itemDic["lastTimeWorn"] = item.lastTimeWorn
+            
+            return itemDic
+        }
+        func returnArrayOfWatchItems(items: [Item])->[[String: AnyObject]]{
+            defer{
+                print("\(sizeofValue(itemsToReturn))")
+            }
+            var itemsToReturn = [[String: AnyObject]]()
+            for item in items{
+                itemsToReturn.append((covertItemToDictionary(item)))
+                
+            }
+            return itemsToReturn
+        }
+        
+        if let _ = message[FavList] as? String{
+            let payLoad = returnArrayOfWatchItems(Users_Wardrobe.favoritedItems)
+            let replyMessage = [FavList : payLoad]
+            replyHandler(replyMessage)
+        }
+        
+        if let _ = message[RecentList] as? String{
+            let payLoad = returnArrayOfWatchItems(Users_Wardrobe.recentWornItems)
+            let replyMessage = [RecentList : payLoad]
+            replyHandler(replyMessage)
+            
+        }
+        
+        if let _ = message[TrashList] as? String{
+            let payLoad = returnArrayOfWatchItems(Users_Wardrobe.selectedClosetTrashItems)
+//            let replyMessage = [TrashList : payLoad]
+            let replyMessage = [TrashList : "here"]
+            replyHandler(replyMessage)
+            
+        }
+        
+        if let _ = message[StatsList] as? String{
+            let payLoad = returnArrayOfWatchItems(Users_Wardrobe.recentWornItems)
+            let replyMessage = [StatsList : payLoad]
+            replyHandler(replyMessage)
+            
+        }
     }
 }

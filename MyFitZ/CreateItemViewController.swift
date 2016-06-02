@@ -29,8 +29,8 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet weak var subCategoryLabel: UILabel!
     
     //MARK: -Variables
-    var categoryPickerView = UIPickerView()
-    var subCategoryPickerView = UIPickerView()
+    var categoryPickerView = UIPickerView()//Make weak posibly
+    var subCategoryPickerView = UIPickerView()//Make weak posibly
     var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
     var subCategoryPickerOptions = [String]()
     var categorySelected: String! = String()
@@ -83,7 +83,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     var path: [String: String] = [String: String]()
     
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }
@@ -93,7 +93,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - View Functions -Extension CreateItemViewController
 extension CreateItemViewController{
     override func viewDidLoad() {
-        log.info(__FUNCTION__)
+        log.info(#function)
         super.viewDidLoad()
         self.setUp()
         defaults.addAndSend("CREATE_PAGE_COUNT")
@@ -101,7 +101,7 @@ extension CreateItemViewController{
         self.logPageView()
     }
     override func viewDidAppear(animated: Bool) {
-        log.info(__FUNCTION__)
+        log.info(#function)
         super.viewDidAppear(animated)
         self.view.backgroundColor = Cotton
         
@@ -115,7 +115,7 @@ extension CreateItemViewController{
         
     }
     override func viewDidDisappear(animated: Bool) {
-        log.info(__FUNCTION__)
+        log.info(#function)
         super.viewDidDisappear(animated)
         self.removeObservers()
         
@@ -574,14 +574,19 @@ extension CreateItemViewController{
     //MARK: - ImagePickerView Methods -Extension CreateItemViewController
     extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         func setImagePicker(){
+            //Set ImagePicker
             let imagePicker = UIImagePickerController()
+            //Set Picker delegeate
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            //Set ImagePicker options
             imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             
+            //Present the image picker on screen
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
+        //After image is selected the item image is set to that image
         func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             //var video = info[UIImagePickerControllerMediaURL] as? NSURL
             let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -589,6 +594,7 @@ extension CreateItemViewController{
             viewItem.image = picture
             
             //pictureButtonForSelectedItemImage.setImage(picture, forState: UIControlState.Normal)
+            //Dismiss Pickerview
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }

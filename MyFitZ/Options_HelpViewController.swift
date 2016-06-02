@@ -12,7 +12,7 @@ import Crashlytics
 class Options_HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -34,7 +34,7 @@ class Options_HelpViewController: UIViewController {
         performSegueWithIdentifier(Segue.SEGUE_HELP_TO_INSTRUCTIONS, sender: self)
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

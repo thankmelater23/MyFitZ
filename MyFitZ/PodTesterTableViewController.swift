@@ -36,7 +36,7 @@ class PodTesterTableViewController: UITableViewController, RETableViewManagerDel
         self.anotherSection?.addItem(item)
         self.anotherSection?.addItem(boolThing)
         
-        var dicOfOptions = [kCRToastTextKey: "Hello world",
+        let dicOfOptions = [kCRToastTextKey: "Hello world",
                             kCRToastTextAlignmentKey: "NSTextAlignmentCenter",
                             kCRToastBackgroundColorKey : UIColor.redColor(),
                             kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",

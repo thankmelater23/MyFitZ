@@ -32,7 +32,7 @@ class DetailedViewController: UIViewController{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setUp()
         self.view.backgroundColor = Cotton
         log.verbose(self.itemOfObject)
@@ -80,7 +80,7 @@ class DetailedViewController: UIViewController{
         }
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

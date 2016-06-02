@@ -25,7 +25,7 @@ class ModelTableViewController: UITableViewController {
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.SetUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
         
@@ -72,7 +72,7 @@ class ModelTableViewController: UITableViewController {
         log.warning("Recieved Memory Warning")
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

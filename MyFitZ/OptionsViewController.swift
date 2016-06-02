@@ -13,7 +13,7 @@ import Crashlytics
 class OptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(__FUNCTION__)
+        log.info(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -33,7 +33,7 @@ class OptionsViewController: UIViewController {
         self.navigationController?.navigationBar.translucent = false
     }
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }

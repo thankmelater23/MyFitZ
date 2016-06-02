@@ -34,7 +34,7 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
     }
     
     deinit{
-        log.info(__FUNCTION__)
+        log.info(#function)
         
     }
 }
