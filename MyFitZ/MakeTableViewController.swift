@@ -46,17 +46,7 @@ class MakeTableViewController: UITableViewController{
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     //Core Data
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var itemsInArrayInDictionary: [Item] = []
-//    lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
-//        let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
-//        
-//        let fechedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultController.delegate = self
-//        
-//        return fetchedR
-//}
-
+    var items: [Item] = []
     
     //MARK: -View Methods
     override func viewDidLoad(){
@@ -100,7 +90,6 @@ class MakeTableViewController: UITableViewController{
     }
     deinit{
         log.info(#function)
-        
     }
 }
 
@@ -108,36 +97,89 @@ class MakeTableViewController: UITableViewController{
 
 //MARK: - Core Data
 extension MakeTableViewController{
-    
     func initializeFetchedResultsController() {
-        let context = appDelegate.persistentContainer.viewContext
+        let context = DataBaseController.getContext()
+        var user = User()
+        
+        //User
+        let fetchRequestUser:NSFetchRequest<User> = User.fetchRequest()
         do{
-            itemsInArrayInDictionary = try context.fetch(Item.fetchRequest())
+            let fetchedUsers = try DataBaseController.getContext().fetch(fetchRequestUser)
+            print("Users Count: \(fetchedUsers.count)")
+            if fetchedUsers.count < 1{
+                user = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.user, into: context) as! User
+                user.name = "User1"
+                user.wardrobe = Wardrobe()
+                user.wardrobe?.items = []
+                
+                DataBaseController.saveContext()
+            }else{
+                user = fetchedUsers.first!
+            }
+            
         }catch{
             log.error("Fetch Failed")
         }
-//        //var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController
-//        do{
-//            let userRequest = try context.fetch(User.fetchRequest())
-//            let wardrobeRequest = try context.fetch(Wardrobe.fetchRequest())
-//            let itemsRequest = try context.fetch(Item.fetchRequest())
-//            
-//            print(userRequest, wardrobeRequest, itemsRequest)
-//            let subCatSort = NSSortDescriptor(key: "item.category", ascending: true)
-//            let catSort = NSSortDescriptor(key: "subCategory", ascending: true)
-//            //request.sortDescriptors = [subCatSort, catSort]
-//        }catch{
-//            log.error("Fetch request failed")
-//        }
-        //let moc = self.context
-        //fetchedResultsController = fetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-        //fetchedResultsController.delegate = self
         
-        //do {
-        //    try fetchedResultsController.performFetch()
-        //} catch {
-        //    fatalError("Failed to initialize FetchedResultsController: \(error)")
-        //}
+        let fetchRequestWardrobe:NSFetchRequest<Wardrobe> = Wardrobe.fetchRequest()
+        do{
+            let fetchedWardrobes = try DataBaseController.getContext().fetch(fetchRequestWardrobe)
+            print("Search Results Count: \(fetchedWardrobes.count)")
+            
+            if fetchedWardrobes.count < 1{
+                let wardrobe = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.wardrobe, into: context) as! Wardrobe
+                user.wardrobe = wardrobe
+                user.wardrobe?.isBoy = true
+                user.wardrobe?.items = []
+            }else{
+                user.wardrobe = fetchedWardrobes.first
+            }
+            
+        }catch{
+            log.error("Fetch Failed")
+        }
+
+        
+        //
+        //
+        //
+        //        item.brand = "1"
+        //        item.category = "2"
+        //        item.subCategory = "3"
+        //        item.index = 2
+        //
+        //        do{
+        //            try context.save()
+        //        }catch{
+        //            log.error("item saved failed")
+        //        }
+        //
+        //
+        //        do{
+        //            items = try context.fetch(Item.fetchRequest())
+        //            print(items)
+        //            print("Items Count: \(items.count)")
+        //        }catch{
+        //            log.error("Fetch Failed")
+        //        }
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //        let fetchRequestItem:NSFetchRequest<Item> = Item.fetchRequest()
+        //        do{
+        //            let searchResults = try DataBaseController.getContext().fetch(fetchRequestItem)
+        //            print("Search Results Count: \(searchResults.count)")
+        //
+        //            for result in searchResults {
+        //                print("\(result.category!) - \(result.subCategory!) favorited: \(result.isFavorite)")
+        //            }
+        //        }catch{
+        //            log.error("Fetch Failed")
+        //        }
     }
 }
 
@@ -180,7 +222,7 @@ extension MakeTableViewController{
 //MARK: -TableView Methods-MakeTableViewController Extension
 extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        let count = itemsInArrayInDictionary.count
+        let count = items.count
         return count
     }//Returns Int for number of sections in tableView
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -193,34 +235,34 @@ extension MakeTableViewController:UIAlertViewDelegate{
         }else{
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
-//        
-//        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
-//        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
+        //
+        //        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        //        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-//        if arrayItemCell.count > 1{
-//            arrayItemCell = arrayItemCell.sorted(by: {$0.category > $1.category})
-//        }
+        //        if arrayItemCell.count > 1{
+        //            arrayItemCell = arrayItemCell.sorted(by: {$0.category > $1.category})
+        //        }
         
-//        if let availableSubCategoryItem = arrayItemCell.first{
-//            cell.setCell(UIImage(), makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
-//        }else{
-//            let image = UIImage(named: BLANK_IMAGE_STRING)
-//            cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
-//        }
-        let itemCell = itemsInArrayInDictionary[indexPath.row]
+        //        if let availableSubCategoryItem = arrayItemCell.first{
+        //            cell.setCell(UIImage(), makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
+        //        }else{
+        //            let image = UIImage(named: BLANK_IMAGE_STRING)
+        //            cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
+        //        }
+        let itemCell = items[indexPath.row]
         let image = UIImage(named: "blank image")
         cell.setCell(image!, makeLabelText: itemCell.brand!, numberOfItemsText: 0)
         return cell
     }//Returns a tableView cell at a specific row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        let context = appDelegate.persistentContainer.viewContext
+        let context = DataBaseController.getContext()
         if editingStyle == UITableViewCellEditingStyle.delete
         {
             let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .alert)
             let act = UIAlertAction(title: "cancel", style: .default){_ in}
             let action = UIAlertAction(title: "Delete", style: .destructive) { _ in
                 
-                let item = self.itemsInArrayInDictionary[indexPath.row]
+                let item = self.items[indexPath.row]
                 context.delete(item)
                 
                 do{
@@ -228,11 +270,11 @@ extension MakeTableViewController:UIAlertViewDelegate{
                 }catch{
                     log.error("Deleted item failed")
                 }
-//                let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
+                //                let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
                 
                 //Users_Wardrobe.deleteAt(self.path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
                 //
-//                self.itemsInArrayInDictionary.removeValue(forKey: subCategoryToDelete)
+                //                self.itemsInArrayInDictionary.removeValue(forKey: subCategoryToDelete)
                 //
                 //                Users_Wardrobe.selectedCloset[self.path[PathType.PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
                 //                Users_Wardrobe.quickSave()
@@ -260,9 +302,9 @@ extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         self.tableView.deselectRow(at: indexPath, animated: true)
         //        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
-//        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
+        //        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-//        path[PathType.PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
+        //        path[PathType.PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
         
         playSoundEffects(itemSelectSFX)
         

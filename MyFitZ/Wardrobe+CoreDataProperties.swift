@@ -2,7 +2,7 @@
 //  Wardrobe+CoreDataProperties.swift
 //  MyFitZ
 //
-//  Created by Andre V on 5/7/17.
+//  Created by Andre V on 5/8/17.
 //  Copyright © 2017 Bang Bang Studios. All rights reserved.
 //
 
@@ -16,6 +16,7 @@ extension Wardrobe {
         return NSFetchRequest<Wardrobe>(entityName: "Wardrobe")
     }
 
+    @NSManaged public var isBoy: Bool
     @NSManaged public var items: NSSet?
     @NSManaged public var user: User?
 

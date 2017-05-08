@@ -26,12 +26,6 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     @IBOutlet weak var optionsHolderView: UIView!
     @IBOutlet weak var percentageButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    //        {
-    //        didSet{
-    //            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
-    //            favortiedItems.addGestureRecognizer(recognizer)
-    //        }
-    //    }
     
     //MARK: -Selection Image Buttons
     @IBOutlet weak var topImage: UIButton!

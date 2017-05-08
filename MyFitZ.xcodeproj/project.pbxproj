@@ -16,12 +16,6 @@
 		471C94FE1EBF37B900A6C337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471C94FC1EBF37B900A6C337 /* Main.storyboard */; };
 		471C94FF1EBF37B900A6C337 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C94FD1EBF37B900A6C337 /* LaunchScreen.xib */; };
 		471C95011EBF37D000A6C337 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95001EBF37D000A6C337 /* ViewController.swift */; };
-		471C95081EBF37F800A6C337 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95021EBF37F800A6C337 /* Item+CoreDataClass.swift */; };
-		471C95091EBF37F800A6C337 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95031EBF37F800A6C337 /* Item+CoreDataProperties.swift */; };
-		471C950A1EBF37F800A6C337 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95041EBF37F800A6C337 /* User+CoreDataClass.swift */; };
-		471C950B1EBF37F800A6C337 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95051EBF37F800A6C337 /* User+CoreDataProperties.swift */; };
-		471C950C1EBF37F800A6C337 /* Wardrobe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95061EBF37F800A6C337 /* Wardrobe+CoreDataClass.swift */; };
-		471C950D1EBF37F800A6C337 /* Wardrobe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95071EBF37F800A6C337 /* Wardrobe+CoreDataProperties.swift */; };
 		471C95111EBF3B5D00A6C337 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C950E1EBF3B5D00A6C337 /* Extensions.swift */; };
 		471C95121EBF3B5D00A6C337 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C950F1EBF3B5D00A6C337 /* Functions.swift */; };
 		471C95131EBF3B5D00A6C337 /* Equatables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C95101EBF3B5D00A6C337 /* Equatables.swift */; };
@@ -91,6 +85,13 @@
 		471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959E1EBF435A00A6C337 /* CodeComplexity.sh */; };
 		471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959F1EBF435A00A6C337 /* LinesOfCode.sh */; };
 		471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C95A01EBF435A00A6C337 /* set_build_number.sh */; };
+		47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD157F1EC06943006CF4DA /* DataBaseController.swift */; };
+		47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */; };
+		47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */; };
+		47FD159B1EC080F1006CF4DA /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15951EC080F1006CF4DA /* User+CoreDataClass.swift */; };
+		47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */; };
+		47FD159D1EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */; };
+		47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */; };
 		7BCB0EBE859E24D5B6BD1719 /* Pods_MyFitZTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527EA8368E7E2429DFEE70CE /* Pods_MyFitZTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,12 +126,6 @@
 		471C94FC1EBF37B900A6C337 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		471C94FD1EBF37B900A6C337 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		471C95001EBF37D000A6C337 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		471C95021EBF37F800A6C337 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		471C95031EBF37F800A6C337 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		471C95041EBF37F800A6C337 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		471C95051EBF37F800A6C337 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		471C95061EBF37F800A6C337 /* Wardrobe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataClass.swift"; sourceTree = "<group>"; };
-		471C95071EBF37F800A6C337 /* Wardrobe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		471C950E1EBF3B5D00A6C337 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		471C950F1EBF3B5D00A6C337 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		471C95101EBF3B5D00A6C337 /* Equatables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatables.swift; sourceTree = "<group>"; };
@@ -200,6 +195,13 @@
 		471C959E1EBF435A00A6C337 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CodeComplexity.sh; sourceTree = "<group>"; };
 		471C959F1EBF435A00A6C337 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
 		471C95A01EBF435A00A6C337 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
+		47FD157F1EC06943006CF4DA /* DataBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
+		47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		47FD15951EC080F1006CF4DA /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		527EA8368E7E2429DFEE70CE /* Pods_MyFitZTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6412EF1D10DE4FE5B14B31CC /* Pods-MyFitZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.debug.xcconfig"; sourceTree = "<group>"; };
 		8FEAB7AE776E26D70356D0B7 /* Pods-MyFitZTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -348,12 +350,12 @@
 		471C95401EBF3BB300A6C337 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				471C95021EBF37F800A6C337 /* Item+CoreDataClass.swift */,
-				471C95031EBF37F800A6C337 /* Item+CoreDataProperties.swift */,
-				471C95041EBF37F800A6C337 /* User+CoreDataClass.swift */,
-				471C95051EBF37F800A6C337 /* User+CoreDataProperties.swift */,
-				471C95061EBF37F800A6C337 /* Wardrobe+CoreDataClass.swift */,
-				471C95071EBF37F800A6C337 /* Wardrobe+CoreDataProperties.swift */,
+				47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */,
+				47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */,
+				47FD15951EC080F1006CF4DA /* User+CoreDataClass.swift */,
+				47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */,
+				47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */,
+				47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -391,6 +393,7 @@
 				471C95001EBF37D000A6C337 /* ViewController.swift */,
 				471C95461EBF3C6900A6C337 /* SelectionViewController.swift */,
 				471C95471EBF3C6900A6C337 /* MakeTableViewController.swift */,
+				47FD157F1EC06943006CF4DA /* DataBaseController.swift */,
 				471C95481EBF3C6900A6C337 /* OptionsViewController.swift */,
 				471C95491EBF3C6900A6C337 /* Options-AboutViewController.swift */,
 				471C954A1EBF3C6900A6C337 /* Options_HelpViewController.swift */,
@@ -840,13 +843,13 @@
 				471C95911EBF3CE400A6C337 /* MakeCustomCell.swift in Sources */,
 				471C953D1EBF3B8C00A6C337 /* Constants_Extensions.swift in Sources */,
 				471C95011EBF37D000A6C337 /* ViewController.swift in Sources */,
-				471C950D1EBF37F800A6C337 /* Wardrobe+CoreDataProperties.swift in Sources */,
 				471C952F1EBF3B8C00A6C337 /* Constants_Wardrobe.swift in Sources */,
 				471C953C1EBF3B8C00A6C337 /* Constants_Global_Function.swift in Sources */,
-				471C950C1EBF37F800A6C337 /* Wardrobe+CoreDataClass.swift in Sources */,
+				47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */,
 				471C95861EBF3CA000A6C337 /* NSAttributedStringExtensions.swift in Sources */,
 				471C953A1EBF3B8C00A6C337 /* Constants_SearchViewController.swift in Sources */,
 				471C95501EBF3C6900A6C337 /* MakeTableViewController.swift in Sources */,
+				47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */,
 				471C95381EBF3B8C00A6C337 /* Constants_CreateItemViewController.swift in Sources */,
 				471C94FB1EBF377200A6C337 /* MyFitZ.xcdatamodel in Sources */,
 				471C95971EBF3CE400A6C337 /* DoubleLabelTableViewCell.swift in Sources */,
@@ -855,10 +858,10 @@
 				471C95121EBF3B5D00A6C337 /* Functions.swift in Sources */,
 				471C95961EBF3CE400A6C337 /* RecentTableViewCell.swift in Sources */,
 				471C95871EBF3CA000A6C337 /* UIImage+Gif.swift in Sources */,
-				471C950A1EBF37F800A6C337 /* User+CoreDataClass.swift in Sources */,
 				471C95311EBF3B8C00A6C337 /* Constants_Fit.swift in Sources */,
 				471C952B1EBF3B8C00A6C337 /* Typealias.swift in Sources */,
 				471C952C1EBF3B8C00A6C337 /* Enums.swift in Sources */,
+				47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */,
 				471C95111EBF3B5D00A6C337 /* Extensions.swift in Sources */,
 				471C952A1EBF3B8C00A6C337 /* Constants.swift in Sources */,
 				471C95321EBF3B8C00A6C337 /* Constants_ViewController.swift in Sources */,
@@ -870,21 +873,22 @@
 				471C95361EBF3B8C00A6C337 /* Constants_DetailedViewController.swift in Sources */,
 				471C95931EBF3CE400A6C337 /* CreationUITableViewCell.swift in Sources */,
 				471C95331EBF3B8C00A6C337 /* Constants_SelectionViewController.swift in Sources */,
-				471C950B1EBF37F800A6C337 /* User+CoreDataProperties.swift in Sources */,
 				471C954F1EBF3C6900A6C337 /* SelectionViewController.swift in Sources */,
 				471C95531EBF3C6900A6C337 /* Options_HelpViewController.swift in Sources */,
-				471C95081EBF37F800A6C337 /* Item+CoreDataClass.swift in Sources */,
 				471C952E1EBF3B8C00A6C337 /* Constants_Colors_And_Textures.swift in Sources */,
 				471C95551EBF3C6900A6C337 /* Options-SettingsViewController.swift in Sources */,
 				471C94CA1EBF371F00A6C337 /* AppDelegate.swift in Sources */,
 				471C95131EBF3B5D00A6C337 /* Equatables.swift in Sources */,
 				471C95561EBF3C6900A6C337 /* Options-ContactViewController.swift in Sources */,
 				471C95941EBF3CE400A6C337 /* TrashTableViewCell.swift in Sources */,
+				47FD159D1EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift in Sources */,
 				471C953B1EBF3B8C00A6C337 /* Constants_FavoritedWornTableViewController.swift in Sources */,
 				471C95981EBF3CE400A6C337 /* StatsTableVIewCell.swift in Sources */,
 				471C95921EBF3CE400A6C337 /* ModelCustomCell.swift in Sources */,
+				47FD159B1EC080F1006CF4DA /* User+CoreDataClass.swift in Sources */,
+				47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */,
 				471C95391EBF3B8C00A6C337 /* Constants_RecentlyWornTableViewController.swift in Sources */,
-				471C95091EBF37F800A6C337 /* Item+CoreDataProperties.swift in Sources */,
+				47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */,
 				471C95521EBF3C6900A6C337 /* Options-AboutViewController.swift in Sources */,
 				471C95571EBF3C6900A6C337 /* WebsiteViewController.swift in Sources */,
 				471C95341EBF3B8C00A6C337 /* Constants_MakeTableViewController.swift in Sources */,

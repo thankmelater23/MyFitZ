@@ -42,8 +42,7 @@ class ViewController: UIViewController {
     }
     
     func createData(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        let context = DataBaseController.getContext()
         
         let item = Item(context: context)
         

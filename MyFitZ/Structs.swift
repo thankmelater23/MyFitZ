@@ -21,6 +21,13 @@ struct CateogryTypes{
 }
 let CateogryType = CateogryTypes()
 
+struct MyFitZEntities{
+    let user:String = String(describing: User.self)
+    let wardrobe:String = String(describing: Wardrobe.self)
+    let item:String = String(describing: Item.self)
+    
+}
+let myfitzEntities = MyFitZEntities()
 
 //MARK: -Segue identifiers
 struct Segues{
