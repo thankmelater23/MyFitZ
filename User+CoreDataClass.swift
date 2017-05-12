@@ -12,7 +12,4 @@ import CoreData
 
 public class User: NSManagedObject {
 
-    func getItems()->NSSet{
-        return self.wardrobe!.items!
-    }
 }

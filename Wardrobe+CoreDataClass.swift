@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.swift
+//  Wardrobe+CoreDataClass.swift
 //  MyFitZ
 //
 //  Created by Andre V on 5/8/17.
@@ -10,9 +10,6 @@ import Foundation
 import CoreData
 
 
-public class User: NSManagedObject {
+public class Wardrobe: NSManagedObject {
 
-    func getItems()->NSSet{
-        return self.wardrobe!.items!
-    }
 }

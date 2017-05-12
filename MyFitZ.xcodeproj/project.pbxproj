@@ -85,6 +85,7 @@
 		471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959E1EBF435A00A6C337 /* CodeComplexity.sh */; };
 		471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959F1EBF435A00A6C337 /* LinesOfCode.sh */; };
 		471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C95A01EBF435A00A6C337 /* set_build_number.sh */; };
+		478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */; };
 		47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD157F1EC06943006CF4DA /* DataBaseController.swift */; };
 		47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */; };
 		47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */; };
@@ -195,6 +196,7 @@
 		471C959E1EBF435A00A6C337 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CodeComplexity.sh; sourceTree = "<group>"; };
 		471C959F1EBF435A00A6C337 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
 		471C95A01EBF435A00A6C337 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
+		478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
 		47FD157F1EC06943006CF4DA /* DataBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
 		47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				471C95001EBF37D000A6C337 /* ViewController.swift */,
 				471C95461EBF3C6900A6C337 /* SelectionViewController.swift */,
 				471C95471EBF3C6900A6C337 /* MakeTableViewController.swift */,
+				478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */,
 				47FD157F1EC06943006CF4DA /* DataBaseController.swift */,
 				471C95481EBF3C6900A6C337 /* OptionsViewController.swift */,
 				471C95491EBF3C6900A6C337 /* Options-AboutViewController.swift */,
@@ -840,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				471C952D1EBF3B8C00A6C337 /* Structs.swift in Sources */,
+				478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */,
 				471C95911EBF3CE400A6C337 /* MakeCustomCell.swift in Sources */,
 				471C953D1EBF3B8C00A6C337 /* Constants_Extensions.swift in Sources */,
 				471C95011EBF37D000A6C337 /* ViewController.swift in Sources */,

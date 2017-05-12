@@ -29,7 +29,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wardrobe" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-722" positionY="-273" width="128" height="255"/>
+        <element name="Item" positionX="-722" positionY="-273" width="128" height="253"/>
         <element name="User" positionX="-488" positionY="-267" width="128" height="118"/>
         <element name="Wardrobe" positionX="-488" positionY="-81" width="128" height="88"/>
     </elements>

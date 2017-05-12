@@ -17,12 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var optionsButton: UIButton!
     
-//    let user: User = User()
+    //MARK: -Variables
+    var user: User? = nil
+    var items: [Item]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         log.info(#function)
-        //        log.info(user)
+                log.info(user  ?? "User Is nil")
         createData()
         
     }
@@ -44,6 +46,23 @@ class ViewController: UIViewController {
     func createData(){
         let context = DataBaseController.getContext()
         
+        do{
+            items = try context.fetch(Item.fetchRequest())
+            if items!.count > 0{
+                
+                log.verbose("Count: \(items!.count)")
+            }else{
+                print("No results found")
+                
+                print("Creating new data base")
+                
+                
+            }
+            log.debug("Items in Core Data: \(items) \n count: \(items!.count)")
+        }catch{
+            log.error("Fetching Failed")
+        }
+        
         let item = Item(context: context)
         
         
@@ -55,22 +74,10 @@ class ViewController: UIViewController {
         item.index = 2
         
         do{
-            let items = try context.fetch(Item.fetchRequest())
-            if items.count > 0{
-                
-                log.verbose("Count: \(items.count)")
-            }else{
-                print("No results found")
-                
-                print("Creating new data base")
-                
-                
-            }
-            log.debug("Items in Core Data: \(items) \n count: \(items.count)")
+            try context.save()
         }catch{
-            log.error("Fetching Failed")
+            log.error("Save Failed")
         }
-        
     }
     
 }

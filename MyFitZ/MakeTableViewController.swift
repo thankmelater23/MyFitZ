@@ -46,7 +46,25 @@ class MakeTableViewController: UITableViewController{
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     //Core Data
-    var items: [Item] = []
+    let context = DataBaseController.getContext()
+//    var items: [Item]? = nil
+    var user: User? = nil
+    
+    var fetchRequestController: NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
+    
+    func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+        let nameSorter = NSSortDescriptor(key: "model", ascending: true)
+        let favoritesSorter = NSSortDescriptor(key: "isFavorite", ascending: true)
+        fetchRequest.sortDescriptors = [nameSorter, favoritesSorter]
+        return fetchRequest
+    }
+    
+    func getFRC() -> NSFetchedResultsController<NSFetchRequestResult>{
+        fetchRequestController = NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchRequestController
+    }
+    
     
     //MARK: -View Methods
     override func viewDidLoad(){
@@ -56,7 +74,7 @@ class MakeTableViewController: UITableViewController{
         self.initializeFetchedResultsController()
         
         self.setUpTypes()
-        
+//        self.setUPSearchBar()
         
         //        defaults.addAndSend("MAKE_PAGE_COUNT")
         
@@ -95,64 +113,106 @@ class MakeTableViewController: UITableViewController{
 
 
 
-//MARK: - Core Data
+//MARK: - Search Bar
 extension MakeTableViewController{
+//    fileprivate func setUPSearchBar(){
+//        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 65))
+//        
+//        searchBar.showsScopeBar = true
+//        searchBar.scopeButtonTitles = [myfitzEntities.user, myfitzEntities.wardrobe, myfitzEntities.item]
+//        searchBar.selectedScopeButtonIndex = 0
+//        
+//        searchBar.delegate = self as! UISearchBarDelegate
+//        
+//        self.tableView.tableFooterView = searchBar
+//    }
+//    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+//        guard !searchText.isEmpty else{
+//            return
+//        }
+//    }
+//    
+//    func searchBarShouldEndEditting(_ searchBar: UISearchBar)->Bool{
+//        searchBar.resignFirstResponder()
+//        return true
+//    }
+}
+
+
+
+
+//MARK: - Core Data
+extension MakeTableViewController: NSFetchedResultsControllerDelegate{
     func initializeFetchedResultsController() {
-        let context = DataBaseController.getContext()
-        var user = User()
+        fetchRequestController = getFRC()
+        fetchRequestController.delegate = self
+        
+        do{
+            try fetchRequestController.performFetch()
+        }catch{
+            log.error("Fetch Failed")
+        }
+        
         
         //User
-        let fetchRequestUser:NSFetchRequest<User> = User.fetchRequest()
-        do{
-            let fetchedUsers = try DataBaseController.getContext().fetch(fetchRequestUser)
-            print("Users Count: \(fetchedUsers.count)")
-            if fetchedUsers.count < 1{
-                user = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.user, into: context) as! User
-                user.name = "User1"
-                user.wardrobe = Wardrobe()
-                user.wardrobe?.items = []
-                
-                DataBaseController.saveContext()
-            }else{
-                user = fetchedUsers.first!
-            }
-            
-        }catch{
-            log.error("Fetch Failed")
-        }
+//        let fetchRequestUser:NSFetchRequest<User> = User.fetchRequest()
+//        do{
+//            let fetchedUsers = try DataBaseController.getContext().fetch(fetchRequestUser)
+//            print("Users Count: \(fetchedUsers.count)")
+//            if fetchedUsers.count < 1{
+//                user = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.Item, into: context) as! Item
+//                user?.name = "User1"
+////                user?.wardrobe = Wardrobe()
+////                user?.wardrobe?.items = []
+////                
+//                DataBaseController.saveContext()
+//            }else{
+//                user = fetchedUsers.first!
+//            }
+//            
+//        }catch{
+//            log.error("Fetch Failed")
+//        }
+//
+//        let fetchRequestWardrobe:NSFetchRequest<Item> = Item.fetchRequest()
+//        do{
+//            let fetchedWardrobes = try DataBaseController.getContext().fetch(fetchRequestWardrobe)
+//            print("Search Results Count: \(fetchedWardrobes.count)")
+//            
+//            if fetchedWardrobes.count < 1{
+//                let wardrobe = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.wardrobe, into: context) as! Wardrobe
+//                user?.wardrobe = wardrobe
+//                user?.wardrobe?.isBoy = true
+//                user?.wardrobe?.items = []
+//            }else{
+//                user?.wardrobe = fetchedWardrobes.first
+//            }
+//            
+//        }catch{
+//            log.error("Fetch Failed")
+//        }
+//        
         
-        let fetchRequestWardrobe:NSFetchRequest<Wardrobe> = Wardrobe.fetchRequest()
-        do{
-            let fetchedWardrobes = try DataBaseController.getContext().fetch(fetchRequestWardrobe)
-            print("Search Results Count: \(fetchedWardrobes.count)")
-            
-            if fetchedWardrobes.count < 1{
-                let wardrobe = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.wardrobe, into: context) as! Wardrobe
-                user.wardrobe = wardrobe
-                user.wardrobe?.isBoy = true
-                user.wardrobe?.items = []
-            }else{
-                user.wardrobe = fetchedWardrobes.first
-            }
-            
-        }catch{
-            log.error("Fetch Failed")
-        }
-
-        
-        //
-        //
-        //
-        //        item.brand = "1"
-        //        item.category = "2"
-        //        item.subCategory = "3"
-        //        item.index = 2
-        //
-        //        do{
-        //            try context.save()
-        //        }catch{
-        //            log.error("item saved failed")
-        //        }
+//        let item = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.item, into: context) as! Item
+//        
+//        
+//        item.brand = "Brand"
+//        item.category = "Category"
+//        item.subCategory = "Sub-Category"
+//        item.index = 25
+//        
+//        user?.wardrobe?.addToItems(item)
+//        
+//        do{
+//            try context.save()
+//            log.verbose("User: \(user)\nWardrobe: \(user?.wardrobe!)\nItems Count: \(user?.wardrobe?.items?.count)\nItems: \(user?.wardrobe?.items)")
+//        }catch{
+//            log.error("item saved failed")
+//        }
+//        //        let fetchRequestItems:NSFetchRequest<Item> = Item.fetchRequest()
+//        print(user?.wardrobe?.items)
+        tableView.reloadData()
         //
         //
         //        do{
@@ -222,8 +282,8 @@ extension MakeTableViewController{
 //MARK: -TableView Methods-MakeTableViewController Extension
 extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        let count = items.count
-        return count
+        let count = fetchRequestController.sections?[section].numberOfObjects
+        return count!
     }//Returns Int for number of sections in tableView
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell: MakeCustomCell = (tableView.dequeueReusableCell(withIdentifier: CellIdentifier.MAKE_CELL) as? MakeCustomCell)!
@@ -235,49 +295,27 @@ extension MakeTableViewController:UIAlertViewDelegate{
         }else{
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
-        //
-        //        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
-        //        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
         
-        //        if arrayItemCell.count > 1{
-        //            arrayItemCell = arrayItemCell.sorted(by: {$0.category > $1.category})
-        //        }
-        
-        //        if let availableSubCategoryItem = arrayItemCell.first{
-        //            cell.setCell(UIImage(), makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
-        //        }else{
-        //            let image = UIImage(named: BLANK_IMAGE_STRING)
-        //            cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
-        //        }
-        let itemCell = items[indexPath.row]
+        let itemCell = fetchRequestController.object(at: indexPath) as! Item
         let image = UIImage(named: "blank image")
-        cell.setCell(image!, makeLabelText: itemCell.brand!, numberOfItemsText: 0)
+        cell.setCell(image!, makeLabelText: itemCell.brand ?? "N/A", numberOfItemsText: 0)
         return cell
     }//Returns a tableView cell at a specific row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        let context = DataBaseController.getContext()
         if editingStyle == UITableViewCellEditingStyle.delete
         {
             let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .alert)
             let act = UIAlertAction(title: "cancel", style: .default){_ in}
             let action = UIAlertAction(title: "Delete", style: .destructive) { _ in
                 
-                let item = self.items[indexPath.row]
-                context.delete(item)
+                let item = self.fetchRequestController.object(at: (indexPath))
+                self.context.delete(item as! NSManagedObject)
                 
                 do{
-                    try context.save()
+                    try self.context.save()
                 }catch{
                     log.error("Deleted item failed")
                 }
-                //                let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
-                
-                //Users_Wardrobe.deleteAt(self.path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
-                //
-                //                self.itemsInArrayInDictionary.removeValue(forKey: subCategoryToDelete)
-                //
-                //                Users_Wardrobe.selectedCloset[self.path[PathType.PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
-                //                Users_Wardrobe.quickSave()
                 
                 self.tableView.reloadData()
             }
@@ -308,7 +346,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
         playSoundEffects(itemSelectSFX)
         
-        performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_MODEL, sender: self)
+//        performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_MODEL, sender: self)
     }//Shows when a cell at row was selected
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
