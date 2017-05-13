@@ -29,7 +29,7 @@ class WebsiteViewController: UIViewController {
         let request = URLRequest(url: requestURL!)
         
 //        GlobalUserInitiatedQueue.async(execute: {
-            self.webView.loadRequest(request)
+//            self.webView.loadRequest(request)
 //        })
         //TODO: - fix in GCD
     }
