@@ -31,9 +31,10 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     
     func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+        let categorySorter = NSSortDescriptor(key: "category", ascending: true)
         let nameSorter = NSSortDescriptor(key: "model", ascending: true)
         let favoritesSorter = NSSortDescriptor(key: "isFavorite", ascending: true)
-        fetchRequest.sortDescriptors = [nameSorter, favoritesSorter]
+        fetchRequest.sortDescriptors = [nameSorter, favoritesSorter, categorySorter]
         return fetchRequest
     }
     
@@ -47,7 +48,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     override func viewDidLoad(){
         super.viewDidLoad()
         log.info(#function)
-        self.SetUpTypes()
+        self.setUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
         
         
@@ -118,10 +119,12 @@ extension ModelTableViewController{
         }
         
         let item = fetchRequestController.object(at: indexPath) as! Item
-        let image = UIImage(named: "blank image")
+        let image = UIImage(named: "blank image")!
         
         //TODO: -Change brand to subacategory instead
-        cell.setCell(UIImage(data:item.image! as Data) ?? image!, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: "Date", favorited: item.isFavorite)
+        let lastTimeWornString = item.lastTimeWorn?.description ?? "NA"
+//        let itemImage = UIImage(data:item.image?) ?? image
+        cell.setCell(image, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: lastTimeWornString, favorited: item.isFavorite)
         
         return cell
     }
@@ -184,7 +187,7 @@ extension ModelTableViewController{
 
 //MARK: - Initializer-ModelTableViewController Extension
 extension ModelTableViewController{
-    func SetUpTypes() {
+    func setUpTypes() {
 //        self.animateAllButtons()
         
         fetchRequestController = getFRC()

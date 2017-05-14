@@ -66,12 +66,13 @@ class ViewController: UIViewController {
         let item = Item(context: context)
         
         
-        item.brand = "1"
-        item.category = "2"
-        item.subCategory = "3"
-        item.id = 3
+        item.brand = "Brand"
+        item.model = "Model"
+        item.category = "Category"
+        item.subCategory = "Sub-Category"
+        item.id = 100
         item.isFavorite = false
-        item.index = 2
+        item.index = 1
         
         do{
             try context.save()
