@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
+		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
 		471C94CA1EBF371F00A6C337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94C91EBF371F00A6C337 /* AppDelegate.swift */; };
 		471C94E21EBF372000A6C337 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94E11EBF372000A6C337 /* MyFitZTests.swift */; };
 		471C94ED1EBF372000A6C337 /* MyFitZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94EC1EBF372000A6C337 /* MyFitZUITests.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		471C94C61EBF371F00A6C337 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		471C94C91EBF371F00A6C337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		471C94D81EBF371F00A6C337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				471C95461EBF3C6900A6C337 /* SelectionViewController.swift */,
 				471C95471EBF3C6900A6C337 /* MakeTableViewController.swift */,
 				478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */,
+				4718E6A11EC89C930079C65A /* DetailedViewController.swift */,
 				47FD157F1EC06943006CF4DA /* DataBaseController.swift */,
 				471C95481EBF3C6900A6C337 /* OptionsViewController.swift */,
 				471C95491EBF3C6900A6C337 /* Options-AboutViewController.swift */,
@@ -889,6 +892,7 @@
 				471C953B1EBF3B8C00A6C337 /* Constants_FavoritedWornTableViewController.swift in Sources */,
 				471C95981EBF3CE400A6C337 /* StatsTableVIewCell.swift in Sources */,
 				471C95921EBF3CE400A6C337 /* ModelCustomCell.swift in Sources */,
+				4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */,
 				47FD159B1EC080F1006CF4DA /* User+CoreDataClass.swift in Sources */,
 				47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */,
 				471C95391EBF3B8C00A6C337 /* Constants_RecentlyWornTableViewController.swift in Sources */,
