@@ -30,11 +30,16 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+    // Do any additional setup after loading the view, typically from a nib.
+    self.navigationController?.isToolbarHidden = true
+    self.navigationController?.isNavigationBarHidden = true
+
     
+    }
     override func didReceiveMemoryWarning() { 
         log.info(#function)
         super.didReceiveMemoryWarning()

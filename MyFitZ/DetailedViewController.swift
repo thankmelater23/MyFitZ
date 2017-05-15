@@ -498,7 +498,7 @@ extension DetailedViewController{
         self.setTitle()
         
         
-        itemImage.image = #imageLiteral(resourceName: "blank image")
+        
         
         self.customizeTableView()
         self.wearButtonAvailable()
@@ -533,6 +533,7 @@ extension DetailedViewController{
     }
     func setItem(){
 //        let entity =   Item(context: context)
+        itemImage.image = #imageLiteral(resourceName: "blank image")
         
         do{
             let items = try context.fetch(Item.fetchRequest())
