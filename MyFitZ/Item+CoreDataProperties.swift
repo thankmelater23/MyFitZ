@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  MyFitZ
 //
-//  Created by Andre V on 5/11/17.
+//  Created by Andre V on 5/15/17.
 //  Copyright © 2017 Bang Bang Studios. All rights reserved.
 //
 
@@ -22,11 +22,11 @@ extension Item {
     @NSManaged public var id: Int16
     @NSManaged public var image: NSData?
     @NSManaged public var index: Int16
-    @NSManaged public var isFavorite: Bool
+    @NSManaged public var isFavorite: NSNumber?
     @NSManaged public var itemNotes: String?
     @NSManaged public var lastTimeWorn: NSDate?
     @NSManaged public var model: String?
-    @NSManaged public var price: Int16
+    @NSManaged public var price: Double
     @NSManaged public var subCategory: String?
     @NSManaged public var timesWorn: Int16
     @NSManaged public var wardrobe: Wardrobe?
