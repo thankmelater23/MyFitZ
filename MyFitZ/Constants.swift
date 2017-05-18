@@ -94,76 +94,24 @@ let LOGO_BORDER_IMAGE = "solidGradienBlueBorder"
 
 let MY_CLOSET_BAR_COLOR = UIColor.black
 let MY_WANTS_CLOSET_BAR_COLOR = UIColor.darkGray
+
 //MARK: -GCD
-//var GlobalMainQueue: DispatchQueue {
-//    return DispatchQueue.main
-//}//First, the system provides you with a special serial queue known as the main queue. Like any serial queue, tasks in this queue execute one at a time. However, it’s guaranteed that all tasks will execute on the main thread, which is the only thread allowed to update your UI. This queue is the one to use for sending messages to UIView objects or posting notifications.
-//
-//
-//
-//var testVarj:DispatchQueue{
-//    return DispatchQueue.main("MAINSOME", DISPATCH_QUEUE_PRIORITY_LOW)
-//}
-//
-//var GlobalUserInteractiveQueue: DispatchQueue {
-//    return DispatchQueue.global(priority: Int(DispatchQoS.QoSClass.userInteractive.rawValue))
-//}//QOS_CLASS_USER_INTERACTIVE: The user interactive class represents tasks that need to be done immediately in order to provide a nice user experience. Use it for UI updates, event handling and small workloads that require low latency. The total amount of work done in this class during the execution of your app should be small.
-//
-//var GlobalUserInitiatedQueue: DispatchQueue {
-//    return DispatchQueue.global(priority: Int(DispatchQoS.QoSClass.userInitiated.rawValue))
-//}//QOS_CLASS_USER_INITIATED: The user initiated class represents tasks that are initiated from the UI and can be performed asynchronously. It should be used when the user is waiting for immediate results, and for tasks required to continue user interaction.
-//
-//var GlobalUtilityQueue: DispatchQueue {
-//    return DispatchQueue.global(priority: Int(DispatchQoS.QoSClass.utility.rawValue))
-//}//QOS_CLASS_UTILITY: The utility class represents long-running tasks, typically with a user-visible progress indicator. Use it for computations, I/O, networking, continous data feeds and similar tasks. This class is designed to be energy efficient.
-//
-//var GlobalBackgroundQueue: DispatchQueue {
-//    return DispatchQueue.global(priority: Int(DispatchQoS.QoSClass.background.rawValue))
-//}//QOS_CLASS_BACKGROUND: The background class represents tasks that the user is not directly aware of. Use it for prefetching, maintenance, and other tasks that don’t require user interaction and aren’t time-sensitive.
-//var GlobalMyFitZSerial: DispatchQueue {
-//    return DispatchQueue(label: "com.MyFitZ.Serial.Global", attributes: [])
-//}//Custom Created Serial Queue
-//var GlobalMyFitZConcurrent: DispatchQueue {
-//    return DispatchQueue(label: "com.MyFitZ.Concurrent.Global", attributes: DispatchQueue.Attributes.concurrent)
-//}//Custom Created Concurrent Queue
-//var GlobalWardrobeSerial: DispatchQueue {
-//    return DispatchQueue(label: "com.Wardrobe.Serial.Global", attributes: [])
-//}//Custom Created Serial Queue
-//var GlobalWardrobeConcurrent: DispatchQueue {
-//    return DispatchQueue(label: "com.Wardrobe.Concurrent.Global", attributes: DispatchQueue.Attributes.concurrent)
-//}//Custom Created Concurrent Queue
-//let qos = Int(DispatchQoS.QoSClass.userInteractive.rawValue)
-//var GlobalWardrobeUserInteractiveQueue = DispatchQueue.global(priority: qos)
-//
+//First, the system provides you with a special serial queue known as the main queue. Like any serial queue, tasks in this queue execute one at a time. However, it’s guaranteed that all tasks will execute on the main thread, which is the only thread allowed to update your UI. This queue is the one to use for sending messages to UIView objects or posting notifications.
+let GlobalMainQueue = DispatchQueue.main
+//QOS_CLASS_USER_INTERACTIVE: The user interactive class represents tasks that need to be done immediately in order to provide a nice user experience. Use it for UI updates, event handling and small workloads that require low latency. The total amount of work done in this class during the execution of your app should be small.
+let GlobalUserInteractiveQueue = DispatchQueue(label: "com.userInteractive", qos: .userInteractive, attributes: DispatchQueue.Attributes.concurrent)
+//QOS_CLASS_USER_INITIATED: The user initiated class represents tasks that are initiated from the UI and can be performed asynchronously. It should be used when the user is waiting for immediate results, and for tasks required to continue user interaction.
+let GlobalUserInitiatedQueue = DispatchQueue(label: "com.userInitiated", qos: .userInitiated, attributes: .concurrent)
+//QOS_CLASS_UTILITY: The utility class represents long-running tasks, typically with a user-visible progress indicator. Use it for computations, I/O, networking, continous data feeds and similar tasks. This class is designed to be energy efficient.
+let GlobalUtilityQueue = DispatchQueue(label: "com.Utility", qos: .utility, attributes: .concurrent)
+//QOS_CLASS_BACKGROUND: The background class represents tasks that the user is not directly aware of. Use it for prefetching, maintenance, and other tasks that don’t require user interaction and aren’t time-sensitive.
+let GlobalBackgroundQueue = DispatchQueue(label: "com.background", qos: .background, attributes: .concurrent)
 
-var GlobalMyFitZSerial = DispatchQueue(label: "com.MyFitZ.Serial.Global", attributes: [.concurrent])
-var GlobalMyFitZConcurrent = DispatchQueue(label: "com.MyFitZ.Concurrent.Global", attributes: [.concurrent])
-var GlobalWardrobeSerial = DispatchQueue(label: "com.Wardrobe.Serial.Global", attributes: [.concurrent])
-var GlobalWardrobeConcurrent = DispatchQueue(label: "com.Wardrobe.Concurrent.Global", attributes: [.concurrent])
-//Custom Created Concurrent Queue
-let qos = Int(DispatchQoS.QoSClass.userInteractive.hashValue)
+let GlobalMyFitZSerial = DispatchQueue(label: "com.MyFitZ.Serial.Global")
+let GlobalMyFitZConcurrent = DispatchQueue(label: "com.MyFitZ.Concurrent.Global", attributes: .concurrent)
+let GlobalWardrobeSerial = DispatchQueue(label: "com.Wardrobe.Serial.Global")
+let GlobalWardrobeConcurrent = DispatchQueue(label: "com.Wardrobe.Concurrent.Global", attributes: .concurrent)
 
-//
-//var GlobalWardrobeUserInteractiveQueue = DispatchQueue.global(priority: qos)
-//
-//    : DispatchQueue {
-//    return DispatchQueue(label: "com.MyFitZ.Serial.Global", attributes: [])
-//}//Custom Created Serial Queue
-//
-//    
-//    : DispatchQueue {
-//    return DispatchQueue(label: "com.MyFitZ.Concurrent.Global", attributes: DispatchQueue.Attributes.concurrent)
-//}//Custom Created Concurrent Queue
-//
-//    
-//    : DispatchQueue {
-//    return DispatchQueue(label: "com.Wardrobe.Serial.Global", attributes: [])
-//}//Custom Created Serial Queue
-//
-//    
-//    : DispatchQueue {
-//    return DispatchQueue(label: "com.Wardrobe.Concurrent.Global", attributes: DispatchQueue.Attributes.concurrent)
-//
 
 ///MARK: -Anylitics Constants
 ///TODO: -Add anylitic constants from detail VC

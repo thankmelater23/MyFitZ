@@ -10,6 +10,7 @@
 		33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
 		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
+		4718E6A41ECA26CA0079C65A /* CreateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */; };
 		471C94CA1EBF371F00A6C337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94C91EBF371F00A6C337 /* AppDelegate.swift */; };
 		471C94E21EBF372000A6C337 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94E11EBF372000A6C337 /* MyFitZTests.swift */; };
 		471C94ED1EBF372000A6C337 /* MyFitZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94EC1EBF372000A6C337 /* MyFitZUITests.swift */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
 		471C94C61EBF371F00A6C337 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		471C94C91EBF371F00A6C337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		471C94D81EBF371F00A6C337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -280,17 +282,16 @@
 		471C94C81EBF371F00A6C337 /* MyFitZ */ = {
 			isa = PBXGroup;
 			children = (
-				471C95A71EBF43E700A6C337 /* Scripts */,
 				471C94FA1EBF377200A6C337 /* MyFitZ.xcdatamodel */,
+				471C953F1EBF3B9300A6C337 /* Global Vars */,
+				471C95141EBF3B6800A6C337 /* Global Methods */,
+				471C95451EBF3BF900A6C337 /* Storyboards */,
+				471C95441EBF3BE900A6C337 /* View Controllers */,
 				471C95991EBF3CEC00A6C337 /* TableView Cells */,
 				471C95881EBF3CA900A6C337 /* Third Party API's */,
 				471C95401EBF3BB300A6C337 /* Core Data */,
 				471C95421EBF3BCE00A6C337 /* Media */,
-				471C95441EBF3BE900A6C337 /* View Controllers */,
 				471C95411EBF3BC400A6C337 /* Support Files */,
-				471C95451EBF3BF900A6C337 /* Storyboards */,
-				471C95141EBF3B6800A6C337 /* Global Methods */,
-				471C953F1EBF3B9300A6C337 /* Global Vars */,
 			);
 			path = MyFitZ;
 			sourceTree = "<group>";
@@ -367,6 +368,7 @@
 		471C95411EBF3BC400A6C337 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				471C95A71EBF43E700A6C337 /* Scripts */,
 				471C94C91EBF371F00A6C337 /* AppDelegate.swift */,
 				471C94D81EBF371F00A6C337 /* Info.plist */,
 			);
@@ -399,6 +401,7 @@
 				471C95471EBF3C6900A6C337 /* MakeTableViewController.swift */,
 				478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */,
 				4718E6A11EC89C930079C65A /* DetailedViewController.swift */,
+				4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */,
 				47FD157F1EC06943006CF4DA /* DataBaseController.swift */,
 				471C95481EBF3C6900A6C337 /* OptionsViewController.swift */,
 				471C95491EBF3C6900A6C337 /* Options-AboutViewController.swift */,
@@ -856,6 +859,7 @@
 				471C95861EBF3CA000A6C337 /* NSAttributedStringExtensions.swift in Sources */,
 				471C953A1EBF3B8C00A6C337 /* Constants_SearchViewController.swift in Sources */,
 				471C95501EBF3C6900A6C337 /* MakeTableViewController.swift in Sources */,
+				4718E6A41ECA26CA0079C65A /* CreateItemViewController.swift in Sources */,
 				47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */,
 				471C95381EBF3B8C00A6C337 /* Constants_CreateItemViewController.swift in Sources */,
 				471C94FB1EBF377200A6C337 /* MyFitZ.xcdatamodel in Sources */,
