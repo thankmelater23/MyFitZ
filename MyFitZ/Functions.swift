@@ -72,7 +72,7 @@ func playSoundEffects(_ soundID: SystemSoundID) {
  */
 func initializeSounds() {
     log.info("Sound effects are being loaded")
-//    GlobalUserInteractiveQueue.async(execute: {
+    GlobalUserInteractiveQueue.async(execute: {
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "clear0", withExtension: "wav")! as CFURL, &clearSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "save0", withExtension: "wav")! as CFURL, &saveSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "delete0", withExtension: "wav")! as CFURL, &deleteSFX)
@@ -89,7 +89,7 @@ func initializeSounds() {
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "alert0", withExtension: "wav")! as CFURL, &incorrectSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "notification0", withExtension: "wav")! as CFURL, &notificationSFX)
         log.info("All sounds initialized")
-//    })
+    })
 }
 
 

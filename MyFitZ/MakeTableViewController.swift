@@ -349,9 +349,9 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
 //        performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_MODEL, sender: self)
     }//Shows when a cell at row was selected
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }//Xcode bug hack that lets cell autosize properly
+//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 200
+//    }//Xcode bug hack that lets cell autosize properly
 }
 
 

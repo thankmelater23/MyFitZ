@@ -199,14 +199,17 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         //            log.warning("Incorect section")
         //            return 0
         //        }
-        return 12
+        return 11
     }// Return the number of rows in the section.
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.row == 11{ return 500}else{return 250}
+//    }//Random number returned to fix xcode bug
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 10{ return 200}else{return 50}
     }//Random number returned to fix xcode bug
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            return createCellFromRequiredDictionary(row: indexPath.row) as DoubleLabelTableViewCell
+        return createCellFromRequiredDictionary(row: indexPath.row) as DoubleLabelTableViewCell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //FIXME: - Fix when item atributes are ready
@@ -266,7 +269,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         case 5 :
             keyAndValue = ItemAttributeName.ITEM_FAVORITED_STRING
             if let fav = self.item.isFavorite{
-            cell.configure(name: keyAndValue, infoString: (fav.description))
+                cell.configure(name: keyAndValue, infoString: (fav.description))
             }else{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
@@ -333,14 +336,14 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         case 8 :
             keyAndValue = ItemAttributeName.ITEM_INDEX_STRING
             let number = self.item.index
-                cell.configure(name: keyAndValue, infoString: number.description)
+            cell.configure(name: keyAndValue, infoString: number.description)
         case 9 :
             keyAndValue = ItemAttributeName.ITEM_ID_STRING
             let number = self.item.id
             cell.configure(name: keyAndValue, infoString: number.description)
-                           //TODO: - Put id maker here
+            //TODO: - Put id maker here
             
-//        case 10 :
+            //        case 10 :
             //            keyAndValue = ItemAttributeName.ITEM_DATEPURCHASERD_STRING
             //            if let value = self.item.datePurchased{
             //                cell.configure(name: keyAndValue, infoString: value)
@@ -378,153 +381,6 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.configure(name: keyAndValue, infoString: "N/A")
             }
             
-//        case 5 :
-//            keyAndValue = ItemAttributeName.ITEM_DATERELEASED_STRING
-//            if let value = self.item.dateReleased{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-            
-//        case 11 :
-//            keyAndValue = ItemAttributeName.ITEM_RETAILPRICE_STRING
-//            if let value = self.item.retailPrice, value != UNSET_DOUBLE_VALUE{
-//                cell.configure(name: keyAndValue, infoString: value.description)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//            
-//        case 7 :
-//            keyAndValue = ItemAttributeName.ITEM_CONDITION_STRING
-//            if let value = self.item.condition{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//            
-//        case 8 :
-//            keyAndValue = ItemAttributeName.ITEM_PRIMARYMATERIAL_STRING
-//            if let value = self.item.primaryMaterial{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//        case 9:
-//            keyAndValue = ItemAttributeName.ITEM_SECONDAY_MATERIAL_STRING
-//            if let value = self.item.secondaryMaterial{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//        case 10:
-//            keyAndValue = ItemAttributeName.ITEM_STORELURL_STRING
-//            if let value = self.item.sellerURL{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//        case 11 :
-//            keyAndValue = ItemAttributeName.ITEM_STORELOCATION_STRING
-//            if let value = self.item.storeLocation{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//        case 12 :
-//            keyAndValue = ItemAttributeName.ITEM_SELLERNAME_STRING
-//            if let value = self.item.sellerName{
-//                cell.configure(name: keyAndValue, infoString: value)
-//            }else{
-//                cell.configure(name: keyAndValue, infoString: "N/A")
-//            }
-//        case 0 :
-            //            keyAndValue = ItemAttributeName.ITEM_DATEPURCHASERD_STRING
-            //            if let value = self.item.datePurchased{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            //        case 1 :
-            //            keyAndValue = ItemAttributeName.ITEM_COLOR_STRING
-            //            if let value = self.item.color{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            //        case 2 :
-            //            keyAndValue = ItemAttributeName.ITEM_SECONDARYCOLOR_STRING
-            //            if let value = self.item.secondaryColor{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            //
-            //        case 3 :
-            //            keyAndValue = ItemAttributeName.ITEM_THIRDCOLOR_STRING
-            //            if let value = self.item.thirdColor{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            
-        case 11 :
-            keyAndValue = ItemAttributeName.ITEM_ITEMNOTES_STRING
-            if let value = self.item.itemNotes{
-                cell.configure(name: keyAndValue, infoString: value)
-            }else{
-                cell.configure(name: keyAndValue, infoString: "N/A")
-            }
-        default:
-            assertionFailure("Row does not exist to create cell of required type. ROW: \(row)")
-        }
-        
-        return cell as DoubleLabelTableViewCell
-    }
-    ///Returns cell of Optional dictionary
-    func createCellFromOptionalDictionary(row: Int) -> DoubleLabelTableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
-        
-        var keyAndValue: String!
-        
-        switch row {
-            //        case 0 :
-            //            keyAndValue = ItemAttributeName.ITEM_DATEPURCHASERD_STRING
-            //            if let value = self.item.datePurchased{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            //        case 1 :
-            //            keyAndValue = ItemAttributeName.ITEM_COLOR_STRING
-            //            if let value = self.item.color{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            //        case 2 :
-            //            keyAndValue = ItemAttributeName.ITEM_SECONDARYCOLOR_STRING
-            //            if let value = self.item.secondaryColor{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            //
-            //        case 3 :
-            //            keyAndValue = ItemAttributeName.ITEM_THIRDCOLOR_STRING
-            //            if let value = self.item.thirdColor{
-            //                cell.configure(name: keyAndValue, infoString: value)
-            //            }else{
-            //                cell.configure(name: keyAndValue, infoString: "N/A")
-            //            }
-            
-        case 4 :
-            keyAndValue = ItemAttributeName.ITEM_ITEMNOTES_STRING
-            if let value = self.item.itemNotes{
-                cell.configure(name: keyAndValue, infoString: value)
-            }else{
-                cell.configure(name: keyAndValue, infoString: "N/A")
-            }
-            
             //        case 5 :
             //            keyAndValue = ItemAttributeName.ITEM_DATERELEASED_STRING
             //            if let value = self.item.dateReleased{
@@ -532,8 +388,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             //            }else{
             //                cell.configure(name: keyAndValue, infoString: "N/A")
             //            }
-            //
-            //        case 6 :
+            
+            //        case 11 :
             //            keyAndValue = ItemAttributeName.ITEM_RETAILPRICE_STRING
             //            if let value = self.item.retailPrice, value != UNSET_DOUBLE_VALUE{
             //                cell.configure(name: keyAndValue, infoString: value.description)
@@ -584,137 +440,164 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             //            }else{
             //                cell.configure(name: keyAndValue, infoString: "N/A")
             //            }
-            
+            //        case 0 :
+            //            keyAndValue = ItemAttributeName.ITEM_DATEPURCHASERD_STRING
+            //            if let value = self.item.datePurchased{
+            //                cell.configure(name: keyAndValue, infoString: value)
+            //            }else{
+            //                cell.configure(name: keyAndValue, infoString: "N/A")
+            //            }
+            //        case 1 :
+            //            keyAndValue = ItemAttributeName.ITEM_COLOR_STRING
+            //            if let value = self.item.color{
+            //                cell.configure(name: keyAndValue, infoString: value)
+            //            }else{
+            //                cell.configure(name: keyAndValue, infoString: "N/A")
+            //            }
+            //        case 2 :
+            //            keyAndValue = ItemAttributeName.ITEM_SECONDARYCOLOR_STRING
+            //            if let value = self.item.secondaryColor{
+            //                cell.configure(name: keyAndValue, infoString: value)
+            //            }else{
+            //                cell.configure(name: keyAndValue, infoString: "N/A")
+            //            }
+            //
+            //        case 3 :
+            //            keyAndValue = ItemAttributeName.ITEM_THIRDCOLOR_STRING
+            //            if let value = self.item.thirdColor{
+            //                cell.configure(name: keyAndValue, infoString: value)
+            //            }else{
+            //                cell.configure(name: keyAndValue, infoString: "N/A")
+        //            }
         default:
-            assertionFailure("Row does not exist to create cell of optional type. ROW: \(row)")
+            assertionFailure("Row does not exist to create cell of required type. ROW: \(row)")
         }
-        //
-        //        cell.layer.shadowColor = UIColor.blackColor().CGColor
-        //        cell.layer.shadowRadius = 10
         
         return cell as DoubleLabelTableViewCell
     }
+    ///Returns cell of Optional dictionary
+    
 }
 
-    
-    //MARK: - Initializer Created Methods
-    extension DetailedViewController{
-        func setUp(){
-            
-            self.animateAllButtons()
-            
-            self.buttonIsWearOrGot()
-            
-            self.setTitle()
-            
-            
-            
-            
-            self.customizeTableView()
-            self.wearButtonAvailable()
-            
-            self.setItem()
-            
-            
-            //self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)
-            //self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
-            //self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
-            //self.wearButtonAvailable()
-            //})
-            
-            
-        }//Sets up view
-        func customizeTableView(){
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.tableView.backgroundColor = SiliverSilkSheet
-            self.tableView?.tintColor = LeatherTexture
-            self.tableView.reloadData()
-            
+
+//MARK: - Initializer Created Methods
+extension DetailedViewController{
+    func setUp(){
+        
+        self.animateAllButtons()
+        
+        self.buttonIsWearOrGot()
+        
+        self.setTitle()
+        
+        
+        
+        
+        self.customizeTableView()
+        self.wearButtonAvailable()
+        
+        self.setItem()
+        
+        
+        //self.wearButton.animation.makeScale(0.0).moveX(-20).moveY(-20).makeBorderWidth(5.0).makeBorderColor(UIColor.blackColor()).animate(1.5)
+        //self.wearButton.animation.makeScale(1.0).animate(0.5).moveX(20).moveY(20).makeBorderColor(UIColor.whiteColor()).animate(3.0)
+        //self.wearButton.animation.makeScale(1.0).animateWithCompletion(1.0, {
+        //self.wearButtonAvailable()
+        //})
+        
+        
+    }//Sets up view
+    func customizeTableView(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.backgroundColor = SiliverSilkSheet
+        self.tableView?.tintColor = LeatherTexture
+        self.tableView.reloadData()
+        
+    }
+    func setTitle(){
+        //        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
+        if self.title == MY_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
+        }else if self.title == MY_WANTS_CLOSET{
+            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
-        func setTitle(){
-            //        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
-            if self.title == MY_CLOSET{
-                self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
-            }else if self.title == MY_WANTS_CLOSET{
-                self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
+        self.navigationController?.navigationBar.isTranslucent = false
+    }
+    func setItem(){
+        //        let entity =   Item(context: context)
+        itemImage.image = #imageLiteral(resourceName: "blank image")
+        
+        do{
+            let items = try context.fetch(Item.fetchRequest())
+            if items.count > 0{
+                item = items.first as! Item
+                log.verbose("Count: \(items.count)")
+            }else{
+                print("No results found")
+                
+                print("Creating new data base")
             }
-            self.navigationController?.navigationBar.isTranslucent = false
+        }catch{
+            log.error("Fetching Failed")
         }
-        func setItem(){
-            //        let entity =   Item(context: context)
-            itemImage.image = #imageLiteral(resourceName: "blank image")
-            
-            do{
-                let items = try context.fetch(Item.fetchRequest())
-                if items.count > 0{
-                    item = items.first as! Item
-                    log.verbose("Count: \(items.count)")
-                }else{
-                    print("No results found")
-                    
-                    print("Creating new data base")
-                }
-            }catch{
-                log.error("Fetching Failed")
-            }
-            
-            
-        }
+        
+        
     }
-    
-    
-    
-    //MARK: - General Methods-DetailedViewController Exension
-    extension DetailedViewController{
-        func sendItemToMyCloset(){
-            //Put code here to send to closet
-        }
+}
+
+
+
+//MARK: - General Methods-DetailedViewController Exension
+extension DetailedViewController{
+    func sendItemToMyCloset(){
+        //Put code here to send to closet
     }
-    
-    
-    
-    //MARK: - Animations-DetailedViewController Exension
-    extension DetailedViewController{
-        func wearButtonAvailable(){
-            //        let daysLastWorn:Int = item.lastTimeWorn.returnDaysInDate()
-            //
-            //        if daysLastWorn < 1{
-            //            hideWearButton()
-            //        }else{
-            //            showWearButton()
-            //        }
-        }
-        func buttonIsWearOrGot(){
-            //        let closet = Users_Wardrobe.closetSelectionString
-            //
-            //        if closet == MY_CLOSET{
-            //            wearButton.titleLabel?.text = "WEAR"
-            //        }else if closet == MY_WANTS_CLOSET{
-            //            wearButton.titleLabel?.text = "GOT"
-            //        }
-        }
+}
+
+
+
+//MARK: - Animations-DetailedViewController Exension
+extension DetailedViewController{
+    func wearButtonAvailable(){
+        //        let daysLastWorn:Int = item.lastTimeWorn.returnDaysInDate()
+        //
+        //        if daysLastWorn < 1{
+        //            hideWearButton()
+        //        }else{
+        //            showWearButton()
+        //        }
     }
-    
-    
-    
-    //MARK: - UI-DetailedViewController Extension
-    extension DetailedViewController{
-        func animateAllButtons(){
-            self.animateImage()
-            self.animateButtons()
-        }
-        func animateLogo(){
-            //    logoCustomization(self.logoImage)
-        }
-        func animateImage(){
-            imageCustomization(self.itemImage)
-        }
-        func animateButtons(){
-            clearButtonCustomization(self.editButton)
-            deleteButtonCustomization(self.deleteButton)
-            wearButtonAnimation(self.wearButton)
-        }
+    func buttonIsWearOrGot(){
+        //        let closet = Users_Wardrobe.closetSelectionString
+        //
+        //        if closet == MY_CLOSET{
+        //            wearButton.titleLabel?.text = "WEAR"
+        //        }else if closet == MY_WANTS_CLOSET{
+        //            wearButton.titleLabel?.text = "GOT"
+        //        }
+    }
+}
+
+
+
+//MARK: - UI-DetailedViewController Extension
+extension DetailedViewController{
+    func animateAllButtons(){
+        self.animateImage()
+        self.animateButtons()
+    }
+    func animateLogo(){
+        //    logoCustomization(self.logoImage)
+    }
+    func animateImage(){
+        imageCustomization(self.itemImage)
+    }
+    func animateButtons(){
+        clearButtonCustomization(self.editButton)
+        deleteButtonCustomization(self.deleteButton)
+        wearButtonAnimation(self.wearButton)
+    }
 }
 
 

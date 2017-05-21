@@ -400,6 +400,7 @@ extension CreateItemViewController{
         //        //        self.thirdColor = REPickerItem(title: "Third Color", value: COLOR_TYPE, placeholder: nil, options: [])
         //        self.thirdColor = RETextItem(title: "Third Color:", value: String(), placeholder: "Enter Item Third Color")
         self.itemNotes = RELongTextItem(title: "Item Notes:", value: String(), placeholder: nil)
+//        self.itemNotes?.cellHeight = 200
         //        self.isThisNew = REBoolItem(title: "New Item:", value: false)
         //        self.dateReleased = REDateTimeItem(title: "Release Date", value: nil , placeholder: nil, format: "MM-dd-yyyy", datePickerMode: UIDatePickerMode.date)
         //        self.retailPrice = RENumberItem(title: "Paid Price:", value: String(), placeholder: "Enter Paid Price For The Item")

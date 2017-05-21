@@ -146,7 +146,7 @@ extension ModelTableViewController{
     }
     ///Makes tableview cells auto resize properly for some reason, it won't without calling this function
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 300
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath) {

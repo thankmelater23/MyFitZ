@@ -28,10 +28,9 @@ class WebsiteViewController: UIViewController {
         let requestURL = URL(string: url)
         let request = URLRequest(url: requestURL!)
         
-//        GlobalUserInitiatedQueue.async(execute: {
-//            self.webView.loadRequest(request)
-//        })
-        //TODO: - fix in GCD
+        GlobalUserInitiatedQueue.async(execute: {
+            self.webView.loadRequest(request)
+        })
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
