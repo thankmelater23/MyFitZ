@@ -287,11 +287,11 @@
 				471C94FA1EBF377200A6C337 /* MyFitZ.xcdatamodel */,
 				471C953F1EBF3B9300A6C337 /* Global Vars */,
 				471C95141EBF3B6800A6C337 /* Global Methods */,
+				471C95401EBF3BB300A6C337 /* Core Data */,
 				471C95451EBF3BF900A6C337 /* Storyboards */,
 				471C95441EBF3BE900A6C337 /* View Controllers */,
 				471C95991EBF3CEC00A6C337 /* TableView Cells */,
 				471C95881EBF3CA900A6C337 /* Third Party API's */,
-				471C95401EBF3BB300A6C337 /* Core Data */,
 				471C95421EBF3BCE00A6C337 /* Media */,
 				471C95411EBF3BC400A6C337 /* Support Files */,
 			);
@@ -337,19 +337,9 @@
 				471C951A1EBF3B8C00A6C337 /* Constants_Wardrobe.swift */,
 				471C951B1EBF3B8C00A6C337 /* Constants_Item.swift */,
 				471C951C1EBF3B8C00A6C337 /* Constants_Fit.swift */,
-				471C951D1EBF3B8C00A6C337 /* Constants_ViewController.swift */,
-				471C951E1EBF3B8C00A6C337 /* Constants_SelectionViewController.swift */,
-				471C951F1EBF3B8C00A6C337 /* Constants_MakeTableViewController.swift */,
-				471C95201EBF3B8C00A6C337 /* Constants_ModelTableViewController.swift */,
-				471C95211EBF3B8C00A6C337 /* Constants_DetailedViewController.swift */,
-				471C95221EBF3B8C00A6C337 /* Constants_EditViewController.swift */,
-				471C95231EBF3B8C00A6C337 /* Constants_CreateItemViewController.swift */,
-				471C95241EBF3B8C00A6C337 /* Constants_RecentlyWornTableViewController.swift */,
-				471C95251EBF3B8C00A6C337 /* Constants_SearchViewController.swift */,
-				471C95261EBF3B8C00A6C337 /* Constants_FavoritedWornTableViewController.swift */,
-				471C95271EBF3B8C00A6C337 /* Constants_Global_Function.swift */,
 				471C95281EBF3B8C00A6C337 /* Constants_Extensions.swift */,
 				471C95291EBF3B8C00A6C337 /* SizesDatabase.swift */,
+				47DF3C541ED9966900DECBAC /* ViewController Constants */,
 			);
 			name = "Global Vars";
 			sourceTree = "<group>";
@@ -494,6 +484,24 @@
 				471C95A01EBF435A00A6C337 /* set_build_number.sh */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		47DF3C541ED9966900DECBAC /* ViewController Constants */ = {
+			isa = PBXGroup;
+			children = (
+				471C951D1EBF3B8C00A6C337 /* Constants_ViewController.swift */,
+				471C951E1EBF3B8C00A6C337 /* Constants_SelectionViewController.swift */,
+				471C951F1EBF3B8C00A6C337 /* Constants_MakeTableViewController.swift */,
+				471C95201EBF3B8C00A6C337 /* Constants_ModelTableViewController.swift */,
+				471C95211EBF3B8C00A6C337 /* Constants_DetailedViewController.swift */,
+				471C95221EBF3B8C00A6C337 /* Constants_EditViewController.swift */,
+				471C95231EBF3B8C00A6C337 /* Constants_CreateItemViewController.swift */,
+				471C95241EBF3B8C00A6C337 /* Constants_RecentlyWornTableViewController.swift */,
+				471C95251EBF3B8C00A6C337 /* Constants_SearchViewController.swift */,
+				471C95261EBF3B8C00A6C337 /* Constants_FavoritedWornTableViewController.swift */,
+				471C95271EBF3B8C00A6C337 /* Constants_Global_Function.swift */,
+			);
+			name = "ViewController Constants";
 			sourceTree = "<group>";
 		};
 		D91249E6DA005CC625993667 /* Pods */ = {
@@ -984,10 +992,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1030,9 +1038,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";

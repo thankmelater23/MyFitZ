@@ -9,7 +9,7 @@
 import Foundation
 import MobileCoreServices
 import UIKit
-import DKChainableAnimationKit
+//import DKChainableAnimationKit
 import RETableViewManager
 //import Crashlytics
 
@@ -235,7 +235,7 @@ extension CreateItemViewController{
         
         if(brand!.value != ""){viewItem.brand = brand!.value}else{viewItem.brand = "N/A"}
         
-        viewItem.isFavorite = NSNumber(value: (favorited?.value)!)
+        viewItem.isFavorite = (favorited?.value)!
         
         viewItem.price = Double((payedPrice!.value)!)!
         

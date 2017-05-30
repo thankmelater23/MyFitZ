@@ -268,12 +268,10 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
             
         case 5 :
             keyAndValue = ItemAttributeName.ITEM_FAVORITED_STRING
-            if let fav = self.item.isFavorite{
+            let fav = self.item.isFavorite
                 cell.configure(name: keyAndValue, infoString: (fav.description))
-            }else{
-                cell.configure(name: keyAndValue, infoString: "N/A")
-            }
-            
+        
+        
             //        case 6 :
             //            keyAndValue = ItemAttributeName.ITEM_ISTHISNEW_STRING
             //            let bool = self.item.isThisNew

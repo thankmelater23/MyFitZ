@@ -26,7 +26,7 @@
             var window: UIWindow?
  
             
-            
+            //MARK: - Application Methods
             func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
                 // Override point for customization after application launch.
                 
@@ -69,6 +69,7 @@
                 DataBaseController.saveContext()
             }
             
+            
             //MARK: - 3rd Pary Methods
             
             func SwiftBeaverSetUp(){
@@ -98,7 +99,7 @@
             //        // Required: Your app's iTunes App Store ID
             //        //        siren.appID = APP_ID
             //
-            //        // Optional: Defaults to .Option
+            //        // Optional: Defaults to .Option 
             //
             //
             //        /*
@@ -109,4 +110,6 @@
             //
             //        siren.alertType = SirenAlertType.option
             //    }
+            
+            //MARK: - Custom Methods
         }

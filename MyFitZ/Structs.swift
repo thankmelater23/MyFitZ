@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+struct ClosetType{
+    let closet:Int16 = 0
+    let wishList:Int16 = 0
+}
+let closetTypeGlobal = ClosetType()
 
 
 struct CateogryTypes{

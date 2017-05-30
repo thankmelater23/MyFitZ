@@ -124,8 +124,8 @@ extension ModelTableViewController{
         //TODO: -Change brand to subacategory instead
         let lastTimeWornString = item.lastTimeWorn?.description ?? "NA"
 //        let itemImage = UIImage(data:item.image?) ?? image
-        let fav = item.isFavorite?.boolValue
-        cell.setCell(image, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: lastTimeWornString, favorited: ((fav?.description) != nil))
+        let fav = item.isFavorite
+        cell.setCell(image, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: lastTimeWornString, favorited: fav)
         
         return cell
     }
