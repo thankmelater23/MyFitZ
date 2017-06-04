@@ -48,7 +48,7 @@ class MakeTableViewController: UITableViewController{
     //Core Data
     let context = DataBaseController.getContext()
 //    var items: [Item]? = nil
-    var user: User? = nil
+    var items: [Item]? = nil
     
     var fetchRequestController: NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
     

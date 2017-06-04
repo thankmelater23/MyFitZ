@@ -2,7 +2,7 @@
 //  Wardrobe+CoreDataProperties.swift
 //  MyFitZ
 //
-//  Created by Andre V on 5/26/17.
+//  Created by Andre V on 6/4/17.
 //  Copyright © 2017 Bang Bang Studios. All rights reserved.
 //
 

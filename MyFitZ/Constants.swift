@@ -23,6 +23,7 @@ let APP_ID = "993217543"
 let groupSync = AsyncGroup()
 
 
+
 //MARK: -App Arrays & Dictionary Constants
 let CATEGORY_PICKER_OPTIONS = [CateogryType.TOPS, CateogryType.BOTTOMS, CateogryType.HEADWARE, CateogryType.FOOTWARE, CateogryType.ACCESSORIES, CateogryType.UNDERCLOTHING]
 

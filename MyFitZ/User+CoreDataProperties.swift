@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MyFitZ
 //
-//  Created by Andre V on 5/26/17.
+//  Created by Andre V on 6/4/17.
 //  Copyright © 2017 Bang Bang Studios. All rights reserved.
 //
 
@@ -17,11 +17,11 @@ extension User {
     }
 
     @NSManaged public var age: Int16
+    @NSManaged public var closetType: Int16
     @NSManaged public var isBoy: Bool
     @NSManaged public var isOver12: Bool
     @NSManaged public var isOver17: Bool
     @NSManaged public var name: String?
-    @NSManaged public var closetType: Int16
     @NSManaged public var wardrobe: NSOrderedSet?
 
 }

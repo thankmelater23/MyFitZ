@@ -3413,10 +3413,10 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AMc-bv-cGM"/>
-        <segue reference="xO9-1f-52B"/>
-        <segue reference="V0L-af-YPQ"/>
         <segue reference="yWM-UB-HA3"/>
+        <segue reference="c9U-wD-ApB"/>
+        <segue reference="V0L-af-YPQ"/>
+        <segue reference="AMc-bv-cGM"/>
         <segue reference="t4Q-Cz-a01"/>
         <segue reference="YLt-3p-ENp"/>
     </inferredMetricsTieBreakers>

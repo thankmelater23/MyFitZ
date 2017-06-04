@@ -19,28 +19,28 @@ class ViewController: UIViewController {
     
     //MARK: -Variables
     var user: User? = nil
-    var items: [Item]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         log.info(#function)
-                log.info(user  ?? "User Is nil")
-        createData()
+        self.clearDefaultsPath()
+        self.setUser()
+        self.loggerFix()
+        
         
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         // Do any additional setup after loading the view, typically from a nib.
         
     }
     override func viewWillAppear(_ animated: Bool) {
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationController?.isToolbarHidden = true
-    self.navigationController?.isNavigationBarHidden = true
-
-    
+        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        
+        
     }
-    override func didReceiveMemoryWarning() { 
+    override func didReceiveMemoryWarning() {
         log.info(#function)
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
@@ -48,42 +48,53 @@ class ViewController: UIViewController {
         
     }
     
-    func createData(){
-        let context = DataBaseController.getContext()
+    //MARK: - Core Data
+    
+    //MARK: - Custom Functions
+    func setUser(){
+        //TODO: - Make a global define
+        let lastUserLoggedIn = "lastUserLoggedIn"
+        let number = "0"
+        let userNumber = UserDefaults.standard.object(forKey: lastUserLoggedIn)
         
-        do{
-            items = try context.fetch(Item.fetchRequest())
-            if items!.count > 0{
-                
-                log.verbose("Count: \(items!.count)")
-            }else{
-                print("No results found")
-                
-                print("Creating new data base")
-                
-                
-            }
-            log.debug("Items in Core Data: \(items) \n count: \(items!.count)")
-        }catch{
-            log.error("Fetching Failed")
+        if userNumber != nil{
+            UserDefaults.standard.set(number, forKey: lastUserLoggedIn)
         }
         
-        let item = Item(context: context)
+        user = self.fetchUser(userNumber: Int(number)!)
         
+    }
+    
+    func clearDefaultsPath(){
+        //Variables
+        let lastUserLoggedIn = "lastUserLoggedIn"
+        let categoryPath = "categoryPath"
+        let subCategoryPath = "subCategoryPath"
+        let itemIndexPath = "itemIndexPath"
         
-        item.brand = "Brand"
-        item.model = "Model"
-        item.category = "Category"
-        item.subCategory = "Sub-Category"
-        item.id = 100
-        item.isFavorite = false
-        item.index = 1
-        
+        //Reset path
+        defaults.set(nil, forKey: lastUserLoggedIn)
+        defaults.set(nil, forKey: categoryPath)
+        defaults.set(nil, forKey: subCategoryPath)
+        defaults.set(nil, forKey: itemIndexPath)
+    }
+    
+    func loggerFix(){
+        print("\n\n\n\n\n\n")
+    }
+    
+    func fetchUser(userNumber: Int)->User{
         do{
-            try context.save()
+            
+            let users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]
+            //TODO: - Fix this to take multiple users
+            return users.first!
         }catch{
-            log.error("Save Failed")
+            
+            log.warning("Didn't fetch")
+         return User()
         }
+        return User()
     }
     
 }

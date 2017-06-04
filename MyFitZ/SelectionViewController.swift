@@ -53,6 +53,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     
     
     //MARK: -Variables
+    var wardrobe: Wardrobe? = nil
     ///Dictionary path to item
     var path: [String: String]! = [String: String]()
     

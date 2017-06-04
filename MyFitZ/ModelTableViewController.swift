@@ -24,7 +24,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     //Core Data
     let context = DataBaseController.getContext()
     //    var items: [Item]? = nil
-    var user: User? = nil
+    var items: [Item]? = nil
     
     var fetchRequestController: NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
     
@@ -125,7 +125,11 @@ extension ModelTableViewController{
         let lastTimeWornString = item.lastTimeWorn?.description ?? "NA"
 //        let itemImage = UIImage(data:item.image?) ?? image
         let fav = item.isFavorite
-        cell.setCell(image, brandLabelText: item.brand!, modelLabelText: item.model!, lastTimeWornText: lastTimeWornString, favorited: fav)
+        cell.setCell(image,
+                     brandLabelText: item.brand ?? "N/A",
+                     modelLabelText: item.model ?? "N/A",
+                     lastTimeWornText: lastTimeWornString ?? "N/A",
+                     favorited: fav)
         
         return cell
     }

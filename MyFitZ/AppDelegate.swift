@@ -32,6 +32,7 @@
                 
                 self.SwiftBeaverSetUp()
                 self.removeConstraintFromLogger()
+                self.ifFirstStart()
                 
                 //        self.parseSetUp(launchOptions)
                 //        self.sirenInitilization()
@@ -89,27 +90,53 @@
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
             
-            //    func sirenInitilization(){
-            //        log.info(#function)
-            //        /* Siren code should go below window?.makeKeyAndVisible() */
-            //
-            //        // Siren is a singleton
-            //        let siren = Siren.sharedInstance
-            //
-            //        // Required: Your app's iTunes App Store ID
-            //        //        siren.appID = APP_ID
-            //
-            //        // Optional: Defaults to .Option 
-            //
-            //
-            //        /*
-            //         Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-            //         checks.
-            //         */
-            //        siren.checkVersion(.daily)
-            //
-            //        siren.alertType = SirenAlertType.option
-            //    }
+            func sirenInitilization(){
+//                    log.info(#function)
+//                    /* Siren code should go below window?.makeKeyAndVisible() */
+//            
+//                    // Siren is a singleton
+//                    let siren = Siren.sharedInstance
+//            
+//                    // Required: Your app's iTunes App Store ID
+//                    //        siren.appID = APP_ID
+//            
+//                    // Optional: Defaults to .Option 
+//            
+//            
+//                    /*
+//                     Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+//                     checks.
+//                     */
+//                    siren.checkVersion(.daily)
+//            
+//                    siren.alertType = SirenAlertType.option
+                }
+            
             
             //MARK: - Custom Methods
+            func ifFirstStart(){
+                //TODO: - Make a global define
+                let name = "isFirstStart"
+                let firstStart: Bool? = UserDefaults.standard.object(forKey: name) as? Bool
+                
+                if(firstStart == nil){
+                    log.info("This is the first start")
+                    UserDefaults.standard.set(false, forKey: name)
+                    self.createSampleDatabase()
+                    //Create initial data
+                    //Run First Start Code
+
+                }else{
+                    //Do nothing
+                    log.verbose("This is not first start")
+                    //Load data
+                }
+            }
+            
+            fileprivate func createSampleDatabase(){
+                User.createUsers()
+            }
         }
+        
+        
+        
