@@ -80,7 +80,7 @@ class ViewController: UIViewController {
     }
     
     func loggerFix(){
-        print("\n\n\n\n\n\n")
+        log.verbose("\n\n\n\n\n\n")
     }
     
     func fetchUser(userNumber: Int)->User{

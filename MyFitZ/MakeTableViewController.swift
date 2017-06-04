@@ -94,7 +94,7 @@ class MakeTableViewController: UITableViewController{
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         defer{
-            log.verbose("Segue transfer: \(String(describing: segue.identifier))")
+            log.debug("Segue transfer: \(String(describing: segue.identifier))")
         }
         if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL
         {
@@ -160,7 +160,7 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
 //        let fetchRequestUser:NSFetchRequest<User> = User.fetchRequest()
 //        do{
 //            let fetchedUsers = try DataBaseController.getContext().fetch(fetchRequestUser)
-//            print("Users Count: \(fetchedUsers.count)")
+//            log.debug("Users Count: \(fetchedUsers.count)")
 //            if fetchedUsers.count < 1{
 //                user = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.Item, into: context) as! Item
 //                user?.name = "User1"
@@ -179,7 +179,7 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
 //        let fetchRequestWardrobe:NSFetchRequest<Item> = Item.fetchRequest()
 //        do{
 //            let fetchedWardrobes = try DataBaseController.getContext().fetch(fetchRequestWardrobe)
-//            print("Search Results Count: \(fetchedWardrobes.count)")
+//            log.debug("Search Results Count: \(fetchedWardrobes.count)")
 //            
 //            if fetchedWardrobes.count < 1{
 //                let wardrobe = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.wardrobe, into: context) as! Wardrobe
@@ -212,14 +212,14 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
 //            log.error("item saved failed")
 //        }
 //        //        let fetchRequestItems:NSFetchRequest<Item> = Item.fetchRequest()
-//        print(user?.wardrobe?.items)
+//        log.debug(user?.wardrobe?.items)
         tableView.reloadData()
         //
         //
         //        do{
         //            items = try context.fetch(Item.fetchRequest())
-        //            print(items)
-        //            print("Items Count: \(items.count)")
+        //            log.debug(items)
+        //            log.debug("Items Count: \(items.count)")
         //        }catch{
         //            log.error("Fetch Failed")
         //        }
@@ -233,10 +233,10 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         //        let fetchRequestItem:NSFetchRequest<Item> = Item.fetchRequest()
         //        do{
         //            let searchResults = try DataBaseController.getContext().fetch(fetchRequestItem)
-        //            print("Search Results Count: \(searchResults.count)")
+        //            log.debug("Search Results Count: \(searchResults.count)")
         //
         //            for result in searchResults {
-        //                print("\(result.category!) - \(result.subCategory!) favorited: \(result.isFavorite)")
+        //                log.debug("\(result.category!) - \(result.subCategory!) favorited: \(result.isFavorite)")
         //            }
         //        }catch{
         //            log.error("Fetch Failed")

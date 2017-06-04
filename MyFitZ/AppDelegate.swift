@@ -24,7 +24,7 @@
         @UIApplicationMain
         class AppDelegate: UIResponder, UIApplicationDelegate {
             var window: UIWindow?
- 
+            
             
             //MARK: - Application Methods
             func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -33,10 +33,9 @@
                 self.SwiftBeaverSetUp()
                 self.removeConstraintFromLogger()
                 self.ifFirstStart()
-                
+                self.createAndRegisterNotificationSettings()
+                self.setNotifications()
                 //        self.parseSetUp(launchOptions)
-                //        self.sirenInitilization()
-                //        self.createAndRegisterNotificationSettings()
                 //        self.setNotifications()
                 //        self.parseSetUp()
                 //        self.setUpApperrance()
@@ -91,26 +90,26 @@
             }
             
             func sirenInitilization(){
-//                    log.info(#function)
-//                    /* Siren code should go below window?.makeKeyAndVisible() */
-//            
-//                    // Siren is a singleton
-//                    let siren = Siren.sharedInstance
-//            
-//                    // Required: Your app's iTunes App Store ID
-//                    //        siren.appID = APP_ID
-//            
-//                    // Optional: Defaults to .Option 
-//            
-//            
-//                    /*
-//                     Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-//                     checks.
-//                     */
-//                    siren.checkVersion(.daily)
-//            
-//                    siren.alertType = SirenAlertType.option
-                }
+                //                    log.info(#function)
+                //                    /* Siren code should go below window?.makeKeyAndVisible() */
+                //
+                //                    // Siren is a singleton
+                //                    let siren = Siren.sharedInstance
+                //
+                //                    // Required: Your app's iTunes App Store ID
+                //                    //        siren.appID = APP_ID
+                //
+                //                    // Optional: Defaults to .Option
+                //
+                //
+                //                    /*
+                //                     Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+                //                     checks.
+                //                     */
+                //                    siren.checkVersion(.daily)
+                //
+                //                    siren.alertType = SirenAlertType.option
+            }
             
             
             //MARK: - Custom Methods
@@ -125,7 +124,7 @@
                     self.createSampleDatabase()
                     //Create initial data
                     //Run First Start Code
-
+                    
                 }else{
                     //Do nothing
                     log.verbose("This is not first start")
@@ -133,10 +132,63 @@
                 }
             }
             
+            //MARK: - Core Data
             fileprivate func createSampleDatabase(){
                 User.createUsers()
+            }
+            
+            //MARK: - Notifications
+            func createAndRegisterNotificationSettings(){
+                log.info("Notifications are being set")
+                //Noitfications
+                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
+                
+                let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notifytypes, categories: nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(notifSettings)
+            }
+            func setNotifications(){
+                let daysTillFire = 7
+                let today = Date()
+                
+                let lastFiredDateString = "lastFiredDate"
+                var lastFiredDate = defaults.value(forKey: lastFiredDateString) as? NSDate
+                
+                if lastFiredDate == nil{
+                    lastFiredDate = today as NSDate
+                    defaults.set(today, forKey: lastFiredDateString)
+                    log.debug("First fired Date: \(lastFiredDate)")
+                }else{
+                    
+                    var dateComp = DateComponents()
+                    dateComp.day = daysTillFire
+                    let cal = Calendar.current
+                    
+                    let fireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: lastFiredDate as! Date, options: NSCalendar.Options())!
+                    
+                    let daysBetweenLastFiredAndNow = calicuateDaysBetweenTwoDates(start: today, end: fireDate as! Date)
+                    
+                    if(daysBetweenLastFiredAndNow < 1){
+                        let notification: UILocalNotification = UILocalNotification()
+                        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
+                        notification.alertTitle = "REMINDER"
+                        notification.alertLaunchImage = "icon1"
+                        
+                        let newFireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: today as! Date, options: NSCalendar.Options())!
+                        notification.fireDate = newFireDate
+                        
+                        UIApplication.shared.scheduleLocalNotification(notification)
+                        defaults.set(NSDate(), forKey: lastFiredDateString)
+                        log.debug("Notification Fired")
+                        log.debug("Updated Last Time Fired Date : \(newFireDate)")
+                        
+                    }else{
+                        log.warning("Wont fire notification")
+                        log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
+                    }
+                }
             }
         }
         
         
-        
+                

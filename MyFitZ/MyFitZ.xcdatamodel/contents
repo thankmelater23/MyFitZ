@@ -15,6 +15,9 @@
         <attribute name="subCategory" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="timesWorn" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="wardrobe" maxCount="1" deletionRule="Nullify" destinationEntity="Wardrobe" inverseName="items" inverseEntity="Wardrobe" syncable="YES"/>
+        <fetchedProperty name="favoritedItemsList" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Item"/>
+        </fetchedProperty>
         <compoundIndexes>
             <compoundIndex>
                 <index value="category"/>
@@ -39,7 +42,7 @@
         <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wardrobe" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-722" positionY="-273" width="128" height="253"/>
+        <element name="Item" positionX="-722" positionY="-273" width="128" height="281"/>
         <element name="User" positionX="-479" positionY="-270" width="128" height="148"/>
         <element name="Wardrobe" positionX="-488" positionY="-81" width="128" height="73"/>
     </elements>

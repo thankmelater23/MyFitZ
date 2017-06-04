@@ -35,8 +35,8 @@ class WebsiteViewController: UIViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress"{
-//            print("Loaded \(self.webView.estimatedProgress * 100)%")
-             print("Observer Called")
+//            log.debug("Loaded \(self.webView.estimatedProgress * 100)%")
+             log.debug("Observer Called")
         }
     }
 }

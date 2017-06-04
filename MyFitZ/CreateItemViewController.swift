@@ -133,9 +133,8 @@ extension CreateItemViewController{
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        
         //        defer{
-        //            log.verbose("Segue transfer: \(segue.identifier)")
+        //            log.info("Segue transfer: \(segue.identifier)")
         //        }
         //
         //        if segue.identifier == Segue.SEGUE_CREATION_TO_SELECTION{
@@ -461,9 +460,9 @@ extension CreateItemViewController{
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == ItemCreationProgress{
             self.itemCreationProgress()
-            print("Observer Called")
+            log.debug("Observer Called")
         }else{
-            print("Called notification for an observer thats not set up")
+            log.debug("Called notification for an observer thats not set up")
         }
     }
     func itemCreationProgress(){

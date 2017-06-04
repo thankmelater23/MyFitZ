@@ -38,7 +38,7 @@ class DetailedViewController: UIViewController{
         log.info(#function)
         self.setUp()
         self.view.backgroundColor = Cotton
-        log.verbose(self.item)
+        log.debug(self.item)
         
         // Do view setup here.
         
@@ -532,9 +532,9 @@ extension DetailedViewController{
                 item = items.first as! Item
                 log.verbose("Count: \(items.count)")
             }else{
-                print("No results found")
+                log.warning("No results found")
                 
-                print("Creating new data base")
+                log.debug("Creating new data base")
             }
         }catch{
             log.error("Fetching Failed")
