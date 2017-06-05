@@ -17,6 +17,9 @@
         import HeapInspector
         import WatchConnectivity
         import CoreData
+        import IQKeyboardManagerSwift
+        
+        
         
         let log = SwiftyBeaver.self
         
@@ -30,18 +33,17 @@
             func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
                 // Override point for customization after application launch.
                 
-                self.SwiftBeaverSetUp()
+                self.swiftBeaverSetUp()
                 self.removeConstraintFromLogger()
                 self.ifFirstStart()
                 self.createAndRegisterNotificationSettings()
                 self.setNotifications()
+                self.iqKeyboardInitilize()
                 //        self.parseSetUp(launchOptions)
                 //        self.setNotifications()
                 //        self.parseSetUp()
                 //        self.setUpApperrance()
                 //        initializeSounds()
-                
-                
                 return true
             }
             
@@ -69,10 +71,11 @@
                 DataBaseController.saveContext()
             }
             
+            //MARK: - Settings
+            
             
             //MARK: - 3rd Pary Methods
-            
-            func SwiftBeaverSetUp(){
+            func swiftBeaverSetUp(){
                 log.info(#function)
                 let console = ConsoleDestination()
                 log.addDestination(console)
@@ -82,6 +85,9 @@
                 log.info("Info Test")   // prio 3, INFO in green
                 log.warning("Warning Test")  // prio 4, WARNING in yellow
                 log.error("Error Test")  // prio 5, ERROR in red
+            }
+            func iqKeyboardInitilize(){
+                IQKeyboardManager.sharedManager().enable = true
             }
             
             func removeConstraintFromLogger(){
@@ -122,8 +128,6 @@
                     log.info("This is the first start")
                     UserDefaults.standard.set(false, forKey: name)
                     self.createSampleDatabase()
-                    //Create initial data
-                    //Run First Start Code
                     
                 }else{
                     //Do nothing
@@ -188,7 +192,10 @@
                     }
                 }
             }
+            
         }
+        
+        
         
         
                 

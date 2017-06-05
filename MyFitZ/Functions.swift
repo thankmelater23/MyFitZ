@@ -25,18 +25,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 //MARK: -Global Methods
 
-//MARK: -General
-/**
- Creates original User ID that takes value from cloud source assign to new user, increment value and save back to cloud with new value for next user
- */
-func createUserId(){
-    //TODO: -Add create user id
-    //standard defaults
-    //Get value for bool isNew
-    //If true get last id from system assign to self, increment system value, save back to system
-    //set in stadard defaults the id
-}
-
 func calicuateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
     
     let currentCalendar = Calendar.current
@@ -48,6 +36,9 @@ func calicuateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
     }
     return end - start
 }
+
+//MARK: -General
+
 
 //MARK: -Generators
 /**

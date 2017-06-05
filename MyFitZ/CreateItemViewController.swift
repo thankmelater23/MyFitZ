@@ -333,6 +333,7 @@ extension CreateItemViewController{
         self.setUI()
         self.setPickerInfo()
         self.animateAllButtons()
+        self.setKeyBoardNotifications()
         
         viewItem = Item(context: context)
         
@@ -699,6 +700,30 @@ extension CreateItemViewController{
     func removeObservers(){
         self.categoryInputTextField.removeObserver(self, forKeyPath: ItemCreationProgress)
         self.subCategoryInputTextField.removeObserver(self, forKeyPath: ItemCreationProgress)
+        
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func setKeyBoardNotifications(){
+//        NotificationCenter.default.addObserver(self, selector: #selector(CreateItemViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(CreateItemViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y == 0{
+//                self.view.frame.origin.y += keyboardSize.height
+//            }
+//        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y != 0{
+//                self.view.frame.origin.y -= keyboardSize.height
+//            }
+//        }
     }
 }
 

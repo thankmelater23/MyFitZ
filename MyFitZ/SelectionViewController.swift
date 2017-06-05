@@ -144,6 +144,9 @@ func assignCategoriesItemCount(){
     //                })
     //        })
 }
+    deinit{
+        log.info(#function)
+    }
 //    deinit{
 //        log.info(#function)
 //

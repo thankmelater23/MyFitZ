@@ -26,12 +26,13 @@ class ViewController: UIViewController {
         self.clearDefaultsPath()
         self.setUser()
         self.loggerFix()
+        self.setTitle()
+        self.appSettings()
         
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        // Do any additional setup after loading the view, typically from a nib.
-        
+    override func viewDidAppear(_ animated: Bool){
+        self.navCustomized()
     }
     override func viewWillAppear(_ animated: Bool) {
         // Do any additional setup after loading the view, typically from a nib.
@@ -47,7 +48,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
         
     }
-    
+    deinit{
+        log.info(#function)
+    }
     //MARK: - Core Data
     
     //MARK: - Custom Functions
@@ -96,5 +99,39 @@ class ViewController: UIViewController {
         }
         return User()
     }
+    
+}
+
+//MARK: -Actions-ViewController Extension
+extension ViewController{
+    @IBAction func selectedCloset(){
+        log.info(#function)
+        user?.closetType = closetTypeGlobal.closet
+        playSoundEffects(closetSFX)
+        
+        
+        
+        //                defaults.addAndSend("CLOSET_SELECTION_COUNT")
+        
+        //                self.logPageView()
+        
+//        performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
+    }
+    @IBAction func selectedWants(){
+        log.info(#function)
+        user?.closetType = closetTypeGlobal.wishList
+        playSoundEffects(wishlistSFX)
+        
+        
+        //                defaults.addAndSend("WISHLIST_SELECTION_COUNT")
+        
+        //                self.logPageView()
+        performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
+    }
+    @IBAction func selectedOptions(){
+        log.info(#function)
+        self.performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_OPTIONS, sender: self)
+    }
+    
     
 }
