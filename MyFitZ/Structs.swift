@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct ClosetType{
-    let closet:Int16 = 0
-    let wishList:Int16 = 0
+    let closet:Int16 = Int16(0)
+    let wishList:Int16 = Int16(1)
 }
 let closetTypeGlobal = ClosetType()
 
@@ -38,6 +38,8 @@ let myfitzEntities = MyFitZEntities()
 struct Segues{
     let SEGUE_MAIN_TO_SELECTION      = "mainToSelection"
     let SEGUE_MAIN_TO_FITMAKER       = "mainToFitMaker"
+    let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
+    let SEGUE_MAIN_TO_OPTION_INSTRUCTIONS   = "mainToOptionInstructions"
     let SEGUE_SELECTION_TO_MAKE      = "selectionToMake"
     let SEGUE_SELECTION_TO_MAIN      = "selectionToMain"
     let SEGUE_SELECTION_TO_RECENT    = "selectionToRecent"
@@ -73,10 +75,9 @@ struct Segues{
     let SEGUE_IMAGE_TO_DETAIL         = "imageToDetail"
     let SEGUE_SELECTION_TO_PERCENTAGE = "selectionToPercentage"
     let SEGUE_PERCENTAGE_TO_SELECTION = "percentToSelection"
-    let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
     let SEGUE_OPTIONS_TO_HELP         = "optionsToHelp"
     let SEGUE_HELP_TO_INSTRUCTIONS    = "helpToInstructions"
-    let SEGUE_MAIN_TO_OPTION_INSTRUCTIONS   = "mainToOptionInstructions"
+    
     let SEGUE_OPTIONS_TO_WEBSITE         = "optionToWebsite"
 }
 let Segue = Segues()
@@ -153,10 +154,11 @@ let CompanyColors = COMPANY_COLORS()
 
 //MARK: -App Path types
 struct PathTypes{
+    let PATHTYPE_USER_STRING        = "User"
     let PATHTYPE_CLOSET_STRING      = "Closet"
-    let PATHTYPE_ID_STRING          = "ID"
     let PATHTYPE_CATEGORY_STRING    = "Category"
     let PATHTYPE_SUBCATEGORY_STRING = "SubCategory"
     let PATHTYPE_INDEX_STRING       = "Index"
+    let PATHTYPE_ID_STRING          = "ID"
 }
 let PathType = PathTypes()

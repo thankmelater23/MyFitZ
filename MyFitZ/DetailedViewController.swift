@@ -23,22 +23,22 @@ class DetailedViewController: UIViewController{
     @IBOutlet weak var editButton: UIButton!
     
     //MARK: -Variables
-    var item: Item = Item()
+    @objc var item: Item = Item()
     ///Dictionary path to item
-    var path: [String: String]! = [String: String]()
+    @objc var path: [String: String]! = [String: String]()
     
     //Core Data
-    let context = DataBaseController.getContext()
+    @objc let context = DataBaseController.getContext()
     
     
     
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(#function)
+        //log.info(#function)
         self.setUp()
         self.view.backgroundColor = Cotton
-        log.debug(self.item)
+        //log.debug(self.item)
         
         // Do view setup here.
         
@@ -50,7 +50,7 @@ class DetailedViewController: UIViewController{
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         //        defer{
-        //            log.verbose("Segue transfer: \(segue.identifier)")
+        //            //log.verbose("Segue transfer: \(segue.identifier)")
         //        }
         //
         //        if segue.identifier == Segue.SEGUE_DETAIL_TO_MODEL
@@ -83,7 +83,7 @@ class DetailedViewController: UIViewController{
         //        }
     }
     deinit{
-        log.info(#function)
+        //log.info(#function)
         
     }
 }
@@ -129,7 +129,7 @@ extension DetailedViewController{
     }
     
     //MARK: -Action sum Methods
-    func wearActivate(){
+    @objc func wearActivate(){
         playSoundEffects(wearSFX)
         //
         //        let dateFormatter = DateFormatter()
@@ -163,12 +163,12 @@ extension DetailedViewController{
         //
         //        defaults.addAndSend("WEAR_PRESSED_COUNT")
     }
-    func hideWearButton(){
+    @objc func hideWearButton(){
         wearButton.alpha = 0.5
         //        wearButton.backgroundColor = UIColor.grayColor()
         wearButton.isUserInteractionEnabled = false
     }
-    func showWearButton(){
+    @objc func showWearButton(){
         wearButton.alpha = 1.0
         //        wearButton.backgroundColor = UIColor.clearColor()
         wearButton.isUserInteractionEnabled = true
@@ -196,7 +196,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         //        }
         //
         //        else{
-        //            log.warning("Incorect section")
+        //            //log.warning("Incorect section")
         //            return 0
         //        }
         return 11
@@ -224,7 +224,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         headerView.textLabel?.textColor = RawGoldTexture
     }
-    func createCellFromRequiredDictionary(row: Int) -> DoubleLabelTableViewCell{
+    @objc func createCellFromRequiredDictionary(row: Int) -> DoubleLabelTableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.DOUBLE_LABEL_CELL) as! DoubleLabelTableViewCell
         
@@ -480,7 +480,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
 
 //MARK: - Initializer Created Methods
 extension DetailedViewController{
-    func setUp(){
+    @objc func setUp(){
         
         self.animateAllButtons()
         
@@ -505,7 +505,7 @@ extension DetailedViewController{
         
         
     }//Sets up view
-    func customizeTableView(){
+    @objc func customizeTableView(){
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.backgroundColor = SiliverSilkSheet
@@ -513,7 +513,7 @@ extension DetailedViewController{
         self.tableView.reloadData()
         
     }
-    func setTitle(){
+    @objc func setTitle(){
         //        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: "Detail")
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -522,7 +522,7 @@ extension DetailedViewController{
         }
         self.navigationController?.navigationBar.isTranslucent = false
     }
-    func setItem(){
+    @objc func setItem(){
         //        let entity =   Item(context: context)
         itemImage.image = #imageLiteral(resourceName: "blank image")
         
@@ -530,14 +530,14 @@ extension DetailedViewController{
             let items = try context.fetch(Item.fetchRequest())
             if items.count > 0{
                 item = items.first as! Item
-                log.verbose("Count: \(items.count)")
+                //log.verbose("Count: \(items.count)")
             }else{
-                log.warning("No results found")
+                //log.warning("No results found")
                 
-                log.debug("Creating new data base")
+                //log.debug("Creating new data base")
             }
         }catch{
-            log.error("Fetching Failed")
+            //log.error("Fetching Failed")
         }
         
         
@@ -548,7 +548,7 @@ extension DetailedViewController{
 
 //MARK: - General Methods-DetailedViewController Exension
 extension DetailedViewController{
-    func sendItemToMyCloset(){
+    @objc func sendItemToMyCloset(){
         //Put code here to send to closet
     }
 }
@@ -557,7 +557,7 @@ extension DetailedViewController{
 
 //MARK: - Animations-DetailedViewController Exension
 extension DetailedViewController{
-    func wearButtonAvailable(){
+    @objc func wearButtonAvailable(){
         //        let daysLastWorn:Int = item.lastTimeWorn.returnDaysInDate()
         //
         //        if daysLastWorn < 1{
@@ -566,7 +566,7 @@ extension DetailedViewController{
         //            showWearButton()
         //        }
     }
-    func buttonIsWearOrGot(){
+    @objc func buttonIsWearOrGot(){
         //        let closet = Users_Wardrobe.closetSelectionString
         //
         //        if closet == MY_CLOSET{
@@ -581,17 +581,17 @@ extension DetailedViewController{
 
 //MARK: - UI-DetailedViewController Extension
 extension DetailedViewController{
-    func animateAllButtons(){
+    @objc func animateAllButtons(){
         self.animateImage()
         self.animateButtons()
     }
-    func animateLogo(){
+    @objc func animateLogo(){
         //    logoCustomization(self.logoImage)
     }
-    func animateImage(){
+    @objc func animateImage(){
         imageCustomization(self.itemImage)
     }
-    func animateButtons(){
+    @objc func animateButtons(){
         clearButtonCustomization(self.editButton)
         deleteButtonCustomization(self.deleteButton)
         wearButtonAnimation(self.wearButton)

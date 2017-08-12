@@ -15,9 +15,44 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>113</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>4b84b1226e93ac404abf87cdd625fca3f2f67cb7</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Answers</string>
+			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>apikey</key>
+					<string>c8b52b639c1648dc953b5f55d4d3511f</string>
+				</dict>
+				<key>KitName</key>
+				<string>Appsee</string>
+			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Optimizely</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

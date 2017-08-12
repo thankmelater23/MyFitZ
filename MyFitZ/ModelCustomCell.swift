@@ -27,7 +27,7 @@ class ModelCustomCell: UITableViewCell{
     override func setSelected(_ selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
-    func borderCustomization(){
+    @objc func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
         
@@ -35,7 +35,7 @@ class ModelCustomCell: UITableViewCell{
         self.layer.borderWidth = 2
         self.layer.borderColor = Stitching.cgColor
     }
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = Jean2
         self.borderCustomization()
     }
@@ -46,7 +46,7 @@ class ModelCustomCell: UITableViewCell{
 
 //MARK: -Initializers
 extension ModelCustomCell{
-    func setCell(_ modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String, favorited: Bool){
+    @objc func setCell(_ modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String, favorited: Bool){
         self.modelImage.image    = modelImageText
         self.brandLabel.text     = brandLabelText
         self.modelLabel.text     = modelLabelText
@@ -57,7 +57,7 @@ extension ModelCustomCell{
         self.customizeView()
         
     }
-    func setFavoritedStar(_ fav: Bool){
+    @objc func setFavoritedStar(_ fav: Bool){
         if fav == true{
             star.image = UIImage(named: "star_on")
         }else{
@@ -70,7 +70,7 @@ extension ModelCustomCell{
 
 //MARK: -Animations-ViewController Extension
 extension ModelCustomCell{
-    func animateView(){
+    @objc func animateView(){
         CellButtons(self.star)
         categoryCellImageCustomization(self.imageView!)
     }

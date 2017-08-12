@@ -16,20 +16,20 @@ import CoreData
 class ModelTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     //MARK: -Variables
     ///items in an Array holds the sub-categories of the items
-    var arrayOfItems: [Item]! = [Item]()
+    @objc var arrayOfItems: [Item]! = [Item]()
     ///Dictionary path to item
-    var path: [String: String]! = [String: String]()
+    @objc var path: [String: String]! = [String: String]()
     var indexToSend:Int?
     
     //Core Data
-    let context = DataBaseController.getContext()
+    @objc let context = DataBaseController.getContext()
     //    var items: [Item]? = nil
-    var items: [Item]? = nil
+    @objc var items: [Item]? = nil
     
-    var fetchRequestController: NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
+    @objc var fetchRequestController: NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
     
     
-    func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
+    @objc func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         let categorySorter = NSSortDescriptor(key: "category", ascending: true)
         let nameSorter = NSSortDescriptor(key: "model", ascending: true)
@@ -38,7 +38,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
         return fetchRequest
     }
     
-    func getFRC() -> NSFetchedResultsController<NSFetchRequestResult>{
+    @objc func getFRC() -> NSFetchedResultsController<NSFetchRequestResult>{
         fetchRequestController = NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         return fetchRequestController
     }
@@ -47,7 +47,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(#function)
+        //log.info(#function)
         self.setUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
         
@@ -58,7 +58,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         //        defer{
-        //            log.verbose("Segue transfer: \(segue.identifier)")
+        //            //log.verbose("Segue transfer: \(segue.identifier)")
         //        }
         //
         //
@@ -91,10 +91,10 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        log.warning("Recieved Memory Warning")
+        //log.warning("Recieved Memory Warning")
     }
     deinit{
-        log.info(#function)
+        //log.info(#function)
         
     }
 }
@@ -166,7 +166,7 @@ extension ModelTableViewController{
                 do{
                     try self.context.save()
                 }catch{
-                    log.error("Deleted item failed")
+                    //log.error("Deleted item failed")
                 }
                 
                 self.tableView.reloadData()
@@ -192,7 +192,7 @@ extension ModelTableViewController{
 
 //MARK: - Initializer-ModelTableViewController Extension
 extension ModelTableViewController{
-    func setUpTypes() {
+    @objc func setUpTypes() {
 //        self.animateAllButtons()
         
         fetchRequestController = getFRC()
@@ -201,7 +201,7 @@ extension ModelTableViewController{
         do{
             try fetchRequestController.performFetch()
         }catch{
-            log.error("Fetch Failed")
+            //log.error("Fetch Failed")
         }
         self.tableView.reloadData()
         //        self.setTitle()

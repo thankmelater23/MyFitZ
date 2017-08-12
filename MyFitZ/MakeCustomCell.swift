@@ -28,12 +28,12 @@ class MakeCustomCell: UITableViewCell{
         super.setSelected(selected ,  animated: animated)
     }
     
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = DarkBlueJean
         self.borderCustomization()
     }
     
-    func borderCustomization(){
+    @objc func borderCustomization(){
 //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
         
@@ -48,7 +48,7 @@ class MakeCustomCell: UITableViewCell{
 
 //MARK: -Initializers
 extension MakeCustomCell{
-    func setCell(_ Image: UIImage, makeLabelText: String, numberOfItemsText: Int){
+    @objc func setCell(_ Image: UIImage, makeLabelText: String, numberOfItemsText: Int){
         self.makeImage.image = Image
         self.makeLabel.text = makeLabelText
         self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
@@ -62,7 +62,7 @@ extension MakeCustomCell{
 
 //MARK: -Animations-ViewController Extension
 extension MakeCustomCell{
-    func animateView(){
+    @objc func animateView(){
         categoryCellImageCustomization(self.imageView!)
     }
 }

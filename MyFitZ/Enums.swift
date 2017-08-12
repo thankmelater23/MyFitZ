@@ -36,3 +36,8 @@ enum CreateItemStages: Int{
     case stageNoSubCategory
     case stageNoModel
 }
+
+enum WardrobeType: String{
+    case closet = "closet"
+    case wants = "wants"
+}

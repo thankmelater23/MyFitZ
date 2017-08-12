@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
+		470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */; };
 		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
 		4718E6A41ECA26CA0079C65A /* CreateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */; };
 		471C94CA1EBF371F00A6C337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C94C91EBF371F00A6C337 /* AppDelegate.swift */; };
@@ -52,7 +53,6 @@
 		471C95561EBF3C6900A6C337 /* Options-ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C954D1EBF3C6900A6C337 /* Options-ContactViewController.swift */; };
 		471C95571EBF3C6900A6C337 /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C954E1EBF3C6900A6C337 /* WebsiteViewController.swift */; };
 		471C955B1EBF3C8000A6C337 /* Instruction_CreateItem.gif in Resources */ = {isa = PBXBuildFile; fileRef = 471C95581EBF3C8000A6C337 /* Instruction_CreateItem.gif */; };
-		471C955C1EBF3C8000A6C337 /* ViewItemInstructions.gif in Resources */ = {isa = PBXBuildFile; fileRef = 471C95591EBF3C8000A6C337 /* ViewItemInstructions.gif */; };
 		471C955D1EBF3C8000A6C337 /* jeremy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 471C955A1EBF3C8000A6C337 /* jeremy.gif */; };
 		471C95711EBF3C9300A6C337 /* add0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 471C955E1EBF3C9300A6C337 /* add0.wav */; };
 		471C95721EBF3C9300A6C337 /* alert0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 471C955F1EBF3C9300A6C337 /* alert0.wav */; };
@@ -87,8 +87,19 @@
 		471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959E1EBF435A00A6C337 /* CodeComplexity.sh */; };
 		471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959F1EBF435A00A6C337 /* LinesOfCode.sh */; };
 		471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C95A01EBF435A00A6C337 /* set_build_number.sh */; };
+		475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
+		475B74561F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
+		475B74571F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
+		476CB54E1F2125BC0037BBD6 /* File.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 476CB54D1F2125BC0037BBD6 /* File.rtf */; };
 		478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */; };
+		47AC4CB81F233CDF00272720 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = 47AC4CB71F233CDF00272720 /* Todo */; };
 		47ED82711ED1BD1A005E79BD /* LongCreationUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */; };
+		47F710AE1F343FA0007CC98C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AD1F343FA0007CC98C /* TableViewController.swift */; };
+		47F710B01F343FE8007CC98C /* AAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AF1F343FE7007CC98C /* AAViewController.swift */; };
+		47F710B21F34401B007CC98C /* AwesomeDataDemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */; };
+		47F710B41F34402A007CC98C /* UnsplashImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B31F34402A007CC98C /* UnsplashImage.swift */; };
+		47F710B61F344077007CC98C /* JSNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B51F344077007CC98C /* JSNViewController.swift */; };
+		47F710B81F36AE66007CC98C /* DBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B71F36AE65007CC98C /* DBViewController.swift */; };
 		47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD157F1EC06943006CF4DA /* DataBaseController.swift */; };
 		47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */; };
 		47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */; };
@@ -117,6 +128,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
+		471452301F30125800D03426 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../../../../../../.Trash/TableViewController.swift; sourceTree = "<group>"; };
+		471452311F30125800D03426 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = ../../../../../../.Trash/CoreDataManager.swift; sourceTree = "<group>"; };
+		471452341F303F7B00D03426 /* OtherFKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OtherFKViewController.swift; path = "../../../../../../Documents/Core Data Projects/Blog_Intro_to_CoreData-master/ToDO App/OtherFKViewController.swift"; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
 		471C94C61EBF371F00A6C337 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +181,6 @@
 		471C954D1EBF3C6900A6C337 /* Options-ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Options-ContactViewController.swift"; sourceTree = "<group>"; };
 		471C954E1EBF3C6900A6C337 /* WebsiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 		471C95581EBF3C8000A6C337 /* Instruction_CreateItem.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Instruction_CreateItem.gif; sourceTree = "<group>"; };
-		471C95591EBF3C8000A6C337 /* ViewItemInstructions.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ViewItemInstructions.gif; sourceTree = "<group>"; };
 		471C955A1EBF3C8000A6C337 /* jeremy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = jeremy.gif; sourceTree = "<group>"; };
 		471C955E1EBF3C9300A6C337 /* add0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add0.wav; sourceTree = "<group>"; };
 		471C955F1EBF3C9300A6C337 /* alert0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alert0.wav; sourceTree = "<group>"; };
@@ -201,8 +215,17 @@
 		471C959E1EBF435A00A6C337 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CodeComplexity.sh; sourceTree = "<group>"; };
 		471C959F1EBF435A00A6C337 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
 		471C95A01EBF435A00A6C337 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
+		475B74541F31600400C13743 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		476CB54D1F2125BC0037BBD6 /* File.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = File.rtf; sourceTree = "<group>"; };
 		478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
+		47AC4CB71F233CDF00272720 /* Todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
 		47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongCreationUITableViewCell.swift; sourceTree = "<group>"; };
+		47F710AD1F343FA0007CC98C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/TableViewController.swift"; sourceTree = "<group>"; };
+		47F710AF1F343FE7007CC98C /* AAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AAViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/AAViewController.swift"; sourceTree = "<group>"; };
+		47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwesomeDataDemoAPI.swift; path = "../../../../../../Documents/Core Data Projects/AwesomeData-master/Example/AwesomeData/Library/AwesomeDataDemoAPI.swift"; sourceTree = "<group>"; };
+		47F710B31F34402A007CC98C /* UnsplashImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnsplashImage.swift; path = "../../../../../../Documents/Core Data Projects/AwesomeData-master/Example/AwesomeData/Model/UnsplashImage.swift"; sourceTree = "<group>"; };
+		47F710B51F344077007CC98C /* JSNViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNViewController.swift; path = "../../../../../../Downloads/iOS-JSON-Downloading-Demo-master/JOSNSwiftDemo/JSNViewController.swift"; sourceTree = "<group>"; };
+		47F710B71F36AE65007CC98C /* DBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBViewController.swift; path = "../../../../../../Downloads/Tutorial-iOS-CoreData-master/\\9\\963/DBViewController.swift"; sourceTree = "<group>"; };
 		47FD157F1EC06943006CF4DA /* DataBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
 		47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -262,6 +285,8 @@
 		471C94BD1EBF371F00A6C337 = {
 			isa = PBXGroup;
 			children = (
+				47AC4CB71F233CDF00272720 /* Todo */,
+				476CB54D1F2125BC0037BBD6 /* File.rtf */,
 				471C94C81EBF371F00A6C337 /* MyFitZ */,
 				471C94E01EBF372000A6C337 /* MyFitZTests */,
 				471C94EB1EBF372000A6C337 /* MyFitZUITests */,
@@ -360,8 +385,10 @@
 		471C95411EBF3BC400A6C337 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				476258D81F300A8200666384 /* Code To Use */,
 				471C95A71EBF43E700A6C337 /* Scripts */,
 				471C94C91EBF371F00A6C337 /* AppDelegate.swift */,
+				475B74541F31600400C13743 /* GoogleService-Info.plist */,
 				471C94D81EBF371F00A6C337 /* Info.plist */,
 			);
 			name = "Support Files";
@@ -395,6 +422,7 @@
 				4718E6A11EC89C930079C65A /* DetailedViewController.swift */,
 				4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */,
 				47FD157F1EC06943006CF4DA /* DataBaseController.swift */,
+				470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */,
 				471C95481EBF3C6900A6C337 /* OptionsViewController.swift */,
 				471C95491EBF3C6900A6C337 /* Options-AboutViewController.swift */,
 				471C954A1EBF3C6900A6C337 /* Options_HelpViewController.swift */,
@@ -470,7 +498,6 @@
 			isa = PBXGroup;
 			children = (
 				471C95581EBF3C8000A6C337 /* Instruction_CreateItem.gif */,
-				471C95591EBF3C8000A6C337 /* ViewItemInstructions.gif */,
 				471C955A1EBF3C8000A6C337 /* jeremy.gif */,
 			);
 			name = GIF;
@@ -484,6 +511,22 @@
 				471C95A01EBF435A00A6C337 /* set_build_number.sh */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		476258D81F300A8200666384 /* Code To Use */ = {
+			isa = PBXGroup;
+			children = (
+				47F710AD1F343FA0007CC98C /* TableViewController.swift */,
+				47F710AF1F343FE7007CC98C /* AAViewController.swift */,
+				471452311F30125800D03426 /* CoreDataManager.swift */,
+				471452301F30125800D03426 /* TableViewController.swift */,
+				47F710B71F36AE65007CC98C /* DBViewController.swift */,
+				471452341F303F7B00D03426 /* OtherFKViewController.swift */,
+				47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */,
+				47F710B31F34402A007CC98C /* UnsplashImage.swift */,
+				47F710B51F344077007CC98C /* JSNViewController.swift */,
+			);
+			name = "Code To Use";
 			sourceTree = "<group>";
 		};
 		47DF3C541ED9966900DECBAC /* ViewController Constants */ = {
@@ -532,6 +575,9 @@
 				C4EA891BCE80097375730757 /* [CP] Copy Pods Resources */,
 				471C95A41EBF438000A6C337 /* Lines Of Code */,
 				471C95A51EBF438400A6C337 /* Code Complexity */,
+				47AC4CB41F22FF9000272720 /* Build Incrementer */,
+				47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */,
+				476CB54F1F2176610037BBD6 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -591,26 +637,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bang Bang Studios";
 				TargetAttributes = {
 					471C94C51EBF371F00A6C337 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = ZJWNZ643CG;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					471C94DC1EBF372000A6C337 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = ZJWNZ643CG;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 471C94C51EBF371F00A6C337;
 					};
 					471C94E71EBF372000A6C337 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = ZJWNZ643CG;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 471C94C51EBF371F00A6C337;
 					};
@@ -641,6 +687,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC4CB81F233CDF00272720 /* Todo in Resources */,
 				471C957E1EBF3C9300A6C337 /* save0.wav in Resources */,
 				471C95791EBF3C9300A6C337 /* got0.wav in Resources */,
 				471C955D1EBF3C8000A6C337 /* jeremy.gif in Resources */,
@@ -657,8 +704,8 @@
 				471C95801EBF3C9300A6C337 /* update0.wav in Resources */,
 				471C957A1EBF3C9300A6C337 /* mycloset0.wav in Resources */,
 				471C957B1EBF3C9300A6C337 /* mycloset1.wav in Resources */,
+				475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */,
 				471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */,
-				471C955C1EBF3C8000A6C337 /* ViewItemInstructions.gif in Resources */,
 				471C95831EBF3C9300A6C337 /* wishlist0.wav in Resources */,
 				471C95811EBF3C9300A6C337 /* wear0.wav in Resources */,
 				471C955B1EBF3C8000A6C337 /* Instruction_CreateItem.gif in Resources */,
@@ -666,6 +713,7 @@
 				471C95761EBF3C9300A6C337 /* clear0.wav in Resources */,
 				471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */,
 				471C957D1EBF3C9300A6C337 /* notification0.wav in Resources */,
+				476CB54E1F2125BC0037BBD6 /* File.rtf in Resources */,
 				471C95731EBF3C9300A6C337 /* animationPop0.wav in Resources */,
 				471C94FE1EBF37B900A6C337 /* Main.storyboard in Resources */,
 				471C959D1EBF407C00A6C337 /* Assets.xcassets in Resources */,
@@ -676,6 +724,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475B74561F31600400C13743 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +732,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475B74571F31600400C13743 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,13 +760,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyFitZTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2ACF574FA741BC8D976CBDD3 /* [CP] Check Pods Manifest.lock */ = {
@@ -725,13 +778,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyFitZUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		471C95A41EBF438000A6C337 /* Lines Of Code */ = {
@@ -762,19 +818,64 @@
 			shellPath = /bin/sh;
 			shellScript = "find \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -and \\( -path \"${SRCROOT}/Pods/*\" -prune -o -print0 \\) | xargs -0 wc -l | awk '$1 > 2000 && $2 != \"total\" {for(i=2;i<NF;i++){printf \"%s%s\", $i, \" \"} print $NF \":1: warning: File more than 2000 lines (\" $1 \"), consider refactoring.\" }'\n#Sends a warning after x amount of lines of codes to tell that the code is to complex or getting complex in i think a class or function";
 		};
-		77C1FB58AB8D97E2F3A70A17 /* [CP] Check Pods Manifest.lock */ = {
+		476CB54F1F2176610037BBD6 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = Fabric;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "./Pods/Fabric.framework/run 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
+		};
+		47AC4CB41F22FF9000272720 /* Build Incrementer */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Incrementer";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+		47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Personal Keyword Editor Flags";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TEMP|FRAMEWORKTOIMPLEMENT|BeforeCommit|TODO|FIXME|TEMP|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n\n";
+		};
+		77C1FB58AB8D97E2F3A70A17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyFitZ-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89CD863A9DD135C507523CFD /* [CP] Copy Pods Resources */ = {
@@ -843,9 +944,48 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${BUILT_PRODUCTS_DIR}/CRToast/CRToast.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DKChainableAnimationKit/DKChainableAnimationKit.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/HeapInspector/HeapInspector.framework",
+				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/MRProgress/MRProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/REFormattedNumberField/REFormattedNumberField.framework",
+				"${BUILT_PRODUCTS_DIR}/RETableViewManager/RETableViewManager.framework",
+				"${BUILT_PRODUCTS_DIR}/REValidation/REValidation.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/TSMessages/TSMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/iRate/iRate.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRToast.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKChainableAnimationKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HeapInspector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MRProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/REFormattedNumberField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RETableViewManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/REValidation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iRate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -865,11 +1005,13 @@
 				471C953D1EBF3B8C00A6C337 /* Constants_Extensions.swift in Sources */,
 				471C95011EBF37D000A6C337 /* ViewController.swift in Sources */,
 				471C952F1EBF3B8C00A6C337 /* Constants_Wardrobe.swift in Sources */,
+				47F710B41F34402A007CC98C /* UnsplashImage.swift in Sources */,
 				471C953C1EBF3B8C00A6C337 /* Constants_Global_Function.swift in Sources */,
 				47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */,
 				47ED82711ED1BD1A005E79BD /* LongCreationUITableViewCell.swift in Sources */,
 				471C95861EBF3CA000A6C337 /* NSAttributedStringExtensions.swift in Sources */,
 				471C953A1EBF3B8C00A6C337 /* Constants_SearchViewController.swift in Sources */,
+				47F710B21F34401B007CC98C /* AwesomeDataDemoAPI.swift in Sources */,
 				471C95501EBF3C6900A6C337 /* MakeTableViewController.swift in Sources */,
 				4718E6A41ECA26CA0079C65A /* CreateItemViewController.swift in Sources */,
 				47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */,
@@ -882,7 +1024,9 @@
 				471C95961EBF3CE400A6C337 /* RecentTableViewCell.swift in Sources */,
 				471C95871EBF3CA000A6C337 /* UIImage+Gif.swift in Sources */,
 				471C95311EBF3B8C00A6C337 /* Constants_Fit.swift in Sources */,
+				470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */,
 				471C952B1EBF3B8C00A6C337 /* Typealias.swift in Sources */,
+				47F710B61F344077007CC98C /* JSNViewController.swift in Sources */,
 				471C952C1EBF3B8C00A6C337 /* Enums.swift in Sources */,
 				47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */,
 				471C95111EBF3B5D00A6C337 /* Extensions.swift in Sources */,
@@ -900,6 +1044,7 @@
 				471C95531EBF3C6900A6C337 /* Options_HelpViewController.swift in Sources */,
 				471C952E1EBF3B8C00A6C337 /* Constants_Colors_And_Textures.swift in Sources */,
 				471C95551EBF3C6900A6C337 /* Options-SettingsViewController.swift in Sources */,
+				47F710AE1F343FA0007CC98C /* TableViewController.swift in Sources */,
 				471C94CA1EBF371F00A6C337 /* AppDelegate.swift in Sources */,
 				471C95131EBF3B5D00A6C337 /* Equatables.swift in Sources */,
 				471C95561EBF3C6900A6C337 /* Options-ContactViewController.swift in Sources */,
@@ -908,6 +1053,7 @@
 				471C953B1EBF3B8C00A6C337 /* Constants_FavoritedWornTableViewController.swift in Sources */,
 				471C95981EBF3CE400A6C337 /* StatsTableVIewCell.swift in Sources */,
 				471C95921EBF3CE400A6C337 /* ModelCustomCell.swift in Sources */,
+				47F710B81F36AE66007CC98C /* DBViewController.swift in Sources */,
 				4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */,
 				47FD159B1EC080F1006CF4DA /* User+CoreDataClass.swift in Sources */,
 				47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */,
@@ -915,6 +1061,7 @@
 				47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */,
 				471C95521EBF3C6900A6C337 /* Options-AboutViewController.swift in Sources */,
 				471C95571EBF3C6900A6C337 /* WebsiteViewController.swift in Sources */,
+				47F710B01F343FE8007CC98C /* AAViewController.swift in Sources */,
 				471C95341EBF3B8C00A6C337 /* Constants_MakeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -961,7 +1108,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -969,7 +1118,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1013,7 +1166,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1021,7 +1176,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1053,14 +1212,18 @@
 			baseConfigurationReference = 6412EF1D10DE4FE5B14B31CC /* Pods-MyFitZ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_STATIC_ANALYZER_MODE = Deep;
+				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = Shallow;
 				DEVELOPMENT_TEAM = ZJWNZ643CG;
 				INFOPLIST_FILE = MyFitZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1069,14 +1232,18 @@
 			baseConfigurationReference = D0E695E69A9CE28665A81DAA /* Pods-MyFitZ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_STATIC_ANALYZER_MODE = Deep;
+				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = Shallow;
 				DEVELOPMENT_TEAM = ZJWNZ643CG;
 				INFOPLIST_FILE = MyFitZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-function-bodies=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1091,7 +1258,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFitZ.app/MyFitZ";
 			};
 			name = Debug;
@@ -1107,7 +1275,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFitZ.app/MyFitZ";
 			};
 			name = Release;
@@ -1122,7 +1291,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = MyFitZ;
 			};
 			name = Debug;
@@ -1137,7 +1307,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = MyFitZ;
 			};
 			name = Release;

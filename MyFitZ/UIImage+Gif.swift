@@ -24,7 +24,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 extension UIImage {
     
-    public class func gifWithData(_ data: Data) -> UIImage? {
+    @objc public class func gifWithData(_ data: Data) -> UIImage? {
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
             print("SwiftGif: Source for the image does not exist")
             return nil
@@ -32,7 +32,7 @@ extension UIImage {
         return UIImage.animatedImageWithSource(source)
     }
     
-    public class func gifWithName(_ name: String) -> UIImage? {
+    @objc public class func gifWithName(_ name: String) -> UIImage? {
         guard let bundleURL = Bundle.main.url(forResource: name, withExtension: "gif") else {
             print("SwiftGif: This image named \"\(name)\" does not exist")
             return nil
@@ -44,7 +44,7 @@ extension UIImage {
         return gifWithData(imageData)
     }
     
-    class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
+    @objc class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
         var delay = 0.1
         
         // Get dictionaries
@@ -107,7 +107,7 @@ extension UIImage {
         }
     }
     
-    class func gcdForArray(_ array: Array<Int>) -> Int {
+    @objc class func gcdForArray(_ array: Array<Int>) -> Int {
         if array.isEmpty {
             return 1
         }
@@ -121,7 +121,7 @@ extension UIImage {
         return gcd
     }
     
-    class func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
+    @objc class func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
         let count = CGImageSourceGetCount(source)
         var images = [CGImage]()
         var delays = [Int]()

@@ -30,7 +30,7 @@ class DoubleLabelTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func borderCustomization(){
+    @objc func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
         
@@ -39,7 +39,7 @@ class DoubleLabelTableViewCell: UITableViewCell {
         self.layer.borderColor = BrownLeatherStitching.cgColor
     }
     
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = SpecialLeatherTexture
         self.borderCustomization()
     }
@@ -49,7 +49,7 @@ class DoubleLabelTableViewCell: UITableViewCell {
 
 //MARK: -Initializers
 extension DoubleLabelTableViewCell{
-    func configure(name:  String,  infoString: String){
+    @objc func configure(name:  String,  infoString: String){
         nameLabel.text = name + ":"
         infoLabel.text = infoString
         self.customizeView()

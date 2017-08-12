@@ -20,7 +20,7 @@ class LongCreationUITableViewCell: UITableViewCell{
     
     
     //MARK: -View Methods
-    func configure(text: String?, labelString: String!, tag: Int){
+    @objc func configure(text: String?, labelString: String!, tag: Int){
         
         textInputCellTextField.text = String()
         textInputCellTextField.placeholder = labelString
@@ -31,7 +31,7 @@ class LongCreationUITableViewCell: UITableViewCell{
         self.customizeView()
     }
     
-    func borderCustomization(){
+    @objc func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
         
@@ -40,7 +40,7 @@ class LongCreationUITableViewCell: UITableViewCell{
         self.layer.borderColor = Stitching.cgColor
     }
     
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = FloorTexture
         self.borderCustomization()
     }

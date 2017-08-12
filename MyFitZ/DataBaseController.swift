@@ -10,6 +10,12 @@ import Foundation
 import CoreData
 
 class DataBaseController{
+    
+    typealias AcessTuple = (User: Int?, ClosetType: Int?, Category: String?, SubCategory: String?, ID: Int?)
+    
+    var savedCard: AcessTuple =  (nil, nil, nil, nil, nil)
+    var accessCard: AcessTuple =  (nil, nil, nil, nil, nil)
+    
     // MARK: - Core Data stack
     
     //To keep anyone from creating a instance of this controller.  
@@ -65,4 +71,9 @@ class DataBaseController{
         }
     }
 
+}
+
+extension DataBaseController{
+
+    //Set item
 }

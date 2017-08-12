@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13196.5" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" attributeType="String" maxValueString="20" indexed="YES" syncable="YES"/>
@@ -18,15 +18,6 @@
         <fetchedProperty name="favoritedItemsList" optional="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="Item"/>
         </fetchedProperty>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="category"/>
-                <index value="subCategory"/>
-                <index value="isFavorite"/>
-                <index value="dateDeleted"/>
-                <index value="lastTimeWorn"/>
-            </compoundIndex>
-        </compoundIndexes>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="age" attributeType="Integer 16" minValueString="0" maxValueString="150" defaultValueString="18" usesScalarValueType="YES" syncable="YES"/>
@@ -35,15 +26,17 @@
         <attribute name="isOver12" optional="YES" transient="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isOver17" optional="YES" transient="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" minValueString="1" maxValueString="17" defaultValueString="User" syncable="YES"/>
-        <relationship name="wardrobe" toMany="YES" minCount="2" maxCount="2" deletionRule="Cascade" ordered="YES" destinationEntity="Wardrobe" inverseName="user" inverseEntity="Wardrobe" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="wardrobe" toMany="YES" maxCount="2" deletionRule="Cascade" ordered="YES" destinationEntity="Wardrobe" inverseName="user" inverseEntity="Wardrobe" syncable="YES"/>
     </entity>
     <entity name="Wardrobe" representedClassName=".Wardrobe" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="wardrobe" inverseEntity="Item" syncable="YES"/>
         <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wardrobe" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-722" positionY="-273" width="128" height="281"/>
-        <element name="User" positionX="-479" positionY="-270" width="128" height="148"/>
-        <element name="Wardrobe" positionX="-488" positionY="-81" width="128" height="73"/>
+        <element name="Item" positionX="-722" positionY="-273" width="128" height="284"/>
+        <element name="User" positionX="-479" positionY="-270" width="128" height="165"/>
+        <element name="Wardrobe" positionX="-488" positionY="-81" width="128" height="90"/>
     </elements>
 </model>

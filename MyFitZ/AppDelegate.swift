@@ -1,49 +1,48 @@
-        //
-        //  AppDelegate.swift
-        //  MyFitZ
-        //
-        //  Created by Andre V on 4/22/17.
-        //  Copyright © 2017 Bang Bang Studios. All rights reserved.
-        //
-        
-        import UIKit
-        //import Fabric
-        //import Crashlytics
-        //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
-        //import Siren
-        import SwiftyBeaver
-        //import Parse
-        //import Bolts
-        import HeapInspector
-        import WatchConnectivity
-        import CoreData
-        import IQKeyboardManagerSwift
-        
-        
-        
-        let log = SwiftyBeaver.self
-        
-        
-        @UIApplicationMain
-        class AppDelegate: UIResponder, UIApplicationDelegate {
+         //
+         //  AppDelegate.swift
+         //  MyFitZ
+         //
+         //  Created by Andre V on 4/22/17.
+         //  Copyright © 2017 Bang Bang Studios. All rights reserved.
+         //
+         
+         import UIKit
+//       import Answers
+         import CoreData
+//         import Fabric
+//         import Crashlytics
+         import Appsee
+//         import IQKeyboardManagerSwift
+         import Firebase
+         //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
+         //import Siren
+         //import SwiftyBeaver
+         //import Parse
+         //import Bolts
+         //import HeapInspector
+         //import WatchConnectivity
+         
+         
+         
+//         let log = SwiftyBeaver.self
+         
+         
+         @UIApplicationMain
+         class AppDelegate: UIResponder, UIApplicationDelegate {
             var window: UIWindow?
             
             
-            //MARK: - Application Methods
             func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-                // Override point for customization after application launch.
-                
-                self.swiftBeaverSetUp()
-                self.removeConstraintFromLogger()
-                self.ifFirstStart()
-                self.createAndRegisterNotificationSettings()
-                self.setNotifications()
-                self.iqKeyboardInitilize()
+                setupApplication()
                 //        self.parseSetUp(launchOptions)
                 //        self.setNotifications()
                 //        self.parseSetUp()
                 //        self.setUpApperrance()
                 //        initializeSounds()
+                Fabric.with([Crashlytics.self, Answers.self, Appsee.self])
+                FirebaseApp.configure()
+//                Database.database().isPersistenceEnabled = true
+
                 return true
             }
             
@@ -75,28 +74,32 @@
             
             
             //MARK: - 3rd Pary Methods
-            func swiftBeaverSetUp(){
-                log.info(#function)
-                let console = ConsoleDestination()
-                log.addDestination(console)
+//            @objc func swiftBeaverSetUp(){
+                //log.info(#function)
+//                let console = ConsoleDestination()
+                //log.addDestination(console)
+//                let file = FileDestination()
+                //log.addDestination(file)
                 // Now let’s log!
-                log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
-                log.debug("Debug Test")  // prio 2, DEBUG in blue
-                log.info("Info Test")   // prio 3, INFO in green
-                log.warning("Warning Test")  // prio 4, WARNING in yellow
-                log.error("Error Test")  // prio 5, ERROR in red
-            }
-            func iqKeyboardInitilize(){
-                IQKeyboardManager.sharedManager().enable = true
-            }
+                //log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
+                //log.debug("Debug Test")  // prio 2, DEBUG in blue
+                //log.info("Info Test")   // prio 3, INFO in green
+                //log.warning("Warning Test")  // prio 4, WARNING in yellow
+                //log.error("Error Test")  // prio 5, ERROR in red
+//                let platform = SBPlatformDestination(appID: "Oknw9Q", appSecret: "auuocncmksshrVjqx7ekbwehbt7kcUdp", encryptionKey: "ntusxILurhoe6lOmldCiddhnr2jwaial")
+                //log.addDestination(platform)
+//            }
+//             @objc func iqKeyboardInitilize(){
+//                IQKeyboardManager.sharedManager().enable = true
+//            }
             
-            func removeConstraintFromLogger(){
-                log.info(#function)
+             @objc func removeConstraintFromLogger(){
+                //log.info(#function)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
             
-            func sirenInitilization(){
-                //                    log.info(#function)
+             @objc func sirenInitilization(){
+                //                    //log.info(#function)
                 //                    /* Siren code should go below window?.makeKeyAndVisible() */
                 //
                 //                    // Siren is a singleton
@@ -119,83 +122,98 @@
             
             
             //MARK: - Custom Methods
-            func ifFirstStart(){
+            @objc func ifFirstStart(){
                 //TODO: - Make a global define
+                //DoBeforeCommit: - Do Deeze Nuttz
                 let name = "isFirstStart"
                 let firstStart: Bool? = UserDefaults.standard.object(forKey: name) as? Bool
                 
                 if(firstStart == nil){
-                    log.info("This is the first start")
+                    //log.info("This is the first start")
                     UserDefaults.standard.set(false, forKey: name)
                     self.createSampleDatabase()
                     
+                    
                 }else{
                     //Do nothing
-                    log.verbose("This is not first start")
+                    //log.verbose("This is not first start")
                     //Load data
                 }
             }
             
             //MARK: - Core Data
             fileprivate func createSampleDatabase(){
-                User.createUsers()
+//                User.createUsers()
             }
             
             //MARK: - Notifications
-            func createAndRegisterNotificationSettings(){
-                log.info("Notifications are being set")
-                //Noitfications
-                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
+//            @objc func createAndRegisterNotificationSettings(){
+//                //log.info("Notifications are being set")
+//                //Noitfications
+//                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
+//
+//                let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notifytypes, categories: nil)
+//
+//                UIApplication.shared.registerUserNotificationSettings(notifSettings)
+//            }
+//            @objc func setNotifications(){
+//                let daysTillFire = 7
+//                let today = Date()
+//
+//                let lastFiredDateString = "lastFiredDate"
+//                var lastFiredDate = defaults.value(forKey: lastFiredDateString) as? NSDate
+//
+//                if lastFiredDate == nil{
+//                    lastFiredDate = today as NSDate
+//                    defaults.set(today, forKey: lastFiredDateString)
+//                    //log.debug("First fired Date: \(lastFiredDate)")
+//                }else{
+//
+//                    var dateComp = DateComponents()
+//                    dateComp.day = daysTillFire
+//                    let cal = Calendar.current
+//
+//                    let fireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: lastFiredDate as! Date, options: NSCalendar.Options())!
+//
+//                    let daysBetweenLastFiredAndNow = calicuateDaysBetweenTwoDates(start: today, end: fireDate )
+//
+//                    if(daysBetweenLastFiredAndNow < 1){
+//                        let notification: UILocalNotification = UILocalNotification()
+//                        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
+//                        notification.alertTitle = "REMINDER"
+//                        notification.alertLaunchImage = "icon1"
+//
+//                        let newFireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: today , options: NSCalendar.Options())!
+//                        notification.fireDate = newFireDate
+//
+//                        UIApplication.shared.scheduleLocalNotification(notification)
+//                        defaults.set(NSDate(), forKey: lastFiredDateString)
+//                        //log.debug("Notification Fired")
+//                        //log.debug("Updated Last Time Fired Date : \(newFireDate)")
+//
+//                    }else{
+//                        //log.warning("Wont fire notification")
+//                        //log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
+//                    }
+//                }
+//            }
+            
+            //MARK: - Application Methods
+            fileprivate func setupApplication() {
+                // Override point for customization after application launch.
                 
-                let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notifytypes, categories: nil)
-                
-                UIApplication.shared.registerUserNotificationSettings(notifSettings)
-            }
-            func setNotifications(){
-                let daysTillFire = 7
-                let today = Date()
-                
-                let lastFiredDateString = "lastFiredDate"
-                var lastFiredDate = defaults.value(forKey: lastFiredDateString) as? NSDate
-                
-                if lastFiredDate == nil{
-                    lastFiredDate = today as NSDate
-                    defaults.set(today, forKey: lastFiredDateString)
-                    log.debug("First fired Date: \(lastFiredDate)")
-                }else{
-                    
-                    var dateComp = DateComponents()
-                    dateComp.day = daysTillFire
-                    let cal = Calendar.current
-                    
-                    let fireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: lastFiredDate as! Date, options: NSCalendar.Options())!
-                    
-                    let daysBetweenLastFiredAndNow = calicuateDaysBetweenTwoDates(start: today, end: fireDate as! Date)
-                    
-                    if(daysBetweenLastFiredAndNow < 1){
-                        let notification: UILocalNotification = UILocalNotification()
-                        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
-                        notification.alertTitle = "REMINDER"
-                        notification.alertLaunchImage = "icon1"
-                        
-                        let newFireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: today as! Date, options: NSCalendar.Options())!
-                        notification.fireDate = newFireDate
-                        
-                        UIApplication.shared.scheduleLocalNotification(notification)
-                        defaults.set(NSDate(), forKey: lastFiredDateString)
-                        log.debug("Notification Fired")
-                        log.debug("Updated Last Time Fired Date : \(newFireDate)")
-                        
-                    }else{
-                        log.warning("Wont fire notification")
-                        log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
-                    }
-                }
+//                self.swiftBeaverSetUp()
+                self.removeConstraintFromLogger()
+                self.ifFirstStart()
+//                self.createAndRegisterNotificationSettings()
+//                self.setNotifications()
+//                self.iqKeyboardInitilize()
             }
             
-        }
-        
-        
-        
-        
-                
+         }
+         
+         
+         
+         //FRAMEWORKTOIMPLEMENT: - NIMBLE: https://github.com/Quick/Nimble
+         //FRAMEWORKTOIMPLEMENT: - RXSWIFT: https://github.com/ReactiveX/RxSwift
+         //FRAMEWORKTOIMPLEMENT: - SwwiftyBeaver(Was incompaitable with swift 4)

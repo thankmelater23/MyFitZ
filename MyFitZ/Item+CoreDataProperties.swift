@@ -2,8 +2,9 @@
 //  Item+CoreDataProperties.swift
 //  MyFitZ
 //
-//  Created by Andre V on 6/4/17.
+//  Created by Andre V on 8/5/17.
 //  Copyright © 2017 Bang Bang Studios. All rights reserved.
+//
 //
 
 import Foundation

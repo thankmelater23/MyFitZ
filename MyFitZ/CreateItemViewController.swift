@@ -29,27 +29,27 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     @IBOutlet weak var subCategoryLabel: UILabel!
     
     //MARK: -Variables
-    var categoryPickerView = UIPickerView()//Make weak posibly
-    var subCategoryPickerView = UIPickerView()//Make weak posibly
-    var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
-    var subCategoryPickerOptions = [String]()
-    var categorySelected: String! = String()
-    var subCategorySelected: String! = String()
-    var lastVCSegue = String()
+    @objc var categoryPickerView = UIPickerView()//Make weak posibly
+    @objc var subCategoryPickerView = UIPickerView()//Make weak posibly
+    @objc var categoryPickerOptions = CATEGORY_PICKER_OPTIONS
+    @objc var subCategoryPickerOptions = [String]()
+    @objc var categorySelected: String! = String()
+    @objc var subCategorySelected: String! = String()
+    @objc var lastVCSegue = String()
     
     //MARK: -RETableView Vars
-    var manager:RETableViewManager?
-    var basicSection:RETableViewSection?
+    @objc var manager:RETableViewManager?
+    @objc var basicSection:RETableViewSection?
     //    var miscSection:RETableViewSection?
     
-    var model:RETextItem?
+    @objc var model:RETextItem?
     //    var brand:REPickerItem?
-    var brand:RETextItem?
-    var favorited:REBoolItem?
-    var payedPrice:RENumberItem?
-    var timesWorn:RENumberItem?
-    var lastTimeWorn:REDateTimeItem?
-    //    var kind:RETextItem?
+    @objc var brand:RETextItem?
+    @objc var favorited:REBoolItem?
+    @objc var payedPrice:RENumberItem?
+    @objc var timesWorn:RENumberItem?
+    @objc var lastTimeWorn:REDateTimeItem?
+//        var kind:RETextItem?
     //    var size:RETextItem?
     //    var datePurchased:REDateTimeItem?
     //    var color:REPickerItem?
@@ -58,8 +58,8 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     //    var secondaryColor:RETextItem?
     //    //    var thirdColor:REPickerItem?
     //    var thirdColor:RETextItem?
-    var itemNotes: RELongTextItem?
-    var dateDeleted:REDateTimeItem?
+    @objc var itemNotes: RELongTextItem?
+    @objc var dateDeleted:REDateTimeItem?
     //    var dateReleased:REDateTimeItem?
     //    var retailPrice:RENumberItem?
     //    //var condition:REPickerItem?
@@ -80,16 +80,16 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //        }
 //    }
     
-    let context = DataBaseController.getContext()
+    @objc let context = DataBaseController.getContext()
     
-    var viewItem = Item()
-    var currentIndex = 0
+    @objc var viewItem = Item()
+    @objc var currentIndex = 0
     ///Dictionary path to item
-    var path: [String: String] = [String: String]()
+    @objc var path: [String: String] = [String: String]()
     
     
     deinit{
-        log.info(#function)
+        //log.info(#function)
         
     }
 }
@@ -99,7 +99,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - View Functions -Extension CreateItemViewController
 extension CreateItemViewController{
     override func viewDidLoad() {
-        log.info(#function)
+        //log.info(#function)
         super.viewDidLoad()
         self.setUp()
         defaults.addAndSend("CREATE_PAGE_COUNT")
@@ -107,7 +107,7 @@ extension CreateItemViewController{
         //self.logPageView()
     }
     override func viewDidAppear(_ animated: Bool) {
-        log.info(#function)
+        //log.info(#function)
         super.viewDidAppear(animated)
         self.view.backgroundColor = Cotton
         
@@ -121,20 +121,20 @@ extension CreateItemViewController{
         
     }
     override func viewDidDisappear(_ animated: Bool) {
-        log.info(#function)
+        //log.info(#function)
         super.viewDidDisappear(animated)
         self.removeObservers()
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        log.warning("Recieved Memory Warning")
+        //log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         //        defer{
-        //            log.info("Segue transfer: \(segue.identifier)")
+        //            //log.info("Segue transfer: \(segue.identifier)")
         //        }
         //
         //        if segue.identifier == Segue.SEGUE_CREATION_TO_SELECTION{
@@ -212,7 +212,7 @@ extension CreateItemViewController{
     
     
     //MARK: -Action Sub Functions
-    func saveItemVars(){
+    @objc func saveItemVars(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         
@@ -284,7 +284,7 @@ extension CreateItemViewController{
         //        self.addIdToItem()
         
     }
-    func clear(){
+    @objc func clear(){
         self.categoryInputTextField.text = ""
         self.subCategoryInputTextField.text = ""
         
@@ -327,7 +327,7 @@ extension CreateItemViewController{
 
 //MARK: - Initializers Created Methods -Extension CreateItemViewController
 extension CreateItemViewController{
-    func setUp(){
+    @objc func setUp(){
         
         playSoundEffects(addSFX)
         self.setUI()
@@ -344,10 +344,10 @@ extension CreateItemViewController{
         
         viewItem.image = UIImagePNGRepresentation((UIImage(named: BLANK_IMAGE_STRING))!)! as NSData
     }//Sets up data
-    func createBasicCells(){
+    @objc func createBasicCells(){
         
     }
-    func createMiscCells(){
+    @objc func createMiscCells(){
         
     }
     //    func setTitle(){
@@ -360,7 +360,7 @@ extension CreateItemViewController{
     //            self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
     //        }
     //    }
-    func setPickerInfo(){
+    @objc func setPickerInfo(){
         GlobalUserInteractiveQueue.async(execute: {
             self.categoryPickerView.delegate = self
             self.categoryInputTextField.inputView = self.categoryPickerView
@@ -372,11 +372,11 @@ extension CreateItemViewController{
             self.subCategoryInputTextField.isEnabled = false
         })
     }
-    func setUI(){
+    @objc func setUI(){
 //        self.setTitle()
         self.pictureForSelectedItemImage.alpha = 0.5
     }
-    func initializeRETableView(){
+    @objc func initializeRETableView(){
         self.manager = RETableViewManager.init(tableView: self.tableView, delegate: self)
         
         self.basicSection = RETableViewSection(headerTitle: "Basic Section")
@@ -415,7 +415,7 @@ extension CreateItemViewController{
         //
         //        self.sellerName = RETextItem(title: "Seller Name", value: self.viewItem.sellerName, placeholder: "Enter Item Seller Name")
     }
-    func setUpTableView(){
+    @objc func setUpTableView(){
         self.manager?.style.setBackgroundImage(UIImage(named: "cellBlackPatternImage"), for: RETableViewCellType.single)
         //        self.manager!.tableView?.sectionIndexColor = UIColor.greenColor()
         self.manager!.tableView?.tintColor = UIColor.purple
@@ -461,12 +461,12 @@ extension CreateItemViewController{
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == ItemCreationProgress{
             self.itemCreationProgress()
-            log.debug("Observer Called")
+            //log.debug("Observer Called")
         }else{
-            log.debug("Called notification for an observer thats not set up")
+            //log.debug("Called notification for an observer thats not set up")
         }
     }
-    func itemCreationProgress(){
+    @objc func itemCreationProgress(){
         if categoryInputTextField == nil || categoryInputTextField.text == ""{
             self.categoryInputTextField.layer.borderWidth = 2
             self.categoryInputTextField.layer.borderColor = HighlightColor.priorityHigh.cgColor
@@ -588,7 +588,7 @@ extension CreateItemViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
 //MARK: - ImagePickerView Methods -Extension CreateItemViewController
 extension CreateItemViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func setImagePicker(){
+    @objc func setImagePicker(){
         //Set ImagePicker
         let imagePicker = UIImagePickerController()
         //Set Picker delegeate
@@ -639,7 +639,7 @@ extension CreateItemViewController: UITextFieldDelegate{
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(_ textField: UITextField) -> Bool{
-        log.info("textField: " + textField.text! + " cleared")
+        //log.info("textField: " + textField.text! + " cleared")
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -666,7 +666,7 @@ extension CreateItemViewController: UITextFieldDelegate{
 
 //MARK: - UI-CreateItemViewController Extension
 extension CreateItemViewController{
-    func animateAllButtons(){
+    @objc func animateAllButtons(){
         self.animateImage()
         self.animateButtons()
         
@@ -674,13 +674,13 @@ extension CreateItemViewController{
         //    self.animateViews()
         
     }
-    func animateLogo(){
+    @objc func animateLogo(){
         //    logoCustomization(self.logoImage)
     }
-    func animateImage(){
+    @objc func animateImage(){
         imageCustomization(self.pictureForSelectedItemImage)
     }
-    func animateButtons(){
+    @objc func animateButtons(){
         clearButtonCustomization(self.clearButton)
         addButtonCustomization(self.saveButton)
         nameLabelCustomizer(self.categoryLabel)
@@ -692,12 +692,12 @@ extension CreateItemViewController{
 
 //MARK: - Observers/Notifications-CreateItemViewController Extension
 extension CreateItemViewController{
-    func setUpObservers(){
+    @objc func setUpObservers(){
         self.categoryInputTextField.addObserver(self, forKeyPath: ItemCreationProgress, options: NSKeyValueObservingOptions.new, context: nil)
         self.subCategoryInputTextField.addObserver(self, forKeyPath: ItemCreationProgress, options: NSKeyValueObservingOptions.new, context: nil)
         
     }
-    func removeObservers(){
+    @objc func removeObservers(){
         self.categoryInputTextField.removeObserver(self, forKeyPath: ItemCreationProgress)
         self.subCategoryInputTextField.removeObserver(self, forKeyPath: ItemCreationProgress)
         
@@ -705,12 +705,12 @@ extension CreateItemViewController{
 //        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func setKeyBoardNotifications(){
+    @objc func setKeyBoardNotifications(){
 //        NotificationCenter.default.addObserver(self, selector: #selector(CreateItemViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(CreateItemViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
 //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 //            if self.view.frame.origin.y == 0{
 //                self.view.frame.origin.y += keyboardSize.height
@@ -718,7 +718,7 @@ extension CreateItemViewController{
 //        }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
 //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 //            if self.view.frame.origin.y != 0{
 //                self.view.frame.origin.y -= keyboardSize.height
