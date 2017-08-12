@@ -20,6 +20,8 @@
             <string>fontcustom</string>
             <string>fontcustom</string>
             <string>fontcustom</string>
+            <string>fontcustom</string>
+            <string>fontcustom</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -47,9 +49,9 @@
                                                     <group width="76" height="25" alignment="center" id="VhC-i0-rin">
                                                         <items>
                                                             <imageView width="24" height="24" alignment="left" image="shoewareImage" id="voe-6Q-4kf"/>
-                                                            <label width="24" height="24" alignment="left" text="$1000" textAlignment="center" id="OjL-uk-j1G">
+                                                            <label width="24" height="24" alignment="left" text="$1000" textAlignment="center" baselineAdjustment="alignCenters" id="OjL-uk-j1G">
                                                                 <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="6"/>
+                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="5"/>
                                                             </label>
                                                             <button width="24" height="24" alignment="left" backgroundImage="star_on" id="RXx-MK-nRi"/>
                                                         </items>
@@ -73,9 +75,9 @@
                                                     </group>
                                                     <group width="1" height="30" alignment="center" verticalAlignment="bottom" layout="vertical" spacing="1" id="chd-NU-Z2F">
                                                         <items>
-                                                            <label height="16" alignment="center" verticalAlignment="center" text="Last Time Worn:" textAlignment="left" id="ie7-39-YOs">
-                                                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="7"/>
+                                                            <label height="16" alignment="center" verticalAlignment="center" text="Last Time Worn:" textAlignment="left" minimumScaleFactor="0.0" id="ie7-39-YOs">
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="9"/>
                                                             </label>
                                                             <label width="69.5" alignment="center" verticalAlignment="bottom" text="12/12/12" textAlignment="center" id="Jue-qD-bXu">
                                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,14 +91,14 @@
                                         <color key="backgroundColor" red="0.2274509804" green="0.0" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </group>
                                     <connections>
-                                        <outlet property="brand" destination="wuQ-qo-TJU" id="lY7-UV-ixb"/>
-                                        <outlet property="category" destination="voe-6Q-4kf" id="2Gn-Ew-d7u"/>
-                                        <outlet property="favorited" destination="RXx-MK-nRi" id="UUq-Dh-j1P"/>
-                                        <outlet property="image" destination="jEL-0U-m5A" id="XzP-eL-Nec"/>
-                                        <outlet property="lastTimeWorn" destination="Jue-qD-bXu" id="Zrd-9J-whm"/>
-                                        <outlet property="model" destination="iYk-Me-llm" id="yv2-fg-68V"/>
-                                        <outlet property="price" destination="OjL-uk-j1G" id="VD0-Ba-AAb"/>
-                                        <outlet property="wear" destination="yxL-IU-yFr" id="U8S-8B-Tpg"/>
+                                        <outlet property="brand" destination="wuQ-qo-TJU" id="6CD-BY-uLX"/>
+                                        <outlet property="category" destination="voe-6Q-4kf" id="XO0-R9-5pi"/>
+                                        <outlet property="favorited" destination="RXx-MK-nRi" id="gdK-5b-K9r"/>
+                                        <outlet property="image" destination="jEL-0U-m5A" id="YGT-dB-LC6"/>
+                                        <outlet property="lastTimeWorn" destination="Jue-qD-bXu" id="01w-vi-hUb"/>
+                                        <outlet property="model" destination="iYk-Me-llm" id="A0S-YV-ohh"/>
+                                        <outlet property="price" destination="OjL-uk-j1G" id="uwu-Hd-zoE"/>
+                                        <outlet property="wear" destination="yxL-IU-yFr" id="8pY-fi-CM9"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -104,11 +106,11 @@
                     </items>
                     <connections>
                         <outlet property="table" destination="J7V-pY-U5u" id="aum-Ko-H5z"/>
-                        <segue destination="rG9-De-2BL" kind="relationship" relationship="nextPage" id="sS9-ec-m5P"/>
+                        <segue destination="lfR-vS-vff" kind="relationship" relationship="nextPage" id="uev-4h-Cs6"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="344" y="347"/>
+            <point key="canvasLocation" x="-58" y="354"/>
         </scene>
         <!--detail-->
         <scene sceneID="kAY-Zu-mCU">
@@ -130,7 +132,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="939" y="347"/>
+            <point key="canvasLocation" x="834" y="354"/>
         </scene>
         <!--RecentlyWornListController-->
         <scene sceneID="rbU-J2-6I6">
@@ -158,7 +160,7 @@
                                                             <imageView width="24" height="24" alignment="left" image="shoewareImage" id="cJe-Ew-1QG"/>
                                                             <label width="24" height="24" alignment="left" text="$1000" textAlignment="center" id="fzY-TO-BTO">
                                                                 <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="6"/>
+                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="5"/>
                                                             </label>
                                                             <button width="24" height="24" alignment="left" backgroundImage="star_on" id="bcY-Hb-ruk"/>
                                                         </items>
@@ -175,16 +177,16 @@
                                                     <group width="1" height="15" alignment="center" verticalAlignment="center" id="RoQ-ko-0fR">
                                                         <items>
                                                             <label width="71.5" height="15" alignment="center" verticalAlignment="center" text="Model" textAlignment="center" id="PsX-tz-RCf">
-                                                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                             </label>
                                                         </items>
                                                     </group>
                                                     <group width="1" height="30" alignment="center" verticalAlignment="bottom" layout="vertical" spacing="1" id="4fb-eh-Dby">
                                                         <items>
-                                                            <label height="12" alignment="center" verticalAlignment="center" text="Last Time Worn:" textAlignment="left" id="nZe-OZ-W0H">
-                                                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="7"/>
+                                                            <label height="15" alignment="center" verticalAlignment="center" text="Last Time Worn:" textAlignment="left" minimumScaleFactor="0.0" id="nZe-OZ-W0H">
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="9"/>
                                                             </label>
                                                             <label width="69.5" alignment="center" verticalAlignment="bottom" text="12/12/12" textAlignment="center" id="6MI-qR-bx3">
                                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,10 +215,11 @@
                     </items>
                     <connections>
                         <outlet property="table" destination="TPV-M5-tm0" id="bKx-TL-b0s"/>
+                        <segue destination="rG9-De-2BL" kind="relationship" relationship="nextPage" id="PXY-tF-V8d"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="741" y="347"/>
+            <point key="canvasLocation" x="138" y="354"/>
         </scene>
         <!--TrashListController-->
         <scene sceneID="QHS-Ol-3Bc">
@@ -244,7 +247,7 @@
                                                             <imageView width="24" height="24" alignment="left" image="shoewareImage" id="PIb-oE-ONH"/>
                                                             <label width="24" height="24" alignment="left" text="$1000" textAlignment="center" id="PaI-cn-RKr">
                                                                 <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="6"/>
+                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="5"/>
                                                             </label>
                                                             <button width="24" height="24" alignment="left" backgroundImage="star_on" id="D81-mD-RY3"/>
                                                         </items>
@@ -268,9 +271,9 @@
                                                     </group>
                                                     <group width="1" height="30" alignment="center" verticalAlignment="bottom" layout="vertical" spacing="1" id="ogU-si-K3o">
                                                         <items>
-                                                            <label height="12" alignment="center" verticalAlignment="center" text=" Date Deleted:" textAlignment="left" id="5sy-Iz-Ba7">
-                                                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="7"/>
+                                                            <label height="16" alignment="center" verticalAlignment="center" text=" Date Deleted:" textAlignment="left" minimumScaleFactor="0.0" id="5sy-Iz-Ba7">
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="9"/>
                                                             </label>
                                                             <label width="69.5" alignment="center" verticalAlignment="bottom" text="12/12/12" textAlignment="center" id="YUb-Ti-nK6">
                                                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -299,11 +302,10 @@
                     </items>
                     <connections>
                         <outlet property="table" destination="HC5-0B-Udp" id="iZO-7E-00D"/>
-                        <segue destination="lfR-vS-vff" kind="relationship" relationship="nextPage" id="WDa-Zp-k9g"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="544" y="347"/>
+            <point key="canvasLocation" x="334" y="354"/>
         </scene>
         <!--TodayWornController-->
         <scene sceneID="A6Y-hF-m5h">
@@ -318,25 +320,26 @@
                                     <items>
                                         <label width="36" height="20" alignment="left" text="Date:" id="sc2-62-soa">
                                             <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="14"/>
+                                            <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="12"/>
                                         </label>
                                         <dateLabel width="50" height="20" alignment="left" id="9ou-xW-5cz">
                                             <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="12"/>
                                             <dateFormatterStyle key="dateStyle" short="YES"/>
                                         </dateLabel>
-                                        <imageView width="15" height="15" alignment="right" image="star_on" id="FpE-JI-2SI"/>
-                                        <label alignment="right" text=":XX" id="FDa-g9-Ulm">
+                                        <imageView width="15" height="15" alignment="right" image="goldMoneySign" id="FpE-JI-2SI"/>
+                                        <label alignment="right" text="383" id="FDa-g9-Ulm">
                                             <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </items>
                                 </group>
                                 <group width="136" height="20" alignment="left" id="b2n-Kn-L6o">
                                     <items>
-                                        <label width="74" height="20" alignment="left" text="Items: XX" id="KQh-nj-rSC">
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <label width="74" height="20" alignment="left" text="Items: 6" id="KQh-nj-rSC">
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <imageView width="15" height="15" alignment="right" image="star_on" id="u08-TW-h7C"/>
-                                        <label alignment="right" text=":XX" id="ntZ-Vd-7RP">
+                                        <imageView width="15" height="15" alignment="right" image="GoldUpArrow" id="u08-TW-h7C"/>
+                                        <label width="14" alignment="right" text="3" id="ntZ-Vd-7RP">
                                             <color key="textColor" red="1" green="0.80200004579999995" blue="0.0099999904629999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </items>
@@ -344,13 +347,13 @@
                                 <group width="1" height="25" alignment="left" id="ANB-7E-CJy">
                                     <items>
                                         <imageView width="15" height="15" alignment="right" image="star_on" id="lPV-zR-d94"/>
-                                        <label width="67" height="20" alignment="left" verticalAlignment="center" text="New: XX" id="Weo-yY-wBp">
+                                        <label width="67" height="20" alignment="left" verticalAlignment="center" text="New: 1" id="Weo-yY-wBp">
                                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView width="25" height="25" alignment="right" verticalAlignment="center" image="8's" id="dOM-01-Zle"/>
                                     </items>
                                 </group>
-                                <separator alignment="left" id="hud-GU-rvA"/>
+                                <separator alignment="left" verticalAlignment="bottom" id="hud-GU-rvA"/>
                             </items>
                         </group>
                         <table alignment="left" id="isi-Lg-Ui7">
@@ -360,9 +363,9 @@
                                         <items>
                                             <group width="65" height="113" alignment="left" layout="vertical" id="lzf-pv-V7m">
                                                 <items>
-                                                    <imageView width="67" height="50" alignment="left" image="8's" contentMode="scaleAspectFill" id="gyL-aA-NWW"/>
+                                                    <imageView width="67" height="50" alignment="left" verticalAlignment="center" image="8's" contentMode="scaleAspectFill" id="gyL-aA-NWW"/>
                                                     <label width="71.5" height="15" alignment="center" verticalAlignment="center" text="Brand" textAlignment="center" id="HpG-HF-XCn">
-                                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                     </label>
                                                 </items>
@@ -379,8 +382,8 @@
                                                         <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="14"/>
                                                     </label>
-                                                    <label width="71.5" height="15" alignment="center" text="Model" textAlignment="center" id="YjX-96-I47">
-                                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <label width="71.5" height="19" alignment="center" text="Model" textAlignment="center" id="YjX-96-I47">
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                     </label>
                                                 </items>
@@ -406,7 +409,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-57" y="359.25"/>
+            <point key="canvasLocation" x="-448" y="366.25"/>
         </scene>
         <!--StatsController-->
         <scene sceneID="GM2-1Z-F5o">
@@ -421,7 +424,7 @@
                                             <separator alignment="left" id="Hp4-Bp-Pic">
                                                 <color key="color" red="1" green="0.80200004579999995" blue="0.0099999904629999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </separator>
-                                            <label width="131.5" height="25" alignment="left" text="Title" textAlignment="left" id="btB-CD-aWF">
+                                            <label width="131.5" height="25" alignment="left" text="Title" textAlignment="center" id="btB-CD-aWF">
                                                 <color key="textColor" red="1" green="0.80200004579999995" blue="0.0099999904629999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="15"/>
                                             </label>
@@ -435,8 +438,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </group>
                                     <connections>
-                                        <outlet property="title" destination="btB-CD-aWF" id="mr2-Fv-kMh"/>
-                                        <outlet property="value" destination="3T7-FI-jtF" id="szT-xv-Dby"/>
+                                        <outlet property="title" destination="btB-CD-aWF" id="CEM-ao-V8x"/>
+                                        <outlet property="value" destination="3T7-FI-jtF" id="KCR-NW-Y7v"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -447,7 +450,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="152" y="354"/>
+            <point key="canvasLocation" x="-253" y="354"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
@@ -465,31 +468,32 @@
                         </group>
                         <group alignment="left" spacing="0.0" id="uCw-4Q-Ouw">
                             <items>
-                                <group width="136" height="102" alignment="left" layout="vertical" spacing="0.0" id="Vwp-mb-c0x">
+                                <group width="136" height="114.5" alignment="left" layout="vertical" spacing="0.0" id="Vwp-mb-c0x">
                                     <items>
                                         <group width="1" height="20" alignment="left" spacing="0.0" id="voV-Xt-ySN">
                                             <items>
                                                 <label width="36" height="20" alignment="left" text="Date:" id="RhY-v6-qWv">
                                                     <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="14"/>
+                                                    <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="13"/>
                                                 </label>
                                                 <dateLabel width="50" height="20" alignment="left" id="VJv-uU-6XP">
                                                     <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" name="fontcustom" family="fontcustom" pointSize="13"/>
                                                     <dateFormatterStyle key="dateStyle" short="YES"/>
                                                 </dateLabel>
-                                                <imageView width="15" height="15" alignment="right" image="star_on" id="Nbp-sz-GrH"/>
-                                                <label alignment="right" text=":XX" id="eHr-CG-XCJ">
+                                                <imageView width="15" height="15" alignment="right" image="goldMoneySign" id="Nbp-sz-GrH"/>
+                                                <label alignment="right" text="220" id="eHr-CG-XCJ">
                                                     <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </items>
                                         </group>
                                         <group width="136" height="20" alignment="left" id="iif-Z9-q4y">
                                             <items>
-                                                <label width="74" height="20" alignment="left" text="Items: XX" id="DXP-Py-xF9">
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <label width="74" height="20" alignment="left" text="Items: 6" id="DXP-Py-xF9">
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <imageView width="15" height="15" alignment="right" image="star_on" id="EnV-7f-VcS"/>
-                                                <label alignment="right" text=":XX" id="9dU-HH-RFH">
+                                                <imageView width="15" height="15" alignment="right" image="GoldUpArrow" id="EnV-7f-VcS"/>
+                                                <label alignment="right" text="3" id="9dU-HH-RFH">
                                                     <color key="textColor" red="1" green="0.80200004579999995" blue="0.0099999904629999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </items>
@@ -497,7 +501,7 @@
                                         <group width="1" height="25" alignment="left" id="BB5-MW-S3h">
                                             <items>
                                                 <imageView width="15" height="15" alignment="right" image="star_on" id="QLN-th-lNh"/>
-                                                <label width="67" height="20" alignment="left" verticalAlignment="center" text="New: XX" id="R6s-SB-UYX">
+                                                <label width="67" height="20" alignment="left" verticalAlignment="center" text="New: 1" id="R6s-SB-UYX">
                                                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <imageView width="25" height="25" alignment="right" verticalAlignment="center" image="8's" id="yYW-fq-Jei"/>
@@ -509,18 +513,18 @@
                                             <items>
                                                 <group width="1" height="19" alignment="center" id="I62-vG-Tr2">
                                                     <items>
-                                                        <group width="1" height="17" alignment="left" id="D11-eQ-DF6">
+                                                        <group width="136" height="17" alignment="center" id="D11-eQ-DF6">
                                                             <items>
-                                                                <imageView width="15" height="15" alignment="left" verticalAlignment="bottom" image="star_on" id="VGh-cC-PYL"/>
-                                                                <label alignment="left" verticalAlignment="bottom" text=":XX" id="EcH-mK-E1q">
+                                                                <imageView width="15" height="15" alignment="left" verticalAlignment="bottom" image="closet1" id="VGh-cC-PYL"/>
+                                                                <label alignment="left" verticalAlignment="bottom" text="85" id="EcH-mK-E1q">
                                                                     <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </label>
-                                                                <imageView width="15" height="15" alignment="center" verticalAlignment="center" image="star_on" id="oTp-mx-7lh"/>
-                                                                <label alignment="center" verticalAlignment="center" text=":XX" id="aqY-jX-RJ2">
+                                                                <imageView width="15" height="15" alignment="center" verticalAlignment="bottom" image="shoppingCart2" id="oTp-mx-7lh"/>
+                                                                <label alignment="center" verticalAlignment="bottom" text="23" id="aqY-jX-RJ2">
                                                                     <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </label>
-                                                                <imageView width="15" height="15" alignment="right" image="star_on" id="U6q-oZ-AIK"/>
-                                                                <label alignment="right" text=":XX" id="eed-Si-qef">
+                                                                <imageView width="15" height="15" alignment="right" verticalAlignment="bottom" image="goldMoneySign" id="U6q-oZ-AIK"/>
+                                                                <label alignment="right" text="779" id="eed-Si-qef">
                                                                     <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </label>
                                                             </items>
@@ -544,14 +548,14 @@
                     </connections>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="235" y="672"/>
+            <point key="canvasLocation" x="-448" y="641"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="KIl-fV-djm">
             <objects>
                 <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="482" y="678"/>
+            <point key="canvasLocation" x="-253" y="641"/>
         </scene>
     </scenes>
 </document>

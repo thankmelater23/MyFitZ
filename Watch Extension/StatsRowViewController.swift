@@ -18,8 +18,8 @@ class StatsRowViewController: NSObject{
     var questionAndValue: [String: String]?{
         didSet{
             if let questionAndValue = questionAndValue{
-                title.setText(questionAndValue["title"])
-                value.setText(questionAndValue["value"])
+                title.setText(questionAndValue["title"]!)
+                value.setText(questionAndValue["value"]!)
             }
         }
     }

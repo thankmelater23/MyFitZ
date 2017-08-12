@@ -19,8 +19,8 @@ class SlackMessanger: SLKTextViewController{
     override init(tableViewStyle style: UITableViewStyle) {
         super.init(tableViewStyle: UITableViewStyle.Plain)
     }
-
-    required init!(coder decoder: NSCoder!) {
+    
+    required init(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
+    } 
 }

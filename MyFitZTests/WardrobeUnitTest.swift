@@ -9,7 +9,8 @@
 import XCTest
 
 class WardrobeUnitTest: XCTestCase {
-
+//    var wardrobe = Wardrobe()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,6 +31,14 @@ class WardrobeUnitTest: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testWardrobeAddItem(){
+        XCTAssert(true)
+    }
+    
+    func testDeleteItem(){
+        XCTAssert(true)
     }
 
 }

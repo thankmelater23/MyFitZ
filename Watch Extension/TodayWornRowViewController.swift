@@ -21,9 +21,8 @@ class TodayWornRowViewController: NSObject{
     var item: WatchItem?{
         didSet{
             if let item = item{
-                image.setImage(UIImage(named: "TopImage"))
                 model.setText(item.model)
-                price.setText("\(item.payedPrice)")
+                price.setText("$:\(item.payedPrice!)")
                 var categoryImage = UIImage()
                 
                 switch category{
@@ -46,6 +45,7 @@ class TodayWornRowViewController: NSObject{
                 let starImage = (item.favorited != nil) ? UIImage(named: "star_on")! : UIImage(named: "star_off")!
                 
                 category.setImage(categoryImage)
+                image.setImage(categoryImage)
                 favorited.setBackgroundImage(starImage)
             }
         }

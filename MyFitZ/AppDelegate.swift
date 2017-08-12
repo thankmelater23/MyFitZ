@@ -11,8 +11,8 @@ import Crashlytics
 import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
 import Siren
 import SwiftyBeaver
-import Parse
-import Bolts
+//import Parse
+//import Bolts
 import HeapInspector
 import WatchConnectivity
 
@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let siren = Siren.sharedInstance
         
         // Required: Your app's iTunes App Store ID
-        siren.appID = APP_ID
+//        siren.appID = APP_ID
         
         // Optional: Defaults to .Option
         
@@ -174,15 +174,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func parseSetUp(launchOptions: [NSObject: AnyObject]?){
         // [Optional] Power your app with Local Datastore. For more info, go to
-        // https://parse.com/docs/ios/guide#local-datastore
-        Parse.enableLocalDatastore()
-        
-        // Initialize Parse.
-        Parse.setApplicationId("hVnVJ06MB3aY5repQZyeqQxEGH9YyDPMknMso2I5",
-                               clientKey: "c1JavCFdSYyDQMEDwOYUnCeovHGzwkovqLg68KRX")
-        
-        // [Optional] Track statistics around application opens.
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+//        // https://parse.com/docs/ios/guide#local-datastore
+//        Parse.enableLocalDatastore()
+//        
+//        // Initialize Parse.
+//        Parse.setApplicationId("hVnVJ06MB3aY5repQZyeqQxEGH9YyDPMknMso2I5",
+//                               clientKey: "c1JavCFdSYyDQMEDwOYUnCeovHGzwkovqLg68KRX")
+//        
+//        // [Optional] Track statistics around application opens.
+//        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     }
     func createAndRegisterNotificationSettings(){
         log.info("Notifications are being set")
@@ -215,11 +215,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         log.info("Notifications are set")
     }
     func parseSetUp(){
-        let parseUser = PFObject(className: "User")
-        parseUser["Opened App"] = true
-        parseUser.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            log.info("Object has been saved.")
-        }
+//        let parseUser = PFObject(className: "User")
+//        parseUser["Opened App"] = true
+//        parseUser.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//            log.info("Object has been saved.")
+//        }
         
         
     }
@@ -248,13 +248,18 @@ extension AppDelegate: WCSessionDelegate{
             
             return itemDic
         }
-        func returnArrayOfWatchItems(items: [Item])->[[String: AnyObject]]{
+        func returnArrayOfWatchItems(items: [Item])->[WatchItem]{
             defer{
                 print("\(sizeofValue(itemsToReturn))")
             }
-            var itemsToReturn = [[String: AnyObject]]()
+            
+            var itemsToReturn = [WatchItem]()
+            
             for item in items{
-                itemsToReturn.append((covertItemToDictionary(item)))
+                let dic = covertItemToDictionary(item)
+                let watchItem = WatchItem()
+                watchItem.setItemFromDic(dic)
+                itemsToReturn.append((watchItem))
                 
             }
             return itemsToReturn
@@ -275,11 +280,18 @@ extension AppDelegate: WCSessionDelegate{
         
         if let _ = message[TrashList] as? String{
             let payLoad = returnArrayOfWatchItems(Users_Wardrobe.selectedClosetTrashItems)
-//            let replyMessage = [TrashList : payLoad]
-            let replyMessage = [TrashList : "here"]
-            replyHandler(replyMessage)
-            
+            let payloadArchived = NSKeyedArchiver.archivedDataWithRootObject(payLoad)
+//            let replyMessage = [TrashList : payloadArchived]
+            do{
+                
+                try self.session?.sendMessageData(payloadArchived, replyHandler: nil, errorHandler: nil)
+            }catch{
+                print(error)
+            }
+//            let replyMessage = [TrashList : "here"]-=
+//            replyHandler(replyMessage)
         }
+        
         
         if let _ = message[StatsList] as? String{
             let payLoad = returnArrayOfWatchItems(Users_Wardrobe.recentWornItems)

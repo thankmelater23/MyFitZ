@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E0FBDA8821DA5EE59F585065'
+               BlueprintIdentifier = '9CAAB2A1855182D992E2945796B03B4D'
                BlueprintName = 'MRProgress'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MRProgress.framework'>

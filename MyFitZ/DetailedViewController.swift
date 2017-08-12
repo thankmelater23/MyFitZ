@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 import UIKit
-import CRToast
+//import CRToast
 import DKChainableAnimationKit
 import Crashlytics
 
@@ -128,37 +128,37 @@ extension DetailedViewController{
     //MARK: -Action sum Methods
     func wearActivate(){
         playSoundEffects(wearSFX)
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .ShortStyle
-        let newDate = dateFormatter.stringFromDate((NSDate()))
-        
-        
-        let dicOfOptions = [
-            kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
-            kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
-            kCRToastBackgroundColorKey : UIColor.blueColor(),
-            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
-            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
-            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
-            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
-        
-        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {[unowned self] in
-            self.itemOfObject.lastTimeWorn = newDate
-            
-            self.itemOfObject.incrementTimesWorn()
-            
-            self.itemOfObject.populatePath(Users_Wardrobe.closetSelectionString)
-            
-            Users_Wardrobe.updateRecentWornCollectiion(self.itemOfObject.path)
-            
-            self.wearButtonAvailable()
-            
-            Users_Wardrobe.quickSave()
-            })
-        
-        
-        defaults.addAndSend("WEAR_PRESSED_COUNT")
+//        
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateStyle = .ShortStyle
+//        let newDate = dateFormatter.stringFromDate((NSDate()))
+//        
+//        
+//        let dicOfOptions = [
+//            kCRToastTextKey: "Wear date UPDATED-From: " + self.itemOfObject.lastTimeWorn + "-To : " + newDate,
+//            kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
+//            kCRToastBackgroundColorKey : UIColor.blueColor(),
+//            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
+//            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
+//            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
+//            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
+//        
+//        CRToastManager.showNotificationWithOptions(dicOfOptions, completionBlock: {[unowned self] in
+//            self.itemOfObject.lastTimeWorn = newDate
+//            
+//            self.itemOfObject.incrementTimesWorn()
+//            
+//            self.itemOfObject.populatePath(Users_Wardrobe.closetSelectionString)
+//            
+//            Users_Wardrobe.updateRecentWornCollectiion(self.itemOfObject.path)
+//            
+//            self.wearButtonAvailable()
+//            
+//            Users_Wardrobe.quickSave()
+//            })
+//        
+//        
+//        defaults.addAndSend("WEAR_PRESSED_COUNT")
     }
     func hideWearButton(){
         wearButton.alpha = 0.5

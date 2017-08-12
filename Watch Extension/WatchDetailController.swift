@@ -16,7 +16,7 @@ class WatchDetailController: WKInterfaceController, WCSessionDelegate{
     @IBOutlet var category: WKInterfaceLabel!
     var item: WatchItem?{
         didSet{
-            self.image.setImage(self.item!.image)
+//            self.image.setImage(self.item!.image)
             self.category.setText(self.item!.category)
             self.model.setText(self.item!.model)
         }

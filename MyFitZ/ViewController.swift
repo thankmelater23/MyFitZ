@@ -8,7 +8,7 @@
 
 import UIKit
 import Crashlytics
-import Parse
+//import Parse
 import CoreData
 
 //MARK: -ViewController Class
@@ -74,6 +74,7 @@ class ViewController:  UIViewController{
     }
     deinit{
         log.info(#function)
+        self.view.layer
     }
 }
 

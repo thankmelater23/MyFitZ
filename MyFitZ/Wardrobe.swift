@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MRProgress
 import SVProgressHUD
-import CRToast
+//import CRToast
 import Async
 
 
@@ -287,24 +287,24 @@ extension Wardrobe{
             
             SVProgressHUD.show()
             
-            let toastOptions = [kCRToastTextKey: "File Saving", kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
-                kCRToastBackgroundColorKey : UIColor.greenColor(),
-                kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
-                kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
-                kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
-                kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
-            
-            
-            CRToastManager .showNotificationWithOptions(toastOptions, completionBlock: {
-                dispatch_async(GlobalWardrobeSerial, {
-                    success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
-                    log.info("Finished Saving")
-                    log.info("Success = \(success)")
+//            let toastOptions = [kCRToastTextKey: "File Saving", kCRToastTextAlignmentKey : "NSTextAlignmentCenter",
+//                kCRToastBackgroundColorKey : UIColor.greenColor(),
+//                kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
+//                kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
+//                kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
+//                kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
+//            
+//            
+//            CRToastManager .showNotificationWithOptions(toastOptions, completionBlock: {
+//                dispatch_async(GlobalWardrobeSerial, {
+//                    success = NSKeyedArchiver.archiveRootObject(wardrobeToSave, toFile:filePath)
+//                    log.info("Finished Saving")
+//                    log.info("Success = \(success)")
                     let numOfItemsToSave = 3.0
                     let timeTillExecuted = (numOfItemsToSave * 0.10)
                     let now = dispatch_time(DISPATCH_TIME_NOW, Int64(timeTillExecuted * Double(NSEC_PER_SEC)))
                     vibrate()
-                    
+            
                     dispatch_async(GlobalMainQueue, {
                         SVProgressHUD.showSuccessWithStatus("Saved")
                         
@@ -318,8 +318,8 @@ extension Wardrobe{
                         })
                     })
                 })
-            })
-        })
+//            })
+//        })
     }
     /**
      Loads Wardrobe of object through NSKeyArchiver

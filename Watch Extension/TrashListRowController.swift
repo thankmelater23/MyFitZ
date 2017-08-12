@@ -23,10 +23,9 @@ class TrashListRowController: NSObject{
     var item: WatchItem?{
         didSet{
             if let item = item{
-                image.setImage(UIImage(named: "TopImage"))
                 model.setText(item.model)
                 lastTimeWorn.setText(item.lastTimeWorn)
-                price.setText("\(item.payedPrice)")
+                price.setText("$:\(item.payedPrice!)")
                 var categoryImage = UIImage()
                 
                 switch category{
@@ -47,7 +46,7 @@ class TrashListRowController: NSObject{
                 }
                 
                 let starImage = (item.favorited != nil) ? UIImage(named: "star_on")! : UIImage(named: "star_off")!
-                
+                image.setImage(categoryImage)
                 category.setImage(categoryImage)
                 favorited.setBackgroundImage(starImage)
             }

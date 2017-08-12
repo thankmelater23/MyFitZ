@@ -11,6 +11,11 @@ import Foundation
 
 public class SwiftyBeaver {
 
+    /// version string of framework
+    public static let version = "0.6.2"  // UPDATE ON RELEASE!
+    /// build number of framework
+    public static let build = 620 // version 0.7.1 -> 710, UPDATE ON RELEASE!
+
     public enum Level: Int {
         case Verbose = 0
         case Debug = 1
@@ -20,34 +25,26 @@ public class SwiftyBeaver {
     }
 
     // a set of active destinations
-    static var destinations = Set<BaseDestination>() //[BaseDestination]()
-
+    public private(set) static var destinations = Set<BaseDestination>()
 
     // MARK: Destination Handling
 
     /// returns boolean about success
-    public class func addDestination(destination: AnyObject) -> Bool {
-		guard let dest = destination as? BaseDestination else {
-			print("SwiftyBeaver: adding of destination failed")
-			return false
-		}
-
-		//print("insert hashValue \(dest.hashValue)")
-		destinations.insert(dest)  // if not already in (it’s a set)
-		return true
-
+    public class func addDestination(destination: BaseDestination) -> Bool {
+        if destinations.contains(destination) {
+            return false
+        }
+        destinations.insert(destination)
+        return true
     }
 
     /// returns boolean about success
-    public class func removeDestination(destination: AnyObject) -> Bool {
-		guard let dest = destination as? BaseDestination else {
-			print("SwiftyBeaver: removing of destination failed")
-			return false
-		}
-
-		destinations.remove(dest)
-		return true
-
+    public class func removeDestination(destination: BaseDestination) -> Bool {
+        if destinations.contains(destination) == false {
+            return false
+        }
+        destinations.remove(destination)
+        return true
     }
 
     /// if you need to start fresh
@@ -63,7 +60,7 @@ public class SwiftyBeaver {
     /// returns the current thread name
     class func threadName() -> String {
         if NSThread.isMainThread() {
-            return "main"
+            return ""
         } else {
             if let threadName = NSThread.currentThread().name where !threadName.isEmpty {
                 return threadName
@@ -111,49 +108,60 @@ public class SwiftyBeaver {
     /// internal helper which dispatches send to dedicated queue if minLevel is ok
     class func dispatch_send(level: SwiftyBeaver.Level, @autoclosure message: () -> Any,
         thread: String, path: String, function: String, line: Int) {
+        var resolvedMessage: String?
         for dest in destinations {
 
             guard let queue = dest.queue else {
                 continue
             }
 
-            if dest.shouldLevelBeLogged(level, path: path, function: function) {
+            resolvedMessage = resolvedMessage == nil && dest.hasMessageFilters() ? "\(message())" : nil
+            if dest.shouldLevelBeLogged(level, path: path, function: function, message: resolvedMessage) {
                 // try to convert msg object to String and put it on queue
-                let msgStr = "\(message())"
+                let msgStr = resolvedMessage == nil ? "\(message())" : resolvedMessage!
+                let f = stripParams(function)
 
-                if !msgStr.isEmpty {
-                    if dest.asynchronously {
-                        dispatch_async(queue) {
-                            dest.send(level, msg: msgStr, thread: thread, path: path, function: function, line: line)
-                        }
-                    } else {
-                        dispatch_sync(queue) {
-                            dest.send(level, msg: msgStr, thread: thread, path: path, function: function, line: line)
-                        }
+                if dest.asynchronously {
+                    dispatch_async(queue) {
+                        dest.send(level, msg: msgStr, thread: thread, path: path, function: f, line: line)
+                    }
+                } else {
+                    dispatch_sync(queue) {
+                        dest.send(level, msg: msgStr, thread: thread, path: path, function: f, line: line)
                     }
                 }
             }
         }
     }
 
-  /**
-   Flush all destinations to make sure all logging messages have been written out
-   Returns after all messages flushed or timeout seconds
+    /**
+     Flush all destinations to make sure all logging messages have been written out
+     Returns after all messages flushed or timeout seconds
 
-   - returns: true if all messages flushed, false if timeout occurred
-   */
-  public class func flush(secondTimeout: Int64) -> Bool {
-    let grp = dispatch_group_create()
-    for dest in destinations {
-      if let queue = dest.queue {
-        dispatch_group_enter(grp)
-        dispatch_async(queue, {
-          dest.flush()
-          dispatch_group_leave(grp)
-        })
-      }
+     - returns: true if all messages flushed, false if timeout occurred
+     */
+    public class func flush(secondTimeout: Int64) -> Bool {
+        let grp = dispatch_group_create()
+        for dest in destinations {
+            if let queue = dest.queue {
+                dispatch_group_enter(grp)
+                dispatch_async(queue, {
+                    dest.flush()
+                    dispatch_group_leave(grp)
+                })
+            }
+        }
+        let waitUntil = dispatch_time(DISPATCH_TIME_NOW, secondTimeout * 1000000000)
+        return dispatch_group_wait(grp, waitUntil) == 0
     }
-    let waitUntil = dispatch_time(DISPATCH_TIME_NOW, secondTimeout * 1000000000)
-    return dispatch_group_wait(grp, waitUntil) == 0
-  }
+
+    /// removes the parameters from a function because it looks weird with a single param
+    class func stripParams(function: String) -> String {
+        var f = function
+        if let indexOfBrace = f.characters.indexOf("(") {
+            f = f.substringToIndex(indexOfBrace)
+        }
+        f = f + "()"
+        return f
+    }
 }

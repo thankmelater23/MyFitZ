@@ -11,13 +11,13 @@ import UIKit
 
 // MARK: - SirenDelegate Protocol
 
-@objc public protocol SirenDelegate {
-    optional func sirenDidShowUpdateDialog()                            // User presented with update dialog
-    optional func sirenUserDidLaunchAppStore()                          // User did click on button that launched App Store.app
-    optional func sirenUserDidSkipVersion()                             // User did click on button that skips version update
-    optional func sirenUserDidCancel()                                  // User did click on button that cancels update dialog
-    optional func sirenDidFailVersionCheck(error: NSError)              // Siren failed to perform version check (may return system-level error)
-    optional func sirenDidDetectNewVersionWithoutAlert(message: String) // Siren performed version check and did not display alert
+public protocol SirenDelegate: class {
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType)   // User presented with update dialog
+    func sirenUserDidLaunchAppStore()                          // User did click on button that launched App Store.app
+    func sirenUserDidSkipVersion()                             // User did click on button that skips version update
+    func sirenUserDidCancel()                                  // User did click on button that cancels update dialog
+    func sirenDidFailVersionCheck(error: NSError)              // Siren failed to perform version check (may return system-level error)
+    func sirenDidDetectNewVersionWithoutAlert(message: String) // Siren performed version check and did not display alert
 }
 
 
@@ -66,6 +66,7 @@ public enum SirenLanguageType: String {
     case Basque = "eu"
     case ChineseSimplified = "zh-Hans"
     case ChineseTraditional = "zh-Hant"
+    case Croatian = "hr"
     case Danish = "da"
     case Dutch = "nl"
     case English = "en"
@@ -96,11 +97,15 @@ public enum SirenLanguageType: String {
  */
 private enum SirenErrorCode: Int {
     case MalformedURL = 1000
+    case RecentlyCheckedAlready
     case NoUpdateAvailable
     case AppStoreDataRetrievalFailure
     case AppStoreJSONParsingFailure
+    case AppStoreOSVersionNumberFailure
+    case AppStoreOSVersionUnsupported
     case AppStoreVersionNumberFailure
     case AppStoreVersionArrayFailure
+    case AppStoreAppIDFailure
 }
 
 /**
@@ -108,6 +113,7 @@ private enum SirenErrorCode: Int {
  */
 private enum SirenErrorType: ErrorType {
     case MalformedURL
+    case MissingBundleIdOrAppId
 }
 
 /** 
@@ -131,24 +137,20 @@ public final class Siren: NSObject {
     /**
         Current installed version of your app
      */
-    let currentInstalledVersion = NSBundle.mainBundle().currentInstalledVersion()
-
-    /**
-        NSBundle path for localization
-     */
-    let bundlePath = NSBundle.mainBundle().pathForResource("Siren", ofType: "Bundle")
+    private var currentInstalledVersion: String? = {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
+    }()
 
     /**
         The error domain for all errors created by Siren
      */
     public let SirenErrorDomain = "Siren Error Domain"
 
-
     /**
         The SirenDelegate variable, which should be set if you'd like to be notified:
     
             - When a user views or interacts with the alert
-                - sirenDidShowUpdateDialog()
+                - sirenDidShowUpdateDialog(alertType: SirenAlertType)
                 - sirenUserDidLaunchAppStore()
                 - sirenUserDidSkipVersion()     
                 - sirenUserDidCancel()
@@ -215,13 +217,7 @@ public final class Siren: NSObject {
     See the SirenAlertType enum for full details.
     */
     public lazy var revisionUpdateAlertType = SirenAlertType.Option
-    
-    // Required Vars
-    /**
-        The App Store / iTunes Connect ID for your app.
-    */
-    public var appID: String?
-    
+
     // Optional Vars
     /**
         The name of your app. 
@@ -257,17 +253,12 @@ public final class Siren: NSObject {
     public private(set) var currentAppStoreVersion: String?
 
     // Private
+    private var appID: Int?
     private var lastVersionCheckPerformedOnDate: NSDate?
     private var updaterWindow: UIWindow?
 
     // Initialization
-    public class var sharedInstance: Siren {
-        struct Singleton {
-            static let instance = Siren()
-        }
-        
-        return Singleton.instance
-    }
+    public static let sharedInstance = Siren()
     
     override init() {
         lastVersionCheckPerformedOnDate = NSUserDefaults.standardUserDefaults().objectForKey(SirenUserDefaults.StoredVersionCheckDate.rawValue) as? NSDate
@@ -282,8 +273,8 @@ public final class Siren: NSObject {
     */
     public func checkVersion(checkType: SirenVersionCheckType) {
 
-        guard let _ = appID else {
-            printMessage("Please make sure that you have set 'appID' before calling checkVersion.")
+        guard let _ = NSBundle.bundleID() else {
+            printMessage("Please make sure that you have set a `Bundle Identifier` in your project.")
             return
         }
 
@@ -298,7 +289,7 @@ public final class Siren: NSObject {
             if daysSinceLastVersionCheckDate(lastVersionCheckPerformedOnDate) >= checkType.rawValue {
                 performVersionCheck()
             } else {
-                postError(.NoUpdateAvailable, underlyingError: nil)
+                postError(.RecentlyCheckedAlready, underlyingError: nil)
             }
         }
     }
@@ -328,7 +319,9 @@ public final class Siren: NSObject {
 
                         let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
 
-                        guard let appData = jsonData as? [String: AnyObject] else {
+                        guard let appData = jsonData as? [String: AnyObject]
+                            where self.isUpdateCompatibleWithDeviceOS(appData) else {
+
                             self.postError(.AppStoreJSONParsingFailure, underlyingError: nil)
                             return
                         }
@@ -347,13 +340,13 @@ public final class Siren: NSObject {
                         self.postError(.AppStoreDataRetrievalFailure, underlyingError: error)
                     }
                 }
-                
+
                 })
             
             task.resume()
 
-        } catch _ {
-            postError(.MalformedURL, underlyingError: nil)
+        } catch let error as NSError {
+            postError(.MalformedURL, underlyingError: error)
         }
 
     }
@@ -368,8 +361,16 @@ public final class Siren: NSObject {
             return
         }
         
-        if results.isEmpty == false { // Conditional that avoids crash when app not in App Store or appID mistyped
-            currentAppStoreVersion = results[0]["version"] as? String
+        if results.isEmpty == false { // Conditional that avoids crash when app not in App Store
+
+            guard let appID = results.first?["trackId"] as? Int else {
+                self.postError(.AppStoreAppIDFailure, underlyingError: nil)
+                return
+            }
+
+            self.appID = appID
+
+            currentAppStoreVersion = results.first?["version"] as? String
             guard let _ = currentAppStoreVersion else {
                 self.postError(.AppStoreVersionArrayFailure, underlyingError: nil)
                 return
@@ -392,8 +393,8 @@ public final class Siren: NSObject {
 // MARK: - Alert Helpers
 
 private extension Siren {
+
     func showAlertIfCurrentAppStoreVersionNotSkipped() {
-        
         alertType = setAlertType()
         
         guard let previouslySkippedVersion = NSUserDefaults.standardUserDefaults().objectForKey(SirenUserDefaults.StoredSkippedVersion.rawValue) as? String else {
@@ -401,24 +402,22 @@ private extension Siren {
             return
         }
         
-        if let currentAppStoreVersion = currentAppStoreVersion {
-            if currentAppStoreVersion != previouslySkippedVersion {
+        if let currentAppStoreVersion = currentAppStoreVersion
+            where currentAppStoreVersion != previouslySkippedVersion {
                 showAlert()
-            }
         }
     }
     
     func showAlert() {
-        
         let updateAvailableMessage = NSBundle().localizedString("Update Available", forceLanguageLocalization: forceLanguageLocalization)
         let newVersionMessage = localizedNewVersionMessage()
 
         let alertController = UIAlertController(title: updateAvailableMessage, message: newVersionMessage, preferredStyle: .Alert)
-        
+
         if let alertControllerTintColor = alertControllerTintColor {
             alertController.view.tintColor = alertControllerTintColor
         }
-        
+
         switch alertType {
         case .Force:
             alertController.addAction(updateAlertAction())
@@ -430,12 +429,12 @@ private extension Siren {
             alertController.addAction(updateAlertAction())
             alertController.addAction(skipAlertAction())
         case .None:
-            delegate?.sirenDidDetectNewVersionWithoutAlert?(newVersionMessage)
+            delegate?.sirenDidDetectNewVersionWithoutAlert(newVersionMessage)
         }
         
         if alertType != .None {
             alertController.show()
-            delegate?.sirenDidShowUpdateDialog?()
+            delegate?.sirenDidShowUpdateDialog(alertType)
         }
     }
     
@@ -444,7 +443,7 @@ private extension Siren {
         let action = UIAlertAction(title: title, style: .Default) { (alert: UIAlertAction) in
             self.hideWindow()
             self.launchAppStore()
-            self.delegate?.sirenUserDidLaunchAppStore?()
+            self.delegate?.sirenUserDidLaunchAppStore()
             return
         }
         
@@ -455,7 +454,7 @@ private extension Siren {
         let title = localizedNextTimeButtonTitle()
         let action = UIAlertAction(title: title, style: .Default) { (alert: UIAlertAction) in
             self.hideWindow()
-            self.delegate?.sirenUserDidCancel?()
+            self.delegate?.sirenUserDidCancel()
             return
         }
         
@@ -465,12 +464,14 @@ private extension Siren {
     func skipAlertAction() -> UIAlertAction {
         let title = localizedSkipButtonTitle()
         let action = UIAlertAction(title: title, style: .Default) { (alert: UIAlertAction) in
+
             if let currentAppStoreVersion = self.currentAppStoreVersion {
                 NSUserDefaults.standardUserDefaults().setObject(currentAppStoreVersion, forKey: SirenUserDefaults.StoredSkippedVersion.rawValue)
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
+
             self.hideWindow()
-            self.delegate?.sirenUserDidSkipVersion?()
+            self.delegate?.sirenUserDidSkipVersion()
             return
         }
         
@@ -481,7 +482,8 @@ private extension Siren {
 
 // MARK: - Localization Helpers
 
-private extension Siren {
+extension Siren {
+
     func localizedNewVersionMessage() -> String {
 
         let newVersionMessageToLocalize = "A new version of %@ is available. Please update to version %@ now."
@@ -519,7 +521,7 @@ private extension Siren {
         components.host = "itunes.apple.com"
         components.path = "/lookup"
 
-        var items: [NSURLQueryItem] = [NSURLQueryItem(name: "id", value: appID)]
+        var items: [NSURLQueryItem] = [NSURLQueryItem(name: "bundleId", value: NSBundle.bundleID())]
 
         if let countryCode = countryCode {
             let item = NSURLQueryItem(name: "country", value: countryCode)
@@ -541,14 +543,34 @@ private extension Siren {
         return components.day
     }
 
+    func isUpdateCompatibleWithDeviceOS(appData: [String: AnyObject]) -> Bool {
+
+        guard let results = appData["results"] as? [[String: AnyObject]],
+            requiredOSVersion = results.first?["minimumOsVersion"] as? String else {
+                postError(.AppStoreOSVersionNumberFailure, underlyingError: nil)
+            return false
+        }
+
+        let systemVersion = UIDevice.currentDevice().systemVersion
+
+        if systemVersion.compare(requiredOSVersion, options: .NumericSearch) == .OrderedDescending ||
+            systemVersion.compare(requiredOSVersion, options: .NumericSearch) == .OrderedSame {
+            return true
+        } else {
+            postError(.AppStoreOSVersionUnsupported, underlyingError: nil)
+            return false
+        }
+
+    }
+
     func isAppStoreVersionNewer() -> Bool {
 
         var newVersionExists = false
 
-        if let currentInstalledVersion = currentInstalledVersion, currentAppStoreVersion = currentAppStoreVersion {
-            if (currentInstalledVersion.compare(currentAppStoreVersion, options: .NumericSearch) == NSComparisonResult.OrderedAscending) {
-                newVersionExists = true
-            }
+        if let currentInstalledVersion = currentInstalledVersion, currentAppStoreVersion = currentAppStoreVersion
+            where (currentInstalledVersion.compare(currentAppStoreVersion, options: .NumericSearch) == .OrderedAscending) {
+
+            newVersionExists = true
         }
 
         return newVersionExists
@@ -571,16 +593,14 @@ private extension Siren {
         let oldVersion = (currentInstalledVersion).characters.split {$0 == "."}.map { String($0) }.map {Int($0) ?? 0}
         let newVersion = (currentAppStoreVersion).characters.split {$0 == "."}.map { String($0) }.map {Int($0) ?? 0}
 
-        if 2...4 ~= oldVersion.count && oldVersion.count == newVersion.count {
-            if newVersion[0] > oldVersion[0] { // A.b.c.d
-                alertType = majorUpdateAlertType
-            } else if newVersion[1] > oldVersion[1] { // a.B.c.d
-                alertType = minorUpdateAlertType
-            } else if newVersion.count > 2 && (oldVersion.count <= 2 || newVersion[2] > oldVersion[2]) { // a.b.C.d
-                alertType = patchUpdateAlertType
-            } else if newVersion.count > 3 && (oldVersion.count <= 3 || newVersion[3] > oldVersion[3]) { // a.b.c.D
-                alertType = revisionUpdateAlertType
-            }
+        if newVersion.first > oldVersion.first { // A.b.c.d
+            alertType = majorUpdateAlertType
+        } else if newVersion.count > 1 && (oldVersion.count <= 1 || newVersion[1] > oldVersion[1]) { // a.B.c.d
+            alertType = minorUpdateAlertType
+        } else if newVersion.count > 2 && (oldVersion.count <= 2 || newVersion[2] > oldVersion[2]) { // a.b.C.d
+            alertType = patchUpdateAlertType
+        } else if newVersion.count > 3 && (oldVersion.count <= 3 || newVersion[3] > oldVersion[3]) { // a.b.c.D
+            alertType = revisionUpdateAlertType
         }
 
         return alertType
@@ -594,7 +614,11 @@ private extension Siren {
     }
 
     func launchAppStore() {
-        let iTunesString =  "https://itunes.apple.com/app/id\(appID!)"
+        guard let appID = appID else {
+            return
+        }
+
+        let iTunesString =  "https://itunes.apple.com/app/id\(appID)"
         let iTunesURL = NSURL(string: iTunesString)
         UIApplication.sharedApplication().openURL(iTunesURL!)
     }
@@ -611,6 +635,7 @@ private extension Siren {
 // MARK: - UIAlertController Extensions
 
 private extension UIAlertController {
+
     func show() {
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.rootViewController = UIViewController()
@@ -621,14 +646,16 @@ private extension UIAlertController {
         window.makeKeyAndVisible()
         window.rootViewController!.presentViewController(self, animated: true, completion: nil)
     }
+
 }
 
 
 // MARK: - NSBundle Extension
 
 private extension NSBundle {
-    func currentInstalledVersion() -> String? {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
+
+    class func bundleID() -> String? {
+        return NSBundle.mainBundle().bundleIdentifier
     }
 
     func sirenBundlePath() -> String {
@@ -652,6 +679,7 @@ private extension NSBundle {
         
         return NSBundle(path: path)!.localizedStringForKey(stringKey, value: stringKey, table: table)
     }
+
 }
 
 
@@ -666,16 +694,24 @@ private extension Siren {
         switch code {
         case .MalformedURL:
             description = "The iTunes URL is malformed. Please leave an issue on http://github.com/ArtSabintsev/Siren with as many details as possible."
+        case .RecentlyCheckedAlready:
+            description = "Not checking the version, because it already checked recently."
         case .NoUpdateAvailable:
             description = "No new update available."
         case .AppStoreDataRetrievalFailure:
             description = "Error retrieving App Store data as an error was returned."
         case .AppStoreJSONParsingFailure:
             description = "Error parsing App Store JSON data."
+        case .AppStoreOSVersionNumberFailure:
+            description = "Error retrieving iOS version number as there was no data returned."
+        case .AppStoreOSVersionUnsupported:
+            description = "The version of iOS on the device is lower than that of the one required by the app verison update."
         case .AppStoreVersionNumberFailure:
-            description = "Error retrieving App Store verson number as there was no data returned."
+            description = "Error retrieving App Store version number as there was no data returned."
         case .AppStoreVersionArrayFailure:
-            description = "Error retrieving App Store verson number as results[0] does not contain a 'version' key."
+            description = "Error retrieving App Store verson number as results.first does not contain a 'version' key."
+        case .AppStoreAppIDFailure:
+            description = "Error retrieving trackId as results.first does not contain a 'trackId' key."
         }
 
         var userInfo: [String: AnyObject] = [NSLocalizedDescriptionKey: description]
@@ -686,9 +722,50 @@ private extension Siren {
 
         let error = NSError(domain: SirenErrorDomain, code: code.rawValue, userInfo: userInfo)
 
-        delegate?.sirenDidFailVersionCheck?(error)
+        delegate?.sirenDidFailVersionCheck(error)
 
         printMessage(error.localizedDescription)
+    }
+
+}
+
+
+// MARK: - SirenDelegate 
+
+public extension SirenDelegate {
+
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType) {}
+    func sirenUserDidLaunchAppStore() {}
+    func sirenUserDidSkipVersion() {}
+    func sirenUserDidCancel() {}
+    func sirenDidFailVersionCheck(error: NSError) {}
+    func sirenDidDetectNewVersionWithoutAlert(message: String) {}
+
+}
+
+
+// MARK: - Testing Helpers 
+
+extension Siren {
+
+    func testSetCurrentInstalledVersion(version: String) {
+        currentInstalledVersion = version
+    }
+
+    func testSetAppStoreVersion(version: String) {
+        currentAppStoreVersion = version
+    }
+
+    func testIsAppStoreVersionNewer() -> Bool {
+        return isAppStoreVersionNewer()
+    }
+    
+}
+
+extension NSBundle {
+
+    func testLocalizedString(stringKey: String, forceLanguageLocalization: SirenLanguageType?) -> String {
+        return NSBundle().localizedString(stringKey, forceLanguageLocalization: forceLanguageLocalization)
     }
 
 }

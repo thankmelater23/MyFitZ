@@ -2,7 +2,9 @@
 
 ### Notify users when a new version of your app is available, and prompt them with the App Store link.
 
+![Travis-CI](https://travis-ci.org/ArtSabintsev/Siren.svg?branch=master) ![Cocoapods](https://img.shields.io/cocoapods/v/Siren.svg) [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ---
+
 ## About
 **Siren** checks a user's currently installed version of your iOS app against the version that is currently available in the App Store.
 
@@ -12,14 +14,20 @@ If a new version is available, an alert can be presented to the user informing t
 	- Semantic Versioning is a three number versioning system (e.g., 1.0.0)
 	- Siren also supports two-number versioning (e.g., 1.0)
 	- Siren also supports four-number versioning (e.g., 1.0.0.0)
+- Siren is actively maintained by [**Arthur Sabintsev**](http://github.com/ArtSabintsev) and [**Aaron Brager**](http://twitter.com/getaaron)
+
+## Ports
 - Siren is a Swift language port of [**Harpy**](http://github.com/ArtSabintsev/Harpy), an Objective-C library that achieves the same functionality.
-- Siren is actively maintained by [**Arthur Sabintsev**](http://github.com/ArtSabintsev) and [**Aaron Brager**](http://twitter.com/getaaron).
+- Siren and Harpy are maintained by the same developers.
+- This library was the inspiration for [**Egghead Games' Siren library**](https://github.com/eggheadgames/Siren), which achieves the same functionality with the Google Play store on the Android platform.
 
 ## Features
 - [x] CocoaPods Support
-- [x] Localized for 20+ languages (See **Localization** Section)
-- [x] Three types of alerts (see **Screenshots & Alert Types**)
-- [x] Optional delegate methods (see **Optional Delegate** section)
+- [x] Localized for 20+ languages (See **Localization**)
+- [x] Pre-Update Device Compatibility Check (See **Device Compatibility**)
+- [x] Three types of alerts (see **Screenshots**)
+- [x] Optional delegate methods (see **Optional Delegate**)
+- [x] Unit Tests!
 
 ## Screenshots
 
@@ -61,7 +69,7 @@ Add `import Siren` to any `.Swift` file that references Siren via a Carthage ins
 
 ## Setup
 
-Here's some commented sample code. Adapt this to meet your app's needs.
+Here's some commented sample code. Adapt this to meet your app's needs. For a full list of optional settings/preferences, please refer to https://github.com/ArtSabintsev/Siren/blob/master/Sample%20App/Sample%20App/AppDelegate.swift in the Sample Project.
 
 ```Swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
@@ -70,9 +78,6 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 
 	// Siren is a singleton
 	let siren = Siren.sharedInstance
-
-	// Required: Your app's iTunes App Store ID
-	siren.appID = <#Your_App_ID#>
 
 	// Optional: Defaults to .Option
 	siren.alertType = <#SirenAlertType_Enum_Value#>
@@ -147,16 +152,16 @@ If you would like to set a different type of alert for revision, patch, minor, a
 ```
 
 ## Optional Delegate and Delegate Methods
-Six delegate methods allow you to handle or track the user's behavior:
+Six delegate methods allow you to handle or track the user's behavior. Each method has a default, empty implementation, effectively making each of these methods optional.
 
 ```	swift
-@objc protocol SirenDelegate {
-    optional func sirenDidShowUpdateDialog() // User presented with update dialog
-    optional func sirenUserDidLaunchAppStore() // User did click on button that launched App Store.app
-    optional func sirenUserDidSkipVersion() // User did click on button that skips version update
-    optional func sirenUserDidCancel()  // User did click on button that cancels update dialog
-		optional func sirenDidFailVersionCheck(error: NSError) // Siren failed to perform version check (may return system-level error)
-    optional func sirenDidDetectNewVersionWithoutAlert(message: String) // Siren performed version check and did not display alert
+public protocol SirenDelegate: class {
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType)   // User presented with update dialog
+    func sirenUserDidLaunchAppStore()                          // User did click on button that launched App Store.app
+    func sirenUserDidSkipVersion()                             // User did click on button that skips version update
+    func sirenUserDidCancel()                                  // User did click on button that cancels update dialog
+    func sirenDidFailVersionCheck(error: NSError)              // Siren failed to perform version check (may return system-level error)
+    func sirenDidDetectNewVersionWithoutAlert(message: String) // Siren performed version check and did not display alert
 }
 ```
 
@@ -170,6 +175,9 @@ You can enable it like this:
 ```swift
 Siren.sharedInstance.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
 ```
+## Device Compatibility
+If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
+
 ## Testing Siren
 Temporarily change the version string in Xcode (within the `.xcodeproj`) to an older version than the one that's currently available in the App Store. Afterwards, build and run your app, and you should see the alert.
 

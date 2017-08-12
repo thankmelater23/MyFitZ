@@ -1,12 +1,10 @@
 PODS:
   - AsyncSwift (1.7.2)
-  - Bolts/Tasks (1.7.0)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
-  - CRToast (0.0.9)
-  - DKChainableAnimationKit (1.6.0)
-  - DZNEmptyDataSet (1.7.3)
+  - DKChainableAnimationKit (1.6.1)
+  - DZNEmptyDataSet (1.8.1)
   - FontAwesomeKit (2.2.0):
     - FontAwesomeKit/Core (= 2.2.0)
     - FontAwesomeKit/FontAwesome (= 2.2.0)
@@ -22,9 +20,9 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.2.0):
     - FontAwesomeKit/Core
-  - HeapInspector (0.2.1):
-    - HeapInspector/no-arc (= 0.2.1)
-  - HeapInspector/no-arc (0.2.1)
+  - HeapInspector (0.3):
+    - HeapInspector/no-arc (= 0.3)
+  - HeapInspector/no-arc (0.3)
   - HexColors (2.2.1)
   - iRate (1.11.4)
   - MRProgress (0.8.3):
@@ -55,31 +53,27 @@ PODS:
   - MRProgress/ProgressBaseClass (0.8.3)
   - MRProgress/Stopable (0.8.3):
     - MRProgress/Helper
-  - Parse (1.13.0):
-    - Bolts/Tasks (~> 1.6)
   - REFormattedNumberField (1.1.6)
-  - RETableViewManager (1.6):
+  - RETableViewManager (1.7):
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
-  - Siren (0.7.0)
-  - SlackTextViewController (1.9.1)
-  - SVProgressHUD (2.0.2)
-  - SwiftyBeaver (0.4.2)
+  - Siren (0.9.2)
+  - SlackTextViewController (1.9.3)
+  - SVProgressHUD (2.0.3)
+  - SwiftyBeaver (0.6.2)
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
 
 DEPENDENCIES:
   - AsyncSwift
   - ChameleonFramework
-  - CRToast
   - DKChainableAnimationKit
   - DZNEmptyDataSet
   - FontAwesomeKit
   - HeapInspector
   - iRate
   - MRProgress
-  - Parse
   - RETableViewManager
   - Siren
   - SlackTextViewController
@@ -89,24 +83,23 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
-  DKChainableAnimationKit: fe28909402825a42cc632b211eadcc39ad2bee38
-  DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
+  DKChainableAnimationKit: e4e605d253ee153cb600efa68f8c97ed118122a7
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
-  HeapInspector: 94f5b61d92c373bb633dbc0b6e066fdc784def9f
+  HeapInspector: cad61d46d85a2fa08e7f9ee9a37c139ff1664a93
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
   MRProgress: 16de7cc9f347e8846797a770db102a323fe7ef09
-  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
-  RETableViewManager: 9667ecb29c005c32df40a1dd1828224840a351a2
+  RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
-  Siren: b302660e1bf19537705a15aa3460fb328a3e8eb9
-  SlackTextViewController: 6b0d1030c53937226fc5358f217af2a34fc211cf
-  SVProgressHUD: e4020e23badbd7cc61bc4a80d3c1da57f166a978
-  SwiftyBeaver: 3eced9aabe4f10b975453cc1baaa2d523a5eaeae
+  Siren: acee4d2839e3cc232d8c4a4a4e2e99208403f6e0
+  SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftyBeaver: 113f4527712baa6a98dfb99776e59735c0b0304b
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 938d14ea2eae758f86464aa9233301634e52655d
+
+COCOAPODS: 1.0.1

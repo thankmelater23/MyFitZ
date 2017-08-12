@@ -7,7 +7,7 @@
 target 'MyFitZ' do
     use_frameworks!
     
-    pod 'CRToast'#(0.0.9)
+#    pod 'CRToast'#(0.0.9)
     pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
     pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
     pod 'MRProgress' #Multiple tipes of loading bars and circles
@@ -21,7 +21,7 @@ target 'MyFitZ' do
     pod 'FontAwesomeKit'#(2.2.0)
     pod 'SlackTextViewController'#
     pod 'Siren'#This will be done when the app has an app id number
-    pod 'Parse'
+    #pod 'Parse'
     pod 'HeapInspector'
     
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06BEF5C1C85CE7C95FD1786C /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A7BAE724616A43DA96CB8D /* Pods_MyFitZ.framework */; };
 		C6055DD41C15480300C6B505 /* Equatables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6055DD31C15480300C6B505 /* Equatables.swift */; };
 		C60563E41C15B2FE00C6B505 /* GlobalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60563E31C15B2FE00C6B505 /* GlobalMethods.swift */; };
 		C606C00E1C0B16700012AD13 /* CodeComplexity.sh in Resources */ = {isa = PBXBuildFile; fileRef = C606C00B1C0B16700012AD13 /* CodeComplexity.sh */; };
@@ -14,7 +15,6 @@
 		C606C0101C0B16700012AD13 /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = C606C00D1C0B16700012AD13 /* set_build_number.sh */; };
 		C60C6AD11C02C92300C8935A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C6AD01C02C92300C8935A /* Functions.swift */; };
 		C60FDF591CED75A600D817CE /* IntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FDF581CED75A600D817CE /* IntroPageView.swift */; };
-		C61466291CF620050042C800 /* FavoriteListRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61466281CF620050042C800 /* FavoriteListRowController.swift */; };
 		C6178FC71C14210A003A9561 /* Constants_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6178FC61C14210A003A9561 /* Constants_ViewController.swift */; };
 		C6178FE91C142118003A9561 /* Constants_SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6178FE81C142118003A9561 /* Constants_SelectionViewController.swift */; };
 		C617900A1C142123003A9561 /* Constants_MakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61790091C142123003A9561 /* Constants_MakeTableViewController.swift */; };
@@ -32,6 +32,7 @@
 		C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */; };
 		C626B9521BE0A48C00BB5E86 /* MyFitZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C626B9511BE0A48C00BB5E86 /* MyFitZUITests.swift */; };
 		C62A650D1C50725F00830831 /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A650C1C50725F00830831 /* WebsiteViewController.swift */; };
+		C637615C1D0F27970095278E /* FavoriteListRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637615B1D0F27970095278E /* FavoriteListRowController.swift */; };
 		C63BA5C91BEF93C600DCDD61 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */; };
 		C63BA5CA1BEF93CE00DCDD61 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69912EA1BEB869D00538DB5 /* SnapshotHelper.swift */; };
 		C64503B71BE1A0460065EC2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64503B11BE1A0460065EC2F /* Constants.swift */; };
@@ -78,6 +79,8 @@
 		C69D74451C0AF5D100C74D19 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74431C0AF5D100C74D19 /* Fabric.framework */; };
 		C69D74461C0AF5D100C74D19 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D74441C0AF5D100C74D19 /* Crashlytics.framework */; };
 		C6A4F17E1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */; };
+		C6AF6BA41D09108E00AF3714 /* WardrobeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF6BA31D09108E00AF3714 /* WardrobeUnitTest.swift */; };
+		C6AF6BBE1D09109D00AF3714 /* ItemUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AF6BBD1D09109D00AF3714 /* ItemUnitTest.swift */; };
 		C6B4928A1C04457200A1D237 /* add0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927A1C04457200A1D237 /* add0.wav */; };
 		C6B4928B1C04457200A1D237 /* alert0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927B1C04457200A1D237 /* alert0.wav */; };
 		C6B4928C1C04457200A1D237 /* animationPop0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6B4927C1C04457200A1D237 /* animationPop0.wav */; };
@@ -132,7 +135,6 @@
 		C6FF9A3F1C0DA5AA00C2A31B /* got0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */; };
 		C6FF9A831C0DA5F200C2A31B /* mycloset0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */; };
 		C6FF9AA61C0DA68C00C2A31B /* SlackMessanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */; };
-		DED5C67B3F425F90E0808EA2 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC71502223B7A14F761D8605 /* Pods_MyFitZ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,8 +194,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B80776AC35E0E43F0C3C537 /* Pods-MyFitZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.debug.xcconfig"; sourceTree = "<group>"; };
-		C06D0336AECB6C52217F7F0B /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
+		12A7BAE724616A43DA96CB8D /* Pods_MyFitZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B1B8C05328A042548316E91 /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
+		5EDBB054613D37C6C6B668C4 /* Pods-MyFitZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.debug.xcconfig"; sourceTree = "<group>"; };
 		C6055DD31C15480300C6B505 /* Equatables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatables.swift; sourceTree = "<group>"; };
 		C60563E31C15B2FE00C6B505 /* GlobalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalMethods.swift; sourceTree = "<group>"; };
 		C606C00B1C0B16700012AD13 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; lineEnding = 0; path = CodeComplexity.sh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.sh; };
@@ -201,7 +204,6 @@
 		C606C00D1C0B16700012AD13 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		C60C6AD01C02C92300C8935A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Functions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C60FDF581CED75A600D817CE /* IntroPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageView.swift; sourceTree = "<group>"; };
-		C61466281CF620050042C800 /* FavoriteListRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteListRowController.swift; path = ../FavoriteListRowController.swift; sourceTree = "<group>"; };
 		C6178FC61C14210A003A9561 /* Constants_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_ViewController.swift; sourceTree = "<group>"; };
 		C6178FE81C142118003A9561 /* Constants_SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_SelectionViewController.swift; sourceTree = "<group>"; };
 		C61790091C142123003A9561 /* Constants_MakeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants_MakeTableViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		C626B9511BE0A48C00BB5E86 /* MyFitZUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFitZUITests.swift; sourceTree = "<group>"; };
 		C626B9531BE0A48C00BB5E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C62A650C1C50725F00830831 /* WebsiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
+		C637615B1D0F27970095278E /* FavoriteListRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListRowController.swift; sourceTree = "<group>"; };
 		C64503B11BE1A0460065EC2F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Constants.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C64503B21BE1A0460065EC2F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Extensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C64503B31BE1A0460065EC2F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Item.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -270,6 +273,8 @@
 		C69D74441C0AF5D100C74D19 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C6A415E51C2EB2C4006EA3FF /* MyFitZ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyFitZ-Bridging-Header.h"; sourceTree = "<group>"; };
 		C6A4F17D1C2A56A00050C4A3 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
+		C6AF6BA31D09108E00AF3714 /* WardrobeUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardrobeUnitTest.swift; sourceTree = "<group>"; };
+		C6AF6BBD1D09109D00AF3714 /* ItemUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemUnitTest.swift; sourceTree = "<group>"; };
 		C6B4927A1C04457200A1D237 /* add0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add0.wav; sourceTree = "<group>"; };
 		C6B4927B1C04457200A1D237 /* alert0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alert0.wav; sourceTree = "<group>"; };
 		C6B4927C1C04457200A1D237 /* animationPop0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = animationPop0.wav; sourceTree = "<group>"; };
@@ -326,10 +331,16 @@
 		C6FF9A3E1C0DA5AA00C2A31B /* got0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = got0.wav; sourceTree = "<group>"; };
 		C6FF9A821C0DA5F200C2A31B /* mycloset0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mycloset0.wav; sourceTree = "<group>"; };
 		C6FF9AA51C0DA68C00C2A31B /* SlackMessanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackMessanger.swift; sourceTree = "<group>"; };
-		CC71502223B7A14F761D8605 /* Pods_MyFitZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		49293CAAEBEF10DCCFC4BBF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C626B92B1BE0A48C00BB5E86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,7 +348,7 @@
 				C69D74461C0AF5D100C74D19 /* Crashlytics.framework in Frameworks */,
 				C68F51061C0EE34C00424646 /* Appsee.framework in Frameworks */,
 				C69D74451C0AF5D100C74D19 /* Fabric.framework in Frameworks */,
-				DED5C67B3F425F90E0808EA2 /* Pods_MyFitZ.framework in Frameworks */,
+				06BEF5C1C85CE7C95FD1786C /* Pods_MyFitZ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,11 +376,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0172A8EDBEE0119F76A8A2CC /* Pods */ = {
+		4494AAA345E2E9B498E7BE78 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B80776AC35E0E43F0C3C537 /* Pods-MyFitZ.debug.xcconfig */,
-				C06D0336AECB6C52217F7F0B /* Pods-MyFitZ.release.xcconfig */,
+				5EDBB054613D37C6C6B668C4 /* Pods-MyFitZ.debug.xcconfig */,
+				3B1B8C05328A042548316E91 /* Pods-MyFitZ.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -380,7 +391,7 @@
 				C68F51051C0EE34C00424646 /* Appsee.framework */,
 				C69D74431C0AF5D100C74D19 /* Fabric.framework */,
 				C69D74441C0AF5D100C74D19 /* Crashlytics.framework */,
-				CC71502223B7A14F761D8605 /* Pods_MyFitZ.framework */,
+				12A7BAE724616A43DA96CB8D /* Pods_MyFitZ.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -406,7 +417,7 @@
 				C626B92F1BE0A48C00BB5E86 /* Products */,
 				C606C0231C0B16A30012AD13 /* Scripts */,
 				9EFD7CBF6723C7EBEC4040E5 /* Frameworks */,
-				0172A8EDBEE0119F76A8A2CC /* Pods */,
+				4494AAA345E2E9B498E7BE78 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -445,6 +456,8 @@
 				C626B9461BE0A48C00BB5E86 /* MyFitZTests.swift */,
 				C60563E31C15B2FE00C6B505 /* GlobalMethods.swift */,
 				C626B9481BE0A48C00BB5E86 /* Info.plist */,
+				C6AF6BA31D09108E00AF3714 /* WardrobeUnitTest.swift */,
+				C6AF6BBD1D09109D00AF3714 /* ItemUnitTest.swift */,
 			);
 			path = MyFitZTests;
 			sourceTree = "<group>";
@@ -696,8 +709,8 @@
 		C6D650D11CF71F6400AC1E01 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				C637615B1D0F27970095278E /* FavoriteListRowController.swift */,
 				C6D650CF1CF71F4B00AC1E01 /* DetailRow.swift */,
-				C61466281CF620050042C800 /* FavoriteListRowController.swift */,
 				C696DC061CFCA3C900032703 /* RecentlyWornListRowController.swift */,
 				C696DC361CFCA3F700032703 /* TrashListRowController.swift */,
 				C696DCC41CFCA4A800032703 /* TodayWornRowViewController.swift */,
@@ -721,7 +734,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C626B9561BE0A48C00BB5E86 /* Build configuration list for PBXNativeTarget "MyFitZ" */;
 			buildPhases = (
-				E4CE914C71B41E278A90090A /* Check Pods Manifest.lock */,
+				3AFA5DDA4AD658A71502E198 /* [CP] Check Pods Manifest.lock */,
 				C626B92A1BE0A48C00BB5E86 /* Sources */,
 				C626B92B1BE0A48C00BB5E86 /* Frameworks */,
 				C626B92C1BE0A48C00BB5E86 /* Resources */,
@@ -729,9 +742,9 @@
 				C606C0221C0B16830012AD13 /* Lines Of Code */,
 				C606C0241C0B16E00012AD13 /* Code Complexity */,
 				C69D74421C0AF03300C74D19 /* Fabric */,
-				AD19FB027CC17A95C0507F1F /* Embed Pods Frameworks */,
-				DF723810DF8B3305C664E80C /* Copy Pods Resources */,
 				C6B8A0631CEAA44200276ACC /* Embed Watch Content */,
+				66A12C99AFB874EFE960518A /* [CP] Embed Pods Frameworks */,
+				15E6A344A154BAC3CA953E93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -785,6 +798,7 @@
 			buildPhases = (
 				C6B8A0371CEAA44200276ACC /* Resources */,
 				C6B8A0611CEAA44200276ACC /* Embed App Extensions */,
+				49293CAAEBEF10DCCFC4BBF9 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -938,14 +952,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AD19FB027CC17A95C0507F1F /* Embed Pods Frameworks */ = {
+		15E6A344A154BAC3CA953E93 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AFA5DDA4AD658A71502E198 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		66A12C99AFB874EFE960518A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1008,36 +1052,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"$CODESIGNING_FOLDER_PATH\" >/tmp/\"$USER.ident\" && echo \"$CODE_SIGN_IDENTITY\" >>/tmp/\"$USER.ident\" && exit;\n";
-		};
-		DF723810DF8B3305C664E80C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4CE914C71B41E278A90090A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1119,8 +1133,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60563E41C15B2FE00C6B505 /* GlobalMethods.swift in Sources */,
+				C6AF6BBE1D09109D00AF3714 /* ItemUnitTest.swift in Sources */,
 				C626B9471BE0A48C00BB5E86 /* MyFitZTests.swift in Sources */,
 				C63BA5C91BEF93C600DCDD61 /* SnapshotHelper.swift in Sources */,
+				C6AF6BA41D09108E00AF3714 /* WardrobeUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,7 +1153,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C61466291CF620050042C800 /* FavoriteListRowController.swift in Sources */,
 				C696DC371CFCA3F700032703 /* TrashListRowController.swift in Sources */,
 				C696DCC51CFCA4A800032703 /* TodayWornRowViewController.swift in Sources */,
 				C69831E71CFC6B5400D69507 /* StatsController.swift in Sources */,
@@ -1150,6 +1165,7 @@
 				C62365801CF75345009BFD4D /* WatchItem.swift in Sources */,
 				C698315A1CFC6B0D00D69507 /* RecentlyWornListController.swift in Sources */,
 				C6EE36451CF626A200A4731A /* FavoritesListController.swift in Sources */,
+				C637615C1D0F27970095278E /* FavoriteListRowController.swift in Sources */,
 				C696DCF51CFCA4DD00032703 /* StatsRowViewController.swift in Sources */,
 				C6B8A0551CEAA44200276ACC /* ComplicationController.swift in Sources */,
 				C69831891CFC6B1700D69507 /* TrashListController.swift in Sources */,
@@ -1217,6 +1233,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1263,6 +1280,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1281,7 +1299,7 @@
 		};
 		C626B9571BE0A48C00BB5E86 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B80776AC35E0E43F0C3C537 /* Pods-MyFitZ.debug.xcconfig */;
+			baseConfigurationReference = 5EDBB054613D37C6C6B668C4 /* Pods-MyFitZ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1308,7 +1326,7 @@
 		};
 		C626B9581BE0A48C00BB5E86 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C06D0336AECB6C52217F7F0B /* Pods-MyFitZ.release.xcconfig */;
+			baseConfigurationReference = 3B1B8C05328A042548316E91 /* Pods-MyFitZ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

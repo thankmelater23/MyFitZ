@@ -8,21 +8,23 @@
 
 import UIKit
 
+var keyPath = "estimatedProgress"
+
 class WebsiteViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
-    let url = "http://www.bangbangstudios.com"
+    let url = "http://www.MyFitZApp.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.loadURL()
         
-        self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: NSKeyValueObservingOptions.New, context: nil)
+        self.webView.addObserver(self, forKeyPath: keyPath, options: NSKeyValueObservingOptions.New, context: nil)
     }
     
     override func viewDidDisappear(animated: Bool) {
-        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        self.webView.removeObserver(self, forKeyPath: keyPath)
     }
     func loadURL(){
         let requestURL = NSURL(string: url)
@@ -34,7 +36,7 @@ class WebsiteViewController: UIViewController {
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if keyPath == "estimatedProgress"{
+        if keyPath == keyPath{
 //            print("Loaded \(self.webView.estimatedProgress * 100)%")
              print("Observer Called")
         }

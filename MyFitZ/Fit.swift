@@ -11,19 +11,72 @@
 import Foundation
 
 
-
+let SlotsMax = 8
 //MARK: -Fit Class
-/// Holds multiple Item objects that makes an outfit
-//class Fit{
-//    //MARK: -Variables
-//    var p1, p2, p3, p4, p5, p6, p7, p8, p9, p10: (itemID: Int, path: [String])//Item!
-//    var items = [Item]()
-//    var timesWorn: Int!
-//    var favorited: Bool!
-//    var lastTimeWOrn: Bool!
-//    var fitTotalPrice: Double!
-//    var mostExpensiveItem: Item!
-//    var mostDiverseItem: Item!
-//    var outFitIDNumber: Int!
-//    ///MARK: -Methods
-//}
+class Fit: NSObject{
+    var timesWorn: Int!
+    var favorited: Bool!
+    var lastTimeWOrn: String!
+    var fitTotalPrice: Double!
+    var mostExpensiveItem: [String: String]!
+    var mostDiverseItem: [String: String]!
+    var outFitIDNumber: Int!
+    var paths = [String: String]()
+    var items: [Item]?
+    
+    func fetchItems(){
+        for path in paths{
+            let item = Item()
+            //Get item from path
+            self.items?.append(item)
+        }
+    }
+}
+
+class Fits: NSObject{
+    var favoritedslots: [Fit] = [] {
+        didSet{
+            if favoritedslots.count >= SlotsMax{
+                //Call alert and prompt to delete an item first from out fit
+                favoritedslots.popLast()
+            }
+        }
+    }
+    var recentlyWornslots: [Fit] = [] {
+        didSet{
+            if recentlyWornslots.count >= SlotsMax{
+                //Call alert and prompt to delete an item first from out fit
+                recentlyWornslots.popLast()
+            }
+        }
+    }
+    var deletedlots: [Fit] = [] {
+        didSet{
+            if deletedlots.count >= SlotsMax{
+                //Call alert and prompt to delete an item first from out fit
+                deletedlots.popLast()
+            }
+        }
+    }
+    
+}
+
+
+class FitAbstract: NSObject{
+    //MARK: -Variables
+    
+    var itemsFromConvertedIDs = [Item]()
+    
+    ///MARK: -Methods
+    
+    override init(){
+        super.init()
+    }
+}
+
+
+class WatchFit: FitAbstract{
+    
+}
+
+

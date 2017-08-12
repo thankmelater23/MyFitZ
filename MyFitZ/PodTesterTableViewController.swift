@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import CRToast
+//import CRToast
 import RETableViewManager
 
 class PodTesterTableViewController: UITableViewController, RETableViewManagerDelegate {
@@ -36,13 +36,13 @@ class PodTesterTableViewController: UITableViewController, RETableViewManagerDel
         self.anotherSection?.addItem(item)
         self.anotherSection?.addItem(boolThing)
         
-        let dicOfOptions = [kCRToastTextKey: "Hello world",
-                            kCRToastTextAlignmentKey: "NSTextAlignmentCenter",
-                            kCRToastBackgroundColorKey : UIColor.redColor(),
-                            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
-                            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
-                            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
-                            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
+//        let dicOfOptions = [kCRToastTextKey: "Hello world",
+//                            kCRToastTextAlignmentKey: "NSTextAlignmentCenter",
+//                            kCRToastBackgroundColorKey : UIColor.redColor(),
+//                            kCRToastAnimationInTypeKey : "CRToastAnimationTypeGravity",
+//                            kCRToastAnimationOutTypeKey : "CRToastAnimationTypeGravity",
+//                            kCRToastAnimationInDirectionKey : "CRToastAnimationDirectionLeft",
+//                            kCRToastAnimationOutDirectionKey : "CRToastAnimationDirectionRight"]
         
 //        CRToastManager .showNotificationWithOptions(dicOfOptions, completionBlock: {
 //            MRProgressOverlayView.dismissOverlayForView(self.view, animated: true)

@@ -12,6 +12,7 @@
 #import "RETableViewPickerCell.h"
 #import "RETableViewSegmentedCell.h"
 #import "RETableViewTextCell.h"
+#import "NSBundle+RETableViewManager.h"
 #import "NSString+RETableViewManagerAdditions.h"
 #import "REActionBar.h"
 #import "REPlaceholderTextView.h"

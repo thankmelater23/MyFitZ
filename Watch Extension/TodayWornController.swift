@@ -16,7 +16,6 @@ class TodayWornController: WKInterfaceController, WCSessionDelegate{
     @IBOutlet var amountOfFavoritedItems: WKInterfaceLabel!
     @IBOutlet var popularItem: WKInterfaceImage!
     @IBOutlet var amountOfNewItems: WKInterfaceLabel!
-    
     @IBOutlet var amountOfItems: WKInterfaceLabel!
     var selectedIndex = 0
     var items: [WatchItem]?{
@@ -34,6 +33,8 @@ class TodayWornController: WKInterfaceController, WCSessionDelegate{
     }
     var message: [String: AnyObject] = [:]
     var itemSender: [String: AnyObject] = [:]
+    
+    
     var session: WCSession?{
         didSet{
             if let session = session{
@@ -67,9 +68,13 @@ class TodayWornController: WKInterfaceController, WCSessionDelegate{
             if ((session?.reachable) != nil){
                 session!.sendMessage(message, replyHandler: { (response) -> Void in
                     // 4
-                    for (_, value) in response{
+                    let watchItemArray = response[TrashList]
+                    
+                    for (_, value) in watchItemArray as! [String: AnyObject]{
                         let watchItem = WatchItem()
-                        watchItem.setItemFromDic(value as! [String : AnyObject])
+                        let dicOfItem = value as! [String: AnyObject]
+                        watchItem.setItemFromDic(dicOfItem)
+                        //                        watchItem.model = "fast"
                         self.items?.append(watchItem)
                     }
                     }, errorHandler: { (error) -> Void in
@@ -111,7 +116,7 @@ class TodayWornController: WKInterfaceController, WCSessionDelegate{
             item.payedPrice = 10 * Double(i)
             item.timesWorn = 2 * i
             item.favorited = true
-            item.image = UIImage(named: "shoewareImage")
+//            item.image = UIImage(named: "shoewareImage")
             items.append(item)
         }
         return items

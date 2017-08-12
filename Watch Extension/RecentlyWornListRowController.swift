@@ -23,10 +23,9 @@ class RecentlyWornListRowController: NSObject{
     var item: WatchItem?{
         didSet{
             if let item = item{
-                image.setImage(UIImage(named: "TopImage"))
                 model.setText(item.model)
                 lastTimeWorn.setText(item.lastTimeWorn)
-                price.setText("\(item.payedPrice)")
+                price.setText("$:\(item.payedPrice!)")
                 var categoryImage = UIImage()
                 
                 switch category{
@@ -49,6 +48,7 @@ class RecentlyWornListRowController: NSObject{
                 let starImage = (item.favorited != nil) ? UIImage(named: "star_on")! : UIImage(named: "star_off")!
                 
                 category.setImage(categoryImage)
+                image.setImage(categoryImage)
                 favorited.setBackgroundImage(starImage)
             }
         }

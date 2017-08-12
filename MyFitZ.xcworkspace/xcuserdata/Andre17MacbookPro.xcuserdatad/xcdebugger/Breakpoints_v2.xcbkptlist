@@ -593,22 +593,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/DetailedViewController.swift"
-            timestampString = "474830686.212827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "wearActivate()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -910,38 +894,6 @@
             endingLineNumber = "180"
             landmarkName = "returnItem(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyFitZ.(returnItem (Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; Swift.Optional&lt;MyFitZ.Item&gt;).(closure #2)"
-                  moduleName = "MyFitZ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/MyFitZ/Functions.swift"
-                  timestampString = "486592955.29246"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyFitZ.(returnItem (Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; Swift.Optional&lt;MyFitZ.Item&gt;).(closure #2).(implicit closure #1)"
-                  moduleName = "MyFitZ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/MyFitZ/Functions.swift"
-                  timestampString = "486592955.292663"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1123,15 +1075,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/FavoritesListController.swift"
-            timestampString = "486586666.16715"
+            timestampString = "486679487.752256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "table(_:didSelectRowAtIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1207,11 +1159,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/FavoritesListController.swift"
-            timestampString = "486586666.16715"
+            timestampString = "486679487.752256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "createItems()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1223,11 +1175,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/FavoritesListController.swift"
-            timestampString = "486586666.16715"
+            timestampString = "486679487.752256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "createItems()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1271,11 +1223,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/AppDelegate.swift"
-            timestampString = "486212968.538448"
+            timestampString = "487008370.208587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "session(_:didReceiveMessage:replyHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1287,11 +1239,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/WatchItem.swift"
-            timestampString = "486294765.270513"
+            timestampString = "487007249.09763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1303,11 +1255,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/WatchItem.swift"
-            timestampString = "486294773.693391"
+            timestampString = "487007249.09763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "convertWatchItemToDickAndReturn()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1319,11 +1271,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/WatchItem.swift"
-            timestampString = "486587344.809247"
+            timestampString = "487007249.09763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "setItemFromDic(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1415,11 +1367,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/AppDelegate.swift"
-            timestampString = "486308665.258229"
+            timestampString = "487008370.208587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "returnArrayOfWatchItems(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1431,11 +1383,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/AppDelegate.swift"
-            timestampString = "486314697.442046"
+            timestampString = "487008370.208587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "session(_:didReceiveMessage:replyHandler:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1470,6 +1422,53 @@
             endingLineNumber = "14"
             landmarkName = "StatsController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Extension.StatsController.table.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.WKInterfaceTable&gt;"
+                  moduleName = "Watch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/Watch%20Extension/StatsController.swift"
+                  timestampString = "488340677.378474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Extension.StatsController.table.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.WKInterfaceTable&gt;"
+                  moduleName = "Watch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/Watch%20Extension/StatsController.swift"
+                  timestampString = "488340677.37862"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Extension.StatsController.init () -&gt; Watch_Extension.StatsController"
+                  moduleName = "Watch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/Watch%20Extension/StatsController.swift"
+                  timestampString = "488340677.378789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1479,29 +1478,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/AppDelegate.swift"
-            timestampString = "486497995.303754"
+            timestampString = "487008370.208587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "returnArrayOfWatchItems(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFitZ/AppDelegate.swift"
-            timestampString = "486498041.781641"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "session(_:didReceiveMessage:replyHandler:)"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1527,11 +1510,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/StatsController.swift"
-            timestampString = "486586666.16715"
+            timestampString = "486679487.752256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "createItems()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1543,12 +1526,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Watch Extension/StatsController.swift"
-            timestampString = "486586666.16715"
+            timestampString = "486679487.752256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "createItems()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/WatchItem.swift"
+            timestampString = "487007249.09763"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "setItemFromDic(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TodayWornRowViewController.swift"
+            timestampString = "486672223.417656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "TodayWornRowViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/WatchItem.swift"
+            timestampString = "487007249.09763"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "setItemFromDic(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1558,13 +1589,173 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Watch Extension/WatchItem.swift"
-            timestampString = "486587345.868325"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487000622.91197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "setItemFromDic(_:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "TrashListController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Extension.TrashListController.items.didset : Swift.Optional&lt;Swift.Array&lt;Watch_Extension.WatchItem&gt;&gt;"
+                  moduleName = "Watch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/Watch%20Extension/TrashListController.swift"
+                  timestampString = "488340677.382129"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1256">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Watch_Extension.TrashListController.items.didset : Swift.Optional&lt;Swift.Array&lt;Watch_Extension.WatchItem&gt;&gt;"
+                  moduleName = "Watch Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Andre17MacbookPro/BoxSync/MyFitZ/Watch%20Extension/TrashListController.swift"
+                  timestampString = "488340677.382285"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1784">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487001233.174767"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "getData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/AppDelegate.swift"
+            timestampString = "487008370.208587"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "session(_:didReceiveMessage:replyHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487006258.588171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "getData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487698177.370518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "session(_:didReceiveApplicationContext:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487698177.370518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "session(_:didReceiveApplicationContext:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487653124.392232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "getData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/TrashListController.swift"
+            timestampString = "487721693.747297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "TrashListController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Extension/ExtensionDelegate.swift"
+            timestampString = "487721929.738866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "applicationDidFinishLaunching()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

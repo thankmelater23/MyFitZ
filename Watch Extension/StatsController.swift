@@ -63,10 +63,14 @@ class StatsController: WKInterfaceController, WCSessionDelegate{
 //            if ((session?.reachable) != nil){
 //                session!.sendMessage(message, replyHandler: { (response) -> Void in
 //                    // 4
-//                    for (_, value) in response{
-//                        let watchItem = WatchItem()
-//                        watchItem.setItemFromDic(value as! [String : AnyObject])
-//                        self.items?.append(watchItem)
+        //                    let watchItemArray = response[TrashList]
+//        
+//        for (_, value) in watchItemArray as! [String: AnyObject]{
+//            let watchItem = WatchItem()
+//            let dicOfItem = value as! [String: AnyObject]
+//            watchItem.setItemFromDic(dicOfItem)
+//            //                        watchItem.model = "fast"
+//            self.items?.append(watchItem)
 //                    }
 //                    }, errorHandler: { (error) -> Void in
 //                        print(error)

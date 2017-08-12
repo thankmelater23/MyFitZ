@@ -17,13 +17,15 @@ class TrashListController: WKInterfaceController, WCSessionDelegate{
     var selectedIndex = 0
     var items: [WatchItem]?{
         didSet{
-            let count = (items?.count)! as Int!
-            self.table.setNumberOfRows(count, withRowType: TrashList)
-            
-            
-            for index in 0..<self.table.numberOfRows{
-                if let controller = table.rowControllerAtIndex(index) as? TrashListRowController{
-                    controller.item = items![index]
+            if let items = self.items{
+                let count = (self.items?.count)! as Int!
+                self.table.setNumberOfRows(count, withRowType: TrashList)
+                
+                
+                for index in 0..<self.table.numberOfRows{
+                    if let controller = table.rowControllerAtIndex(index) as? TrashListRowController{
+                        controller.item = items[index]
+                    }
                 }
             }
         }
@@ -52,8 +54,8 @@ class TrashListController: WKInterfaceController, WCSessionDelegate{
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-//        self.getData()
-        items = createItems()
+        //        items = createItems()
+        self.getData()
     }
     
     func getData(){
@@ -62,22 +64,35 @@ class TrashListController: WKInterfaceController, WCSessionDelegate{
             message.updateValue(TrashList, forKey: TrashList)
             
             if ((session?.reachable) != nil){
-                session!.sendMessage(message, replyHandler: { (response) -> Void in
-                    // 4
-                    let watchItemArray = response[TrashList]
-                    self.items![0].model = watchItemArray as? String
-//                    let arrayCount = watchItemArray!.count
-//                    
-//                    for index in 0...arrayCount{
-//                        let watchItem = WatchItem()
-//                        var dicOfItem = watchItemArray![index] as! [String: AnyObject]
-////                        watchItem.setItemFromDic(dicOfItem)
-//                        watchItem.model = "fast"
+                session!.sendMessage(message, replyHandler:{ (response) -> Void in
+//                    // 4
+//                    let data = response[TrashList] as? NSData
+////
+//                    let watchItemArray = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as! [WatchItem]
+////
+//                    self.items = watchItemArray as [WatchItem]
+                    
+//                    for value in watchItemArray as! [WatchItem]{
+//                        var watchItem = WatchItem()
+//                        let dicOfItem = value as! [String: AnyObject]
+//                        watchItem.setItemFromDic(dicOfItem)
+//                        //                        watchItem.model = "fast"
 //                        self.items?.append(watchItem)
 //                    }
-                    }, errorHandler: { (error) -> Void in
+//                                        self.items![0].model = watchItemArray as? String
+//                                                            let arrayCount = watchItemArray!.count
+//                    
+//                                                            for index in 0...arrayCount{
+//                                                                let watchItem = WatchItem()
+//                                                                var dicOfItem = watchItemArray![index] as! [String: AnyObject]
+//                                        //                        watchItem.setItemFromDic(dicOfItem)
+//                                                                watchItem.model = "fast"
+//                                                                self.items?.append(watchItem)
+//                                                            }
+                    }
+            , errorHandler: { (error) -> Void in
                         print(error)
-                        self.items = self.createItems()
+//                        self.items = self.createItems()
                 })
             }else{
                 items = createItems()
@@ -119,10 +134,26 @@ class TrashListController: WKInterfaceController, WCSessionDelegate{
             item.payedPrice = 10 * Double(i)
             item.timesWorn = 2 * i
             item.favorited = true
-            item.image = UIImage(named: "shoewareImage")
+//            item.image = UIImage(named: "shoewareImage")
             items.append(item)
         }
         return items
+    }
+    
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        let data = applicationContext[TrashList] as? NSData
+        
+        let watchItemArray = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as! [WatchItem]?
+        
+        self.items = watchItemArray as [WatchItem]?
+    }
+    
+    func session(session: WCSession, didReceiveMessageData messageData: NSData) {
+        let data = messageData as? NSData
+        
+        let watchItemArray = NSKeyedUnarchiver.unarchiveObjectWithData(data!) //as! [WatchItem]?
+        
+        self.items = (watchItemArray as? [WatchItem]?)!
     }
     
 }
