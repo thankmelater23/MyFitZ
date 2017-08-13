@@ -13,7 +13,7 @@
 //         import Crashlytics
          import Appsee
 //         import IQKeyboardManagerSwift
-         import Firebase
+//         import Firebase
          //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
          //import Siren
          //import SwiftyBeaver
@@ -39,8 +39,8 @@
                 //        self.parseSetUp()
                 //        self.setUpApperrance()
                 //        initializeSounds()
-                Fabric.with([Crashlytics.self, Answers.self, Appsee.self])
-                FirebaseApp.configure()
+//                Fabric.with([Crashlytics.self, Answers.self, Appsee.self])
+//                FirebaseApp.configure()
 //                Database.database().isPersistenceEnabled = true
 
                 return true
