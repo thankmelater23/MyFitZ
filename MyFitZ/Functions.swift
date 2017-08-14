@@ -12,43 +12,43 @@ import UIKit
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    } }
 
 
 //MARK: -Global Methods
 
-//MARK: -General
-/**
-Creates original User ID that takes value from cloud source assign to new user, increment value and save back to cloud with new value for next user
-*/
-func createUserId(){
-    //TODO: -Add create user id
-    //standard defaults
-    //Get value for bool isNew
-    //If true get last id from system assign to self, increment system value, save back to system
-    //set in stadard defaults the id
+func calicuateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
+    
+    let currentCalendar = Calendar.current
+    guard let start = currentCalendar.ordinality(of: .day, in: .era, for: start) else {
+        return 0
+    }
+    guard let end = currentCalendar.ordinality(of: .day, in: .era, for: end) else {
+        return 0
+    }
+    return end - start
 }
 
+//MARK: -General
 
 
 //MARK: -Generators
 /**
-Creates a String thats formated to go inside the views Title
-
-- parameter closet: Current closet String
-- parameter view:   Current view String
-
-- returns: Both paramaters added together and formated
-*/
-func grabTitle(_ closet:String, view: String)->String{
+ Creates a String thats formated to go inside the views Title
+ 
+ - parameter closet: Current closet String
+ - parameter view:   Current view String
+ 
+ - returns: Both paramaters added together and formated
+ */
+func grabTitle(_ closet:String, view: String)->String {
     var string: String = String()
     string = view + "-" + closet
     return string
@@ -58,10 +58,10 @@ func grabTitle(_ closet:String, view: String)->String{
 
 //MARK: -Sound Methods
 /**
-Plays sound effect from SystemSoundID number from param
-
-- parameter soundID: SystemSoundID that represents a sound effect
-*/
+ Plays sound effect from SystemSoundID number from param
+ 
+ - parameter soundID: SystemSoundID that represents a sound effect
+ */
 func playSoundEffects(_ soundID: SystemSoundID) {
     AudioServicesPlaySystemSound(soundID)
 }
@@ -71,8 +71,8 @@ func playSoundEffects(_ soundID: SystemSoundID) {
  - returns: No return
  */
 func initializeSounds() {
-    log.info("Sound effects are being loaded")
-//    GlobalUserInteractiveQueue.async(execute: {
+    //log.debug("Sound effects are being loaded")
+    GlobalUserInteractiveQueue.async(execute: {
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "clear0", withExtension: "wav")! as CFURL, &clearSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "save0", withExtension: "wav")! as CFURL, &saveSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "delete0", withExtension: "wav")! as CFURL, &deleteSFX)
@@ -88,18 +88,18 @@ func initializeSounds() {
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "animationPop0", withExtension: "wav")! as CFURL, &animationSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "alert0", withExtension: "wav")! as CFURL, &incorrectSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "notification0", withExtension: "wav")! as CFURL, &notificationSFX)
-        log.info("All sounds initialized")
-//    })
+        //log.debug("All sounds initialized")
+    })
 }
 
 
 
 //MARK: -Animations
 /**
-Animates app general buttons
-
-- parameter view: Button to animate
-*/
+ Animates app general buttons
+ 
+ - parameter view: Button to animate
+ */
 func buttonAnimation(_ view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.scaleToFill
@@ -140,14 +140,14 @@ func buttonTouchEndedAnimation(_ button:UIView){
 
 //MARK: -WARDROBE Reference System
 /**
-Returns an item from the path give or nil if none exist at that place
-
-- parameter path: Dictionary of keys and values
-
-- returns: Item from path
-*/
+ Returns an item from the path give or nil if none exist at that place
+ 
+ - parameter path: Dictionary of keys and values
+ 
+ - returns: Item from path
+ */
 //func returnItem(_ path: [String: String])->Item?{
-//    
+//
 //    if validatePathAndItem(path){
 //        //Setting all variable to values of path
 //        let _:String! = path[PathType.PATHTYPE_CLOSET_STRING]
@@ -155,27 +155,27 @@ Returns an item from the path give or nil if none exist at that place
 //        let subCategory:String! = path[PathType.PATHTYPE_SUBCATEGORY_STRING]
 //        let id:Int! = Int(path[PathType.PATHTYPE_ID_STRING]!)
 //        let index:Int! = Int(path[PathType.PATHTYPE_INDEX_STRING]!)
-//        
+//
 //        //Gets value from path of item
 //        let array = Users_Wardrobe.returnArrayOfItems(category, funcSubCategory: subCategory)
 //        let item = array[index]
-//        
+//
 //        //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
 //        if item.id == id{
-//            //            log.info("Item id matched on return to item")
+//            //            //log.info("Item id matched on return to item")
 //            return item
 //        }else{
 //            defer{
 //                Users_Wardrobe.clearAllContainersAndPopulate()
 //            }
-//            
-//            log.warning("Item id did not match on return to item, search initiated")
-//            
+//
+//            //log.warning("Item id did not match on return to item, search initiated")
+//
 //            for searchItem in array{
 //                //TODO: -Something isn't right for this to always be happening
 //                if searchItem.id == id{
-//                    log.info("Search success item found with in the array")
-//                    log.warning("This is not the resault needed")
+//                    //log.info("Search success item found with in the array")
+//                    //log.warning("This is not the resault needed")
 //                    return searchItem
 //                }
 //            }
@@ -183,7 +183,7 @@ Returns an item from the path give or nil if none exist at that place
 //                Users_Wardrobe.clearAllContainersAndPopulate()
 //                assertionFailure("Search Failed item not found with in the array or at id number BIG ERROR*TIP:ID")
 //            })
-//            
+//
 //            return Item()
 //        }
 //    }else{
@@ -204,7 +204,7 @@ Returns an item from the path give or nil if none exist at that place
  - returns: bool of true if all path values are not nil
  */
 func validatePath(_ path: [String: String])->Bool{
-    //    log.verbose("-VALIDATIING PATH ARRAY")
+    //    //log.verbose("-VALIDATIING PATH ARRAY")
     let closet:String? = path[PathType.PATHTYPE_CLOSET_STRING]
     let category:String? = path[PathType.PATHTYPE_CATEGORY_STRING]
     let subCategory:String? = path[PathType.PATHTYPE_SUBCATEGORY_STRING]
@@ -216,10 +216,10 @@ func validatePath(_ path: [String: String])->Bool{
     }
     
     if closet != nil && category != nil && subCategory != nil{
-        //        log.verbose("-VALIDATIING PASSED ALL VALUES NON NIL")
+        //        //log.verbose("-VALIDATIING PASSED ALL VALUES NON NIL")
         return true
     }else{
-        log.warning("-VALIDATIING FAILED ONE OR ALL ARE NIL")
+        //log.warning("-VALIDATIING FAILED ONE OR ALL ARE NIL")
         return false
     }
 }
@@ -231,18 +231,18 @@ func validatePath(_ path: [String: String])->Bool{
  - returns: <#return value description#>
  */
 func validateItem(_ path: [String: String])-> Bool{
-//    let index = Int(path[PathType.PATHTYPE_INDEX_STRING]!) ?? 999999
-//    let array: [Item]? = Users_Wardrobe.returnArrayOfItems(path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: path[PathType.PATHTYPE_SUBCATEGORY_STRING]!) as [Item]?
-//    
-//    if index < array?.count{
-//        if let _ = array?[index]{
-//            return true
-//        }else{
-//            return false
-//        }
-//    }else{
-        return false
-//    }
+    //    let index = Int(path[PathType.PATHTYPE_INDEX_STRING]!) ?? 999999
+    //    let array: [Item]? = Users_Wardrobe.returnArrayOfItems(path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: path[PathType.PATHTYPE_SUBCATEGORY_STRING]!) as [Item]?
+    //
+    //    if index < array?.count{
+    //        if let _ = array?[index]{
+    //            return true
+    //        }else{
+    //            return false
+    //        }
+    //    }else{
+    return false
+    //    }
     
 }
 /**
@@ -256,16 +256,16 @@ func validatePathAndItem(_ path: [String: String])->Bool{
     return (validatePath(path) && validateItem(path))
 }
 //func wardrobeItemsReset(_ varWardrobe: Wardrobe)->Wardrobe{
-    //Gives all Closet items a new ID number
-//    
+//Gives all Closet items a new ID number
+//
 //    var sum = 0
-//    
+//
 //    let newWardrobe = varWardrobe
-//    
+//
 //    let prevClosetSelection = varWardrobe.closetSelectionString
-//    
+//
 //    varWardrobe.closetSelectionString = MY_CLOSET
-//    
+//
 //    for (catKey, superValue) in varWardrobe.selectedCloset{
 //        for (subCatKey, values) in superValue{
 //            sum = 0
@@ -276,36 +276,36 @@ func validatePathAndItem(_ path: [String: String])->Bool{
 //                value.path[PathType.PATHTYPE_ID_STRING] = String(value.id)
 //                value.path[PathType.PATHTYPE_INDEX_STRING] = String(arrayIndex)
 //                sum += 1
-//                
+//
 //                newWardrobe.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
 //            }
 //        }
 //    }
-//    
+//
 //    sum = 0
-//    
+//
 //    varWardrobe.closetSelectionString = MY_WANTS_CLOSET
 //    //Gives all Wishlist items a new ID number
 //    for (catKey, superValue) in varWardrobe.selectedCloset{
 //        for (subCatKey, values) in superValue{
 //            sum = 0
 //            for (arrayIndex, value) in values.enumerated(){
-//                
+//
 //                value.path[PathType.PATHTYPE_CLOSET_STRING] = MY_WANTS_CLOSET
 //                value.path[PathType.PATHTYPE_CATEGORY_STRING] = value.category
 //                value.path[PathType.PATHTYPE_SUBCATEGORY_STRING] = value.subCategory
 //                value.path[PathType.PATHTYPE_ID_STRING] = String(value.id)
 //                value.path[PathType.PATHTYPE_INDEX_STRING] = String(arrayIndex)
 //                sum += 1
-//                
+//
 //                newWardrobe.selectedCloset[catKey]![subCatKey]![arrayIndex] = value
 //            }
 //        }
 //    }
-//    
+//
 //    //Sets back current closet we're in
 //    newWardrobe.closetSelectionString = prevClosetSelection
-//    
+//
 //    return newWardrobe
 //}
 
@@ -314,10 +314,10 @@ func validatePathAndItem(_ path: [String: String])->Bool{
 
 //MARK: -View Customization methods
 /**
-Sets selection Images to be customized
-
-- parameter view: UIImage to customize
-*/
+ Sets selection Images to be customized
+ 
+ - parameter view: UIImage to customize
+ */
 func secectionImagesDresser(_ view: UIView){
     view.layer.cornerRadius = view.frame.size.width / 10
     view.contentMode = UIViewContentMode.scaleToFill
@@ -581,10 +581,28 @@ func updateButtonCustomization(_ view: UIView){
     view.backgroundColor = BlueWool
 }
 
-
 func vibrate(){
     //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))//Plays vibrations or sound if vibration not supported
     AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))//Plays vibrations only
     
+    
+}
+
+//MARK: - Path Methods
+func pathSetup(userString: Int16 = 0, closetString: Int16 = 0, categoryString: String? = nil, subCategoryString: String? = nil, indexString: String? = nil, idString: String? = nil)->[String: String]{
+    var path = [String: String]()
+    
+    path[PathType.PATHTYPE_USER_STRING] = String(userString)
+    path[PathType.PATHTYPE_CLOSET_STRING] = String(closetString)
+    path[PathType.PATHTYPE_CATEGORY_STRING] = categoryString
+    path[PathType.PATHTYPE_SUBCATEGORY_STRING] = subCategoryString
+    path[PathType.PATHTYPE_INDEX_STRING] = String(describing: indexString)
+    path[PathType.PATHTYPE_ID_STRING] = idString
+    
+    
+    return path
+}
+func clearPath()->[String: String]{
+    return pathSetup()
 }
 

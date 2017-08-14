@@ -19,14 +19,14 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
         self.playGif()
     }
     
-    func playGif(){
+    @objc func playGif(){
         let gif = UIImage.gifWithName("Instruction_CreateItem")
         gifImage.image = gif
         gifImage.contentMode = UIViewContentMode.center
         gifImage.contentMode = UIViewContentMode.scaleAspectFill
     }
     
-    func playItemView(){
+    @objc func playItemView(){
         let gif = UIImage.gifWithName("Instruction_CreateItem")
         gifImage.image = gif
         gifImage.contentMode = UIViewContentMode.center
@@ -34,7 +34,7 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
     }
     
     deinit{
-        log.info(#function)
+        //log.info(#function)
         
     }
 }

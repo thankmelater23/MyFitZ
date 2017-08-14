@@ -31,12 +31,12 @@ class TrashTableViewCell: UITableViewCell{
         super.setSelected(selected ,  animated: animated)
     }
     
-    func borderCustomization(){
+    @objc func borderCustomization(){
         CellImagesButtons(self.cellImage)
         
     }
     
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = DirtyCloth
         self.borderCustomization()
     }
@@ -47,7 +47,7 @@ class TrashTableViewCell: UITableViewCell{
 
 //MARK: -Initializers
 extension TrashTableViewCell{
-    func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, dateDeleted: String){
+    @objc func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, dateDeleted: String){
         self.cellImage.image = Image
         self.name.text = nameLabelText
         self.brand.text = brandLabelText

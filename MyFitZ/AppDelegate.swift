@@ -1,47 +1,48 @@
-        //
-        //  AppDelegate.swift
-        //  MyFitZ
-        //
-        //  Created by Andre V on 4/22/17.
-        //  Copyright © 2017 Bang Bang Studios. All rights reserved.
-        //
-        
-        import UIKit
-        //import Fabric
-        //import Crashlytics
-        //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
-        //import Siren
-        import SwiftyBeaver
-        //import Parse
-        //import Bolts
-        import HeapInspector
-        import WatchConnectivity
-        import CoreData
-        
-        let log = SwiftyBeaver.self
-        
-        
-        @UIApplicationMain
-        class AppDelegate: UIResponder, UIApplicationDelegate {
-            
+         //
+         //  AppDelegate.swift
+         //  MyFitZ
+         //
+         //  Created by Andre V on 4/22/17.
+         //  Copyright © 2017 Bang Bang Studios. All rights reserved.
+         //
+         
+         import UIKit
+         import Fabric
+//         import Answers
+         import CoreData
+         import Crashlytics
+         import Appsee
+//         import IQKeyboardManagerSwift
+         import Firebase
+         //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
+         //import Siren
+         //import SwiftyBeaver
+         //import Parse
+         //import Bolts
+         //import HeapInspector
+         //import WatchConnectivity
+         
+         
+         
+//         let log = SwiftyBeaver.self
+         
+         
+         @UIApplicationMain
+         class AppDelegate: UIResponder, UIApplicationDelegate {
             var window: UIWindow?
             
             
             func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-                // Override point for customization after application launch.
-                
-                self.SwiftBeaverSetUp()
-                self.removeConstraintFromLogger()
-                
+                setupApplication()
                 //        self.parseSetUp(launchOptions)
-                //        self.sirenInitilization()
-                //        self.createAndRegisterNotificationSettings()
                 //        self.setNotifications()
                 //        self.parseSetUp()
                 //        self.setUpApperrance()
                 //        initializeSounds()
-                
-                
+                Fabric.with([Crashlytics.self, Answers.self])//Appsee.self
+                FirebaseApp.configure()
+                Database.database().isPersistenceEnabled = true
+
                 return true
             }
             
@@ -66,101 +67,153 @@
             func applicationWillTerminate(_ application: UIApplication) {
                 // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
                 // Saves changes in the application's managed object context before the application terminates.
-                self.saveContext()
+                DataBaseController.saveContext()
             }
             
-            // MARK: - Core Data stack
-            
-            lazy var persistentContainer: NSPersistentContainer = {
-                /*
-                 The persistent container for the application. This implementation
-                 creates and returns a container, having loaded the store for the
-                 application to it. This property is optional since there are legitimate
-                 error conditions that could cause the creation of the store to fail.
-                 */
-                let container = NSPersistentContainer(name: "MyFitZ")
-                container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                    if let error = error as NSError? {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                        
-                        /*
-                         Typical reasons for an error here include:
-                         * The parent directory does not exist, cannot be created, or disallows writing.
-                         * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                         * The device is out of space.
-                         * The store could not be migrated to the current model version.
-                         Check the error message to determine what the actual problem was.
-                         */
-                        fatalError("Unresolved error \(error), \(error.userInfo)")
-                    }
-                })
-                return container
-            }()
-            
-            // MARK: - Core Data Saving support
-            
-            func saveContext () {
-                let context = persistentContainer.viewContext
-                if context.hasChanges {
-                    do {
-                        try context.save()
-                    } catch {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                        let nserror = error as NSError
-                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                    }
-                }
-            }
+            //MARK: - Settings
             
             
-            func SwiftBeaverSetUp(){
-                log.info(#function)
-                let console = ConsoleDestination()
-                log.addDestination(console)
+            //MARK: - 3rd Pary Methods
+//            @objc func swiftBeaverSetUp(){
+                //log.info(#function)
+//                let console = ConsoleDestination()
+                //log.addDestination(console)
+//                let file = FileDestination()
+                //log.addDestination(file)
                 // Now let’s log!
-                log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
-                log.debug("Debug Test")  // prio 2, DEBUG in blue
-                log.info("Info Test")   // prio 3, INFO in green
-                log.warning("Warning Test")  // prio 4, WARNING in yellow
-                log.error("Error Test")  // prio 5, ERROR in red
-            }
-            func removeConstraintFromLogger(){
-                log.info(#function)
+                //log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
+                //log.debug("Debug Test")  // prio 2, DEBUG in blue
+                //log.info("Info Test")   // prio 3, INFO in green
+                //log.warning("Warning Test")  // prio 4, WARNING in yellow
+                //log.error("Error Test")  // prio 5, ERROR in red
+//                let platform = SBPlatformDestination(appID: "Oknw9Q", appSecret: "auuocncmksshrVjqx7ekbwehbt7kcUdp", encryptionKey: "ntusxILurhoe6lOmldCiddhnr2jwaial")
+                //log.addDestination(platform)
+//            }
+//             @objc func iqKeyboardInitilize(){
+//                IQKeyboardManager.sharedManager().enable = true
+//            }
+            
+             @objc func removeConstraintFromLogger(){
+                //log.info(#function)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
-            func setStack(){
-                let context = self.persistentContainer.viewContext
-                do{
-                    //                    let user = try context.fetch(User.fetchRequest())
+            
+             @objc func sirenInitilization(){
+                //                    //log.info(#function)
+                //                    /* Siren code should go below window?.makeKeyAndVisible() */
+                //
+                //                    // Siren is a singleton
+                //                    let siren = Siren.sharedInstance
+                //
+                //                    // Required: Your app's iTunes App Store ID
+                //                    //        siren.appID = APP_ID
+                //
+                //                    // Optional: Defaults to .Option
+                //
+                //
+                //                    /*
+                //                     Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+                //                     checks.
+                //                     */
+                //                    siren.checkVersion(.daily)
+                //
+                //                    siren.alertType = SirenAlertType.option
+            }
+            
+            
+            //MARK: - Custom Methods
+            @objc func ifFirstStart(){
+                //TODO: - Make a global define
+                //DoBeforeCommit: - Do Deeze Nuttz
+                let name = "isFirstStart"
+                let firstStart: Bool? = UserDefaults.standard.object(forKey: name) as? Bool
+                
+                if(firstStart == nil){
+                    //log.info("This is the first start")
+                    UserDefaults.standard.set(false, forKey: name)
+                    self.createSampleDatabase()
                     
-                }catch let error{
-                    log.error("Fetching error \(error)")
                     
-                    abort()
-                    
+                }else{
+                    //Do nothing
+                    //log.verbose("This is not first start")
+                    //Load data
                 }
             }
-            //    func sirenInitilization(){
-            //        log.info(#function)
-            //        /* Siren code should go below window?.makeKeyAndVisible() */
-            //
-            //        // Siren is a singleton
-            //        let siren = Siren.sharedInstance
-            //
-            //        // Required: Your app's iTunes App Store ID
-            //        //        siren.appID = APP_ID
-            //
-            //        // Optional: Defaults to .Option
-            //
-            //
-            //        /*
-            //         Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-            //         checks.
-            //         */
-            //        siren.checkVersion(.daily)
-            //
-            //        siren.alertType = SirenAlertType.option
-            //    }
-        }
+            
+            //MARK: - Core Data
+            fileprivate func createSampleDatabase(){
+//                User.createUsers()
+            }
+            
+            //MARK: - Notifications
+//            @objc func createAndRegisterNotificationSettings(){
+//                //log.info("Notifications are being set")
+//                //Noitfications
+//                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
+//
+//                let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notifytypes, categories: nil)
+//
+//                UIApplication.shared.registerUserNotificationSettings(notifSettings)
+//            }
+//            @objc func setNotifications(){
+//                let daysTillFire = 7
+//                let today = Date()
+//
+//                let lastFiredDateString = "lastFiredDate"
+//                var lastFiredDate = defaults.value(forKey: lastFiredDateString) as? NSDate
+//
+//                if lastFiredDate == nil{
+//                    lastFiredDate = today as NSDate
+//                    defaults.set(today, forKey: lastFiredDateString)
+//                    //log.debug("First fired Date: \(lastFiredDate)")
+//                }else{
+//
+//                    var dateComp = DateComponents()
+//                    dateComp.day = daysTillFire
+//                    let cal = Calendar.current
+//
+//                    let fireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: lastFiredDate as! Date, options: NSCalendar.Options())!
+//
+//                    let daysBetweenLastFiredAndNow = calicuateDaysBetweenTwoDates(start: today, end: fireDate )
+//
+//                    if(daysBetweenLastFiredAndNow < 1){
+//                        let notification: UILocalNotification = UILocalNotification()
+//                        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
+//                        notification.alertTitle = "REMINDER"
+//                        notification.alertLaunchImage = "icon1"
+//
+//                        let newFireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: today , options: NSCalendar.Options())!
+//                        notification.fireDate = newFireDate
+//
+//                        UIApplication.shared.scheduleLocalNotification(notification)
+//                        defaults.set(NSDate(), forKey: lastFiredDateString)
+//                        //log.debug("Notification Fired")
+//                        //log.debug("Updated Last Time Fired Date : \(newFireDate)")
+//
+//                    }else{
+//                        //log.warning("Wont fire notification")
+//                        //log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
+//                    }
+//                }
+//            }
+            
+            //MARK: - Application Methods
+            fileprivate func setupApplication() {
+                // Override point for customization after application launch.
+                
+//                self.swiftBeaverSetUp()
+                self.removeConstraintFromLogger()
+                self.ifFirstStart()
+//                self.createAndRegisterNotificationSettings()
+//                self.setNotifications()
+//                self.iqKeyboardInitilize()
+            }
+            
+         }
+         
+         
+         
+         //FRAMEWORKTOIMPLEMENT: - NIMBLE: https://github.com/Quick/Nimble
+         //FRAMEWORKTOIMPLEMENT: - RXSWIFT: https://github.com/ReactiveX/RxSwift
+         //FRAMEWORKTOIMPLEMENT: - SwwiftyBeaver(Was incompaitable with swift 4)

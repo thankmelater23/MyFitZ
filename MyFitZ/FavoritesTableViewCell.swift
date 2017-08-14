@@ -30,7 +30,7 @@ class FavoritesTableViewCell: UITableViewCell{
         super.setSelected(selected ,  animated: animated)
     }
     
-    func setButtonImage(_ favorited: Bool){
+    @objc func setButtonImage(_ favorited: Bool){
         if favorited == true{
             self.favoritedButton.imageView?.image = UIImage(named: "star_on")
         }else{
@@ -38,7 +38,7 @@ class FavoritesTableViewCell: UITableViewCell{
         }
     }
     
-    func borderCustomization(){
+    @objc func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
         
@@ -47,7 +47,7 @@ class FavoritesTableViewCell: UITableViewCell{
         self.layer.borderColor = Gold.cgColor
     }
     
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = PopulatedStarsTexture
         self.borderCustomization()
         
@@ -63,7 +63,7 @@ class FavoritesTableViewCell: UITableViewCell{
 
 //MARK: -Initializers
 extension FavoritesTableViewCell{
-    func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String, favorited: Bool){
+    @objc func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String, favorited: Bool){
         self.cellImage.image = Image
         self.name.text = nameLabelText
         self.brand.text = brandLabelText
@@ -79,7 +79,7 @@ extension FavoritesTableViewCell{
 
 //MARK: -Animations-FavoritesTableViewCell Extension
 extension FavoritesTableViewCell{
-    func animateView(){
+    @objc func animateView(){
         
        CellButtons(self.favoritedButton)
     }

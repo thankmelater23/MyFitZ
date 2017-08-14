@@ -11,7 +11,7 @@ import UIKit
 class WebsiteViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
-    let url = "http://www.MyFitZApp.com"
+    @objc let url = "http://www.MyFitZApp.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,20 +24,19 @@ class WebsiteViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
     }
-    func loadURL(){
+    @objc func loadURL(){
         let requestURL = URL(string: url)
         let request = URLRequest(url: requestURL!)
         
-//        GlobalUserInitiatedQueue.async(execute: {
+        GlobalUserInitiatedQueue.async(execute: {
             self.webView.loadRequest(request)
-//        })
-        //TODO: - fix in GCD
+        })
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress"{
-//            print("Loaded \(self.webView.estimatedProgress * 100)%")
-             print("Observer Called")
+//            //log.debug("Loaded \(self.webView.estimatedProgress * 100)%")
+             //log.debug("Observer Called")
         }
     }
 }

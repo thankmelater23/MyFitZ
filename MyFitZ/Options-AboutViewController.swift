@@ -13,7 +13,7 @@ import UIKit
 class Options_AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(#function)
+        //log.info(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -24,12 +24,12 @@ class Options_AboutViewController: UIViewController {
     }
     
     
-    func setTitle(){
+    @objc func setTitle(){
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
     }
     deinit{
-        log.info(#function)
+        //log.info(#function)
         
     }
 }
@@ -45,24 +45,24 @@ extension Options_AboutViewController{
 
 //MARK: -Animations-Options_AboutViewController Extension
 extension Options_AboutViewController{
-    func animateAllButtons(){
+    @objc func animateAllButtons(){
         //            self.animateFeatureButtons()
         //            self.animateLogo()
         //            self.animateOptionButtons()
         //
         
     }
-    func animateLogo(){
+    @objc func animateLogo(){
         //            logoCustomization(self.logoImage)
     }
-    func animateFeatureButtons(){
+    @objc func animateFeatureButtons(){
         //            cloesetButtonCustomization(self.closetButton)
         //            cloesetButtonCustomization(self.wishListButton)
     }
-    func animateOptionButtons(){
+    @objc func animateOptionButtons(){
         //            optionViewCustomized(self.optionsButton)
     }
-    func setButtonsView(){
+    @objc func setButtonsView(){
         //            buttonAnimation(self.closetButton)
         //            buttonAnimation(self.wishListButton)
     }

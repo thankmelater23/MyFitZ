@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import MyFitZ
+//import Firebase
+//@testable import MyFitZ
 
 class MyFitZTests: XCTestCase {
     

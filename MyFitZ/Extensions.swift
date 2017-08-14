@@ -78,7 +78,7 @@ extension UserDefaults{
      
      - returns: <#return value description#>
      */
-    func add(_ num: Int)->Int{
+    @objc func add(_ num: Int)->Int{
          let number = self.unNilInt(num)
         return number!+1
     }
@@ -88,7 +88,7 @@ extension UserDefaults{
      - parameter path: String value to save to NSDefaults
      - parameter num:  Value to store in NSDefaults
      */
-    func sendToDefaults(_ path: String, num: Int){
+    @objc func sendToDefaults(_ path: String, num: Int){
         
         
         defaults.set(num, forKey: path)
@@ -99,7 +99,7 @@ extension UserDefaults{
      
      - parameter path: String key to NSUserDefault
      */
-    func addAndSend(_ path: String){
+    @objc func addAndSend(_ path: String){
         
         
         var total:Int? = defaults.value(forKey: path) as! Int?

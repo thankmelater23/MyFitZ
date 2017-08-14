@@ -29,7 +29,7 @@ class RecentTableViewCell: UITableViewCell{
     override func setSelected(_ selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
-    func borderCustomization(){
+    @objc func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
         
@@ -37,7 +37,7 @@ class RecentTableViewCell: UITableViewCell{
         self.layer.borderWidth = 2
         self.layer.borderColor = Stitching.cgColor
     }
-    func setWearButtonImage(_ worn: Bool){
+    @objc func setWearButtonImage(_ worn: Bool){
         if worn == true{
             self.wear.alpha = 0.5
             self.wear.isUserInteractionEnabled = false
@@ -50,7 +50,7 @@ class RecentTableViewCell: UITableViewCell{
         
     }
     
-    func customizeView(){
+    @objc func customizeView(){
         self.backgroundColor = WrinkledCloth
         self.borderCustomization()
         
@@ -63,7 +63,7 @@ class RecentTableViewCell: UITableViewCell{
 
 //MARK: -Initializers
 extension RecentTableViewCell{
-    func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String){
+    @objc func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String){
         let date = Date()
         
         
@@ -86,7 +86,7 @@ extension RecentTableViewCell{
 
 //MARK: -Animations-RecentTableViewCell Extension
 extension RecentTableViewCell{
-    func animateView(){
+    @objc func animateView(){
         optionViewCustomized(self.wear)
     }
 }
