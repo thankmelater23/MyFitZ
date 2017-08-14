@@ -90,7 +90,7 @@
 		475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
 		475B74561F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
 		475B74571F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
-		476CB54E1F2125BC0037BBD6 /* File.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 476CB54D1F2125BC0037BBD6 /* File.rtf */; };
+		476CB54E1F2125BC0037BBD6 /* Changes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 476CB54D1F2125BC0037BBD6 /* Changes.rtf */; };
 		478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */; };
 		47AC4CB81F233CDF00272720 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = 47AC4CB71F233CDF00272720 /* Todo */; };
 		47ED82711ED1BD1A005E79BD /* LongCreationUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */; };
@@ -216,7 +216,7 @@
 		471C959F1EBF435A00A6C337 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
 		471C95A01EBF435A00A6C337 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		475B74541F31600400C13743 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		476CB54D1F2125BC0037BBD6 /* File.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = File.rtf; sourceTree = "<group>"; };
+		476CB54D1F2125BC0037BBD6 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
 		478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
 		47AC4CB71F233CDF00272720 /* Todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
 		47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongCreationUITableViewCell.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				47AC4CB71F233CDF00272720 /* Todo */,
-				476CB54D1F2125BC0037BBD6 /* File.rtf */,
+				476CB54D1F2125BC0037BBD6 /* Changes.rtf */,
 				471C94C81EBF371F00A6C337 /* MyFitZ */,
 				471C94E01EBF372000A6C337 /* MyFitZTests */,
 				471C94EB1EBF372000A6C337 /* MyFitZUITests */,
@@ -713,7 +713,7 @@
 				471C95761EBF3C9300A6C337 /* clear0.wav in Resources */,
 				471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */,
 				471C957D1EBF3C9300A6C337 /* notification0.wav in Resources */,
-				476CB54E1F2125BC0037BBD6 /* File.rtf in Resources */,
+				476CB54E1F2125BC0037BBD6 /* Changes.rtf in Resources */,
 				471C95731EBF3C9300A6C337 /* animationPop0.wav in Resources */,
 				471C94FE1EBF37B900A6C337 /* Main.storyboard in Resources */,
 				471C959D1EBF407C00A6C337 /* Assets.xcassets in Resources */,
