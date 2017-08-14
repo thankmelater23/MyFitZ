@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName=".Item" syncable="YES">
+        <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category" attributeType="String" syncable="YES"/>
+        <attribute name="dateDeleted" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastTimeWorn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="subCategory" attributeType="String" syncable="YES"/>
+        <attribute name="timesWorn" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="wardrobe" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Wardrobe" inverseName="items" inverseEntity="Wardrobe" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <relationship name="wardrobe" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Wardrobe" inverseName="user" inverseEntity="Wardrobe" syncable="YES"/>
+    </entity>
+    <entity name="Wardrobe" representedClassName=".Wardrobe" syncable="YES">
+        <relationship name="items" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="wardrobe" inverseEntity="Item" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wardrobe" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-722" positionY="-273" width="128" height="255"/>
+        <element name="User" positionX="-488" positionY="-267" width="128" height="58"/>
+        <element name="Wardrobe" positionX="-488" positionY="-81" width="128" height="73"/>
+    </elements>
+</model>
