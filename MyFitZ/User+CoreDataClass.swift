@@ -89,7 +89,11 @@ public class User: NSManagedObject {
         items4.category = "N/A"
         items4.subCategory = "N/A"
         
-        
+        do{
+            try context.save()
+        }catch{
+            print("Didn't save")
+        }
         
         //Entity Bonding
         wardrobe1.addToItems(items1)

@@ -310,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				471C94FA1EBF377200A6C337 /* MyFitZ.xcdatamodel */,
+				471C94C91EBF371F00A6C337 /* AppDelegate.swift */,
 				471C953F1EBF3B9300A6C337 /* Global Vars */,
 				471C95141EBF3B6800A6C337 /* Global Methods */,
 				471C95401EBF3BB300A6C337 /* Core Data */,
@@ -387,7 +388,6 @@
 			children = (
 				476258D81F300A8200666384 /* Code To Use */,
 				471C95A71EBF43E700A6C337 /* Scripts */,
-				471C94C91EBF371F00A6C337 /* AppDelegate.swift */,
 				475B74541F31600400C13743 /* GoogleService-Info.plist */,
 				471C94D81EBF371F00A6C337 /* Info.plist */,
 			);
@@ -577,6 +577,7 @@
 				471C95A51EBF438400A6C337 /* Code Complexity */,
 				47AC4CB41F22FF9000272720 /* Build Incrementer */,
 				47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */,
+				417DB3B31F418C33000096DB /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -789,6 +790,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		417DB3B31F418C33000096DB /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
+		};
 		471C95A41EBF438000A6C337 /* Lines Of Code */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -936,6 +951,8 @@
 				"${BUILT_PRODUCTS_DIR}/DKChainableAnimationKit/DKChainableAnimationKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/HeapInspector/HeapInspector.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/MRProgress/MRProgress.framework",
@@ -946,6 +963,7 @@
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/TSMessages/TSMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/iRate/iRate.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -955,6 +973,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKChainableAnimationKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HeapInspector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MRProgress.framework",
@@ -965,6 +985,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iRate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

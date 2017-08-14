@@ -4,7 +4,7 @@
 target 'MyFitZ' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-#  pod 'Fabric'
+  pod 'Fabric'
   pod 'Optimizely-iOS-SDK'
   pod 'Crashlytics'
   pod 'Appsee'
@@ -23,12 +23,12 @@ target 'MyFitZ' do
   pod 'FontAwesomeKit'#(2.2.0)
   pod 'SlackTextViewController'
   pod 'HeapInspector'
-  #pod 'IQKeyboardManagerSwift'#, '4.0.8'#Look to update after 9-17
+#  pod 'IQKeyboardManagerSwift'#, '4.0.8'#Look to update after 9-17
   #pod 'Siren'#This will be done when the app has an app id number
   #pod 'Parse'
-#  pod 'Firebase/Core'
-#  pod 'FirebaseDatabase'
-#  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'FirebaseDatabase'
+  pod 'Firebase/Auth'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!

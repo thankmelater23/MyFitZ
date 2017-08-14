@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.0</string>
 	<key>CFBundleVersion</key>
-	<string>118</string>
+	<string>166</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -28,28 +28,7 @@
 				<key>KitInfo</key>
 				<dict/>
 				<key>KitName</key>
-				<string>Answers</string>
-			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
 				<string>Crashlytics</string>
-			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>apikey</key>
-					<string>c8b52b639c1648dc953b5f55d4d3511f</string>
-				</dict>
-				<key>KitName</key>
-				<string>Appsee</string>
-			</dict>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Optimizely</string>
 			</dict>
 		</array>
 	</dict>

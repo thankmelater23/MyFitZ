@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     //MARK: -Variables
     var user: User? = nil
-    
+    var userNumber: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         //log.info(#function)
@@ -59,9 +59,9 @@ class ViewController: UIViewController {
         //TODO: - Make a global define
         let lastUserLoggedIn = "lastUserLoggedIn"
         let number = closetTypeGlobal.closet
-        let userNumber = UserDefaults.standard.object(forKey: lastUserLoggedIn)
+        userNumber = UserDefaults.standard.object(forKey: lastUserLoggedIn) as!  Int?
         
-        if userNumber != nil{
+        if userNumber == nil{
             UserDefaults.standard.set(number, forKey: lastUserLoggedIn)
         }
         
@@ -94,25 +94,38 @@ class ViewController: UIViewController {
     
     @objc func fetchUser(userNumber: Int)->User{
         do{
-            let users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
+            var users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
             
-            if userNumber == 0 {return users!.first!}else if userNumber == 1{return users!.last!}         }catch{
+            if users?.count == 2{
+                if userNumber == 0 {return users!.first!}else if userNumber == 1{return users!.last!}
                 
-                //log.warning("Didn't fetch")
+            }
+            else{
                 User.createUsers()
-        }
-        do{
-            let users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
-            
-            if userNumber == 0 {return users!.first!}else if userNumber == 1{return users!.last!}
+                users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
+                if userNumber == 0 {return users!.first!}else if userNumber == 1{return users!.last!}
+            }
         }catch{
-            print("Why the fuck is this happening")
-            return User()
+            
+            //log.warning("Didn't fetch")
+            User.createUsers()
+            do{
+                let users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
+                
+                if users?.count == 2{
+                    if userNumber == 0 {return users!.first!}else if userNumber == 1{return users!.last!}
+                    
+                }
+                if userNumber == 0 {return users!.first!}else if userNumber == 1{return users!.last!}
+            }catch{
+                print("Why the fuck is this happening")
+                return User()
+            }
         }
         return User()
     }
     
-    @objc func setTitle(){
+    func setTitle(){
         //log.info(#function)
         //        self.navigationController?.isNavigationBarHidden = true
         //        self.navigationController?.navigationBar.isTranslucent = false

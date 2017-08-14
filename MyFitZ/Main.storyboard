@@ -533,7 +533,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tA7-4K-xcG" userLabel="Search">
-                                        <rect key="frame" x="9" y="329" width="75" height="75"/>
+                                        <rect key="frame" x="9" y="329" width="94.333333333333329" height="94.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tA7-4K-xcG" secondAttribute="height" multiplier="1:1" id="qcQ-pE-40V"/>
                                         </constraints>
@@ -543,7 +543,7 @@
                                         </state>
                                     </button>
                                     <button contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doG-VO-6dR" userLabel="FavortiedList">
-                                        <rect key="frame" x="92" y="329" width="75" height="75"/>
+                                        <rect key="frame" x="111.33333333333334" y="329" width="94.333333333333343" height="94.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="doG-VO-6dR" secondAttribute="height" multiplier="1:1" id="bLa-ff-vKR"/>
                                         </constraints>
@@ -553,7 +553,7 @@
                                         </state>
                                     </button>
                                     <button contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRK-ii-BoK" userLabel="RecenltyWornList">
-                                        <rect key="frame" x="250.33333333333337" y="329" width="74.666666666666629" height="75"/>
+                                        <rect key="frame" x="211.66666666666669" y="329" width="94.000000000000057" height="94.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FRK-ii-BoK" secondAttribute="height" multiplier="1:1" id="xAD-Gu-8dK"/>
                                         </constraints>
@@ -563,7 +563,7 @@
                                         </state>
                                     </button>
                                     <button contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxN-LB-Cs8" userLabel="RecentlyDeletedList">
-                                        <rect key="frame" x="333" y="329" width="75" height="75"/>
+                                        <rect key="frame" x="313.66666666666674" y="329" width="94.333333333333314" height="94.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LxN-LB-Cs8" secondAttribute="height" multiplier="1:1" id="3Re-4J-Ffc"/>
                                         </constraints>
@@ -608,14 +608,14 @@
                                         <rect key="frame" x="72" y="8" width="272" height="70"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Zw-Iz-MGY">
-                                        <rect key="frame" x="170" y="329" width="77.333333333333343" height="75"/>
+                                        <rect key="frame" x="208.66666666666666" y="329" width="0.0" height="94.333333333333314"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain%: 10.5%     Humidity: 70%     Wind: 15 MPH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUw-yC-Dkc">
-                                        <rect key="frame" x="92" y="404" width="233" height="48"/>
+                                        <rect key="frame" x="111.33333333333331" y="423.33333333333331" width="194.33333333333337" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="9u1-ha-gXS"/>
