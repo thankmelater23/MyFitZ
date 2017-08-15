@@ -22,7 +22,7 @@ class PercentagesTableViewController: UITableViewController {
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.setUpTypes()
         self.view.backgroundColor = Cotton
         
@@ -38,12 +38,12 @@ class PercentagesTableViewController: UITableViewController {
     }
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
-        //log.warning("Recieved Memory Warning")
+        log.warning("Recieved Memory Warning")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         defer{
-            //log.verbose("Segue transfer: \(segue.identifier)")
+            log.verbose("Segue transfer: \(segue.identifier)")
         }
         
         if segue.identifier == Segue.SEGUE_PERCENTAGE_TO_SELECTION{
@@ -55,7 +55,7 @@ class PercentagesTableViewController: UITableViewController {
         return true
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
         
     }
 }

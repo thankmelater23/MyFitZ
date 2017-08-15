@@ -13,7 +13,7 @@ import UIKit
 class Options_AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -29,7 +29,7 @@ class Options_AboutViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
         
     }
 }

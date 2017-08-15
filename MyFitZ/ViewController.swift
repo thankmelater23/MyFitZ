@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     var userNumber: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.clearDefaultsPath()
-        self.setUser()
+//        self.setUser()
         self.loggerFix()
         self.setTitle()
         self.appSettings()
@@ -42,14 +42,14 @@ class ViewController: UIViewController {
         
     }
     override func didReceiveMemoryWarning() {
-        //log.info(#function)
+        log.info(#function)
         super.didReceiveMemoryWarning()
-        //log.warning("Recieved Memory Warning")
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
     }
     
     //MARK: - Core Data
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     }
     
     @objc func loggerFix(){
-        //log.verbose("\n\n\n\n\n\n")
+        log.verbose("\n\n\n\n\n\n")
     }
     
     @objc func fetchUser(userNumber: Int)->User{
@@ -107,7 +107,7 @@ class ViewController: UIViewController {
             }
         }catch{
             
-            //log.warning("Didn't fetch")
+            log.warning("Didn't fetch")
             User.createUsers()
             do{
                 let users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
@@ -126,7 +126,7 @@ class ViewController: UIViewController {
     }
     
     func setTitle(){
-        //log.info(#function)
+        log.info(#function)
         //        self.navigationController?.isNavigationBarHidden = true
         //        self.navigationController?.navigationBar.isTranslucent = false
         
@@ -179,7 +179,7 @@ class ViewController: UIViewController {
 //MARK: -Actions-ViewController Extension
 extension ViewController{
     @IBAction func selectedCloset(){
-        //log.info(#function)
+        log.info(#function)
         user?.closetType = closetTypeGlobal.closet
         playSoundEffects(closetSFX)
         
@@ -192,7 +192,7 @@ extension ViewController{
         performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedWants(){
-        //log.info(#function)
+        log.info(#function)
         user?.closetType = closetTypeGlobal.wishList
         playSoundEffects(wishlistSFX)
         
@@ -203,12 +203,12 @@ extension ViewController{
         performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedOptions(){
-        //log.info(#function)
+        log.info(#function)
         self.performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_OPTIONS, sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         defer{
-            //log.verbose("Segue transfer: \(String(describing: segue.identifier))")
+            log.verbose("Segue transfer: \(String(describing: segue.identifier))")
         }
         
         if segue.identifier == Segue.SEGUE_MAIN_TO_SELECTION{

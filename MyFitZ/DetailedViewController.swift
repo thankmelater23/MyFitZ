@@ -35,10 +35,10 @@ class DetailedViewController: UIViewController{
     //MARK: -View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.setUp()
         self.view.backgroundColor = Cotton
-        //log.debug(self.item)
+        log.debug(self.item)
         
         // Do view setup here.
         
@@ -50,7 +50,7 @@ class DetailedViewController: UIViewController{
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         //        defer{
-        //            //log.verbose("Segue transfer: \(segue.identifier)")
+        //            log.verbose("Segue transfer: \(segue.identifier)")
         //        }
         //
         //        if segue.identifier == Segue.SEGUE_DETAIL_TO_MODEL
@@ -83,7 +83,7 @@ class DetailedViewController: UIViewController{
         //        }
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
         
     }
 }
@@ -196,7 +196,7 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource{
         //        }
         //
         //        else{
-        //            //log.warning("Incorect section")
+        //            log.warning("Incorect section")
         //            return 0
         //        }
         return 11
@@ -530,14 +530,14 @@ extension DetailedViewController{
             let items = try context.fetch(Item.fetchRequest())
             if items.count > 0{
                 item = items.first as! Item
-                //log.verbose("Count: \(items.count)")
+                log.verbose("Count: \(items.count)")
             }else{
-                //log.warning("No results found")
+                log.warning("No results found")
                 
-                //log.debug("Creating new data base")
+                log.debug("Creating new data base")
             }
         }catch{
-            //log.error("Fetching Failed")
+            log.error("Fetching Failed")
         }
         
         
