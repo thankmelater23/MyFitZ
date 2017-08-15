@@ -47,7 +47,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.setUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
         
@@ -58,7 +58,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         //        defer{
-        //            //log.verbose("Segue transfer: \(segue.identifier)")
+        //            log.verbose("Segue transfer: \(segue.identifier)")
         //        }
         //
         //
@@ -91,10 +91,10 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        //log.warning("Recieved Memory Warning")
+        log.warning("Recieved Memory Warning")
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
         
     }
 }
@@ -166,7 +166,7 @@ extension ModelTableViewController{
                 do{
                     try self.context.save()
                 }catch{
-                    //log.error("Deleted item failed")
+                    log.error("Deleted item failed")
                 }
                 
                 self.tableView.reloadData()
@@ -201,7 +201,7 @@ extension ModelTableViewController{
         do{
             try fetchRequestController.performFetch()
         }catch{
-            //log.error("Fetch Failed")
+            log.error("Fetch Failed")
         }
         self.tableView.reloadData()
         //        self.setTitle()

@@ -75,7 +75,7 @@ class MakeTableViewController: UITableViewController{
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.view.backgroundColor = SiliverSilkSheet
         self.initializeFetchedResultsController()
         
@@ -96,11 +96,11 @@ class MakeTableViewController: UITableViewController{
     }
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
-        //log.warning("Recieved Memory Warning")
+        log.warning("Recieved Memory Warning")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         defer{
-            //log.debug("Segue transfer: \(String(describing: segue.identifier))")
+            log.debug("Segue transfer: \(String(describing: segue.identifier))")
         }
         if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL
         {
@@ -117,7 +117,7 @@ class MakeTableViewController: UITableViewController{
         }
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
     }
 }
 
@@ -133,7 +133,7 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         do{
             try fetchRequestController.performFetch()
         }catch{
-            //log.error("Fetch Failed")
+            log.error("Fetch Failed")
         }
         
         
@@ -141,7 +141,7 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         //        let fetchRequestUser:NSFetchRequest<User> = User.fetchRequest()
         //        do{
         //            let fetchedUsers = try DataBaseController.getContext().fetch(fetchRequestUser)
-        //            //log.debug("Users Count: \(fetchedUsers.count)")
+        //            log.debug("Users Count: \(fetchedUsers.count)")
         //            if fetchedUsers.count < 1{
         //                user = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.Item, into: context) as! Item
         //                user?.name = "User1"
@@ -154,13 +154,13 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         //            }
         //
         //        }catch{
-        //            //log.error("Fetch Failed")
+        //            log.error("Fetch Failed")
         //        }
         //
         //        let fetchRequestWardrobe:NSFetchRequest<Item> = Item.fetchRequest()
         //        do{
         //            let fetchedWardrobes = try DataBaseController.getContext().fetch(fetchRequestWardrobe)
-        //            //log.debug("Search Results Count: \(fetchedWardrobes.count)")
+        //            log.debug("Search Results Count: \(fetchedWardrobes.count)")
         //
         //            if fetchedWardrobes.count < 1{
         //                let wardrobe = NSEntityDescription.insertNewObject(forEntityName: myfitzEntities.wardrobe, into: context) as! Wardrobe
@@ -172,7 +172,7 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         //            }
         //
         //        }catch{
-        //            //log.error("Fetch Failed")
+        //            log.error("Fetch Failed")
         //        }
         //
         
@@ -188,21 +188,21 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         //
         //        do{
         //            try context.save()
-        //            //log.verbose("User: \(user)\nWardrobe: \(user?.wardrobe!)\nItems Count: \(user?.wardrobe?.items?.count)\nItems: \(user?.wardrobe?.items)")
+        //            log.verbose("User: \(user)\nWardrobe: \(user?.wardrobe!)\nItems Count: \(user?.wardrobe?.items?.count)\nItems: \(user?.wardrobe?.items)")
         //        }catch{
-        //            //log.error("item saved failed")
+        //            log.error("item saved failed")
         //        }
         //        //        let fetchRequestItems:NSFetchRequest<Item> = Item.fetchRequest()
-        //        //log.debug(user?.wardrobe?.items)
+        //        log.debug(user?.wardrobe?.items)
         tableView.reloadData()
         //
         //
         //        do{
         //            items = try context.fetch(Item.fetchRequest())
-        //            //log.debug(items)
-        //            //log.debug("Items Count: \(items.count)")
+        //            log.debug(items)
+        //            log.debug("Items Count: \(items.count)")
         //        }catch{
-        //            //log.error("Fetch Failed")
+        //            log.error("Fetch Failed")
         //        }
         //
         //
@@ -214,13 +214,13 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
         //        let fetchRequestItem:NSFetchRequest<Item> = Item.fetchRequest()
         //        do{
         //            let searchResults = try DataBaseController.getContext().fetch(fetchRequestItem)
-        //            //log.debug("Search Results Count: \(searchResults.count)")
+        //            log.debug("Search Results Count: \(searchResults.count)")
         //
         //            for result in searchResults {
-        //                //log.debug("\(result.category!) - \(result.subCategory!) favorited: \(result.isFavorite)")
+        //                log.debug("\(result.category!) - \(result.subCategory!) favorited: \(result.isFavorite)")
         //            }
         //        }catch{
-        //            //log.error("Fetch Failed")
+        //            log.error("Fetch Failed")
         //        }
     }
 }
@@ -296,7 +296,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
                 do{
                     try self.context.save()
                 }catch{
-                    //log.error("Deleted item failed")
+                    log.error("Deleted item failed")
                 }
                 
                 self.tableView.reloadData()

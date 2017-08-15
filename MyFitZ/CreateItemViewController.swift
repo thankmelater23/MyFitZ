@@ -89,7 +89,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     
     
     deinit{
-        //log.info(#function)
+        log.info(#function)
         
     }
 }
@@ -99,7 +99,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - View Functions -Extension CreateItemViewController
 extension CreateItemViewController{
     override func viewDidLoad() {
-        //log.info(#function)
+        log.info(#function)
         super.viewDidLoad()
         self.setUp()
         defaults.addAndSend("CREATE_PAGE_COUNT")
@@ -107,7 +107,7 @@ extension CreateItemViewController{
         //self.logPageView()
     }
     override func viewDidAppear(_ animated: Bool) {
-        //log.info(#function)
+        log.info(#function)
         super.viewDidAppear(animated)
         self.view.backgroundColor = Cotton
         
@@ -121,20 +121,20 @@ extension CreateItemViewController{
         
     }
     override func viewDidDisappear(_ animated: Bool) {
-        //log.info(#function)
+        log.info(#function)
         super.viewDidDisappear(animated)
         self.removeObservers()
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        //log.warning("Recieved Memory Warning")
+        log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         //        defer{
-        //            //log.info("Segue transfer: \(segue.identifier)")
+        //            log.info("Segue transfer: \(segue.identifier)")
         //        }
         //
         //        if segue.identifier == Segue.SEGUE_CREATION_TO_SELECTION{
@@ -461,9 +461,9 @@ extension CreateItemViewController{
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == ItemCreationProgress{
             self.itemCreationProgress()
-            //log.debug("Observer Called")
+            log.debug("Observer Called")
         }else{
-            //log.debug("Called notification for an observer thats not set up")
+            log.debug("Called notification for an observer thats not set up")
         }
     }
     @objc func itemCreationProgress(){
@@ -639,7 +639,7 @@ extension CreateItemViewController: UITextFieldDelegate{
         
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
     func textFieldShouldClear(_ textField: UITextField) -> Bool{
-        //log.info("textField: " + textField.text! + " cleared")
+        log.info("textField: " + textField.text! + " cleared")
         return true
     } // called when clear button pressed. return NO to ignore (no notifications)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

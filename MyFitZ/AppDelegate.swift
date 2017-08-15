@@ -16,7 +16,7 @@
          import Firebase
          //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
          //import Siren
-         //import SwiftyBeaver
+         import SwiftyBeaver
          //import Parse
          //import Bolts
          //import HeapInspector
@@ -24,7 +24,7 @@
          
          
          
-//         let log = SwiftyBeaver.self
+         let log = SwiftyBeaver.self
          
          
          @UIApplicationMain
@@ -74,32 +74,31 @@
             
             
             //MARK: - 3rd Pary Methods
-//            @objc func swiftBeaverSetUp(){
-                //log.info(#function)
-//                let console = ConsoleDestination()
-                //log.addDestination(console)
-//                let file = FileDestination()
-                //log.addDestination(file)
-                // Now let’s log!
-                //log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
-                //log.debug("Debug Test")  // prio 2, DEBUG in blue
-                //log.info("Info Test")   // prio 3, INFO in green
-                //log.warning("Warning Test")  // prio 4, WARNING in yellow
-                //log.error("Error Test")  // prio 5, ERROR in red
-//                let platform = SBPlatformDestination(appID: "Oknw9Q", appSecret: "auuocncmksshrVjqx7ekbwehbt7kcUdp", encryptionKey: "ntusxILurhoe6lOmldCiddhnr2jwaial")
-                //log.addDestination(platform)
-//            }
+            @objc func swiftBeaverSetUp(){
+                log.info(#function)
+                let console = ConsoleDestination()
+                log.addDestination(console)
+                let file = FileDestination()
+                log.addDestination(file)
+                log.verbose("Verbose Test")  // prio 1, VERBOSE in silver
+                log.debug("Debug Test")  // prio 2, DEBUG in blue
+                log.info("Info Test")   // prio 3, INFO in green
+                log.warning("Warning Test")  // prio 4, WARNING in yellow
+                log.error("Error Test")  // prio 5, ERROR in red
+                let platform = SBPlatformDestination(appID: "B1Q8QX", appSecret: "nwrivhWudvqSisnMhhdb31ds4olncntc", encryptionKey: "f76j2vyjjaaiK4yQzOvgtwpRaaxIeqti")
+                log.addDestination(platform)
+            }
 //             @objc func iqKeyboardInitilize(){
 //                IQKeyboardManager.sharedManager().enable = true
 //            }
             
              @objc func removeConstraintFromLogger(){
-                //log.info(#function)
+                log.info(#function)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
             
              @objc func sirenInitilization(){
-                //                    //log.info(#function)
+                                    log.info(#function)
                 //                    /* Siren code should go below window?.makeKeyAndVisible() */
                 //
                 //                    // Siren is a singleton
@@ -129,14 +128,14 @@
                 let firstStart: Bool? = UserDefaults.standard.object(forKey: name) as? Bool
                 
                 if(firstStart == nil){
-                    //log.info("This is the first start")
+                    log.info("This is the first start")
                     UserDefaults.standard.set(false, forKey: name)
                     self.createSampleDatabase()
                     
                     
                 }else{
                     //Do nothing
-                    //log.verbose("This is not first start")
+                    log.verbose("This is not first start")
                     //Load data
                 }
             }
@@ -148,7 +147,7 @@
             
             //MARK: - Notifications
 //            @objc func createAndRegisterNotificationSettings(){
-//                //log.info("Notifications are being set")
+//                log.info("Notifications are being set")
 //                //Noitfications
 //                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
 //
@@ -166,7 +165,7 @@
 //                if lastFiredDate == nil{
 //                    lastFiredDate = today as NSDate
 //                    defaults.set(today, forKey: lastFiredDateString)
-//                    //log.debug("First fired Date: \(lastFiredDate)")
+//                    log.debug("First fired Date: \(lastFiredDate)")
 //                }else{
 //
 //                    var dateComp = DateComponents()
@@ -188,12 +187,12 @@
 //
 //                        UIApplication.shared.scheduleLocalNotification(notification)
 //                        defaults.set(NSDate(), forKey: lastFiredDateString)
-//                        //log.debug("Notification Fired")
-//                        //log.debug("Updated Last Time Fired Date : \(newFireDate)")
+//                        log.debug("Notification Fired")
+//                        log.debug("Updated Last Time Fired Date : \(newFireDate)")
 //
 //                    }else{
-//                        //log.warning("Wont fire notification")
-//                        //log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
+//                        log.warning("Wont fire notification")
+//                        log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
 //                    }
 //                }
 //            }
@@ -202,7 +201,7 @@
             fileprivate func setupApplication() {
                 // Override point for customization after application launch.
                 
-//                self.swiftBeaverSetUp()
+                self.swiftBeaverSetUp()
                 self.removeConstraintFromLogger()
                 self.ifFirstStart()
 //                self.createAndRegisterNotificationSettings()
