@@ -42,7 +42,7 @@ public class User: NSManagedObject {
         }else if self.closetType == closetTypeGlobal.wishList{
             return self.wardrobe?.lastObject as! Wardrobe
         }else{
-            //log.warning("Shouldn't Happen")
+            log.warning("Shouldn't Happen")
             return Wardrobe()
         }
     }
@@ -129,7 +129,7 @@ public class User: NSManagedObject {
             let results = try DataBaseController.getContext().fetch(fetch)
             print(results)
         }catch{
-            //log.warning("Save failed")
+            log.warning("Save failed")
             
         }
         //
@@ -137,10 +137,10 @@ public class User: NSManagedObject {
         //
         //        do{
         //            users = try context.fetch(User.fetchRequest()) as [NSManagedObject]
-        //            //log.info(users)
+        //            log.info(users)
         //
         //        }catch{
-        //            //log.verbose("Context failed")
+        //            log.verbose("Context failed")
         //
         //        }
         

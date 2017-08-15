@@ -71,7 +71,7 @@ func playSoundEffects(_ soundID: SystemSoundID) {
  - returns: No return
  */
 func initializeSounds() {
-    //log.debug("Sound effects are being loaded")
+    log.debug("Sound effects are being loaded")
     GlobalUserInteractiveQueue.async(execute: {
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "clear0", withExtension: "wav")! as CFURL, &clearSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "save0", withExtension: "wav")! as CFURL, &saveSFX)
@@ -88,7 +88,7 @@ func initializeSounds() {
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "animationPop0", withExtension: "wav")! as CFURL, &animationSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "alert0", withExtension: "wav")! as CFURL, &incorrectSFX)
         AudioServicesCreateSystemSoundID(Bundle.main.url(forResource: "notification0", withExtension: "wav")! as CFURL, &notificationSFX)
-        //log.debug("All sounds initialized")
+        log.debug("All sounds initialized")
     })
 }
 
@@ -162,20 +162,20 @@ func buttonTouchEndedAnimation(_ button:UIView){
 //
 //        //Returns item if path is 100% clear, if not it is searched in the array anf if not in array updating isnt working bad problem!!!!
 //        if item.id == id{
-//            //            //log.info("Item id matched on return to item")
+//            //            log.info("Item id matched on return to item")
 //            return item
 //        }else{
 //            defer{
 //                Users_Wardrobe.clearAllContainersAndPopulate()
 //            }
 //
-//            //log.warning("Item id did not match on return to item, search initiated")
+//            log.warning("Item id did not match on return to item, search initiated")
 //
 //            for searchItem in array{
 //                //TODO: -Something isn't right for this to always be happening
 //                if searchItem.id == id{
-//                    //log.info("Search success item found with in the array")
-//                    //log.warning("This is not the resault needed")
+//                    log.info("Search success item found with in the array")
+//                    log.warning("This is not the resault needed")
 //                    return searchItem
 //                }
 //            }
@@ -204,7 +204,7 @@ func buttonTouchEndedAnimation(_ button:UIView){
  - returns: bool of true if all path values are not nil
  */
 func validatePath(_ path: [String: String])->Bool{
-    //    //log.verbose("-VALIDATIING PATH ARRAY")
+    //    log.verbose("-VALIDATIING PATH ARRAY")
     let closet:String? = path[PathType.PATHTYPE_CLOSET_STRING]
     let category:String? = path[PathType.PATHTYPE_CATEGORY_STRING]
     let subCategory:String? = path[PathType.PATHTYPE_SUBCATEGORY_STRING]
@@ -216,10 +216,10 @@ func validatePath(_ path: [String: String])->Bool{
     }
     
     if closet != nil && category != nil && subCategory != nil{
-        //        //log.verbose("-VALIDATIING PASSED ALL VALUES NON NIL")
+        //        log.verbose("-VALIDATIING PASSED ALL VALUES NON NIL")
         return true
     }else{
-        //log.warning("-VALIDATIING FAILED ONE OR ALL ARE NIL")
+        log.warning("-VALIDATIING FAILED ONE OR ALL ARE NIL")
         return false
     }
 }
