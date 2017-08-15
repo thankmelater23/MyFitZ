@@ -88,24 +88,24 @@ public class User: NSManagedObject {
         let items4 = Item(context: wardrobe2b.managedObjectContext!) as Item
         items4.category = "N/A"
         items4.subCategory = "N/A"
-        
-        do{
-            try context.save()
-        }catch{
-            print("Didn't save")
-        }
-        
-        //Entity Bonding
-        wardrobe1.addToItems(items1)
-        wardrobe2.addToItems(items2)
-        wardrobe1b.addToItems(items3)
-        wardrobe2b.addToItems(items4)
-        
-        user1.addToWardrobe(wardrobe1)
-        user1.addToWardrobe(wardrobe2)
-        user2.addToWardrobe(wardrobe1b)
-        user2.addToWardrobe(wardrobe2b)
-        
+//
+//        do{
+//            try context.save()
+//        }catch{
+//            print("Didn't save")
+//        }
+//
+//        //Entity Bonding
+//        wardrobe1.addToItems(items1)
+//        wardrobe2.addToItems(items2)
+//        wardrobe1b.addToItems(items3)
+//        wardrobe2b.addToItems(items4)
+//
+//        user1.addToWardrobe(wardrobe1)
+//        user1.addToWardrobe(wardrobe2)
+//        user2.addToWardrobe(wardrobe1b)
+//        user2.addToWardrobe(wardrobe2b)
+//
         //        wardrobe1.user = user1
         //        wardrobe2.user = user1
         //        wardrobe1b.user = user2
@@ -123,11 +123,11 @@ public class User: NSManagedObject {
         do{
             try context.save() 
             
-            let fetch: NSFetchRequest<User> = User.fetchRequest()
-            fetch.returnsObjectsAsFaults = false
-            let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetch, completionBlock: nil)//Retrives fetch request Asyncorounously
-            let results = try DataBaseController.getContext().fetch(fetch)
-            print(results)
+//            let fetch: NSFetchRequest<User> = User.fetchRequest()
+//            fetch.returnsObjectsAsFaults = false
+//            let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetch, completionBlock: nil)//Retrives fetch request Asyncorounously
+//            let results = try DataBaseController.getContext().fetch(fetch)
+//            print(results)
         }catch{
             log.warning("Save failed")
             
