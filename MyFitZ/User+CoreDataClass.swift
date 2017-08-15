@@ -42,7 +42,7 @@ public class User: NSManagedObject {
         }else if self.closetType == closetTypeGlobal.wishList{
             return self.wardrobe?.lastObject as! Wardrobe
         }else{
-            //log.warning("Shouldn't Happen")
+            log.warning("Shouldn't Happen")
             return Wardrobe()
         }
     }
@@ -65,46 +65,46 @@ public class User: NSManagedObject {
         user2.closetType = closetTypeGlobal.wishList
         
         //Wardrobe Creation
-        let wardrobe1 = Wardrobe(context: user1.managedObjectContext!)
-        let wardrobe2 = Wardrobe(context: user1.managedObjectContext!)
-        wardrobe1.type = WardrobeType.closet.rawValue
-        wardrobe2.type = WardrobeType.wants.rawValue
+//        let wardrobe1 = Wardrobe(context: user1.managedObjectContext!)
+//        let wardrobe2 = Wardrobe(context: user1.managedObjectContext!)
+//        wardrobe1.type = WardrobeType.closet.rawValue
+//        wardrobe2.type = WardrobeType.wants.rawValue
+//        
+//        let wardrobe1b = Wardrobe(context: user2.managedObjectContext!)
+//        let wardrobe2b = Wardrobe(context: user2.managedObjectContext!)
+//        wardrobe1b.type = WardrobeType.closet.rawValue
+//        wardrobe2b.type = WardrobeType.wants.rawValue
+//        
+//        //Item Creation
+//        let items1 = Item(context: wardrobe1.managedObjectContext!) as Item
+//        items1.category = "N/A"
+//        items1.subCategory = "N/A"
+//        let items2 = Item(context: wardrobe2.managedObjectContext!) as Item
+//        items2.category = "N/A"
+//        items2.subCategory = "N/A"
+//        let items3 = Item(context: wardrobe1b.managedObjectContext!) as Item
+//        items3.category = "N/A"
+//        items3.subCategory = "N/A"
+//        let items4 = Item(context: wardrobe2b.managedObjectContext!) as Item
+//        items4.category = "N/A"
+//        items4.subCategory = "N/A"
         
-        let wardrobe1b = Wardrobe(context: user2.managedObjectContext!)
-        let wardrobe2b = Wardrobe(context: user2.managedObjectContext!)
-        wardrobe1b.type = WardrobeType.closet.rawValue
-        wardrobe2b.type = WardrobeType.wants.rawValue
-        
-        //Item Creation
-        let items1 = Item(context: wardrobe1.managedObjectContext!) as Item
-        items1.category = "N/A"
-        items1.subCategory = "N/A"
-        let items2 = Item(context: wardrobe2.managedObjectContext!) as Item
-        items2.category = "N/A"
-        items2.subCategory = "N/A"
-        let items3 = Item(context: wardrobe1b.managedObjectContext!) as Item
-        items3.category = "N/A"
-        items3.subCategory = "N/A"
-        let items4 = Item(context: wardrobe2b.managedObjectContext!) as Item
-        items4.category = "N/A"
-        items4.subCategory = "N/A"
-        
-        do{
-            try context.save()
-        }catch{
-            print("Didn't save")
-        }
+//        do{
+//            try context.save()
+//        }catch{
+//            print("Didn't save")
+//        }
         
         //Entity Bonding
-        wardrobe1.addToItems(items1)
-        wardrobe2.addToItems(items2)
-        wardrobe1b.addToItems(items3)
-        wardrobe2b.addToItems(items4)
-        
-        user1.addToWardrobe(wardrobe1)
-        user1.addToWardrobe(wardrobe2)
-        user2.addToWardrobe(wardrobe1b)
-        user2.addToWardrobe(wardrobe2b)
+//        wardrobe1.addToItems(items1)
+//        wardrobe2.addToItems(items2)
+//        wardrobe1b.addToItems(items3)
+//        wardrobe2b.addToItems(items4)
+//
+//        user1.addToWardrobe(wardrobe1)
+//        user1.addToWardrobe(wardrobe2)
+//        user2.addToWardrobe(wardrobe1b)
+//        user2.addToWardrobe(wardrobe2b)
         
         //        wardrobe1.user = user1
         //        wardrobe2.user = user1
@@ -123,13 +123,13 @@ public class User: NSManagedObject {
         do{
             try context.save() 
             
-            let fetch: NSFetchRequest<User> = User.fetchRequest()
-            fetch.returnsObjectsAsFaults = false
-            let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetch, completionBlock: nil)//Retrives fetch request Asyncorounously
-            let results = try DataBaseController.getContext().fetch(fetch)
-            print(results)
+//            let fetch: NSFetchRequest<User> = User.fetchRequest()
+//            fetch.returnsObjectsAsFaults = false
+//            let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetch, completionBlock: nil)//Retrives fetch request Asyncorounously
+//            let results = try DataBaseController.getContext().fetch(fetch)
+//            print(results)
         }catch{
-            //log.warning("Save failed")
+            log.warning("Save failed")
             
         }
         //
@@ -137,10 +137,10 @@ public class User: NSManagedObject {
         //
         //        do{
         //            users = try context.fetch(User.fetchRequest()) as [NSManagedObject]
-        //            //log.info(users)
+        //            log.info(users)
         //
         //        }catch{
-        //            //log.verbose("Context failed")
+        //            log.verbose("Context failed")
         //
         //        }
         

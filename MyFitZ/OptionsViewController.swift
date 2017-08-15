@@ -13,7 +13,7 @@ import UIKit
 class OptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -24,7 +24,7 @@ class OptionsViewController: UIViewController {
     }
     
     @IBAction func clickedHelp() {
-        //log.info("Help Selected")
+        log.info("Help Selected")
         self.performSegue(withIdentifier: Segue.SEGUE_OPTIONS_TO_HELP, sender: self)
     }
     
@@ -33,7 +33,7 @@ class OptionsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     deinit{
-        //log.info(#function)
+        log.info(#function)
         
     }
 }

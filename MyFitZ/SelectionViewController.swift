@@ -85,7 +85,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        //log.info(#function)
+        log.info(#function)
         self.navigationController?.isNavigationBarHidden = false
         
         //        self.animateAllButtons()
@@ -111,7 +111,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         defer{
-            //log.verbose("Segue transfer: \(String(describing: segue.identifier))")
+            log.verbose("Segue transfer: \(String(describing: segue.identifier))")
         }
         
         if segue.identifier == Segue.SEGUE_SELECTION_TO_MAKE{
@@ -177,10 +177,10 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 //        })
 //}
 //    deinit{
-//        //log.info(#function)
+//        log.info(#function)
 //    }
 //    deinit{
-//        //log.info(#function)
+//        log.info(#function)
 //
 //    }
 //}
@@ -217,7 +217,7 @@ extension SelectionViewController{
     }
     
     @IBAction func share(){
-        //log.info(#function)
+        log.info(#function)
         //let textToShare = "Swift is awesome!  Check out this website about it!"
         
         if let myWebsite = URL(string: "http://MyFitZApp.com/")
