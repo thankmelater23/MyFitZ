@@ -13,7 +13,7 @@ target 'MyFitZ' do
   pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
   pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
   pod 'MRProgress' #Multiple tipes of loading bars and circles
-#  pod 'SwiftyBeaver'#, '~> 0.2' Logger with tags
+  pod 'SwiftyBeaver'#, '~> 0.2' Logger with tags
   pod 'AsyncSwift'#GCD wrapper
   pod 'SVProgressHUD'#(1.1.3) spinner
   pod 'TSMessages'#(0.9.12)

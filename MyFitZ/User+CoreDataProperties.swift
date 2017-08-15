@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MyFitZ
 //
-//  Created by Andre V on 8/5/17.
+//  Created by Andre on 8/15/17.
 //  Copyright © 2017 Bang Bang Studios. All rights reserved.
 //
 //
