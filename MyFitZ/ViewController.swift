@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         log.info(#function)
         self.clearDefaultsPath()
-//        self.setUser()
+        self.setUser()
         self.loggerFix()
         self.setTitle()
         self.appSettings()
