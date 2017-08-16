@@ -98,28 +98,6 @@
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
             
-            @objc func sirenInitilization(){
-                log.info(#function)
-                //                    /* Siren code should go below window?.makeKeyAndVisible() */
-                //
-                //                    // Siren is a singleton
-                //                    let siren = Siren.sharedInstance
-                //
-                //                    // Required: Your app's iTunes App Store ID
-                //                    //        siren.appID = APP_ID
-                //
-                //                    // Optional: Defaults to .Option
-                //
-                //
-                //                    /*
-                //                     Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-                //                     checks.
-                //                     */
-                //                    siren.checkVersion(.daily)
-                //
-                //                    siren.alertType = SirenAlertType.option
-            }
-            
             
             //MARK: - Custom Methods
             @objc func ifFirstStart(){
