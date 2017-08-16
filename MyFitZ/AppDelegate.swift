@@ -234,29 +234,29 @@
 //            log.info("Notifications are being set")
 //            //Noitfications
 //                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
-//            
+//
 //            let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notifytypes, categories: nil)
-//            
+//
 //            UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
 //            }
 //            func setNotifications(){
 //                log.info("Notifications are being set")
 //                let today = NSDate()
-//                
+//
 //                let dateComp = NSDateComponents()
 //                dateComp.day = 7
-//                
+//
 //                let cal = NSCalendar.currentCalendar()
 //                let fireDate:NSDate = cal.dateByAddingComponents(dateComp, toDate: today, options: NSCalendarOptions())!
-//                
-//                
+//
+//
 //                let notification: UILocalNotification = UILocalNotification()
 //                notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
 //                notification.alertTitle = "REMINDER"
 //                notification.alertLaunchImage = "icon1"
-//                
+//
 //                notification.fireDate = fireDate
-//                
+//
 //                UIApplication.sharedApplication().scheduleLocalNotification(notification)
 //                log.info("Notifications are set")
 //            }
