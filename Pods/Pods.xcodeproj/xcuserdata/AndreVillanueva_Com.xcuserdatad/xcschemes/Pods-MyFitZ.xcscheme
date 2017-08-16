@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8941AD1CBC22C7E7911A3EB13F201CC6"
+               BlueprintIdentifier = "F60E97BDF558F7F8D6A216281B8FEE86"
                BuildableName = "Pods_MyFitZ.framework"
                BlueprintName = "Pods-MyFitZ"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8941AD1CBC22C7E7911A3EB13F201CC6"
+            BlueprintIdentifier = "F60E97BDF558F7F8D6A216281B8FEE86"
             BuildableName = "Pods_MyFitZ.framework"
             BlueprintName = "Pods-MyFitZ"
             ReferencedContainer = "container:Pods.xcodeproj">

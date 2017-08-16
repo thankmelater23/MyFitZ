@@ -24,7 +24,7 @@ target 'MyFitZ' do
   pod 'SlackTextViewController'
   pod 'HeapInspector'
 #  pod 'IQKeyboardManagerSwift'#, '4.0.8'#Look to update after 9-17
-  #pod 'Siren'#This will be done when the app has an app id number
+  pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4'
   #pod 'Parse'
   pod 'Firebase/Core'
   pod 'FirebaseDatabase'
