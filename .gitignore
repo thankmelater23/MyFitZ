@@ -73,14 +73,14 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-#Specific Files
+#*****************************************************************************
+#PERSONAL FILES
 MyFiTz.mp4
 Todo
-changes.rtf
-=======
->>>>>>> MyFitZOld/master
-=======
->>>>>>> MyFitZOld/master
+changes.rtf 
+gource.ppm
+MyfitZ.ipa
+#*****************************************************************************
+#BUSINESS FILES:
+
+#*****************************************************************************
