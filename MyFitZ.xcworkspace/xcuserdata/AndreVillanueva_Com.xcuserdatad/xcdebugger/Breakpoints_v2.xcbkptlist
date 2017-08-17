@@ -42,11 +42,7 @@
                   moduleName = "MyFitZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
-<<<<<<< HEAD
-                  timestampString = "524612058.190322"
-=======
-                  timestampString = "524635241.349248"
->>>>>>> master
+                  timestampString = "524649572.422155"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "131"
@@ -61,11 +57,7 @@
                   moduleName = "MyFitZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
-<<<<<<< HEAD
-                  timestampString = "524612058.192999"
-=======
-                  timestampString = "524635241.351639"
->>>>>>> master
+                  timestampString = "524649572.426327"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "131"
@@ -98,11 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/ViewController.swift"
-<<<<<<< HEAD
-            timestampString = "524495383.429785"
-=======
-            timestampString = "524635240.78149"
->>>>>>> master
+            timestampString = "524649571.75232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
