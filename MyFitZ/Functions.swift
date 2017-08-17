@@ -112,30 +112,30 @@ func buttonAnimation(_ view: UIView){
 
 
 //MARK: -UIGestureActions
-func handleTap(_ sender: UITapGestureRecognizer) {
-    switch(sender.state){
-    case .began:
-        buttonTouchBeganAnimation(sender.view!)
-        
-    case .cancelled:
-        buttonTouchCancelledAnimation(sender.view!)
-    case .ended:
-        buttonTouchEndedAnimation(sender.view!)
-    case .failed:
-        buttonTouchCancelledAnimation(sender.view!)
-    case .possible: break
-    case .changed: break
-    }
-}
-func buttonTouchBeganAnimation(_ button:UIView){
-    button.animation.transformScale(3.0).animate(1.0)
-}
-func buttonTouchCancelledAnimation(_ button:UIView){
-    button.animation.transformScale(1.0).animate(1.0)
-}
-func buttonTouchEndedAnimation(_ button:UIView){
-    button.animation.transformScale(0.2).animate(1.0)
-}
+//func handleTap(_ sender: UITapGestureRecognizer) {
+//    switch(sender.state){
+//    case .began:
+//        buttonTouchBeganAnimation(sender.view!)
+//        
+//    case .cancelled:
+//        buttonTouchCancelledAnimation(sender.view!)
+//    case .ended:
+//        buttonTouchEndedAnimation(sender.view!)
+//    case .failed:
+//        buttonTouchCancelledAnimation(sender.view!)
+//    case .possible: break
+//    case .changed: break
+//    }
+//}
+//func buttonTouchBeganAnimation(_ button:UIView){
+//    button.animation.transformScale(3.0).animate(1.0)
+//}
+//func buttonTouchCancelledAnimation(_ button:UIView){
+//    button.animation.transformScale(1.0).animate(1.0)
+//}
+//func buttonTouchEndedAnimation(_ button:UIView){
+//    button.animation.transformScale(0.2).animate(1.0)
+//}
 
 
 //MARK: -WARDROBE Reference System

@@ -1,6 +1,0 @@
-framework module HeapInspector {
-  umbrella header "HeapInspector-umbrella.h"
-
-  export *
-  module * { export * }
-}

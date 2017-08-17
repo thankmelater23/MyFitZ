@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 import UIKit
-import DKChainableAnimationKit
+//import DKChainableAnimationKit
 //import Crashlytics
 
 //MARK: -SelectionViewController Class
