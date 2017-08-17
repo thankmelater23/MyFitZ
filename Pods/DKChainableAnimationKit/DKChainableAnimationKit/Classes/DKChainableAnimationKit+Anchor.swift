@@ -10,10 +10,17 @@ import UIKit
 
 public extension DKChainableAnimationKit {
 
+<<<<<<< HEAD
     internal func makeAnchorFrom(x: CGFloat, y: CGFloat) {
         let anchorPoint = CGPoint(x: x, y: y)
         func action(_ view: UIView) {
             if anchorPoint.equalTo(view.layer.anchorPoint) {
+=======
+    internal func makeAnchorFrom(x x: CGFloat, y: CGFloat) {
+        let anchorPoint = CGPoint(x: x, y: y)
+        func action(view: UIView) {
+            if CGPointEqualToPoint(anchorPoint, view.layer.anchorPoint) {
+>>>>>>> MyFitZOld/master
                 return
             }
             var newPoint = CGPoint(
@@ -24,8 +31,13 @@ public extension DKChainableAnimationKit {
                 x: view.bounds.size.width * view.layer.anchorPoint.x,
                 y: view.bounds.size.height * view.layer.anchorPoint.y
             )
+<<<<<<< HEAD
             newPoint = newPoint.applying(view.transform)
             oldPoint = oldPoint.applying(view.transform)
+=======
+            newPoint = CGPointApplyAffineTransform(newPoint, view.transform)
+            oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform)
+>>>>>>> MyFitZOld/master
 
             var position = view.layer.position
 
@@ -40,13 +52,21 @@ public extension DKChainableAnimationKit {
         }
 
         if var lastCalculationActions = self.animationCalculationActions.last {
+<<<<<<< HEAD
             lastCalculationActions.insert(action, at: 0)
+=======
+            lastCalculationActions.insert(action, atIndex: 0)
+>>>>>>> MyFitZOld/master
             self.animationCalculationActions.removeLast()
             self.animationCalculationActions.append(lastCalculationActions)
         }
     }
 
+<<<<<<< HEAD
     @discardableResult public func makeAnchor(_ x: CGFloat, _ y: CGFloat) -> DKChainableAnimationKit {
+=======
+    public func makeAnchor(x: CGFloat, _ y: CGFloat) -> DKChainableAnimationKit {
+>>>>>>> MyFitZOld/master
         self.makeAnchorFrom(x: x, y: y)
         return self
     }
@@ -120,4 +140,8 @@ public extension DKChainableAnimationKit {
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> MyFitZOld/master

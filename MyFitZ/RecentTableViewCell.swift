@@ -26,6 +26,7 @@ class RecentTableViewCell: UITableViewCell{
         super.awakeFromNib()
         self.animateView()
     }
+<<<<<<< HEAD
     override func setSelected(_ selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
@@ -44,13 +45,37 @@ class RecentTableViewCell: UITableViewCell{
         }else{
             self.wear.alpha = 1.0
             self.wear.isUserInteractionEnabled = true
+=======
+    override func setSelected(selected: Bool, animated: Bool){
+        super.setSelected(selected ,  animated: animated)
+    }
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+    }
+    func setWearButtonImage(worn: Bool){
+        if worn == true{
+            self.wear.alpha = 0.5
+            self.wear.userInteractionEnabled = false
+        }else{
+            self.wear.alpha = 1.0
+            self.wear.userInteractionEnabled = true
+>>>>>>> MyFitZOld/master
         }
     }
     @IBAction func wearButtonPressed() {
         
     }
     
+<<<<<<< HEAD
     @objc func customizeView(){
+=======
+    func customizeView(){
+>>>>>>> MyFitZOld/master
         self.backgroundColor = WrinkledCloth
         self.borderCustomization()
         
@@ -63,8 +88,13 @@ class RecentTableViewCell: UITableViewCell{
 
 //MARK: -Initializers
 extension RecentTableViewCell{
+<<<<<<< HEAD
     @objc func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String){
         let date = Date()
+=======
+    func setCell(Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, lastTimeWorn: String){
+        let date = NSDate()
+>>>>>>> MyFitZOld/master
         
         
         self.cellImage.image = Image
@@ -86,7 +116,14 @@ extension RecentTableViewCell{
 
 //MARK: -Animations-RecentTableViewCell Extension
 extension RecentTableViewCell{
+<<<<<<< HEAD
     @objc func animateView(){
         optionViewCustomized(self.wear)
     }
 }
+=======
+    func animateView(){
+        optionViewCustomized(self.wear)
+    }
+}
+>>>>>>> MyFitZOld/master

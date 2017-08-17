@@ -3,7 +3,11 @@
 **IMPORTANT NOTICE: Please update to >= `1.9` to avoid any risk of app rejection.
 More details in [#361](https://github.com/slackhq/SlackTextViewController/issues/361)**
 
+<<<<<<< HEAD
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+=======
+[![License](https://img.shields.io/badge/license-apache%202.0-blue.svg?style=flat-square)](http://opensource.org/licenses/Apache2.0)
+>>>>>>> MyFitZOld/master
 [![Pod Version](https://img.shields.io/cocoapods/v/SlackTextViewController.svg?style=flat-square)](http://cocoadocs.org/docsets/SlackTextViewController/1.9/)
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-F5B369.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![Build Status](https://img.shields.io/travis/slackhq/SlackTextViewController.svg?style=flat-square)](https://travis-ci.org/slackhq/SlackTextViewController)
@@ -17,7 +21,11 @@ This library is used in Slack's iOS app. It was built to fit our needs, but is f
 ## Feature List
 
 ### Core
+<<<<<<< HEAD
 - Works out of the box with [UITableView or UICollectionView or UIScrollView](https://github.com/slackhq/SlackTextViewController#subclassing)
+=======
+- Works out of the box with [UITableView or UICollectionView or UIScrollView](https://github.com/slackhq/SlackTextViewController/tree/swift-example#subclassing)
+>>>>>>> MyFitZOld/master
 - [Growing Text View](https://github.com/slackhq/SlackTextViewController#growing-text-view), with line count limit support
 - Flexible UI built with Auto Layout
 - Customizable: provides left and right button, and toolbar outlets
@@ -42,7 +50,11 @@ This library is used in Slack's iOS app. It was built to fit our needs, but is f
 
 ### Compatibility
 - Carthage & CocoaPods
+<<<<<<< HEAD
 - Objective-C & Swift
+=======
+- Swift: [A sample project is available in a different branch] (https://github.com/slackhq/SlackTextViewController/tree/swift-example)
+>>>>>>> MyFitZOld/master
 - iOS 7, 8 & 9
 - iPhone & iPad
 - [Storyboard](https://github.com/slackhq/SlackTextViewController#storyboard)
@@ -148,8 +160,14 @@ override class func collectionViewLayoutForCoder(decoder: NSCoder) -> UICollecti
 ###Sample Project
 
 Check out the sample project,  everything is demo'd there.
+<<<<<<< HEAD
 There are 2 main examples (different targets) for testing the programatic and storyboard approaches, and a Swift example. Most of the features are implemented for you to quickly start using them.
 
+=======
+There are 2 main examples (different targets) for testing the programatic and storyboard approaches. Most of the features are implemented for you to quickly start using them.
+
+A CollectionView example, using Swift, is in progress on the `swift-example` branch. The idea with this project is to build a custom collection view layout allowing to display cells from the bottom (currently working but needs serious tweaks to make it perfect).
+>>>>>>> MyFitZOld/master
 Feel free to contribute!
 
 

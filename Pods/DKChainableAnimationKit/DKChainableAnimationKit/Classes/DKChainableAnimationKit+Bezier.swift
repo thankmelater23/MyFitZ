@@ -10,10 +10,17 @@ import UIKit
 
 public extension DKChainableAnimationKit {
 
+<<<<<<< HEAD
     public func moveOnPath(_ path: UIBezierPath) -> DKChainableAnimationKit {
         self.addAnimationCalculationAction { (view: UIView) -> Void in
             let pathAnimation = self.basicAnimationForKeyPath("position")
             pathAnimation.path = path.cgPath
+=======
+    public func moveOnPath(path: UIBezierPath) -> DKChainableAnimationKit {
+        self.addAnimationCalculationAction { (view: UIView) -> Void in
+            let pathAnimation = self.basicAnimationForKeyPath("position")
+            pathAnimation.path = path.CGPath
+>>>>>>> MyFitZOld/master
             self.addAnimationFromCalculationBlock(pathAnimation)
         }
 
@@ -24,10 +31,17 @@ public extension DKChainableAnimationKit {
         return self
     }
 
+<<<<<<< HEAD
     public func moveAndRotateOnPath(_ path: UIBezierPath) -> DKChainableAnimationKit {
         self.addAnimationCalculationAction { (view: UIView) -> Void in
             let pathAnimation = self.basicAnimationForKeyPath("position")
             pathAnimation.path = path.cgPath
+=======
+    public func moveAndRotateOnPath(path: UIBezierPath) -> DKChainableAnimationKit {
+        self.addAnimationCalculationAction { (view: UIView) -> Void in
+            let pathAnimation = self.basicAnimationForKeyPath("position")
+            pathAnimation.path = path.CGPath
+>>>>>>> MyFitZOld/master
             pathAnimation.rotationMode = kCAAnimationRotateAuto
             self.addAnimationFromCalculationBlock(pathAnimation)
         }
@@ -39,10 +53,17 @@ public extension DKChainableAnimationKit {
         return self
     }
 
+<<<<<<< HEAD
     public func moveAndReverseRotateOnPath(_ path: UIBezierPath) -> DKChainableAnimationKit {
         self.addAnimationCalculationAction { (view: UIView) -> Void in
             let pathAnimation = self.basicAnimationForKeyPath("position")
             pathAnimation.path = path.cgPath
+=======
+    public func moveAndReverseRotateOnPath(path: UIBezierPath) -> DKChainableAnimationKit {
+        self.addAnimationCalculationAction { (view: UIView) -> Void in
+            let pathAnimation = self.basicAnimationForKeyPath("position")
+            pathAnimation.path = path.CGPath
+>>>>>>> MyFitZOld/master
             pathAnimation.rotationMode = kCAAnimationRotateAutoReverse
             self.addAnimationFromCalculationBlock(pathAnimation)
         }

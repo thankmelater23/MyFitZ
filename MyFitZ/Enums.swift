@@ -9,9 +9,15 @@
 import Foundation
 
 //MARK: -App Enums
+<<<<<<< HEAD
 enum ItemError:Error{
     //    case MissingInfo
     case incorrectSubCategory
+=======
+enum ItemError:ErrorType{
+    //    case MissingInfo
+    case IncorrectSubCategory
+>>>>>>> MyFitZOld/master
     case missingModelString
     case addImage
     //    case Missing(someInt: Int)
@@ -35,9 +41,13 @@ enum CreateItemStages: Int{
     case stageNoCategory
     case stageNoSubCategory
     case stageNoModel
+<<<<<<< HEAD
 }
 
 enum WardrobeType: String{
     case closet = "closet"
     case wants = "wants"
 }
+=======
+}
+>>>>>>> MyFitZOld/master

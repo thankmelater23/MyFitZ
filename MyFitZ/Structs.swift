@@ -9,11 +9,14 @@
 import Foundation
 import UIKit
 
+<<<<<<< HEAD
 struct ClosetType{
     let closet:Int16 = Int16(0)
     let wishList:Int16 = Int16(1)
 }
 let closetTypeGlobal = ClosetType()
+=======
+>>>>>>> MyFitZOld/master
 
 
 struct CateogryTypes{
@@ -26,6 +29,7 @@ struct CateogryTypes{
 }
 let CateogryType = CateogryTypes()
 
+<<<<<<< HEAD
 struct MyFitZEntities{
     let user:String = String(describing: User.self)
     let wardrobe:String = String(describing: Wardrobe.self)
@@ -33,13 +37,18 @@ struct MyFitZEntities{
     
 }
 let myfitzEntities = MyFitZEntities()
+=======
+>>>>>>> MyFitZOld/master
 
 //MARK: -Segue identifiers
 struct Segues{
     let SEGUE_MAIN_TO_SELECTION      = "mainToSelection"
     let SEGUE_MAIN_TO_FITMAKER       = "mainToFitMaker"
+<<<<<<< HEAD
     let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
     let SEGUE_MAIN_TO_OPTION_INSTRUCTIONS   = "mainToOptionInstructions"
+=======
+>>>>>>> MyFitZOld/master
     let SEGUE_SELECTION_TO_MAKE      = "selectionToMake"
     let SEGUE_SELECTION_TO_MAIN      = "selectionToMain"
     let SEGUE_SELECTION_TO_RECENT    = "selectionToRecent"
@@ -75,9 +84,16 @@ struct Segues{
     let SEGUE_IMAGE_TO_DETAIL         = "imageToDetail"
     let SEGUE_SELECTION_TO_PERCENTAGE = "selectionToPercentage"
     let SEGUE_PERCENTAGE_TO_SELECTION = "percentToSelection"
+<<<<<<< HEAD
     let SEGUE_OPTIONS_TO_HELP         = "optionsToHelp"
     let SEGUE_HELP_TO_INSTRUCTIONS    = "helpToInstructions"
     
+=======
+    let SEGUE_MAIN_TO_OPTIONS         = "mainToOptions"
+    let SEGUE_OPTIONS_TO_HELP         = "optionsToHelp"
+    let SEGUE_HELP_TO_INSTRUCTIONS    = "helpToInstructions"
+    let SEGUE_MAIN_TO_OPTION_INSTRUCTIONS   = "mainToOptionInstructions"
+>>>>>>> MyFitZOld/master
     let SEGUE_OPTIONS_TO_WEBSITE         = "optionToWebsite"
 }
 let Segue = Segues()
@@ -139,21 +155,32 @@ let ItemAttributeName = ItemAttributeNames()
 
 //MARK: -Color Settings
 struct UI_OBJECT_COLORS{
+<<<<<<< HEAD
     let imageBorder = UIColor.init(patternImage: UIImage(named: "cellRedRedBG")!).cgColor
+=======
+    let imageBorder = UIColor.init(patternImage: UIImage(named: "cellRedRedBG")!).CGColor
+>>>>>>> MyFitZOld/master
 }
 let UIObjectColors: UI_OBJECT_COLORS = UI_OBJECT_COLORS()
 
 
 struct COMPANY_COLORS{
+<<<<<<< HEAD
     let primary = UIColor.green
     let secondary = UIColor.purple
     let third = UIColor.blue
+=======
+    let primary = UIColor.greenColor()
+    let secondary = UIColor.purpleColor()
+    let third = UIColor.blueColor()
+>>>>>>> MyFitZOld/master
 }
 let CompanyColors = COMPANY_COLORS()
 
 
 //MARK: -App Path types
 struct PathTypes{
+<<<<<<< HEAD
     let PATHTYPE_USER_STRING        = "User"
     let PATHTYPE_CLOSET_STRING      = "Closet"
     let PATHTYPE_CATEGORY_STRING    = "Category"
@@ -162,3 +189,12 @@ struct PathTypes{
     let PATHTYPE_ID_STRING          = "ID"
 }
 let PathType = PathTypes()
+=======
+    let PATHTYPE_CLOSET_STRING      = "Closet"
+    let PATHTYPE_ID_STRING          = "ID"
+    let PATHTYPE_CATEGORY_STRING    = "Category"
+    let PATHTYPE_SUBCATEGORY_STRING = "SubCategory"
+    let PATHTYPE_INDEX_STRING       = "Index"
+}
+let PathType = PathTypes()
+>>>>>>> MyFitZOld/master

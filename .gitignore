@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> MyFitZOld/master
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
@@ -65,8 +69,11 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+<<<<<<< HEAD
 
 #Specific Files
 MyFiTz.mp4
 Todo
 changes.rtf
+=======
+>>>>>>> MyFitZOld/master

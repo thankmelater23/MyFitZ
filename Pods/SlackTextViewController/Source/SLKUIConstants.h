@@ -18,6 +18,13 @@
 
 #define SLK_KEYBOARD_NOTIFICATION_DEBUG     DEBUG && 0  // Logs every keyboard notification being sent
 
+<<<<<<< HEAD
+=======
+#if __has_attribute(objc_designated_initializer)
+    #define SLK_DESIGNATED_INITIALIZER __attribute__((objc_designated_initializer))
+#endif
+
+>>>>>>> MyFitZOld/master
 static NSString *SLKTextViewControllerDomain = @"com.slack.TextViewController";
 
 /**

@@ -7,7 +7,11 @@
     <key>CFBundleName</key>
       <string></string>
     <key>DocSetPlatformFamily</key>
+<<<<<<< HEAD
       <string></string>
+=======
+      <string>jazzy</string>
+>>>>>>> MyFitZOld/master
     <key>isDashDocset</key>
       <true/>
     <key>dashIndexFilePath</key>

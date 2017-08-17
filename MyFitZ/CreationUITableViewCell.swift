@@ -20,17 +20,26 @@ class CreationUITableViewCell: UITableViewCell{
     
     
     //MARK: -View Methods
+<<<<<<< HEAD
     @objc func configure(text: String?, labelString: String!, tag: Int){
+=======
+    func configure(text text: String?, labelString: String!, tag: Int){
+>>>>>>> MyFitZOld/master
         
         textInputCellTextField.text = String()
         textInputCellTextField.placeholder = labelString
         textInputCellLabel.text = labelString
         self.textInputCellTextField.tag = tag
+<<<<<<< HEAD
         self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.unlessEditing
+=======
+        self.textInputCellTextField.clearButtonMode = UITextFieldViewMode.UnlessEditing
+>>>>>>> MyFitZOld/master
         
         self.customizeView()
     }
     
+<<<<<<< HEAD
     @objc func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
@@ -45,3 +54,19 @@ class CreationUITableViewCell: UITableViewCell{
         self.borderCustomization()
     }
 }
+=======
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+    }
+    
+    func customizeView(){
+        self.backgroundColor = FloorTexture
+        self.borderCustomization()
+    }
+}
+>>>>>>> MyFitZOld/master

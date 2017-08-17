@@ -1,8 +1,13 @@
 # SVProgressHUD
 
 ![Pod Version](https://img.shields.io/cocoapods/v/SVProgressHUD.svg?style=flat)
+<<<<<<< HEAD
 ![Pod Platform](https://img.shields.io/cocoapods/p/SVProgressHUD.svg?style=flat)
 ![Pod License](https://img.shields.io/cocoapods/l/SVProgressHUD.svg?style=flat)
+=======
+![Pod License](https://img.shields.io/cocoapods/l/SVProgressHUD.svg?style=flat)
+![Pod Platform](https://img.shields.io/cocoapods/p/SVProgressHUD.svg?style=flat)
+>>>>>>> MyFitZOld/master
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 `SVProgressHUD` is a clean and easy-to-use HUD meant to display the progress of an ongoing task on iOS and tvOS.
@@ -29,7 +34,11 @@ If you want to use the latest features of `SVProgressHUD` use normal external so
 pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 ```
 
+<<<<<<< HEAD
 This pulls from the `master` branch directly.
+=======
+This pulls from the `master` branch directly. We are usually careful about what we push there and this is the version we use ourselves in all of our projects.
+>>>>>>> MyFitZOld/master
 
 Second, install `SVProgressHUD` into your project:
 
@@ -39,7 +48,20 @@ pod install
 
 ### Carthage 
 
+<<<<<<< HEAD
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate `SVProgressHUD` into your Xcode project using Carthage, specify it in your `Cartfile`:
+=======
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate `SVProgressHUD` into your Xcode project using Carthage, specify it in your `Cartfile`:
+>>>>>>> MyFitZOld/master
 
 ```ogdl
 github "SVProgressHUD/SVProgressHUD"
@@ -54,6 +76,7 @@ Run `carthage update` to build the framework and drag the built `SVProgressHUD.f
 * Take care that `SVProgressHUD.bundle` is added to `Targets->Build Phases->Copy Bundle Resources`.
 * Add the **QuartzCore** framework to your project.
 
+<<<<<<< HEAD
 ## Swift
 
 Even though `SVProgressHUD` is written in Objective-C, it can be used in Swift with no hassle. If you use [CocoaPods](http://cocoapods.org) add the following line to your [Podfile](http://guides.cocoapods.org/using/using-cocoapods.html):
@@ -64,6 +87,8 @@ use_frameworks!
 
 If you added `SVProgressHUD` manually, just add a [bridging header](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) file to your project with the `SVProgressHUD` header included. 
 
+=======
+>>>>>>> MyFitZOld/master
 ## Usage
 
 (see sample Xcode project in `/Demo`)
@@ -134,8 +159,12 @@ Or show a confirmation glyph before before getting dismissed a little bit later.
 + (void)setDefaultStyle:(SVProgressHUDStyle)style;                  // default is SVProgressHUDStyleLight
 + (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType;         // default is SVProgressHUDMaskTypeNone
 + (void)setDefaultAnimationType:(SVProgressHUDAnimationType)type;   // default is SVProgressHUDAnimationTypeFlat
+<<<<<<< HEAD
 + (void)setContainerView:(UIView*)containerView;                    // default is window level
 + (void)setMinimumSize:(CGSize)minimumSize;                         // default is CGSizeZero, can be used to avoid resizing
+=======
++ (void)setMinimumSize:(CGSize)minimumSize;                         // default is CGSizeZero, can be used to avoid resizing for a larger message
+>>>>>>> MyFitZOld/master
 + (void)setRingThickness:(CGFloat)width;                            // default is 2 pt
 + (void)setRingRadius:(CGFloat)radius;                              // default is 18 pt
 + (void)setRingNoTextRadius:(CGFloat)radius;                        // default is 24 pt
@@ -149,10 +178,15 @@ Or show a confirmation glyph before before getting dismissed a little bit later.
 + (void)setErrorImage:(UIImage*)image;                              // default is bundled error image from Freepik
 + (void)setViewForExtension:(UIView*)view;                          // default is nil, only used if #define SV_APP_EXTENSIONS is set
 + (void)setMinimumDismissTimeInterval:(NSTimeInterval)interval;     // default is 5.0 seconds
+<<<<<<< HEAD
 + (void)setMaximumDismissTimeInterval:(NSTimeInterval)interval;     // default is infinite
 + (void)setFadeInAnimationDuration:(NSTimeInterval)duration;        // default is 0.15 seconds
 + (void)setFadeOutAnimationDuration:(NSTimeInterval)duration;       // default is 0.15 seconds
 + (void)setMaxSupportedWindowLevel:(UIWindowLevel)windowLevel;      // default is UIWindowLevelNormal
+=======
++ (void)setFadeInAnimationDuration:(NSTimeInterval)duration;        // default is 0.15 seconds
++ (void)setFadeOutAnimationDuration:(NSTimeInterval)duration;       // default is 0.15 seconds
+>>>>>>> MyFitZOld/master
 ```
 
 Additionally `SVProgressHUD` supports the `UIAppearance` protocol for most of the above methods.
@@ -164,7 +198,11 @@ As standard `SVProgressHUD` offers two preconfigured styles:
 * `SVProgressHUDStyleLight`: White background with black spinner and text
 * `SVProgressHUDStyleDark`: Black background with white spinner and text
 
+<<<<<<< HEAD
 If you want to use custom colors use `setForegroundColor` and `setBackgroundColor:`. These implicity set the HUD's style to `SVProgressHUDStyleCustom`.
+=======
+If you want to use custom colors with `setForegroundColor` and `setBackgroundColor:` don't forget to set `SVProgressHUDStyleCustom` via `setDefaultStyle:`.
+>>>>>>> MyFitZOld/master
 
 ## Notifications
 

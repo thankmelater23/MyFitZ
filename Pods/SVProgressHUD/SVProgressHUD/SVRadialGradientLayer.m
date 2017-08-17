@@ -12,7 +12,11 @@
 - (void)drawInContext:(CGContextRef)context {
     size_t locationsCount = 2;
     CGFloat locations[2] = {0.0f, 1.0f};
+<<<<<<< HEAD
     CGFloat colors[8] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.75f};
+=======
+    CGFloat colors[8] = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.75f};
+>>>>>>> MyFitZOld/master
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, locations, locationsCount);
     CGColorSpaceRelease(colorSpace);

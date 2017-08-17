@@ -135,7 +135,11 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
  @param style A constant that specifies the style of main table view that the controller object is to manage (UITableViewStylePlain or UITableViewStyleGrouped).
  @return An initialized SLKTextViewController object or nil if the object could not be created.
  */
+<<<<<<< HEAD
 - (instancetype)initWithTableViewStyle:(UITableViewStyle)style;
+=======
+- (instancetype)initWithTableViewStyle:(UITableViewStyle)style SLK_DESIGNATED_INITIALIZER;
+>>>>>>> MyFitZOld/master
 
 /**
  Initializes a collection view controller and configures the collection view with the provided layout.
@@ -144,7 +148,11 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
  @param layout The layout object to associate with the collection view. The layout controls how the collection view presents its cells and supplementary views.
  @return An initialized SLKTextViewController object or nil if the object could not be created.
  */
+<<<<<<< HEAD
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
+=======
+- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout SLK_DESIGNATED_INITIALIZER;
+>>>>>>> MyFitZOld/master
 
 /**
  Initializes a text view controller to manage an arbitraty scroll view. The caller is responsible for configuration of the scroll view, including wiring the delegate.
@@ -152,7 +160,11 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
  @param a UISCrollView to be used as the main content area.
  @return An initialized SLKTextViewController object or nil if the object could not be created.
  */
+<<<<<<< HEAD
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView;
+=======
+- (instancetype)initWithScrollView:(UIScrollView *)scrollView SLK_DESIGNATED_INITIALIZER;
+>>>>>>> MyFitZOld/master
 
 /**
  Initializes either a table or collection view controller.
@@ -161,7 +173,11 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
  @param decoder An unarchiver object.
  @return An initialized SLKTextViewController object or nil if the object could not be created.
  */
+<<<<<<< HEAD
 - (instancetype)initWithCoder:(NSCoder *)decoder;
+=======
+- (instancetype)initWithCoder:(NSCoder *)decoder SLK_DESIGNATED_INITIALIZER;
+>>>>>>> MyFitZOld/master
 
 /**
  Returns the tableView style to be configured when using Interface Builder. Default is UITableViewStylePlain.
@@ -379,6 +395,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
 - (void)editText:(NSString *)text NS_REQUIRES_SUPER;
 
 /**
+<<<<<<< HEAD
  Re-uses the text layout for edition, displaying an accessory view on top of the text input bar with options (cancel & save).
  You can override this method to perform additional tasks
  You MUST call super at some point in your implementation.
@@ -388,6 +405,8 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
 - (void)editAttributedText:(NSAttributedString *)attributedText NS_REQUIRES_SUPER;
 
 /**
+=======
+>>>>>>> MyFitZOld/master
  Notifies the view controller when the editing bar's right button's action has been triggered, manually or by using the external keyboard's Return key.
  You can override this method to perform additional tasks associated with accepting changes.
  You MUST call super at some point in your implementation.
@@ -468,6 +487,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
 - (void)showAutoCompletionView:(BOOL)show;
 
 /**
+<<<<<<< HEAD
  Use this method to programatically show the autocompletion view, with provided prefix and word to search.
  Right before the view is shown, -reloadData is called. So avoid calling it manually.
  
@@ -478,6 +498,8 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
 - (void)showAutoCompletionViewWithPrefix:(NSString *)prefix andWord:(NSString *)word prefixRange:(NSRange)prefixRange;
 
 /**
+=======
+>>>>>>> MyFitZOld/master
  Returns a custom height for the autocompletion view. Default is 0.0.
  You can override this method to return a custom height.
  
@@ -541,11 +563,14 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface SLKTextViewController : UIViewController 
  */
 + (void)clearAllCachedText;
 
+<<<<<<< HEAD
 /**
  Caches text to disk.
  */
 - (void)cacheTextView;
 
+=======
+>>>>>>> MyFitZOld/master
 
 #pragma mark - Customization
 ///------------------------------------------------

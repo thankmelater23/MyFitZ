@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FontAwesomeKit ![Cocoapods Version](https://img.shields.io/cocoapods/v/FontAwesomeKit.svg?style=flat) ![Platform](https://img.shields.io/cocoapods/p/FontAwesomeKit.svg?style=flat) ![License](https://img.shields.io/cocoapods/l/FontAwesomeKit.svg?style=flat) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ==============
 Icon font library for iOS. Currently supports Font-Awesome, Foundation icons, Zocial, and ionicons.
@@ -13,6 +14,25 @@ Currently FontAwesomeKit supports **6** different icon fonts.
 - [ionicons 2.0.0](http://ionicons.com/) Contains **733** icons, lots of iOS 7 style outlined icons.
 - [Octicons 2.4.1](https://octicons.github.com/) Contains **206** icons, built with love by [Github](https://github.com/).
 - [Material 2.0.0](https://google.github.io/material-design-icons/) Contains **743** icons, built by Google for Material design.
+=======
+FontAwesomeKit
+==============
+Icon font library for iOS. Currently supports Font-Awesome, Foundation icons, Zocial, and ionicons.
+
+![image](http://i.minus.com/i3vNn0fTwcJeI.png)
+
+![image](http://i.minus.com/ivKqhOLJLVvmJ.png)
+
+## Version 2.1 Notable Changes
+### Not Just Awesome. New Icon Fonts Added
+
+Currently FontAwesomeKit supports **4** different icon fonts.
+
+- [FontAwesome 4.2](http://fortawesome.github.io/Font-Awesome/) Our old friend, contains **479** icons
+- [Foundation icons](http://zurb.com/playground/foundation-icon-fonts-3) Contains **283** icons.
+- [Zocial](http://zocial.smcllns.com/) Contains **99** social icons.
+- [ionicons 1.5.2](http://ionicons.com/) Contains **601** icons, lots of iOS 7 style outlined icons.
+>>>>>>> MyFitZOld/master
 
 ### API Reforged, Take Advantage of NSAttributedString
 Thanks to `NSAttributedString` the API is more clean and object oriented. All hail `NSAttributedString`!
@@ -24,23 +44,34 @@ Please notice that FontAwesome has renamed lots of it's icons in the recent 4.0 
 ### Requirements
 - Xcode 5
 - iOS 6.0 +
+<<<<<<< HEAD
 - tvOS 9.0
+=======
+>>>>>>> MyFitZOld/master
 - ARC enabled
 - CoreText framework
 
 ### Install with CocoaPods (Strongly Recommended)
 FontAwesomeKit now supports sub spec, only get the fonts you need.
 
+<<<<<<< HEAD
 Add `pod 'FontAwesomeKit', '~> 2.2.0'` to Podfile to install all icon fonts.
+=======
+Add `pod 'FontAwesomeKit', '~> 2.1.0'` to Podfile to install all icon fonts.
+>>>>>>> MyFitZOld/master
 
 Or select icon fonts with:  
 
 `pod 'FontAwesomeKit/FontAwesome'`  
 `pod 'FontAwesomeKit/FoundationIcons'`  
 `pod 'FontAwesomeKit/Zocial'`  
+<<<<<<< HEAD
 `pod 'FontAwesomeKit/IonIcons'`
 `pod 'FontAwesomeKit/Octicons'`
 `pod 'FontAwesomeKit/Material'`
+=======
+`pod 'FontAwesomeKit/IonIcons'`  
+>>>>>>> MyFitZOld/master
 
 Run `pod install` or `pod update` to install selected icon fonts.
 
@@ -53,16 +84,23 @@ Or import icon fonts you installed with sub specs
 `#import FontAwesomeKit/FAKFontAwesome.h`  
 `#import FontAwesomeKit/FAKFoundationIcons.h`  
 `#import FontAwesomeKit/FAKZocial.h`  
+<<<<<<< HEAD
 `#import FontAwesomeKit/FAKIonIcons.h`
 `#import FontAwesomeKit/FAKOcticons.h`
 `#import FontAwesomeKit/FAKMaterialIcons.h`
+=======
+`#import FontAwesomeKit/FAKIonIcons.h`  
+>>>>>>> MyFitZOld/master
 
 #####*important:*
 If you deleted a sub spec in Podfile, please delete Xcode's derived data in organizer(command+shift+2 to bring up). Otherwise Xcode will keep copying font files those supposed to be deleted to the app bundle.
 
+<<<<<<< HEAD
 ### Install with Carthage
 Add `github "PrideChung/FontAwesomeKit"` to Cartfile to install all icon fonts.
 
+=======
+>>>>>>> MyFitZOld/master
 ### Install Manually
 
 Download source code, then drag the folder `FontAwesomeKit` into your project, add CoreText framework to you project.
@@ -75,6 +113,7 @@ FAKFontAwesome *starIcon = [FAKFontAwesome starIconWithSize:15];
 FAKFoundationIcons *bookmarkIcon = [FAKFoundationIcons bookmarkIconWithSize:15];
 FAKZocial *twitterIcon = [FAKZocial twitterIconWithSize:15];  
 FAKIonIcons *mailIcon = [FAKIonIcons ios7EmailIconWithSize:48];
+<<<<<<< HEAD
 FAKOcticons *repoIcon = [FAKOcticons repoIconWithSize:48];
 FAKMaterialIcons *androidIcon = [FAKMaterialIcons androidIconWithSize:48];
 
@@ -110,14 +149,22 @@ do {
 }
 ```
 
+=======
+```
+Now you can use these class methods and pass in the font size instead of finding an icon with constants. Corresponding icon fonts will automatically setup for you.
+
+>>>>>>> MyFitZOld/master
 ### Setting Attributes for An Icon
 ```objective-c
 [starIcon addAttribute:NSForegroundColorAttributeName value:[UIColor
 whiteColor]];
 ```
+<<<<<<< HEAD
 ```swift
 starIcon.addAttribute(NSForegroundColorAttributeName, UIColor.white)
 ```
+=======
+>>>>>>> MyFitZOld/master
 `NSAttributedString` did all the magics behind the scene. So you can set those attributes supported by `NSAttributedString` to an icon. For all available attributes, see [NSAttributedString UIKit Additions Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/NSAttributedString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40011688-CH1-SW16)
 
 #####*important:*
@@ -126,6 +173,7 @@ Some attributes apparently makes no sense for icon fonts, like `NSLigatureAttrib
 ### Other Methods for Setting or Getting Attributes
 These methods in fact are just shorthand versions for the standard `NSAttributedString` API, should be pretty straightforward.
 
+<<<<<<< HEAD
 `[starIcon setAttributes:attributes];` `starIcon.setAttributes(attributes)`
 *Sets attributes with a dictionary, will override current attribute if there're different values for a same key.*
 
@@ -148,6 +196,23 @@ After you done setting attributes, you can get the attributed string by calling
 So you can use the icon on a label with one line of code:
 
 `self.label.attributedText = [starIcon attributedString];` `self.label.attributedText = starIcon.attributedString()`
+=======
+`[starIcon setAttributes:attributes];` *Sets attributes with a dictionary, will override current attribute if there're different values for a same key.*
+
+`[starIcon removeAttribute:NSForegroundColorAttributeName];` *Removes an attribute by name.*
+
+`[starIcon attributes];` *Returns an dictionary contains the attribute values for the icon.*
+
+`[starIcon attribute:NSForegroundColorAttributeName];` *Returns the attribute value for a given key.*
+
+### Get The Attributed String
+After you done setting attributes, you can get the attributed string by calling
+`[starIcon attributedString]`.
+
+So you can use the icon on a label with one line of code:
+
+`self.label.attributedText = [starIcon attributedString];`
+>>>>>>> MyFitZOld/master
 
 You don't need to set the label's `font` property, it's already been taken care of.
 
@@ -158,8 +223,11 @@ Instead of getting the attributed string, you can draw the icon onto an image li
 
 `UIImage *iconImage = [starIcon imageWithSize:CGSizeMake(15, 15)];`
 
+<<<<<<< HEAD
 `let iconImage = starIcon.image(with: CGSize(width: 15, height: 15))`
 
+=======
+>>>>>>> MyFitZOld/master
 This will use the attributes you've set to draw that image, you only need to specify a size for the image.
 
 #### Drawing Offset
@@ -172,8 +240,11 @@ You can set the background color for the image like this:
 
 `starIcon.drawingBackgroundColor = [UIColor blackColor];`
 
+<<<<<<< HEAD
 `starIcon.drawingBackgroundColor = UIColor.black`
 
+=======
+>>>>>>> MyFitZOld/master
 By default the background is transparent. As the name implies, this property only takes effect while drawing on image. You can specify a gradient color to create a gradient background, check the example project for details.
 
 ### Those Controls Doesn't Support Attributed String
@@ -193,6 +264,7 @@ self.navigationItem.leftBarButtonItem =
                                 target:nil
                                 action:nil];
 ```
+<<<<<<< HEAD
 
 ```swift
 let cogIcon = FAKFontAwesome.cogIcon(withSize: 20)
@@ -207,6 +279,8 @@ self.navigationItem.leftBarButtonItem = UIBarButtonItem(
   target: nil,
   action: nil)
 ```
+=======
+>>>>>>> MyFitZOld/master
 Same idea can be applied to tab bar or segmented control.
 
 ### Generating Image with Stacked Icons (Since V2.1.5)
@@ -217,10 +291,13 @@ Same idea can be applied to tab bar or segmented control.
                      imageSize:CGSizeMake(80, 80)];
 ```
 
+<<<<<<< HEAD
 ```swift
 let image = UIImage(stackedIcons: [FAKFontAwesome.twitterIcon(withSize: 35), FAKFontAwesome.squareOIcon(withSize: 70)], imageSize: CGSize(width: 80, height: 80))
 ```
 
+=======
+>>>>>>> MyFitZOld/master
 The first icon in the array will be draw on the bottom.
 
 ### More Examples

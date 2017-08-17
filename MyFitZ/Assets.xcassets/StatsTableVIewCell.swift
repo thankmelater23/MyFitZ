@@ -36,14 +36,22 @@ class StatsTableVIewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+<<<<<<< HEAD
     override func setSelected(_ selected: Bool, animated: Bool) {
+=======
+    override func setSelected(selected: Bool, animated: Bool) {
+>>>>>>> MyFitZOld/master
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
     func borderCustomization(){
         //        self.layer.cornerRadius = self.frame.size.width / 10
+<<<<<<< HEAD
         self.contentMode = UIViewContentMode.scaleToFill
+=======
+        self.contentMode = UIViewContentMode.ScaleToFill
+>>>>>>> MyFitZOld/master
         
         self.clipsToBounds = true
 //        self.layer.borderWidth = 2
@@ -61,10 +69,18 @@ class StatsTableVIewCell: UITableViewCell {
 
 //MARK: -Initializers
 extension StatsTableVIewCell{
+<<<<<<< HEAD
     func configure(name:  String,  infoString: String){
+=======
+    func configure(name name:  String,  infoString: String){
+>>>>>>> MyFitZOld/master
         nameLabel.text = name + ":"
         infoLabel.text = infoString
         self.customizeView()
         
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> MyFitZOld/master

@@ -13,42 +13,66 @@ public extension DKChainableAnimationKit {
 
     public var easeIn: DKChainableAnimationKit {
         get {
+<<<<<<< HEAD
             _ = self.easeInQuad
+=======
+            self.easeInQuad
+>>>>>>> MyFitZOld/master
             return self
         }
     }
 
     public var easeOut: DKChainableAnimationKit {
         get {
+<<<<<<< HEAD
             _ = self.easeOutQuad
+=======
+            self.easeOutQuad
+>>>>>>> MyFitZOld/master
             return self
         }
     }
 
     public var easeInOut: DKChainableAnimationKit {
         get {
+<<<<<<< HEAD
             _ = self.easeInOutQuad
+=======
+            self.easeInOutQuad
+>>>>>>> MyFitZOld/master
             return self
         }
     }
 
     public var easeBack: DKChainableAnimationKit {
         get {
+<<<<<<< HEAD
             _ = self.easeOutBack
+=======
+            self.easeOutBack
+>>>>>>> MyFitZOld/master
             return self
         }
     }
 
     public var spring: DKChainableAnimationKit {
         get {
+<<<<<<< HEAD
             _ = self.easeOutElastic
+=======
+            self.easeOutElastic
+>>>>>>> MyFitZOld/master
             return self
         }
     }
 
     public var bounce: DKChainableAnimationKit {
         get {
+<<<<<<< HEAD
             _ = self.easeOutBounce
+=======
+            self.easeOutBounce
+>>>>>>> MyFitZOld/master
             return self
         }
     }
@@ -263,4 +287,8 @@ public extension DKChainableAnimationKit {
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> MyFitZOld/master

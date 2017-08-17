@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #else
@@ -9,6 +10,9 @@
 #endif
 #endif
 #endif
+=======
+#import <UIKit/UIKit.h>
+>>>>>>> MyFitZOld/master
 
 #import "TSBlurView.h"
 #import "TSMessage.h"

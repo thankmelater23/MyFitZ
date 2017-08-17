@@ -8,4 +8,8 @@
 
 import Foundation
 ///Represents the type of Dictionary in Dictionary of Array of Items
+<<<<<<< HEAD
 //typealias CLOSET_TYPE = [String: [String: [Item]]]
+=======
+typealias CLOSET_TYPE = [String: [String: [Item]]]
+>>>>>>> MyFitZOld/master

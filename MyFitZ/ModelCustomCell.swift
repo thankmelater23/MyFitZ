@@ -24,6 +24,7 @@ class ModelCustomCell: UITableViewCell{
     override func  awakeFromNib(){
         super.awakeFromNib()
     }
+<<<<<<< HEAD
     override func setSelected(_ selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
@@ -36,6 +37,20 @@ class ModelCustomCell: UITableViewCell{
         self.layer.borderColor = Stitching.cgColor
     }
     @objc func customizeView(){
+=======
+    override func setSelected(selected: Bool, animated: Bool){
+        super.setSelected(selected ,  animated: animated)
+    }
+    func borderCustomization(){
+        //        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+    }
+    func customizeView(){
+>>>>>>> MyFitZOld/master
         self.backgroundColor = Jean2
         self.borderCustomization()
     }
@@ -46,7 +61,11 @@ class ModelCustomCell: UITableViewCell{
 
 //MARK: -Initializers
 extension ModelCustomCell{
+<<<<<<< HEAD
     @objc func setCell(_ modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String, favorited: Bool){
+=======
+    func setCell(modelImageText: UIImage, brandLabelText: String , modelLabelText: String, lastTimeWornText: String, favorited: Bool){
+>>>>>>> MyFitZOld/master
         self.modelImage.image    = modelImageText
         self.brandLabel.text     = brandLabelText
         self.modelLabel.text     = modelLabelText
@@ -57,7 +76,11 @@ extension ModelCustomCell{
         self.customizeView()
         
     }
+<<<<<<< HEAD
     @objc func setFavoritedStar(_ fav: Bool){
+=======
+    func setFavoritedStar(fav: Bool){
+>>>>>>> MyFitZOld/master
         if fav == true{
             star.image = UIImage(named: "star_on")
         }else{
@@ -70,9 +93,17 @@ extension ModelCustomCell{
 
 //MARK: -Animations-ViewController Extension
 extension ModelCustomCell{
+<<<<<<< HEAD
     @objc func animateView(){
+=======
+    func animateView(){
+>>>>>>> MyFitZOld/master
         CellButtons(self.star)
         categoryCellImageCustomization(self.imageView!)
     }
 }
+<<<<<<< HEAD
  
+=======
+ 
+>>>>>>> MyFitZOld/master

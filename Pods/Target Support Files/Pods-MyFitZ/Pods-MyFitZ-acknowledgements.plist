@@ -14,6 +14,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2013, Shift 6 LTD. Appsee
 All rights reserved.
 
@@ -50,6 +51,8 @@ unless agreed in writing otherwise between You and us.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014 Tobias Due Munk
@@ -71,8 +74,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>AsyncSwift</string>
 			<key>Type</key>
@@ -80,6 +86,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>The MIT License (MIT)
 
 Copyright (c) 2013 Cezary Wojcik &lt;http://www.cezarywojcik.com&gt;
@@ -112,6 +119,8 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>##The MIT License (MIT)
 
 &gt; Copyright (c) 2014-2015 Vicc Alexander
@@ -134,8 +143,11 @@ THE SOFTWARE.
 &gt; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 &gt; SOFTWARE. 
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>ChameleonFramework</string>
 			<key>Type</key>
@@ -143,6 +155,7 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Fabric: Copyright 2017 Google, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Fabric Software and Services Agreement located at https://fabric.io/terms. Crashlytics Kit: Copyright 2017 Crashlytics, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Crashlytics Terms of Service located at http://try.crashlytics.com/terms/terms-of-service.pdf and the Crashlytics Privacy Policy located at http://try.crashlytics.com/terms/privacy-policy.pdf. OSS: http://get.fabric.io/terms/opensource.txt</string>
 			<key>License</key>
 			<string>Commercial</string>
@@ -153,6 +166,8 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>The MIT License (MIT)
 
 Copyright (c) 2015 Draveness
@@ -176,8 +191,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>DKChainableAnimationKit</string>
 			<key>Type</key>
@@ -195,8 +213,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>DZNEmptyDataSet</string>
 			<key>Type</key>
@@ -204,6 +225,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Fabric: Copyright 2017 Google, Inc. All Rights Reserved. Use of this software is subject to the terms and conditions of the Fabric Software and Services Agreement located at https://fabric.io/terms. OSS: http://get.fabric.io/terms/opensource.txt</string>
 			<key>License</key>
 			<string>Commercial</string>
@@ -274,6 +296,8 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>Copyright (C) 2013 Pride Chung
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -281,8 +305,11 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>FontAwesomeKit</string>
 			<key>Type</key>
@@ -290,6 +317,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>
                                  Apache License
                            Version 2.0, January 2004
@@ -714,6 +742,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>Copyright (C) 2010-2014 tapwork GmbH mobile design &amp; development. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -721,8 +751,11 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>HeapInspector</string>
 			<key>Type</key>
@@ -739,8 +772,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>HexColors</string>
 			<key>Type</key>
@@ -769,8 +805,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT License</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>MRProgress</string>
 			<key>Type</key>
@@ -778,6 +817,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>See http://developers.optimizely.com/ios/terms</string>
 			<key>License</key>
 			<string>Commercial</string>
@@ -788,6 +828,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>Copyright (c) 2013 Roman Efimov (https://github.com/romaonthego).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -807,8 +849,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>REFormattedNumberField</string>
 			<key>Type</key>
@@ -835,8 +880,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>RETableViewManager</string>
 			<key>Type</key>
@@ -863,8 +911,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>REValidation</string>
 			<key>Type</key>
@@ -899,8 +950,11 @@ A different license may apply to other resources included in this package,
 including Freepik Icons. Please consult their 
 respective headers for the terms of their individual licenses.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>SVProgressHUD</string>
 			<key>Type</key>
@@ -931,8 +985,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>Siren</string>
 			<key>Type</key>
@@ -960,8 +1017,11 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>SlackTextViewController</string>
 			<key>Type</key>
@@ -991,8 +1051,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>SwiftyBeaver</string>
 			<key>Type</key>
@@ -1020,8 +1083,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>MIT</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>TSMessages</string>
 			<key>Type</key>
@@ -1031,6 +1097,11 @@ THE SOFTWARE.
 			<key>FooterText</key>
 			<string>iRate
 
+<<<<<<< HEAD
+=======
+Version 1.11.4, May 5th, 2015
+
+>>>>>>> MyFitZOld/master
 Copyright (C) 2011 Charcoal Design
 
 This software is provided 'as-is', without any express or implied
@@ -1050,8 +1121,11 @@ freely, subject to the following restrictions:
    misrepresented as being the original software.
    
 3. This notice may not be removed or altered from any source distribution.</string>
+<<<<<<< HEAD
 			<key>License</key>
 			<string>zlib</string>
+=======
+>>>>>>> MyFitZOld/master
 			<key>Title</key>
 			<string>iRate</string>
 			<key>Type</key>
@@ -1059,6 +1133,7 @@ freely, subject to the following restrictions:
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2011 The LevelDB Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -1126,6 +1201,8 @@ redistribute it freely, subject to the following restrictions:
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> MyFitZOld/master
 			<string>Generated by CocoaPods - https://cocoapods.org</string>
 			<key>Title</key>
 			<string></string>

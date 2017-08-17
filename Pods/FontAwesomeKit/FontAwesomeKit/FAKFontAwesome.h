@@ -2,20 +2,28 @@
 
 @interface FAKFontAwesome : FAKIcon
 
+<<<<<<< HEAD
 + (instancetype)fivehundredpxIconWithSize:(CGFloat)size;
 + (instancetype)addressBookIconWithSize:(CGFloat)size;
 + (instancetype)addressBookOIconWithSize:(CGFloat)size;
 + (instancetype)addressCardIconWithSize:(CGFloat)size;
 + (instancetype)addressCardOIconWithSize:(CGFloat)size;
+=======
+// Generated Code
+>>>>>>> MyFitZOld/master
 + (instancetype)adjustIconWithSize:(CGFloat)size;
 + (instancetype)adnIconWithSize:(CGFloat)size;
 + (instancetype)alignCenterIconWithSize:(CGFloat)size;
 + (instancetype)alignJustifyIconWithSize:(CGFloat)size;
 + (instancetype)alignLeftIconWithSize:(CGFloat)size;
 + (instancetype)alignRightIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)amazonIconWithSize:(CGFloat)size;
 + (instancetype)ambulanceIconWithSize:(CGFloat)size;
 + (instancetype)americanSignLanguageInterpretingIconWithSize:(CGFloat)size;
+=======
++ (instancetype)ambulanceIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)anchorIconWithSize:(CGFloat)size;
 + (instancetype)androidIconWithSize:(CGFloat)size;
 + (instancetype)angellistIconWithSize:(CGFloat)size;
@@ -46,6 +54,7 @@
 + (instancetype)arrowsAltIconWithSize:(CGFloat)size;
 + (instancetype)arrowsHIconWithSize:(CGFloat)size;
 + (instancetype)arrowsVIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)aslInterpretingIconWithSize:(CGFloat)size;
 + (instancetype)assistiveListeningSystemsIconWithSize:(CGFloat)size;
 + (instancetype)asteriskIconWithSize:(CGFloat)size;
@@ -56,11 +65,19 @@
 + (instancetype)balanceScaleIconWithSize:(CGFloat)size;
 + (instancetype)banIconWithSize:(CGFloat)size;
 + (instancetype)bandcampIconWithSize:(CGFloat)size;
+=======
++ (instancetype)asteriskIconWithSize:(CGFloat)size;
++ (instancetype)atIconWithSize:(CGFloat)size;
++ (instancetype)automobileIconWithSize:(CGFloat)size;
++ (instancetype)backwardIconWithSize:(CGFloat)size;
++ (instancetype)banIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)bankIconWithSize:(CGFloat)size;
 + (instancetype)barChartIconWithSize:(CGFloat)size;
 + (instancetype)barChartOIconWithSize:(CGFloat)size;
 + (instancetype)barcodeIconWithSize:(CGFloat)size;
 + (instancetype)barsIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)bathIconWithSize:(CGFloat)size;
 + (instancetype)bathtubIconWithSize:(CGFloat)size;
 + (instancetype)batteryIconWithSize:(CGFloat)size;
@@ -75,6 +92,8 @@
 + (instancetype)batteryQuarterIconWithSize:(CGFloat)size;
 + (instancetype)batteryThreeQuartersIconWithSize:(CGFloat)size;
 + (instancetype)bedIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)beerIconWithSize:(CGFloat)size;
 + (instancetype)behanceIconWithSize:(CGFloat)size;
 + (instancetype)behanceSquareIconWithSize:(CGFloat)size;
@@ -88,17 +107,23 @@
 + (instancetype)bitbucketIconWithSize:(CGFloat)size;
 + (instancetype)bitbucketSquareIconWithSize:(CGFloat)size;
 + (instancetype)bitcoinIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)blackTieIconWithSize:(CGFloat)size;
 + (instancetype)blindIconWithSize:(CGFloat)size;
 + (instancetype)bluetoothIconWithSize:(CGFloat)size;
 + (instancetype)bluetoothBIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)boldIconWithSize:(CGFloat)size;
 + (instancetype)boltIconWithSize:(CGFloat)size;
 + (instancetype)bombIconWithSize:(CGFloat)size;
 + (instancetype)bookIconWithSize:(CGFloat)size;
 + (instancetype)bookmarkIconWithSize:(CGFloat)size;
 + (instancetype)bookmarkOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)brailleIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)briefcaseIconWithSize:(CGFloat)size;
 + (instancetype)btcIconWithSize:(CGFloat)size;
 + (instancetype)bugIconWithSize:(CGFloat)size;
@@ -107,6 +132,7 @@
 + (instancetype)bullhornIconWithSize:(CGFloat)size;
 + (instancetype)bullseyeIconWithSize:(CGFloat)size;
 + (instancetype)busIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)buyselladsIconWithSize:(CGFloat)size;
 + (instancetype)cabIconWithSize:(CGFloat)size;
 + (instancetype)calculatorIconWithSize:(CGFloat)size;
@@ -116,6 +142,12 @@
 + (instancetype)calendarOIconWithSize:(CGFloat)size;
 + (instancetype)calendarPlusOIconWithSize:(CGFloat)size;
 + (instancetype)calendarTimesOIconWithSize:(CGFloat)size;
+=======
++ (instancetype)cabIconWithSize:(CGFloat)size;
++ (instancetype)calculatorIconWithSize:(CGFloat)size;
++ (instancetype)calendarIconWithSize:(CGFloat)size;
++ (instancetype)calendarOIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)cameraIconWithSize:(CGFloat)size;
 + (instancetype)cameraRetroIconWithSize:(CGFloat)size;
 + (instancetype)carIconWithSize:(CGFloat)size;
@@ -127,6 +159,7 @@
 + (instancetype)caretSquareORightIconWithSize:(CGFloat)size;
 + (instancetype)caretSquareOUpIconWithSize:(CGFloat)size;
 + (instancetype)caretUpIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)cartArrowDownIconWithSize:(CGFloat)size;
 + (instancetype)cartPlusIconWithSize:(CGFloat)size;
 + (instancetype)ccIconWithSize:(CGFloat)size;
@@ -134,6 +167,11 @@
 + (instancetype)ccDinersClubIconWithSize:(CGFloat)size;
 + (instancetype)ccDiscoverIconWithSize:(CGFloat)size;
 + (instancetype)ccJcbIconWithSize:(CGFloat)size;
+=======
++ (instancetype)ccIconWithSize:(CGFloat)size;
++ (instancetype)ccAmexIconWithSize:(CGFloat)size;
++ (instancetype)ccDiscoverIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)ccMastercardIconWithSize:(CGFloat)size;
 + (instancetype)ccPaypalIconWithSize:(CGFloat)size;
 + (instancetype)ccStripeIconWithSize:(CGFloat)size;
@@ -155,14 +193,20 @@
 + (instancetype)chevronRightIconWithSize:(CGFloat)size;
 + (instancetype)chevronUpIconWithSize:(CGFloat)size;
 + (instancetype)childIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)chromeIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)circleIconWithSize:(CGFloat)size;
 + (instancetype)circleOIconWithSize:(CGFloat)size;
 + (instancetype)circleONotchIconWithSize:(CGFloat)size;
 + (instancetype)circleThinIconWithSize:(CGFloat)size;
 + (instancetype)clipboardIconWithSize:(CGFloat)size;
 + (instancetype)clockOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)cloneIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)closeIconWithSize:(CGFloat)size;
 + (instancetype)cloudIconWithSize:(CGFloat)size;
 + (instancetype)cloudDownloadIconWithSize:(CGFloat)size;
@@ -171,19 +215,26 @@
 + (instancetype)codeIconWithSize:(CGFloat)size;
 + (instancetype)codeForkIconWithSize:(CGFloat)size;
 + (instancetype)codepenIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)codiepieIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)coffeeIconWithSize:(CGFloat)size;
 + (instancetype)cogIconWithSize:(CGFloat)size;
 + (instancetype)cogsIconWithSize:(CGFloat)size;
 + (instancetype)columnsIconWithSize:(CGFloat)size;
 + (instancetype)commentIconWithSize:(CGFloat)size;
 + (instancetype)commentOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)commentingIconWithSize:(CGFloat)size;
 + (instancetype)commentingOIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)commentsIconWithSize:(CGFloat)size;
 + (instancetype)commentsOIconWithSize:(CGFloat)size;
 + (instancetype)compassIconWithSize:(CGFloat)size;
 + (instancetype)compressIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)connectdevelopIconWithSize:(CGFloat)size;
 + (instancetype)contaoIconWithSize:(CGFloat)size;
 + (instancetype)copyIconWithSize:(CGFloat)size;
@@ -191,6 +242,11 @@
 + (instancetype)creativeCommonsIconWithSize:(CGFloat)size;
 + (instancetype)creditCardIconWithSize:(CGFloat)size;
 + (instancetype)creditCardAltIconWithSize:(CGFloat)size;
+=======
++ (instancetype)copyIconWithSize:(CGFloat)size;
++ (instancetype)copyrightIconWithSize:(CGFloat)size;
++ (instancetype)creditCardIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)cropIconWithSize:(CGFloat)size;
 + (instancetype)crosshairsIconWithSize:(CGFloat)size;
 + (instancetype)css3IconWithSize:(CGFloat)size;
@@ -199,20 +255,28 @@
 + (instancetype)cutIconWithSize:(CGFloat)size;
 + (instancetype)cutleryIconWithSize:(CGFloat)size;
 + (instancetype)dashboardIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)dashcubeIconWithSize:(CGFloat)size;
 + (instancetype)databaseIconWithSize:(CGFloat)size;
 + (instancetype)deafIconWithSize:(CGFloat)size;
 + (instancetype)deafnessIconWithSize:(CGFloat)size;
+=======
++ (instancetype)databaseIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)dedentIconWithSize:(CGFloat)size;
 + (instancetype)deliciousIconWithSize:(CGFloat)size;
 + (instancetype)desktopIconWithSize:(CGFloat)size;
 + (instancetype)deviantartIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)diamondIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)diggIconWithSize:(CGFloat)size;
 + (instancetype)dollarIconWithSize:(CGFloat)size;
 + (instancetype)dotCircleOIconWithSize:(CGFloat)size;
 + (instancetype)downloadIconWithSize:(CGFloat)size;
 + (instancetype)dribbbleIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)driversLicenseIconWithSize:(CGFloat)size;
 + (instancetype)driversLicenseOIconWithSize:(CGFloat)size;
 + (instancetype)dropboxIconWithSize:(CGFloat)size;
@@ -220,18 +284,28 @@
 + (instancetype)edgeIconWithSize:(CGFloat)size;
 + (instancetype)editIconWithSize:(CGFloat)size;
 + (instancetype)eercastIconWithSize:(CGFloat)size;
+=======
++ (instancetype)dropboxIconWithSize:(CGFloat)size;
++ (instancetype)drupalIconWithSize:(CGFloat)size;
++ (instancetype)editIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)ejectIconWithSize:(CGFloat)size;
 + (instancetype)ellipsisHIconWithSize:(CGFloat)size;
 + (instancetype)ellipsisVIconWithSize:(CGFloat)size;
 + (instancetype)empireIconWithSize:(CGFloat)size;
 + (instancetype)envelopeIconWithSize:(CGFloat)size;
 + (instancetype)envelopeOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)envelopeOpenIconWithSize:(CGFloat)size;
 + (instancetype)envelopeOpenOIconWithSize:(CGFloat)size;
 + (instancetype)envelopeSquareIconWithSize:(CGFloat)size;
 + (instancetype)enviraIconWithSize:(CGFloat)size;
 + (instancetype)eraserIconWithSize:(CGFloat)size;
 + (instancetype)etsyIconWithSize:(CGFloat)size;
+=======
++ (instancetype)envelopeSquareIconWithSize:(CGFloat)size;
++ (instancetype)eraserIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)eurIconWithSize:(CGFloat)size;
 + (instancetype)euroIconWithSize:(CGFloat)size;
 + (instancetype)exchangeIconWithSize:(CGFloat)size;
@@ -239,21 +313,31 @@
 + (instancetype)exclamationCircleIconWithSize:(CGFloat)size;
 + (instancetype)exclamationTriangleIconWithSize:(CGFloat)size;
 + (instancetype)expandIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)expeditedsslIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)externalLinkIconWithSize:(CGFloat)size;
 + (instancetype)externalLinkSquareIconWithSize:(CGFloat)size;
 + (instancetype)eyeIconWithSize:(CGFloat)size;
 + (instancetype)eyeSlashIconWithSize:(CGFloat)size;
 + (instancetype)eyedropperIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)faIconWithSize:(CGFloat)size;
 + (instancetype)facebookIconWithSize:(CGFloat)size;
 + (instancetype)facebookFIconWithSize:(CGFloat)size;
 + (instancetype)facebookOfficialIconWithSize:(CGFloat)size;
+=======
++ (instancetype)facebookIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)facebookSquareIconWithSize:(CGFloat)size;
 + (instancetype)fastBackwardIconWithSize:(CGFloat)size;
 + (instancetype)fastForwardIconWithSize:(CGFloat)size;
 + (instancetype)faxIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)feedIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)femaleIconWithSize:(CGFloat)size;
 + (instancetype)fighterJetIconWithSize:(CGFloat)size;
 + (instancetype)fileIconWithSize:(CGFloat)size;
@@ -279,8 +363,11 @@
 + (instancetype)filterIconWithSize:(CGFloat)size;
 + (instancetype)fireIconWithSize:(CGFloat)size;
 + (instancetype)fireExtinguisherIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)firefoxIconWithSize:(CGFloat)size;
 + (instancetype)firstOrderIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)flagIconWithSize:(CGFloat)size;
 + (instancetype)flagCheckeredIconWithSize:(CGFloat)size;
 + (instancetype)flagOIconWithSize:(CGFloat)size;
@@ -293,6 +380,7 @@
 + (instancetype)folderOpenIconWithSize:(CGFloat)size;
 + (instancetype)folderOpenOIconWithSize:(CGFloat)size;
 + (instancetype)fontIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)fontAwesomeIconWithSize:(CGFloat)size;
 + (instancetype)fonticonsIconWithSize:(CGFloat)size;
 + (instancetype)fortAwesomeIconWithSize:(CGFloat)size;
@@ -300,6 +388,10 @@
 + (instancetype)forwardIconWithSize:(CGFloat)size;
 + (instancetype)foursquareIconWithSize:(CGFloat)size;
 + (instancetype)freeCodeCampIconWithSize:(CGFloat)size;
+=======
++ (instancetype)forwardIconWithSize:(CGFloat)size;
++ (instancetype)foursquareIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)frownOIconWithSize:(CGFloat)size;
 + (instancetype)futbolOIconWithSize:(CGFloat)size;
 + (instancetype)gamepadIconWithSize:(CGFloat)size;
@@ -308,16 +400,20 @@
 + (instancetype)geIconWithSize:(CGFloat)size;
 + (instancetype)gearIconWithSize:(CGFloat)size;
 + (instancetype)gearsIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)genderlessIconWithSize:(CGFloat)size;
 + (instancetype)getPocketIconWithSize:(CGFloat)size;
 + (instancetype)ggIconWithSize:(CGFloat)size;
 + (instancetype)ggCircleIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)giftIconWithSize:(CGFloat)size;
 + (instancetype)gitIconWithSize:(CGFloat)size;
 + (instancetype)gitSquareIconWithSize:(CGFloat)size;
 + (instancetype)githubIconWithSize:(CGFloat)size;
 + (instancetype)githubAltIconWithSize:(CGFloat)size;
 + (instancetype)githubSquareIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)gitlabIconWithSize:(CGFloat)size;
 + (instancetype)gittipIconWithSize:(CGFloat)size;
 + (instancetype)glassIconWithSize:(CGFloat)size;
@@ -338,10 +434,24 @@
 + (instancetype)hackerNewsIconWithSize:(CGFloat)size;
 + (instancetype)handGrabOIconWithSize:(CGFloat)size;
 + (instancetype)handLizardOIconWithSize:(CGFloat)size;
+=======
++ (instancetype)gittipIconWithSize:(CGFloat)size;
++ (instancetype)glassIconWithSize:(CGFloat)size;
++ (instancetype)globeIconWithSize:(CGFloat)size;
++ (instancetype)googleIconWithSize:(CGFloat)size;
++ (instancetype)googlePlusIconWithSize:(CGFloat)size;
++ (instancetype)googlePlusSquareIconWithSize:(CGFloat)size;
++ (instancetype)googleWalletIconWithSize:(CGFloat)size;
++ (instancetype)graduationCapIconWithSize:(CGFloat)size;
++ (instancetype)groupIconWithSize:(CGFloat)size;
++ (instancetype)hSquareIconWithSize:(CGFloat)size;
++ (instancetype)hackerNewsIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)handODownIconWithSize:(CGFloat)size;
 + (instancetype)handOLeftIconWithSize:(CGFloat)size;
 + (instancetype)handORightIconWithSize:(CGFloat)size;
 + (instancetype)handOUpIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)handPaperOIconWithSize:(CGFloat)size;
 + (instancetype)handPeaceOIconWithSize:(CGFloat)size;
 + (instancetype)handPointerOIconWithSize:(CGFloat)size;
@@ -352,11 +462,14 @@
 + (instancetype)handshakeOIconWithSize:(CGFloat)size;
 + (instancetype)hardOfHearingIconWithSize:(CGFloat)size;
 + (instancetype)hashtagIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)hddOIconWithSize:(CGFloat)size;
 + (instancetype)headerIconWithSize:(CGFloat)size;
 + (instancetype)headphonesIconWithSize:(CGFloat)size;
 + (instancetype)heartIconWithSize:(CGFloat)size;
 + (instancetype)heartOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)heartbeatIconWithSize:(CGFloat)size;
 + (instancetype)historyIconWithSize:(CGFloat)size;
 + (instancetype)homeIconWithSize:(CGFloat)size;
@@ -382,13 +495,26 @@
 + (instancetype)inboxIconWithSize:(CGFloat)size;
 + (instancetype)indentIconWithSize:(CGFloat)size;
 + (instancetype)industryIconWithSize:(CGFloat)size;
+=======
++ (instancetype)historyIconWithSize:(CGFloat)size;
++ (instancetype)homeIconWithSize:(CGFloat)size;
++ (instancetype)hospitalOIconWithSize:(CGFloat)size;
++ (instancetype)html5IconWithSize:(CGFloat)size;
++ (instancetype)ilsIconWithSize:(CGFloat)size;
++ (instancetype)imageIconWithSize:(CGFloat)size;
++ (instancetype)inboxIconWithSize:(CGFloat)size;
++ (instancetype)indentIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)infoIconWithSize:(CGFloat)size;
 + (instancetype)infoCircleIconWithSize:(CGFloat)size;
 + (instancetype)inrIconWithSize:(CGFloat)size;
 + (instancetype)instagramIconWithSize:(CGFloat)size;
 + (instancetype)institutionIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)internetExplorerIconWithSize:(CGFloat)size;
 + (instancetype)intersexIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)ioxhostIconWithSize:(CGFloat)size;
 + (instancetype)italicIconWithSize:(CGFloat)size;
 + (instancetype)joomlaIconWithSize:(CGFloat)size;
@@ -402,7 +528,10 @@
 + (instancetype)lastfmIconWithSize:(CGFloat)size;
 + (instancetype)lastfmSquareIconWithSize:(CGFloat)size;
 + (instancetype)leafIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)leanpubIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)legalIconWithSize:(CGFloat)size;
 + (instancetype)lemonOIconWithSize:(CGFloat)size;
 + (instancetype)levelDownIconWithSize:(CGFloat)size;
@@ -416,7 +545,10 @@
 + (instancetype)linkIconWithSize:(CGFloat)size;
 + (instancetype)linkedinIconWithSize:(CGFloat)size;
 + (instancetype)linkedinSquareIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)linodeIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)linuxIconWithSize:(CGFloat)size;
 + (instancetype)listIconWithSize:(CGFloat)size;
 + (instancetype)listAltIconWithSize:(CGFloat)size;
@@ -428,13 +560,17 @@
 + (instancetype)longArrowLeftIconWithSize:(CGFloat)size;
 + (instancetype)longArrowRightIconWithSize:(CGFloat)size;
 + (instancetype)longArrowUpIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)lowVisionIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)magicIconWithSize:(CGFloat)size;
 + (instancetype)magnetIconWithSize:(CGFloat)size;
 + (instancetype)mailForwardIconWithSize:(CGFloat)size;
 + (instancetype)mailReplyIconWithSize:(CGFloat)size;
 + (instancetype)mailReplyAllIconWithSize:(CGFloat)size;
 + (instancetype)maleIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)mapIconWithSize:(CGFloat)size;
 + (instancetype)mapMarkerIconWithSize:(CGFloat)size;
 + (instancetype)mapOIconWithSize:(CGFloat)size;
@@ -453,12 +589,20 @@
 + (instancetype)mehOIconWithSize:(CGFloat)size;
 + (instancetype)mercuryIconWithSize:(CGFloat)size;
 + (instancetype)microchipIconWithSize:(CGFloat)size;
+=======
++ (instancetype)mapMarkerIconWithSize:(CGFloat)size;
++ (instancetype)maxcdnIconWithSize:(CGFloat)size;
++ (instancetype)meanpathIconWithSize:(CGFloat)size;
++ (instancetype)medkitIconWithSize:(CGFloat)size;
++ (instancetype)mehOIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)microphoneIconWithSize:(CGFloat)size;
 + (instancetype)microphoneSlashIconWithSize:(CGFloat)size;
 + (instancetype)minusIconWithSize:(CGFloat)size;
 + (instancetype)minusCircleIconWithSize:(CGFloat)size;
 + (instancetype)minusSquareIconWithSize:(CGFloat)size;
 + (instancetype)minusSquareOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)mixcloudIconWithSize:(CGFloat)size;
 + (instancetype)mobileIconWithSize:(CGFloat)size;
 + (instancetype)mobilePhoneIconWithSize:(CGFloat)size;
@@ -480,6 +624,17 @@
 + (instancetype)openidIconWithSize:(CGFloat)size;
 + (instancetype)operaIconWithSize:(CGFloat)size;
 + (instancetype)optinMonsterIconWithSize:(CGFloat)size;
+=======
++ (instancetype)mobileIconWithSize:(CGFloat)size;
++ (instancetype)mobilePhoneIconWithSize:(CGFloat)size;
++ (instancetype)moneyIconWithSize:(CGFloat)size;
++ (instancetype)moonOIconWithSize:(CGFloat)size;
++ (instancetype)mortarBoardIconWithSize:(CGFloat)size;
++ (instancetype)musicIconWithSize:(CGFloat)size;
++ (instancetype)naviconIconWithSize:(CGFloat)size;
++ (instancetype)newspaperOIconWithSize:(CGFloat)size;
++ (instancetype)openidIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)outdentIconWithSize:(CGFloat)size;
 + (instancetype)pagelinesIconWithSize:(CGFloat)size;
 + (instancetype)paintBrushIconWithSize:(CGFloat)size;
@@ -489,14 +644,20 @@
 + (instancetype)paragraphIconWithSize:(CGFloat)size;
 + (instancetype)pasteIconWithSize:(CGFloat)size;
 + (instancetype)pauseIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)pauseCircleIconWithSize:(CGFloat)size;
 + (instancetype)pauseCircleOIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)pawIconWithSize:(CGFloat)size;
 + (instancetype)paypalIconWithSize:(CGFloat)size;
 + (instancetype)pencilIconWithSize:(CGFloat)size;
 + (instancetype)pencilSquareIconWithSize:(CGFloat)size;
 + (instancetype)pencilSquareOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)percentIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)phoneIconWithSize:(CGFloat)size;
 + (instancetype)phoneSquareIconWithSize:(CGFloat)size;
 + (instancetype)photoIconWithSize:(CGFloat)size;
@@ -504,9 +665,13 @@
 + (instancetype)pieChartIconWithSize:(CGFloat)size;
 + (instancetype)piedPiperIconWithSize:(CGFloat)size;
 + (instancetype)piedPiperAltIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)piedPiperPpIconWithSize:(CGFloat)size;
 + (instancetype)pinterestIconWithSize:(CGFloat)size;
 + (instancetype)pinterestPIconWithSize:(CGFloat)size;
+=======
++ (instancetype)pinterestIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)pinterestSquareIconWithSize:(CGFloat)size;
 + (instancetype)planeIconWithSize:(CGFloat)size;
 + (instancetype)playIconWithSize:(CGFloat)size;
@@ -517,21 +682,30 @@
 + (instancetype)plusCircleIconWithSize:(CGFloat)size;
 + (instancetype)plusSquareIconWithSize:(CGFloat)size;
 + (instancetype)plusSquareOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)podcastIconWithSize:(CGFloat)size;
 + (instancetype)powerOffIconWithSize:(CGFloat)size;
 + (instancetype)printIconWithSize:(CGFloat)size;
 + (instancetype)productHuntIconWithSize:(CGFloat)size;
+=======
++ (instancetype)powerOffIconWithSize:(CGFloat)size;
++ (instancetype)printIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)puzzlePieceIconWithSize:(CGFloat)size;
 + (instancetype)qqIconWithSize:(CGFloat)size;
 + (instancetype)qrcodeIconWithSize:(CGFloat)size;
 + (instancetype)questionIconWithSize:(CGFloat)size;
 + (instancetype)questionCircleIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)questionCircleOIconWithSize:(CGFloat)size;
 + (instancetype)quoraIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)quoteLeftIconWithSize:(CGFloat)size;
 + (instancetype)quoteRightIconWithSize:(CGFloat)size;
 + (instancetype)raIconWithSize:(CGFloat)size;
 + (instancetype)randomIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)ravelryIconWithSize:(CGFloat)size;
 + (instancetype)rebelIconWithSize:(CGFloat)size;
 + (instancetype)recycleIconWithSize:(CGFloat)size;
@@ -540,13 +714,23 @@
 + (instancetype)redditSquareIconWithSize:(CGFloat)size;
 + (instancetype)refreshIconWithSize:(CGFloat)size;
 + (instancetype)registeredIconWithSize:(CGFloat)size;
+=======
++ (instancetype)rebelIconWithSize:(CGFloat)size;
++ (instancetype)recycleIconWithSize:(CGFloat)size;
++ (instancetype)redditIconWithSize:(CGFloat)size;
++ (instancetype)redditSquareIconWithSize:(CGFloat)size;
++ (instancetype)refreshIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)removeIconWithSize:(CGFloat)size;
 + (instancetype)renrenIconWithSize:(CGFloat)size;
 + (instancetype)reorderIconWithSize:(CGFloat)size;
 + (instancetype)repeatIconWithSize:(CGFloat)size;
 + (instancetype)replyIconWithSize:(CGFloat)size;
 + (instancetype)replyAllIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)resistanceIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)retweetIconWithSize:(CGFloat)size;
 + (instancetype)rmbIconWithSize:(CGFloat)size;
 + (instancetype)roadIconWithSize:(CGFloat)size;
@@ -559,6 +743,7 @@
 + (instancetype)rubIconWithSize:(CGFloat)size;
 + (instancetype)rubleIconWithSize:(CGFloat)size;
 + (instancetype)rupeeIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)s15IconWithSize:(CGFloat)size;
 + (instancetype)safariIconWithSize:(CGFloat)size;
 + (instancetype)saveIconWithSize:(CGFloat)size;
@@ -571,6 +756,15 @@
 + (instancetype)sendIconWithSize:(CGFloat)size;
 + (instancetype)sendOIconWithSize:(CGFloat)size;
 + (instancetype)serverIconWithSize:(CGFloat)size;
+=======
++ (instancetype)saveIconWithSize:(CGFloat)size;
++ (instancetype)scissorsIconWithSize:(CGFloat)size;
++ (instancetype)searchIconWithSize:(CGFloat)size;
++ (instancetype)searchMinusIconWithSize:(CGFloat)size;
++ (instancetype)searchPlusIconWithSize:(CGFloat)size;
++ (instancetype)sendIconWithSize:(CGFloat)size;
++ (instancetype)sendOIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)shareIconWithSize:(CGFloat)size;
 + (instancetype)shareAltIconWithSize:(CGFloat)size;
 + (instancetype)shareAltSquareIconWithSize:(CGFloat)size;
@@ -579,6 +773,7 @@
 + (instancetype)shekelIconWithSize:(CGFloat)size;
 + (instancetype)sheqelIconWithSize:(CGFloat)size;
 + (instancetype)shieldIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)shipIconWithSize:(CGFloat)size;
 + (instancetype)shirtsinbulkIconWithSize:(CGFloat)size;
 + (instancetype)shoppingBagIconWithSize:(CGFloat)size;
@@ -593,15 +788,25 @@
 + (instancetype)simplybuiltIconWithSize:(CGFloat)size;
 + (instancetype)sitemapIconWithSize:(CGFloat)size;
 + (instancetype)skyatlasIconWithSize:(CGFloat)size;
+=======
++ (instancetype)shoppingCartIconWithSize:(CGFloat)size;
++ (instancetype)signInIconWithSize:(CGFloat)size;
++ (instancetype)signOutIconWithSize:(CGFloat)size;
++ (instancetype)signalIconWithSize:(CGFloat)size;
++ (instancetype)sitemapIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)skypeIconWithSize:(CGFloat)size;
 + (instancetype)slackIconWithSize:(CGFloat)size;
 + (instancetype)slidersIconWithSize:(CGFloat)size;
 + (instancetype)slideshareIconWithSize:(CGFloat)size;
 + (instancetype)smileOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)snapchatIconWithSize:(CGFloat)size;
 + (instancetype)snapchatGhostIconWithSize:(CGFloat)size;
 + (instancetype)snapchatSquareIconWithSize:(CGFloat)size;
 + (instancetype)snowflakeOIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)soccerBallOIconWithSize:(CGFloat)size;
 + (instancetype)sortIconWithSize:(CGFloat)size;
 + (instancetype)sortAlphaAscIconWithSize:(CGFloat)size;
@@ -634,20 +839,29 @@
 + (instancetype)stepBackwardIconWithSize:(CGFloat)size;
 + (instancetype)stepForwardIconWithSize:(CGFloat)size;
 + (instancetype)stethoscopeIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)stickyNoteIconWithSize:(CGFloat)size;
 + (instancetype)stickyNoteOIconWithSize:(CGFloat)size;
 + (instancetype)stopIconWithSize:(CGFloat)size;
 + (instancetype)stopCircleIconWithSize:(CGFloat)size;
 + (instancetype)stopCircleOIconWithSize:(CGFloat)size;
 + (instancetype)streetViewIconWithSize:(CGFloat)size;
+=======
++ (instancetype)stopIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)strikethroughIconWithSize:(CGFloat)size;
 + (instancetype)stumbleuponIconWithSize:(CGFloat)size;
 + (instancetype)stumbleuponCircleIconWithSize:(CGFloat)size;
 + (instancetype)subscriptIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)subwayIconWithSize:(CGFloat)size;
 + (instancetype)suitcaseIconWithSize:(CGFloat)size;
 + (instancetype)sunOIconWithSize:(CGFloat)size;
 + (instancetype)superpowersIconWithSize:(CGFloat)size;
+=======
++ (instancetype)suitcaseIconWithSize:(CGFloat)size;
++ (instancetype)sunOIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)superscriptIconWithSize:(CGFloat)size;
 + (instancetype)supportIconWithSize:(CGFloat)size;
 + (instancetype)tableIconWithSize:(CGFloat)size;
@@ -657,8 +871,11 @@
 + (instancetype)tagsIconWithSize:(CGFloat)size;
 + (instancetype)tasksIconWithSize:(CGFloat)size;
 + (instancetype)taxiIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)telegramIconWithSize:(CGFloat)size;
 + (instancetype)televisionIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)tencentWeiboIconWithSize:(CGFloat)size;
 + (instancetype)terminalIconWithSize:(CGFloat)size;
 + (instancetype)textHeightIconWithSize:(CGFloat)size;
@@ -666,6 +883,7 @@
 + (instancetype)thIconWithSize:(CGFloat)size;
 + (instancetype)thLargeIconWithSize:(CGFloat)size;
 + (instancetype)thListIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)themeisleIconWithSize:(CGFloat)size;
 + (instancetype)thermometerIconWithSize:(CGFloat)size;
 + (instancetype)thermometer0IconWithSize:(CGFloat)size;
@@ -678,6 +896,8 @@
 + (instancetype)thermometerHalfIconWithSize:(CGFloat)size;
 + (instancetype)thermometerQuarterIconWithSize:(CGFloat)size;
 + (instancetype)thermometerThreeQuartersIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)thumbTackIconWithSize:(CGFloat)size;
 + (instancetype)thumbsDownIconWithSize:(CGFloat)size;
 + (instancetype)thumbsODownIconWithSize:(CGFloat)size;
@@ -687,8 +907,11 @@
 + (instancetype)timesIconWithSize:(CGFloat)size;
 + (instancetype)timesCircleIconWithSize:(CGFloat)size;
 + (instancetype)timesCircleOIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)timesRectangleIconWithSize:(CGFloat)size;
 + (instancetype)timesRectangleOIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)tintIconWithSize:(CGFloat)size;
 + (instancetype)toggleDownIconWithSize:(CGFloat)size;
 + (instancetype)toggleLeftIconWithSize:(CGFloat)size;
@@ -696,15 +919,21 @@
 + (instancetype)toggleOnIconWithSize:(CGFloat)size;
 + (instancetype)toggleRightIconWithSize:(CGFloat)size;
 + (instancetype)toggleUpIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)trademarkIconWithSize:(CGFloat)size;
 + (instancetype)trainIconWithSize:(CGFloat)size;
 + (instancetype)transgenderIconWithSize:(CGFloat)size;
 + (instancetype)transgenderAltIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)trashIconWithSize:(CGFloat)size;
 + (instancetype)trashOIconWithSize:(CGFloat)size;
 + (instancetype)treeIconWithSize:(CGFloat)size;
 + (instancetype)trelloIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)tripadvisorIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)trophyIconWithSize:(CGFloat)size;
 + (instancetype)truckIconWithSize:(CGFloat)size;
 + (instancetype)tryIconWithSize:(CGFloat)size;
@@ -712,20 +941,27 @@
 + (instancetype)tumblrIconWithSize:(CGFloat)size;
 + (instancetype)tumblrSquareIconWithSize:(CGFloat)size;
 + (instancetype)turkishLiraIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)tvIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)twitchIconWithSize:(CGFloat)size;
 + (instancetype)twitterIconWithSize:(CGFloat)size;
 + (instancetype)twitterSquareIconWithSize:(CGFloat)size;
 + (instancetype)umbrellaIconWithSize:(CGFloat)size;
 + (instancetype)underlineIconWithSize:(CGFloat)size;
 + (instancetype)undoIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)universalAccessIconWithSize:(CGFloat)size;
+=======
+>>>>>>> MyFitZOld/master
 + (instancetype)universityIconWithSize:(CGFloat)size;
 + (instancetype)unlinkIconWithSize:(CGFloat)size;
 + (instancetype)unlockIconWithSize:(CGFloat)size;
 + (instancetype)unlockAltIconWithSize:(CGFloat)size;
 + (instancetype)unsortedIconWithSize:(CGFloat)size;
 + (instancetype)uploadIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)usbIconWithSize:(CGFloat)size;
 + (instancetype)usdIconWithSize:(CGFloat)size;
 + (instancetype)userIconWithSize:(CGFloat)size;
@@ -751,6 +987,16 @@
 + (instancetype)vineIconWithSize:(CGFloat)size;
 + (instancetype)vkIconWithSize:(CGFloat)size;
 + (instancetype)volumeControlPhoneIconWithSize:(CGFloat)size;
+=======
++ (instancetype)usdIconWithSize:(CGFloat)size;
++ (instancetype)userIconWithSize:(CGFloat)size;
++ (instancetype)userMdIconWithSize:(CGFloat)size;
++ (instancetype)usersIconWithSize:(CGFloat)size;
++ (instancetype)videoCameraIconWithSize:(CGFloat)size;
++ (instancetype)vimeoSquareIconWithSize:(CGFloat)size;
++ (instancetype)vineIconWithSize:(CGFloat)size;
++ (instancetype)vkIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)volumeDownIconWithSize:(CGFloat)size;
 + (instancetype)volumeOffIconWithSize:(CGFloat)size;
 + (instancetype)volumeUpIconWithSize:(CGFloat)size;
@@ -758,6 +1004,7 @@
 + (instancetype)wechatIconWithSize:(CGFloat)size;
 + (instancetype)weiboIconWithSize:(CGFloat)size;
 + (instancetype)weixinIconWithSize:(CGFloat)size;
+<<<<<<< HEAD
 + (instancetype)whatsappIconWithSize:(CGFloat)size;
 + (instancetype)wheelchairIconWithSize:(CGFloat)size;
 + (instancetype)wheelchairAltIconWithSize:(CGFloat)size;
@@ -785,9 +1032,25 @@
 + (instancetype)yelpIconWithSize:(CGFloat)size;
 + (instancetype)yenIconWithSize:(CGFloat)size;
 + (instancetype)yoastIconWithSize:(CGFloat)size;
+=======
++ (instancetype)wheelchairIconWithSize:(CGFloat)size;
++ (instancetype)wifiIconWithSize:(CGFloat)size;
++ (instancetype)windowsIconWithSize:(CGFloat)size;
++ (instancetype)wonIconWithSize:(CGFloat)size;
++ (instancetype)wordpressIconWithSize:(CGFloat)size;
++ (instancetype)wrenchIconWithSize:(CGFloat)size;
++ (instancetype)xingIconWithSize:(CGFloat)size;
++ (instancetype)xingSquareIconWithSize:(CGFloat)size;
++ (instancetype)yahooIconWithSize:(CGFloat)size;
++ (instancetype)yelpIconWithSize:(CGFloat)size;
++ (instancetype)yenIconWithSize:(CGFloat)size;
+>>>>>>> MyFitZOld/master
 + (instancetype)youtubeIconWithSize:(CGFloat)size;
 + (instancetype)youtubePlayIconWithSize:(CGFloat)size;
 + (instancetype)youtubeSquareIconWithSize:(CGFloat)size;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> MyFitZOld/master
 @end

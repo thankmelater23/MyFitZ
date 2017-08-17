@@ -10,22 +10,38 @@ import UIKit
 
 typealias DKKeyframeAnimationFunctionBlock = (Double, Double, Double, Double) -> Double
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionLinear(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionLinear(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return c * t + b
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInQuad(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInQuad(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return c * t * t + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutQuad(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutQuad(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return -c * t * (t - 2) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutQuad(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutQuad(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var t = t / (d / 2)
     if t < 1 {
         return c / 2 * t * t + b;
@@ -34,17 +50,29 @@ func DKKeyframeAnimationFunctionEaseInOutQuad(_ t: Double, b: Double, c: Double,
     return -c / 2 * ((t) * (t - 2) - 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInCubic(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInCubic(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return c * t * t * t + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutCubic(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutCubic(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d - 1
     return c * (t * t * t + 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutCubic(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutCubic(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var t = t / (d / 2)
     if t < 1 {
         return c / 2 * t * t * t + b;
@@ -54,17 +82,29 @@ func DKKeyframeAnimationFunctionEaseInOutCubic(_ t: Double, b: Double, c: Double
     }
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInQuart(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInQuart(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return c * t * t * t * t + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutQuart(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutQuart(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d - 1
     return -c * (t * t * t * t - 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutQuart(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutQuart(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var t = t / (d / 2)
     if t < 1 {
         return c / 2 * t * t * t * t + b;
@@ -74,17 +114,29 @@ func DKKeyframeAnimationFunctionEaseInOutQuart(_ t: Double, b: Double, c: Double
     }
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInQuint(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInQuint(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return c * t * t * t * t * t + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutQuint(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutQuint(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d - 1
     return c * (t * t * t * t * t + 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutQuint(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutQuint(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var t = t / (d / 2)
     if t < 1 {
         return c / 2 * t * t * t * t * t + b;
@@ -94,6 +146,7 @@ func DKKeyframeAnimationFunctionEaseInOutQuint(_ t: Double, b: Double, c: Double
     }
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInSine(_ t: Double, b: Double, c: Double, d: Double) -> Double {
     return -c * cos(t / d * (M_PI_2)) + c + b;
 }
@@ -111,11 +164,34 @@ func DKKeyframeAnimationFunctionEaseInExpo(_ t: Double, b: Double, c: Double, d:
 }
 
 func DKKeyframeAnimationFunctionEaseOutExpo(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInSine(t: Double, b: Double, c: Double, d: Double) -> Double {
+    return -c * cos(t / d * (M_PI_2)) + c + b;
+}
+
+func DKKeyframeAnimationFunctionEaseOutSine(t: Double, b: Double, c: Double, d: Double) -> Double {
+    return c * sin(t / d * (M_PI_2)) + b;
+}
+
+func DKKeyframeAnimationFunctionEaseInOutSine(t: Double, b: Double, c: Double, d: Double) -> Double {
+    return -c / 2 * (cos(M_PI * t / d) - 1) + b;
+}
+
+func DKKeyframeAnimationFunctionEaseInExpo(t: Double, b: Double, c: Double, d: Double) -> Double {
+    return (t==0) ? b : c * pow(2, 10 * (t / d - 1)) + b;
+}
+
+func DKKeyframeAnimationFunctionEaseOutExpo(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
 
     return (t == d) ? b+c : c * (-pow(2, -10 * t / d) + 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutExpo(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutExpo(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     if t == 0 {
         return b
     }
@@ -130,17 +206,29 @@ func DKKeyframeAnimationFunctionEaseInOutExpo(_ t: Double, b: Double, c: Double,
     return c / 2 * (-pow(2, -10 * t) + 2) + b
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInCirc(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInCirc(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d
     return -c * (sqrt(1 - t * t) - 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutCirc(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutCirc(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let t = t / d - 1
     return c * sqrt(1 - t * t) + b
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutCirc(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutCirc(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var t = t / (d / 2)
     if t < 1 {
         return -c / 2 * (sqrt(1 - t * t) - 1) + b
@@ -149,7 +237,11 @@ func DKKeyframeAnimationFunctionEaseInOutCirc(_ t: Double, b: Double, c: Double,
     return c / 2 * (sqrt(1 - t * t) + 1) + b
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInElastic(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInElastic(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var s = 1.70158
     var p = 0.0
     var a = c
@@ -174,7 +266,11 @@ func DKKeyframeAnimationFunctionEaseInElastic(_ t: Double, b: Double, c: Double,
     return -(a * pow(2, 10 * t) * sin((t * d - s) * (2 * M_PI) / p )) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutElastic(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutElastic(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var s = 1.70158
     var p = 0.0
     var a = c
@@ -198,7 +294,11 @@ func DKKeyframeAnimationFunctionEaseOutElastic(_ t: Double, b: Double, c: Double
     return (a * pow(2, 10 * t) * sin((t * d - s) * (2 * M_PI) / p)) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutElastic(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutElastic(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var s = 1.70158
     var p = 0.0
     var a = c;
@@ -228,19 +328,31 @@ func DKKeyframeAnimationFunctionEaseInOutElastic(_ t: Double, b: Double, c: Doub
     }
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInBack(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInBack(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let s = 1.70158
     let t = t / d
     return c * t * t * ((s + 1) * t - s) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseOutBack(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseOutBack(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     let s = 1.70158
     let t = t / d - 1
     return c * (t * t * ((s + 1) * t + s) + 1) + b;
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutBack(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutBack(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var s = 1.70158
     var t = t / (d / 2)
 
@@ -254,11 +366,19 @@ func DKKeyframeAnimationFunctionEaseInOutBack(_ t: Double, b: Double, c: Double,
     }
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInBounce(_ t: Double, b: Double, c: Double, d: Double) -> Double {
     return c - DKKeyframeAnimationFunctionEaseOutBounce(d - t, b: 0, c: c, d: d) + b;
 }
 
 func DKKeyframeAnimationFunctionEaseOutBounce(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInBounce(t: Double, b: Double, c: Double, d: Double) -> Double {
+    return c - DKKeyframeAnimationFunctionEaseOutBounce(d - t, b: 0, c: c, d: d) + b;
+}
+
+func DKKeyframeAnimationFunctionEaseOutBounce(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     var t = t / d
     if t < 1 / 2.75 {
         return c * (7.5625 * t * t) + b;
@@ -274,10 +394,18 @@ func DKKeyframeAnimationFunctionEaseOutBounce(_ t: Double, b: Double, c: Double,
     }
 }
 
+<<<<<<< HEAD
 func DKKeyframeAnimationFunctionEaseInOutBounce(_ t: Double, b: Double, c: Double, d: Double) -> Double {
+=======
+func DKKeyframeAnimationFunctionEaseInOutBounce(t: Double, b: Double, c: Double, d: Double) -> Double {
+>>>>>>> MyFitZOld/master
     if t < d / 2 {
         return DKKeyframeAnimationFunctionEaseInBounce (t * 2, b: 0, c: c, d: d) * 0.5 + b;
     } else {
         return DKKeyframeAnimationFunctionEaseOutBounce(t * 2 - d, b: 0, c: c, d: d) * 0.5 + c * 0.5 + b;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> MyFitZOld/master

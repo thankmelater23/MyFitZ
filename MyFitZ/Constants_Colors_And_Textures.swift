@@ -9,11 +9,19 @@
 import UIKit
 
 struct HighlightColors{
+<<<<<<< HEAD
     let priorityLow = UIColor.yellow
     let priorityMid = UIColor.orange
     let priorityHigh = UIColor.red
     let cleared = UIColor.green
     let completed = UIColor.blue
+=======
+    let priorityLow = UIColor.yellowColor()
+    let priorityMid = UIColor.orangeColor()
+    let priorityHigh = UIColor.redColor()
+    let cleared = UIColor.greenColor()
+    let completed = UIColor.blueColor()
+>>>>>>> MyFitZOld/master
 }
 let HighlightColor: HighlightColors = HighlightColors()
 
@@ -54,7 +62,11 @@ let HardSandTexture = UIColor.init(patternImage: UIImage(named: "hardSandTexture
 let StarCloudsTexture = UIColor.init(patternImage: UIImage(named: "starCloudsTexture")!)
 let PopulatedStarsTexture = UIColor.init(patternImage: UIImage(named: "populatedStarsTexture")!)
 //    init(){
+<<<<<<< HEAD
 //        NSLog("Texures Initialized" + String(self))
+=======
+//        log.info("Texures Initialized" + String(self))
+>>>>>>> MyFitZOld/master
 //    }
 //}
 //let Textures: BBS_TEXTURES = BBS_TEXTURES()
@@ -73,4 +85,8 @@ let ThemeColor: ThemeColors = ThemeColors()
 class AppImages{
     let tuxedo = UIImage(named: "tuxedo")
 }
+<<<<<<< HEAD
 let AppImage: AppImages = AppImages()
+=======
+let AppImage: AppImages = AppImages()
+>>>>>>> MyFitZOld/master

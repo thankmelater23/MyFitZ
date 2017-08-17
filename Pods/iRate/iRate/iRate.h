@@ -1,7 +1,11 @@
 //
 //  iRate.h
 //
+<<<<<<< HEAD
 //  Version 1.12.1
+=======
+//  Version 1.11.4
+>>>>>>> MyFitZOld/master
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
@@ -30,6 +34,10 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> MyFitZOld/master
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-missing-property-synthesis"
 
@@ -47,18 +55,24 @@
 #import <TargetConditionals.h>
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 #import <StoreKit/StoreKit.h>
+=======
+>>>>>>> MyFitZOld/master
 #define IRATE_EXTERN UIKIT_EXTERN
 #else
 #import <Cocoa/Cocoa.h>
 #define IRATE_EXTERN APPKIT_EXTERN
 #endif
 
+<<<<<<< HEAD
 //! Project version number for iRate.
 FOUNDATION_EXPORT double iRateVersionNumber;
 
 //! Project version string for iRate.
 FOUNDATION_EXPORT const unsigned char iRateVersionString[];
+=======
+>>>>>>> MyFitZOld/master
 
 IRATE_EXTERN NSUInteger const iRateAppStoreGameGenreID;
 IRATE_EXTERN NSString *const iRateErrorDomain;
@@ -138,8 +152,11 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 @property (nonatomic, copy) NSString *rateButtonLabel;
 
 //debugging and prompt overrides
+<<<<<<< HEAD
 
 @property (nonatomic, assign) BOOL useSKStoreReviewControllerIfAvailable;
+=======
+>>>>>>> MyFitZOld/master
 @property (nonatomic, assign) BOOL useUIAlertControllerIfAvailable;
 @property (nonatomic, assign) BOOL useAllAvailableLanguages;
 @property (nonatomic, assign) BOOL promptForNewVersionIfUserRated;
@@ -169,7 +186,10 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 - (void)promptIfAllCriteriaMet;
 - (void)openRatingsPageInAppStore;
 - (void)logEvent:(BOOL)deferPrompt;
+<<<<<<< HEAD
 - (void)remindLater;
+=======
+>>>>>>> MyFitZOld/master
 
 @end
 

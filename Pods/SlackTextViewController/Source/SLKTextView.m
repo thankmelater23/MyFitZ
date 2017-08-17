@@ -137,13 +137,21 @@ static NSString *const SLKTextViewGenericFormattingSelectorPrefix = @"slk_format
     if (!_placeholderLabel) {
         _placeholderLabel = [UILabel new];
         _placeholderLabel.clipsToBounds = NO;
+<<<<<<< HEAD
         _placeholderLabel.numberOfLines = 1;
         _placeholderLabel.autoresizesSubviews = NO;
+=======
+        _placeholderLabel.autoresizesSubviews = NO;
+        _placeholderLabel.numberOfLines = 1;
+>>>>>>> MyFitZOld/master
         _placeholderLabel.font = self.font;
         _placeholderLabel.backgroundColor = [UIColor clearColor];
         _placeholderLabel.textColor = [UIColor lightGrayColor];
         _placeholderLabel.hidden = YES;
+<<<<<<< HEAD
         _placeholderLabel.isAccessibilityElement = NO;
+=======
+>>>>>>> MyFitZOld/master
         
         [self addSubview:_placeholderLabel];
     }
@@ -401,6 +409,7 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
     self.placeholderLabel.textColor = color;
 }
 
+<<<<<<< HEAD
 - (void)setPlaceholderNumberOfLines:(NSInteger)numberOfLines
 {
     self.placeholderLabel.numberOfLines = numberOfLines;
@@ -408,6 +417,8 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
     [self setNeedsLayout];
 }
 
+=======
+>>>>>>> MyFitZOld/master
 - (void)setUndoManagerEnabled:(BOOL)enabled
 {
     if (self.undoManagerEnabled == enabled) {
@@ -446,8 +457,11 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
 - (void)setSelectedRange:(NSRange)selectedRange
 {
     [super setSelectedRange:selectedRange];
+<<<<<<< HEAD
     
     [[NSNotificationCenter defaultCenter] postNotificationName:SLKTextViewSelectedRangeDidChangeNotification object:self userInfo:nil];
+=======
+>>>>>>> MyFitZOld/master
 }
 
 - (void)setSelectedTextRange:(UITextRange *)selectedTextRange
@@ -461,6 +475,7 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
 {
     // Registers for undo management
     [self slk_prepareForUndo:@"Text Set"];
+<<<<<<< HEAD
 
     if (text) {
         [self setAttributedText:[self slk_defaultAttributedStringForText:text]];
@@ -468,15 +483,22 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
     else {
         [self setAttributedText:nil];
     }
+=======
+    
+    [super setText:text];
+>>>>>>> MyFitZOld/master
     
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self];
 }
 
+<<<<<<< HEAD
 - (NSString *)text
 {
     return self.attributedText.string;
 }
 
+=======
+>>>>>>> MyFitZOld/master
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
     // Registers for undo management
@@ -896,7 +918,11 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
 
 - (void)slk_willShowMenuController:(NSNotification *)notification
 {
+<<<<<<< HEAD
     // Do something
+=======
+    
+>>>>>>> MyFitZOld/master
 }
 
 - (void)slk_didHideMenuController:(NSNotification *)notification

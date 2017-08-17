@@ -1,4 +1,5 @@
 PODS:
+<<<<<<< HEAD
   - Appsee (2.3.4)
   - AsyncSwift (2.0.1)
   - ChameleonFramework (2.1.0):
@@ -72,6 +73,34 @@ PODS:
   - HexColors (2.2.1)
   - iRate (1.12.1)
   - leveldb-library (1.18.3)
+=======
+  - AsyncSwift (1.7.2)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - DKChainableAnimationKit (1.6.1)
+  - DZNEmptyDataSet (1.8.1)
+  - FontAwesomeKit (2.2.0):
+    - FontAwesomeKit/Core (= 2.2.0)
+    - FontAwesomeKit/FontAwesome (= 2.2.0)
+    - FontAwesomeKit/FoundationIcons (= 2.2.0)
+    - FontAwesomeKit/IonIcons (= 2.2.0)
+    - FontAwesomeKit/Zocial (= 2.2.0)
+  - FontAwesomeKit/Core (2.2.0)
+  - FontAwesomeKit/FontAwesome (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.2.0):
+    - FontAwesomeKit/Core
+  - HeapInspector (0.3):
+    - HeapInspector/no-arc (= 0.3)
+  - HeapInspector/no-arc (0.3)
+  - HexColors (2.2.1)
+  - iRate (1.11.4)
+>>>>>>> MyFitZOld/master
   - MRProgress (0.8.3):
     - MRProgress/ActivityIndicator (= 0.8.3)
     - MRProgress/Blur (= 0.8.3)
@@ -100,25 +129,36 @@ PODS:
   - MRProgress/ProgressBaseClass (0.8.3)
   - MRProgress/Stopable (0.8.3):
     - MRProgress/Helper
+<<<<<<< HEAD
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Optimizely-iOS-SDK (1.7.0)
+=======
+>>>>>>> MyFitZOld/master
   - REFormattedNumberField (1.1.6)
   - RETableViewManager (1.7):
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
+<<<<<<< HEAD
   - Siren (2.0.7)
   - SlackTextViewController (1.9.5)
   - SVProgressHUD (2.1.2)
   - SwiftyBeaver (1.4.0)
+=======
+  - Siren (0.9.2)
+  - SlackTextViewController (1.9.3)
+  - SVProgressHUD (2.0.3)
+  - SwiftyBeaver (0.6.2)
+>>>>>>> MyFitZOld/master
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
 
 DEPENDENCIES:
+<<<<<<< HEAD
   - Appsee
   - AsyncSwift
   - ChameleonFramework
@@ -130,18 +170,30 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - FirebaseDatabase
+=======
+  - AsyncSwift
+  - ChameleonFramework
+  - DKChainableAnimationKit
+  - DZNEmptyDataSet
+>>>>>>> MyFitZOld/master
   - FontAwesomeKit
   - HeapInspector
   - iRate
   - MRProgress
+<<<<<<< HEAD
   - Optimizely-iOS-SDK
   - RETableViewManager
   - Siren (from `https://github.com/ArtSabintsev/Siren.git`, branch `swift4`)
+=======
+  - RETableViewManager
+  - Siren
+>>>>>>> MyFitZOld/master
   - SlackTextViewController
   - SVProgressHUD
   - SwiftyBeaver
   - TSMessages
 
+<<<<<<< HEAD
 EXTERNAL SOURCES:
   Siren:
     :branch: swift4
@@ -189,3 +241,27 @@ SPEC CHECKSUMS:
 PODFILE CHECKSUM: 4e235fd63741bb913cb6dbb2bad2beb0ffc7ac7f
 
 COCOAPODS: 1.3.1
+=======
+SPEC CHECKSUMS:
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DKChainableAnimationKit: e4e605d253ee153cb600efa68f8c97ed118122a7
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
+  HeapInspector: cad61d46d85a2fa08e7f9ee9a37c139ff1664a93
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
+  MRProgress: 16de7cc9f347e8846797a770db102a323fe7ef09
+  REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
+  RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
+  REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
+  Siren: acee4d2839e3cc232d8c4a4a4e2e99208403f6e0
+  SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftyBeaver: 113f4527712baa6a98dfb99776e59735c0b0304b
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
+
+PODFILE CHECKSUM: 938d14ea2eae758f86464aa9233301634e52655d
+
+COCOAPODS: 1.0.1
+>>>>>>> MyFitZOld/master

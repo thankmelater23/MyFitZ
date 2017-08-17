@@ -59,6 +59,10 @@
             [self layoutAnimatedLayer];
         }
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> MyFitZOld/master
 }
 
 - (void)setRadius:(CGFloat)radius {
@@ -89,6 +93,10 @@
     _ringAnimatedLayer.strokeEnd = _strokeEnd;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> MyFitZOld/master
 - (CGSize)sizeThatFits:(CGSize)size {
     return CGSizeMake((self.radius+self.strokeThickness/2+5)*2, (self.radius+self.strokeThickness/2+5)*2);
 }

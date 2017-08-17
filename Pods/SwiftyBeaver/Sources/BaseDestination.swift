@@ -8,7 +8,6 @@
 //
 
 import Foundation
-import Dispatch
 
 // store operating system / platform
 #if os(iOS)
@@ -21,306 +20,101 @@ let OS = "watchOS"
 let OS = "tvOS"
 #elseif os(Linux)
 let OS = "Linux"
-#elseif os(FreeBSD)
-let OS = "FreeBSD"
-#elseif os(Windows)
-let OS = "Windows"
-#elseif os(Android)
-let OS = "Android"
 #else
 let OS = "Unknown"
 #endif
 
+@available(*, deprecated=0.5.5)
+struct MinLevelFilter {
+    var minLevel = SwiftyBeaver.Level.Verbose
+    var path = ""
+    var function = ""
+}
+
 /// destination which all others inherit from. do not directly use
-open class BaseDestination: Hashable, Equatable {
+public class BaseDestination: Hashable, Equatable {
 
-    /// output format pattern, see documentation for syntax
-    open var format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
-
+    /// if true additionally logs file, function & line
+    public var detailOutput = true
+    /// adds colored log levels where possible
+    public var colored = true
+    /// colors entire log
+    public var coloredLines = false
     /// runs in own serial background thread for better performance
-    open var asynchronously = true
-
+    public var asynchronously = true
     /// do not log any message which has a lower level than this one
-    open var minLevel = SwiftyBeaver.Level.verbose
-
+    public var minLevel = SwiftyBeaver.Level.Verbose {
+        didSet {
+            // Craft a new level filter and add it
+            self.addFilter(Filters.Level.atLeast(minLevel))
+        }
+    }
+    /// standard log format; set to "" to not log date at all
+    public var dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
     /// set custom log level words for each level
-    open var levelString = LevelString()
-
+    public var levelString = LevelString()
     /// set custom log level colors for each level
-    open var levelColor = LevelColor()
+    public var levelColor = LevelColor()
 
     public struct LevelString {
-        public var verbose = "VERBOSE"
-        public var debug = "DEBUG"
-        public var info = "INFO"
-        public var warning = "WARNING"
-        public var error = "ERROR"
+        public var Verbose = "VERBOSE"
+        public var Debug = "DEBUG"
+        public var Info = "INFO"
+        public var Warning = "WARNING"
+        public var Error = "ERROR"
     }
 
     // For a colored log level word in a logged line
-    // empty on default
+    // XCode RGB colors
     public struct LevelColor {
-        public var verbose = ""     // silver
-        public var debug = ""       // green
-        public var info = ""        // blue
-        public var warning = ""     // yellow
-        public var error = ""       // red
+        public var Verbose = "fg150,178,193;"     // silver
+        public var Debug = "fg32,155,124;"        // green
+        public var Info = "fg70,204,221;"         // blue
+        public var Warning = "fg253,202,78;"      // yellow
+        public var Error = "fg243,36,73;"         // red
     }
 
-    var reset = ""
-    var escape = ""
-
     var filters = [FilterType]()
-    let formatter = DateFormatter()
+    let formatter = NSDateFormatter()
+
+    var reset = "\u{001b}[;"
+    var escape = "\u{001b}["
 
     // each destination class must have an own hashValue Int
     lazy public var hashValue: Int = self.defaultHashValue
-    open var defaultHashValue: Int {return 0}
+    public var defaultHashValue: Int {return 0}
 
     // each destination instance must have an own serial queue to ensure serial output
     // GCD gives it a prioritization between User Initiated and Utility
-    var queue: DispatchQueue? //dispatch_queue_t?
-    var debugPrint = false // set to true to debug the internal filter logic of the class
+    var queue: dispatch_queue_t?
 
     public init() {
-        let uuid = NSUUID().uuidString
+        let uuid = NSUUID().UUIDString
         let queueLabel = "swiftybeaver-queue-" + uuid
-        queue = DispatchQueue(label: queueLabel, target: queue)
+        queue = dispatch_queue_create(queueLabel, DISPATCH_QUEUE_SERIAL)
+        addFilter(Filters.Level.atLeast(minLevel))
     }
-
-    /// send / store the formatted log message to the destination
-    /// returns the formatted log message for processing by inheriting method
-    /// and for unit tests (nil if error)
-    open func send(_ level: SwiftyBeaver.Level, msg: String, thread: String, file: String,
-                   function: String, line: Int, context: Any? = nil) -> String? {
-
-        if format.hasPrefix("$J") {
-            return messageToJSON(level, msg: msg, thread: thread,
-                                 file: file, function: function, line: line, context: context)
-
-        } else {
-            return formatMessage(format, level: level, msg: msg, thread: thread,
-                                 file: file, function: function, line: line, context: context)
-        }
-    }
-
-    ////////////////////////////////
-    // MARK: Format
-    ////////////////////////////////
-
-    /// returns the log message based on the format pattern
-    func formatMessage(_ format: String, level: SwiftyBeaver.Level, msg: String, thread: String,
-        file: String, function: String, line: Int, context: Any? = nil) -> String {
-
-        var text = ""
-        let phrases: [String] = format.components(separatedBy: "$")
-
-        for phrase in phrases where !phrase.isEmpty {
-                let firstChar = phrase[phrase.startIndex]
-                let rangeAfterFirstChar = phrase.index(phrase.startIndex, offsetBy: 1)..<phrase.endIndex
-                let remainingPhrase = phrase[rangeAfterFirstChar]
-
-                switch firstChar {
-                case "L":
-                    text += levelWord(level) + remainingPhrase
-                case "M":
-                    text += msg + remainingPhrase
-                case "T":
-                    text += thread + remainingPhrase
-                case "N":
-                    // name of file without suffix
-                    text += fileNameWithoutSuffix(file) + remainingPhrase
-                case "n":
-                    // name of file with suffix
-                    text += fileNameOfFile(file) + remainingPhrase
-                case "F":
-                    text += function + remainingPhrase
-                case "l":
-                    text += String(line) + remainingPhrase
-                case "D":
-                    // start of datetime format
-                    #if swift(>=3.2)
-                    text += formatDate(String(remainingPhrase))
-                    #else
-                    text += formatDate(remainingPhrase)
-                    #endif
-                case "d":
-                    text += remainingPhrase
-                case "Z":
-                    // start of datetime format in UTC timezone
-                    #if swift(>=3.2)
-                    text += formatDate(String(remainingPhrase), timeZone: "UTC")
-                    #else
-                    text += formatDate(remainingPhrase, timeZone: "UTC")
-                    #endif
-                case "z":
-                    text += remainingPhrase
-                case "C":
-                    // color code ("" on default)
-                    text += escape + colorForLevel(level) + remainingPhrase
-                case "c":
-                    text += reset + remainingPhrase
-                case "X":
-                    // add the context
-                    if let cx = context {
-                        text += String(describing: cx).trimmingCharacters(in: .whitespacesAndNewlines) + remainingPhrase
-                    }
-                    /*
-                    if let contextString = context as? String {
-                        text += contextString + remainingPhrase
-                    }*/
-                default:
-                    text += phrase
-                }
-        }
-        return text
-    }
-
-    /// returns the log payload as optional JSON string
-    func messageToJSON(_ level: SwiftyBeaver.Level, msg: String,
-        thread: String, file: String, function: String, line: Int, context: Any? = nil) -> String? {
-        var dict: [String: Any] = [
-            "timestamp": Date().timeIntervalSince1970,
-            "level": level.rawValue,
-            "message": msg,
-            "thread": thread,
-            "file": file,
-            "function": function,
-            "line": line
-            ]
-        if let cx = context {
-            dict["context"] = cx
-        }
-        return jsonStringFromDict(dict)
-    }
-
-    /// returns the string of a level
-    func levelWord(_ level: SwiftyBeaver.Level) -> String {
-
-        var str = ""
-
-        switch level {
-        case SwiftyBeaver.Level.debug:
-            str = levelString.debug
-
-        case SwiftyBeaver.Level.info:
-            str = levelString.info
-
-        case SwiftyBeaver.Level.warning:
-            str = levelString.warning
-
-        case SwiftyBeaver.Level.error:
-            str = levelString.error
-
-        default:
-            // Verbose is default
-            str = levelString.verbose
-        }
-        return str
-    }
-
-    /// returns color string for level
-    func colorForLevel(_ level: SwiftyBeaver.Level) -> String {
-        var color = ""
-
-        switch level {
-        case SwiftyBeaver.Level.debug:
-            color = levelColor.debug
-
-        case SwiftyBeaver.Level.info:
-            color = levelColor.info
-
-        case SwiftyBeaver.Level.warning:
-            color = levelColor.warning
-
-        case SwiftyBeaver.Level.error:
-            color = levelColor.error
-
-        default:
-            color = levelColor.verbose
-        }
-        return color
-    }
-
-    /// returns the filename of a path
-    func fileNameOfFile(_ file: String) -> String {
-        let fileParts = file.components(separatedBy: "/")
-        if let lastPart = fileParts.last {
-            return lastPart
-        }
-        return ""
-    }
-
-    /// returns the filename without suffix (= file ending) of a path
-    func fileNameWithoutSuffix(_ file: String) -> String {
-        let fileName = fileNameOfFile(file)
-
-        if !fileName.isEmpty {
-            let fileNameParts = fileName.components(separatedBy: ".")
-            if let firstPart = fileNameParts.first {
-                return firstPart
-            }
-        }
-        return ""
-    }
-
-    /// returns a formatted date string
-    /// optionally in a given abbreviated timezone like "UTC"
-    func formatDate(_ dateFormat: String, timeZone: String = "") -> String {
-        if !timeZone.isEmpty {
-            formatter.timeZone = TimeZone(abbreviation: timeZone)
-        }
-        formatter.dateFormat = dateFormat
-        //let dateStr = formatter.string(from: NSDate() as Date)
-        let dateStr = formatter.string(from: Date())
-        return dateStr
-    }
-
-    /// returns the json-encoded string value
-    /// after it was encoded by jsonStringFromDict
-    func jsonStringValue(_ jsonString: String?, key: String) -> String {
-        guard let str = jsonString else {
-            return ""
-        }
-
-        // remove the leading {"key":" from the json string and the final }
-        let offset = key.characters.count + 5
-        let endIndex = str.index(str.startIndex,
-                                 offsetBy: str.characters.count - 2)
-        let range = str.index(str.startIndex, offsetBy: offset)..<endIndex
-        #if swift(>=3.2)
-        return String(str[range])
-        #else
-        return str[range]
-        #endif
-    }
-
-    /// turns dict into JSON-encoded string
-    func jsonStringFromDict(_ dict: [String: Any]) -> String? {
-        var jsonString: String?
-
-        // try to create JSON string
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: [])
-            jsonString = String(data: jsonData, encoding: .utf8)
-        } catch {
-            print("SwiftyBeaver could not create JSON from dict.")
-        }
-        return jsonString
-    }
-
-    ////////////////////////////////
-    // MARK: Filters
-    ////////////////////////////////
 
     /// Add a filter that determines whether or not a particular message will be logged to this destination
-    public func addFilter(_ filter: FilterType) {
+    public func addFilter(filter: FilterType) {
+        // There can only be a maximum of one level filter in the filters collection.
+        // When one is set, remove any others if there are any and then add
+        let isNewLevelFilter = self.getFiltersTargeting(Filter.TargetType.LogLevel(minLevel),
+                                                        fromFilters: [filter]).count == 1
+        if isNewLevelFilter {
+            let levelFilters = self.getFiltersTargeting(Filter.TargetType.LogLevel(minLevel),
+                                                        fromFilters: self.filters)
+            levelFilters.forEach {
+                filter in
+                self.removeFilter(filter)
+            }
+        }
         filters.append(filter)
     }
 
     /// Remove a filter from the list of filters
-    public func removeFilter(_ filter: FilterType) {
-        let index = filters.index {
+    public func removeFilter(filter: FilterType) {
+        let index = filters.indexOf {
             return ObjectIdentifier($0) == ObjectIdentifier(filter)
         }
 
@@ -328,133 +122,181 @@ open class BaseDestination: Hashable, Equatable {
             return
         }
 
-        filters.remove(at: filterIndex)
+        filters.removeAtIndex(filterIndex)
+    }
+
+    /// send / store the formatted log message to the destination
+    /// returns the formatted log message for processing by inheriting method
+    /// and for unit tests (nil if error)
+    public func send(level: SwiftyBeaver.Level, msg: String, thread: String,
+        path: String, function: String, line: Int) -> String? {
+        var dateStr = ""
+        var str = ""
+        let levelStr = formattedLevel(level)
+        let formattedMsg = coloredMessage(msg, forLevel: level)
+
+        dateStr = formattedDate(dateFormat)
+        str = formattedMessage(dateStr, levelString: levelStr, msg: formattedMsg, thread: thread, path: path,
+            function: function, line: line, detailOutput: detailOutput)
+        return str
+    }
+
+    /// returns a formatted date string
+    func formattedDate(dateFormat: String) -> String {
+        //formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        formatter.dateFormat = dateFormat
+        let dateStr = formatter.stringFromDate(NSDate())
+        return dateStr
+    }
+
+    /// returns the log message entirely colored
+    func coloredMessage(msg: String, forLevel level: SwiftyBeaver.Level) -> String {
+        if !(colored && coloredLines) {
+            return msg
+        }
+
+        let color = colorForLevel(level)
+        let coloredMsg = escape + color + msg + reset
+        return coloredMsg
+    }
+
+    /// returns color string for level
+    func colorForLevel(level: SwiftyBeaver.Level) -> String {
+        var color = ""
+
+        switch level {
+        case SwiftyBeaver.Level.Debug:
+            color = levelColor.Debug
+
+        case SwiftyBeaver.Level.Info:
+            color = levelColor.Info
+
+        case SwiftyBeaver.Level.Warning:
+            color = levelColor.Warning
+
+        case SwiftyBeaver.Level.Error:
+            color = levelColor.Error
+
+        default:
+            color = levelColor.Verbose
+        }
+
+        return color
+    }
+
+    /// returns an optionally colored level noun (like INFO, etc.)
+    func formattedLevel(level: SwiftyBeaver.Level) -> String {
+        // optionally wrap the level string in color
+        let color = colorForLevel(level)
+        var levelStr = ""
+
+        switch level {
+        case SwiftyBeaver.Level.Debug:
+            levelStr = levelString.Debug
+
+        case SwiftyBeaver.Level.Info:
+            levelStr = levelString.Info
+
+        case SwiftyBeaver.Level.Warning:
+            levelStr = levelString.Warning
+
+        case SwiftyBeaver.Level.Error:
+            levelStr = levelString.Error
+
+        default:
+            // Verbose is default
+            levelStr = levelString.Verbose
+        }
+
+        if colored {
+            levelStr = escape + color + levelStr + reset
+        }
+        return levelStr
+    }
+
+    /// returns the formatted log message
+    func formattedMessage(dateString: String, levelString: String, msg: String,
+        thread: String, path: String, function: String, line: Int, detailOutput: Bool) -> String {
+        var str = ""
+        if dateString != "" {
+             str += "[\(dateString)] "
+        }
+        if detailOutput {
+            if thread != "main" && thread != "" {
+                str += "|\(thread)| "
+            }
+
+            // just use the file name of the path and remove suffix
+            let file = path.componentsSeparatedByString("/").last!.componentsSeparatedByString(".").first!
+            str += "\(file).\(function):\(String(line)) \(levelString): \(msg)"
+        } else {
+            str += "\(levelString): \(msg)"
+        }
+        return str
     }
 
     /// Answer whether the destination has any message filters
-    /// returns boolean and is used to decide whether to resolve 
-    /// the message before invoking shouldLevelBeLogged
+    /// returns boolean and is used to decide whether to resolve the message before invoking shouldLevelBeLogged
     func hasMessageFilters() -> Bool {
-        return !getFiltersTargeting(Filter.TargetType.Message(.Equals([], true)),
-                                    fromFilters: self.filters).isEmpty
+        return !getFiltersTargeting(Filter.TargetType.Message(.Equals([], true)), fromFilters: self.filters).isEmpty
     }
 
     /// checks if level is at least minLevel or if a minLevel filter for that path does exist
     /// returns boolean and can be used to decide if a message should be logged or not
-    func shouldLevelBeLogged(_ level: SwiftyBeaver.Level, path: String,
-                             function: String, message: String? = nil) -> Bool {
-
-        if filters.isEmpty {
-            if level.rawValue >= minLevel.rawValue {
-                if debugPrint {
-                    print("filters is empty and level >= minLevel")
-                }
-                return true
-            } else {
-                if debugPrint {
-                    print("filters is empty and level < minLevel")
-                }
-                return false
-            }
-        }
-
-        let (matchedExclude, allExclude) = passedExcludedFilters(level, path: path,
-                                                                 function: function, message: message)
-        if allExclude > 0 && matchedExclude != allExclude {
-            if debugPrint {
-                print("filters is not empty and message was excluded")
-            }
-            return false
-        }
-
-        let (matchedRequired, allRequired) = passedRequiredFilters(level, path: path,
-                                                                   function: function, message: message)
-        let (matchedNonRequired, allNonRequired) = passedNonRequiredFilters(level, path: path,
-                                                                    function: function, message: message)
-
-        // If required filters exist, we should validate or invalidate the log if all of them pass or not
-        if allRequired > 0 {
-            return matchedRequired == allRequired
-        }
-
-        // If a non-required filter matches, the log is validated
-        if allNonRequired > 0 && matchedNonRequired > 0 {
-            return true
-        }
-
-        if level.rawValue < minLevel.rawValue {
-            if debugPrint {
-                print("filters is not empty and level < minLevel")
-            }
-            return false
-        }
-
-        return true
+    func shouldLevelBeLogged(level: SwiftyBeaver.Level, path: String, function: String, message: String? = nil) -> Bool {
+        return passesAllRequiredFilters(level, path: path, function: function, message: message) &&
+                passesAtLeastOneNonRequiredFilter(level, path: path, function: function, message: message)
     }
 
-    func getFiltersTargeting(_ target: Filter.TargetType, fromFilters: [FilterType]) -> [FilterType] {
-        return fromFilters.filter { filter in
+    func getFiltersTargeting(target: Filter.TargetType, fromFilters: [FilterType]) -> [FilterType] {
+        return fromFilters.filter {
+            filter in
             return filter.getTarget() == target
         }
     }
 
-    /// returns a tuple of matched and all filters
-    func passedRequiredFilters(_ level: SwiftyBeaver.Level, path: String,
-                               function: String, message: String?) -> (Int, Int) {
-        let requiredFilters = self.filters.filter { filter in
-            return filter.isRequired() && !filter.isExcluded()
+    func passesAllRequiredFilters(level: SwiftyBeaver.Level, path: String, function: String, message: String?) -> Bool {
+        let requiredFilters = self.filters.filter {
+            filter in
+            return filter.isRequired()
         }
 
-        let matchingFilters = applyFilters(requiredFilters, level: level, path: path,
-                                           function: function, message: message)
-        if debugPrint {
-            print("matched \(matchingFilters) of \(requiredFilters.count) required filters")
-        }
-
-        return (matchingFilters, requiredFilters.count)
+        return applyFilters(requiredFilters, level: level, path: path,
+                            function: function, message: message) == requiredFilters.count
     }
 
-    /// returns a tuple of matched and all filters
-    func passedNonRequiredFilters(_ level: SwiftyBeaver.Level,
-                                  path: String, function: String, message: String?) -> (Int, Int) {
-        let nonRequiredFilters = self.filters.filter { filter in
-            return !filter.isRequired() && !filter.isExcluded()
+    func passesAtLeastOneNonRequiredFilter(level: SwiftyBeaver.Level,
+                                           path: String, function: String, message: String?) -> Bool {
+        let nonRequiredFilters = self.filters.filter {
+            filter in
+            return !filter.isRequired()
         }
 
-        let matchingFilters = applyFilters(nonRequiredFilters, level: level,
-                                           path: path, function: function, message: message)
-        if debugPrint {
-            print("matched \(matchingFilters) of \(nonRequiredFilters.count) non-required filters")
-        }
-        return (matchingFilters, nonRequiredFilters.count)
+        return nonRequiredFilters.isEmpty ||
+            applyFilters(nonRequiredFilters, level: level, path: path,
+                         function: function, message: message) > 0
     }
 
-    /// returns a tuple of matched and all exclude filters
-    func passedExcludedFilters(_ level: SwiftyBeaver.Level,
-                               path: String, function: String, message: String?) -> (Int, Int) {
-        let excludeFilters = self.filters.filter { filter in
-            return filter.isExcluded()
-        }
+    func passesLogLevelFilters(level: SwiftyBeaver.Level) -> Bool {
+        let logLevelFilters = getFiltersTargeting(Filter.TargetType.LogLevel(level), fromFilters: self.filters)
+        return logLevelFilters.filter {
+            filter in
 
-        let matchingFilters = applyFilters(excludeFilters, level: level,
-                                           path: path, function: function, message: message)
-        if debugPrint {
-            print("matched \(matchingFilters) of \(excludeFilters.count) exclude filters")
-        }
-        return (matchingFilters, excludeFilters.count)
+            return filter.apply(level.rawValue)
+        }.count == logLevelFilters.count
     }
 
-    func applyFilters(_ targetFilters: [FilterType], level: SwiftyBeaver.Level,
+    func applyFilters(targetFilters: [FilterType], level: SwiftyBeaver.Level,
                       path: String, function: String, message: String?) -> Int {
-        return targetFilters.filter { filter in
+        return targetFilters.filter {
+            filter in
 
             let passes: Bool
 
-            if !filter.reachedMinLevel(level) {
-                return false
-            }
-
             switch filter.getTarget() {
+            case .LogLevel(_):
+                passes = filter.apply(level.rawValue)
+
             case .Path(_):
                 passes = filter.apply(path)
 
@@ -470,7 +312,7 @@ open class BaseDestination: Hashable, Equatable {
             }
 
             return passes
-            }.count
+        }.count
     }
 
   /**

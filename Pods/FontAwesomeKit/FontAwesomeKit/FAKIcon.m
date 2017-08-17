@@ -15,6 +15,7 @@
     CGDataProviderRef fontDataProvider = CGDataProviderCreateWithURL((__bridge CFURLRef)url);
     CGFontRef newFont = CGFontCreateWithDataProvider(fontDataProvider);
     CGDataProviderRelease(fontDataProvider);
+<<<<<<< HEAD
     CFErrorRef error = NULL;
     CTFontManagerRegisterGraphicsFont(newFont, &error);
     CGFontRelease(newFont);
@@ -22,6 +23,11 @@
     if (error) {
         CFRelease(error);
     }
+=======
+    CFErrorRef error;
+    CTFontManagerRegisterGraphicsFont(newFont, &error);
+    CGFontRelease(newFont);
+>>>>>>> MyFitZOld/master
 }
 
 + (NSDictionary *)allIcons
@@ -41,6 +47,7 @@
     return icon;
 }
 
+<<<<<<< HEAD
 + (instancetype)iconWithIdentifier:(NSString *)identifier size:(CGFloat)size error:(NSError **)error
 {
     NSString *iconCode = [[self allIcons] objectForKey:identifier];
@@ -58,6 +65,8 @@
     return [self iconWithCode:iconCode size:size];
 }
 
+=======
+>>>>>>> MyFitZOld/master
 - (NSAttributedString *)attributedString
 { 
     return [self.mutableAttributedString copy];

@@ -215,14 +215,23 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     self.textView.didNotResignFirstResponder = self.isMovingFromParentViewController;
     
     self.viewVisible = NO;
+<<<<<<< HEAD
+=======
+    
+    // Caches the text before it's too late!
+    [self slk_cacheTextView];
+>>>>>>> MyFitZOld/master
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+<<<<<<< HEAD
     
     // Caches the text before it's too late!
     [self cacheTextView];
+=======
+>>>>>>> MyFitZOld/master
 }
 
 - (void)viewWillLayoutSubviews
@@ -742,6 +751,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 
 - (void)editText:(NSString *)text
 {
+<<<<<<< HEAD
     NSAttributedString *attributedText = [self.textView slk_defaultAttributedStringForText:text];
     [self editAttributedText:attributedText];
 }
@@ -749,16 +759,27 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 - (void)editAttributedText:(NSAttributedString *)attributedText
 {
     if (![_textInputbar canEditText:attributedText.string]) {
+=======
+    if (![_textInputbar canEditText:text]) {
+>>>>>>> MyFitZOld/master
         return;
     }
     
     // Caches the current text, in case the user cancels the edition
+<<<<<<< HEAD
     [self slk_cacheAttributedTextToDisk:self.textView.attributedText];
+=======
+    [self slk_cacheTextToDisk:self.textView.text];
+>>>>>>> MyFitZOld/master
     
     [_textInputbar beginTextEditing];
     
     // Setting the text after calling -beginTextEditing is safer
+<<<<<<< HEAD
     [self.textView setAttributedText:attributedText];
+=======
+    [self.textView setText:text];
+>>>>>>> MyFitZOld/master
     
     [self.textView slk_scrollToCaretPositonAnimated:YES];
     
@@ -800,6 +821,14 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
         return NO;
     }
     
+<<<<<<< HEAD
+=======
+    // Don't show if the content offset is not at top (when inverted) or at bottom (when not inverted)
+    if ((self.isInverted && ![self.scrollViewProxy slk_isAtTop]) || (!self.isInverted && ![self.scrollViewProxy slk_isAtBottom])) {
+        return NO;
+    }
+    
+>>>>>>> MyFitZOld/master
     return YES;
 }
 
@@ -939,8 +968,12 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     // Skips this if it's not the expected textView.
     // Checking the keyboard height constant helps to disable the view constraints update on iPad when the keyboard is undocked.
     // Checking the keyboard status allows to keep the inputAccessoryView valid when still reacing the bottom of the screen.
+<<<<<<< HEAD
     CGFloat bottomMargin = [self slk_appropriateBottomMargin];
     if (![self.textView isFirstResponder] || (self.keyboardHC.constant == bottomMargin && self.keyboardStatus == SLKKeyboardStatusDidHide)) {
+=======
+    if (![self.textView isFirstResponder] || (self.keyboardHC.constant == 0 && self.keyboardStatus == SLKKeyboardStatusDidHide)) {
+>>>>>>> MyFitZOld/master
 #if SLKBottomPanningEnabled
         if ([gesture.view isEqual:self.scrollViewProxy]) {
             if (gestureVelocity.y > 0) {
@@ -1156,6 +1189,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     
     BOOL enable = !self.isAutoCompleting;
     
+<<<<<<< HEAD
     NSString *inputPrimaryLanguage = self.textView.textInputMode.primaryLanguage;
 
     // Toggling autocorrect on Japanese keyboards breaks autocompletion by replacing the autocompletion prefix by an empty string.
@@ -1167,6 +1201,11 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     // Let's avoid refreshing the text view while dictation mode is enabled.
     // This solves a crash some users were experiencing when auto-completing with the dictation input mode.
     if ([inputPrimaryLanguage isEqualToString:@"dictation"]) {
+=======
+    // Toggling autocorrect on Japanese keyboards breaks autocompletion by replacing the autocompletion prefix by an empty string.
+    // So for now, let's not disable autocorrection for Japanese.
+    if ([self.textView.textInputMode.primaryLanguage isEqualToString:@"ja-JP"]) {
+>>>>>>> MyFitZOld/master
         return;
     }
     
@@ -1176,12 +1215,20 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 
 - (void)slk_dismissTextInputbarIfNeeded
 {
+<<<<<<< HEAD
     CGFloat bottomMargin = [self slk_appropriateBottomMargin];
     if (self.keyboardHC.constant == bottomMargin) {
         return;
     }
     
     self.keyboardHC.constant = bottomMargin;
+=======
+    if (self.keyboardHC.constant == 0) {
+        return;
+    }
+    
+    self.keyboardHC.constant = 0.0;
+>>>>>>> MyFitZOld/master
     self.scrollViewHC.constant = [self slk_appropriateScrollViewHeight];
     
     [self slk_hideAutoCompletionViewIfNeeded];
@@ -1302,9 +1349,14 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     else if (_textInputbar.isEditing) {
         [self didCancelTextEditing:keyCommand];
     }
+<<<<<<< HEAD
    
     CGFloat bottomMargin = [self slk_appropriateBottomMargin];
     if ([self ignoreTextInputbarAdjustment] || ([self.textView isFirstResponder] && self.keyboardHC.constant == bottomMargin)) {
+=======
+    
+    if ([self ignoreTextInputbarAdjustment] || ([self.textView isFirstResponder] && self.keyboardHC.constant == 0)) {
+>>>>>>> MyFitZOld/master
         return;
     }
     
@@ -1321,10 +1373,15 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 
 - (void)slk_willShowOrHideKeyboard:(NSNotification *)notification
 {
+<<<<<<< HEAD
     SLKKeyboardStatus status = [self slk_keyboardStatusForNotification:notification];
     
     // Skips if the view isn't visible.
     if (!self.isViewVisible) {
+=======
+    // Skips if the view isn't visible.
+    if (!self.view.window) {
+>>>>>>> MyFitZOld/master
         return;
     }
     
@@ -1347,23 +1404,49 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
         return;
     }
     
+<<<<<<< HEAD
+=======
+    SLKKeyboardStatus status = [self slk_keyboardStatusForNotification:notification];
+    
+>>>>>>> MyFitZOld/master
     // Skips if it's the current status
     if (self.keyboardStatus == status) {
         return;
     }
     
+<<<<<<< HEAD
+=======
+    // Updates and notifies about the keyboard status update
+    if ([self slk_updateKeyboardStatus:status]) {
+        // Posts custom keyboard notification, if logical conditions apply
+        [self slk_postKeyboarStatusNotification:notification];
+    }
+    
+>>>>>>> MyFitZOld/master
     // Programatically stops scrolling before updating the view constraints (to avoid scrolling glitch).
     if (status == SLKKeyboardStatusWillShow) {
         [self.scrollViewProxy slk_stopScrolling];
     }
     
+<<<<<<< HEAD
     // Stores the previous keyboard height
     CGFloat previousKeyboardHeight = self.keyboardHC.constant;
     
+=======
+    // Hides the auto-completion view if the keyboard is being dismissed.
+    if (![self.textView isFirstResponder] || status == SLKKeyboardStatusWillHide) {
+        [self slk_hideAutoCompletionViewIfNeeded];
+    }
+    
+    // Stores the previous keyboard height
+    CGFloat previousKeyboardHeight = self.keyboardHC.constant;
+
+>>>>>>> MyFitZOld/master
     // Updates the height constraints' constants
     self.keyboardHC.constant = [self slk_appropriateKeyboardHeightFromNotification:notification];
     self.scrollViewHC.constant = [self slk_appropriateScrollViewHeight];
     
+<<<<<<< HEAD
     // Updates and notifies about the keyboard status update
     if ([self slk_updateKeyboardStatus:status]) {
         // Posts custom keyboard notification, if logical conditions apply
@@ -1374,6 +1457,8 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     if (![self.textView isFirstResponder] || status == SLKKeyboardStatusWillHide) {
         [self slk_hideAutoCompletionViewIfNeeded];
     }
+=======
+>>>>>>> MyFitZOld/master
     
     NSInteger curve = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
     NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -1412,6 +1497,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 
 - (void)slk_didShowOrHideKeyboard:(NSNotification *)notification
 {
+<<<<<<< HEAD
     SLKKeyboardStatus status = [self slk_keyboardStatusForNotification:notification];
     
     // Skips if the view isn't visible
@@ -1422,6 +1508,11 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
         else {
             return;
         }
+=======
+    // Skips if the view isn't visible
+    if (!self.view.window) {
+        return;
+>>>>>>> MyFitZOld/master
     }
     
     // Skips if it is presented inside of a popover
@@ -1434,6 +1525,11 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
         return;
     }
     
+<<<<<<< HEAD
+=======
+    SLKKeyboardStatus status = [self slk_keyboardStatusForNotification:notification];
+    
+>>>>>>> MyFitZOld/master
     // Skips if it's the current status
     if (self.keyboardStatus == status) {
         return;
@@ -1647,6 +1743,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
                                         animations:NULL];
 }
 
+<<<<<<< HEAD
 - (void)showAutoCompletionViewWithPrefix:(NSString *)prefix andWord:(NSString *)word prefixRange:(NSRange)prefixRange
 {
     if ([self.registeredPrefixes containsObject:prefix]) {
@@ -1658,6 +1755,8 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     }
 }
 
+=======
+>>>>>>> MyFitZOld/master
 - (void)acceptAutoCompletionWithString:(NSString *)string
 {
     [self acceptAutoCompletionWithString:string keepPrefix:YES];
@@ -1794,6 +1893,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     if (key == nil) {
         return;
     }
+<<<<<<< HEAD
     NSAttributedString *cachedAttributedText = [[NSAttributedString alloc] initWithString:@""];
     
     id obj = [[NSUserDefaults standardUserDefaults] objectForKey:key];
@@ -1814,14 +1914,33 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 - (void)cacheTextView
 {
     [self slk_cacheAttributedTextToDisk:self.textView.attributedText];
+=======
+    NSString *cachedText = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    
+    if (self.textView.text.length == 0 || cachedText.length > 0) {
+        self.textView.text = cachedText;
+    }
+}
+
+- (void)slk_cacheTextView
+{
+    [self slk_cacheTextToDisk:self.textView.text];
+>>>>>>> MyFitZOld/master
 }
 
 - (void)clearCachedText
 {
+<<<<<<< HEAD
     [self slk_cacheAttributedTextToDisk:nil];
 }
 
 - (void)slk_cacheAttributedTextToDisk:(NSAttributedString *)attributedText
+=======
+    [self slk_cacheTextToDisk:nil];
+}
+
+- (void)slk_cacheTextToDisk:(NSString *)text
+>>>>>>> MyFitZOld/master
 {
     NSString *key = [self slk_keyForPersistency];
     
@@ -1829,6 +1948,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
         return;
     }
     
+<<<<<<< HEAD
     NSAttributedString *cachedAttributedText = [[NSAttributedString alloc] initWithString:@""];
     id obj = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (obj) {
@@ -1847,6 +1967,16 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     }
     // Clears cache only if it exists
     else if (attributedText.length == 0 && cachedAttributedText.length > 0) {
+=======
+    NSString *cachedText = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    
+    // Caches text only if its a valid string and not already cached
+    if (text.length > 0 && ![text isEqualToString:cachedText]) {
+        [[NSUserDefaults standardUserDefaults] setObject:text forKey:key];
+    }
+    // Clears cache only if it exists
+    else if (text.length == 0 && cachedText.length > 0) {
+>>>>>>> MyFitZOld/master
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
     }
     else {
@@ -1857,6 +1987,7 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+<<<<<<< HEAD
 - (void)slk_cacheTextToDisk:(NSString *)text
 {
     NSString *key = [self slk_keyForPersistency];
@@ -1869,6 +2000,8 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     [self slk_cacheAttributedTextToDisk:attributedText];
 }
 
+=======
+>>>>>>> MyFitZOld/master
 + (void)clearAllCachedText
 {
     NSMutableArray *cachedKeys = [NSMutableArray new];
@@ -1994,10 +2127,13 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
                     [textView slk_insertText:symbol inRange:suffixRange];
                     shouldChange = NO;
                     
+<<<<<<< HEAD
                     // Reset the original cursor location +1 for the new character
                     NSRange adjustedCursorPosition = NSMakeRange(range.location + 1, 0);
                     textView.selectedRange = adjustedCursorPosition;
                     
+=======
+>>>>>>> MyFitZOld/master
                     break; // exit
                 }
             }
@@ -2281,9 +2417,15 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
     [notificationCenter addObserver:self selector:@selector(slk_didShakeTextView:) name:SLKTextViewDidShakeNotification object:nil];
     
     // Application notifications
+<<<<<<< HEAD
     [notificationCenter addObserver:self selector:@selector(cacheTextView) name:UIApplicationWillTerminateNotification object:nil];
     [notificationCenter addObserver:self selector:@selector(cacheTextView) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [notificationCenter addObserver:self selector:@selector(cacheTextView) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+=======
+    [notificationCenter addObserver:self selector:@selector(slk_cacheTextView) name:UIApplicationWillTerminateNotification object:nil];
+    [notificationCenter addObserver:self selector:@selector(slk_cacheTextView) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [notificationCenter addObserver:self selector:@selector(slk_cacheTextView) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+>>>>>>> MyFitZOld/master
 }
 
 - (void)slk_unregisterNotifications

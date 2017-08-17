@@ -27,16 +27,28 @@ class TrashTableViewCell: UITableViewCell{
     override func  awakeFromNib(){
         super.awakeFromNib()
     }
+<<<<<<< HEAD
     override func setSelected(_ selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
     
     @objc func borderCustomization(){
+=======
+    override func setSelected(selected: Bool, animated: Bool){
+        super.setSelected(selected ,  animated: animated)
+    }
+    
+    func borderCustomization(){
+>>>>>>> MyFitZOld/master
         CellImagesButtons(self.cellImage)
         
     }
     
+<<<<<<< HEAD
     @objc func customizeView(){
+=======
+    func customizeView(){
+>>>>>>> MyFitZOld/master
         self.backgroundColor = DirtyCloth
         self.borderCustomization()
     }
@@ -47,7 +59,11 @@ class TrashTableViewCell: UITableViewCell{
 
 //MARK: -Initializers
 extension TrashTableViewCell{
+<<<<<<< HEAD
     @objc func setCell(_ Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, dateDeleted: String){
+=======
+    func setCell(Image: UIImage, nameLabelText: String, brandLabelText: String, row: Int, dateDeleted: String){
+>>>>>>> MyFitZOld/master
         self.cellImage.image = Image
         self.name.text = nameLabelText
         self.brand.text = brandLabelText
@@ -56,4 +72,8 @@ extension TrashTableViewCell{
         
         self.customizeView()
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> MyFitZOld/master

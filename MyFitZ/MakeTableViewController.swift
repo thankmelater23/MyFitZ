@@ -7,6 +7,7 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 import CoreData
 //import Crashlytics
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
@@ -33,6 +34,9 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
+=======
+import Crashlytics
+>>>>>>> MyFitZOld/master
 
 //MARK: -MakeTableViewController Class
 class MakeTableViewController: UITableViewController{
@@ -41,6 +45,7 @@ class MakeTableViewController: UITableViewController{
     
     //MARK: - Variables
     ///items in a dictionary of arrays holds the categories of the items
+<<<<<<< HEAD
     @objc var keyOfSelectedArray = [String]()
     @objc var indexReference: [String: Int] = [:]
     ///Dictionary path to item
@@ -70,12 +75,22 @@ class MakeTableViewController: UITableViewController{
         fetchRequestController = NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         return fetchRequestController
     }
+=======
+    var itemsInArrayInDictionary: [String: [Item]]! = [String: [Item]]()
+    var array = [[Item]]()
+    var keyOfSelectedArray = [String]()
+    var indexReference: [String: Int] = [:]
+    ///Dictionary path to item
+    var path: [String: String]! = [String: String]()
+    
+>>>>>>> MyFitZOld/master
     
     
     //MARK: -View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
         log.info(#function)
+<<<<<<< HEAD
         self.view.backgroundColor = SiliverSilkSheet
         self.initializeFetchedResultsController()
         
@@ -91,6 +106,20 @@ class MakeTableViewController: UITableViewController{
         
     }
     override func viewDidAppear(_ animated: Bool){
+=======
+        itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
+        self.view.backgroundColor = SiliverSilkSheet
+        
+        self.setUpTypes()
+        
+        
+        defaults.addAndSend("MAKE_PAGE_COUNT")
+        
+        self.logPageView()
+        
+    }
+    override func viewDidAppear(animated: Bool){
+>>>>>>> MyFitZOld/master
         
         tableView.reloadData()
     }
@@ -98,14 +127,21 @@ class MakeTableViewController: UITableViewController{
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
     }
+<<<<<<< HEAD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         defer{
             log.debug("Segue transfer: \(String(describing: segue.identifier))")
+=======
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        defer{
+            log.verbose("Segue transfer: \(segue.identifier)")
+>>>>>>> MyFitZOld/master
         }
         if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL
         {
             //            let index = self.tableView.indexPathForSelectedRow
             
+<<<<<<< HEAD
             let modelController = segue.destination as! ModelTableViewController
             modelController.path = self.path
         }else if segue.identifier == Segue.SEGUE_MAKE_TO_CREATION{
@@ -114,15 +150,27 @@ class MakeTableViewController: UITableViewController{
         }else if segue.identifier == Segue.SEGUE_MAKE_TO_SELECTION{
             let selectionViewController = segue.destination as! SelectionViewController
             selectionViewController.wardrobe = self.wardrobe
+=======
+            let modelController = segue.destinationViewController as! ModelTableViewController
+            modelController.path = self.path
+        }else if segue.identifier == Segue.SEGUE_MAKE_TO_CREATION{
+            let createItemViewController: CreateItemViewController! = segue.destinationViewController as! CreateItemViewController
+            createItemViewController.lastVCSegue = Segue.SEGUE_CREATION_TO_MAKE
+>>>>>>> MyFitZOld/master
         }
     }
     deinit{
         log.info(#function)
+<<<<<<< HEAD
+=======
+        
+>>>>>>> MyFitZOld/master
     }
 }
 
 
 
+<<<<<<< HEAD
 
 //MARK: - Core Data
 extension MakeTableViewController: NSFetchedResultsControllerDelegate{
@@ -230,6 +278,13 @@ extension MakeTableViewController{
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         // playSoundEffects(backSFX)
         performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_SELECTION, sender: self)
+=======
+//MARK: - Action-MakeTableViewController Extension
+extension MakeTableViewController{
+    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+        playSoundEffects(backSFX)
+        performSegueWithIdentifier(Segue.SEGUE_MAKE_TO_SELECTION, sender: self)
+>>>>>>> MyFitZOld/master
     }
 }
 
@@ -237,25 +292,44 @@ extension MakeTableViewController{
 
 //MARK: - Initializer Created Methods
 extension MakeTableViewController{
+<<<<<<< HEAD
     @objc func setUpTypes(){
         self.animateAllButtons()
         
         // self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
+=======
+    func setUpTypes(){
+        self.animateAllButtons()
+        
+        self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
+>>>>>>> MyFitZOld/master
         
         self.setTitle()
         
     }//Sets up
+<<<<<<< HEAD
     @objc func selection(){
         TypeBarButtonLabel.title = path[PathType.PATHTYPE_CATEGORY_STRING]!
     }
     @objc func setTitle(){
         //self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PathType.PATHTYPE_CATEGORY_STRING)
+=======
+    func selection(){
+        TypeBarButtonLabel.title = path[PathType.PATHTYPE_CATEGORY_STRING]!
+    }
+    func setTitle(){
+        self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PathType.PATHTYPE_CATEGORY_STRING)
+>>>>>>> MyFitZOld/master
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
         }else if self.title == MY_WANTS_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_WANTS_CLOSET_BAR_COLOR
         }
+<<<<<<< HEAD
         self.navigationController?.navigationBar.isTranslucent = false
+=======
+        self.navigationController?.navigationBar.translucent = false
+>>>>>>> MyFitZOld/master
     }
 }
 
@@ -263,12 +337,21 @@ extension MakeTableViewController{
 
 //MARK: -TableView Methods-MakeTableViewController Extension
 extension MakeTableViewController:UIAlertViewDelegate{
+<<<<<<< HEAD
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         let count = fetchRequestController.sections?[section].numberOfObjects
         return count!
     }//Returns Int for number of sections in tableView
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell: MakeCustomCell = (tableView.dequeueReusableCell(withIdentifier: CellIdentifier.MAKE_CELL) as? MakeCustomCell)!
+=======
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        let count = itemsInArrayInDictionary.count
+        return count
+    }//Returns Int for number of sections in tableView
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let cell: MakeCustomCell = (tableView.dequeueReusableCellWithIdentifier(CellIdentifier.MAKE_CELL) as? MakeCustomCell)!
+>>>>>>> MyFitZOld/master
         
         
         if indexPath.row % 2 == 0//If even number make this color
@@ -278,6 +361,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
             cell.backgroundColor = UIColor(patternImage: UIImage(named: CELL_BACKGROUND_IMAGE_MAKE)!)
         }
         
+<<<<<<< HEAD
         let itemCell = fetchRequestController.object(at: indexPath) as! Item
         let image = UIImage(named: "blank image")
         cell.setCell(image!, makeLabelText: itemCell.brand ?? "N/A", numberOfItemsText: 0)
@@ -298,27 +382,72 @@ extension MakeTableViewController:UIAlertViewDelegate{
                 }catch{
                     log.error("Deleted item failed")
                 }
+=======
+        var arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
+        
+        if arrayItemCell.count > 1{
+            arrayItemCell = arrayItemCell.sort({$0.category > $1.category})
+        }
+        
+        if let availableSubCategoryItem = arrayItemCell.first{
+            cell.setCell(availableSubCategoryItem.image!, makeLabelText: availableSubCategoryItem.subCategory!, numberOfItemsText: arrayItemCell.count)
+        }else{
+            let image = UIImage(named: BLANK_IMAGE_STRING)
+            cell.setCell(image!, makeLabelText: keyOfSelectedArray, numberOfItemsText: arrayItemCell.count)
+        }
+        
+        return cell
+    }//Returns a tableView cell at a specific row
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        if editingStyle == UITableViewCellEditingStyle.Delete
+        {
+            let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .Alert)
+            let act = UIAlertAction(title: "cancel", style: .Default){_ in}
+            let action = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+                let subCategoryToDelete = Array(self.itemsInArrayInDictionary.keys)[indexPath.row] as String//Gets key for dictionary selected
+                
+                Users_Wardrobe.deleteAt(self.path[PathType.PATHTYPE_CATEGORY_STRING]!, funcSubCategory: subCategoryToDelete)
+                //
+                self.itemsInArrayInDictionary.removeValueForKey(subCategoryToDelete)
+                //
+                //                Users_Wardrobe.selectedCloset[self.path[PathType.PATHTYPE_CATEGORY_STRING]!] = self.itemsInArrayInDictionary
+                //                Users_Wardrobe.quickSave()
+>>>>>>> MyFitZOld/master
                 
                 self.tableView.reloadData()
             }
             
             alert.addAction(action)
             alert.addAction(act)
+<<<<<<< HEAD
             self.present(alert, animated: true, completion: {})
+=======
+            self.presentViewController(alert, animated: true, completion: {})
+>>>>>>> MyFitZOld/master
         }
         
         
     }//Editing to delete row
+<<<<<<< HEAD
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         //TODO: - Fix Me
         return String()//String(path[PathType.PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+=======
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
+        return String(path[PathType.PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
+        
+    }//Category name is shown in the title header
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+>>>>>>> MyFitZOld/master
         view.tintColor = LeatherTexture
         let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         headerView.textLabel?.textColor = Gold
     }
+<<<<<<< HEAD
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         self.tableView.deselectRow(at: indexPath, animated: true)
         //        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
@@ -333,13 +462,33 @@ extension MakeTableViewController:UIAlertViewDelegate{
     //    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     //        return 200
     //    }//Xcode bug hack that lets cell autosize properly
+=======
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
+        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
+        
+        path[PathType.PATHTYPE_SUBCATEGORY_STRING] = keyOfSelectedArray
+        
+        playSoundEffects(itemSelectSFX)
+        
+        performSegueWithIdentifier(Segue.SEGUE_MAKE_TO_MODEL, sender: self)
+    }//Shows when a cell at row was selected
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200
+    }//Xcode bug hack that lets cell autosize properly
+>>>>>>> MyFitZOld/master
 }
 
 
 
 //MARK: - UI-ModelTableViewController Extension
 extension MakeTableViewController{
+<<<<<<< HEAD
     @objc func animateAllButtons(){
+=======
+    func animateAllButtons(){
+>>>>>>> MyFitZOld/master
         //    self.animateSearchButton()
         //    self.animateStarButton()
         //    self.animateHamperButton()
@@ -352,13 +501,18 @@ extension MakeTableViewController{
         //        self.animateViews()
         
     }
+<<<<<<< HEAD
     @objc func animateLogo(){
+=======
+    func animateLogo(){
+>>>>>>> MyFitZOld/master
         
         //    logoCustomization(self.logoImage)
     }
 }
 
 
+<<<<<<< HEAD
 //MARK: - Search Bar
 extension MakeTableViewController: UISearchBarDelegate{
         fileprivate func setUPSearchBar(){
@@ -411,3 +565,23 @@ func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //    }
 //}
 
+=======
+
+//MARK: -Anylitics-MakeTableViewController Extension
+extension MakeTableViewController{
+    func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
+            
+            
+            let pageCount:Int? = defaults.returnIntValue("MAKE_PAGE_COUNT")
+            
+            Answers.logContentViewWithName("Category Content View",
+                contentType: "Category View",
+                contentId: "MF3",
+                customAttributes: ["MAKE_PAGE_COUNT": pageCount!
+                ])
+        })
+    }
+}
+ 
+>>>>>>> MyFitZOld/master

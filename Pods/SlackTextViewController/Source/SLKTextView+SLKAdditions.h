@@ -47,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)slk_insertTextAtCaretRange:(NSString *)text;
 
 /**
+<<<<<<< HEAD
  Insert a string at the caret's position with stylization from the attributes.
  
  @param text The string to be appended to the current text.
@@ -56,6 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
                     withAttributes:(NSDictionary<NSString *, id> *)attributes;
 
 /**
+=======
+>>>>>>> MyFitZOld/master
  Adds a string to a specific range.
  
  @param text The string to be appended to the current text.
@@ -66,6 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSRange)slk_insertText:(NSString *)text inRange:(NSRange)range;
 
 /**
+<<<<<<< HEAD
  Adds a string to a specific range, with stylization from the attributes.
  
  @param text The string to be appended to the current text.
@@ -119,6 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSAttributedString *)slk_defaultAttributedStringForText:(NSString *)text;
 
 /**
+=======
+>>>>>>> MyFitZOld/master
  Registers the current text for future undo actions.
  
  @param description A simple description associated with the Undo or Redo command.

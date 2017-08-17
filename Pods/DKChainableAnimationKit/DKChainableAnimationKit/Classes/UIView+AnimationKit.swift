@@ -26,9 +26,15 @@ public extension UIView {
         }
     }
 
+<<<<<<< HEAD
     @objc final public func bezierPathForAnimation() -> UIBezierPath {
         let path = UIBezierPath()
         path.move(to: self.layer.position)
+=======
+    final public func bezierPathForAnimation() -> UIBezierPath {
+        let path = UIBezierPath()
+        path.moveToPoint(self.layer.position)
+>>>>>>> MyFitZOld/master
         return path
     }
 

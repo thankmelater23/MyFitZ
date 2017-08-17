@@ -11,7 +11,6 @@ import Foundation
 
 // platform-dependent import frameworks to get device details
 // valid values for os(): OSX, iOS, watchOS, tvOS, Linux
-// in Swift 3 the following were added: FreeBSD, Windows, Android
 #if os(iOS) || os(tvOS) || os(watchOS)
     import UIKit
     var DEVICE_MODEL: String {
@@ -20,7 +19,7 @@ import Foundation
             uname(&systemInfo)
             let machineMirror = Mirror(reflecting: systemInfo.machine)
             let identifier = machineMirror.children.reduce("") { identifier, element in
-                guard let value = element.value as? Int8, value != 0 else { return identifier }
+                guard let value = element.value as? Int8 where value != 0 else { return identifier }
                 return identifier + String(UnicodeScalar(UInt8(value)))
             }
             return identifier
@@ -31,11 +30,12 @@ import Foundation
 #endif
 
 #if os(iOS) || os(tvOS)
-    var DEVICE_NAME = UIDevice.current.name
+    var DEVICE_NAME = UIDevice.currentDevice().name
 #else
     // under watchOS UIDevice is not existing, http://apple.co/26ch5J1
     let DEVICE_NAME = ""
 #endif
+
 
 public class SBPlatformDestination: BaseDestination {
 
@@ -43,129 +43,113 @@ public class SBPlatformDestination: BaseDestination {
     public var appSecret = ""
     public var encryptionKey = ""
     public var analyticsUserName = "" // user email, ID, name, etc.
-    public var analyticsUUID: String { return uuid }
+    public var analyticsUUID: String {
+        get {
+            return uuid
+        }
+    }
 
     // when to send to server
     public struct SendingPoints {
-        public var verbose = 0
-        public var debug = 1
-        public var info = 5
-        public var warning = 8
-        public var error = 10
-        public var threshold = 10  // send to server if points reach that value
+        public var Verbose = 0
+        public var Debug = 1
+        public var Info = 5
+        public var Warning = 8
+        public var Error = 10
+        public var Threshold = 10  // send to server if points reach that value
     }
     public var sendingPoints = SendingPoints()
     public var showNSLog = false // executes toNSLog statements to debug the class
     var points = 0
 
-    public var serverURL = URL(string: "https://api.swiftybeaver.com/api/entries/") // optional
-    public var entriesFileURL = URL(fileURLWithPath: "") // not optional
-    public var sendingFileURL = URL(fileURLWithPath: "")
-    public var analyticsFileURL = URL(fileURLWithPath: "")
-
-    private let minAllowedThreshold = 1  // over-rules SendingPoints.Threshold
+    public var serverURL = NSURL(string: "https://api.swiftybeaver.com/api/entries/")!
     private let maxAllowedThreshold = 1000  // over-rules SendingPoints.Threshold
     private var sendingInProgress = false
     private var initialSending = true
+
+    var entriesFileURL = NSURL()
+    var sendingFileURL = NSURL()
+    var analyticsFileURL = NSURL()
 
     // analytics
     var uuid = ""
 
     // destination
     override public var defaultHashValue: Int {return 3}
-    let fileManager = FileManager.default
-    let isoDateFormatter = DateFormatter()
+    let fileManager = NSFileManager.defaultManager()
+    let isoDateFormatter = NSDateFormatter()
 
-    /// init platform with default internal filenames
-    public init(appID: String, appSecret: String, encryptionKey: String,
-        entriesFileName: String = "sbplatform_entries.json",
-        sendingfileName: String = "sbplatform_entries_sending.json",
-        analyticsFileName: String = "sbplatform_analytics.json") {
+
+    public init(appID: String, appSecret: String, encryptionKey: String) {
         super.init()
         self.appID = appID
         self.appSecret = appSecret
         self.encryptionKey = encryptionKey
 
         // setup where to write the json files
-        var baseURL: URL?
-        #if os(OSX)
-            if let url = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+        var baseURL: NSURL?
+
+        if OS == "OSX" {
+            if let url = fileManager.URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask).first {
                 baseURL = url
                 // try to use ~/Library/Application Support/APP NAME instead of ~/Library/Application Support
-                if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleExecutable") as? String {
+                if let appName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleExecutable") as? String {
                     do {
-                        if let appURL = baseURL?.appendingPathComponent(appName, isDirectory: true) {
-                            try fileManager.createDirectory(at: appURL,
-                                                            withIntermediateDirectories: true, attributes: nil)
+                        if let appURL = baseURL?.URLByAppendingPathComponent(appName, isDirectory: true) {
+                            try fileManager.createDirectoryAtURL(appURL,
+                                                                 withIntermediateDirectories: true, attributes: nil)
                             baseURL = appURL
                         }
-                    } catch {
+                    } catch let error as NSError {
                         // it is too early in the class lifetime to be able to use toNSLog()
-                        print("Warning! Could not create folder ~/Library/Application Support/\(appName).")
+                        print("Warning! Could not create folder ~/Library/Application Support/\(appName). \(error)")
                     }
                 }
             }
-        #else
-            #if os(tvOS)
-                // tvOS can just use the caches directory
-                if let url = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first {
-                    baseURL = url
-                }
-            #elseif os(Linux)
-                // Linux is using /var/cache
-                let baseDir = "/var/cache/"
-                entriesFileURL = URL(fileURLWithPath: baseDir + entriesFileName)
-                sendingFileURL = URL(fileURLWithPath: baseDir + sendingfileName)
-                analyticsFileURL = URL(fileURLWithPath: baseDir + analyticsFileName)
-            #else
-                // iOS and watchOS are using the app’s document directory
-                if let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
-                    baseURL = url
-                }
-            #endif
-        #endif
+        } else {
+            // iOS, watchOS, etc. are using the document directory of the app
+            if let url = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first {
+                baseURL = url
+            }
+        }
 
-        #if os(Linux)
+        if let baseURL = baseURL {
+            #if swift(>=2.3)
+            entriesFileURL = baseURL.URLByAppendingPathComponent("sbplatform_entries.json", isDirectory: false)!
+            sendingFileURL = baseURL.URLByAppendingPathComponent("sbplatform_entries_sending.json", isDirectory: false)!
+            analyticsFileURL = baseURL.URLByAppendingPathComponent("sbplatform_analytics.json", isDirectory: false)!
+            #else
+            entriesFileURL = baseURL.URLByAppendingPathComponent("sbplatform_entries.json", isDirectory: false)
+            sendingFileURL = baseURL.URLByAppendingPathComponent("sbplatform_entries_sending.json", isDirectory: false)
+            analyticsFileURL = baseURL.URLByAppendingPathComponent("sbplatform_analytics.json", isDirectory: false)
+            #endif
+
             // get, update loaded and save analytics data to file on start
             let dict = analytics(analyticsFileURL, update: true)
-            _ = saveDictToFile(dict, url: analyticsFileURL)
-        #else
-            if let baseURL = baseURL {
-                // is just set for everything but not Linux
-                entriesFileURL = baseURL.appendingPathComponent(entriesFileName,
-                                                                isDirectory: false)
-                sendingFileURL = baseURL.appendingPathComponent(sendingfileName,
-                                                                isDirectory: false)
-                analyticsFileURL = baseURL.appendingPathComponent(analyticsFileName,
-                                                                  isDirectory: false)
-
-                // get, update loaded and save analytics data to file on start
-                let dict = analytics(analyticsFileURL, update: true)
-                _ = saveDictToFile(dict, url: analyticsFileURL)
-            }
-        #endif
+            saveDictToFile(dict, url: analyticsFileURL)
+        }
     }
 
+
     // append to file, each line is a JSON dict
-    override public func send(_ level: SwiftyBeaver.Level, msg: String, thread: String,
-        file: String, function: String, line: Int, context: Any? = nil) -> String? {
+    override public func send(level: SwiftyBeaver.Level, msg: String, thread: String,
+        path: String, function: String, line: Int) -> String? {
 
         var jsonString: String?
-
-        let dict: [String: Any] = [
-            "timestamp": Date().timeIntervalSince1970,
-            "level": level.rawValue,
-            "message": msg,
-            "thread": thread,
-            "fileName": file.components(separatedBy: "/").last!,
-            "function": function,
-            "line": line]
+        let dict: [String: AnyObject] = [
+                "timestamp": NSDate().timeIntervalSince1970,
+                "level": level.rawValue,
+                "message": msg,
+                "thread": thread,
+                "fileName": path.componentsSeparatedByString("/").last!,
+                "function": function,
+                "line":line]
 
         jsonString = jsonStringFromDict(dict)
 
         if let str = jsonString {
-            toNSLog("saving '\(msg)' to \(entriesFileURL)")
-            _ = saveToFile(str, url: entriesFileURL)
+            toNSLog("saving '\(msg)' to file")
+            saveToFile(str, url: entriesFileURL)
             //toNSLog(entriesFileURL.path!)
 
             // now decide if the stored log entries should be sent to the server
@@ -174,7 +158,7 @@ public class SBPlatformDestination: BaseDestination {
             points += newPoints
             toNSLog("current sending points: \(points)")
 
-            if (points >= sendingPoints.threshold && points >= minAllowedThreshold) || points > maxAllowedThreshold {
+            if points >= sendingPoints.Threshold || points > maxAllowedThreshold {
                 toNSLog("\(points) points is >= threshold")
                 // above threshold, send to server
                 sendNow()
@@ -194,9 +178,9 @@ public class SBPlatformDestination: BaseDestination {
                 }
             }
         }
-
         return jsonString
     }
+
 
     // MARK: Send-to-Server Logic
 
@@ -216,19 +200,16 @@ public class SBPlatformDestination: BaseDestination {
             sendingInProgress = true
             //let (jsonString, lines) = logsFromFile(sendingFileURL)
             var lines = 0
-
             guard let logEntries = logsFromFile(sendingFileURL) else {
                 sendingInProgress = false
                 return
             }
-
             lines = logEntries.count
 
             if lines > 0 {
-                var payload = [String: Any]()
+                var payload = [String:AnyObject]()
                 // merge device and analytics dictionaries
                 let deviceDetailsDict = deviceDetails()
-
                 var analyticsDict = analytics(analyticsFileURL)
 
                 for key in deviceDetailsDict.keys {
@@ -246,11 +227,12 @@ public class SBPlatformDestination: BaseDestination {
                         toNSLog(msg)
                         //toNSLog("Sending \(encryptedStr) ...")
 
-                        sendToServerAsync(encryptedStr) { ok, _ in
+                        sendToServerAsync(encryptedStr) {
+                            ok, status in
 
                             self.toNSLog("Sent \(lines) encrypted log entries to server, received ok: \(ok)")
                             if ok {
-                                _ = self.deleteFile(self.sendingFileURL)
+                                self.deleteFile(self.sendingFileURL)
                             }
                             self.sendingInProgress = false
                             self.points = 0
@@ -264,69 +246,52 @@ public class SBPlatformDestination: BaseDestination {
     }
 
     /// sends a string to the SwiftyBeaver Platform server, returns ok if status 200 and HTTP status
-    func sendToServerAsync(_ str: String?, complete: @escaping (_ ok: Bool, _ status: Int) -> Void) {
+    func sendToServerAsync(str: String?, complete: (ok: Bool, status: Int) -> ()) {
 
-        let timeout = 10.0
-
-        if let payload = str, let queue = self.queue, let serverURL = serverURL {
+        if let payload = str, let queue = self.queue {
 
             // create operation queue which uses current serial queue of destination
-            let operationQueue = OperationQueue()
+            let operationQueue = NSOperationQueue()
             operationQueue.underlyingQueue = queue
 
-            let session = URLSession(configuration:
-                URLSessionConfiguration.default,
+            let session = NSURLSession(configuration:
+                NSURLSessionConfiguration.defaultSessionConfiguration(),
                 delegate: nil, delegateQueue: operationQueue)
 
-            toNSLog("assembling request ...")
-
-             // assemble request
-             var request = URLRequest(url: serverURL,
-                                     cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                     timeoutInterval: timeout)
-            request.httpMethod = "POST"
+            // assemble request
+            let request = NSMutableURLRequest(URL: serverURL)
+            request.HTTPMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
 
-            // basic auth header (just works on Linux for Swift 3.1+, macOS is fine)
-            guard let credentials = "\(appID):\(appSecret)".data(using: String.Encoding.utf8) else {
-                    toNSLog("Error! Could not set basic auth header")
-                    return complete(false, 0)
-            }
-
-            #if os(Linux)
-            let base64Credentials = Base64.encode([UInt8](credentials))
-            #else
-            let base64Credentials = credentials.base64EncodedString(options: [])
-            #endif
+            // basic auth header
+            let credentials = "\(appID):\(appSecret)".dataUsingEncoding(NSUTF8StringEncoding)!
+            let base64Credentials = credentials.base64EncodedStringWithOptions([])
             request.setValue("Basic \(base64Credentials)", forHTTPHeaderField: "Authorization")
-            //toNSLog("\nrequest:")
-            //print(request)
 
             // POST parameters
             let params = ["payload": payload]
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
-            } catch {
-                toNSLog("Error! Could not create JSON for server payload.")
-                return complete(false, 0)
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: [])
+            } catch let error as NSError {
+                toNSLog("Error! Could not create JSON for server payload. \(error)")
             }
-            toNSLog("sending params: \(params)")
-            toNSLog("sending ...")
+            //toNSLog("sending params: \(params)")
+            //toNSLog("\n\nbefore sendToServer on thread '\(threadName())'")
 
             sendingInProgress = true
-
             // send request async to server on destination queue
-            let task = session.dataTask(with: request) { _, response, error in
+            let task = session.dataTaskWithRequest(request) {
+                _, response, error in
                 var ok = false
                 var status = 0
-                self.toNSLog("received response from server")
+                //toNSLog("callback of sendToServer on thread '\(self.threadName())'")
 
                 if let error = error {
                     // an error did occur
                     self.toNSLog("Error! Could not send entries to server. \(error)")
                 } else {
-                    if let response = response as? HTTPURLResponse {
+                    if let response = response as? NSHTTPURLResponse {
                         status = response.statusCode
                         if status == 200 {
                             // all went well, entries were uploaded to server
@@ -339,94 +304,93 @@ public class SBPlatformDestination: BaseDestination {
                         }
                     }
                 }
-                return complete(ok, status)
+                return complete(ok: ok, status: status)
             }
             task.resume()
-            //while true {} // commenting this line causes a crash on Linux unit tests?!?
         }
     }
 
     /// returns sending points based on level
-    func sendingPointsForLevel(_ level: SwiftyBeaver.Level) -> Int {
+    func sendingPointsForLevel(level: SwiftyBeaver.Level) -> Int {
 
         switch level {
-        case SwiftyBeaver.Level.debug:
-            return sendingPoints.debug
-        case SwiftyBeaver.Level.info:
-            return sendingPoints.info
-        case SwiftyBeaver.Level.warning:
-            return sendingPoints.warning
-        case SwiftyBeaver.Level.error:
-            return sendingPoints.error
+        case SwiftyBeaver.Level.Debug:
+            return sendingPoints.Debug
+        case SwiftyBeaver.Level.Info:
+            return sendingPoints.Info
+        case SwiftyBeaver.Level.Warning:
+            return sendingPoints.Warning
+        case SwiftyBeaver.Level.Error:
+            return sendingPoints.Error
         default:
-            return sendingPoints.verbose
+            return sendingPoints.Verbose
         }
     }
+
 
     // MARK: File Handling
 
     /// appends a string as line to a file.
     /// returns boolean about success
-    func saveToFile(_ str: String, url: URL, overwrite: Bool = false) -> Bool {
+    func saveToFile(str: String, url: NSURL, overwrite: Bool = false) -> Bool {
         do {
-            if fileManager.fileExists(atPath: url.path) == false || overwrite {
+            if fileManager.fileExistsAtPath(url.path!) == false || overwrite {
                 // create file if not existing
                 let line = str + "\n"
-                try line.write(to: url, atomically: true, encoding: String.Encoding.utf8)
+                try line.writeToURL(url, atomically: true, encoding: NSUTF8StringEncoding)
             } else {
                 // append to end of file
-                let fileHandle = try FileHandle(forWritingTo: url)
-                _ = fileHandle.seekToEndOfFile()
+                let fileHandle = try NSFileHandle(forWritingToURL: url)
+                fileHandle.seekToEndOfFile()
                 let line = str + "\n"
-                if let data = line.data(using: String.Encoding.utf8) {
-                    fileHandle.write(data)
-                    fileHandle.closeFile()
-                }
+                let data = line.dataUsingEncoding(NSUTF8StringEncoding)!
+                fileHandle.writeData(data)
+                fileHandle.closeFile()
             }
             return true
-        } catch {
-            toNSLog("Error! Could not write to file \(url).")
+        } catch let error {
+            toNSLog("Error! Could not write to file \(url). \(error)")
             return false
         }
     }
 
     func sendFileExists() -> Bool {
-        return fileManager.fileExists(atPath: sendingFileURL.path)
+        return fileManager.fileExistsAtPath(sendingFileURL.path!)
     }
 
     func renameJsonToSendFile() -> Bool {
         do {
-            try fileManager.moveItem(at: entriesFileURL, to: sendingFileURL)
+            try fileManager.moveItemAtURL(entriesFileURL, toURL: sendingFileURL)
             return true
-        } catch {
-            toNSLog("SwiftyBeaver Platform Destination could not rename json file.")
+        } catch let error as NSError {
+            toNSLog("SwiftyBeaver Platform Destination could not rename json file. \(error)")
             return false
         }
     }
 
     /// returns optional array of log dicts from a file which has 1 json string per line
-    func logsFromFile(_ url: URL) -> [[String:Any]]? {
+    func logsFromFile(url: NSURL) -> [[String:AnyObject]]? {
         var lines = 0
         do {
             // try to read file, decode every JSON line and put dict from each line in array
-            let fileContent = try String(contentsOfFile: url.path, encoding: .utf8)
-            let linesArray = fileContent.components(separatedBy: "\n")
-            var dicts = [[String: Any]()] // array of dictionaries
+            let fileContent = try NSString(contentsOfFile: url.path!, encoding: NSUTF8StringEncoding)
+            let linesArray = fileContent.componentsSeparatedByString("\n")
+            var dicts = [[String: AnyObject]()] // array of dictionaries
             for lineJSON in linesArray {
                 lines += 1
                 if lineJSON.characters.first == "{" && lineJSON.characters.last == "}" {
                     // try to parse json string into dict
-                    if let data = lineJSON.data(using: .utf8) {
+                    if let data = lineJSON.dataUsingEncoding(NSUTF8StringEncoding) {
                         do {
-                            if let dict = try JSONSerialization.jsonObject(with: data,
-                                options: .mutableContainers) as? [String:Any] {
+                            if let dict = try NSJSONSerialization.JSONObjectWithData(data,
+                                options: .MutableContainers) as? [String:AnyObject] {
                                 if !dict.isEmpty {
                                     dicts.append(dict)
                                 }
                             }
-                        } catch {
+                        } catch let error {
                             var msg = "Error! Could not parse "
-                            msg += "line \(lines) in file \(url)."
+                            msg += "line \(lines) in file \(url). \(error)"
                             toNSLog(msg)
                         }
                     }
@@ -434,27 +398,28 @@ public class SBPlatformDestination: BaseDestination {
             }
             dicts.removeFirst()
             return dicts
-        } catch {
-            toNSLog("Error! Could not read file \(url).")
+        } catch let error {
+            toNSLog("Error! Could not read file \(url). \(error)")
         }
         return nil
     }
 
     /// returns AES-256 CBC encrypted optional string
-    func encrypt(_ str: String) -> String? {
+    func encrypt(str: String) -> String? {
         return AES256CBC.encryptString(str, password: encryptionKey)
     }
 
     /// Delete file to get started again
-    func deleteFile(_ url: URL) -> Bool {
+    func deleteFile(url: NSURL) -> Bool {
         do {
-            try FileManager.default.removeItem(at: url)
+            try NSFileManager.defaultManager().removeItemAtURL(url)
             return true
-        } catch {
-            toNSLog("Warning! Could not delete file \(url).")
+        } catch let error {
+            toNSLog("Warning! Could not delete file \(url). \(error)")
         }
         return false
     }
+
 
     // MARK: Device & Analytics
 
@@ -463,13 +428,13 @@ public class SBPlatformDestination: BaseDestination {
         var details = [String: String]()
 
         details["os"] = OS
-        let osVersion = ProcessInfo.processInfo.operatingSystemVersion
+        let osVersion = NSProcessInfo.processInfo().operatingSystemVersion
         // becomes for example 10.11.2 for El Capitan
         var osVersionStr = String(osVersion.majorVersion)
         osVersionStr += "." + String(osVersion.minorVersion)
         osVersionStr += "." + String(osVersion.patchVersion)
         details["osVersion"] = osVersionStr
-        details["hostName"] = ProcessInfo.processInfo.hostName
+        details["hostName"] = NSProcessInfo.processInfo().hostName
         details["deviceName"] = ""
         details["deviceModel"] = ""
 
@@ -483,12 +448,12 @@ public class SBPlatformDestination: BaseDestination {
     }
 
     /// returns (updated) analytics dict, optionally loaded from file.
-    func analytics(_ url: URL, update: Bool = false) -> [String:Any] {
+    func analytics(url: NSURL, update: Bool = false) -> [String:AnyObject] {
 
-        var dict = [String: Any]()
+        var dict = [String:AnyObject]()
         let now = NSDate().timeIntervalSince1970
 
-        uuid =  NSUUID().uuidString
+        uuid =  NSUUID().UUIDString
         dict["uuid"] = uuid
         dict["firstStart"] = now
         dict["lastStart"] = now
@@ -542,7 +507,7 @@ public class SBPlatformDestination: BaseDestination {
 
     /// Returns the current app version string (like 1.2.5) or empty string on error
     func appVersion() -> String {
-        if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+        if let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String {
                 return version
         }
         return ""
@@ -550,7 +515,7 @@ public class SBPlatformDestination: BaseDestination {
 
     /// Returns the current app build as integer (like 563, always incrementing) or 0 on error
     func appBuild() -> Int {
-        if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] as? String {
             if let intVersion = Int(version) {
                 return intVersion
             }
@@ -558,22 +523,43 @@ public class SBPlatformDestination: BaseDestination {
         return 0
     }
 
-    /// returns optional dict from a json encoded file
-    func dictFromFile(_ url: URL) -> [String:Any]? {
+    // turns dict into JSON-encoded string
+    func jsonStringFromDict(dict: [String: AnyObject]) -> String? {
+        var jsonString: String?
+        // try to create JSON string
         do {
-            let fileContent = try String(contentsOfFile: url.path, encoding: .utf8)
-            if let data = fileContent.data(using: .utf8) {
-                return try JSONSerialization.jsonObject(with: data,
-                                    options: .mutableContainers) as? [String:Any]
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(dict, options: [])
+            if let str = NSString(data: jsonData, encoding: NSUTF8StringEncoding) as? String {
+                jsonString = str
             }
-        } catch {
-            toNSLog("SwiftyBeaver Platform Destination could not read file \(url)")
+        } catch let error as NSError {
+            toNSLog("SwiftyBeaver Platform Destination could not create JSON from dict. \(error)")
+        }
+        return jsonString
+    }
+
+    /// returns optional dict from a json encoded file
+    func dictFromFile(url: NSURL) -> [String:AnyObject]? {
+        do {
+            // try to read file, decode every JSON line and put dict from each line in array
+            let fileContent = try NSString(contentsOfFile: url.path!, encoding: NSUTF8StringEncoding)
+            // try to parse json string into dict
+            if let data = fileContent.dataUsingEncoding(NSUTF8StringEncoding) {
+                do {
+                    return try NSJSONSerialization.JSONObjectWithData(data,
+                        options: .MutableContainers) as? [String:AnyObject]
+                } catch let error {
+                    toNSLog("SwiftyBeaver Platform Destination could not parse file \(url). \(error)")
+                }
+            }
+        } catch let error {
+            toNSLog("SwiftyBeaver Platform Destination could not read file \(url). \(error)")
         }
         return nil
     }
 
     // turns dict into JSON and saves it to file
-    func saveDictToFile(_ dict: [String: Any], url: URL) -> Bool {
+    func saveDictToFile(dict: [String: AnyObject], url: NSURL) -> Bool {
         let jsonString = jsonStringFromDict(dict)
 
         if let str = jsonString {
@@ -583,38 +569,29 @@ public class SBPlatformDestination: BaseDestination {
         return false
     }
 
+
     // MARK: Debug Helpers
 
     /// log String to toNSLog. Used to debug the class logic
-    func toNSLog(_ str: String) {
+    func toNSLog(str: String) {
         if showNSLog {
-            #if os(Linux)
-                print("SBPlatform: \(str)")
-            #else
-                NSLog("SBPlatform: \(str)")
-            #endif
+            NSLog("SBPlatform: \(str)")
         }
     }
 
-    /// returns the current thread name
-    class func threadName() -> String {
-
-        #if os(Linux)
-            // on 9/30/2016 not yet implemented in server-side Swift:
-            // > import Foundation
-            // > Thread.isMainThread
-            return ""
-        #else
-            if Thread.isMainThread {
-                return ""
+    /// helper function for thread logging during development
+    func threadName() -> String {
+        if NSThread.isMainThread() {
+            return "main"
+        } else {
+            if let threadName = NSThread.currentThread().name where !threadName.isEmpty {
+                return threadName
+            } else if let queueName = String(UTF8String:
+                dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL)) where !queueName.isEmpty {
+                return queueName
             } else {
-                let threadName = Thread.current.name
-                if let threadName = threadName, !threadName.isEmpty {
-                    return threadName
-                } else {
-                    return String(format: "%p", Thread.current)
-                }
+                return String(format: "%p", NSThread.currentThread())
             }
-        #endif
+        }
     }
 }

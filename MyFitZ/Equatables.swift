@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+//
+>>>>>>> MyFitZOld/master
 //  Equatables.swift
 //  MyFitZ
 //
@@ -10,6 +14,7 @@ import Foundation
 
 
 //MARK: -Equatable-Item Method
+<<<<<<< HEAD
 //func ==(lhs: Wardrobe, rhs: Wardrobe) -> Bool{
 //    return (
 //        lhs.myCloset.count == rhs.myCloset.count &&
@@ -29,6 +34,27 @@ import Foundation
 //            lhs.model == rhs.model
 //    )
 //}
+=======
+func ==(lhs: Wardrobe, rhs: Wardrobe) -> Bool{
+    return (
+        lhs.myCloset.count == rhs.myCloset.count &&
+            lhs.myWantsCloset.count == rhs.myWantsCloset.count &&
+            lhs.brandCollection.count == rhs.brandCollection.count &&
+            lhs.closetItemCountID == rhs.closetItemCountID &&
+            lhs.wishListItemCountID == rhs.wishListItemCountID
+    )
+}
+
+//MARK: -Equatable-Item Method
+func ==(lhs: Item, rhs: Item) -> Bool{
+    return (
+        lhs.category == rhs.category &&
+            lhs.subCategory == rhs.subCategory &&
+            lhs.id == rhs.id &&
+            lhs.model == rhs.model
+    )
+}
+>>>>>>> MyFitZOld/master
 
 //MARK: -Equatable-Fit Method
 //func ==(lhs: Fit, rhs: Fit) -> Bool{

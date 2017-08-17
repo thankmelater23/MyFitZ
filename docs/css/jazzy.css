@@ -139,8 +139,12 @@ header {
 
 .nav-group-task {
   font-size: 0.9em;
+<<<<<<< HEAD
   list-style-type: none;
   white-space: nowrap; }
+=======
+  list-style-type: none; }
+>>>>>>> MyFitZOld/master
   .nav-group-task a {
     color: #888; }
 
@@ -164,11 +168,14 @@ header {
     padding-top: 10px; }
     .main-content section .task-group-section .task-group:first-of-type .section-name {
       padding-top: 15px; }
+<<<<<<< HEAD
   .main-content section .heading:before {
     content: "";
     display: block;
     padding-top: 70px;
     margin: -70px 0 0; }
+=======
+>>>>>>> MyFitZOld/master
 
 .section {
   padding: 0 25px; }

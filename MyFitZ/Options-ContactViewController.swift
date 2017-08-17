@@ -9,7 +9,11 @@
 
 
 import UIKit
+<<<<<<< HEAD
 //import Crashlytics
+=======
+import Crashlytics
+>>>>>>> MyFitZOld/master
 
 class Options_ContactViewController: UIViewController {
     override func viewDidLoad() {
@@ -20,14 +24,24 @@ class Options_ContactViewController: UIViewController {
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
         
+<<<<<<< HEAD
 //        defaults.addAndSend("CONTACT_PAGE_COUNT")
+=======
+        defaults.addAndSend("CONTACT_PAGE_COUNT")
+>>>>>>> MyFitZOld/master
         
     }
     
     
+<<<<<<< HEAD
     @objc func setTitle(){
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
+=======
+    func setTitle(){
+        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.translucent = false
+>>>>>>> MyFitZOld/master
     }
     deinit{
         log.info(#function)
@@ -46,13 +60,18 @@ extension Options_ContactViewController{
 
 //MARK: -Animations-Options_ContactViewController Extension
 extension Options_ContactViewController{
+<<<<<<< HEAD
     @objc func animateAllButtons(){
+=======
+    func animateAllButtons(){
+>>>>>>> MyFitZOld/master
         //            self.animateFeatureButtons()
         //            self.animateLogo()
         //            self.animateOptionButtons()
         //
         
     }
+<<<<<<< HEAD
     @objc func animateLogo(){
         //            logoCustomization(self.logoImage)
     }
@@ -64,12 +83,26 @@ extension Options_ContactViewController{
         //            optionViewCustomized(self.optionsButton)
     }
     @objc func setButtonsView(){
+=======
+    func animateLogo(){
+        //            logoCustomization(self.logoImage)
+    }
+    func animateFeatureButtons(){
+        //            cloesetButtonCustomization(self.closetButton)
+        //            cloesetButtonCustomization(self.wishListButton)
+    }
+    func animateOptionButtons(){
+        //            optionViewCustomized(self.optionsButton)
+    }
+    func setButtonsView(){
+>>>>>>> MyFitZOld/master
         //            buttonAnimation(self.closetButton)
         //            buttonAnimation(self.wishListButton)
     }
 }
 
 //MARK: -Anylitics-Options_ContactViewController Extension
+<<<<<<< HEAD
 //extension Options_ContactViewController{
 //    func logPageView(){
 //        GlobalBackgroundQueue.async(execute: {
@@ -88,3 +121,23 @@ extension Options_ContactViewController{
 //            }
 //        )}
 //}
+=======
+extension Options_ContactViewController{
+    func logPageView(){
+        dispatch_async(GlobalBackgroundQueue, {
+            
+            
+            let pageCount:Int? = defaults.returnIntValue("CONTACT_PAGE_COUNT")
+            
+            
+            
+            
+            Answers.logContentViewWithName("Contact View Content View",
+                contentType: "Options Menu",
+                contentId: "MF14",
+                customAttributes: ["CONTACT_PAGE_COUNT": pageCount!
+                ])
+            }
+        )}
+}
+>>>>>>> MyFitZOld/master

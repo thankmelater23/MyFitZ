@@ -15,6 +15,7 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
         super.viewDidLoad()
     }
     
+<<<<<<< HEAD
     override func viewDidAppear(_ animated: Bool) {
         self.playGif()
     }
@@ -31,6 +32,24 @@ class Options_Help_Instructions_PlayerViewController: UIViewController {
         gifImage.image = gif
         gifImage.contentMode = UIViewContentMode.center
         gifImage.contentMode = UIViewContentMode.scaleAspectFill
+=======
+    override func viewDidAppear(animated: Bool) {
+        self.playGif()
+    }
+    
+    func playGif(){
+        let gif = UIImage.gifWithName("Instruction_CreateItem")
+        gifImage.image = gif
+        gifImage.contentMode = UIViewContentMode.Center
+        gifImage.contentMode = UIViewContentMode.ScaleAspectFill
+    }
+    
+    func playItemView(){
+        let gif = UIImage.gifWithName("Instruction_CreateItem")
+        gifImage.image = gif
+        gifImage.contentMode = UIViewContentMode.Center
+        gifImage.contentMode = UIViewContentMode.ScaleAspectFill
+>>>>>>> MyFitZOld/master
     }
     
     deinit{

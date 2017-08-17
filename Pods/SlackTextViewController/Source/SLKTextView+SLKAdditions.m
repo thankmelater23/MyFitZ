@@ -13,8 +13,12 @@
 - (void)slk_clearText:(BOOL)clearUndo
 {
     // Important to call self implementation, as SLKTextView overrides setText: to add additional features.
+<<<<<<< HEAD
     
     [self setAttributedText:nil];
+=======
+    [self setText:nil];
+>>>>>>> MyFitZOld/master
     
     if (self.undoManagerEnabled && clearUndo) {
         [self.undoManager removeAllActions];
@@ -67,6 +71,7 @@
     self.selectedRange = NSMakeRange(range.location, 0);
 }
 
+<<<<<<< HEAD
 - (void)slk_insertTextAtCaretRange:(NSString *)text withAttributes:(NSDictionary<NSString *, id> *)attributes
 {
     NSRange range = [self slk_insertText:text withAttributes:attributes inRange:self.selectedRange];
@@ -108,15 +113,26 @@
 {
     // Skip if the attributed text is empty
     if (attributedText.length == 0) {
+=======
+- (NSRange)slk_insertText:(NSString *)text inRange:(NSRange)range
+{
+    // Skip if the text is empty
+    if (text.length == 0) {
+>>>>>>> MyFitZOld/master
         return NSMakeRange(0, 0);
     }
     
     // Registers for undo management
+<<<<<<< HEAD
     [self slk_prepareForUndo:@"Attributed text appending"];
+=======
+    [self slk_prepareForUndo:@"Text appending"];
+>>>>>>> MyFitZOld/master
     
     // Append the new string at the caret position
     if (range.length == 0)
     {
+<<<<<<< HEAD
         NSAttributedString *leftAttributedString = [self.attributedText attributedSubstringFromRange:NSMakeRange(0, range.location)];
         
         NSAttributedString *rightAttributedString = [self.attributedText attributedSubstringFromRange:NSMakeRange(range.location, self.attributedText.length-range.location)];
@@ -129,17 +145,32 @@
         [self setAttributedText:newAttributedText];
         range.location += attributedText.length;
         
+=======
+        NSString *leftString = [self.text substringToIndex:range.location];
+        NSString *rightString = [self.text substringFromIndex: range.location];
+        
+        self.text = [NSString stringWithFormat:@"%@%@%@", leftString, text, rightString];
+        
+        range.location += text.length;
+
+>>>>>>> MyFitZOld/master
         return range;
     }
     // Some text is selected, so we replace it with the new text
     else if (range.location != NSNotFound && range.length > 0)
     {
+<<<<<<< HEAD
         NSMutableAttributedString *mutableAttributeText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
         
         [mutableAttributeText replaceCharactersInRange:range withAttributedString:attributedText];
     
         [self setAttributedText:mutableAttributeText];
         range.location += self.attributedText.length;
+=======
+        self.text = [self.text stringByReplacingCharactersInRange:range withString:text];
+
+        range.location += text.length;
+>>>>>>> MyFitZOld/master
         
         return range;
     }
@@ -148,6 +179,7 @@
     return self.selectedRange;
 }
 
+<<<<<<< HEAD
 - (void)slk_clearAllAttributesInRange:(NSRange)range
 {
     NSMutableAttributedString *mutableAttributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
@@ -171,6 +203,8 @@
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
+=======
+>>>>>>> MyFitZOld/master
 - (void)slk_prepareForUndo:(NSString *)description
 {
     if (!self.undoManagerEnabled) {

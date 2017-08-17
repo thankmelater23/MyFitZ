@@ -9,29 +9,28 @@
 
 import Foundation
 
-open class SwiftyBeaver {
+public class SwiftyBeaver {
 
     /// version string of framework
-    public static let version = "1.4.0"  // UPDATE ON RELEASE!
+    public static let version = "0.6.2"  // UPDATE ON RELEASE!
     /// build number of framework
-    public static let build = 1400 // version 0.7.1 -> 710, UPDATE ON RELEASE!
+    public static let build = 620 // version 0.7.1 -> 710, UPDATE ON RELEASE!
 
     public enum Level: Int {
-        case verbose = 0
-        case debug = 1
-        case info = 2
-        case warning = 3
-        case error = 4
+        case Verbose = 0
+        case Debug = 1
+        case Info = 2
+        case Warning = 3
+        case Error = 4
     }
 
     // a set of active destinations
-    open private(set) static var destinations = Set<BaseDestination>()
+    public private(set) static var destinations = Set<BaseDestination>()
 
     // MARK: Destination Handling
 
     /// returns boolean about success
-    @discardableResult
-    open class func addDestination(_ destination: BaseDestination) -> Bool {
+    public class func addDestination(destination: BaseDestination) -> Bool {
         if destinations.contains(destination) {
             return false
         }
@@ -40,8 +39,7 @@ open class SwiftyBeaver {
     }
 
     /// returns boolean about success
-    @discardableResult
-    open class func removeDestination(_ destination: BaseDestination) -> Bool {
+    public class func removeDestination(destination: BaseDestination) -> Bool {
         if destinations.contains(destination) == false {
             return false
         }
@@ -50,79 +48,66 @@ open class SwiftyBeaver {
     }
 
     /// if you need to start fresh
-    open class func removeAllDestinations() {
+    public class func removeAllDestinations() {
         destinations.removeAll()
     }
 
     /// returns the amount of destinations
-    open class func countDestinations() -> Int {
+    public class func countDestinations() -> Int {
         return destinations.count
     }
 
     /// returns the current thread name
     class func threadName() -> String {
-
-        #if os(Linux)
-            // on 9/30/2016 not yet implemented in server-side Swift:
-            // > import Foundation
-            // > Thread.isMainThread
+        if NSThread.isMainThread() {
             return ""
-        #else
-            if Thread.isMainThread {
-                return ""
+        } else {
+            if let threadName = NSThread.currentThread().name where !threadName.isEmpty {
+                return threadName
+            } else if let queueName = String(UTF8String:
+                dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL)) where !queueName.isEmpty {
+                return queueName
             } else {
-                let threadName = Thread.current.name
-                if let threadName = threadName, !threadName.isEmpty {
-                    return threadName
-                } else {
-                    return String(format: "%p", Thread.current)
-                }
+                return String(format: "%p", NSThread.currentThread())
             }
-        #endif
+        }
     }
 
     // MARK: Levels
 
     /// log something generally unimportant (lowest priority)
-    open class func verbose(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
-        custom(level: .verbose, message: message, file: file, function: function, line: line, context: context)
+    public class func verbose(@autoclosure message: () -> Any, _
+        path: String = #file, _ function: String = #function, line: Int = #line) {
+        dispatch_send(Level.Verbose, message: message, thread: threadName(), path: path, function: function, line: line)
     }
 
     /// log something which help during debugging (low priority)
-    open class func debug(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
-        custom(level: .debug, message: message, file: file, function: function, line: line, context: context)
+    public class func debug(@autoclosure message: () -> Any, _
+        path: String = #file, _ function: String = #function, line: Int = #line) {
+        dispatch_send(Level.Debug, message: message, thread: threadName(), path: path, function: function, line: line)
     }
 
     /// log something which you are really interested but which is not an issue or error (normal priority)
-    open class func info(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
-        custom(level: .info, message: message, file: file, function: function, line: line, context: context)
+    public class func info(@autoclosure message: () -> Any, _
+        path: String = #file, _ function: String = #function, line: Int = #line) {
+        dispatch_send(Level.Info, message: message, thread: threadName(), path: path, function: function, line: line)
     }
 
     /// log something which may cause big trouble soon (high priority)
-    open class func warning(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
-        custom(level: .warning, message: message, file: file, function: function, line: line, context: context)
+    public class func warning(@autoclosure message: () -> Any, _
+        path: String = #file, _ function: String = #function, line: Int = #line) {
+        dispatch_send(Level.Warning, message: message, thread: threadName(), path: path, function: function, line: line)
     }
 
     /// log something which will keep you awake at night (highest priority)
-    open class func error(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
-        custom(level: .error, message: message, file: file, function: function, line: line, context: context)
-    }
-
-    /// custom logging to manually adjust values, should just be used by other frameworks
-    public class func custom(level: SwiftyBeaver.Level, message: @autoclosure () -> Any,
-                             file: String = #file, function: String = #function, line: Int = #line, context: Any? = nil) {
-        dispatch_send(level: level, message: message, thread: threadName(),
-                      file: file, function: function, line: line, context: context)
+    public class func error(@autoclosure message: () -> Any, _
+        path: String = #file, _ function: String = #function, line: Int = #line) {
+        dispatch_send(Level.Error, message: message, thread: threadName(), path: path, function: function, line: line)
     }
 
     /// internal helper which dispatches send to dedicated queue if minLevel is ok
-    class func dispatch_send(level: SwiftyBeaver.Level, message: @autoclosure () -> Any,
-        thread: String, file: String, function: String, line: Int, context: Any?) {
+    class func dispatch_send(level: SwiftyBeaver.Level, @autoclosure message: () -> Any,
+        thread: String, path: String, function: String, line: Int) {
         var resolvedMessage: String?
         for dest in destinations {
 
@@ -130,19 +115,19 @@ open class SwiftyBeaver {
                 continue
             }
 
-            resolvedMessage = resolvedMessage == nil && dest.hasMessageFilters() ? "\(message())" : resolvedMessage
-            if dest.shouldLevelBeLogged(level, path: file, function: function, message: resolvedMessage) {
+            resolvedMessage = resolvedMessage == nil && dest.hasMessageFilters() ? "\(message())" : nil
+            if dest.shouldLevelBeLogged(level, path: path, function: function, message: resolvedMessage) {
                 // try to convert msg object to String and put it on queue
                 let msgStr = resolvedMessage == nil ? "\(message())" : resolvedMessage!
-                let f = stripParams(function: function)
+                let f = stripParams(function)
 
                 if dest.asynchronously {
-                    queue.async {
-                        _ = dest.send(level, msg: msgStr, thread: thread, file: file, function: f, line: line, context: context)
+                    dispatch_async(queue) {
+                        dest.send(level, msg: msgStr, thread: thread, path: path, function: f, line: line)
                     }
                 } else {
-                    queue.sync {
-                        _ = dest.send(level, msg: msgStr, thread: thread, file: file, function: f, line: line, context: context)
+                    dispatch_sync(queue) {
+                        dest.send(level, msg: msgStr, thread: thread, path: path, function: f, line: line)
                     }
                 }
             }
@@ -150,42 +135,33 @@ open class SwiftyBeaver {
     }
 
     /**
-     DEPRECATED & NEEDS COMPLETE REWRITE DUE TO SWIFT 3 AND GENERAL INCORRECT LOGIC
      Flush all destinations to make sure all logging messages have been written out
      Returns after all messages flushed or timeout seconds
 
-     - returns: true if all messages flushed, false if timeout or error occurred
+     - returns: true if all messages flushed, false if timeout occurred
      */
     public class func flush(secondTimeout: Int64) -> Bool {
-
-        /*
-        guard let grp = dispatch_group_create() else { return false }
+        let grp = dispatch_group_create()
         for dest in destinations {
             if let queue = dest.queue {
                 dispatch_group_enter(grp)
-                queue.asynchronously(execute: {
+                dispatch_async(queue, {
                     dest.flush()
-                    grp.leave()
+                    dispatch_group_leave(grp)
                 })
             }
         }
-        let waitUntil = DispatchTime.now(dispatch_time_t(DISPATCH_TIME_NOW), secondTimeout * 1000000000)
+        let waitUntil = dispatch_time(DISPATCH_TIME_NOW, secondTimeout * 1000000000)
         return dispatch_group_wait(grp, waitUntil) == 0
-         */
-        return true
     }
 
     /// removes the parameters from a function because it looks weird with a single param
     class func stripParams(function: String) -> String {
         var f = function
-        if let indexOfBrace = f.characters.index(of: "(") {
-            #if swift(>=4.0)
-            f = String(f[..<indexOfBrace])
-            #else
-            f = f.substring(to: indexOfBrace)
-            #endif
+        if let indexOfBrace = f.characters.indexOf("(") {
+            f = f.substringToIndex(indexOfBrace)
         }
-        f += "()"
+        f = f + "()"
         return f
     }
 }

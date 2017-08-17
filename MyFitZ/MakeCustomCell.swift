@@ -24,15 +24,24 @@ class MakeCustomCell: UITableViewCell{
         super.awakeFromNib()
         
     }
+<<<<<<< HEAD
     override func setSelected(_ selected: Bool, animated: Bool){
         super.setSelected(selected ,  animated: animated)
     }
     
     @objc func customizeView(){
+=======
+    override func setSelected(selected: Bool, animated: Bool){
+        super.setSelected(selected ,  animated: animated)
+    }
+    
+    func customizeView(){
+>>>>>>> MyFitZOld/master
         self.backgroundColor = DarkBlueJean
         self.borderCustomization()
     }
     
+<<<<<<< HEAD
     @objc func borderCustomization(){
 //        self.layer.cornerRadius = self.frame.size.width / 10
         self.contentMode = UIViewContentMode.scaleToFill
@@ -40,6 +49,15 @@ class MakeCustomCell: UITableViewCell{
         self.clipsToBounds = true
         self.layer.borderWidth = 2
         self.layer.borderColor = Stitching.cgColor
+=======
+    func borderCustomization(){
+//        self.layer.cornerRadius = self.frame.size.width / 10
+        self.contentMode = UIViewContentMode.ScaleToFill
+        
+        self.clipsToBounds = true
+        self.layer.borderWidth = 2
+        self.layer.borderColor = Stitching.CGColor
+>>>>>>> MyFitZOld/master
     }
     
 }
@@ -48,7 +66,11 @@ class MakeCustomCell: UITableViewCell{
 
 //MARK: -Initializers
 extension MakeCustomCell{
+<<<<<<< HEAD
     @objc func setCell(_ Image: UIImage, makeLabelText: String, numberOfItemsText: Int){
+=======
+    func setCell(Image: UIImage, makeLabelText: String, numberOfItemsText: Int){
+>>>>>>> MyFitZOld/master
         self.makeImage.image = Image
         self.makeLabel.text = makeLabelText
         self.numberOfItemsLabel.text = "Items in \(makeLabelText): \(numberOfItemsText)"
@@ -62,7 +84,14 @@ extension MakeCustomCell{
 
 //MARK: -Animations-ViewController Extension
 extension MakeCustomCell{
+<<<<<<< HEAD
     @objc func animateView(){
         categoryCellImageCustomization(self.imageView!)
     }
 }
+=======
+    func animateView(){
+        categoryCellImageCustomization(self.imageView!)
+    }
+}
+>>>>>>> MyFitZOld/master

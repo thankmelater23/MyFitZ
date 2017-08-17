@@ -15,7 +15,11 @@
   <key>CFBundlePackageType</key>
   <string>FMWK</string>
   <key>CFBundleShortVersionString</key>
+<<<<<<< HEAD
   <string>2.1.2</string>
+=======
+  <string>2.0.3</string>
+>>>>>>> MyFitZOld/master
   <key>CFBundleSignature</key>
   <string>????</string>
   <key>CFBundleVersion</key>

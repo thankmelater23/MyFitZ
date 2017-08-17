@@ -47,9 +47,12 @@ UIKIT_EXTERN NSString * const SLKTextViewPastedItemData;
 /** The placeholder color. Default is lightGrayColor. */
 @property (nonatomic, copy) UIColor *_Null_unspecified placeholderColor;
 
+<<<<<<< HEAD
 /** The placeholder's number of lines. Default is 1. */
 @property (nonatomic, readwrite) NSInteger placeholderNumberOfLines;
 
+=======
+>>>>>>> MyFitZOld/master
 /** The maximum number of lines before enabling scrolling. Default is 0 wich means limitless.
  If dynamic type is enabled, the maximum number of lines will be calculated proportionally to the user preferred font size. */
 @property (nonatomic, readwrite) NSUInteger maxNumberOfLines;

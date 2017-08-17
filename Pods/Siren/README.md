@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Siren 🚨
 
 ### Notify users when a new version of your app is available and prompt them to upgrade.
@@ -21,6 +22,13 @@
 - [Words of Caution](https://github.com/ArtSabintsev/Siren#words-of-caution)
 - [Ports](https://github.com/ArtSabintsev/Siren#ports)
 - [Attribution](https://github.com/ArtSabintsev/Siren#created-and-maintained-by)
+=======
+# Siren
+
+### Notify users when a new version of your app is available, and prompt them with the App Store link.
+
+![Travis-CI](https://travis-ci.org/ArtSabintsev/Siren.svg?branch=master) ![Cocoapods](https://img.shields.io/cocoapods/v/Siren.svg) [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+>>>>>>> MyFitZOld/master
 ---
 
 ## About
@@ -30,6 +38,7 @@ If a new version is available, an alert can be presented to the user informing t
 
 - Siren is built to work with the [**Semantic Versioning**](http://semver.org/) system.
 	- Semantic Versioning is a three number versioning system (e.g., 1.0.0)
+<<<<<<< HEAD
 	- Siren also supports two-number versioning (e.g., 1.0) and four-number versioning (e.g., 1.0.0.0)
 - Siren is actively maintained by [**Arthur Sabintsev**](http://github.com/ArtSabintsev) and [**Aaron Brager**](http://twitter.com/getaaron)
 
@@ -54,16 +63,49 @@ If a new version is available, an alert can be presented to the user informing t
 - These options are controlled by the `Siren.AlertType` enum.
 
 <img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picForcedUpdate.png?raw=true" height="480"><img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picOptionalUpdate.png?raw=true" height="480"><img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picSkippedUpdate.png?raw=true" height="480">
+=======
+	- Siren also supports two-number versioning (e.g., 1.0)
+	- Siren also supports four-number versioning (e.g., 1.0.0.0)
+- Siren is actively maintained by [**Arthur Sabintsev**](http://github.com/ArtSabintsev) and [**Aaron Brager**](http://twitter.com/getaaron)
+
+## Ports
+- Siren is a Swift language port of [**Harpy**](http://github.com/ArtSabintsev/Harpy), an Objective-C library that achieves the same functionality.
+- Siren and Harpy are maintained by the same developers.
+- This library was the inspiration for [**Egghead Games' Siren library**](https://github.com/eggheadgames/Siren), which achieves the same functionality with the Google Play store on the Android platform.
+
+## Features
+- [x] CocoaPods Support
+- [x] Localized for 20+ languages (See **Localization**)
+- [x] Pre-Update Device Compatibility Check (See **Device Compatibility**)
+- [x] Three types of alerts (see **Screenshots**)
+- [x] Optional delegate methods (see **Optional Delegate**)
+- [x] Unit Tests!
+
+## Screenshots
+
+- The **left picture** forces the user to update the app.
+- The **center picture** gives the user the option to update the app.
+- The **right picture** gives the user the option to skip the current update.
+- These options are controlled by the `SirenAlertType` enum.
+
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picForcedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picOptionalUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picSkippedUpdate.png?raw=true" height=480">
+>>>>>>> MyFitZOld/master
 
 
 ## Installation Instructions
 
 ### CocoaPods
+<<<<<<< HEAD
 For Swift 3 support:
+=======
+>>>>>>> MyFitZOld/master
 ```ruby
 pod 'Siren'
 ```
 
+<<<<<<< HEAD
 For Swift 4 support:
 ```ruby
 pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4'
@@ -121,10 +163,52 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 	  // Replace .immediately with .daily or .weekly to specify a maximum daily or weekly frequency for version checks.
 		// DO NOT CALL THIS METHOD IN didFinishLaunchingWithOptions IF YOU ALSO PLAN TO CALL IT IN applicationDidBecomeActive.
     siren.checkVersion(checkType: .immediately)
+=======
+Add `import Siren` to any `.Swift` file that references Siren via a CocoaPods installation.
+
+### Carthage
+``` swift
+github "ArtSabintsev/Siren"
+```
+
+### Swift Package manager
+```swift
+.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 0)
+```
+
+Add `import Siren` to any `.Swift` file that references Siren via a Carthage installation.
+
+### Manual
+
+1. [Download Siren](//github.com/ArtSabintsev/Siren/archive/master.zip).
+2. Copy the `Siren` folder into your project.
+
+## Setup
+
+Here's some commented sample code. Adapt this to meet your app's needs. For a full list of optional settings/preferences, please refer to https://github.com/ArtSabintsev/Siren/blob/master/Sample%20App/Sample%20App/AppDelegate.swift in the Sample Project.
+
+```Swift
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+{
+	/* Siren code should go below window?.makeKeyAndVisible() */
+
+	// Siren is a singleton
+	let siren = Siren.sharedInstance
+
+	// Optional: Defaults to .Option
+	siren.alertType = <#SirenAlertType_Enum_Value#>
+
+	/*
+	    Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+	    checks.
+	*/
+    siren.checkVersion(.Immediately)
+>>>>>>> MyFitZOld/master
 
     return true
 }
 
+<<<<<<< HEAD
 func applicationDidBecomeActive(application: UIApplication) {
 	/*
 	    Perform daily (.daily) or weekly (.weekly) checks for new version of your app.
@@ -143,6 +227,28 @@ func applicationWillEnterForeground(application: UIApplication) {
    */
 
     Siren.shared.checkVersion(checkType: .immediately)
+=======
+func applicationDidBecomeActive(application: UIApplication)
+{
+	/*
+	    Perform daily (.Daily) or weekly (.Weekly) checks for new version of your app.
+	    Useful if user returns to your app from the background after extended period of time.
+    	 Place in applicationDidBecomeActive(_:).	*/
+
+    Siren.sharedInstance.checkVersion(.Daily)
+}
+
+func applicationWillEnterForeground(application: UIApplication)
+{
+   /*
+	    Useful if user returns to your app from the background after being sent to the
+	    App Store, but doesn't update their app before coming back to your app.
+
+       ONLY USE WITH SirenAlertType.Force
+   */
+
+    Siren.sharedInstance.checkVersion(.Immediately)
+>>>>>>> MyFitZOld/master
 }
 ```
 
@@ -153,6 +259,7 @@ And you're all set!
 Some developers may want to display a less obtrusive custom interface, like a banner or small icon. To accomplish this, you can disable alert presentation by doing the following:
 
 ```swift
+<<<<<<< HEAD
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 	...
 	siren.delegate = self
@@ -164,12 +271,28 @@ extension AppDelegate: SirenDelegate {
 	// Returns a localized message to this delegate method upon performing a successful version check
     func sirenDidDetectNewVersionWithoutAlert(message: String) {
         print("\(message)")
+=======
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+{
+	...
+	siren.delegate = self
+	siren.alertType = .None
+	...
+}
+
+extension AppDelegate: SirenDelegate
+{
+	// Returns a localized message to this delegate method upon performing a successful version check
+    func sirenDidDetectNewVersionWithoutAlert(message: String) {
+        println("\(message)")
+>>>>>>> MyFitZOld/master
     }
 }
 ```
 
 Siren will call the `sirenDidDetectNewVersionWithoutAlert(message: String)` delegate method, passing a localized, suggested update string suitable for display. Implement this method to display your own messaging, optionally using `message`.
 
+<<<<<<< HEAD
 ## Granular Version Update Management
 If you would like to set a different type of alert for revision, patch, minor, and/or major updates, simply add one or all of the following *optional* lines to your setup *before* calling the `checkVersion()` method:
 
@@ -179,6 +302,17 @@ If you would like to set a different type of alert for revision, patch, minor, a
 	siren.shared.patchUpdateAlertType = <#Siren.AlertType_Enum_Value#>
 	siren.shared.minorUpdateAlertType = <#Siren.AlertType_Enum_Value#>
 	siren.shared.majorUpdateAlertType = <#Siren.AlertType_Enum_Value#>
+=======
+## Differentiated Alerts for Revision, Patch, Minor, and Major Updates
+If you would like to set a different type of alert for revision, patch, minor, and/or major updates, simply add one or all of the following *optional* lines to your setup *before* calling the `checkVersion()` method:
+
+```swift
+	/* Siren defaults to SirenAlertType.Option for all updates */
+	siren.sharedInstance().revisionUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.sharedInstance().patchUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.sharedInstance().minorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.sharedInstance().majorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+>>>>>>> MyFitZOld/master
 ```
 
 ## Optional Delegate and Delegate Methods
@@ -186,7 +320,11 @@ Six delegate methods allow you to handle or track the user's behavior. Each meth
 
 ```	swift
 public protocol SirenDelegate: class {
+<<<<<<< HEAD
     func sirenDidShowUpdateDialog(alertType: Siren.AlertType)   // User presented with update dialog
+=======
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType)   // User presented with update dialog
+>>>>>>> MyFitZOld/master
     func sirenUserDidLaunchAppStore()                          // User did click on button that launched App Store.app
     func sirenUserDidSkipVersion()                             // User did click on button that skips version update
     func sirenUserDidCancel()                                  // User did click on button that cancels update dialog
@@ -195,6 +333,7 @@ public protocol SirenDelegate: class {
 }
 ```
 
+<<<<<<< HEAD
 ## Localization
 Siren is localized for
 - Arabic
@@ -243,17 +382,38 @@ Siren.shared.forceLanguageLocalization = Siren.LanguageType.<#Siren.LanguageType
 ```
 ## Device Compatibility
 If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible with the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
+=======
+## Force Localization
+Harpy is localized for Arabic, Armenian, Basque, Chinese (Simplified), Chinese (Traditional), Danish, Dutch, English, Estonian, French, German, Hebrew, Hungarian, Italian, Japanese, Korean, Latvian, Lithuanian, Malay, Polish, Portuguese (Brazil), Portuguese (Portugal), Russian, Slovenian, Swedish, Spanish, Thai, and Turkish.
+
+You may want the update dialog to *always* appear in a certain language, ignoring iOS's language setting (e.g. apps released in a specific country).
+
+You can enable it like this:
+
+```swift
+Siren.sharedInstance.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
+```
+## Device Compatibility
+If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
+>>>>>>> MyFitZOld/master
 
 ## Testing Siren
 Temporarily change the version string in Xcode (within the `.xcodeproj`) to an older version than the one that's currently available in the App Store. Afterwards, build and run your app, and you should see the alert.
 
+<<<<<<< HEAD
 If you currently don't have an app in the store, change your bundleID to one that is already in the store. In the sample app packaged with this library, we use the [iTunes Connect Mobile](https://itunes.apple.com/us/app/itunes-connect/id376771144?mt=8) app's bundleID: `com.apple.itunesconnect.mobile`.
 
 For your convenience, you may turn on debugging statements by setting `self.debugEnabled = true` before calling the `checkVersion()` method.
+=======
+If you currently don't have an app in the store, use the **AppID** for the iTunes Connect App (*376771144*), or any other app, and temporarily change the version string in `.xcodeproj` to an older version than the one that's currently available in the App Store.
+
+For your convenience, you may turn on `printn()` debugging statements by setting `self.debugEnabled = true` before calling the `checkVersion()` method.
+>>>>>>> MyFitZOld/master
 
 ## App Store Submissions
 The App Store reviewer will **not** see the alert. The version in the App Store will always be older than the version being reviewed.
 
+<<<<<<< HEAD
 ## Phased Releases
 In 2017, Apple announced the [ability to rollout app updates gradually (a.k.a. Phased Releases)](https://itunespartner.apple.com/en/apps/faq/Managing%20Your%20Apps_Submission%20Process). Siren will continue to work as it has in the past, presenting an update modal to _all_ users. If you opt-in to a phased rollout for a specific version, you will need to remotely disable Siren until the rollout is done.
 
@@ -271,5 +431,7 @@ Occasionally, the iTunes JSON will update faster than the App Store CDN, meaning
    - [**Gant Laborde's Siren library**](https://github.com/GantMan/react-native-siren)
    - The Siren Swift library inspired the React Native library.
 
+=======
+>>>>>>> MyFitZOld/master
 ## Created and maintained by
 [Arthur Ariel Sabintsev](http://www.sabintsev.com/) & [Aaron Brager](http://twitter.com/getaaron)
