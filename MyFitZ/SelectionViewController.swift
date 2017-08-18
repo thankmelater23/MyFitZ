@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 BangBangStudios. All rights reserved.
 //
 import UIKit
-//import DKChainableAnimationKit
+import DKChainableAnimationKit
 //import Crashlytics
 
 //MARK: -SelectionViewController Class
@@ -148,6 +148,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     }
     
     
+}
 //func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
 //    let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
 //    let btnDone = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SelectionViewController.dismiss))
@@ -175,11 +176,14 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 //                })
 //        })
 //}
-    deinit{
-        log.info(#function)
-
-    }
-}
+//    deinit{
+//        log.info(#function)
+//    }
+//    deinit{
+//        log.info(#function)
+//
+//    }
+//}
 
 
 

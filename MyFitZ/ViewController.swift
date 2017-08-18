@@ -74,7 +74,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @objc func clearDefaultsPath(){
         //Variables
         let lastUserLoggedIn = "lastUserLoggedIn"

@@ -1,2 +1,0 @@
-# MyFitZ
-Virtual Closet Manager

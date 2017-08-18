@@ -4,16 +4,16 @@
 target 'MyFitZ' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'SwiftyBeaver'#, '~> 0.2' Logger with tags
-  pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
   pod 'Fabric'
-  pod 'Crashlytics'
-  #  pod 'Answers'
-  pod 'Appsee'
   pod 'Optimizely-iOS-SDK'
+  pod 'Crashlytics'
+  pod 'Appsee'
+#  pod 'Answers'
   pod 'CRToast'#(0.0.9)
-#  pod 'DKChainableAnimationKit', '~> 2.0.0'
+  pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
+  pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
   pod 'MRProgress' #Multiple tipes of loading bars and circles
+  pod 'SwiftyBeaver'#, '~> 0.2' Logger with tags
   pod 'AsyncSwift'#GCD wrapper
   pod 'SVProgressHUD'#(1.1.3) spinner
   pod 'TSMessages'#(0.9.12)
@@ -24,7 +24,7 @@ target 'MyFitZ' do
   pod 'SlackTextViewController'
   pod 'HeapInspector'
 #  pod 'IQKeyboardManagerSwift'#, '4.0.8'#Look to update after 9-17
-  pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4'
+  #pod 'Siren'#This will be done when the app has an app id number
   #pod 'Parse'
   pod 'Firebase/Core'
   pod 'FirebaseDatabase'
