@@ -96,7 +96,6 @@
 		47F710B01F343FE8007CC98C /* AAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AF1F343FE7007CC98C /* AAViewController.swift */; };
 		47F710B21F34401B007CC98C /* AwesomeDataDemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */; };
 		47F710B41F34402A007CC98C /* UnsplashImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B31F34402A007CC98C /* UnsplashImage.swift */; };
-		47F710B61F344077007CC98C /* JSNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B51F344077007CC98C /* JSNViewController.swift */; };
 		47F710B81F36AE66007CC98C /* DBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B71F36AE65007CC98C /* DBViewController.swift */; };
 		47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD157F1EC06943006CF4DA /* DataBaseController.swift */; };
 		47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */; };
@@ -127,8 +126,6 @@
 
 /* Begin PBXFileReference section */
 		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
-		471452301F30125800D03426 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../../../../../../.Trash/TableViewController.swift; sourceTree = "<group>"; };
-		471452311F30125800D03426 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = ../../../../../../.Trash/CoreDataManager.swift; sourceTree = "<group>"; };
 		471452341F303F7B00D03426 /* OtherFKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OtherFKViewController.swift; path = "../../../../../../Documents/Core Data Projects/Blog_Intro_to_CoreData-master/ToDO App/OtherFKViewController.swift"; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +217,6 @@
 		47F710AF1F343FE7007CC98C /* AAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AAViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/AAViewController.swift"; sourceTree = "<group>"; };
 		47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwesomeDataDemoAPI.swift; path = "../../../../../../Documents/Core Data Projects/AwesomeData-master/Example/AwesomeData/Library/AwesomeDataDemoAPI.swift"; sourceTree = "<group>"; };
 		47F710B31F34402A007CC98C /* UnsplashImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnsplashImage.swift; path = "../../../../../../Documents/Core Data Projects/AwesomeData-master/Example/AwesomeData/Model/UnsplashImage.swift"; sourceTree = "<group>"; };
-		47F710B51F344077007CC98C /* JSNViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSNViewController.swift; path = "../../../../../../Downloads/iOS-JSON-Downloading-Demo-master/JOSNSwiftDemo/JSNViewController.swift"; sourceTree = "<group>"; };
 		47F710B71F36AE65007CC98C /* DBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBViewController.swift; path = "../../../../../../Downloads/Tutorial-iOS-CoreData-master/\\9\\963/DBViewController.swift"; sourceTree = "<group>"; };
 		47FD157F1EC06943006CF4DA /* DataBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
 		47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -512,13 +508,10 @@
 			children = (
 				47F710AD1F343FA0007CC98C /* TableViewController.swift */,
 				47F710AF1F343FE7007CC98C /* AAViewController.swift */,
-				471452311F30125800D03426 /* CoreDataManager.swift */,
-				471452301F30125800D03426 /* TableViewController.swift */,
 				47F710B71F36AE65007CC98C /* DBViewController.swift */,
 				471452341F303F7B00D03426 /* OtherFKViewController.swift */,
 				47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */,
 				47F710B31F34402A007CC98C /* UnsplashImage.swift */,
-				47F710B51F344077007CC98C /* JSNViewController.swift */,
 			);
 			name = "Code To Use";
 			sourceTree = "<group>";
@@ -1022,7 +1015,6 @@
 				471C95311EBF3B8C00A6C337 /* Constants_Fit.swift in Sources */,
 				470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */,
 				471C952B1EBF3B8C00A6C337 /* Typealias.swift in Sources */,
-				47F710B61F344077007CC98C /* JSNViewController.swift in Sources */,
 				471C952C1EBF3B8C00A6C337 /* Enums.swift in Sources */,
 				47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */,
 				471C95111EBF3B5D00A6C337 /* Extensions.swift in Sources */,
