@@ -13,19 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-<<<<<<< HEAD
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1EAE15690526D9D72AD3111F6A2A6BAC'
+               BlueprintIdentifier = 'B5D7CD0E0CEA45E09F6701A49BAF113D'
                BlueprintName = 'RETableViewManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'RETableViewManager.framework'>
-=======
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5D7CD0E0CEA45E09F6701A49BAF113D"
-               BuildableName = "RETableViewManager.framework"
-               BlueprintName = "RETableViewManager"
-               ReferencedContainer = "container:Pods.xcodeproj">
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,18 +40,6 @@
       debugServiceExtension = "internal"
       buildConfiguration = "Debug"
       allowLocationSimulation = "YES">
-<<<<<<< HEAD
-=======
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5D7CD0E0CEA45E09F6701A49BAF113D"
-            BuildableName = "RETableViewManager.framework"
-            BlueprintName = "RETableViewManager"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

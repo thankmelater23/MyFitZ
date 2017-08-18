@@ -125,12 +125,6 @@
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
-<<<<<<< HEAD
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>21</integer>
-=======
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
@@ -142,40 +136,27 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>20</integer>
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 		</dict>
 		<key>SlackTextViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>20</integer>
-=======
 			<integer>21</integer>
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 		</dict>
 		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>22</integer>
-=======
 			<integer>23</integer>
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 		</dict>
 		<key>TSMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>23</integer>
-=======
 			<integer>24</integer>
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 		</dict>
 		<key>iRate.xcscheme</key>
 		<dict>

@@ -175,22 +175,11 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 //                })
 //        })
 //}
-<<<<<<< HEAD
-//    deinit{
-//        log.info(#function)
-//    }
-//    deinit{
-//        log.info(#function)
-//
-//    }
-//}
-=======
     deinit{
         log.info(#function)
 
     }
 }
->>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 
 
 
