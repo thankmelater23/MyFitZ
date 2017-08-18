@@ -148,7 +148,6 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     }
     
     
-}
 //func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
 //    let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
 //    let btnDone = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SelectionViewController.dismiss))
@@ -176,6 +175,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 //                })
 //        })
 //}
+<<<<<<< HEAD
 //    deinit{
 //        log.info(#function)
 //    }
@@ -184,6 +184,13 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 //
 //    }
 //}
+=======
+    deinit{
+        log.info(#function)
+
+    }
+}
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 
 
 

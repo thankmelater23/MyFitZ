@@ -42,7 +42,11 @@
                   moduleName = "MyFitZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
+<<<<<<< HEAD
                   timestampString = "524746024.279651"
+=======
+                  timestampString = "524707947.788565"
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "131"
@@ -57,7 +61,11 @@
                   moduleName = "MyFitZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
+<<<<<<< HEAD
                   timestampString = "524746024.283934"
+=======
+                  timestampString = "524707947.792648"
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "131"
@@ -89,6 +97,25 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
+=======
+            filePath = "MyFitZ/ViewController.swift"
+            timestampString = "524649917.643774"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "setUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
             filePath = "MyFitZ/User+CoreDataClass.swift"
             timestampString = "524489982.734363"
             startingColumnNumber = "9223372036854775807"

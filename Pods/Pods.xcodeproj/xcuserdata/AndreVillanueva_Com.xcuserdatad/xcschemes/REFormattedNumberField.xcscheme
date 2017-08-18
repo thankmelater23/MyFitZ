@@ -13,11 +13,19 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
+<<<<<<< HEAD
                BuildableIdentifier = 'primary'
                BlueprintIdentifier = '6ED0DEE2E6263695101DD92FFFD8D93B'
                BlueprintName = 'REFormattedNumberField'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'REFormattedNumberField.framework'>
+=======
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0CE8060C2CC13F86F8EDBD62C02770EC"
+               BuildableName = "REFormattedNumberField.framework"
+               BlueprintName = "REFormattedNumberField"
+               ReferencedContainer = "container:Pods.xcodeproj">
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +48,18 @@
       debugServiceExtension = "internal"
       buildConfiguration = "Debug"
       allowLocationSimulation = "YES">
+<<<<<<< HEAD
+=======
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0CE8060C2CC13F86F8EDBD62C02770EC"
+            BuildableName = "REFormattedNumberField.framework"
+            BlueprintName = "REFormattedNumberField"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

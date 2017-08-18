@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> MyFitZOld/master
+=======
+
+>>>>>>> MyFitZOld/master
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
@@ -66,3 +77,17 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+<<<<<<< HEAD
+=======
+#*****************************************************************************
+#PERSONAL FILES
+MyFiTz.mp4
+Todo
+changes.rtf 
+gource.ppm
+MyfitZ.ipa
+#*****************************************************************************
+#BUSINESS FILES:
+
+#*****************************************************************************
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
