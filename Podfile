@@ -11,7 +11,7 @@ target 'MyFitZ' do
 #  pod 'Answers'
   pod 'CRToast'#(0.0.9)
   pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
-  pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
+#  pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
   pod 'MRProgress' #Multiple tipes of loading bars and circles
   pod 'SwiftyBeaver'#, '~> 0.2' Logger with tags
   pod 'AsyncSwift'#GCD wrapper
@@ -24,7 +24,7 @@ target 'MyFitZ' do
   pod 'SlackTextViewController'
   pod 'HeapInspector'
 #  pod 'IQKeyboardManagerSwift'#, '4.0.8'#Look to update after 9-17
-  #pod 'Siren'#This will be done when the app has an app id number
+  pod 'Siren'#This will be done when the app has an app id number
   #pod 'Parse'
   pod 'Firebase/Core'
   pod 'FirebaseDatabase'
