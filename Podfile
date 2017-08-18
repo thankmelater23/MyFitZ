@@ -11,7 +11,7 @@ target 'MyFitZ' do
 #  pod 'Answers'
   pod 'CRToast'#(0.0.9)
   pod 'RETableViewManager'#Creates multiple sections and various kinds of cells for tableview (1.6)
-  pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
+#  pod 'DKChainableAnimationKit'#(1.6.0) Animation wrapper
   pod 'MRProgress' #Multiple tipes of loading bars and circles
   pod 'SwiftyBeaver'#, '~> 0.2' Logger with tags
   pod 'AsyncSwift'#GCD wrapper
