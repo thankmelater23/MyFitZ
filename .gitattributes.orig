@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-*.pbxproj binary merge=union
-
-#Alternatives
-#*.pbxproj -crlf -merge 
-#*.pbxproj merge=union
-=======
-*.pbxproj merge=union
->>>>>>> 14edf75023d65a3c37e191a4b5a683131a878c54
