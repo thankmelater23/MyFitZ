@@ -1,3 +1,5 @@
-*.ppm
-*.ipa
-MyFitZ.mp4
+*.pbxproj binary merge=union
+
+#Alternatives
+#*.pbxproj -crlf -merge 
+#*.pbxproj merge=union

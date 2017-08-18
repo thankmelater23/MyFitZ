@@ -7,7 +7,7 @@
 //
 import UIKit
 import CRToast
-//import DKChainableAnimationKit
+import DKChainableAnimationKit
 //import Crashlytics
 
 

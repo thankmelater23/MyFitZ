@@ -28,9 +28,8 @@ class ViewController: UIViewController {
         self.loggerFix()
         self.setTitle()
         self.appSettings()
-        
-        
     }
+    
     override func viewDidAppear(_ animated: Bool){
         self.navCustomized()
     }
@@ -73,7 +72,6 @@ class ViewController: UIViewController {
             return
         }
     }
-    
     
     @objc func clearDefaultsPath(){
         //Variables

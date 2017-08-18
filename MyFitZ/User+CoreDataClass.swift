@@ -89,13 +89,13 @@ public class User: NSManagedObject {
 //        items4.category = "N/A"
 //        items4.subCategory = "N/A"
         
+
 //        do{
 //            try context.save()
 //        }catch{
 //            print("Didn't save")
 //        }
-        
-        //Entity Bonding
+
 //        wardrobe1.addToItems(items1)
 //        wardrobe2.addToItems(items2)
 //        wardrobe1b.addToItems(items3)
@@ -105,7 +105,6 @@ public class User: NSManagedObject {
 //        user1.addToWardrobe(wardrobe2)
 //        user2.addToWardrobe(wardrobe1b)
 //        user2.addToWardrobe(wardrobe2b)
-        
         //        wardrobe1.user = user1
         //        wardrobe2.user = user1
         //        wardrobe1b.user = user2

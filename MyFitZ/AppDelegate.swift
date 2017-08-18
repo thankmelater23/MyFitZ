@@ -8,14 +8,14 @@
          
          import UIKit
          import Fabric
-         //         import Answers
+//         import Answers
          import CoreData
          import Crashlytics
-//         import Appsee
-         //         import IQKeyboardManagerSwift
+         import Appsee
+//         import IQKeyboardManagerSwift
          import Firebase
          //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
-         import Siren
+         //import Siren
          import SwiftyBeaver
          //import Parse
          //import Bolts
@@ -39,11 +39,10 @@
                 //        self.parseSetUp()
                 //        self.setUpApperrance()
                 //        initializeSounds()
-                self.sirenInit()
                 Fabric.with([Crashlytics.self, Answers.self])//Appsee.self
                 FirebaseApp.configure()
                 Database.database().isPersistenceEnabled = true
-                
+
                 return true
             }
             
@@ -89,13 +88,35 @@
                 let platform = SBPlatformDestination(appID: "B1Q8QX", appSecret: "nwrivhWudvqSisnMhhdb31ds4olncntc", encryptionKey: "f76j2vyjjaaiK4yQzOvgtwpRaaxIeqti")
                 log.addDestination(platform)
             }
-            //             @objc func iqKeyboardInitilize(){
-            //                IQKeyboardManager.sharedManager().enable = true
-            //            }
+//             @objc func iqKeyboardInitilize(){
+//                IQKeyboardManager.sharedManager().enable = true
+//            }
             
-            @objc func removeConstraintFromLogger(){
+             @objc func removeConstraintFromLogger(){
                 log.info(#function)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+            }
+            
+             @objc func sirenInitilization(){
+                                    log.info(#function)
+                //                    /* Siren code should go below window?.makeKeyAndVisible() */
+                //
+                //                    // Siren is a singleton
+                //                    let siren = Siren.sharedInstance
+                //
+                //                    // Required: Your app's iTunes App Store ID
+                //                    //        siren.appID = APP_ID
+                //
+                //                    // Optional: Defaults to .Option
+                //
+                //
+                //                    /*
+                //                     Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+                //                     checks.
+                //                     */
+                //                    siren.checkVersion(.daily)
+                //
+                //                    siren.alertType = SirenAlertType.option
             }
             
             
@@ -121,60 +142,60 @@
             
             //MARK: - Core Data
             fileprivate func createSampleDatabase(){
-                //                User.createUsers()
+//                User.createUsers()
             }
             
             //MARK: - Notifications
-            //            @objc func createAndRegisterNotificationSettings(){
-            //                log.info("Notifications are being set")
-            //                //Noitfications
-            //                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
-            //
-            //                let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notifytypes, categories: nil)
-            //
-            //                UIApplication.shared.registerUserNotificationSettings(notifSettings)
-            //            }
-            //            @objc func setNotifications(){
-            //                let daysTillFire = 7
-            //                let today = Date()
-            //
-            //                let lastFiredDateString = "lastFiredDate"
-            //                var lastFiredDate = defaults.value(forKey: lastFiredDateString) as? NSDate
-            //
-            //                if lastFiredDate == nil{
-            //                    lastFiredDate = today as NSDate
-            //                    defaults.set(today, forKey: lastFiredDateString)
-            //                    log.debug("First fired Date: \(lastFiredDate)")
-            //                }else{
-            //
-            //                    var dateComp = DateComponents()
-            //                    dateComp.day = daysTillFire
-            //                    let cal = Calendar.current
-            //
-            //                    let fireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: lastFiredDate as! Date, options: NSCalendar.Options())!
-            //
-            //                    let daysBetweenLastFiredAndNow = calicuateDaysBetweenTwoDates(start: today, end: fireDate )
-            //
-            //                    if(daysBetweenLastFiredAndNow < 1){
-            //                        let notification: UILocalNotification = UILocalNotification()
-            //                        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
-            //                        notification.alertTitle = "REMINDER"
-            //                        notification.alertLaunchImage = "icon1"
-            //
-            //                        let newFireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: today , options: NSCalendar.Options())!
-            //                        notification.fireDate = newFireDate
-            //
-            //                        UIApplication.shared.scheduleLocalNotification(notification)
-            //                        defaults.set(NSDate(), forKey: lastFiredDateString)
-            //                        log.debug("Notification Fired")
-            //                        log.debug("Updated Last Time Fired Date : \(newFireDate)")
-            //
-            //                    }else{
-            //                        log.warning("Wont fire notification")
-            //                        log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
-            //                    }
-            //                }
-            //            }
+//            @objc func createAndRegisterNotificationSettings(){
+//                log.info("Notifications are being set")
+//                //Noitfications
+//                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
+//
+//                let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notifytypes, categories: nil)
+//
+//                UIApplication.shared.registerUserNotificationSettings(notifSettings)
+//            }
+//            @objc func setNotifications(){
+//                let daysTillFire = 7
+//                let today = Date()
+//
+//                let lastFiredDateString = "lastFiredDate"
+//                var lastFiredDate = defaults.value(forKey: lastFiredDateString) as? NSDate
+//
+//                if lastFiredDate == nil{
+//                    lastFiredDate = today as NSDate
+//                    defaults.set(today, forKey: lastFiredDateString)
+//                    log.debug("First fired Date: \(lastFiredDate)")
+//                }else{
+//
+//                    var dateComp = DateComponents()
+//                    dateComp.day = daysTillFire
+//                    let cal = Calendar.current
+//
+//                    let fireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: lastFiredDate as! Date, options: NSCalendar.Options())!
+//
+//                    let daysBetweenLastFiredAndNow = calicuateDaysBetweenTwoDates(start: today, end: fireDate )
+//
+//                    if(daysBetweenLastFiredAndNow < 1){
+//                        let notification: UILocalNotification = UILocalNotification()
+//                        notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
+//                        notification.alertTitle = "REMINDER"
+//                        notification.alertLaunchImage = "icon1"
+//
+//                        let newFireDate:Date = (cal as NSCalendar).date(byAdding: dateComp, to: today , options: NSCalendar.Options())!
+//                        notification.fireDate = newFireDate
+//
+//                        UIApplication.shared.scheduleLocalNotification(notification)
+//                        defaults.set(NSDate(), forKey: lastFiredDateString)
+//                        log.debug("Notification Fired")
+//                        log.debug("Updated Last Time Fired Date : \(newFireDate)")
+//
+//                    }else{
+//                        log.warning("Wont fire notification")
+//                        log.info("Only \(daysBetweenLastFiredAndNow) since last fire date")
+//                    }
+//                }
+//            }
             
             //MARK: - Application Methods
             fileprivate func setupApplication() {
@@ -183,61 +204,10 @@
                 self.swiftBeaverSetUp()
                 self.removeConstraintFromLogger()
                 self.ifFirstStart()
-                //                self.createAndRegisterNotificationSettings()
-                //                self.setNotifications()
-                //                self.iqKeyboardInitilize()
+//                self.createAndRegisterNotificationSettings()
+//                self.setNotifications()
+//                self.iqKeyboardInitilize()
             }
-            func sirenInit(){
-                log.info(#function)
-                /* Siren code should go below window?.makeKeyAndVisible() */
-                
-                // Siren is a singleton
-                let siren = Siren.shared
-                
-                // Required: Your app's iTunes App Store ID
-                //        siren.appID = APP_ID
-                
-                // Optional: Defaults to .Option
-                
-                
-                /*
-                 Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-                 checks.
-                 */
-                siren.checkVersion(checkType: .daily)
-                
-                siren.alertType = .option
-            }
-//            func createAndRegisterNotificationSettings(){
-//            log.info("Notifications are being set")
-//            //Noitfications
-//                let notifytypes:UIUserNotificationType = [.alert, .badge, .sound]
-//
-//            let notifSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notifytypes, categories: nil)
-//
-//            UIApplication.sharedApplication().registerUserNotificationSettings(notifSettings)
-//            }
-//            func setNotifications(){
-//                log.info("Notifications are being set")
-//                let today = NSDate()
-//
-//                let dateComp = NSDateComponents()
-//                dateComp.day = 7
-//
-//                let cal = NSCalendar.currentCalendar()
-//                let fireDate:NSDate = cal.dateByAddingComponents(dateComp, toDate: today, options: NSCalendarOptions())!
-//
-//
-//                let notification: UILocalNotification = UILocalNotification()
-//                notification.alertBody = "Hey it's been a while since you been on, come check out MyFitZ"
-//                notification.alertTitle = "REMINDER"
-//                notification.alertLaunchImage = "icon1"
-//
-//                notification.fireDate = fireDate
-//
-//                UIApplication.sharedApplication().scheduleLocalNotification(notification)
-//                log.info("Notifications are set")
-//            }
             
          }
          

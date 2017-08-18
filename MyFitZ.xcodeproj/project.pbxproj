@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */; };
+		416443B31F468877004924B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416443B21F468877004924B4 /* Default-568h@2x.png */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
 		470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */; };
 		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
@@ -90,7 +91,9 @@
 		475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
 		475B74561F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
 		475B74571F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
+		476CB54E1F2125BC0037BBD6 /* Changes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 476CB54D1F2125BC0037BBD6 /* Changes.rtf */; };
 		478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */; };
+		47AC4CB81F233CDF00272720 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = 47AC4CB71F233CDF00272720 /* Todo */; };
 		47ED82711ED1BD1A005E79BD /* LongCreationUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */; };
 		47F710AE1F343FA0007CC98C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AD1F343FA0007CC98C /* TableViewController.swift */; };
 		47F710B01F343FE8007CC98C /* AAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AF1F343FE7007CC98C /* AAViewController.swift */; };
@@ -125,6 +128,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		416443B21F468877004924B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
 		471452341F303F7B00D03426 /* OtherFKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OtherFKViewController.swift; path = "../../../../../../Documents/Core Data Projects/Blog_Intro_to_CoreData-master/ToDO App/OtherFKViewController.swift"; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +215,9 @@
 		471C959F1EBF435A00A6C337 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
 		471C95A01EBF435A00A6C337 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		475B74541F31600400C13743 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		476CB54D1F2125BC0037BBD6 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
 		478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
+		47AC4CB71F233CDF00272720 /* Todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
 		47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongCreationUITableViewCell.swift; sourceTree = "<group>"; };
 		47F710AD1F343FA0007CC98C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/TableViewController.swift"; sourceTree = "<group>"; };
 		47F710AF1F343FE7007CC98C /* AAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AAViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/AAViewController.swift"; sourceTree = "<group>"; };
@@ -277,6 +283,9 @@
 		471C94BD1EBF371F00A6C337 = {
 			isa = PBXGroup;
 			children = (
+				416443B21F468877004924B4 /* Default-568h@2x.png */,
+				47AC4CB71F233CDF00272720 /* Todo */,
+				476CB54D1F2125BC0037BBD6 /* Changes.rtf */,
 				471C94C81EBF371F00A6C337 /* MyFitZ */,
 				471C94E01EBF372000A6C337 /* MyFitZTests */,
 				471C94EB1EBF372000A6C337 /* MyFitZUITests */,
@@ -674,6 +683,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC4CB81F233CDF00272720 /* Todo in Resources */,
 				471C957E1EBF3C9300A6C337 /* save0.wav in Resources */,
 				471C95791EBF3C9300A6C337 /* got0.wav in Resources */,
 				471C955D1EBF3C8000A6C337 /* jeremy.gif in Resources */,
@@ -690,6 +700,7 @@
 				471C95801EBF3C9300A6C337 /* update0.wav in Resources */,
 				471C957A1EBF3C9300A6C337 /* mycloset0.wav in Resources */,
 				471C957B1EBF3C9300A6C337 /* mycloset1.wav in Resources */,
+				416443B31F468877004924B4 /* Default-568h@2x.png in Resources */,
 				475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */,
 				471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */,
 				471C95831EBF3C9300A6C337 /* wishlist0.wav in Resources */,
@@ -699,6 +710,7 @@
 				471C95761EBF3C9300A6C337 /* clear0.wav in Resources */,
 				471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */,
 				471C957D1EBF3C9300A6C337 /* notification0.wav in Resources */,
+				476CB54E1F2125BC0037BBD6 /* Changes.rtf in Resources */,
 				471C95731EBF3C9300A6C337 /* animationPop0.wav in Resources */,
 				471C94FE1EBF37B900A6C337 /* Main.storyboard in Resources */,
 				471C959D1EBF407C00A6C337 /* Assets.xcassets in Resources */,
@@ -933,6 +945,7 @@
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/CRToast/CRToast.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DKChainableAnimationKit/DKChainableAnimationKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -944,7 +957,6 @@
 				"${BUILT_PRODUCTS_DIR}/RETableViewManager/RETableViewManager.framework",
 				"${BUILT_PRODUCTS_DIR}/REValidation/REValidation.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/TSMessages/TSMessages.framework",
@@ -957,6 +969,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKChainableAnimationKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -968,7 +981,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RETableViewManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/REValidation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSMessages.framework",
