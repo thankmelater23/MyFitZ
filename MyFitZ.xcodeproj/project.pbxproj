@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */; };
+		41D6731D1F46EAFC00C34D23 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D6731C1F46EAFC00C34D23 /* Default-568h@2x.png */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
 		470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */; };
 		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
@@ -125,6 +126,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41D6731C1F46EAFC00C34D23 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
 		471452341F303F7B00D03426 /* OtherFKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OtherFKViewController.swift; path = "../../../../../../Documents/Core Data Projects/Blog_Intro_to_CoreData-master/ToDO App/OtherFKViewController.swift"; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		471C94BD1EBF371F00A6C337 = {
 			isa = PBXGroup;
 			children = (
+				41D6731C1F46EAFC00C34D23 /* Default-568h@2x.png */,
 				471C94C81EBF371F00A6C337 /* MyFitZ */,
 				471C94E01EBF372000A6C337 /* MyFitZTests */,
 				471C94EB1EBF372000A6C337 /* MyFitZUITests */,
@@ -680,6 +683,7 @@
 				471C95771EBF3C9300A6C337 /* delete0.wav in Resources */,
 				471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */,
 				471C95751EBF3C9300A6C337 /* cellselect1.wav in Resources */,
+				41D6731D1F46EAFC00C34D23 /* Default-568h@2x.png in Resources */,
 				471C95821EBF3C9300A6C337 /* wear1.wav in Resources */,
 				471C95781EBF3C9300A6C337 /* edit0.wav in Resources */,
 				471C94FF1EBF37B900A6C337 /* LaunchScreen.xib in Resources */,

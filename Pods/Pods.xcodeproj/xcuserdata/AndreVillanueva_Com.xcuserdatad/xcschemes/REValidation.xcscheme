@@ -13,11 +13,19 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
+<<<<<<< HEAD
                BuildableIdentifier = 'primary'
                BlueprintIdentifier = '8AA54389CE95719B5FEEA5BCAED22AFE'
                BlueprintName = 'REValidation'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'REValidation.framework'>
+=======
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8AA54389CE95719B5FEEA5BCAED22AFE"
+               BuildableName = "REValidation.framework"
+               BlueprintName = "REValidation"
+               ReferencedContainer = "container:Pods.xcodeproj">
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +48,18 @@
       debugServiceExtension = "internal"
       buildConfiguration = "Debug"
       allowLocationSimulation = "YES">
+<<<<<<< HEAD
+=======
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8AA54389CE95719B5FEEA5BCAED22AFE"
+            BuildableName = "REValidation.framework"
+            BlueprintName = "REValidation"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+>>>>>>> 8d6f029db6d1d3423ac75b7070adb482da677fca
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
