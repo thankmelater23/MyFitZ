@@ -29,7 +29,9 @@
   * [Chapter 3](#chapter-3)
  
 ---
-<p align="center">**Examples**
+<p align="center">**Examples**<a id="chapter-1"></a>
+
+
 
 ![imb_o5u5uu](https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF)
 ![imb_dg2ee1](https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF)
@@ -37,8 +39,36 @@
 ![imb_opqg35](https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF)
 
 ---
+## About <a id="chapter-2"></a>
+With MyFitZ you can <verb><Plural-Noun>...
+MyFitZ helps you ___
+if you use MyFitZ then you ___
+You'll like MyFitZ because you can ___
+MyFItZ is better than <Alternative_project> beacuse you can
+MyFitZ is related to <other_Project> because
 
+___
+#Features
 
+___
+#Terms Of Use:
 
+___
+#Prerequisites
+IOS 10
+WatchOs 4+
+iPhone 6+
+Apple Watch
 
+___
+#Instalation
+Clone/Build/Run
+
+___
+#Contributions
+
+___
+#Documentations
+
+___
 
