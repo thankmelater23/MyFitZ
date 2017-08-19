@@ -55,12 +55,12 @@ class MakeTableViewController: UITableViewController{
     
     @objc func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
-//        let categorySorter = NSSortDescriptor(key: "category", ascending: true)
-//        let nameSorter = NSSortDescriptor(key: "model", ascending: true)
-//        let favoritesSorter = NSSortDescriptor(key: "isFavorite", ascending: true)
-//        fetchRequest.sortDescriptors = [nameSorter, favoritesSorter, categorySorter]
-        let wardrobePredicate = NSPredicate(format: "self.wardrobe = %@", wardrobe!)
-//        let categoryPredicates = 
+        let categorySorter = NSSortDescriptor(key: "category", ascending: true)
+        let nameSorter = NSSortDescriptor(key: "model", ascending: true)
+        let favoritesSorter = NSSortDescriptor(key: "isFavorite", ascending: true)
+        fetchRequest.sortDescriptors = [nameSorter, favoritesSorter, categorySorter]
+//        let wardrobePredicate = NSPredicate(format: "self.wardrobe = %@", wardrobe!)
+//        let categoryPredicates =
         
         
         return fetchRequest

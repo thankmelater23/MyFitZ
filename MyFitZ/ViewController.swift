@@ -20,21 +20,14 @@ class ViewController: UIViewController {
     //MARK: -Variables
     var user: User? = nil
     var userNumber: Int?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        log.info(#function)
-        self.clearDefaultsPath()
-        self.setUser()
-        self.loggerFix()
-        self.setTitle()
-        self.appSettings()
-        
-    }
-    
+
     override func viewDidAppear(_ animated: Bool){
+        log.info(#function)
         self.navCustomized()
+        self.setUser()
     }
     override func viewWillAppear(_ animated: Bool) {
+        log.info(#function)
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationController?.isToolbarHidden = true
         self.navigationController?.isNavigationBarHidden = true
@@ -56,6 +49,7 @@ class ViewController: UIViewController {
     
     //MARK: - Custom Functions
     @objc func setUser(){
+        log.info(#function)
         //TODO: - Make a global define
         let lastUserLoggedIn = "lastUserLoggedIn"
         let number = closetTypeGlobal.closet
@@ -75,6 +69,7 @@ class ViewController: UIViewController {
     }
     
     @objc func clearDefaultsPath(){
+        log.info(#function)
         //Variables
         let lastUserLoggedIn = "lastUserLoggedIn"
         let categoryPath = "categoryPath"
@@ -88,11 +83,9 @@ class ViewController: UIViewController {
         defaults.set(nil, forKey: itemIndexPath)
     }
     
-    @objc func loggerFix(){
-        log.verbose("\n\n\n\n\n\n")
-    }
     
     @objc func fetchUser(userNumber: Int)->User{
+        log.info(#function)
         do{
             var users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
             
@@ -140,6 +133,7 @@ class ViewController: UIViewController {
     
     //MARK Settings
     @objc func appSettings(){
+        log.info(#function)
         //        let userLovesUs = defaults.value(forKey: "DoYouLoveUs") as! Bool?
         //        var theLove = String()
         //

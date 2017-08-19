@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/User+CoreDataClass.swift"
-            timestampString = "524813712.671218"
+            timestampString = "524874317.751267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getWardrobe()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "createUsers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/ViewController.swift"
+            timestampString = "524874317.751349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "setUser()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,13 +42,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/User+CoreDataClass.swift"
-            timestampString = "524813712.671634"
+            timestampString = "524874317.751417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "createUsers()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MyFitZ.User.createUsers() -&gt; ()"
+                  moduleName = "MyFitZ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
+                  timestampString = "524874317.939091"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "6584">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 : @autoclosure () -&gt; Any in static MyFitZ.User.createUsers() -&gt; ()"
+                  moduleName = "MyFitZ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
+                  timestampString = "524874317.941746"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/ViewController.swift"
-            timestampString = "524649917.643774"
+            timestampString = "524874317.751471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "setUser()"
             landmarkType = "7">
          </BreakpointContent>
