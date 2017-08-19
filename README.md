@@ -1,6 +1,6 @@
 # MyFitZ
-===
-Virtual Closet Manager
+
+## Virtual Closet Manager
 
 ![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
 ![imb_o5u5uu](https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF)
