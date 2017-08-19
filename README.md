@@ -1,4 +1,4 @@
-# MyFitZ
+# **MyFitZ**
 
 ## Virtual Closet Manager
 
