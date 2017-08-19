@@ -34,6 +34,7 @@ struct MyFitZEntities{
 }
 let myfitzEntities = MyFitZEntities()
 
+
 //MARK: -Segue identifiers
 struct Segues{
     let SEGUE_MAIN_TO_SELECTION      = "mainToSelection"

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData 
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         self.loggerFix()
         self.setTitle()
         self.appSettings()
+        
     }
     
     override func viewDidAppear(_ animated: Bool){
@@ -173,6 +174,17 @@ class ViewController: UIViewController {
         //        navigationItem.rightBarButtonItem?.customView?.backgroundColor = LeatherTexture
         //        navigationItem.leftBarButtonItem?.customView?.backgroundColor = LeatherTexture
     }
+//    func createConfetti(){
+//        let confettiView = SAConfettiView(frame: self.view.bounds)
+//        self.view.addSubview(confettiView)
+//        confettiView.type = .Star
+//        confettiView.colors = [UIColor.redColor(), UIColor.whiteColor(), UIColor.blueColor()]
+//        confettiView.intensity = 0.75
+//        confettiView.startConfetti()
+//        //confettiView.stopConfetti()
+//        let confettiOn = confettiView.isActive() as! Bool
+//        log.info("Is confetti running: \(confettiOn)")
+//    }
 }
 
 //MARK: -Actions-ViewController Extension

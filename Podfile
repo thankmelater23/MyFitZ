@@ -29,7 +29,7 @@ target 'MyFitZ' do
   pod 'Firebase/Core'
   pod 'FirebaseDatabase'
   pod 'Firebase/Auth'
-
+#  pod "SAConfettiView" #Runs confetti on the screen
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
