@@ -51,6 +51,12 @@ ___
 #Features
 
 ___
+Youtube Videos:
+###Trailer
+###Video
+#Gource
+
+___
 #Terms Of Use:
 
 ___
@@ -65,10 +71,22 @@ ___
 Clone/Build/Run
 
 ___
+#Main Issues xx-xx-xx:
+
+___
+#Technology Used
+
+___
+#Change Log
+
+___
 #Contributions
 
 ___
 #Documentations
+
+___
+#Social Media Links
 
 ___
 
