@@ -1,7 +1,7 @@
 ![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
 
 <h1 align="center"><strong>MyFitZ</strong></h1>
-<h4 align="center"><i>MyFitZ MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛<👓 </h4></i>
+<h4 align="center"><i>MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛<👓 </h4></i>
 
 ---
 <p align="center"><a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Version-Beta-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Release-Unreleased-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a>
@@ -29,6 +29,7 @@
   * [About](#About)
   * [Features](#Features)
   * [Youtube Videos](#Youtube-Videos)
+  * [Newsletter](#Newsletter)
   * [Terms Of Use](#Terms-Of-Use)
   * [Prerequisites](#Prerequisites)
   * [Instalation](#Instalation)
@@ -62,18 +63,26 @@ ___
 
 ___
 ## **Youtube Videos** <a id="Youtube-Videos"></a>
-###Trailer
-###Video
-#Gource
+<a href="https://www.youtube.com/attribution_link?a=ndOgzBQnZHTB7mtb&u=/watch%3Fv%3Dnw5ZL_vyMcA%26feature%3Dem-share_video_user" target="_blank"><img src="http://andrevillanueva.com/wp-content/uploads/2016/01/MyFitZ2016-1.png" 
+alt="MyFitZ Gource" width="240" height="180" border="10" /></a> <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://andrevillanueva.com/wp-content/uploads/2016/01/MyFitZ2016-1.png" 
+alt="MyFitZ Gource" width="240" height="180" border="10" /></a>
 
 ___ 
+## **MyFitZ Newsletter** <a id="Newsletter"></a>
+
+**Click [here](eepurl.com/cOTsKX) to join MyFitZ Newsletter, and get MyFitZ updates and prizes!!**
+---
 ## **Terms Of Use** <a id="Terms-Of-Use"></a>
 ___
 ## **Prerequisites** <a id="Prerequisites"></a>
-IOS 10
-WatchOs 4+
-iPhone 6+
-Apple Watch
+-iPhone 6+
+
+-IOS 10
+
+-Apple Watch
+
+-WatchOs 4+
 
 ___
 ## **Instalation** <a id="Instalation"></a>
@@ -107,7 +116,7 @@ ___
 ___
 ## **License** <a id="License"></a>
 MIT License
-
+<p>
 Copyright (c) 2017 Andre Villanueva
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -119,6 +128,6 @@ furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
+</p>
 ___
 
