@@ -43,7 +43,6 @@
  
 ---
 <h2 align="center"><a id="Examples"></a><strong>Examples<strong></h2>
-
 ![imb_o5u5uu](https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF)
 ![imb_dg2ee1](https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF)
 ![imb_m2u9i0](https://user-images.githubusercontent.com/4246541/29471829-af072e7c-840e-11e7-8fb2-d7c6e675a203.GIF)
@@ -71,17 +70,12 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a>
 ___ 
 ## **📩MyFitZ Newsletter** <a id="Newsletter"></a>
 
-**Click [here](eepurl.com/cOTsKX) to join MyFitZ Newsletter, and get MyFitZ updates and prizes!!**
+**Click [here](eepurl.com/cOTsKX) to [join](eepurl.com/cOTsKX) MyFitZ [Newsletter](eepurl.com/cOTsKX), and get MyFitZ [updates](eepurl.com/cOTsKX) and prizes!!**
 
 ___
 ## **⚠️ Reuqirments** <a id="Prerequisites"></a>
--iPhone 6+
-
--IOS 10
-
--Apple Watch
-
--WatchOs 4+
+<a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Device-iPhone%206+-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Watch-Apple%20Watch-yellow.svg?style=plastic" alt="apple.com"></a>
+<a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> 
 
 ---
 ## **❗️Terms Of Use❗** <a id="Terms-Of-Use"></a>
@@ -92,11 +86,17 @@ ___
 Clone/Build/Run
 
 ___
-## **☢️Main Issues** <h4>8-28-2017</h4><a id="Main-Issues"></a>
-
+## **☢️Main Issues** <a id="Main-Issues"></a>
+|#|Issues|
+|:---| :------------------------------------------------------------------------------|
+|1|Not fully functional|
+|2|Core Data not fully connected|
 ___
 ## **Technology Used** <a id="Technology-Used"></a>
-
+|#|Technology|
+|:---| :------------------------------------------------------------------------------|
+|1||
+|2||
 ___
 ## **📜Change Log:** <a id="Change-Log"></a>
 |#|Version: 1.0.beta.1|
@@ -105,14 +105,14 @@ ___
 |2|In between a core data migration|
 |3|Rewritten/migrated from old app|
 ___
-## **Contributions** <a id="Contributions"></a>
+## **👥Contributions** <a id="Contributions"></a>
 
 ___
-## **📝Documentation** <a id="Documentation"></a>
+## **📗Documentation** <a id="Documentation"></a>
 ### **Coming soon...**
 
 ___
-## **Social Media** <a id="Social-Media-Links"></a>
+## **👥Social Media** <a id="Social-Media-Links"></a>
 <a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks"></a>
 <a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a>
 <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
