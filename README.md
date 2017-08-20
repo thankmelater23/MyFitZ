@@ -1,7 +1,8 @@
 ![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
 
 <h1 align="center"><strong>MyFitZ</strong></h1>
-<h4 align="center">MyFitZ MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛👓 </h4>
+<h4 align="center"><i>MyFitZ MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛<👓 </h4></i>
+
 ---
 <p align="center"><a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Version-Beta-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Release-Unreleased-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a>
 <p align="center"><a href="https://swift.org" target="_blank"><img src="https://img.shields.io/badge/Language-Swift%204-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com"></a>
@@ -36,7 +37,7 @@
   * [Change Log](#Change-Log)
   * [Contributions](#Contributions)
   * [Documentation](#Documentation)
-  * [#Social Media Links](#Social-Media-Links)
+  * [Social Media Links](#Social-Media-Links)
   * [License](#License) 
  
 ---
@@ -85,19 +86,39 @@ ___
 ## **Technology Used** <a id="Technology-Used"></a>
 
 ___
-## **Change Log** <a id="Change-Log"></a>
-
+## **Change Log:** <a id="Change-Log"></a>
+|#|Version: 1.0.beta.1|
+|:---| :------------------------------------------------------------------------------|
+|1|App is far into production and functional |
+|2|In between a core data migration|
+|3|Rewritten/migrated from old app|
 ___
 ## **Contributions** <a id="Contributions"></a>
 
 ___
 ## **Documentation** <a id="Documentation"></a>
+### **Coming soon...**
 
 ___
-## **Social Media Links** <a id="Social-Media-Links"></a>
-
+## **Social Media** <a id="Social-Media-Links"></a>
+<a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks"></a>
+<a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a><a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a>
+<a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
 ___
 ## **License** <a id="License"></a>
+MIT License
+
+Copyright (c) 2017 Andre Villanueva
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 ___
 
