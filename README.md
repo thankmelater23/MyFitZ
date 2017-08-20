@@ -1,7 +1,7 @@
 ![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
 
-<p align="center">**MyFitZ**
-
+<h1 align="center"><strong>MyFitZ</strong></h1>
+<h4 align="center">MyFitZ MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛👓 </h4>
 ---
 <p align="center"><a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Version-Beta-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Release-Unreleased-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a>
 <p align="center"><a href="https://swift.org" target="_blank"><img src="https://img.shields.io/badge/Language-Swift%204-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com"></a>
@@ -17,19 +17,32 @@
 <p align="center"><a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Framework-Watchkit-red.svg?style=plastic" alt="apple.com"></a> <a href="https://cocoapods.org/" target="_blank"><img src="https://img.shields.io/badge/Framework-Cocoapods-red.svg?style=plastic" alt="https://cocoapods.org/"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Framework-Core Data-red.svg?style=plastic" alt="apple.com"></a> <href="Fabric.io" target="_blank"><img src="https://img.shields.io/badge/Integration-Fabric-red.svg?style=plastic" alt="Fabric.io"></a><a href="https://firebase.google.com/" target="_blank"><img src="https://img.shields.io/badge/Integration-Firebase-red.svg?style=plastic" alt="https://firebase.google.com/"></a> 
 
 ---
-<p align="center">**AUTHOR**
+<h2><p align="center"><strong>AUTHOR</strong></p></h2>
 
-<p align="center">###ANDRE VILLANUEVA
+<a href="http://WWW.AndreVillanueva.com" target="_blank"><h4 align="center"><strong>ANDRE VILLANUEVA</strong></h4></a>
 
 
 ---
-# Table of Contents
-  * [Chapter 1](#chapter-1)
-  * [Chapter 2](#chapter-2)
-  * [Chapter 3](#chapter-3)
+## Table of Contents
+  * [Examples](#Examples)
+  * [About](#About)
+  * [Features](#Features)
+  * [Youtube Videos](#Youtube-Videos)
+  * [Terms Of Use](#Terms-Of-Use)
+  * [Prerequisites](#Prerequisites)
+  * [Instalation](#Instalation)
+  * [Main Issues](#Main-Issues)
+  * [Technology Used](#Technology-Used)
+  * [Change Log](#Change-Log)
+  * [Contributions](#Contributions)
+  * [Documentation](#Documentation)
+  * [#Social Media Links](#Social-Media-Links)
+  * [Features](#Features)
+  * [Features](#Features)
+  * [Features](#Features)
  
 ---
-<p align="center">**Examples**<a id="chapter-1"></a>
+<h2 align="center"><a id="Examples"></a>Examples</h2>
 
 
 
@@ -39,7 +52,7 @@
 ![imb_opqg35](https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF)
 
 ---
-## About <a id="chapter-2"></a>
+## About <a id="About"></a>
 With MyFitZ you can <verb><Plural-Noun>...
 MyFitZ helps you ___
 if you use MyFitZ then you ___
@@ -48,51 +61,47 @@ MyFItZ is better than <Alternative_project> beacuse you can
 MyFitZ is related to <other_Project> because
 
 ___
-#Features
+## Features <a id="Features"></a>
 
 ___
-Youtube Videos:
+## Youtube Videos <a id="Youtube-Videos"></a>
 ###Trailer
 ###Video
 #Gource
 
+___ 
+## Terms Of Use <a id="Terms-Of-Use"></a>
 ___
-#Images
-
-___
-#Terms Of Use:
-
-___
-#Prerequisites
+## Prerequisites <a id="Prerequisites"></a>
 IOS 10
 WatchOs 4+
 iPhone 6+
 Apple Watch
 
 ___
-#Instalation
+## Instalation <a id="Instalation"></a>
 Clone/Build/Run
 
 ___
-#Main Issues xx-xx-xx:
+## Main Issues <h4>8-28-2017</h4><a id="Main-Issues"></a>
 
 ___
-#Technology Used
+## Technology Used <a id="Technology-Used"></a>
 
 ___
-#Change Log
+## Change Log <a id="Change-Log"></a>
 
 ___
-#Contributions
+## Contributions <a id="Contributions"></a>
 
 ___
-#Documentations
+## Documentation <a id="Documentation"></a>
 
 ___
-#Social Media Links
+## Social Media Links <a id="Social-Media-Links"></a>
 
 ___
-#License
+## License <a id="License"></a>
 
 ___
 
