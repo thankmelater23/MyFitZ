@@ -23,7 +23,7 @@
 
 
 ---
-## Table of Contents
+## **Table of Contents**
   * [Examples](#Examples)
   * [About](#About)
   * [Features](#Features)
@@ -37,14 +37,10 @@
   * [Contributions](#Contributions)
   * [Documentation](#Documentation)
   * [#Social Media Links](#Social-Media-Links)
-  * [Features](#Features)
-  * [Features](#Features)
-  * [Features](#Features)
+  * [License](#License) 
  
 ---
-<h2 align="center"><a id="Examples"></a>Examples</h2>
-
-
+<h2 align="center"><a id="Examples"></a><strong>Examples<strong></h2>
 
 ![imb_o5u5uu](https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF)
 ![imb_dg2ee1](https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF)
@@ -52,7 +48,7 @@
 ![imb_opqg35](https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF)
 
 ---
-## About <a id="About"></a>
+<h2 align="center"><a id="About"></a><strong>About<strong></h2>
 With MyFitZ you can <verb><Plural-Noun>...
 MyFitZ helps you ___
 if you use MyFitZ then you ___
@@ -61,47 +57,47 @@ MyFItZ is better than <Alternative_project> beacuse you can
 MyFitZ is related to <other_Project> because
 
 ___
-## Features <a id="Features"></a>
+## **Features** <a id="Features"></a>
 
 ___
-## Youtube Videos <a id="Youtube-Videos"></a>
+## **Youtube Videos** <a id="Youtube-Videos"></a>
 ###Trailer
 ###Video
 #Gource
 
 ___ 
-## Terms Of Use <a id="Terms-Of-Use"></a>
+## **Terms Of Use** <a id="Terms-Of-Use"></a>
 ___
-## Prerequisites <a id="Prerequisites"></a>
+## **Prerequisites** <a id="Prerequisites"></a>
 IOS 10
 WatchOs 4+
 iPhone 6+
 Apple Watch
 
 ___
-## Instalation <a id="Instalation"></a>
+## **Instalation** <a id="Instalation"></a>
 Clone/Build/Run
 
 ___
-## Main Issues <h4>8-28-2017</h4><a id="Main-Issues"></a>
+## **Main Issues** <h4>8-28-2017</h4><a id="Main-Issues"></a>
 
 ___
-## Technology Used <a id="Technology-Used"></a>
+## **Technology Used** <a id="Technology-Used"></a>
 
 ___
-## Change Log <a id="Change-Log"></a>
+## **Change Log** <a id="Change-Log"></a>
 
 ___
-## Contributions <a id="Contributions"></a>
+## **Contributions** <a id="Contributions"></a>
 
 ___
-## Documentation <a id="Documentation"></a>
+## **Documentation** <a id="Documentation"></a>
 
 ___
-## Social Media Links <a id="Social-Media-Links"></a>
+## **Social Media Links** <a id="Social-Media-Links"></a>
 
 ___
-## License <a id="License"></a>
+## **License** <a id="License"></a>
 
 ___
 
