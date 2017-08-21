@@ -150,9 +150,8 @@ ___
 
 ___
 ## **👥Social Media** <a id="Social-Media-Links"></a>
-<a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks"></a>
-<a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a>
-<a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
+<a href="http://MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Website-MyFitZ-blue.svg?style=plastic" alt="http://MyFitZApp.com"></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a> <a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks"></a>
+<a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a> <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
 
 ___
 
@@ -168,7 +167,10 @@ MIT License
 ___
 
 <h2 align="center"><a id="Story"></a><strong>📺Story<strong></h2>
-##### **MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).It has been an on and off project with development not starting until 2015.  Estimation for release is 2017.  Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**
+<h6><strong>MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).It has been an on and off project with development not starting until 2015.<br><br>
 
+Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**<br><br>
+
+Estimation for release is 2017.</strong></h6>
 ---
 
