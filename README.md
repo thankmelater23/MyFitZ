@@ -39,6 +39,7 @@
   * [Contributions](#Contributions)
   * [Documentation](#Documentation)
   * [Social Media Links](#Social-Media-Links)
+  * [Story](#Story) 
   * [License](#License) 
  
 ---
@@ -99,14 +100,27 @@ ___
 |2||
 ___
 ## **📜Change Log:** <a id="Change-Log"></a>
-|#|Version: 1.0.beta.1|
+|#|Version: Beta/1.0/1.0|
 |:---| :------------------------------------------------------------------------------|
 |1|App is far into production and functional |
 |2|In between a core data migration|
 |3|Rewritten/migrated from old app|
 ___
 ## **👥Contributions** <a id="Contributions"></a>
+1.Fork it ( [https://github.com/thankmelater23/MyFitZ/fork](https://github.com/thankmelater23/MyFitZ/fork) )
 
+2.Create your feature branch (git checkout -b my-new-feature)
+
+3.Commit your changes (git commit -am 'Add some feature')
+
+4.Push to the branch (git push origin my-new-feature)
+
+5.Create a new Pull Request
+
+
+Contributions is open, mostly to UI/Desig stuff(my weakness). The iCon suffers the most.  It's suppose to be a man(who is unseen) in an outfit of a shirt, pants, shoes, and a belt with MyFitZ Logo.  If anyone can recreate that it'll be appreciated.  But everything as of 8-2017 everything MyFitZ from the website, development, social media setup and marketting, architecture, and designs have all been 100% by [Andre Villanueva](http://www.AndreVillanueva.com).
+
+<p>Copyright 2017 BANG BANG STUDIOS</p>
 ___
 ## **📗Documentation** <a id="Documentation"></a>
 ### **Coming soon...**
@@ -117,20 +131,19 @@ ___
 <a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a>
 <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
 ___
+## **Story** <a id="Story"></a>
+##### **MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).  It has been an on and off project with development not starting until 2015.  Estimation for release is 2017.  Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**
+
+---
 ## **🔑License** <a id="License"></a>
 MIT License
-<p>
-Copyright (c) 2017 Andre Villanueva
+<p
+######Copyright (c) 2017 Andre Villanueva
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+######Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-</p>
+######The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+
 ___
 
