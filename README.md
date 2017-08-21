@@ -92,12 +92,14 @@ ___
 |:---| :------------------------------------------------------------------------------|
 |1|Not fully functional|
 |2|Core Data not fully connected|
+
 ___
 ## **Technology Used** <a id="Technology-Used"></a>
 |#|Technology|
 |:---| :------------------------------------------------------------------------------|
 |1||
 |2||
+
 ___
 ## **📜Change Log:** <a id="Change-Log"></a>
 |#|Version: Beta/1.0/1.0|
@@ -105,6 +107,7 @@ ___
 |1|App is far into production and functional |
 |2|In between a core data migration|
 |3|Rewritten/migrated from old app|
+
 ___
 ## **👥Contributions** <a id="Contributions"></a>
 1.Fork it ( [https://github.com/thankmelater23/MyFitZ/fork](https://github.com/thankmelater23/MyFitZ/fork) )
@@ -121,6 +124,7 @@ ___
 Contributions is open, mostly to UI/Desig stuff(my weakness). The iCon suffers the most.  It's suppose to be a man(who is unseen) in an outfit of a shirt, pants, shoes, and a belt with MyFitZ Logo.  If anyone can recreate that it'll be appreciated.  But everything as of 8-2017 everything MyFitZ from the website, development, social media setup and marketting, architecture, and designs have all been 100% by [Andre Villanueva](http://www.AndreVillanueva.com).
 
 <p>Copyright 2017 BANG BANG STUDIOS</p>
+
 ___
 ## **📗Documentation** <a id="Documentation"></a>
 ### **Coming soon...**
@@ -130,6 +134,7 @@ ___
 <a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks"></a>
 <a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a>
 <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
+
 ___
 ## **Story** <a id="Story"></a>
 ##### **MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).  It has been an on and off project with development not starting until 2015.  Estimation for release is 2017.  Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**
