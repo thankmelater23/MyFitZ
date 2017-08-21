@@ -52,14 +52,27 @@
 ---
 <h2 align="center"><a id="�About"></a><strong>📱About<strong></h2>
 With MyFitZ you can <verb><Plural-Noun>...
+
 MyFitZ helps you ___
+
 if you use MyFitZ then you ___
+
 You'll like MyFitZ because you can ___
-MyFItZ is better than <Alternative_project> beacuse you can
-MyFitZ is related to <other_Project> because
+
+MyFItZ is better than <Alternative_project> beacuse you can___
+
+MyFitZ is related to <other_Project> because ___
 
 ___
 ## **🎁Features** <a id="Features"></a>
+
+- [x] Multi-Threading   
+- [x] Database
+- [x]Watch Integration
+- [x] x
+- [x] x
+- [x] x
+- [x] x
 
 ___
 ## **📹Youtube Videos** <a id="Youtube-Videos"></a>
@@ -83,7 +96,7 @@ ___
 
 ___
 
-## **Instalation** <a id="Instalation"></a>
+## **🛠Instalation** <a id="Instalation"></a>
 Clone/Build/Run
 
 ___
@@ -91,10 +104,10 @@ ___
 |#|Issues|
 |:---| :------------------------------------------------------------------------------|
 |1|Not fully functional|
-|2|Core Data not fully connected|
+|2|Core Data not fully integrated|
 
 ___
-## **Technology Used** <a id="Technology-Used"></a>
+## **🔋Technology Used** <a id="Technology-Used"></a>
 |#|Technology|
 |:---| :------------------------------------------------------------------------------|
 |1||
@@ -136,10 +149,7 @@ ___
 <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a>
 
 ___
-## **Story** <a id="Story"></a>
-##### **MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).  It has been an on and off project with development not starting until 2015.  Estimation for release is 2017.  Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**
 
----
 ## **🔑License** <a id="License"></a>
 MIT License
 <p
@@ -149,6 +159,10 @@ MIT License
 
 ######The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-
 ___
+
+<h2 align="center"><a id="Story"></a><strong>📺Story<strong></h2>
+##### **MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).It has been an on and off project with development not starting until 2015.  Estimation for release is 2017.  Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**
+
+---
 
