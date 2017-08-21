@@ -54,21 +54,25 @@
 With MyFitZ you can <verb><Plural-Noun>...
 
 MyFitZ helps you ___
+MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wanted clothing items, never second guessing whats in your closet again
 
-if you use MyFitZ then you ___
+If you use MyFitZ then you ___
+If yuo use MyFitZ setting up outfit will be a THOUSAND time easier
 
 You'll like MyFitZ because you can ___
-
+You'll love MyFitZ because it keeps track of your clothes in multiple ways, most of which are automized. 
 MyFItZ is better than <Alternative_project> beacuse you can___
+MyFitZ is better than trying to remember all of your clothes, shoes, and accessories.
 
 MyFitZ is related to <other_Project> because ___
+MyFitZ is the new age way of dealing with your closet.
 
 ___
 ## **🎁Features** <a id="Features"></a>
 
 - [x] Multi-Threading   
 - [x] Database
-- [x]Watch Integration
+- [x] Watch Integration
 - [x] x
 - [x] x
 - [x] x
@@ -93,7 +97,9 @@ ___
 
 ---
 ## **❗️Terms Of Use❗** <a id="Terms-Of-Use"></a>
-
+- MyFitZ is an app in production and the source code is not to be used to distribute.
+- It is open source and open to modifications, suggestions
+- It's also available for potential clients to view my ability to create an app and the surrounding business 
 ___
 
 ## **🛠Instalation** <a id="Instalation"></a>
@@ -140,7 +146,7 @@ Contributions is open, mostly to UI/Desig stuff(my weakness). The iCon suffers t
 
 ___
 ## **📗Documentation** <a id="Documentation"></a>
-### **Coming soon...**
+#### **Coming soon...**
 
 ___
 ## **👥Social Media** <a id="Social-Media-Links"></a>
