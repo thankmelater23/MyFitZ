@@ -52,6 +52,7 @@
 
 ---
 <h2 align="center"><a id="�About"></a><strong>📱About<strong></h2>
+
 - MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wanted clothing items, never second guessing whats in your closet again
 
 - If yuo use MyFitZ setting up outfit will be a THOUSAND time easier
@@ -150,14 +151,14 @@ ___
 ___
 
 ## **🔑License** <a id="License"></a>
-MIT License
-<p
-######Copyright (c) 2017 Andre Villanueva
+<h6>MIT License<br><br>
 
-######Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2017 Andre Villanueva<br><br>
 
-######The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>
 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+</h6>
 ___
 
 <h2 align="center"><a id="Story"></a><strong>📺Story<strong></h2>
