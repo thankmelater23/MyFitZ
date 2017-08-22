@@ -3,7 +3,7 @@
 
 ---
 <p align="center"><a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Version-Beta-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Release-Unreleased-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a> <a href="http:MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com"></a>
-<p align="center"><a href="https://swift.org" target="_blank"><img src="https://img.shields.io/badge/Language-Swift%204-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com"></a>
+<p align="center"> <a href="https://swift.org" target="_blank"><img src="https://img.shields.io/badge/Language-Swift%204-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com"></a>
 
 <p align="center"><a href="http://MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Website-MyFitZ-brightgreen.svg?style=plastic" alt="http://MyFitZApp.com"></a> <a href="http://AndreVillanueva.com" target="_blank"><img src="https://img.shields.io/badge/Website-Developer-brightgreen.svg?style=plastic" alt="http://AndreVillanueva.com"></a> <a href="https://eepurl.com/cOTsKX" target="_blank"><img src="https://img.shields.io/badge/Newsletter-MyFitZ-brightgreen.svg?style=plastic" alt="https://eepurl.com/cOTsKX"></a> <href="MyFitZ@MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Email-MyFitZ@MyFitZApp.com-brightgreen.svg?style=plastic" alt="MyFitZ@MyFitZApp.com"></a>
 
@@ -169,5 +169,6 @@ Since the start 2015 everything as of 8-2017 from the website, development, soci
 Estimation for release is 2017.</strong></h6>
 
 ---
-[//]:![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
 
+[//]:![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
+<h1 align="center"><strong>MyFitZ<strong></h1>
