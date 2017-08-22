@@ -1,5 +1,3 @@
-[//]:![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
-
 <h1 align="center"><strong>MyFitZ</strong></h1>
 <h4 align="center"><i>MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛<👓 </h4></i>
 
@@ -15,7 +13,7 @@
 
 
 
-<p align="center"><a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Framework-Watchkit-red.svg?style=plastic" alt="apple.com"></a> <a href="https://cocoapods.org/" target="_blank"><img src="https://img.shields.io/badge/Framework-Cocoapods-red.svg?style=plastic" alt="https://cocoapods.org/"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Framework-Core Data-red.svg?style=plastic" alt="apple.com"></a> <href="Fabric.io" target="_blank"><img src="https://img.shields.io/badge/Integration-Fabric-red.svg?style=plastic" alt="Fabric.io"></a><a href="https://firebase.google.com/" target="_blank"><img src="https://img.shields.io/badge/Integration-Firebase-red.svg?style=plastic" alt="https://firebase.google.com/"></a> 
+<p align="center"> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Framework-Watchkit-red.svg?style=plastic" alt="apple.com"></a> <a href="https://cocoapods.org/" target="_blank"><img src="https://img.shields.io/badge/Framework-Cocoapods-red.svg?style=plastic" alt="https://cocoapods.org/"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Framework-Core Data-red.svg?style=plastic" alt="apple.com"></a> <href="Fabric.io" target="_blank"><img src="https://img.shields.io/badge/Integration-Fabric-red.svg?style=plastic" alt="Fabric.io"></a> <a href="https://firebase.google.com/" target="_blank"><img src="https://img.shields.io/badge/Integration-Firebase-red.svg?style=plastic" alt="https://firebase.google.com/"></a> 
 
 ---
 <h2><p align="center"><strong>AUTHOR</strong></p></h2>
@@ -39,33 +37,29 @@
   * [Contributions](#Contributions)
   * [Documentation](#Documentation)
   * [Social Media Links](#Social-Media-Links)
-  * [Story](#Story) 
   * [License](#License) 
+  * [Story](#Story) 
  
 ---
 <h2 align="center"><a id="Examples"></a><strong>Examples<strong></h2>
-![imb_o5u5uu](https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF)
-![imb_dg2ee1](https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF)
-![imb_m2u9i0](https://user-images.githubusercontent.com/4246541/29471829-af072e7c-840e-11e7-8fb2-d7c6e675a203.GIF)
-![imb_opqg35](https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF)
+
+<img src="https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF" alt="MyFitZ"> <img src="https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF" alt="MyFitZ"> <img src="https://user-images.githubusercontent.com/4246541/29471829-af072e7c-840e-11e7-8fb2-d7c6e675a203.GIF" alt="text"> <img src="https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF" alt="text">
+
+[//]:![imb_o5u5uu](https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF)
+[//]:![imb_dg2ee1](https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF)
+[//]:![imb_m2u9i0](https://user-images.githubusercontent.com/4246541/29471829-af072e7c-840e-11e7-8fb2-d7c6e675a203.GIF)
+[//]:![imb_opqg35](https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF)
 
 ---
 <h2 align="center"><a id="�About"></a><strong>📱About<strong></h2>
-With MyFitZ you can <verb><Plural-Noun>...
+- MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wanted clothing items, never second guessing whats in your closet again
 
-MyFitZ helps you ___
-MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wanted clothing items, never second guessing whats in your closet again
+- If yuo use MyFitZ setting up outfit will be a THOUSAND time easier
 
-If you use MyFitZ then you ___
-If yuo use MyFitZ setting up outfit will be a THOUSAND time easier
-
-You'll like MyFitZ because you can ___
-You'll love MyFitZ because it keeps track of your clothes in multiple ways, most of which are automized. 
-MyFItZ is better than <Alternative_project> beacuse you can___
+- You'll love MyFitZ because it keeps track of your clothes in multiple ways, most of which are automized. 
 MyFitZ is better than trying to remember all of your clothes, shoes, and accessories.
 
-MyFitZ is related to <other_Project> because ___
-MyFitZ is the new age way of dealing with your closet.
+- MyFitZ is the new age way of dealing with your closet.
 
 ___
 ## **🎁Features** <a id="Features"></a>
@@ -93,7 +87,7 @@ ___
 ___
 ## **⚠️ Reuqirments** <a id="Prerequisites"></a>
 <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Device-iPhone%206+-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Watch-Apple%20Watch-yellow.svg?style=plastic" alt="apple.com"></a>
-<a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> 
+<a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com"></a> 
 
 ---
 ## **❗️Terms Of Use❗** <a id="Terms-Of-Use"></a>
@@ -167,10 +161,12 @@ MIT License
 ___
 
 <h2 align="center"><a id="Story"></a><strong>📺Story<strong></h2>
-<h6><strong>MyFitZ idea came in 2013 by Author/Developer [Andre Villanueva](http://www.AndreVillanueva.com).It has been an on and off project with development not starting until 2015.<br><br>
+<h6><strong>MyFitZ idea came in 2013 by Author/Developer <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.It has been an on and off project with development not starting until 2015.<br><br>
 
-Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of [Andre Villanueva](http://www.AndreVillanueva.com).**<br><br>
+Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.<br><br>
 
 Estimation for release is 2017.</strong></h6>
+
 ---
+[//]:![img_8218](https://user-images.githubusercontent.com/4246541/29470007-e8c6e118-8407-11e7-9070-898ec203ccb9.PNG)
 
