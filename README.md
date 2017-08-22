@@ -115,12 +115,14 @@ ___
 |2||
 
 ___
-## **📜Change Log:** <a id="Change-Log"></a>
+## **📜Change Log** <a id="Change-Log"></a>
 |#|Version: Beta/1.0/1.0|
 |:---| :------------------------------------------------------------------------------|
 |1|App is far into production and functional |
 |2|In between a core data migration|
 |3|Rewritten/migrated from old app|
+
+Review entire changelog file <a href="https://github.com/thankmelater23/MyFitZ/blob/master/changelog.md"><strong>here</strong></a>
 
 ___
 ## **👥Contributions** <a id="Contributions"></a>
@@ -166,7 +168,7 @@ ___
 
 Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.<br><br>
 
-Estimation for release is 2017.</strong></h6>
+Release Estimation: 2017</strong></h6>
 
 ---
 
