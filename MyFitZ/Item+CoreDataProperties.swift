@@ -14,7 +14,7 @@ import CoreData
 extension Item {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Item> {
-        log.info(#function)
+        log.verbose(#function)
         return NSFetchRequest<Item>(entityName: "Item")
     }
 

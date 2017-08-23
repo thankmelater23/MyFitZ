@@ -14,7 +14,7 @@ import CoreData
 extension Wardrobe {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Wardrobe> {
-        log.info(#function)
+        log.verbose(#function)
         return NSFetchRequest<Wardrobe>(entityName: "Wardrobe")
     }
 

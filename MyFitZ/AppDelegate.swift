@@ -76,7 +76,7 @@
             
             //MARK: - 3rd Pary Methods
             @objc func swiftBeaverSetUp(){
-                log.info(#function)
+                log.verbose(#function)
                 let console = ConsoleDestination()
                 log.addDestination(console)
                 let file = FileDestination()
@@ -94,12 +94,12 @@
             //            }
             
             @objc func removeConstraintFromLogger(){
-                log.info(#function)
+                log.verbose(#function)
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
             
             @objc func sirenInitilization(){
-                log.info(#function)
+                log.verbose(#function)
                 //                    /* Siren code should go below window?.makeKeyAndVisible() */
                 //
                 //                    // Siren is a singleton
@@ -210,7 +210,7 @@
                 //                self.iqKeyboardInitilize()
             }
             func sirenInit(){
-//                log.info(#function)
+//                log.verbose(#function)
 //                /* Siren code should go below window?.makeKeyAndVisible() */
 //                
 //                // Siren is a singleton

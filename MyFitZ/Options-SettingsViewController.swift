@@ -14,7 +14,7 @@ import UIKit
 class Options_SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(#function)
+        log.verbose(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -30,7 +30,7 @@ class Options_SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     deinit{
-        log.info(#function)
+        log.verbose(#function)
         
     }
 }

@@ -59,31 +59,31 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     
     //Category Outlets
     @IBAction func accessoriesSegue(_ sender: UIButton) {
-        log.info(#function)
+        log.verbose(#function)
         self.segueWithCateogry(cateogory: CateogryType.ACCESSORIES)
     }
     @IBAction func underclothesSegue(_ sender: UIButton) {
-        log.info(#function)
+        log.verbose(#function)
         self.segueWithCateogry(cateogory: CateogryType.UNDERCLOTHING)
     }
     @IBAction func headwareSegue(_ sender: UIButton) {
-        log.info(#function)
+        log.verbose(#function)
         self.segueWithCateogry(cateogory: CateogryType.HEADWARE)
     }
     
     @IBAction func bottomsSegue(_ sender: UIButton) {
-        log.info(#function)
+        log.verbose(#function)
         self.segueWithCateogry(cateogory: CateogryType.BOTTOMS)
     }
     @IBAction func topsSegue(_ sender: UIButton) {
         self.segueWithCateogry(cateogory: CateogryType.TOPS)
     }
     @IBAction func footwareSegue(_ sender: UIButton) {
-        log.info(#function)
+        log.verbose(#function)
         self.segueWithCateogry(cateogory: CateogryType.FOOTWARE)
     }
     @objc func segueWithCateogry(cateogory:String){
-        log.info(#function)
+        log.verbose(#function)
 //        path = pathSetup(userString: (self.wardrobe!.user?.position)!, closetString: (self.wardrobe?.user?.closetType)!, categoryString: cateogory, subCategoryString: nil, indexString: nil, idString: nil) 
         performSegue(withIdentifier: Segue.SEGUE_SELECTION_TO_MAKE, sender: nil)
     }
@@ -91,7 +91,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(#function)
+        log.verbose(#function)
         self.navigationController?.isNavigationBarHidden = false
         
         //        self.animateAllButtons()
@@ -116,7 +116,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        log.info(#function)
+        log.verbose(#function)
         defer{
             log.verbose("Segue transfer: \(String(describing: segue.identifier))")
         }
@@ -144,13 +144,13 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
         
         func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
             //Return Fullscreen for model and none for popover
-            log.info(#function)
+            log.verbose(#function)
             return UIModalPresentationStyle.formSheet
             
         }
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        log.info(#function)
+        log.verbose(#function)
         //TODO: Set these up to do some house work
         super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
         return true
@@ -186,10 +186,10 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 //        })
 //}
 //    deinit{
-//        log.info(#function)
+//        log.verbose(#function)
 //    }
 //    deinit{
-//        log.info(#function)
+//        log.verbose(#function)
 //
 //    }
 //}
@@ -201,7 +201,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
 extension SelectionViewController{
     ///An action that takes the buttonn(sender).text and stores it into categoryString
     @IBAction func categoryIsButtonName(_ sender: UIButton) {
-        log.info(#function)
+        log.verbose(#function)
         path[PathType.PATHTYPE_CATEGORY_STRING] = sender.currentTitle as String!
         //        playSoundEffects(categorySFX)
     }
@@ -227,7 +227,7 @@ extension SelectionViewController{
     }
     
     @IBAction func share(){
-        log.info(#function)
+        log.verbose(#function)
         //let textToShare = "Swift is awesome!  Check out this website about it!"
         
         if let myWebsite = URL(string: "http://MyFitZApp.com/")

@@ -22,12 +22,12 @@ class ViewController: UIViewController {
     var userNumber: Int?
 
     override func viewDidAppear(_ animated: Bool){
-        log.info(#function)
+        log.verbose(#function)
         self.navCustomized()
         self.setUser()
     }
     override func viewWillAppear(_ animated: Bool) {
-        log.info(#function)
+        log.verbose(#function)
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationController?.isToolbarHidden = true
         self.navigationController?.isNavigationBarHidden = true
@@ -35,21 +35,21 @@ class ViewController: UIViewController {
         
     }
     override func didReceiveMemoryWarning() {
-        log.info(#function)
+        log.verbose(#function)
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
         // Dispose of any resources that can be recreated.
         
     }
     deinit{
-        log.info(#function)
+        log.verbose(#function)
     }
     
     //MARK: - Core Data
     
     //MARK: - Custom Functions
     @objc func setUser(){
-        log.info(#function)
+        log.verbose(#function)
         //TODO: - Make a global define
         let lastUserLoggedIn = "lastUserLoggedIn"
         let number = closetTypeGlobal.closet
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     }
     
     @objc func clearDefaultsPath(){
-        log.info(#function)
+        log.verbose(#function)
         //Variables
         let lastUserLoggedIn = "lastUserLoggedIn"
         let categoryPath = "categoryPath"
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
     
     
     @objc func fetchUser(userNumber: Int)->User{
-        log.info(#function)
+        log.verbose(#function)
         do{
             var users = try DataBaseController.getContext().fetch(User.fetchRequest()) as [User]?
             
@@ -119,7 +119,7 @@ class ViewController: UIViewController {
     }
     
     func setTitle(){
-        log.info(#function)
+        log.verbose(#function)
         //        self.navigationController?.isNavigationBarHidden = true
         //        self.navigationController?.navigationBar.isTranslucent = false
         
@@ -133,7 +133,7 @@ class ViewController: UIViewController {
     
     //MARK Settings
     @objc func appSettings(){
-        log.info(#function)
+        log.verbose(#function)
         //        let userLovesUs = defaults.value(forKey: "DoYouLoveUs") as! Bool?
         //        var theLove = String()
         //
@@ -184,7 +184,7 @@ class ViewController: UIViewController {
 //MARK: -Actions-ViewController Extension
 extension ViewController{
     @IBAction func selectedCloset(){
-        log.info(#function)
+        log.verbose(#function)
         user?.closetType = closetTypeGlobal.closet
         playSoundEffects(closetSFX)
         
@@ -197,7 +197,7 @@ extension ViewController{
         performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedWants(){
-        log.info(#function)
+        log.verbose(#function)
         user?.closetType = closetTypeGlobal.wishList
         playSoundEffects(wishlistSFX)
         
@@ -208,7 +208,7 @@ extension ViewController{
         performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_SELECTION, sender: self)
     }
     @IBAction func selectedOptions(){
-        log.info(#function)
+        log.verbose(#function)
         self.performSegue(withIdentifier: Segue.SEGUE_MAIN_TO_OPTIONS, sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

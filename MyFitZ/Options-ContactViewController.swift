@@ -14,7 +14,7 @@ import UIKit
 class Options_ContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.info(#function)
+        log.verbose(#function)
         self.setButtonsView()
         self.setTitle()
         self.animateAllButtons()
@@ -30,7 +30,7 @@ class Options_ContactViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     deinit{
-        log.info(#function)
+        log.verbose(#function)
         
     }
 }
