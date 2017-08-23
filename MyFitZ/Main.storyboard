@@ -1220,6 +1220,7 @@
                                     <outlet property="makeImage" destination="4Fd-n3-npv" id="vAr-1J-N8H"/>
                                     <outlet property="makeLabel" destination="l05-rR-zy7" id="pPV-LR-sCo"/>
                                     <outlet property="numberOfItemsLabel" destination="onu-Db-lbR" id="9rO-xA-mfp"/>
+                                    <segue destination="VU4-KM-rQl" kind="show" identifier="makeToModel" id="fuJ-NU-J20"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -3473,9 +3474,10 @@
         <image name="underclothersImage" width="237" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fuJ-NU-J20"/>
         <segue reference="8di-e6-oCs"/>
-        <segue reference="dau-UK-GdK"/>
-        <segue reference="Cb9-80-6EK"/>
+        <segue reference="YLt-3p-ENp"/>
+        <segue reference="yjh-QC-YcA"/>
         <segue reference="IDk-2K-TTb"/>
         <segue reference="t1t-W5-9OD"/>
     </inferredMetricsTieBreakers>

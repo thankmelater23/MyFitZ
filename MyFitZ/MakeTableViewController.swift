@@ -59,8 +59,8 @@ class MakeTableViewController: UITableViewController{
         let nameSorter = NSSortDescriptor(key: "model", ascending: true)
         let favoritesSorter = NSSortDescriptor(key: "isFavorite", ascending: true)
         fetchRequest.sortDescriptors = [nameSorter, favoritesSorter, categorySorter]
-//        let wardrobePredicate = NSPredicate(format: "self.wardrobe = %@", wardrobe!)
-//        let categoryPredicates =
+        //        let wardrobePredicate = NSPredicate(format: "self.wardrobe = %@", wardrobe!)
+        //        let categoryPredicates =
         
         
         return fetchRequest
@@ -87,7 +87,7 @@ class MakeTableViewController: UITableViewController{
         //self.logPageView()
         tableView.delegate = self
         tableView.dataSource = self
-//        self.setUpSearchBar()
+        //        self.setUpSearchBar()
         
     }
     override func viewDidAppear(_ animated: Bool){
@@ -102,6 +102,7 @@ class MakeTableViewController: UITableViewController{
         defer{
             log.debug("Segue transfer: \(String(describing: segue.identifier))")
         }
+        
         if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL
         {
             //            let index = self.tableView.indexPathForSelectedRow
@@ -116,6 +117,7 @@ class MakeTableViewController: UITableViewController{
             selectionViewController.wardrobe = self.wardrobe
         }
     }
+    
     deinit{
         log.info(#function)
     }
@@ -328,7 +330,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
         playSoundEffects(itemSelectSFX)
         
-        //        performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_MODEL, sender: self)
+        performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_MODEL, sender: self)
     }//Shows when a cell at row was selected
     //    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     //        return 200
@@ -361,35 +363,35 @@ extension MakeTableViewController{
 
 //MARK: - Search Bar
 extension MakeTableViewController: UISearchBarDelegate{
-        fileprivate func setUPSearchBar(){
-            let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 65))
-
-            searchBar.showsScopeBar = true
-            searchBar.scopeButtonTitles = [myfitzEntities.user, myfitzEntities.wardrobe, myfitzEntities.item]
-            searchBar.selectedScopeButtonIndex = 0
-
-            searchBar.delegate = self as UISearchBarDelegate
-
-            self.tableView.tableFooterView = searchBar
-        }
-
-func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    
-    guard !searchText.isEmpty else {
-//        item = //Fetch All objects
-        tableView.reloadData()
-        return
+    fileprivate func setUPSearchBar(){
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 65))
+        
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = [myfitzEntities.user, myfitzEntities.wardrobe, myfitzEntities.item]
+        searchBar.selectedScopeButtonIndex = 0
+        
+        searchBar.delegate = self as UISearchBarDelegate
+        
+        self.tableView.tableFooterView = searchBar
     }
     
-    //array = CoreDataManager.fetchObj(selectedScopeIdx: searchBar.selectedScopeButtonIndex, targetText:searchText)
-    tableView.reloadData()
-    print(searchText)
-}
-
-        func searchBarShouldEndEditting(_ searchBar: UISearchBar)->Bool{
-            searchBar.resignFirstResponder()
-            return true
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else {
+            //        item = //Fetch All objects
+            tableView.reloadData()
+            return
         }
+        
+        //array = CoreDataManager.fetchObj(selectedScopeIdx: searchBar.selectedScopeButtonIndex, targetText:searchText)
+        tableView.reloadData()
+        print(searchText)
+    }
+    
+    func searchBarShouldEndEditting(_ searchBar: UISearchBar)->Bool{
+        searchBar.resignFirstResponder()
+        return true
+    }
 }
 
 

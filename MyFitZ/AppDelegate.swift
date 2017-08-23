@@ -15,7 +15,7 @@
          //         import IQKeyboardManagerSwift
          import Firebase
          //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
-         import Siren
+//         import Siren
          import SwiftyBeaver
          //import Parse
          //import Bolts
@@ -210,25 +210,25 @@
                 //                self.iqKeyboardInitilize()
             }
             func sirenInit(){
-                log.info(#function)
-                /* Siren code should go below window?.makeKeyAndVisible() */
-                
-                // Siren is a singleton
-                let siren = Siren.shared
-                
-                // Required: Your app's iTunes App Store ID
-                //        siren.appID = APP_ID
-                
-                // Optional: Defaults to .Option
-                
-                
-                /*
-                 Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-                 checks.
-                 */
-                siren.checkVersion(checkType: .daily)
-                
-                siren.alertType = .option
+//                log.info(#function)
+//                /* Siren code should go below window?.makeKeyAndVisible() */
+//                
+//                // Siren is a singleton
+//                let siren = Siren.shared
+//                
+//                // Required: Your app's iTunes App Store ID
+//                //        siren.appID = APP_ID
+//                
+//                // Optional: Defaults to .Option
+//                
+//                
+//                /*
+//                 Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
+//                 checks.
+//                 */
+//                siren.checkVersion(checkType: .daily)
+//                
+//                siren.alertType = .option
             }
 //            func createAndRegisterNotificationSettings(){
 //            log.info("Notifications are being set")
