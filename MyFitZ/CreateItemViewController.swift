@@ -89,7 +89,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
     
     
     deinit{
-        log.info(#function)
+        log.verbose(#function)
         
     }
 }
@@ -99,7 +99,7 @@ class CreateItemViewController: UIViewController, RETableViewManagerDelegate{
 //MARK: - View Functions -Extension CreateItemViewController
 extension CreateItemViewController{
     override func viewDidLoad() {
-        log.info(#function)
+        log.verbose(#function)
         super.viewDidLoad()
         self.setUp()
         defaults.addAndSend("CREATE_PAGE_COUNT")
@@ -107,7 +107,7 @@ extension CreateItemViewController{
         //self.logPageView()
     }
     override func viewDidAppear(_ animated: Bool) {
-        log.info(#function)
+        log.verbose(#function)
         super.viewDidAppear(animated)
         self.view.backgroundColor = Cotton
         
@@ -121,7 +121,7 @@ extension CreateItemViewController{
         
     }
     override func viewDidDisappear(_ animated: Bool) {
-        log.info(#function)
+        log.verbose(#function)
         super.viewDidDisappear(animated)
         self.removeObservers()
         

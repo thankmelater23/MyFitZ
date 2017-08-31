@@ -14,7 +14,7 @@ import CoreData
 extension User {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
-        log.info(#function)
+        log.verbose(#function)
         return NSFetchRequest<User>(entityName: "User")
     }
 

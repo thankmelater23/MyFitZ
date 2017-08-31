@@ -54,6 +54,7 @@ class MakeTableViewController: UITableViewController{
     @objc var fetchRequestController: NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
     
     @objc func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
+        log.verbose(#function)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         let categorySorter = NSSortDescriptor(key: "category", ascending: true)
         let nameSorter = NSSortDescriptor(key: "model", ascending: true)
@@ -67,6 +68,7 @@ class MakeTableViewController: UITableViewController{
     }
     
     @objc func getFRC() -> NSFetchedResultsController<NSFetchRequestResult>{
+        log.verbose(#function)
         fetchRequestController = NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         return fetchRequestController
     }
@@ -74,8 +76,8 @@ class MakeTableViewController: UITableViewController{
     
     //MARK: -View Methods
     override func viewDidLoad(){
+        log.verbose(#function)
         super.viewDidLoad()
-        log.info(#function)
         self.view.backgroundColor = SiliverSilkSheet
         self.initializeFetchedResultsController()
         
@@ -91,14 +93,16 @@ class MakeTableViewController: UITableViewController{
         
     }
     override func viewDidAppear(_ animated: Bool){
-        
+        log.verbose(#function)
         tableView.reloadData()
     }
     override func didReceiveMemoryWarning(){
+        log.verbose(#function)
         super.didReceiveMemoryWarning()
         log.warning("Recieved Memory Warning")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        log.verbose(#function)
         defer{
             log.debug("Segue transfer: \(String(describing: segue.identifier))")
         }
@@ -119,7 +123,7 @@ class MakeTableViewController: UITableViewController{
     }
     
     deinit{
-        log.info(#function)
+        log.verbose(#function)
     }
 }
 
@@ -129,6 +133,7 @@ class MakeTableViewController: UITableViewController{
 //MARK: - Core Data
 extension MakeTableViewController: NSFetchedResultsControllerDelegate{
     @objc func initializeFetchedResultsController() {
+        log.verbose(#function)
         fetchRequestController = getFRC()
         fetchRequestController.delegate = self
         
@@ -230,6 +235,7 @@ extension MakeTableViewController: NSFetchedResultsControllerDelegate{
 //MARK: - Action-MakeTableViewController Extension
 extension MakeTableViewController{
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        log.verbose(#function)
         // playSoundEffects(backSFX)
         performSegue(withIdentifier: Segue.SEGUE_MAKE_TO_SELECTION, sender: self)
     }
@@ -240,6 +246,7 @@ extension MakeTableViewController{
 //MARK: - Initializer Created Methods
 extension MakeTableViewController{
     @objc func setUpTypes(){
+        log.verbose(#function)
         self.animateAllButtons()
         
         // self.itemsInArrayInDictionary = Users_Wardrobe.selectedCloset[path[PathType.PATHTYPE_CATEGORY_STRING]!]
@@ -251,6 +258,7 @@ extension MakeTableViewController{
         TypeBarButtonLabel.title = path[PathType.PATHTYPE_CATEGORY_STRING]!
     }
     @objc func setTitle(){
+        log.verbose(#function)
         //self.title = grabTitle(Users_Wardrobe.closetSelectionString, view: PathType.PATHTYPE_CATEGORY_STRING)
         if self.title == MY_CLOSET{
             self.navigationController?.navigationBar.tintColor = MY_CLOSET_BAR_COLOR
@@ -266,10 +274,12 @@ extension MakeTableViewController{
 //MARK: -TableView Methods-MakeTableViewController Extension
 extension MakeTableViewController:UIAlertViewDelegate{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        log.verbose(#function)
         let count = fetchRequestController.sections?[section].numberOfObjects
         return count!
     }//Returns Int for number of sections in tableView
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        log.verbose(#function)
         let cell: MakeCustomCell = (tableView.dequeueReusableCell(withIdentifier: CellIdentifier.MAKE_CELL) as? MakeCustomCell)!
         
         
@@ -286,6 +296,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
         return cell
     }//Returns a tableView cell at a specific row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        log.verbose(#function)
         if editingStyle == UITableViewCellEditingStyle.delete
         {
             let alert = UIAlertController(title: "Alert!", message:"Are you sure you want to delete", preferredStyle: .alert)
@@ -312,16 +323,19 @@ extension MakeTableViewController:UIAlertViewDelegate{
         
     }//Editing to delete row
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
+        log.verbose(#function)
         //TODO: - Fix Me
         return String()//String(path[PathType.PATHTYPE_CATEGORY_STRING]! + ": " + "\(self.itemsInArrayInDictionary.count)")
         
     }//Category name is shown in the title header
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        log.verbose(#function)
         view.tintColor = LeatherTexture
         let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         headerView.textLabel?.textColor = Gold
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        log.verbose(#function)
         self.tableView.deselectRow(at: indexPath, animated: true)
         //        let arrayItemCell: [Item] = Array(self.itemsInArrayInDictionary.values)[indexPath.row]
         //        let keyOfSelectedArray = Array(self.itemsInArrayInDictionary.keys)[indexPath.row]
@@ -342,6 +356,7 @@ extension MakeTableViewController:UIAlertViewDelegate{
 //MARK: - UI-ModelTableViewController Extension
 extension MakeTableViewController{
     @objc func animateAllButtons(){
+        log.verbose(#function)
         //    self.animateSearchButton()
         //    self.animateStarButton()
         //    self.animateHamperButton()
@@ -355,6 +370,7 @@ extension MakeTableViewController{
         
     }
     @objc func animateLogo(){
+        log.verbose(#function)
         
         //    logoCustomization(self.logoImage)
     }
@@ -364,6 +380,7 @@ extension MakeTableViewController{
 //MARK: - Search Bar
 extension MakeTableViewController: UISearchBarDelegate{
     fileprivate func setUPSearchBar(){
+        log.verbose(#function)
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 65))
         
         searchBar.showsScopeBar = true
@@ -376,6 +393,7 @@ extension MakeTableViewController: UISearchBarDelegate{
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        log.verbose(#function)
         
         guard !searchText.isEmpty else {
             //        item = //Fetch All objects
@@ -389,6 +407,7 @@ extension MakeTableViewController: UISearchBarDelegate{
     }
     
     func searchBarShouldEndEditting(_ searchBar: UISearchBar)->Bool{
+        log.verbose(#function)
         searchBar.resignFirstResponder()
         return true
     }

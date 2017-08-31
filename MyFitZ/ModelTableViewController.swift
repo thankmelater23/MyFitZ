@@ -47,7 +47,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
     //MARK: - View Methods
     override func viewDidLoad(){
         super.viewDidLoad()
-        log.info(#function)
+        log.verbose(#function)
         self.setUpTypes()
         self.view.backgroundColor = SiliverSilkSheet
         
@@ -94,7 +94,7 @@ class ModelTableViewController: UITableViewController, NSFetchedResultsControlle
         log.warning("Recieved Memory Warning")
     }
     deinit{
-        log.info(#function)
+        log.verbose(#function)
         
     }
 }

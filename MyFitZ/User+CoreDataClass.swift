@@ -13,7 +13,7 @@ import CoreData
 public class User: NSManagedObject {
     
 //    @objc func getItems()->NSSet{
-//        log.info(#function)
+//        log.verbose(#function)
 //        if self.closetType == closetTypeGlobal.closet{
 //            return self.getWardrobe().items!
 //            
@@ -30,7 +30,7 @@ public class User: NSManagedObject {
 //        return NSSet()
 //    }
 //    @objc func getWardrobe()->Wardrobe{
-//        log.info(#function)
+//        log.verbose(#function)
 //        if self.closetType == closetTypeGlobal.closet{
 //            //            var warArray = self.wardrobe?.allObjects as [Wardrobe]!
 //            //            for currWardrobe in warArray!{
@@ -50,7 +50,7 @@ public class User: NSManagedObject {
 //    }
     
     @objc class func createUsers(){
-        log.info(#function)
+        log.verbose(#function)
         let context = DataBaseController.getContext()
         let user1 = User(context: context)
         user1.name = "User1"
