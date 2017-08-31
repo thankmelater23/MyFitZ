@@ -87,9 +87,6 @@
 		471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959E1EBF435A00A6C337 /* CodeComplexity.sh */; };
 		471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C959F1EBF435A00A6C337 /* LinesOfCode.sh */; };
 		471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = 471C95A01EBF435A00A6C337 /* set_build_number.sh */; };
-		475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
-		475B74561F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
-		475B74571F31600400C13743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 475B74541F31600400C13743 /* GoogleService-Info.plist */; };
 		476CB54E1F2125BC0037BBD6 /* Changes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 476CB54D1F2125BC0037BBD6 /* Changes.rtf */; };
 		478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */; };
 		47AC4CB81F233CDF00272720 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = 47AC4CB71F233CDF00272720 /* Todo */; };
@@ -212,7 +209,6 @@
 		471C959E1EBF435A00A6C337 /* CodeComplexity.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CodeComplexity.sh; sourceTree = "<group>"; };
 		471C959F1EBF435A00A6C337 /* LinesOfCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = LinesOfCode.sh; sourceTree = "<group>"; };
 		471C95A01EBF435A00A6C337 /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
-		475B74541F31600400C13743 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		476CB54D1F2125BC0037BBD6 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
 		478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
 		47AC4CB71F233CDF00272720 /* Todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
@@ -384,7 +380,6 @@
 			children = (
 				476258D81F300A8200666384 /* Code To Use */,
 				471C95A71EBF43E700A6C337 /* Scripts */,
-				475B74541F31600400C13743 /* GoogleService-Info.plist */,
 				471C94D81EBF371F00A6C337 /* Info.plist */,
 			);
 			name = "Support Files";
@@ -697,7 +692,6 @@
 				471C95801EBF3C9300A6C337 /* update0.wav in Resources */,
 				471C957A1EBF3C9300A6C337 /* mycloset0.wav in Resources */,
 				471C957B1EBF3C9300A6C337 /* mycloset1.wav in Resources */,
-				475B74551F31600400C13743 /* GoogleService-Info.plist in Resources */,
 				471C95A11EBF435A00A6C337 /* CodeComplexity.sh in Resources */,
 				471C95831EBF3C9300A6C337 /* wishlist0.wav in Resources */,
 				471C95811EBF3C9300A6C337 /* wear0.wav in Resources */,
@@ -717,7 +711,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				475B74561F31600400C13743 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,7 +718,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				475B74571F31600400C13743 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
