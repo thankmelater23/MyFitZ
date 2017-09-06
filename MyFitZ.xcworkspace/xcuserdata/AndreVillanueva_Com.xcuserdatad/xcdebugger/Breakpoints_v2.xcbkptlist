@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "createUsers()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -47,8 +47,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "createUsers()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -58,7 +58,7 @@
                   moduleName = "MyFitZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
-                  timestampString = "525844513.414876"
+                  timestampString = "525847932.652849"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -73,7 +73,7 @@
                   moduleName = "MyFitZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AndreVillanueva_Com/Library/Mobile%20Documents/com~apple~CloudDocs/Main%20Projects/MyFitZ/MyFitZ/User+CoreDataClass.swift"
-                  timestampString = "525844513.417468"
+                  timestampString = "525847932.660683"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "525844447.527323"
+            timestampString = "525847931.981306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -122,12 +122,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFitZ/MakeTableViewController.swift"
-            timestampString = "525844447.527723"
+            timestampString = "525847931.98149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
             landmarkName = "tableView(_:willDisplayHeaderView:forSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFitZ/MakeTableViewController.swift"
+            timestampString = "525847931.98159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -41,8 +41,8 @@
                 //        initializeSounds()
                 self.sirenInit()
                 Fabric.with([Crashlytics.self, Answers.self])//Appsee.self
-                FirebaseApp.configure()
-                Database.database().isPersistenceEnabled = true
+//                FirebaseApp.configure()
+//                Database.database().isPersistenceEnabled = true
                 
                 return true
             }

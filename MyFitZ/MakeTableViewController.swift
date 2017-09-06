@@ -107,8 +107,7 @@ class MakeTableViewController: UITableViewController{
             log.debug("Segue transfer: \(String(describing: segue.identifier))")
         }
         
-        if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL
-        {
+        if segue.identifier == Segue.SEGUE_MAKE_TO_MODEL{
             //            let index = self.tableView.indexPathForSelectedRow
             
             let modelController = segue.destination as! ModelTableViewController
