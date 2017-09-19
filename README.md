@@ -65,14 +65,22 @@ MyFitZ is better than trying to remember all of your clothes, shoes, and accesso
 ___
 ## **🎁Features** <a id="Features"></a>
 
-- [x] Multi-Threading   
-- [x] Database
-- [x] Watch Integration
-- [x] x
-- [x] x
-- [x] x
-- [x] x
-
+- [x] Watch-Integration
+- [x] Favorites List
+- [x] Recently Deleted List
+- [x] Recently Worn List
+- [x] Item Browser
+- [x] Gif tutorials 
+- [x] Webview to WebPage
+- [x] Sharing
+- [x] Options
+- [x] User Creater Page
+- [x] Item and wardrobe stats
+- [x] Weather Info
+- [x] Item Viewer/Item Summary Page
+- [x] Wear Item
+- [x] Add/Edit Items
+- [x] Closet and Wishlist Wardrobes
 ___
 ## **📹Youtube Videos** <a id="Youtube-Videos"></a>
 <a href="https://www.youtube.com/attribution_link?a=ndOgzBQnZHTB7mtb&u=/watch%3Fv%3Dnw5ZL_vyMcA%26feature%3Dem-share_video_user" target="_blank"><img src="http://andrevillanueva.com/wp-content/uploads/2016/01/MyFitZ2016-1.png" 
@@ -111,8 +119,15 @@ ___
 ## **🔋Technology Used** <a id="Technology-Used"></a>
 |#|Technology|
 |:---| :------------------------------------------------------------------------------|
-|1||
-|2||
+|1|Multi-Threading |
+|2|Core Data|
+|3|Watchkit|
+|4|Notifications/Alerts|
+|5|Sharing|
+|6|Anylytics(Fabric/Google)|
+|7|Webviews|
+|8|Firebase|
+|9|Custom Settings Bundle|
 
 ___
 ## **📜Change Log** <a id="Change-Log"></a>
