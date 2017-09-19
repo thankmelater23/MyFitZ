@@ -53,33 +53,36 @@
 ---
 <h2 align="center"><a id="�About"></a><strong>📱About<strong></h2>
 
-- MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wanted clothing items, never second guessing whats in your closet again
+- MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wishlist wardrobe; never second guessing whats in your closet!
 
-- If yuo use MyFitZ setting up outfit will be a THOUSAND time easier
+- If you use MyFitZ setting up outfits will be a THOUSAND time easier!!!
 
-- You'll love MyFitZ because it keeps track of your clothes in multiple ways, most of which are automized. 
-MyFitZ is better than trying to remember all of your clothes, shoes, and accessories.
+- You'll love MyFitZ because it keeps track of your entire wardrobe in various ways, most of which are automized. 
 
-- MyFitZ is the new age way of dealing with your closet.
+- Forgetting if that shirt was a light blue or dark blue to go which your cool new jeans is a thing of the past.
+
+- MyFitZ is the new age way of dealing with your wardrobe.  Saving you time, energy, and giving you the comfort of being sure what you have and what you’ll be wearing.
+
+- MyFitZ is for everyone, babies, kids, businesses, stores, clothing lines, fashion designers, fashion enthusiast, and so much more.
 
 ___
 ## **🎁Features** <a id="Features"></a>
 
-- [x] Watch-Integration
-- [x] Favorites List
-- [x] Recently Deleted List
-- [x] Recently Worn List
-- [x] Item Browser
-- [x] Gif tutorials 
-- [x] Webview to WebPage
 - [x] Sharing
 - [x] Options
-- [x] User Creater Page
-- [x] Item and wardrobe stats
 - [x] Weather Info
-- [x] Item Viewer/Item Summary Page
 - [x] Wear Item
+- [x] Item Browser
+- [x] Gif tutorials 
 - [x] Add/Edit Items
+- [x] Watch-Integration
+- [x] User Creater Page
+- [x] Webview to WebPage
+- [x] Favorites List
+- [x] Recently Worn List
+- [x] Recently Deleted List
+- [x] Item and wardrobe stats
+- [x] Item Viewer/Item Summary Page
 - [x] Closet and Wishlist Wardrobes
 ___
 ## **📹Youtube Videos** <a id="Youtube-Videos"></a>
@@ -100,9 +103,9 @@ ___
 
 ---
 ## **❗️Terms Of Use❗** <a id="Terms-Of-Use"></a>
-- MyFitZ is an app in production and the source code is not to be used to distribute.
+- MyFitZ is an app in production, the source code is not to be used for other porjects or to distribute.
 - It is open source and open to modifications, suggestions
-- It's also available for potential clients to view my ability to create an app and the surrounding business 
+- It's also available for potential clients to view my ability to develope an app and everything that around it.
 ___
 
 ## **🛠Instalation** <a id="Instalation"></a>
@@ -119,15 +122,16 @@ ___
 ## **🔋Technology Used** <a id="Technology-Used"></a>
 |#|Technology|
 |:---| :------------------------------------------------------------------------------|
-|1|Multi-Threading |
-|2|Core Data|
-|3|Watchkit|
-|4|Notifications/Alerts|
-|5|Sharing|
-|6|Anylytics(Fabric/Google)|
-|7|Webviews|
-|8|Firebase|
-|9|Custom Settings Bundle|
+|1|Core Data|
+|2|Watchkit|
+|3|Sharing|
+|4|Webviews|
+|5|Firebase|
+|6|Multi-Threading |
+|7|Notifications/Alerts|
+|8|Custom Settings Bundle|
+|9|Anylytics(Fabric/Google)|
+
 
 ___
 ## **📜Change Log** <a id="Change-Log"></a>
