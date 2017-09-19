@@ -72,17 +72,17 @@
 <h2 align="center"><a id="�About"></a><strong>📱About<strong></h2>
 
 <ul>
-<li><p>MyFitZ allows you to always have a visulization of your personal wardrobe and also a refernce to wishlist wardrobe; never second guessing whats in your closet!</p></li>
+<li><p>MyFitZ allows you to have a mobile visualization of your personal wardrobe, as well as a reference to a wardrobe wishlist, so you always have quick and easy access to what's in your closet!</p></li>
 
-<li><p>If you use MyFitZ setting up outfits will be a THOUSAND time easier!!!</p></li>
+<li><p>With MyFitZ, setting up outfits for any occasion will be fast and easy!</p></li>
 
-<li><p>You'll love MyFitZ because it keeps track of your entire wardrobe in various ways, most of which are automized. </p></li>
+<li><p>MyFitZ integrates automated techniques to provide a variety of ways to organize and maintain your wardrobe.</p></li>
 
-<li><p>Forgetting if that shirt was a light blue or dark blue to go which your cool new jeans is a thing of the past.</p></li>
+<li><p>Forgetting whether that shirt you want to pair with your cool new jeans is light blue or dark blue is a thing of the past. </p></li>
 
-<li><p>MyFitZ is the new age way of dealing with your wardrobe.  Saving you time, energy, and giving you the comfort of being sure what you have and what you’ll be wearing.</p></li>
+<li><p> MyFitZ is a new age method of managing your wardrobe. The app saves you time, energy and provides the comfort of knowing exactly what is in your closet!</p></li>
 
-<li><p>MyFitZ is for everyone, babies, kids, businesses, stores, clothing lines, fashion designers, fashion enthusiast, and so much more.</p></li>
+<li><p>MyFitZ is perfect for: Kids (of all ages), Clothing/Fashion Designers, Business Professionals, Fashion Enthusiasts, or anyone who wants their wardrobe organized!</p></li>
 </ul>
 
 <hr />
