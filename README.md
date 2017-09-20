@@ -1,6 +1,6 @@
 <h1 align="center"><strong>MyFitZ</strong></h1>
 
-<h4 align="center"><i>MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 👔👖👟👗👠👛👓 </h4>
+<h4 align="center"><i>MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 📱👔👖👟👗👠👛👓 </h4>
 
 <p></i></p>
 
