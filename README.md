@@ -28,7 +28,7 @@
  	<li><a href="#Newsletter">Newsletter</a></li>
  	<li><a href="#Requirments">Requirments</a></li>
  	<li><a href="#Terms-Of-Use">Terms Of Use</a></li>
- 	<li><a href="#Instalation">Instalation</a></li>
+ 	<li><a href="#Instalation">Installation</a></li>
  	<li><a href="#Main-Issues">Main Issues</a></li>
  	<li><a href="#Technology-Used">Technology Used</a></li>
  	<li><a href="#Change-Log">Change Log</a></li>
@@ -112,8 +112,8 @@
 
 <hr />
 
-<h2><a id="Instalation"></a>
-<strong>🛠Instalation</strong></h2>
+<h2><a id="Installation"></a>
+<strong>🛠Installation</strong></h2>
 Clone/Build/Run
 
 <hr />
