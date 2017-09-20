@@ -63,13 +63,15 @@
 
 <hr />
 
-<h2 align="center"><a id="Examples"></a><strong>Examples<strong></h2>
+<h2 align="center"><a id="Examples"></a>
+<strong>Examples<strong></h2>
 
 <p><img src="https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF" alt="MyFitZ"> <img src="https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF" alt="MyFitZ"> <img src="https://user-images.githubusercontent.com/4246541/29471829-af072e7c-840e-11e7-8fb2-d7c6e675a203.GIF" alt="text"> <img src="https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF" alt="text"></p>
 
 <hr />
 
-<h2 align="center"><a id="�About"></a><strong>📱About<strong></h2>
+<h2 align="center"><a id="About"></a>
+<strong>📱About<strong></h2>
 
 <ul>
 <li><p>MyFitZ allows you to have a mobile visualization of your personal wardrobe, as well as a reference to a wardrobe wishlist, so you always have quick and easy access to what's in your closet!</p></li>
@@ -87,7 +89,8 @@
 
 <hr />
 
-<h2 id="featuresaidfeaturesa"><strong>🎁Features</strong> <a id="Features"></a></h2>
+<h2> <a id="Features">
+<strong>🎁Features</strong></a></h2>
 
 <ul>
 <li>Sharing</li>
@@ -125,7 +128,8 @@
 
 <hr />
 
-<h2 id="youtubevideosaidyoutubevideosa"><strong>📹Youtube Videos</strong> <a id="Youtube-Videos"></a></h2>
+<h2> <a id="Youtube-Videos"></a>
+<strong>📹Youtube Videos</strong> </h2>
 
 <p><a href="https://www.youtube.com/attribution_link?a=ndOgzBQnZHTB7mtb&amp;u=/watch%3Fv%3Dnw5ZL_vyMcA%26feature%3Dem-share_video_user" target="_blank"><img src="http://andrevillanueva.com/wp-content/uploads/2016/01/MyFitZ2016-1.png" 
 alt="MyFitZ Gource" width="240" height="180" border="10" />   </a> <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
@@ -134,20 +138,23 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <hr />
 
-<h2 id="myfitznewsletteraidnewslettera"><strong>📩MyFitZ Newsletter</strong> <a id="Newsletter"></a></h2>
+<h2><a id="Newsletter"></a>
+<strong>📩MyFitZ Newsletter</strong> </h2>
 
 <p><strong>Click <a href="eepurl.com/cOTsKX">here</a> to <a href="eepurl.com/cOTsKX">join</a> MyFitZ <a href="eepurl.com/cOTsKX">Newsletter</a>, and get MyFitZ <a href="eepurl.com/cOTsKX">updates</a> and prizes!!</strong></p>
 
 <hr />
 
-<h2 id="reuqirmentsaidprerequisitesa"><strong>⚠️ Reuqirments</strong> <a id="Prerequisites"></a></h2>
+<h2><a id="Reuqirments"></a>
+<strong>⚠️ Reuqirments</strong> </h2>
 
 <p><a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Device-iPhone%206+-yellow.svg?style=plastic" alt="Language Swift 4"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-IOS%2010-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Watch-Apple%20Watch-yellow.svg?style=plastic" alt="apple.com"></a>
 <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/OS-WatchOS%204-yellow.svg?style=plastic" alt="apple.com"></a> <a href="apple.com" target="_blank"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com"></a> </p>
 
 <hr />
 
-<h2 id="termsofuseaidtermsofusea"><strong>❗️Terms Of Use❗</strong> <a id="Terms-Of-Use"></a></h2>
+<h2><a id="Terms-Of-Use"></a>
+<strong>❗️Terms Of Use❗</strong> </h2>
 
 <ul>
 <li>MyFitZ is an app in production, the source code is not to be used for other porjects or to distribute.</li>
@@ -159,13 +166,16 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <hr />
 
-<h2 id="instalationaidinstalationa"><strong>🛠Instalation</strong> <a id="Instalation"></a></h2>
+<h2> <a id="Instalation"></a>
+<strong>🛠Instalation</strong></h2>
 
 <p>Clone/Build/Run</p>
 
 <hr />
 
-<h2 id="mainissuesaidmainissuesa"><strong>☢️Main Issues</strong> <a id="Main-Issues"></a></h2>
+<h2><a id="Main-Issues"></a>
+<strong>☢️Main Issues</strong> </h2>
+
 <table>
   <tr>
     <th>#</th>
@@ -183,7 +193,9 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <hr />
 
-<h2 id="technologyusedaidtechnologyuseda"><strong>🔋Technology Used</strong> <a id="Technology-Used"></a></h2>
+<h2> <a id="Technology-Used"></a>
+<strong>🔋Technology Used</strong></h2>
+
 <table>
   <tr>
     <th>#</th>
@@ -228,15 +240,17 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 </table>  
 <hr />
 
-<h2 id="changelogaidchangeloga"><strong>📜Change Log</strong> <a id="Change-Log"></a></h2>
+<h2> <a id="Change-Log"></a>
+<strong>📜Change Log</strong></h2>
+
 <table>
   <tr>
     <th>#</th>
-    <th>Changes</th> 
+    <th>Version: 1.0.Beta</th> 
   </tr>
   <tr>
     <td>1</td>
-    <td>Version Beta/1.0/1.0</td>
+    <td>Rewritten/migrated from old app</td>
   </tr>
   <tr>
     <td>2</td>
@@ -245,10 +259,6 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
   <tr>
     <td>3</td>
     <td>In between a core data migration</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Rewritten/migrated from old app</td>
   </tr> 
 </table> 
 
@@ -256,7 +266,8 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <hr />
 
-<h2 id="contributionsaidcontributionsa"><strong>👥Contributions</strong> <a id="Contributions"></a></h2>
+<h2> <a id="Contributions"></a>
+<strong>👥Contributions</strong></h2>
 
 <p>1.Fork it ( <a href="https://github.com/thankmelater23/MyFitZ/fork">https://github.com/thankmelater23/MyFitZ/fork</a> )</p>
 
@@ -274,20 +285,23 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <hr />
 
-<h2 id="documentationaiddocumentationa"><strong>📗Documentation</strong> <a id="Documentation"></a></h2>
+<h2> <a id="Documentation"></a>
+<strong>📗Documentation</strong></h2>
 
 <h4 id="comingsoon"><strong>Coming soon...</strong></h4>
 
 <hr />
 
-<h2 id="socialmediaaidsocialmedialinksa"><strong>👥Social Media</strong> <a id="Social-Media-Links"></a></h2>
+<h2> <a id="Social-Media-Links"></a>
+<strong>👥Social Media</strong></h2>
 
 <p><a href="http://MyFitZApp.com" target="_blank"><img src="https://img.shields.io/badge/Website-MyFitZ-blue.svg?style=plastic" alt="http://MyFitZApp.com"></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/"></a> <a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks"></a>
 <a href="https://twitter.com/MyFitZ_BBS" target="_blank"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS"></a> <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg"></a></p>
 
 <hr />
 
-<h2 id="licenseaidlicensea"><strong>🔑License</strong> <a id="License"></a></h2>
+<h2> <a id="License"></a>
+<strong>🔑License</strong></h2>
 
 <h6>MIT License<br><br>
 
@@ -300,7 +314,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 <hr />
 
-<h2 align="center"><a id="Story"></a><strong>📺Story<strong></h2>
+<h2 align="center"><a id="Story"></a>
+<strong>📺Story<strong></h2>
 
 <h6><strong>MyFitZ idea came in 2013 by Author/Developer <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.It has been an on and off project with development not starting until 2015.<br><br>
 
