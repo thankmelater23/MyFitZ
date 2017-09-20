@@ -1,11 +1,7 @@
 <h1 align="center"><strong>MyFitZ</strong></h1>
-
-<h4 align="center"><i>MyFitZ bringing order to your closet, and ease to your mind.  The worlds greatest Virtual Closet Manager 📱👔👖👟👗👠👛👓 </h4>
-
-<p></i></p>
+<h4 align="center"><i>MyFitZ bringing order to your closet, and ease to your mind. The worlds greatest Virtual Closet Manager 📱👔👖👟👗👠👛👓 </i></h4>
 
 <hr />
-
 <p align="center"><a href="http:MyFitZApp.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Version-Beta-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com" /></a> <a href="http:MyFitZApp.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Release-Unreleased-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com" /></a> <a href="http:MyFitZApp.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=plastic" alt="http:MyFitZApp.com" /></a></p>
 <p align="center"><a href="https://swift.org" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Language-Swift%204-yellow.svg?style=plastic" alt="Language Swift 4" /></a> <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Platform-IOS%2010-yellow.svg?style=plastic" alt="apple.com" /></a> <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Platform-WatchOS%204-yellow.svg?style=plastic" alt="apple.com" /></a> <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com" /></a></p>
 <p align="center"><a href="http://MyFitZApp.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Website-MyFitZ-brightgreen.svg?style=plastic" alt="http://MyFitZApp.com" /></a> <a href="http://AndreVillanueva.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Website-Developer-brightgreen.svg?style=plastic" alt="http://AndreVillanueva.com" /></a> <a href="https://eepurl.com/cOTsKX" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Newsletter-MyFitZ-brightgreen.svg?style=plastic" alt="https://eepurl.com/cOTsKX" /></a> <a href="MyFitZ@MyFitZApp.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Email-MyFitZ@MyFitZApp.com-brightgreen.svg?style=plastic" alt="MyFitZ@MyFitZApp.com" /></a></p>
@@ -158,7 +154,7 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <li>MyFitZ is an open source and open to suggestions for modifications.</li>
 
-<li>MyFitz provides an opportunity for potential clients to view and experience applications developed by Andre Villanueva.</li>
+<li>MyFitz provides an opportunity for potential clients to view and experience applications developed by <a href="http://AndreVillanueva.com">Andre Villanueva</a>.</li>
 </ul>
 
 <hr />
@@ -297,29 +293,25 @@ alt="MyFitZ Gource" width="240" height="180" border="10" /></a></p>
 
 <hr />
 
-<h2> <a id="License"></a>
+<h2><a id="License"></a>
 <strong>🔑License</strong></h2>
+<h3>MIT License</h3>
+Copyright (c) 2017 Andre Villanueva
 
-<h6>MIT License<br><br>
-
-Copyright (c) 2017 Andre Villanueva<br><br>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-</h6>
 
 <hr />
 
 <h2 align="center"><a id="Story"></a>
-<strong>📺Story<strong></h2>
+<strong>📺Story</strong></h2>
+<h6><strong>MyFitZ idea came in 2013 by Author/Developer <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.It has been an on and off project with development not starting until 2015.</strong></h6>
+&nbsp;
 
-<h6><strong>MyFitZ idea came in 2013 by Author/Developer <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.It has been an on and off project with development not starting until 2015.<br><br>
+Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketing, pre-launch setup, post-launch setup, architecture, and designs were work of <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.
 
-Since the start 2015 everything as of 8-2017 from the website, development, social media setup/marketting, , pre-laune setup, post launch setup, architecture, and designs was work of <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.<br><br>
-
-Release Estimation: 2017</strong></h6>
-
+Release Estimation: 2017
 <hr />
 
 <h1 align="center"><strong>MyFitZ<strong></h1>
