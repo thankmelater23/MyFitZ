@@ -85,7 +85,7 @@
 
 <h2><a id="Youtube-Videos"></a>
 <strong>📹Youtube Videos</strong></h2>
-<a href="https://www.youtube.com/attribution_link?a=ndOgzBQnZHTB7mtb&amp;u=/watch%3Fv%3Dnw5ZL_vyMcA%26feature%3Dem-share_video_user" target="_blank" rel="noopener"><img src="http://myfitzapp.com/wp-content/uploads/2017/09/Screen-Shot-2017-09-19-at-3.45.56-PM.png" alt="MyFitZ Gource" width="240" height="180" border="10" /> </a> <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE " target="_blank" rel="noopener"><img src="http://myfitzapp.com/wp-content/uploads/2017/09/Screen-Shot-2017-09-19-at-3.46.16-PM.png" alt="MyFitZ Gource" width="240" height="180" border="10" /></a>
+<a href="https://www.youtube.com/attribution_link?a=ndOgzBQnZHTB7mtb&amp;u=/watch%3Fv%3Dnw5ZL_vyMcA%26feature%3Dem-share_video_user" target="_blank" rel="noopener"><img src="http://myfitzapp.com/wp-content/uploads/2017/09/Screen-Shot-2017-09-19-at-3.45.56-PM.png" alt="MyFitZ Gource" width="300" height="200" border="10" /> </a> <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE " target="_blank" rel="noopener"><img src="http://myfitzapp.com/wp-content/uploads/2017/09/Screen-Shot-2017-09-19-at-3.46.16-PM.png" alt="MyFitZ Gource" width="300" height="200" border="10" /></a>
 
 <hr />
 
