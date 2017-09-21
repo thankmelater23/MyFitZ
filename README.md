@@ -39,10 +39,10 @@
  	<li><a href="#Story">Story</a></li>
 </ul>
 
+<a id="Examples"></a>
 <hr />
 
-<h2 align="center"><a id="Examples"></a>
-<strong>Examples</strong></h2>
+<h2 align="center"><strong>Examples</strong></h2>
 <img src="https://user-images.githubusercontent.com/4246541/29473242-407251ac-8414-11e7-9398-727fee7a079c.GIF" alt="MyFitZ" /> <img src="https://user-images.githubusercontent.com/4246541/29473270-5cb8961e-8414-11e7-882e-dfb49ec78b79.GIF" alt="MyFitZ" /> <img src="https://user-images.githubusercontent.com/4246541/29471829-af072e7c-840e-11e7-8fb2-d7c6e675a203.GIF" alt="text" /> <img src="https://user-images.githubusercontent.com/4246541/29471777-7eac0d1a-840e-11e7-8118-c9c3afa6e609.GIF" alt="text" />
 
 <hr />
@@ -93,33 +93,33 @@
 <strong>📩MyFitZ Newsletter</strong></h2>
 <strong>Click <a href="http://MyFitZApp.com/Newsletter">here</a> to <a href="http://MyFitZApp.com/Newsletter">join</a> MyFitZ <a href="http://MyFitZApp.com/Newsletter">Newsletter</a>, and get MyFitZ <a href="http://MyFitZApp.com/Newsletter">updates</a> and prizes!!</strong>
 
+<a id="Requirments"></a>
 <hr />
 
-<h2><a id="Requirments"></a>
-<strong>⚠️ Requirments</strong></h2>
+<h2><strong>⚠️ Requirments</strong></h2>
 <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Device-iPhone%206+-yellow.svg?style=plastic" alt="Language Swift 4" /></a> <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/OS-IOS%2010-yellow.svg?style=plastic" alt="apple.com" /></a> <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Watch-Apple%20Watch-yellow.svg?style=plastic" alt="apple.com" /></a>
 <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/OS-WatchOS%204-yellow.svg?style=plastic" alt="apple.com" /></a> <a href="apple.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Platform-Xcode%209-yellow.svg?style=plastic" alt="apple.com" /></a>
 
+<a id="Terms-Of-Use"></a>
 <hr />
 
-<h2><a id="Terms-Of-Use"></a>
-<strong>❗️Terms Of Use❗</strong></h2>
+<h2><strong>❗️Terms Of Use❗</strong></h2>
 <ul>
  	<li>MyFitZ is an app currently in production. Source codes associated with this app are not for distribution or to be used for other projects.</li>
  	<li>MyFitZ is an open source and open to suggestions for modifications.</li>
  	<li>MyFitz provides an opportunity for potential clients to view and experience applications developed by <a href="http://AndreVillanueva.com">Andre Villanueva</a>.</li>
 </ul>
 
+<a id="Installation"></a>
 <hr />
 
-<h2><a id="Installation"></a>
-<strong>🛠Installation</strong></h2>
+<h2><strong>🛠Installation</strong></h2>
 Clone/Build/Run
 
+<a id="Main-Issues"></a>
 <hr />
 
-<h2><a id="Main-Issues"></a>
-<strong>☢️Main Issues</strong></h2>
+<h2><strong>☢️Main Issues</strong></h2>
 <table>
 <tbody>
 <tr>
@@ -137,10 +137,10 @@ Clone/Build/Run
 </tbody>
 </table>
 
+<a id="Technology-Used"></a>
 <hr />
 
-<h2><a id="Technology-Used"></a>
-<strong>🔋Technology Used</strong></h2>
+<h2><strong>🔋Technology Used</strong></h2>
 <table>
 <tbody>
 <tr>
@@ -186,10 +186,10 @@ Clone/Build/Run
 </tbody>
 </table>
 
+<a id="Change-Log"></a>
 <hr />
 
-<h2><a id="Change-Log"></a>
-<strong>📜Change Log</strong></h2>
+<h2><strong>📜Change Log</strong></h2>
 <table>
 <tbody>
 <tr>
@@ -212,10 +212,10 @@ Clone/Build/Run
 </table>
 Review entire changelog file <a href="https://github.com/thankmelater23/MyFitZ/blob/master/changelog.md"><strong>here</strong></a>
 
+<a id="Contributions"></a>
 <hr />
 
-<h2><a id="Contributions"></a>
-<strong>👥Contributions</strong></h2>
+<h2><strong>👥Contributions</strong></h2>
 1.Fork it ( <a href="https://github.com/thankmelater23/MyFitZ/fork">https://github.com/thankmelater23/MyFitZ/fork</a> )
 
 2.Create your feature branch (git checkout -b my-new-feature)
@@ -230,23 +230,24 @@ Contributions is open, mostly to UI/Desig stuff(my weakness). The iCon suffers t
 
 Copyright 2017 BANG BANG STUDIOS
 
+<a id="Documentation"></a>
 <hr />
 
-<h2><a id="Documentation"></a>
-<strong>📗Documentation</strong></h2>
+<h2><strong>📗Documentation</strong></h2>
 <h4 id="comingsoon"><strong>Coming soon...</strong></h4>
 
+<a id="Social-Media-Links"></a>
 <hr />
 
-<h2><a id="Social-Media-Links"></a>
+<h2>
 <strong>👥Social Media</strong></h2>
 <a href="http://MyFitZApp.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Website-MyFitZ-blue.svg?style=plastic" alt="http://MyFitZApp.com" /></a> <a href="https://www.instagram.com/myfitz_bbs/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Instagram-MyFitZ_BBS-blue.svg?style=plastic" alt="https://www.instagram.com/myfitz_bbs/" /></a> <a href="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Facebook-MyFitZ-blue.svg?style=plastic" alt="https://www.facebook.com/Myfitz-867999189945187/?ref=bookmarks" /></a>
 <a href="https://twitter.com/MyFitZ_BBS" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Twitter-MyFitZ-blue.svg?style=plastic" alt="https://twitter.com/MyFitZ_BBS" /></a> <a href="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Youtube-Bang%20Bang%20Studios-blue.svg?style=plastic" alt="https://www.youtube.com/channel/UC8IQnYYKyXt8j-ipUz2fnfg" /></a>
 
+<a id="License"></a>
 <hr />
 
-<h2><a id="License"></a>
-<strong>🔑License</strong></h2>
+<h2><strong>🔑License</strong></h2>
 <h3>MIT License</h3>
 Copyright (c) 2017 Andre Villanueva
 
@@ -254,10 +255,10 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
+<a id="Story"></a>
 <hr />
 
-<h2 align="center"><a id="Story"></a>
-<strong>📺Story</strong></h2>
+<h2 align="center"><strong>📺Story</strong></h2>
 <h6><strong>MyFitZ idea came in 2013 by Author/Developer <a href="http://www.AndreVillanueva.com">Andre Villanueva</a>.It has been an on and off project with development not starting until 2015.</strong></h6>
 &nbsp;
 
