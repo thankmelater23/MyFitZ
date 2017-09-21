@@ -91,7 +91,7 @@
 
 <h2><a id="Newsletter"></a>
 <strong>📩MyFitZ Newsletter</strong></h2>
-<strong>Click <a href="eepurl.com/cOTsKX">here</a> to <a href="eepurl.com/cOTsKX">join</a> MyFitZ <a href="eepurl.com/cOTsKX">Newsletter</a>, and get MyFitZ <a href="eepurl.com/cOTsKX">updates</a> and prizes!!</strong>
+<strong>Click <a href="http://MyFitZApp.com/Newsletter">here</a> to <a href="http://MyFitZApp.com/Newsletter">join</a> MyFitZ <a href="http://MyFitZApp.com/Newsletter">Newsletter</a>, and get MyFitZ <a href="http://MyFitZApp.com/Newsletter">updates</a> and prizes!!</strong>
 
 <hr />
 
