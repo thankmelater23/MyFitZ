@@ -1,6 +1,6 @@
 //
 //  Appsee.h
-//  Appsee v2.3.4
+//  Appsee v2.3.6
 //
 //  Copyright (c) 2017 Shift 6 Ltd. All rights reserved.
 //
@@ -179,6 +179,16 @@ This method should be usually called right after the start: method.
 */
 +(void)set3rdPartyID:(NSString *)externalID forSystem:(NSString *)systemName persistent:(BOOL)isPersistent;
 
+/******************************
+ WebView Javascript Interface
+ *****************************/
+/**
+ You can call Appsee methods from within a WebView, using Javascript. To do so, call this method,
+ and then an 'Appsee' object will be available in Javascript, exposing the native methods.
+ @param webView A WKWebView or UIWebView object.
+ */
++(void)installJavascriptInterface:(UIView*)webView;
+
 /*********
  Delegate
  *********/
@@ -186,6 +196,7 @@ This method should be usually called right after the start: method.
  * @param delegate an instance of AppseeDelegate
  */
 +(void)setDelegate:(id<AppseeDelegate>)delegate;
+
 
 
 @end

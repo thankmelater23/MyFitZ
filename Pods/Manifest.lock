@@ -1,38 +1,37 @@
 PODS:
-  - Appsee (2.3.4)
+  - Appsee (2.3.6)
   - AsyncSwift (2.0.1)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
-  - Crashlytics (3.8.5):
-    - Fabric (~> 1.6.3)
+  - Crashlytics (3.9.0):
+    - Fabric (~> 1.7.0)
   - CRToast (0.0.9)
   - DZNEmptyDataSet (1.8.1)
-  - Fabric (1.6.12)
-  - Firebase/Auth (4.1.0):
+  - Fabric (1.7.0)
+  - Firebase/Auth (4.3.0):
     - Firebase/Core
-    - FirebaseAuth (= 4.1.0)
-  - Firebase/Core (4.1.0):
-    - FirebaseAnalytics (= 4.0.3)
-    - FirebaseCore (= 4.0.5)
-  - FirebaseAnalytics (4.0.3):
+    - FirebaseAuth (= 4.2.1)
+  - Firebase/Core (4.3.0):
+    - FirebaseAnalytics (= 4.0.4)
+    - FirebaseCore (= 4.0.8)
+  - FirebaseAnalytics (4.0.4):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.1.0):
+  - FirebaseAuth (4.2.1):
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.5):
+  - FirebaseCore (4.0.8):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseDatabase (4.0.1):
+  - FirebaseDatabase (4.1.0):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (2.0.1):
-    - FirebaseCore (~> 4.0)
+  - FirebaseInstanceID (2.0.4)
   - FontAwesomeKit (2.2.1):
     - FontAwesomeKit/Core (= 2.2.1)
     - FontAwesomeKit/FontAwesome (= 2.2.1)
@@ -54,17 +53,17 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
-  - GoogleToolboxForMac/DebugUtils (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMSessionFetcher/Core (1.1.11)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+  - GTMSessionFetcher/Core (1.1.12)
   - HeapInspector (1.0.1):
     - HeapInspector/no-arc (= 1.0.1)
   - HeapInspector/no-arc (1.0.1)
@@ -104,16 +103,17 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - OneSignal (2.5.6)
   - Optimizely-iOS-SDK (1.7.0)
   - REFormattedNumberField (1.1.6)
   - RETableViewManager (1.7):
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
-  - Siren (2.0.7)
+  - Siren (3.0.1)
   - SlackTextViewController (1.9.5)
-  - SVProgressHUD (2.1.2)
-  - SwiftyBeaver (1.4.0)
+  - SVProgressHUD (2.2.1)
+  - SwiftyBeaver (1.4.2)
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
 
@@ -132,6 +132,7 @@ DEPENDENCIES:
   - HeapInspector
   - iRate
   - MRProgress
+  - OneSignal (< 3.0, >= 2.5.2)
   - Optimizely-iOS-SDK
   - RETableViewManager
   - Siren
@@ -141,38 +142,39 @@ DEPENDENCIES:
   - TSMessages
 
 SPEC CHECKSUMS:
-  Appsee: be7e8199ddf914dc4e2adb4cb7ed7f162c74e7a9
+  Appsee: 8b3eab549f4701befe537cab4aefd175421f6328
   AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
+  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
-  Firebase: ebebf41db7f10e0c7668b6eaaa857fbe599aa478
-  FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
-  FirebaseAuth: 8d1d2389cf82f891048d6d50d27d044f55ae09a6
-  FirebaseCore: 7d876ea97a830cbe62ba7fbbe7670c833a324ba0
-  FirebaseDatabase: 94c38c783d23dc6679441050772d42e801d06e9e
-  FirebaseInstanceID: 0500e3cb54a1a4e01a8cffcc09323b8bb8fc7e1e
+  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Firebase: 83283761a1ef6dc9846e03d08059f51421afbd65
+  FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
+  FirebaseAuth: d7f047fbeab98062b98ea933b8d934e0fb1190e2
+  FirebaseCore: 69b1a5ac5f857ba6d5fd9d5fe794f4786dd5e579
+  FirebaseDatabase: 607284a103e961d7f5863ee603cab5e85f443bd6
+  FirebaseInstanceID: 70c2b877e9338971b2429ea5a4293df6961aa44e
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   HeapInspector: 121979cf97b186616ddfcd5ec0f61db631556c7b
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   MRProgress: 16de7cc9f347e8846797a770db102a323fe7ef09
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  OneSignal: 9ec286d9156b86b3975f45d928e70f46c74ef4b7
   Optimizely-iOS-SDK: e406016e617f84e823227c52131341dc20721319
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
   RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
-  Siren: e51ff27a8e83c3b7508fc7e41becbfa16523b26c
+  Siren: 1fe6c89c268bb5abe684120142e2ad3e7fb0ca1a
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  SwiftyBeaver: 78d9186ce7595b4400ce01e5fd750d263e72dd7b
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  SwiftyBeaver: 91057725648ee4980308f1650af077d04b3654a0
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
 
-PODFILE CHECKSUM: dd6289e68f4b06248b3e42215f2c8fd080c0a1d7
+PODFILE CHECKSUM: 26e435c6e4b79d911f16d885f7654e2d0cff4c8f
 
 COCOAPODS: 1.3.1

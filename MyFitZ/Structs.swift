@@ -34,6 +34,12 @@ struct MyFitZEntities{
 }
 let myfitzEntities = MyFitZEntities()
 
+//MARK: -Push Notification
+struct AppConstants{
+    //The constant One Signal AppId
+    static let OneSignalAppId = "f278b542-ea8b-4919-b75a-4c23dccb5cfa"
+}
+
 
 //MARK: -Segue identifiers
 struct Segues{

@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.0</string>
 	<key>CFBundleVersion</key>
-	<string>286</string>
+	<string>304</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -34,6 +34,10 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

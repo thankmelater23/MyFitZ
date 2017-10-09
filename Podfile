@@ -29,6 +29,9 @@ target 'MyFitZ' do
   pod 'Firebase/Core'
   pod 'FirebaseDatabase'
   pod 'Firebase/Auth'
+  pod 'OneSignal', '>= 2.5.2', '< 3.0'
+  
+  
 #  pod "SAConfettiView" #Runs confetti on the screen
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -47,5 +50,5 @@ inhibit_all_warnings!
     inherit! :search_paths
     # Pods for testing
   end
-
+  
 end
