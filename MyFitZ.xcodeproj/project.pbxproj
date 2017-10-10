@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */; };
+		169FD75A7666CDD01E41E05D /* libPods-MyFitZUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D88E397F474C4A4B25D5789 /* libPods-MyFitZUITests.a */; };
+		3687E341BA149F0EF5EB566B /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		412A6DE61F8C225800EA7941 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A6DE51F8C225800EA7941 /* NotificationService.swift */; };
 		412A6DEA1F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 412A6DE31F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
@@ -105,7 +106,7 @@
 		47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */; };
 		47FD159D1EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */; };
 		47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */; };
-		7BCB0EBE859E24D5B6BD1719 /* Pods_MyFitZTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527EA8368E7E2429DFEE70CE /* Pods_MyFitZTests.framework */; };
+		F786B633C82CE30CA617F788 /* libPods-MyFitZTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF96248A463F7E2A026DBAC0 /* libPods-MyFitZTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		293C96A049684BADBA245008 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		412A6DE31F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		412A6DE51F8C225800EA7941 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		412A6DE71F8C225800EA7941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -253,15 +255,17 @@
 		47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		527EA8368E7E2429DFEE70CE /* Pods_MyFitZTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F103C200E84FFF2BF507E6C /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C9271C729FF173FF8F8B22 /* Pods_MyFitZ_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D88E397F474C4A4B25D5789 /* libPods-MyFitZUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFitZUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6412EF1D10DE4FE5B14B31CC /* Pods-MyFitZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.debug.xcconfig"; sourceTree = "<group>"; };
 		8FEAB7AE776E26D70356D0B7 /* Pods-MyFitZTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.release.xcconfig"; sourceTree = "<group>"; };
 		96FE9AFC706D7158A2F60542 /* Pods-MyFitZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FBD2CB5559F23D54A24FD8 /* Pods-MyFitZTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E695E69A9CE28665A81DAA /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
-		D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77900B281B997F383FF32CF /* Pods-MyFitZUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF96248A463F7E2A026DBAC0 /* libPods-MyFitZTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFitZTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -270,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3687E341BA149F0EF5EB566B /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BCB0EBE859E24D5B6BD1719 /* Pods_MyFitZTests.framework in Frameworks */,
+				F786B633C82CE30CA617F788 /* libPods-MyFitZTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BD2197D62B2C4084574567 /* Pods_MyFitZUITests.framework in Frameworks */,
+				169FD75A7666CDD01E41E05D /* libPods-MyFitZUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,9 +309,10 @@
 			isa = PBXGroup;
 			children = (
 				FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */,
-				527EA8368E7E2429DFEE70CE /* Pods_MyFitZTests.framework */,
-				D1889CA9D3C467456C7FD0E8 /* Pods_MyFitZUITests.framework */,
 				54C9271C729FF173FF8F8B22 /* Pods_MyFitZ_OneSignalNotificationServiceExtension.framework */,
+				DF96248A463F7E2A026DBAC0 /* libPods-MyFitZTests.a */,
+				5D88E397F474C4A4B25D5789 /* libPods-MyFitZUITests.a */,
+				51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -594,6 +600,8 @@
 				8FEAB7AE776E26D70356D0B7 /* Pods-MyFitZTests.release.xcconfig */,
 				96FE9AFC706D7158A2F60542 /* Pods-MyFitZUITests.debug.xcconfig */,
 				D77900B281B997F383FF32CF /* Pods-MyFitZUITests.release.xcconfig */,
+				4F103C200E84FFF2BF507E6C /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				293C96A049684BADBA245008 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -605,9 +613,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 412A6DEB1F8C225800EA7941 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
+				A65E32A9C86BC2086D28C5CD /* [CP] Check Pods Manifest.lock */,
 				412A6DDF1F8C225800EA7941 /* Sources */,
 				412A6DE01F8C225800EA7941 /* Frameworks */,
 				412A6DE11F8C225800EA7941 /* Resources */,
+				5F6D9BCA9C68C4A0147458FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -940,6 +950,21 @@
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TEMP|FRAMEWORKTOIMPLEMENT|BeforeCommit|TODO|FIXME|TEMP|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n\n";
 		};
+		5F6D9BCA9C68C4A0147458FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		77C1FB58AB8D97E2F3A70A17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -971,6 +996,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A65E32A9C86BC2086D28C5CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF34B0342D32381711F47C2B /* [CP] Copy Pods Resources */ = {
@@ -1196,6 +1239,7 @@
 /* Begin XCBuildConfiguration section */
 		412A6DEC1F8C225800EA7941 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F103C200E84FFF2BF507E6C /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1216,6 +1260,7 @@
 		};
 		412A6DED1F8C225800EA7941 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 293C96A049684BADBA245008 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;

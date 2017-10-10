@@ -38,17 +38,19 @@ inhibit_all_warnings!
 
 # ignore warnings from a specific pod
 #pod 'ExampleCode', :inhibit_warnings => true
+end
 
-  # Pods for MyFitZ
-
-  target 'MyFitZTests' do
+target 'MyFitZTests' do
     inherit! :search_paths
     # Pods for testing
-  end
+end
 
-  target 'MyFitZUITests' do
+target 'MyFitZUITests' do
     inherit! :search_paths
     # Pods for testing
-  end
-  
+end
+
+target 'OneSignalNotificationServiceExtension' do
+    use_frameworks!
+    pod 'OneSignal', '>= 2.5.2', '< 3.0'
 end

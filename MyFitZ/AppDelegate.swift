@@ -17,6 +17,7 @@
          //import Appsee//This is possibly crashing since its not working(issue found in crashylytics)
          //         import Siren
          import SwiftyBeaver
+         import OneSignal
          //import Parse
          //import Bolts
          //import HeapInspector
@@ -43,6 +44,43 @@
                 Fabric.with([Crashlytics.self, Answers.self])//Appsee.self
                 //                FirebaseApp.configure()
                 //                Database.database().isPersistenceEnabled = true
+                
+                func oneSignalConfig(){
+                    log.verbose(#function)
+                    let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+                    
+                    // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+                    OneSignal.initWithLaunchOptions(launchOptions,
+                                                    appId: AppConstants.OneSignalAppId,
+                                                    handleNotificationAction: nil,
+                                                    settings: onesignalInitSettings)
+                    
+                    OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+                    
+                    // Recommend moving the below line to prompt for push after informing the user about
+                    //   how your app will use them.
+                    OneSignal.promptForPushNotifications(userResponse: { accepted in
+                        log.info("User accepted notifications: \(accepted)")
+                    })
+                    
+                    OneSignal.setLogLevel(.LL_DEBUG, visualLevel: .LL_DEBUG)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    // Sync hashed email if you have a login system or collect it.
+                    //   Will be used to reach the user at the most optimal time of day.
+                    // OneSignal.syncHashedEmail(userEmail)
+                }
+                
+                oneSignalConfig()
                 
                 return true
             }
@@ -141,28 +179,6 @@
                 }
             }
             
-            func oneSignalConfiguration(){
-//                let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-//                
-//                // Replace 'YOUR_APP_ID' with your OneSignal App ID.
-//                OneSignal.initWithLaunchOptions(launchOptions,
-//                                                appId: AppConstants.OneSignalAppId,
-//                                                handleNotificationAction: nil,
-//                                                settings: onesignalInitSettings)
-//                
-//                OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
-//                
-//                // Recommend moving the below line to prompt for push after informing the user about
-//                //   how your app will use them.
-//                OneSignal.promptForPushNotifications(userResponse: { accepted in
-//                    print("User accepted notifications: \(accepted)")
-//                })
-                
-                // Sync hashed email if you have a login system or collect it.
-                //   Will be used to reach the user at the most optimal time of day.
-                // OneSignal.syncHashedEmail(userEmail)
-            }
-            
             //MARK: - Core Data
             fileprivate func createSampleDatabase(){
                 //                User.createUsers()
@@ -227,7 +243,6 @@
                 self.swiftBeaverSetUp()
                 self.removeConstraintFromLogger()
                 self.ifFirstStart()
-                self.oneSignalConfiguration()
                 //                self.createAndRegisterNotificationSettings()
                 //                self.setNotifications()
                 //                self.iqKeyboardInitilize()
