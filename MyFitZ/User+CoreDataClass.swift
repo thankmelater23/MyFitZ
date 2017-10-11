@@ -57,7 +57,6 @@ public class User: NSManagedObject {
         user1.position = 0
         user1.isBoy = true
         user1.age = 18
-        user1.name = "User1"
         user1.closetType = closetTypeGlobal.closet
         //User2
         let user2 = User(context: context)
