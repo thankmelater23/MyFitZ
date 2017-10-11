@@ -47,15 +47,14 @@
                 
                 func oneSignalConfig(){
                     log.verbose(#function)
-                    let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+                        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: true ]
                     
-                    // Replace 'YOUR_APP_ID' with your OneSignal App ID.
-                    OneSignal.initWithLaunchOptions(launchOptions,
-                                                    appId: AppConstants.OneSignalAppId,
+                    OneSignal.initWithLaunchOptions(launchOptions, appId: AppConstants.OneSignalAppId,
+                                                    handleNotificationReceived: nil,
                                                     handleNotificationAction: nil,
-                                                    settings: onesignalInitSettings)
+                                                    settings: onesignalInitSettings) 
                     
-                    OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+                    OneSignal.inFocusDisplayType = OSNotificationDisplayType.inAppAlert
                     
                     // Recommend moving the below line to prompt for push after informing the user about
                     //   how your app will use them.
@@ -63,7 +62,7 @@
                         log.info("User accepted notifications: \(accepted)")
                     })
                     
-                    OneSignal.setLogLevel(.LL_DEBUG, visualLevel: .LL_DEBUG)
+//                    OneSignal.setLogLevel(.LL_DEBUG, visualLevel: .LL_DEBUG)
                     
                     
                     
