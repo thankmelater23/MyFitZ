@@ -94,11 +94,6 @@
 		478333CB1EC46A2A006105C7 /* ModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */; };
 		47AC4CB81F233CDF00272720 /* Todo in Resources */ = {isa = PBXBuildFile; fileRef = 47AC4CB71F233CDF00272720 /* Todo */; };
 		47ED82711ED1BD1A005E79BD /* LongCreationUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */; };
-		47F710AE1F343FA0007CC98C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AD1F343FA0007CC98C /* TableViewController.swift */; };
-		47F710B01F343FE8007CC98C /* AAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710AF1F343FE7007CC98C /* AAViewController.swift */; };
-		47F710B21F34401B007CC98C /* AwesomeDataDemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */; };
-		47F710B41F34402A007CC98C /* UnsplashImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B31F34402A007CC98C /* UnsplashImage.swift */; };
-		47F710B81F36AE66007CC98C /* DBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F710B71F36AE65007CC98C /* DBViewController.swift */; };
 		47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD157F1EC06943006CF4DA /* DataBaseController.swift */; };
 		47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */; };
 		47FD159A1EC080F1006CF4DA /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */; };
@@ -155,7 +150,6 @@
 		412A6DEF1F8C236B00EA7941 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		412A6DF01F8C239700EA7941 /* MyFitZ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFitZ.entitlements; sourceTree = "<group>"; };
 		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
-		471452341F303F7B00D03426 /* OtherFKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OtherFKViewController.swift; path = "../../../../../../Documents/Core Data Projects/Blog_Intro_to_CoreData-master/ToDO App/OtherFKViewController.swift"; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
 		471C94C61EBF371F00A6C337 /* MyFitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,11 +237,6 @@
 		478333CA1EC46A2A006105C7 /* ModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTableViewController.swift; sourceTree = "<group>"; };
 		47AC4CB71F233CDF00272720 /* Todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo; sourceTree = "<group>"; };
 		47ED82701ED1BD1A005E79BD /* LongCreationUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongCreationUITableViewCell.swift; sourceTree = "<group>"; };
-		47F710AD1F343FA0007CC98C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/TableViewController.swift"; sourceTree = "<group>"; };
-		47F710AF1F343FE7007CC98C /* AAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AAViewController.swift; path = "../../../../../../Documents/Core Data Projects/PictureBase-master/PictureBase/AAViewController.swift"; sourceTree = "<group>"; };
-		47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwesomeDataDemoAPI.swift; path = "../../../../../../Documents/Core Data Projects/AwesomeData-master/Example/AwesomeData/Library/AwesomeDataDemoAPI.swift"; sourceTree = "<group>"; };
-		47F710B31F34402A007CC98C /* UnsplashImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnsplashImage.swift; path = "../../../../../../Documents/Core Data Projects/AwesomeData-master/Example/AwesomeData/Model/UnsplashImage.swift"; sourceTree = "<group>"; };
-		47F710B71F36AE65007CC98C /* DBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBViewController.swift; path = "../../../../../../Downloads/Tutorial-iOS-CoreData-master/\\9\\963/DBViewController.swift"; sourceTree = "<group>"; };
 		47FD157F1EC06943006CF4DA /* DataBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
 		47FD15931EC080F1006CF4DA /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		47FD15941EC080F1006CF4DA /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -434,7 +423,6 @@
 		471C95411EBF3BC400A6C337 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				476258D81F300A8200666384 /* Code To Use */,
 				471C95A71EBF43E700A6C337 /* Scripts */,
 				471C94D81EBF371F00A6C337 /* Info.plist */,
 			);
@@ -558,19 +546,6 @@
 				471C95A01EBF435A00A6C337 /* set_build_number.sh */,
 			);
 			name = Scripts;
-			sourceTree = "<group>";
-		};
-		476258D81F300A8200666384 /* Code To Use */ = {
-			isa = PBXGroup;
-			children = (
-				47F710AD1F343FA0007CC98C /* TableViewController.swift */,
-				47F710AF1F343FE7007CC98C /* AAViewController.swift */,
-				47F710B71F36AE65007CC98C /* DBViewController.swift */,
-				471452341F303F7B00D03426 /* OtherFKViewController.swift */,
-				47F710B11F34401B007CC98C /* AwesomeDataDemoAPI.swift */,
-				47F710B31F34402A007CC98C /* UnsplashImage.swift */,
-			);
-			name = "Code To Use";
 			sourceTree = "<group>";
 		};
 		47DF3C541ED9966900DECBAC /* ViewController Constants */ = {
@@ -1140,13 +1115,11 @@
 				471C953D1EBF3B8C00A6C337 /* Constants_Extensions.swift in Sources */,
 				471C95011EBF37D000A6C337 /* ViewController.swift in Sources */,
 				471C952F1EBF3B8C00A6C337 /* Constants_Wardrobe.swift in Sources */,
-				47F710B41F34402A007CC98C /* UnsplashImage.swift in Sources */,
 				471C953C1EBF3B8C00A6C337 /* Constants_Global_Function.swift in Sources */,
 				47FD15991EC080F1006CF4DA /* Item+CoreDataClass.swift in Sources */,
 				47ED82711ED1BD1A005E79BD /* LongCreationUITableViewCell.swift in Sources */,
 				471C95861EBF3CA000A6C337 /* NSAttributedStringExtensions.swift in Sources */,
 				471C953A1EBF3B8C00A6C337 /* Constants_SearchViewController.swift in Sources */,
-				47F710B21F34401B007CC98C /* AwesomeDataDemoAPI.swift in Sources */,
 				471C95501EBF3C6900A6C337 /* MakeTableViewController.swift in Sources */,
 				4718E6A41ECA26CA0079C65A /* CreateItemViewController.swift in Sources */,
 				47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */,
@@ -1178,7 +1151,6 @@
 				471C95531EBF3C6900A6C337 /* Options_HelpViewController.swift in Sources */,
 				471C952E1EBF3B8C00A6C337 /* Constants_Colors_And_Textures.swift in Sources */,
 				471C95551EBF3C6900A6C337 /* Options-SettingsViewController.swift in Sources */,
-				47F710AE1F343FA0007CC98C /* TableViewController.swift in Sources */,
 				471C94CA1EBF371F00A6C337 /* AppDelegate.swift in Sources */,
 				471C95131EBF3B5D00A6C337 /* Equatables.swift in Sources */,
 				471C95561EBF3C6900A6C337 /* Options-ContactViewController.swift in Sources */,
@@ -1187,7 +1159,6 @@
 				471C953B1EBF3B8C00A6C337 /* Constants_FavoritedWornTableViewController.swift in Sources */,
 				471C95981EBF3CE400A6C337 /* StatsTableVIewCell.swift in Sources */,
 				471C95921EBF3CE400A6C337 /* ModelCustomCell.swift in Sources */,
-				47F710B81F36AE66007CC98C /* DBViewController.swift in Sources */,
 				4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */,
 				47FD159B1EC080F1006CF4DA /* User+CoreDataClass.swift in Sources */,
 				47FD15801EC06943006CF4DA /* DataBaseController.swift in Sources */,
@@ -1195,7 +1166,6 @@
 				47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */,
 				471C95521EBF3C6900A6C337 /* Options-AboutViewController.swift in Sources */,
 				471C95571EBF3C6900A6C337 /* WebsiteViewController.swift in Sources */,
-				47F710B01F343FE8007CC98C /* AAViewController.swift in Sources */,
 				471C95341EBF3B8C00A6C337 /* Constants_MakeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
