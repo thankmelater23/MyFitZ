@@ -264,7 +264,7 @@
 		96FE9AFC706D7158A2F60542 /* Pods-MyFitZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FBD2CB5559F23D54A24FD8 /* Pods-MyFitZTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AEAB29B5D1640B2CD2FEA1DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		CC21EB3811D60404FD9EEA0B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D0E695E69A9CE28665A81DAA /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 		D77900B281B997F383FF32CF /* Pods-MyFitZUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -651,6 +651,7 @@
 				47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */,
 				417DB3B31F418C33000096DB /* Fabric */,
 				412A6DEE1F8C225800EA7941 /* Embed App Extensions */,
+				4196E6961F95F3DF0053718D /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -898,6 +899,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
+		};
+		4196E6961F95F3DF0053718D /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		471C95A41EBF438000A6C337 /* Lines Of Code */ = {
 			isa = PBXShellScriptBuildPhase;

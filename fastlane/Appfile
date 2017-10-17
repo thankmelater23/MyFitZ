@@ -1,0 +1,7 @@
+app_identifier "com.BangBangStudios.MyFitZ" # The bundle identifier of your app
+apple_id "thankmelater23@me.com" # Your Apple email address
+
+team_id "ZJWNZ643CG" # Developer Portal Team ID
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
