@@ -34,6 +34,8 @@
             
             
             func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                BuddyBuildSDK.setup()
+                
                 setupApplication()
                 //        self.parseSetUp(launchOptions)
                 //        self.setNotifications()

@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1175B662DF8DEBBBA25495B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E42ED31C81FA4F8C52431B2 /* CoreTelephony.framework */; };
 		169FD75A7666CDD01E41E05D /* libPods-MyFitZUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D88E397F474C4A4B25D5789 /* libPods-MyFitZUITests.a */; };
+		1C0855DF5237A6DF7BE84D5A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EF6D966FF64C9BED4611E2 /* CoreMedia.framework */; };
+		2BAA3D85529BF0BCF1766610 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC21EB3811D60404FD9EEA0B /* CoreVideo.framework */; };
 		3687E341BA149F0EF5EB566B /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		412A6DE61F8C225800EA7941 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A6DE51F8C225800EA7941 /* NotificationService.swift */; };
 		412A6DEA1F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 412A6DE31F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -99,6 +102,12 @@
 		47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */; };
 		47FD159D1EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */; };
 		47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */; };
+		5C7B0E8984C257D88A999D26 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCB751FF474D19320DEEC52 /* AssetsLibrary.framework */; };
+		6444A0FA8635AB405DB5EAA8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8082A4F263E602903FE0197D /* AVFoundation.framework */; };
+		7049A09A9E2A7CB0B1C09DE8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F1ABC5A09CE60BE7EB9CAA /* CoreText.framework */; };
+		786AF15D357299703C449ABD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7336A33D46D88B8B57C821D6 /* QuartzCore.framework */; };
+		97442AA1BFD126FE6A5AA7FD /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */; };
+		B0DC19C7CC254A0C07AF7516 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB29B5D1640B2CD2FEA1DA /* SystemConfiguration.framework */; };
 		F786B633C82CE30CA617F788 /* libPods-MyFitZTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF96248A463F7E2A026DBAC0 /* libPods-MyFitZTests.a */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +150,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F3EEC1FE027DFF53717FC32 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		26F1ABC5A09CE60BE7EB9CAA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		293C96A049684BADBA245008 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		412A6DE31F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		412A6DE51F8C225800EA7941 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -244,13 +255,21 @@
 		51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C9271C729FF173FF8F8B22 /* Pods_MyFitZ_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D88E397F474C4A4B25D5789 /* libPods-MyFitZUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFitZUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E42ED31C81FA4F8C52431B2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6412EF1D10DE4FE5B14B31CC /* Pods-MyFitZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.debug.xcconfig"; sourceTree = "<group>"; };
+		7336A33D46D88B8B57C821D6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8082A4F263E602903FE0197D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		87EF6D966FF64C9BED4611E2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		8FEAB7AE776E26D70356D0B7 /* Pods-MyFitZTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.release.xcconfig"; sourceTree = "<group>"; };
 		96FE9AFC706D7158A2F60542 /* Pods-MyFitZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FBD2CB5559F23D54A24FD8 /* Pods-MyFitZTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AEAB29B5D1640B2CD2FEA1DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		CC21EB3811D60404FD9EEA0B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D0E695E69A9CE28665A81DAA /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 		D77900B281B997F383FF32CF /* Pods-MyFitZUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DF96248A463F7E2A026DBAC0 /* libPods-MyFitZTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFitZTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFCB751FF474D19320DEEC52 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -268,6 +287,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */,
+				97442AA1BFD126FE6A5AA7FD /* BuddyBuildSDK.framework in Frameworks */,
+				5C7B0E8984C257D88A999D26 /* AssetsLibrary.framework in Frameworks */,
+				7049A09A9E2A7CB0B1C09DE8 /* CoreText.framework in Frameworks */,
+				1175B662DF8DEBBBA25495B7 /* CoreTelephony.framework in Frameworks */,
+				B0DC19C7CC254A0C07AF7516 /* SystemConfiguration.framework in Frameworks */,
+				786AF15D357299703C449ABD /* QuartzCore.framework in Frameworks */,
+				6444A0FA8635AB405DB5EAA8 /* AVFoundation.framework in Frameworks */,
+				1C0855DF5237A6DF7BE84D5A /* CoreMedia.framework in Frameworks */,
+				2BAA3D85529BF0BCF1766610 /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +326,15 @@
 				DF96248A463F7E2A026DBAC0 /* libPods-MyFitZTests.a */,
 				5D88E397F474C4A4B25D5789 /* libPods-MyFitZUITests.a */,
 				51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */,
+				BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */,
+				DFCB751FF474D19320DEEC52 /* AssetsLibrary.framework */,
+				26F1ABC5A09CE60BE7EB9CAA /* CoreText.framework */,
+				5E42ED31C81FA4F8C52431B2 /* CoreTelephony.framework */,
+				AEAB29B5D1640B2CD2FEA1DA /* SystemConfiguration.framework */,
+				7336A33D46D88B8B57C821D6 /* QuartzCore.framework */,
+				8082A4F263E602903FE0197D /* AVFoundation.framework */,
+				87EF6D966FF64C9BED4611E2 /* CoreMedia.framework */,
+				CC21EB3811D60404FD9EEA0B /* CoreVideo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -322,6 +359,7 @@
 				471C94C71EBF371F00A6C337 /* Products */,
 				D91249E6DA005CC625993667 /* Pods */,
 				1C7AB404A451F24EEB5CF5A5 /* Frameworks */,
+				1F3EEC1FE027DFF53717FC32 /* Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1361,6 +1399,10 @@
 				CODE_SIGN_ENTITLEMENTS = MyFitZ/MyFitZ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZJWNZ643CG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyFitZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1368,6 +1410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1384,6 +1427,10 @@
 				CODE_SIGN_ENTITLEMENTS = MyFitZ/MyFitZ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZJWNZ643CG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyFitZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1391,6 +1438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.BangBangStudios.MyFitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
