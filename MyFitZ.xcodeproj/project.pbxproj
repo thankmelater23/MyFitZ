@@ -14,6 +14,7 @@
 		3687E341BA149F0EF5EB566B /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		412A6DE61F8C225800EA7941 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A6DE51F8C225800EA7941 /* NotificationService.swift */; };
 		412A6DEA1F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 412A6DE31F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		418FCC551F98177B005F41C1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 418FCC541F981773005F41C1 /* Default-568h@2x.png */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
 		470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */; };
 		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
@@ -158,6 +159,7 @@
 		412A6DE71F8C225800EA7941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		412A6DEF1F8C236B00EA7941 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		412A6DF01F8C239700EA7941 /* MyFitZ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFitZ.entitlements; sourceTree = "<group>"; };
+		418FCC541F981773005F41C1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
@@ -264,7 +266,7 @@
 		96FE9AFC706D7158A2F60542 /* Pods-MyFitZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FBD2CB5559F23D54A24FD8 /* Pods-MyFitZTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZTests/Pods-MyFitZTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AEAB29B5D1640B2CD2FEA1DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		BD785B93B248F688C894BEE7 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		CC21EB3811D60404FD9EEA0B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D0E695E69A9CE28665A81DAA /* Pods-MyFitZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZ/Pods-MyFitZ.release.xcconfig"; sourceTree = "<group>"; };
 		D77900B281B997F383FF32CF /* Pods-MyFitZUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitZUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFitZUITests/Pods-MyFitZUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		471C94BD1EBF371F00A6C337 = {
 			isa = PBXGroup;
 			children = (
+				418FCC541F981773005F41C1 /* Default-568h@2x.png */,
 				471C94C81EBF371F00A6C337 /* MyFitZ */,
 				471C94E01EBF372000A6C337 /* MyFitZTests */,
 				471C94EB1EBF372000A6C337 /* MyFitZUITests */,
@@ -792,6 +795,7 @@
 				471C955D1EBF3C8000A6C337 /* jeremy.gif in Resources */,
 				471C95771EBF3C9300A6C337 /* delete0.wav in Resources */,
 				471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */,
+				418FCC551F98177B005F41C1 /* Default-568h@2x.png in Resources */,
 				471C95751EBF3C9300A6C337 /* cellselect1.wav in Resources */,
 				471C95821EBF3C9300A6C337 /* wear1.wav in Resources */,
 				471C95781EBF3C9300A6C337 /* edit0.wav in Resources */,
@@ -911,7 +915,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"Total lines of code:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -and \\( -path \"${SRCROOT}/Pods/*\" -prune -o -print0 \\) | xargs -0 cat | wc -l\n#prints lines of code";
+			shellScript = "#echo \"Total lines of code:\"\n#find \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -and \\( -path \"${SRCROOT}/Pods/*\" -prune -o -print0 \\) | xargs -0 cat | wc -l\n#prints lines of code";
 		};
 		471C95A51EBF438400A6C337 /* Code Complexity */ = {
 			isa = PBXShellScriptBuildPhase;
