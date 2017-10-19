@@ -30,7 +30,7 @@ target 'MyFitZ' do
   pod 'FirebaseDatabase'
   pod 'Firebase/Auth'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
-  
+  pod 'SwiftLint'
   
 #  pod "SAConfettiView" #Runs confetti on the screen
 # ignore all warnings from all pods

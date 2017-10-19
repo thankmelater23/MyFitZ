@@ -44,6 +44,9 @@
                 //        initializeSounds()
                 self.sirenInit()
                 Fabric.with([Crashlytics.self, Answers.self])//Appsee.self
+                // TODO: Track the user action that is important for you.
+                Answers.logContentView(withName: "Tweet", contentType: "Video", contentId: "1234", customAttributes: ["Favorites Count":20, "Screen Orientation":"Landscape"])
+
                 //                FirebaseApp.configure()
                 //                Database.database().isPersistenceEnabled = true
                 

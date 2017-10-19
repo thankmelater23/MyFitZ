@@ -654,6 +654,7 @@
 				47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */,
 				417DB3B31F418C33000096DB /* Fabric */,
 				412A6DEE1F8C225800EA7941 /* Embed App Extensions */,
+				4196E6961F95F3DF0053718D /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -902,6 +903,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
+		};
+		4196E6961F95F3DF0053718D /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		471C95A41EBF438000A6C337 /* Lines Of Code */ = {
 			isa = PBXShellScriptBuildPhase;
