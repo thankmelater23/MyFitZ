@@ -648,6 +648,7 @@
 				471C94C41EBF371F00A6C337 /* Resources */,
 				F1BA82E534BD6A67F40EA491 /* [CP] Embed Pods Frameworks */,
 				C4EA891BCE80097375730757 /* [CP] Copy Pods Resources */,
+				471C95A41EBF438000A6C337 /* Lines Of Code */,
 				47AC4CB41F22FF9000272720 /* Build Incrementer */,
 				47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */,
 				417DB3B31F418C33000096DB /* Fabric */,
@@ -900,6 +901,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4b84b1226e93ac404abf87cdd625fca3f2f67cb7 9174c325d1ac51dcae9ee142e60f7bc1545e4d23a1ce0b5e09574eada9f888d3";
+		};
+		4196E6961F95F3DF0053718D /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		471C95A41EBF438000A6C337 /* Lines Of Code */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Lines Of Code";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#echo \"Total lines of code:\"\n#find \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -and \\( -path \"${SRCROOT}/Pods/*\" -prune -o -print0 \\) | xargs -0 cat | wc -l\n#prints lines of code";
 		};
 		47AC4CB41F22FF9000272720 /* Build Incrementer */ = {
 			isa = PBXShellScriptBuildPhase;

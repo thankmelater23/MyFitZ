@@ -18,6 +18,7 @@
 	<string>0.0</string>
 	<key>CFBundleVersion</key>
 	<string>383</string>
+	<string>382</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
