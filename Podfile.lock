@@ -110,9 +110,10 @@ PODS:
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
-  - Siren (3.0.1)
+  - Siren (3.1.2)
   - SlackTextViewController (1.9.5)
-  - SVProgressHUD (2.2.1)
+  - SVProgressHUD (2.2.2)
+  - SwiftLint (0.23.1)
   - SwiftyBeaver (1.4.2)
   - TSMessages (0.9.12):
     - HexColors (~> 2.2.0)
@@ -138,6 +139,7 @@ DEPENDENCIES:
   - Siren
   - SlackTextViewController
   - SVProgressHUD
+  - SwiftLint
   - SwiftyBeaver
   - TSMessages
 
@@ -169,12 +171,13 @@ SPEC CHECKSUMS:
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
   RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
-  Siren: 1fe6c89c268bb5abe684120142e2ad3e7fb0ca1a
+  Siren: cebe3118beeee785934ee3822b0dfb13992e47d0
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
-  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
   SwiftyBeaver: 91057725648ee4980308f1650af077d04b3654a0
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
 
-PODFILE CHECKSUM: 2f36b558a82d461e56852088f82da0d6e2b03c95
+PODFILE CHECKSUM: 3536143806960d4cef09a37d534a551b7e637171
 
 COCOAPODS: 1.3.1
