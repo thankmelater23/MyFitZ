@@ -649,7 +649,6 @@
 				F1BA82E534BD6A67F40EA491 /* [CP] Embed Pods Frameworks */,
 				C4EA891BCE80097375730757 /* [CP] Copy Pods Resources */,
 				471C95A41EBF438000A6C337 /* Lines Of Code */,
-				471C95A51EBF438400A6C337 /* Code Complexity */,
 				47AC4CB41F22FF9000272720 /* Build Incrementer */,
 				47AC4CB51F23014800272720 /* Personal Keyword Editor Flags */,
 				417DB3B31F418C33000096DB /* Fabric */,
@@ -931,20 +930,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#echo \"Total lines of code:\"\n#find \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -and \\( -path \"${SRCROOT}/Pods/*\" -prune -o -print0 \\) | xargs -0 cat | wc -l\n#prints lines of code";
-		};
-		471C95A51EBF438400A6C337 /* Code Complexity */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Code Complexity";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "find \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -and \\( -path \"${SRCROOT}/Pods/*\" -prune -o -print0 \\) | xargs -0 wc -l | awk '$1 > 2000 && $2 != \"total\" {for(i=2;i<NF;i++){printf \"%s%s\", $i, \" \"} print $NF \":1: warning: File more than 2000 lines (\" $1 \"), consider refactoring.\" }'\n#Sends a warning after x amount of lines of codes to tell that the code is to complex or getting complex in i think a class or function";
 		};
 		47AC4CB41F22FF9000272720 /* Build Incrementer */ = {
 			isa = PBXShellScriptBuildPhase;
