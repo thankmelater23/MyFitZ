@@ -15,6 +15,8 @@
 		412A6DE61F8C225800EA7941 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A6DE51F8C225800EA7941 /* NotificationService.swift */; };
 		412A6DEA1F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 412A6DE31F8C225800EA7941 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		418FCC551F98177B005F41C1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 418FCC541F981773005F41C1 /* Default-568h@2x.png */; };
+		41D4756B1FA06C8000B67AEE /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D4756A1FA06C8000B67AEE /* Options.storyboard */; };
+		41D4756D1FA06D3F00B67AEE /* Features.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D4756C1FA06D3F00B67AEE /* Features.storyboard */; };
 		45F126C9940C4BA3F1F5CD12 /* Pods_MyFitZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB0509674091765278CBFE9 /* Pods_MyFitZ.framework */; };
 		470737EF1EE4F2F3007CA689 /* PercentagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */; };
 		4718E6A21EC89C930079C65A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4718E6A11EC89C930079C65A /* DetailedViewController.swift */; };
@@ -160,6 +162,8 @@
 		412A6DEF1F8C236B00EA7941 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		412A6DF01F8C239700EA7941 /* MyFitZ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFitZ.entitlements; sourceTree = "<group>"; };
 		418FCC541F981773005F41C1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		41D4756A1FA06C8000B67AEE /* Options.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
+		41D4756C1FA06D3F00B67AEE /* Features.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Features.storyboard; sourceTree = "<group>"; };
 		470737EE1EE4F2F3007CA689 /* PercentagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesTableViewController.swift; sourceTree = "<group>"; };
 		4718E6A11EC89C930079C65A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		4718E6A31ECA26C90079C65A /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +512,8 @@
 			isa = PBXGroup;
 			children = (
 				471C94FC1EBF37B900A6C337 /* Main.storyboard */,
+				41D4756C1FA06D3F00B67AEE /* Features.storyboard */,
+				41D4756A1FA06C8000B67AEE /* Options.storyboard */,
 				471C94FD1EBF37B900A6C337 /* LaunchScreen.xib */,
 			);
 			name = Storyboards;
@@ -793,6 +799,7 @@
 				471C955D1EBF3C8000A6C337 /* jeremy.gif in Resources */,
 				471C95771EBF3C9300A6C337 /* delete0.wav in Resources */,
 				471C95A21EBF435A00A6C337 /* LinesOfCode.sh in Resources */,
+				41D4756D1FA06D3F00B67AEE /* Features.storyboard in Resources */,
 				418FCC551F98177B005F41C1 /* Default-568h@2x.png in Resources */,
 				471C95751EBF3C9300A6C337 /* cellselect1.wav in Resources */,
 				471C95821EBF3C9300A6C337 /* wear1.wav in Resources */,
@@ -812,6 +819,7 @@
 				471C95721EBF3C9300A6C337 /* alert0.wav in Resources */,
 				471C95761EBF3C9300A6C337 /* clear0.wav in Resources */,
 				471C95A31EBF435A00A6C337 /* set_build_number.sh in Resources */,
+				41D4756B1FA06C8000B67AEE /* Options.storyboard in Resources */,
 				471C957D1EBF3C9300A6C337 /* notification0.wav in Resources */,
 				471C95731EBF3C9300A6C337 /* animationPop0.wav in Resources */,
 				471C94FE1EBF37B900A6C337 /* Main.storyboard in Resources */,
