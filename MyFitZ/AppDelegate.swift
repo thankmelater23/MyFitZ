@@ -69,16 +69,6 @@
                     
 //                    OneSignal.setLogLevel(.LL_DEBUG, visualLevel: .LL_DEBUG)
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     // Sync hashed email if you have a login system or collect it.
                     //   Will be used to reach the user at the most optimal time of day.
                     // OneSignal.syncHashedEmail(userEmail)
@@ -117,7 +107,7 @@
             
             
             //MARK: - 3rd Pary Methods
-            @objc func swiftBeaverSetUp(){
+                 func swiftBeaverSetUp(){
                 log.verbose(#function)
                 let console = ConsoleDestination()
                 log.addDestination(console)
