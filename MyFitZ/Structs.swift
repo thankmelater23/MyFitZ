@@ -23,6 +23,7 @@ struct CateogryTypes{
     let FOOTWARE =  "Footware"
     let ACCESSORIES = "Accessories"
     let UNDERCLOTHING = "Underclothing"
+    let VALUABLES = "Valuables"
 }
 let CateogryType = CateogryTypes()
 

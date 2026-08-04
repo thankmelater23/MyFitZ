@@ -105,6 +105,7 @@
 		47FD159C1EC080F1006CF4DA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */; };
 		47FD159D1EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */; };
 		47FD159E1EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */; };
+		47VAL0011EBF000000000001 /* ValuablesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47VAL0011EBF000000000000 /* ValuablesManager.swift */; };
 		5C7B0E8984C257D88A999D26 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCB751FF474D19320DEEC52 /* AssetsLibrary.framework */; };
 		6444A0FA8635AB405DB5EAA8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8082A4F263E602903FE0197D /* AVFoundation.framework */; };
 		7049A09A9E2A7CB0B1C09DE8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F1ABC5A09CE60BE7EB9CAA /* CoreText.framework */; };
@@ -257,6 +258,7 @@
 		47FD15961EC080F1006CF4DA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		47FD15971EC080F1006CF4DA /* Wardrobe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		47FD15981EC080F1006CF4DA /* Wardrobe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wardrobe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		47VAL0011EBF000000000000 /* ValuablesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuablesManager.swift; sourceTree = "<group>"; };
 		4F103C200E84FFF2BF507E6C /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		51586FEF90C8B33F587B7479 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C9271C729FF173FF8F8B22 /* Pods_MyFitZ_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitZ_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -504,6 +506,7 @@
 				471C954C1EBF3C6900A6C337 /* Options-SettingsViewController.swift */,
 				471C954D1EBF3C6900A6C337 /* Options-ContactViewController.swift */,
 				471C954E1EBF3C6900A6C337 /* WebsiteViewController.swift */,
+				47VAL0011EBF000000000000 /* ValuablesManager.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1179,6 +1182,7 @@
 				471C95521EBF3C6900A6C337 /* Options-AboutViewController.swift in Sources */,
 				471C95571EBF3C6900A6C337 /* WebsiteViewController.swift in Sources */,
 				471C95341EBF3B8C00A6C337 /* Constants_MakeTableViewController.swift in Sources */,
+				47VAL0011EBF000000000001 /* ValuablesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,12 @@ import UIKit
 //import Crashlytics
 
 class Options_SettingsViewController: UIViewController {
+    
+    //MARK: - Valuables Protection Outlets
+    @IBOutlet weak var valuablesProtectionSwitch: UISwitch?
+    @IBOutlet weak var valuablesProtectionLabel: UILabel?
+    @IBOutlet weak var valuablesProtectionDetailLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         log.verbose(#function)
@@ -19,9 +25,15 @@ class Options_SettingsViewController: UIViewController {
         self.setTitle()
         self.animateAllButtons()
         self.view.backgroundColor = Cotton
+        self.setupValuablesProtection()
         
 //        defaults.addAndSend("SETTINGS_PAGE_COUNT")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateValuablesProtectionUI()
     }
     
     
@@ -29,6 +41,55 @@ class Options_SettingsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
     }
+    
+    //MARK: - Valuables Protection
+    
+    private func setupValuablesProtection() {
+        updateValuablesProtectionUI()
+        valuablesProtectionSwitch?.addTarget(self, action: #selector(valuablesProtectionSwitchChanged(_:)), for: .valueChanged)
+    }
+    
+    private func updateValuablesProtectionUI() {
+        let isEnabled = ValuablesManager.shared.isProtectionEnabled
+        valuablesProtectionSwitch?.isOn = isEnabled
+        
+        let biometricType = ValuablesManager.shared.biometricType
+        let authMethod = biometricType.displayName
+        
+        valuablesProtectionLabel?.text = "Protect Valuables"
+        valuablesProtectionDetailLabel?.text = isEnabled 
+            ? "Protected with \(authMethod)" 
+            : "Use \(authMethod) to protect your Valuables section"
+        
+        log.verbose("Valuables protection UI updated - enabled: \(isEnabled), auth: \(authMethod)")
+    }
+    
+    @objc func valuablesProtectionSwitchChanged(_ sender: UISwitch) {
+        log.verbose(#function)
+        let targetState = sender.isOn
+        
+        ValuablesManager.shared.toggleProtection { [weak self] success in
+            if success {
+                log.info("Valuables protection toggled successfully")
+                self?.updateValuablesProtectionUI()
+            } else {
+                log.warning("Failed to toggle Valuables protection - reverting switch")
+                sender.setOn(!targetState, animated: true)
+                self?.showProtectionToggleFailedAlert()
+            }
+        }
+    }
+    
+    private func showProtectionToggleFailedAlert() {
+        let alert = UIAlertController(
+            title: "Authentication Failed",
+            message: "Could not change Valuables protection setting. Please try again.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
     deinit{
         log.verbose(#function)
         
