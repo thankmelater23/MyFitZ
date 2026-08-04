@@ -25,7 +25,7 @@ let groupSync = AsyncGroup()
 
 
 //MARK: -App Arrays & Dictionary Constants
-let CATEGORY_PICKER_OPTIONS = [CateogryType.TOPS, CateogryType.BOTTOMS, CateogryType.HEADWARE, CateogryType.FOOTWARE, CateogryType.ACCESSORIES, CateogryType.UNDERCLOTHING]
+let CATEGORY_PICKER_OPTIONS = [CateogryType.TOPS, CateogryType.BOTTOMS, CateogryType.HEADWARE, CateogryType.FOOTWARE, CateogryType.ACCESSORIES, CateogryType.UNDERCLOTHING, CateogryType.VALUABLES]
 
 //MARK: -Picker Options
 let YES_NO = ["Yes", "No"]

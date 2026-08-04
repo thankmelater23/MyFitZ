@@ -34,6 +34,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     @IBOutlet weak var accessoriesImage: UIButton!
     @IBOutlet weak var underClothesImage: UIButton!
     @IBOutlet weak var headWareImage: UIButton!
+    @IBOutlet weak var valuablesImage: UIButton!
     
     //MARK: -Selection labels
 //    @IBOutlet weak var topsLabel: UILabel!
@@ -50,6 +51,7 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
     @IBOutlet weak var underClothesCounter: UILabel!
     @IBOutlet weak var headwareCounter: UILabel!
     @IBOutlet weak var accessoriesCounter: UILabel!
+    @IBOutlet weak var valuablesCounter: UILabel!
     
     
     //MARK: -Variables
@@ -82,6 +84,39 @@ class SelectionViewController: UIViewController, UIPopoverPresentationController
         log.verbose(#function)
         self.segueWithCateogry(cateogory: CateogryType.FOOTWARE)
     }
+    
+    /// Handles navigation to the Valuables section with optional password protection
+    @IBAction func valuablesSegue(_ sender: UIButton) {
+        log.verbose(#function)
+        
+        if ValuablesManager.shared.isProtectionEnabled {
+            // Protection enabled - authenticate before allowing access
+            ValuablesManager.shared.authenticate(reason: "Authenticate to access your Valuables") { [weak self] success, error in
+                if success {
+                    log.info("Valuables authentication passed, proceeding to category")
+                    self?.segueWithCateogry(cateogory: CateogryType.VALUABLES)
+                } else {
+                    log.warning("Valuables access denied - authentication failed")
+                    self?.showAuthenticationFailedAlert(error: error)
+                }
+            }
+        } else {
+            // No protection - proceed directly
+            self.segueWithCateogry(cateogory: CateogryType.VALUABLES)
+        }
+    }
+    
+    /// Shows alert when authentication fails for Valuables access
+    private func showAuthenticationFailedAlert(error: Error?) {
+        let alert = UIAlertController(
+            title: "Authentication Required",
+            message: error?.localizedDescription ?? "Please authenticate to access your Valuables.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
+    }
+    
     @objc func segueWithCateogry(cateogory:String){
         log.verbose(#function)
 //        path = pathSetup(userString: (self.wardrobe!.user?.position)!, closetString: (self.wardrobe?.user?.closetType)!, categoryString: cateogory, subCategoryString: nil, indexString: nil, idString: nil) 
